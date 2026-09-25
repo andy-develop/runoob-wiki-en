@@ -12,12 +12,10 @@
 <body>
 <div class="scrollblock block-title">
 <h1>git - Simple Guide</h1>
-<p>助你入门 git 的简明指南，木有高深内容 ;)</p>
+<p>A simple guide to help you get started with git, no advanced content ;)</p>
 <p class="meta">
             作者：<a href="http://www.twitter.com/rogerdudler">罗杰·杜德勒</a>
-<br/>感谢：<a href="http://www.twitter.com/tfnico">@tfnico</a>, <a href="http://www.twitter.com/fhd">@fhd</a> 和 <a href="http://www.namics.com">Namics</a><br/>
-            
-            如有纰漏，请在 <a href="https://github.com/rogerdudler/git-guide/issues">github</a> 提报问题
+<br/>感谢：<a href="http://www.twitter.com/tfnico">@tfnico</a>, <a href="http://www.twitter.com/fhd">@fhd</a> 和 <a href="http://www.namics.com">Namics</a><br/>If there are any errors or omissions, please<a href="https://github.com/rogerdudler/git-guide/issues">github</a> 提报问题
         </p>
 <img alt="" src="img/arrow.png"/>
 </div>
@@ -38,110 +36,77 @@
 <a name="create"></a>
 <div class="scrollblock block-create">
 <h2>Create a new repository</h2>
-<p>
-            创建新文件夹，打开，然后执行 <br/>
-<code>git init</code><br/>
-            以创建新的 git 仓库。
-        </p>
+<p>Create a new folder, open it, and then execute<br/>
+<code>git init</code><br/>to create a new git repository.</p>
 </div>
 <a name="checkout"></a>
 <div class="scrollblock block-checkout">
 <h2>Check out a repository</h2>
-<p>
-            执行如下命令以创建一个本地仓库的克隆版本：<br/>
-<code>git clone /path/to/repository</code> <br/>
-            如果是远端服务器上的仓库，你的命令会是这个样子：<br/>
+<p>Run the following command to create a cloned copy of a local repository:<br/>
+<code>git clone /path/to/repository</code> <br/>If the repository is on a remote server, your command will look like this:<br/>
 <code>git clone username@host:/path/to/repository</code>
 </p>
 </div>
 <a name="trees"></a>
 <div class="scrollblock block-trees">
 <h2>Workflow</h2>
-<p>
-            你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 <code>工作目录</code>，它持有实际文件；第二个是 <code>暂存区（Index）</code>，它像个缓存区域，临时保存你的改动；最后是 <code>HEAD</code>，它指向你最后一次提交的结果。
-        </p>
+<p>Your local repository consists of three “trees” maintained by git. The first is your<code>Working directory</code>, which holds the actual files; the second is<code>暂存区（Index）</code>, which is like a cache area, temporarily saving your changes; and the last is<code>HEAD</code>, which points to the result of your last commit.</p>
 <img alt="" src="img/trees.png"/>
 </div>
 <a name="add"></a>
 <div class="scrollblock block-add">
 <h2>Add and commit</h2>
-<p>
-		    你可以提出更改（把它们添加到暂存区），使用如下命令：<br/>
+<p>You can propose changes (add them to the staging area) using the following command:<br/>
 <code>git add &lt;filename&gt;</code><br/>
-<code>git add *</code><br/>
-            这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：<br/>
-<code>git commit -m "代码提交信息"</code><br/>
-            现在，你的改动已经提交到了 <b>HEAD</b>，但是还没到你的远端仓库。
-        </p>
+<code>git add *</code><br/>This is the first step in git’s basic workflow; use the following command to actually commit the changes:<br/>
+<code>git commit -m "代码提交信息"</code><br/>Now, your changes have been committed to<b>HEAD</b>, but not yet to your remote repository.</p>
 </div>
 <a name="push"></a>
 <div class="scrollblock block-remote">
 <h2>Push changes</h2>
-<p>
-            你的改动现在已经在本地仓库的 <b>HEAD</b> 中了。执行如下命令以将这些改动提交到远端仓库：<br/>
+<p>Your changes are now in the local repository's<b>HEAD</b>There you go. Run the following command to push these changes to the remote repository:<br/>
 <code>git push origin master</code><br/>
-            可以把 <i>master</i> 换成你想要推送的任何分支。
-            <br/><br/>
-            如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：<br/>
-<code>git remote add origin &lt;server&gt;</code><br/>
-            如此你就能够将你的改动推送到所添加的服务器上去了。<br/>
+            可以把 <i>master</i>to whatever branch you want to push.<br/><br/>If you haven’t cloned an existing repository and want to connect your repository to a remote server, you can use the following command to add:<br/>
+<code>git remote add origin &lt;server&gt;</code><br/>In this way you can push your changes to the added server.<br/>
 </p>
 </div>
 <a name="branching"></a>
 <div class="scrollblock block-branching">
 <h2>Branches</h2>
-<p>
-    		分支是用来将特性开发绝缘开来的。在你创建仓库的时候，<i>master</i> 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
-		</p>
+<p>Branches are used to isolate feature development. When you create a repository,<i>master</i>is the “default” branch. Develop on other branches, and when finished, merge them back into the main branch.</p>
 <img alt="" src="img/branches.png"/>
-<p>
-            创建一个叫做“feature_x”的分支，并切换过去：<br/>
-<code>git checkout -b feature_x</code><br/>
-            切换回主分支：<br/>
-<code>git checkout master</code><br/>
-            再把新建的分支删掉：<br/>
-<code>git branch -d feature_x</code><br/>
-			除非你将分支推送到远端仓库，不然该分支就是 <i>不为他人所见的</i>：<br/>
+<p>Create a branch called "feature_x" and switch to it:<br/>
+<code>git checkout -b feature_x</code><br/>Switch back to the main branch:<br/>
+<code>git checkout master</code><br/>Then delete the newly created branch:<br/>
+<code>git branch -d feature_x</code><br/>Unless you push the branch to a remote repository, that branch is<i>不为他人所见的</i>：<br/>
 <code>git push origin &lt;branch&gt;</code>
 </p>
 </div>
 <a name="update"></a>
 <div class="scrollblock block-merging">
 <h2>Update and merge</h2>
-<p>
-            要更新你的本地仓库至最新改动，执行：<br/>
-<code>git pull</code><br/>
-            以在你的工作目录中 <i>获取（fetch）</i> 并 <i>合并（merge）</i> 远端的改动。<br/>
-            要合并其他分支到你的当前分支（例如 master），执行：<br/>
-<code>git merge &lt;branch&gt;</code><br/>
-            在这两种情况下，git 都会尝试去自动合并改动。遗憾的是，这可能并非每次都成功，并可能出现<i>冲突（conflicts）</i>。
-            这时候就需要你修改这些文件来手动合并这些<i>冲突（conflicts）</i>。改完之后，你需要执行如下命令以将它们标记为合并成功：<br/>
-<code>git add &lt;filename&gt;</code><br/>
-            在合并改动之前，你可以使用如下命令预览差异：<br/>
+<p>To update your local repository to the latest changes, execute:<br/>
+<code>git pull</code><br/>to ... in your working directory<i>获取（fetch）</i> 并 <i>合并（merge）</i>the remote changes.<br/>To merge another branch into your current branch (e.g., master), run:<br/>
+<code>git merge &lt;branch&gt;</code><br/>In both cases, git will try to automatically merge changes. Unfortunately, this may not always succeed, and<i>冲突（conflicts）</i>.
+            At this point you need to modify these files to manually merge these<i>冲突（conflicts）</i>. After you’ve finished modifying, you need to run the following command to mark them as successfully merged:<br/>
+<code>git add &lt;filename&gt;</code><br/>Before merging the changes, you can use the following command to preview the differences:<br/>
 <code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code>
 </p>
 </div>
 <a name="tagging"></a>
 <div class="scrollblock block-tagging">
 <h2>Tags</h2>
-<p>
-            为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 <i>1.0.0</i> 的标签：<br/>
+<p>It is recommended to create tags for software releases. This concept has existed for a long time, and it is also in SVN. You can run the following command to create a<i>1.0.0</i> 的标签：<br/>
 <code>git tag 1.0.0 1b2e1d63ff</code><br/>
-<i>1b2e1d63ff</i> 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：<br/>
-<code>git log</code><br/>
-            你也可以使用少一点的提交 ID 前几位，只要它的指向具有唯一性。
-        </p>
+<i>1b2e1d63ff</i>is the first 10 characters of the commit ID you want to tag. You can use the following command to obtain the commit ID:<br/>
+<code>git log</code><br/>You can also use fewer leading characters of the commit ID, as long as they uniquely identify it.</p>
 </div>
 <a name="checkout-replace"></a>
 <div class="scrollblock block-checkout-replace">
 <h2>Replace local changes</h2>
-<p>
-            假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：<br/>
-<code>git checkout -- &lt;filename&gt;</code><br/>
-			此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。已添加到暂存区的改动以及新文件都不会受到影响。
-		</p>
-<p>
-            假如你想丢弃你在本地的所有改动与提交，可以到服务器上获取最新的版本历史，并将你本地主分支指向它：<br/>
+<p>If you make a mistake (which, of course, should better never happen), you can use the following command to replace local changes:<br/>
+<code>git checkout -- &lt;filename&gt;</code><br/>This command will replace the files in your working directory with the latest content from HEAD. Changes already added to the staging area and new files will not be affected.</p>
+<p>If you want to discard all your local changes and commits, you can fetch the latest version history from the server and point your local main branch directly to it:<br/>
 <code>git fetch origin</code><br/>
 <code>git reset --hard origin/master</code>
 </p>
@@ -149,14 +114,10 @@
 <a name="hints"></a>
 <div class="scrollblock block-hints">
 <h2>Useful tips</h2>
-<p>
-			内建的图形化 git：<br/>
-<code>gitk</code><br/>
-            彩色的 git 输出：<br/>
-<code>git config color.ui true</code><br/>
-            显示历史记录时，每个提交的信息只显示一行：<br/>
-<code>git config format.pretty oneline</code><br/>
-            交互式添加文件到暂存区：<br/>
+<p>Built-in graphical git:<br/>
+<code>gitk</code><br/>Colored git output:<br/>
+<code>git config color.ui true</code><br/>When displaying history, each commit’s information is shown on a single line:<br/>
+<code>git config format.pretty oneline</code><br/>Interactively add files to the staging area:<br/>
 <code>git add -i</code>
 </p>
 </div>
@@ -195,7 +156,6 @@ var _hmt = _hmt || [];
 })();
 </script>
 </div>
-<div id="site-navbar" style="position: absolute; top: -4px; left: -3px; border: 0; z-index: 2000;padding:0;margin:0;"><a href="http://www.runoob.com" style="background:none;" title="菜鸟教程"><img src="../../images/return-back.png" style="padding:0;margin:0;border:0; -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;"/></a></div>
 <script src="../../../lang-switcher.js"></script>
 </body>
 </html>

@@ -60,9 +60,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <div class="row">
 <div class="col right-list">
-<button class="btn btn-responsive-nav btn-inverse" id="pull">
-<i class="fa fa-navicon"></i>
-</button>
 </div>
 <div class="col search search-desktop last">
 <div class="search-input">
@@ -85,19 +82,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="article-intro">
 <!-- ad start-->
 <!-- ad end-->
-<p>ECMAScript 6 原生提供了 Promise 对象。</p>
-<p>Promise 对象代表了未来将要发生的事件，用来传递异步操作的消息。</p>
-<h3>Promise 对象有以下两个特点：</h3>
-<p>1、对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：</p>
-<ul><li>pending: 初始状态，不是成功或失败状态。</li><li>fulfilled: 意味着操作成功完成。</li><li>rejected: 意味着操作失败。</li></ul>
-<p>只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是 Promise 这个名字的由来，它的英语意思就是「承诺」，表示其他手段无法改变。</p>
-<p>2、一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 Pending 变为 Resolved 和从 Pending 变为 Rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果。就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。</p>
-<h3>Promise 优缺点</h3>
-<p>有了 Promise 对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise 对象提供统一的接口，使得控制异步操作更加容易。</p>
-<p>Promise 也有一些缺点。首先，无法取消 Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise 内部抛出的错误，不会反应到外部。第三，当处于 Pending 状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p>
+<p>ECMAScript 6 natively provides the Promise object.</p>
+<p>Promise objects represent events that will happen in the future and are used to pass messages from asynchronous operations.</p>
+<h3>Promise objects have the following two characteristics:</h3>
+<p>1. The state of the object is not affected by the outside world. A Promise object represents an asynchronous operation and has three states:</p>
+<ul><li>pending: the initial state, neither a success nor a failure state.</li><li>fulfilled: means the operation completed successfully.</li><li>rejected: means the operation failed.</li></ul>
+<p>Only the result of an asynchronous operation can determine which state it is currently in; no other operation can change this state. This is also the origin of the name Promise, whose English meaning is "promise," indicating that no other means can change it.</p>
+<p>Once the state changes, it will not change again, and the result can be obtained at any time. There are only two possible changes for a Promise object's state: from Pending to Resolved, and from Pending to Rejected. Once either of these happens, the state is solidified and will never change again, always maintaining that result. Even if the change has already occurred, if you add a callback function to the Promise object later, you will still immediately get that result. This is completely different from events. The characteristic of an event is that if you miss it and listen to it later, you cannot get the result.</p>
+<h3>Pros and Cons of Promise</h3>
+<p>With Promise objects, asynchronous operations can be expressed in the flow of synchronous operations, avoiding deeply nested callback functions. In addition, Promise objects provide a unified interface, making it easier to control asynchronous operations.</p>
+<p>Promise also has some disadvantages. First, a Promise cannot be cancelled. Once created, it executes immediately and cannot be cancelled midway. Second, if no callback function is set, errors thrown inside the Promise will not be reflected externally. Third, when in the Pending state, there is no way to know which stage the current progress is at (just started or about to complete).</p>
 <h3>Promise 创建</h3>
-<p>要想创建一个 promise 对象、可以使用 new 来调用 Promise 的构造器来进行实例化。</p>
-<p>下面是创建 promise 的步骤：</p>
+<p>To create a promise object, you can use new to call the Promise constructor to instantiate it.</p>
+<p>Below are the steps for creating a promise:</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">promise</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Promise</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">resolve</span><span class="hl-code">, </span><span class="hl-identifier">reject</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -106,7 +103,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<p>Promise 构造函数包含一个参数和一个带有 resolve（解析）和 reject（拒绝）两个参数的回调。在回调中执行一些操作（例如异步），如果一切都正常，则调用 resolve，否则调用 reject。</p>
+<p>The Promise constructor contains one parameter and a callback with two parameters: resolve (resolution) and reject (rejection). Perform some operation (for example, asynchronous) in the callback. If everything is normal, call resolve; otherwise, call reject.</p>
 <div class="example">
 <h2 class="example">实例</h2>
 <div class="example_code">
@@ -126,18 +123,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div><br/>
 <a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Rmlyc3RQcm9taXNlID0gbmV3IFByb21pc2UoZnVuY3Rpb24ocmVzb2x2ZSwgcmVqZWN0KXsKICAgIC8v5b2T5byC5q2l5Luj56CB5omn6KGM5oiQ5Yqf5pe277yM5oiR5Lus5omN5Lya6LCD55SocmVzb2x2ZSguLi4pLCDlvZPlvILmraXku6PnoIHlpLHotKXml7blsLHkvJrosIPnlKhyZWplY3QoLi4uKQogICAgLy/lnKjmnKzkvovkuK3vvIzmiJHku6zkvb/nlKhzZXRUaW1lb3V0KC4uLinmnaXmqKHmi5/lvILmraXku6PnoIHvvIzlrp7pmYXnvJbnoIHml7blj6/og73mmK9YSFLor7fmsYLmiJbmmK9IVE1MNeeahOS4gOS6m0FQSeaWueazlS4KICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKXsKICAgICAgICByZXNvbHZlKCLmiJDlip8hIik7IC8v5Luj56CB5q2j5bi45omn6KGM77yBCiAgICB9LCAyNTApOwp9KTsKIApteUZpcnN0UHJvbWlzZS50aGVuKGZ1bmN0aW9uKHN1Y2Nlc3NNZXNzYWdlKXsKICAgIC8vc3VjY2Vzc01lc3NhZ2XnmoTlgLzmmK/kuIrpnaLosIPnlKhyZXNvbHZlKC4uLinmlrnms5XkvKDlhaXnmoTlgLwuCiAgICAvL3N1Y2Nlc3NNZXNzYWdl5Y+C5pWw5LiN5LiA5a6a6Z2e6KaB5piv5a2X56ym5Liy57G75Z6L77yM6L+Z6YeM5Y+q5piv5Li+5Liq5L6L5a2QCiAgICBkb2N1bWVudC53cml0ZSgiWWF5ISAiICsgc3VjY2Vzc01lc3NhZ2UpOwp9KTs=');localStorage.setItem('tryit_lang','html');">尝试一下 »</a>
 </div>
-<p>对于已经实例化过的 promise 对象可以调用 promise.then() 方法，传递 resolve 和 reject 方法作为回调。</p>
-<p>promise.then() 是 promise 最为常用的方法。</p>
+<p>For an already instantiated promise object, you can call the promise.then() method, passing resolve and reject methods as callbacks.</p>
+<p>promise.then() is the most commonly used method of promise.</p>
 <pre>
 promise.then(onFulfilled, onRejected)
 </pre>
-<p>promise简化了对error的处理，上面的代码我们也可以这样写：</p>
+<p>The promise simplifies error handling. The above code can also be written like this:</p>
 <pre>
 promise.then(onFulfilled).catch(onRejected)
 </pre>
 <hr/>
 <h2>Promise Ajax</h2>
-<p>下面是一个用 Promise 对象实现的 Ajax 操作的例子。</p>
+<p>Below is an example of an Ajax operation implemented with a Promise object.</p>
 <div class="example">
 <h2 class="example">实例</h2>
 <div class="example_code">
@@ -167,7 +164,7 @@ promise.then(onFulfilled).catch(onRejected)
 </div><br/>
 <a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','ZnVuY3Rpb24gYWpheChVUkwpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZShmdW5jdGlvbiAocmVzb2x2ZSwgcmVqZWN0KSB7CiAgICAgICAgdmFyIHJlcSA9IG5ldyBYTUxIdHRwUmVxdWVzdCgpOyAKICAgICAgICByZXEub3BlbignR0VUJywgVVJMLCB0cnVlKTsKICAgICAgICByZXEub25sb2FkID0gZnVuY3Rpb24gKCkgewogICAgICAgIGlmIChyZXEuc3RhdHVzID09PSAyMDApIHsgCiAgICAgICAgICAgICAgICByZXNvbHZlKHJlcS5yZXNwb25zZVRleHQpOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgcmVqZWN0KG5ldyBFcnJvcihyZXEuc3RhdHVzVGV4dCkpOwogICAgICAgICAgICB9IAogICAgICAgIH07CiAgICAgICAgcmVxLm9uZXJyb3IgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgICAgIHJlamVjdChuZXcgRXJyb3IocmVxLnN0YXR1c1RleHQpKTsKICAgICAgICB9OwogICAgICAgIHJlcS5zZW5kKCk7IAogICAgfSk7Cn0KdmFyIFVSTCA9ICIvdHJ5L2FqYXgvdGVzdHByb21pc2UucGhwIjsgCmFqYXgoVVJMKS50aGVuKGZ1bmN0aW9uIG9uRnVsZmlsbGVkKHZhbHVlKXsKICAgIGRvY3VtZW50LndyaXRlKCflhoXlrrnmmK/vvJonICsgdmFsdWUpOyAKfSkuY2F0Y2goZnVuY3Rpb24gb25SZWplY3RlZChlcnJvcil7CiAgICBkb2N1bWVudC53cml0ZSgn6ZSZ6K+v77yaJyArIGVycm9yKTsgCn0pOw==');localStorage.setItem('tryit_lang','html');">尝试一下 »</a>
 </div>
-<p>上面代码中，resolve 方法和 reject 方法调用时，都带有参数。它们的参数会被传递给回调函数。reject 方法的参数通常是 Error 对象的实例，而 resolve 方法的参数除了正常的值以外，还可能是另一个 Promise 实例，比如像下面这样。</p>
+<p>In the code above, the resolve method and the reject method are both called with arguments. Their arguments will be passed to the callback functions. The argument of the reject method is usually an instance of the Error object, while the argument of the resolve method, in addition to a normal value, may also be another Promise instance, as shown below.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">p1</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Promise</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">resolve</span><span class="hl-code">, </span><span class="hl-identifier">reject</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
@@ -180,10 +177,10 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span></div>
 </div>
 </div>
-<p>上面代码中，p1 和 p2 都是 Promise 的实例，但是 p2 的 resolve 方法将 p1 作为参数，这时 p1 的状态就会传递给 p2。如果调用的时候，p1 的状态是 pending，那么 p2 的回调函数就会等待 p1 的状态改变；如果 p1 的状态已经是 fulfilled 或者 rejected，那么 p2 的回调函数将会立刻执行。</p>
+<p>In the code above, p1 and p2 are both Promise instances, but p2's resolve method takes p1 as an argument. At this point, p1's state will be passed to p2. If p1's state is pending when called, then p2's callback function will wait for p1's state to change; if p1's state is already fulfilled or rejected, then p2's callback function will be executed immediately.</p>
 <hr/>
-<h2>Promise.prototype.then方法：链式操作</h2>
-<p>Promise.prototype.then 方法返回的是一个新的 Promise 对象，因此可以采用链式写法。</p>
+<h2>Promise.prototype.then method: chained operations</h2>
+<p>The Promise.prototype.then method returns a new Promise object, so a chained syntax can be used.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/posts.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">json</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -193,8 +190,8 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<p>上面的代码使用 then 方法，依次指定了两个回调函数。第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。</p>
-<p>如果前一个回调函数返回的是Promise对象，这时后一个回调函数就会等待该Promise对象有了运行结果，才会进一步调用。</p>
+<p>The code above uses the then method to specify two callback functions in sequence. After the first callback function completes, its return result will be passed as an argument to the second callback function.</p>
+<p>If the previous callback function returns a Promise object, the latter callback function will wait until that Promise object has a result before it is further called.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/post/1.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">post</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -204,9 +201,9 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<p>这种设计使得嵌套的异步操作，可以被很容易得改写，从回调函数的"横向发展"改为"向下发展"。</p>
-<hr/><h2>Promise.prototype.catch方法：捕捉错误</h2>
-<p>Promise.prototype.catch 方法是 Promise.prototype.then(null, rejection) 的别名，用于指定发生错误时的回调函数。</p>
+<p>This design makes nested asynchronous operations easy to rewrite, changing from the "horizontal development" of callback functions to "downward development."</p>
+<hr/><h2>Promise.prototype.catch method: catching errors</h2>
+<p>The Promise.prototype.catch method is an alias for Promise.prototype.then(null, rejection), used to specify a callback function when an error occurs.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/posts.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">posts</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -217,7 +214,7 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<p>Promise 对象的错误具有"冒泡"性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。</p>
+<p>Errors of Promise objects have a "bubbling" nature, passing backward until caught. That is, an error will always be caught by the next catch statement.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/post/1.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">post</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -230,12 +227,12 @@ promise.then(onFulfilled).catch(onRejected)
 </div>
 </div>
 <hr/><h2>Promise.all方法，Promise.race方法</h2>
-<p>Promise.all 方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<p>The Promise.all method is used to wrap multiple Promise instances into a new Promise instance.</p>
 <pre>var p = Promise.all([p1,p2,p3]);</pre>
-<p>上面代码中，Promise.all 方法接受一个数组作为参数，p1、p2、p3 都是 Promise 对象的实例。（Promise.all 方法的参数不一定是数组，但是必须具有 iterator 接口，且返回的每个成员都是 Promise 实例。）</p>
-<p>p 的状态由 p1、p2、p3 决定，分成两种情况。</p>
-<ul><li>（1）只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。</li><li>（2）只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。</li></ul>
-<p>下面是一个具体的例子。</p>
+<p>In the code above, the Promise.all method accepts an array as its argument, and p1, p2, and p3 are all instances of Promise objects. (The argument of the Promise.all method does not have to be an array, but it must have an iterator interface, and each member it returns must be a Promise instance.)</p>
+<p>The state of p is determined by p1, p2, and p3, and there are two cases.</p>
+<ul><li>(1) Only when p1, p2, and p3 all become fulfilled will p's state become fulfilled. At this time, the return values of p1, p2, and p3 form an array that is passed to p's callback function.</li><li>(2) As long as one of p1, p2, and p3 is rejected, p's state becomes rejected. At this time, the return value of the first rejected instance will be passed to p's callback function.</li></ul>
+<p>The following is a concrete example.</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">生成一个Promise对象的数组</span><span class="hl-comment"></span><span class="hl-code">
@@ -250,15 +247,15 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<p>Promise.race 方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<p>The Promise.race method also wraps multiple Promise instances into a new Promise instance.</p>
 <pre>
 var p = Promise.race([p1,p2,p3]);</pre>
-<p>上面代码中，只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的Promise实例的返回值，就传递给p的返回值。</p>
-<p>如果Promise.all方法和Promise.race方法的参数，不是Promise实例，就会先调用下面讲到的Promise.resolve方法，将参数转为Promise实例，再进一步处理。</p><hr/>
+<p>In the code above, as long as one of p1, p2, and p3 is the first to change state, p's state changes accordingly. The return value of the Promise instance that first changes state is passed to p's return value.</p>
+<p>If the arguments of the Promise.all method and the Promise.race method are not Promise instances, the Promise.resolve method described below will be called first to convert the arguments into Promise instances, and then further processing will be done.</p><hr/>
 <h2>Promise.resolve 方法，Promise.reject 方法</h2>
-<p>有时需要将现有对象转为Promise对象，Promise.resolve方法就起到这个作用。</p>
+<p>Sometimes existing objects need to be converted into Promise objects, and the Promise.resolve method serves this purpose.</p>
 <pre>var jsPromise = Promise.resolve($.ajax('/whatever.json'));</pre>
-<p>上面代码将 jQuery 生成 deferred 对象，转为一个新的 ES6 的 Promise 对象。</p>
+<p>The code above converts the deferred object generated by jQuery into a new ES6 Promise object.</p>
 <p>If the argument of the Promise.resolve method is not an object with a then method (also known as a thenable object), it returns a new Promise object whose state is fulfilled.</p>
 <div class="example">
 <div class="example_code">
@@ -343,181 +340,6 @@ var aid = 19106;
 
 </div>
 -->
-<div class="sidebar-box cate-list" style="display:none;">
-<div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">热门文章</a>
-</div>
-<div class="membership">
-<ul class="membership">
-<li><a href="https://mp.weixin.qq.com/s/ZaP6YNgKTCHYy3r2WPBBaw" target="_blank" title="2024 年 04 月 JavaScript 框架排行榜">2024 年 04 月 JavaScript 框架排行榜</a></li>
-<li><a href="https://mp.weixin.qq.com/s/JBR2twC0t6krjjuxqvhsEQ" target="_blank" title="免费、开源、好用的 SQL 客户端合集">免费、开源、好用的 SQL 客户端合集</a></li>
-<li><a href="https://mp.weixin.qq.com/s/TwV3YQjA1glyaW7TiHvhlA" target="_blank" title="优雅的代码规范，提升代码质量">优雅的代码规范，提升代码质量</a></li>
-<li><a href="https://mp.weixin.qq.com/s/CnUJ-2OHPbBKlnVpjDzavA" target="_blank" title="命令行中的趣味世界，牛也能说话，有趣又好玩">命令行中的趣味世界，牛也能说话，有趣又好玩</a></li>
-<li><a href="https://mp.weixin.qq.com/s/7NKl-mD7N8CeSNQlbKDEWA" target="_blank" title="2024 年 05 月编程语言排行榜，Fortran 进入前 10 名，发生了什么？">2024 年 05 月编程语言排行榜，Fortran 进入前 10 名，发生了什么？</a></li>
-<li><a href="https://mp.weixin.qq.com/s/yWlSVDKobtDhThnhirVRpw" target="_blank" title="免费开源的 IDE、数据库管理工具、SSH客户端和FTP客户端">免费开源的 IDE、数据库管理工具、SSH客户端和FTP客户端</a></li>
-</ul>
-</div>
-</div>
-<div class="sidebar-box cate-list">
-<div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">教程列表</a>
-</div>
-<div class="cate-items">
-<a href="../ado.html">ADO 教程</a>
-<a href="../ai-agent.html">AI Agent 教程</a>
-<a href="../ai.html">AI 入门教程</a>
-<a href="../ai-math.html">AI 数学基础</a>
-<a href="../ajax.html">Ajax 教程</a>
-<a href="../android.html">Android 教程</a>
-<a href="../angularjs2.html">Angular2 教程</a>
-<a href="../angularjs.html">AngularJS 教程</a>
-<a href="../appml.html">AppML 教程</a>
-<a href="../asp.html">ASP 教程</a>
-<a href="../aspnet.html">ASP.NET 教程</a>
-<a href="../bootstrap.html">Bootstrap 教程</a>
-<a href="../bootstrap4.html">Bootstrap4 教程</a>
-<a href="../bootstrap5.html">Bootstrap5 教程</a>
-<a href="../cprogramming.html">C 教程</a>
-<a href="../c-dsa.html">C 语言数据结构与算法</a>
-<a href="../csharp.html">C# 教程</a>
-<a href="../cplusplus.html">C++ 教程</a>
-<a href="../chartjs.html">Chart.js 教程</a>
-<a href="../claude-code.html">Claude Code 教程</a>
-<a href="../cmake.html">CMake 教程</a>
-<a href="../codex.html">Codex 教程</a>
-<a href="../cssref.html">CSS 参考手册</a>
-<a href="../css.html">CSS 教程</a>
-<a href="../css3.html">CSS3 教程</a>
-<a href="../cursor.html">Cursor 教程</a>
-<a href="../dart.html">Dart 教程</a>
-<a href="../dash.html">Dash 教程</a>
-<a href="../deepseek-harness.html">DeepSeek Harness</a>
-<a href="../django.html">Django 教程</a>
-<a href="../docker.html">Docker 教程</a>
-<a href="../dtd.html">DTD 教程</a>
-<a href="../echarts.html">ECharts 教程</a>
-<a href="../eclipse.html">Eclipse 教程</a>
-<a href="../electron.html">Electron 教程</a>
-<a href="../fastapi.html">FastAPI 教程</a>
-<a href="../firebug.html">Firebug 教程</a>
-<a href="../flask.html">Flask 教程</a>
-<a href="../flutter.html">Flutter 教程</a>
-<a href="../font-awesome.html">Font Awesome 图标</a>
-<a href="../foundation.html">Foundation 教程</a>
-<a href="../git.html">Git 教程</a>
-<a href="../go.html">Go 语言教程</a>
-<a href="../googleapi.html">Google 地图 API 教程</a>
-<a href="../hermes-agent.html">Hermes Agent</a>
-<a href="../highcharts.html">Highcharts 教程</a>
-<a href="../htmldom.html">HTML DOM 教程</a>
-<a href="../tags.html">HTML 参考手册</a>
-<a href="../charsets.html">HTML 字符集</a>
-<a href="../html.html">HTML 教程</a>
-<a href="../http.html">HTTP 教程</a>
-<a href="../ionic.html">ionic 教程</a>
-<a href="../ios.html">iOS 教程</a>
-<a href="../java.html">Java 教程</a>
-<a href="../jsref.html">JavaScript 参考手册</a>
-<a href="../js.html">Javascript 教程</a>
-<a href="../jeasyui.html">jQuery EasyUI 教程</a>
-<a href="../jquerymobile.html">jQuery Mobile 教程</a>
-<a href="../jqueryui.html">jQuery UI 教程</a>
-<a href="../jquery.html">jQuery 教程</a>
-<a href="../json.html">JSON 教程</a>
-<a href="../jsp.html">JSP 教程</a>
-<a href="../julia.html">Julia 教程</a>
-<a href="../jupyter-notebook.html">Jupyter Notebook 教程</a>
-<a href="../kotlin.html">Kotlin 教程</a>
-<a href="../langchain.html">LangChain 教程</a>
-<a href="../latex.html">LaTeX 教程</a>
-<a href="../linux.html">Linux 教程</a>
-<a href="../lua.html">Lua 教程</a>
-<a href="../markdown.html">Markdown 教程</a>
-<a href="../matplotlib.html">Matplotlib 教程</a>
-<a href="../maven.html">Maven 教程</a>
-<a href="../memcached.html">Memcached 教程</a>
-<a href="../mongodb.html">MongoDB 教程</a>
-<a href="../mysql.html">MySQL 教程</a>
-<a href="../nextjs.html">Next.js 教程</a>
-<a href="../nlp.html">NLP 教程</a>
-<a href="../nodejs.html">Node.js 教程</a>
-<a href="../numpy.html">NumPy 教程</a>
-<a href="../obsidian.html">Obsidian 教程</a>
-<a href="../ollama.html">Ollama 教程</a>
-<a href="../opencode.html">OpenCode 教程</a>
-<a href="../opencv.html">OpenCV 教程</a>
-<a href="../pandas.html">Pandas 教程</a>
-<a href="../perl.html">Perl 教程</a>
-<a href="../php.html">PHP 教程</a>
-<a href="../pi-agent.html">Pi Agent</a>
-<a href="../pillow.html">Pillow 教程</a>
-<a href="../playwright.html">Playwright 教程</a>
-<a href="../postgresql.html">PostgreSQL 教程</a>
-<a href="../powershell.html">PowerShell</a>
-<a href="../pycharm.html">Pycharm 教程</a>
-<a href="../python3.html">Python 3 教程</a>
-<a href="../python.html">Python 基础教程</a>
-<a href="../python-design-pattern.html">Python 设计模式</a>
-<a href="../python-qt.html">Python 量化交易</a>
-<a href="../pytorch.html">PyTorch 教程</a>
-<a href="../r.html">R 教程</a>
-<a href="../rdf.html">RDF 教程</a>
-<a href="../react.html">React 教程</a>
-<a href="../redis.html">Redis 教程</a>
-<a href="../restfulapi.html">RESTful API</a>
-<a href="../rss.html">RSS 教程</a>
-<a href="../ruby.html">Ruby 教程</a>
-<a href="../rust.html">Rust 教程</a>
-<a href="../sass.html">Sass 教程</a>
-<a href="../scala.html">Scala 教程</a>
-<a href="../scipy.html">SciPy 教程</a>
-<a href="../selenium.html">Selenium 教程</a>
-<a href="../servlet.html">Servlet 教程</a>
-<a href="../skills.html">Skills 教程</a>
-<a href="../sklearn.html">Sklearn 教程</a>
-<a href="../soap.html">SOAP 教程</a>
-<a href="../sql.html">SQL 教程</a>
-<a href="../sqlite.html">SQLite 教程</a>
-<a href="../svg.html">SVG 教程</a>
-<a href="../svn.html">SVN 教程</a>
-<a href="../swagger.html">Swagger 教程</a>
-<a href="../swift.html">Swift 教程</a>
-<a href="../tailwindcss.html">Tailwind CSS 教程</a>
-<a href="../tcpip.html">TCP/IP 教程</a>
-<a href="../tensorflow.html">TensorFlow 教程</a>
-<a href="../typescript.html">TypeScript 教程</a>
-<a href="../uniapp.html">uni-app 教程</a>
-<a href="../vbscript.html">VBScript 教程</a>
-<a href="../vibe-coding.html">Vibe Coding 教程</a>
-<a href="../vscode.html">VSCode 教程</a>
-<a href="../vue2.html">Vue.js 教程</a>
-<a href="../vue3.html">Vue3 教程</a>
-<a href="../w3c.html">W3C 教程</a>
-<a href="../webservices.html">Web Service 教程</a>
-<a href="../wsdl.html">WSDL 教程</a>
-<a href="../xlink.html">XLink 教程</a>
-<a href="../dom.html">XML DOM 教程</a>
-<a href="../schema.html">XML Schema 教程</a>
-<a href="../xml.html">XML 教程</a>
-<a href="../xpath.html">XPath 教程</a>
-<a href="../xquery.html">XQuery 教程</a>
-<a href="../xslfo.html">XSLFO 教程</a>
-<a href="../xsl.html">XSLT 教程</a>
-<a href="../zig.html">Zig 教程</a>
-<a href="../data-structures.html">数据结构</a>
-<a href="../ml.html">机器学习</a>
-<a href="../regexp.html">正则表达式</a>
-<a href="../assembly.html">汇编语言</a>
-<a href="../quiz.html">测验</a>
-<a href="../browsers.html">浏览器</a>
-<a href="../quality.html">网站品质</a>
-<a href="../web.html">网站建设指南</a>
-<a href="../hosting.html">网站服务器教程</a>
-<a href="../np.html">网络协议</a>
-<a href="../computer-organization.html">计算机组成原理</a>
-<a href="../design-pattern.html">设计模式</a>
-</div>
-</div>
 </div>
 </div>
 </div>

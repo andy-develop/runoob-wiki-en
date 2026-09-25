@@ -60,9 +60,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <div class="row">
 <div class="col right-list">
-<button class="btn btn-responsive-nav btn-inverse" id="pull">
-<i class="fa fa-navicon"></i>
-</button>
 </div>
 <div class="col search search-desktop last">
 <div class="search-input">
@@ -79,10 +76,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <!--  Android 基础入门教程 start  -->
 <div class="col left-column" style="display:none;">
 <div class="tab">Verilog 高级教程</div>
-<div class="sidebar-box gallery-list">
-<div class="design" id="leftcolumn">
-</div>
-</div>
 </div>
 <!--  Android 基础入门教程 end  -->
 <div class="col middle-column big-middle-column">
@@ -487,14 +480,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span> <br/>
 </div></div>
-<h3>Simulation Analysis</h3><p>根据 testbench 中的 3 步测试激励，分析如下：</p><p>测试 (1) : FIFO 端口及一些内部信号时序结果如下。</p><p>由图可知，FIFO 内部开始写数据，空状态信号拉低之前有一段时间延迟，这是同步读写地址信息导致的。</p><p>由于此时没有进行读 FIFO 操作，相对于写数据操作，full 和 prog_full 拉高几乎没有延迟。</p>
+<h3>Simulation Analysis</h3><p>Based on the 3-step test stimulus in the testbench, the analysis is as follows:</p><p>Test (1): The timing results of the FIFO port and some internal signals are as follows.</p><p>As can be seen from the figure, there is a delay period before the FIFO internally starts writing data and the empty status signal goes low. This is caused by the synchronization of read/write address information.</p><p>Since no read FIFO operation is performed at this time, there is almost no delay in full and prog_full going high relative to the write data operation.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-fifo-4.png"/></p>
-<p>测试 (2) : FIFO 同时进行读写时，数字顶层异步处理模块的端口信号如下所示，两图分别显示了数据开始传输、结束传输时的读取过程。</p><p>由图可知，数据在开始、末尾均能正确传输，完成了不同时钟域之间多位宽数据的异步处理。</p>
+<p>Test (2): When the FIFO is reading and writing simultaneously, the port signals of the digital top-level asynchronous processing module are shown below. The two figures respectively show the read process at the beginning and end of data transmission.</p><p>As can be seen from the figures, data is transmitted correctly at both the beginning and the end, completing the asynchronous processing of multi-bit-width data between different clock domains.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-fifo-5.png"/></p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-fifo-6.png"/></p>
-<p>测试 (3) ：整个 FIFO 读写行为及读停止的时序仿真图如下所示。</p><p>由图可知，读写同时进行时，读空状态信号 rempty 会拉低，表明 FIFO 中有数据写入。一方面读数据速率稍高于写速率，且数据之间传输会有延迟，所以中间过程中 rempty 会有拉高的行为。</p><p>读写过程中，full 与 prog_full 信号一直为低，说明 FIFO 中数据并没有到达一定的数量。当停止读操作后，两个 full 信号不久便拉高，表明 FIFO 已满。仔细对比读写地址信息，FIFO 行为没有问题。</p>
+<p>Test (3): The timing simulation diagram of the entire FIFO read/write behavior and read stop is shown below.</p><p>As can be seen from the figure, when reading and writing are performed simultaneously, the read-empty status signal rempty goes low, indicating that data has been written into the FIFO. On one hand, the read data rate is slightly higher than the write rate, and there is delay between data transmissions, so rempty will go high during the intermediate process.</p><p>During the read/write process, the full and prog_full signals remain low, indicating that the amount of data in the FIFO has not reached a certain level. After the read operation stops, the two full signals go high shortly afterward, indicating that the FIFO is full. Upon careful comparison of the read/write address information, the FIFO behavior has no issues.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-fifo-7.png"/></p>
-<p>完整的 FIFO 设计见附件，包括输入数据位宽小于输出数据位宽时的异步设计和仿真。</p>
+<p>The complete FIFO design is provided in the attachment, including the asynchronous design and simulation for cases where the input data bit width is smaller than the output data bit width.</p>
 <h3>Download source code for this chapter</h3><p>
 <a class="download" href="../wp-content/uploads/2021/05/v4.4_fifo.zip">Download</a> </p> </div>
 </div>
@@ -873,50 +866,7 @@ jQuery(document).ready(function ($){
 	$("#leftcolumn").html(left_list);
 });
 	</script>
-<div class="sidebar-box cate-list">
-<div class="sidebar-box recommend-here list-link">
-<a href="#">Verilog 高级教程</a> </div>
-<ul class="membership">
-<li><a data-id="23639" href="./verilog2-tutorial.html" target="_top" title="0.1 数字逻辑设计">0.1 数字逻辑设计</a></li>
-<li><a data-id="23641" href="./verilog2-codestyle.html" target="_top" title="0.2 Verilog 编码风格">0.2 Verilog 编码风格</a></li>
-<li><a data-id="23644" href="./verilog2-codeguide.html" target="_top" title="0.3 Verilog 代码规范">0.3 Verilog 代码规范</a></li>
-<li><a data-id="23645" href="./verilog2-gate.html" target="_top" title="1.1 Verilog 门的类型">1.1 Verilog 门的类型</a></li>
-<li><a data-id="23648" href="./verilog2-level-modeling.html" target="_top" title="1.2 Verilog 开关级建模">1.2 Verilog 开关级建模</a></li>
-<li><a data-id="23656" href="./verilog2-gate-delay.html" target="_top" title="1.3 Verilog 门延迟">1.3 Verilog 门延迟</a></li>
-<li><a data-id="23673" href="./verilog2-udp.html" target="_top" title="2.1 Verilog UDP 基础知识">2.1 Verilog UDP 基础知识</a></li>
-<li><a data-id="23674" href="./verilog2-udp-logic.html" target="_top" title="2.2 Verilog 组合逻辑 UDP">2.2 Verilog 组合逻辑 UDP</a></li>
-<li><a data-id="23677" href="./verilog2-udp-timing.html" target="_top" title="2.3 Verilog 时序逻辑 UDP">2.3 Verilog 时序逻辑 UDP</a></li>
-<li><a data-id="23685" href="./verilog2-delay-type.html" target="_top" title="3.1 Verilog 延迟模型">3.1 Verilog 延迟模型</a></li>
-<li><a data-id="23690" href="./verilog2-specify.html" target="_top" title="3.2 Verilog specify 块语句">3.2 Verilog specify 块语句</a></li>
-<li><a data-id="23692" href="./verilog2-setup-hold-time.html" target="_top" title="3.3 Verilog 建立时间和保持时间">3.3 Verilog 建立时间和保持时间</a></li>
-<li><a data-id="23701" href="./verilog2-timing-check.html" target="_top" title="3.4 Verilog 时序检查">3.4 Verilog 时序检查</a></li>
-<li><a data-id="23708" href="./verilog2-sdf.html" target="_top" title="3.5 Verilog 延迟反标注">3.5 Verilog 延迟反标注</a></li>
-<li><a data-id="23714" href="./verilog-sync.html" target="_top" title="4.1 Verilog 同步与异步">4.1 Verilog 同步与异步</a></li>
-<li><a data-id="23725" href="./verilog2-slow2fast.html" target="_top" title="4.2 Verilog 跨时钟域传输：慢到快">4.2 Verilog 跨时钟域传输：慢到快</a></li>
-<li><a data-id="23729" href="./verilog2-fast2slow.html" target="_top" title="4.3 Verilog 跨时钟域传输：快到慢">4.3 Verilog 跨时钟域传输：快到慢</a></li>
-<li>
-	4.4 Verilog FIFO 设计	</li>
-<li><a data-id="23739" href="./verilog2-reset.html" target="_top" title="5.1 Verilog 复位简介">5.1 Verilog 复位简介</a></li>
-<li><a data-id="23743" href="./verilog2-clock.html" target="_top" title="5.2 Verilog 时钟简介">5.2 Verilog 时钟简介</a></li>
-<li><a data-id="23757" href="./verilog2-clock-division.html" target="_top" title="5.3 Verilog 时钟分频">5.3 Verilog 时钟分频</a></li>
-<li><a data-id="23768" href="./verilog2-clock-switch.html" target="_top" title="5.4 Verilog 时钟切换">5.4 Verilog 时钟切换</a></li>
-<li><a data-id="23779" href="./verilog2-low-power.html" target="_top" title="6.1 Verilog 低功耗简介">6.1 Verilog 低功耗简介</a></li>
-<li><a data-id="23788" href="./verilog2-lower-power-design.html" target="_top" title="6.2 Verilog 系统级低功耗设计">6.2 Verilog 系统级低功耗设计</a></li>
-<li><a data-id="23792" href="./verilog2-rtl-low-power-design-1.html" target="_top" title="6.3 Verilog  RTL 级低功耗设计（上）">6.3 Verilog  RTL 级低功耗设计（上）</a></li>
-<li><a data-id="23796" href="./verilog2-rtl-low-power-design-2.html" target="_top" title="6.4 Verilog RTL 级低功耗设计（下）">6.4 Verilog RTL 级低功耗设计（下）</a></li>
-<li><a data-id="23806" href="./verilog2-display.html" target="_top" title="7.1 Verilog 显示任务">7.1 Verilog 显示任务</a></li>
-<li><a data-id="23813" href="./verilog2-file.html" target="_top" title="7.2 Verilog 文件操作">7.2 Verilog 文件操作</a></li>
-<li><a data-id="23825" href="./verilog2-random.html" target="_top" title="7.3 Verilog 随机数及概率分布">7.3 Verilog 随机数及概率分布</a></li>
-<li><a data-id="23847" href="./verilog2-real2int.html" target="_top" title="7.4 Verilog 实数整数转换">7.4 Verilog 实数整数转换</a></li>
-<li><a data-id="23851" href="./verilog2-other-task.html" target="_top" title="7.5 Verilog 其他系统任务">7.5 Verilog 其他系统任务</a></li>
-<li><a data-id="23862" href="./verilog2-pli-intro.html" target="_top" title="8.1 Verilog  PLI 简介">8.1 Verilog  PLI 简介</a></li>
-<li><a data-id="23865" href="./verilog2-tf.html" target="_top" title="8.2 Verilog TF 子程序">8.2 Verilog TF 子程序</a></li>
-<li><a data-id="23869" href="./verilog2-tf-sub.html" target="_top" title="8.3 Verilog TF 子程序列表">8.3 Verilog TF 子程序列表</a></li>
-<li><a data-id="23870" href="./verilog2-acc.html" target="_top" title="8.4 Verilog ACC 子程序">8.4 Verilog ACC 子程序</a></li>
-<li><a data-id="23872" href="./verilog2-acc-sub.html" target="_top" title="8.5 Verilog ACC 子程序列表">8.5 Verilog ACC 子程序列表</a></li>
-<li><a data-id="23876" href="./verilog2-logic-sumarry.html" target="_top" title="9.1 Verilog 逻辑综合">9.1 Verilog 逻辑综合</a></li>
-<li><a data-id="23882" href="./verilog2-integrated-design.html" target="_top" title="9.2 Verilog 可综合性设计">9.2 Verilog 可综合性设计</a></li>
-</ul></div> </div>
+</div>
 </div>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

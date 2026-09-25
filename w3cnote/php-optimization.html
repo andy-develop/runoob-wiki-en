@@ -60,9 +60,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <div class="row">
 <div class="col right-list">
-<button class="btn btn-responsive-nav btn-inverse" id="pull">
-<i class="fa fa-navicon"></i>
-</button>
+
 </div>
 <div class="col search search-desktop last">
 <div class="search-input">
@@ -93,7 +91,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <pre>
 echo $str1,$str2;
 </pre>
-<li>3. Don't break methods down too much; think carefully about which code you actually intend to reuse.</li><li>4、 在执行<code>for</code>4. Before executing</li><li>a loop, determine the maximum number of iterations; don't calculate the maximum on every iteration.</li><li>5. Unset unused variables, especially large arrays, to free up memory.</li><li>
+<li>3. Don't break methods down too much; think carefully about which code you actually intend to reuse.</li><li>4. During execution<code>for</code>4. Before executing</li><li>a loop, determine the maximum number of iterations; don't calculate the maximum on every iteration.</li><li>5. Unset unused variables, especially large arrays, to free up memory.</li><li>
 
 7、 <code>$row['id']</code>The efficiency of<code>$row[id]</code>is 7 times that of</li><li>8. Use full paths when including files; it will take less time to resolve operating system paths.</li><li>9. If you want to know when the script started executing (translator's note: i.e., when the server receives the client request), use<code>$_SERVER['REQUEST_TIME']</code>is better than<code>time()</code>。</li><li>10. Functions can replace regular expressions to accomplish the same functionality.<code>str_replace</code>function is faster than<code>preg_replace</code>function, but<code>strtr</code>the efficiency of the function is<code>str_replace</code>four times that of the function.</li><li>11. Pay attention to code indentation.</li><li>12. If a string replacement function can accept arrays or characters as parameters, and the parameter length is not too long, consider writing an additional replacement code segment so that each time a single character is passed as a parameter, rather than writing just one line of code that accepts an array as the search and replace parameter.</li><li>13. Use a switch statement (translator's note: i.e.,<code>switch case</code>) instead of multiple<code>if，else if</code>statements.</li><li>14. Using @ to suppress error messages is very inefficient.</li><li>15. Enable Apache's mod_deflate module.</li><li>16. Database connections should be closed when they are no longer used.</li><li>18. Error messages are expensive.</li><li>19. Try not to use functions in for loops, for example<code>for ($x=0; $x &lt; count($array); $x)</code>count() is called on every iteration.</li><li>20. Incrementing a local variable inside a method is the fastest. It is almost the same speed as calling a local variable inside a function.</li><li>21. Incrementing a global variable is 2 times slower than incrementing a local variable.</li><li>22. Incrementing an object property (e.g.,<code>$this-&gt;prop++</code>) is 3 times slower than incrementing a local variable.</li><li>23. Incrementing an undefined local variable is 9 to 10 times slower than incrementing a predefined local variable.</li><li>24. Merely defining a local variable without calling it in a function will also slow down the speed (to a degree equivalent to incrementing a local variable). PHP probably checks to see if a global variable exists.</li><li>25. Method calls appear to be unrelated to the number of methods defined in the class, because I added 10 methods (both before and after testing the method), but performance did not change.</li><li>26. Methods in derived classes run faster than the same methods defined in the base class.</li><li>27. Calling an empty function with one parameter takes about the same time as performing 7 to 8 local variable increments. A similar method call takes close to 15 local variable increments.</li><li>28. Use single quotes instead of double quotes to enclose strings; this is faster. Because PHP searches for variables in strings enclosed by double quotes, but not in single quotes. Of course, you can only do this when you don't need to include variables in the string.</li><li>29. When using<code>echo</code>to output multiple strings, use commas instead of periods to separate strings; it is faster.</li><li>30. Apache takes 2 to 10 times longer to parse a PHP script than to parse a static HTML page. Try to use static HTML pages more and scripts less.</li><li>31. Unless scripts can be cached, they will be recompiled every time they are called. Introducing a PHP caching mechanism can usually improve performance by 25% to 100%, eliminating compilation overhead.</li><li>32. Do caching as much as possible; you can use memcached. memcached is a high-performance, distributed memory object caching system that can be used to speed up dynamic web applications and reduce database load. Caching opcode is very useful, so scripts don't have to be recompiled for every request.</li><li>33. When manipulating strings and needing to check whether their length meets certain requirements, you would naturally use<code>strlen()</code>function. This function executes fairly quickly because it doesn't do any calculation, it just returns the known string length stored in the zval structure (C's built-in data structure used to store PHP variables). However, because<code>strlen()</code>is a function, it will be somewhat slow, because a function call goes through many steps, such as lowercasing (translator's note: meaning the function name is lowercased; PHP does not distinguish between uppercase and lowercase function names), hash lookup, and these execute along with the called function. In some cases, you can use<code>isset()</code>technique to speed up the execution of your code.</li>
 <pre>
@@ -468,181 +466,8 @@ var aid = 7316;
 
 </div>
 -->
-<div class="sidebar-box cate-list" style="display:none;">
-<div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">热门文章</a>
-</div>
-<div class="membership">
-<ul class="membership">
-<li><a href="https://mp.weixin.qq.com/s/ZaP6YNgKTCHYy3r2WPBBaw" target="_blank" title="2024 年 04 月 JavaScript 框架排行榜">2024 年 04 月 JavaScript 框架排行榜</a></li>
-<li><a href="https://mp.weixin.qq.com/s/JBR2twC0t6krjjuxqvhsEQ" target="_blank" title="免费、开源、好用的 SQL 客户端合集">免费、开源、好用的 SQL 客户端合集</a></li>
-<li><a href="https://mp.weixin.qq.com/s/TwV3YQjA1glyaW7TiHvhlA" target="_blank" title="优雅的代码规范，提升代码质量">优雅的代码规范，提升代码质量</a></li>
-<li><a href="https://mp.weixin.qq.com/s/CnUJ-2OHPbBKlnVpjDzavA" target="_blank" title="命令行中的趣味世界，牛也能说话，有趣又好玩">命令行中的趣味世界，牛也能说话，有趣又好玩</a></li>
-<li><a href="https://mp.weixin.qq.com/s/7NKl-mD7N8CeSNQlbKDEWA" target="_blank" title="2024 年 05 月编程语言排行榜，Fortran 进入前 10 名，发生了什么？">2024 年 05 月编程语言排行榜，Fortran 进入前 10 名，发生了什么？</a></li>
-<li><a href="https://mp.weixin.qq.com/s/yWlSVDKobtDhThnhirVRpw" target="_blank" title="免费开源的 IDE、数据库管理工具、SSH客户端和FTP客户端">免费开源的 IDE、数据库管理工具、SSH客户端和FTP客户端</a></li>
-</ul>
-</div>
-</div>
-<div class="sidebar-box cate-list">
-<div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">教程列表</a>
-</div>
-<div class="cate-items">
-<a href="../ado.html">ADO 教程</a>
-<a href="../ai-agent.html">AI Agent 教程</a>
-<a href="../ai.html">AI 入门教程</a>
-<a href="../ai-math.html">AI 数学基础</a>
-<a href="../ajax.html">Ajax 教程</a>
-<a href="../android.html">Android 教程</a>
-<a href="../angularjs2.html">Angular2 教程</a>
-<a href="../angularjs.html">AngularJS 教程</a>
-<a href="../appml.html">AppML 教程</a>
-<a href="../asp.html">ASP 教程</a>
-<a href="../aspnet.html">ASP.NET 教程</a>
-<a href="../bootstrap.html">Bootstrap 教程</a>
-<a href="../bootstrap4.html">Bootstrap4 教程</a>
-<a href="../bootstrap5.html">Bootstrap5 教程</a>
-<a href="../cprogramming.html">C 教程</a>
-<a href="../c-dsa.html">C 语言数据结构与算法</a>
-<a href="../csharp.html">C# 教程</a>
-<a href="../cplusplus.html">C++ 教程</a>
-<a href="../chartjs.html">Chart.js 教程</a>
-<a href="../claude-code.html">Claude Code 教程</a>
-<a href="../cmake.html">CMake 教程</a>
-<a href="../codex.html">Codex 教程</a>
-<a href="../cssref.html">CSS 参考手册</a>
-<a href="../css.html">CSS 教程</a>
-<a href="../css3.html">CSS3 教程</a>
-<a href="../cursor.html">Cursor 教程</a>
-<a href="../dart.html">Dart 教程</a>
-<a href="../dash.html">Dash 教程</a>
-<a href="../deepseek-harness.html">DeepSeek Harness</a>
-<a href="../django.html">Django 教程</a>
-<a href="../docker.html">Docker 教程</a>
-<a href="../dtd.html">DTD 教程</a>
-<a href="../echarts.html">ECharts 教程</a>
-<a href="../eclipse.html">Eclipse 教程</a>
-<a href="../electron.html">Electron 教程</a>
-<a href="../fastapi.html">FastAPI 教程</a>
-<a href="../firebug.html">Firebug 教程</a>
-<a href="../flask.html">Flask 教程</a>
-<a href="../flutter.html">Flutter 教程</a>
-<a href="../font-awesome.html">Font Awesome 图标</a>
-<a href="../foundation.html">Foundation 教程</a>
-<a href="../git.html">Git 教程</a>
-<a href="../go.html">Go 语言教程</a>
-<a href="../googleapi.html">Google 地图 API 教程</a>
-<a href="../hermes-agent.html">Hermes Agent</a>
-<a href="../highcharts.html">Highcharts 教程</a>
-<a href="../htmldom.html">HTML DOM 教程</a>
-<a href="../tags.html">HTML 参考手册</a>
-<a href="../charsets.html">HTML 字符集</a>
-<a href="../html.html">HTML 教程</a>
-<a href="../http.html">HTTP 教程</a>
-<a href="../ionic.html">ionic 教程</a>
-<a href="../ios.html">iOS 教程</a>
-<a href="../java.html">Java 教程</a>
-<a href="../jsref.html">JavaScript 参考手册</a>
-<a href="../js.html">Javascript 教程</a>
-<a href="../jeasyui.html">jQuery EasyUI 教程</a>
-<a href="../jquerymobile.html">jQuery Mobile 教程</a>
-<a href="../jqueryui.html">jQuery UI 教程</a>
-<a href="../jquery.html">jQuery 教程</a>
-<a href="../json.html">JSON 教程</a>
-<a href="../jsp.html">JSP 教程</a>
-<a href="../julia.html">Julia 教程</a>
-<a href="../jupyter-notebook.html">Jupyter Notebook 教程</a>
-<a href="../kotlin.html">Kotlin 教程</a>
-<a href="../langchain.html">LangChain 教程</a>
-<a href="../latex.html">LaTeX 教程</a>
-<a href="../linux.html">Linux 教程</a>
-<a href="../lua.html">Lua 教程</a>
-<a href="../markdown.html">Markdown 教程</a>
-<a href="../matplotlib.html">Matplotlib 教程</a>
-<a href="../maven.html">Maven 教程</a>
-<a href="../memcached.html">Memcached 教程</a>
-<a href="../mongodb.html">MongoDB 教程</a>
-<a href="../mysql.html">MySQL 教程</a>
-<a href="../nextjs.html">Next.js 教程</a>
-<a href="../nlp.html">NLP 教程</a>
-<a href="../nodejs.html">Node.js 教程</a>
-<a href="../numpy.html">NumPy 教程</a>
-<a href="../obsidian.html">Obsidian 教程</a>
-<a href="../ollama.html">Ollama 教程</a>
-<a href="../opencode.html">OpenCode 教程</a>
-<a href="../opencv.html">OpenCV 教程</a>
-<a href="../pandas.html">Pandas 教程</a>
-<a href="../perl.html">Perl 教程</a>
-<a href="../php.html">PHP 教程</a>
-<a href="../pi-agent.html">Pi Agent</a>
-<a href="../pillow.html">Pillow 教程</a>
-<a href="../playwright.html">Playwright 教程</a>
-<a href="../postgresql.html">PostgreSQL 教程</a>
-<a href="../powershell.html">PowerShell</a>
-<a href="../pycharm.html">Pycharm 教程</a>
-<a href="../python3.html">Python 3 教程</a>
-<a href="../python.html">Python 基础教程</a>
-<a href="../python-design-pattern.html">Python 设计模式</a>
-<a href="../python-qt.html">Python 量化交易</a>
-<a href="../pytorch.html">PyTorch 教程</a>
-<a href="../r.html">R 教程</a>
-<a href="../rdf.html">RDF 教程</a>
-<a href="../react.html">React 教程</a>
-<a href="../redis.html">Redis 教程</a>
-<a href="../restfulapi.html">RESTful API</a>
-<a href="../rss.html">RSS 教程</a>
-<a href="../ruby.html">Ruby 教程</a>
-<a href="../rust.html">Rust 教程</a>
-<a href="../sass.html">Sass 教程</a>
-<a href="../scala.html">Scala 教程</a>
-<a href="../scipy.html">SciPy 教程</a>
-<a href="../selenium.html">Selenium 教程</a>
-<a href="../servlet.html">Servlet 教程</a>
-<a href="../skills.html">Skills 教程</a>
-<a href="../sklearn.html">Sklearn 教程</a>
-<a href="../soap.html">SOAP 教程</a>
-<a href="../sql.html">SQL 教程</a>
-<a href="../sqlite.html">SQLite 教程</a>
-<a href="../svg.html">SVG 教程</a>
-<a href="../svn.html">SVN 教程</a>
-<a href="../swagger.html">Swagger 教程</a>
-<a href="../swift.html">Swift 教程</a>
-<a href="../tailwindcss.html">Tailwind CSS 教程</a>
-<a href="../tcpip.html">TCP/IP 教程</a>
-<a href="../tensorflow.html">TensorFlow 教程</a>
-<a href="../typescript.html">TypeScript 教程</a>
-<a href="../uniapp.html">uni-app 教程</a>
-<a href="../vbscript.html">VBScript 教程</a>
-<a href="../vibe-coding.html">Vibe Coding 教程</a>
-<a href="../vscode.html">VSCode 教程</a>
-<a href="../vue2.html">Vue.js 教程</a>
-<a href="../vue3.html">Vue3 教程</a>
-<a href="../w3c.html">W3C 教程</a>
-<a href="../webservices.html">Web Service 教程</a>
-<a href="../wsdl.html">WSDL 教程</a>
-<a href="../xlink.html">XLink 教程</a>
-<a href="../dom.html">XML DOM 教程</a>
-<a href="../schema.html">XML Schema 教程</a>
-<a href="../xml.html">XML 教程</a>
-<a href="../xpath.html">XPath 教程</a>
-<a href="../xquery.html">XQuery 教程</a>
-<a href="../xslfo.html">XSLFO 教程</a>
-<a href="../xsl.html">XSLT 教程</a>
-<a href="../zig.html">Zig 教程</a>
-<a href="../data-structures.html">数据结构</a>
-<a href="../ml.html">机器学习</a>
-<a href="../regexp.html">正则表达式</a>
-<a href="../assembly.html">汇编语言</a>
-<a href="../quiz.html">测验</a>
-<a href="../browsers.html">浏览器</a>
-<a href="../quality.html">网站品质</a>
-<a href="../web.html">网站建设指南</a>
-<a href="../hosting.html">网站服务器教程</a>
-<a href="../np.html">网络协议</a>
-<a href="../computer-organization.html">计算机组成原理</a>
-<a href="../design-pattern.html">设计模式</a>
-</div>
-</div>
+
+
 </div>
 </div>
 </div>
