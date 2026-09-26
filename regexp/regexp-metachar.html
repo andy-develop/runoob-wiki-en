@@ -55,17 +55,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
-<input autocomplete="off" class="placeholder" name="q" placeholder="搜索……"/>
+<input autocomplete="off" class="placeholder" name="q" placeholder="Search……"/>
 </form>
 </div>
 <div class="row">
 <div class="col right-list">
-
 </div>
 <div class="col search search-desktop last">
 <div class="search-input">
 <form action="../search.html" method="get">
-<input autocomplete="off" class="placeholder" id="s" name="s" placeholder="搜索……" style="height:44px;"/>
+<input autocomplete="off" class="placeholder" id="s" name="s" placeholder="Search……" style="height:44px;"/>
 </form>
 </div>
 </div>
@@ -138,7 +137,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 <!-- 导航栏 -->
-
 <!-- 二级导航 -->
 <!--  内容  -->
 <div class="container main">
@@ -148,9 +146,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="left-column">
 <div class="tab" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
 <i aria-hidden="true" class="fa fa-list"></i>
-<span>正则表达式</span>
+<span>Regular Expressions</span>
 </div>
-
 </div>
 </div> <div class="col middle-column">
 <div class="article">
@@ -775,7 +772,6 @@ Note list
 <p>Description<strong>?=</strong>、<strong>?!</strong>、<strong>?&lt;=</strong> <strong>?&lt;!</strong>The existing translations of "Positive/Negative lookahead/lookbehind assert", such as "正先行断言" and "正向肯定预查", are not easy to understand, or are inaccurate, or even wrong. "lookaround" refers to looking before and after, not "预查"; it means acting on the expressions before and after, and is a collective term for "lookahead" (meaning looking forward, not "先行") and "lookbehind" (meaning looking backward, not "后发"). "assert" means judgment, not "断言". Positive and Negative refer to affirmative and negative, not positive and negative.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">anonym</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   anonym</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  ano***@anonym.com</p></div></span>7 years ago (2019-08-27)</div></div></li><!-- #comment-## -->
 <li class="comment even thread-even depth-1" id="comment-51268"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>久狼君</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  108***3455@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="http://真的很抱歉，又发现一处小错误，复查了两步，最终定稿了。" rel="nofollow" target="_blank">Reference URL</a></p></div><div class="upvotejs" data-commid="51268" id="runoobvote-id-51268"><a class="upvote"></a> <span class="count">74</span></div></div><div class="comt-main" id="div-comment-51268"><p>Combining the above two [comments] and my own experiments to summarize: every result used below I have run on this website's API.<b>I can be responsible for the correctness of the following conclusions.</b></p><p>The syntax introduction earlier says a sentence:<strong>Non-capturing metacharacters ?:, ?=, or ?! can be used to rewrite captures, ignoring the saving of related matches.</strong></p><p>The<strong>rewrite capture</strong>is the key phrase.</p><p>Therefore, this type of regular expression has two steps.</p><p><b>1. Step 1: Match</b></p><p>First, forget about positive/negative and lookahead/lookbehind. Only if the regex can match is there a second step. Suppose the original string is "<strong>abcdefgh"</strong></p><pre>/.(?=cde)../</pre><p>Can the original string contain cde, with a dot before cde (any single character except newline, etc.), and then, moreover, a string that starts from c and has two characters after it?</p><p><strong><strong>According to the above formula,<strong>abcdefgh"</strong></strong>bcde can be matched in it.</strong></p><p><b>2. Step 2: Rewrite the capture</b></p><p>Then rewrite according to positive/negative and lookahead/lookbehind. Here we only discuss the two affirmative cases.</p><p>First, you must remember that you matched bcde.</p><pre>/.(?=cde)../</pre><p>- This is called positive, so the character b matched before the expression cde remains unchanged. You only need to look at what follows the expression to determine what to rewrite. It is two dots, so start from c and read two characters forward, i.e., cd, and rewrite it into the result of the middle bracket match (originally cde), so the final result is bcd. Here, using /.(?=cde)cd/ gives the same result.</p><p>- If there are four dots afterward, then read four characters from c forward, i.e., cdef, so the final result is bcdef. Here, using /.(?=cde)cdef/ gives the same result.</p><p>But remember, the subsequent matching also needs to start from c. If it doesn’t match, null will be returned here. For example, /.(?=cde)f/ or /.(?=cde)d/ will both return null.</p><p><b></b></p><p><b>Regarding (?&lt;=)</b></p><p>1. Similarly, it is divided into two steps; the first step is the same as above.</p><p><code>/....(?&lt;=cde)../</code></p><p>This is reverse<b>lookup,</b>So find a string that contains cde, has two characters after cde, and has four characters when counting backwards from e.</p><p><b>In "abcdefgh", bcdefg is matched.</b></p><p>2. Second step</p><p>The two characters corresponding to the two dots after cde remain unchanged, i.e., fg remains unchanged. There is a dot in front, and since it is reverse, read four characters from after cde going backwards, that is,<b>bcde</b>rewrite it into the match result of the middle parentheses (originally cde), so the final result is<b>bcdefg</b>。</p><p>Similarly, if there are two dots in front /..(?&lt;=cde)../, read two characters backwards from e, and the result is defg.</p><p>If two examples let you infer four, I believe this syntax is no longer difficult.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Jiulang Jun</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>Jiulang Jun</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  108***3455@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="http://真的很抱歉，又发现一处小错误，复查了两步，最终定稿了。" rel="nofollow" target="_blank">Reference address</a></p></div></span>7 years ago (2020-03-05)</div></div></li><!-- #comment-## -->
 </ol>
-
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
@@ -996,9 +992,7 @@ function kFormatter(num) {
     display: inline;
 }
 </style>
-
 <br/>
-
 </div></div>
 </div>
 <script>
