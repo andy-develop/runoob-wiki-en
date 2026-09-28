@@ -302,7 +302,7 @@ jobs</span><span style="font-weight: bold; color: brown;">: </span>         
 </tbody>
 </table>
 <h3>2. Branch or Path Filtering</h3>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 on:<span style="color: #007F45;"><br/>
   push</span>:<span style="color: #007F45;"><br/>
     branches</span><span style="font-weight: bold; color: brown;">:<br/>
@@ -324,7 +324,7 @@ on:<span style="color: #007F45;"><br/>
 </div></div>
 <h3>3. Scheduled Triggers (schedule)</h3>
 <p>Use a standard Cron expression to define the execution time, with the time zone being UTC (Beijing time = UTC+8, conversion required):</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 on:<span style="color: #007F45;"><br/>
   schedule</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>    <span style="color: blue;"># Cron 格式：分 时 日 月 星期</span><span style="color: green;"><br/>
@@ -340,7 +340,7 @@ on:<span style="color: #007F45;"><br/>
 </div></div>
 <h3>4、手动触发（workflow_dispatch）</h3>
 <p><code>workflow_dispatch</code>Allows manually clicking a button on the Actions tab of the GitHub web page to start the Workflow, and you can also define input parameters:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 on:<span style="color: #007F45;"><br/>
   workflow_dispatch</span>:<span style="color: #007F45;"><br/>
     inputs</span>:<span style="color: green;"><br/>
@@ -370,7 +370,7 @@ jobs</span>:<span style="color: #007F45;"><br/>
 <hr/>
 <h2>Detailed explanation of Jobs and Steps</h2>
 <h3>1. Basic Structure of a Job</h3>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 jobs:<span style="color: green;"><br/>
   build</span><span style="font-weight: bold; color: brown;">: </span>                         <span style="color: blue;"># Job ID，同一 Workflow 中必须唯一</span><span style="color: green;"><br/>
     name</span><span style="font-weight: bold; color: brown;">: </span>构建项目<span style="color: blue;"># Job 的显示名称（可选）</span><span style="color: green;"><br/>
@@ -434,7 +434,7 @@ jobs:<span style="color: green;"><br/>
 </table>
 <h3>3. Dependencies between Jobs (needs)</h3>
 <p>By default, multiple Jobs run in parallel. Use<code>needs</code>You can set the execution order of Jobs, forming serial dependency relationships:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 jobs:<span style="color: green;"><br/>
   test</span><span style="font-weight: bold; color: brown;">: </span>                          <span style="color: blue;"># 第一步：运行测试</span><span style="color: green;"><br/>
     runs-on</span><span style="font-weight: bold; color: brown;">: </span>ubuntu-latest<span style="color: #007F45;"><br/>
@@ -460,7 +460,7 @@ jobs:<span style="color: green;"><br/>
 </div></div>
 <h3>4. Conditional Execution (if)</h3>
 <p>通过<code>if</code>You can control whether a Job or Step executes, commonly used to distinguish branches, determine whether the previous step succeeded, etc.:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 jobs:<span style="color: #007F45;"><br/>
   deploy</span>:<span style="color: green;"><br/>
     runs-on</span><span style="font-weight: bold; color: brown;">: </span>ubuntu-latest<br/>
@@ -513,7 +513,7 @@ jobs</span>:<span style="color: #007F45;"><br/>
 </div></div>
 <h3>2. GitHub built-in variables (github context)</h3>
 <p>GitHub Actions provides a set of built-in context variables, which can be accessed anywhere via<code>${{ }}</code>语法引用：</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps:<span style="color: green;"><br/>
   - name</span><span style="font-weight: bold; color: brown;">: </span>打印常用内置变量<span style="color: green;"><br/>
     run</span><span style="font-weight: bold; color: brown;">: |<br/>
@@ -522,7 +522,7 @@ steps:<span style="color: green;"><br/>
 <h3>3. Secrets (sensitive information management)</h3>
 <p>Sensitive information such as passwords, API keys, server addresses, etc.<strong>Cannot be written directly in the yml file.</strong>(Because the code is public), they must be stored in the Secrets of the GitHub repository.</p>
 <p>Setup steps: go to the repository page →<strong>Settings</strong> → <strong>Secrets and variables</strong> → <strong>Actions</strong>→ 点击<strong>New repository secret</strong>fill in the name and value, then save.</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps<span style="font-weight: bold; color: brown;">:<br/>
 </span>  <span style="color: blue;"># 在 Step 中通过 ${{ secrets.密钥名称 }} 引用已设置的 Secret</span><br/>
   <span style="color: blue;"># Secret 的值在日志中会自动被 *** 遮盖，不会泄露</span><span style="color: green;"><br/>
@@ -551,7 +551,7 @@ steps<span style="font-weight: bold; color: brown;">:<br/>
 <p>GitHub official and the community provide a large number of ready-to-use Actions, through<code>uses: action名称@版本</code>references, you can avoid repeatedly writing common operations.</p>
 <h3>1、actions/checkout（拉取代码）</h3>
 <p>Almost the first step of every Workflow is to pull the repository code, using the official<code>actions/checkout</code>：</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps<span style="font-weight: bold; color: brown;">:<br/>
 </span>  <span style="color: blue;"># 最基础的用法：拉取当前分支的最新代码到工作目录</span><span style="color: green;"><br/>
   - uses</span><span style="font-weight: bold; color: brown;">: </span>actions/checkout@v4<br/>
@@ -565,7 +565,7 @@ steps<span style="font-weight: bold; color: brown;">:<br/>
       submodules</span><span style="font-weight: bold; color: brown;">: </span>true          <span style="color: blue;"># 同时初始化并更新 git 子模块（submodule）</span><br/>
 </div></div>
 <h3>2、actions/setup-node（配置 Node.js 环境）</h3>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps:<span style="color: green;"><br/>
   - uses</span><span style="font-weight: bold; color: brown;">: </span>actions/checkout@v4<br/>
 <span style="color: green;"><br/>
@@ -580,7 +580,7 @@ steps:<span style="color: green;"><br/>
   - run</span><span style="font-weight: bold; color: brown;">: </span>npm test<br/>
 </div></div>
 <h3>3、actions/setup-python（配置 Python 环境）</h3>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps:<span style="color: green;"><br/>
   - uses</span><span style="font-weight: bold; color: brown;">: </span>actions/checkout@v4<br/>
 <span style="color: green;"><br/>
@@ -597,7 +597,7 @@ steps:<span style="color: green;"><br/>
 </div></div>
 <h3>4. actions/cache (cache dependencies to accelerate builds)</h3>
 <p>Downloading dependencies every time the Workflow runs can be slow. Using the cache Action allows dependencies to be cached and directly used on the next run, greatly reducing build time:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps:<span style="color: green;"><br/>
   - uses</span><span style="font-weight: bold; color: brown;">: </span>actions/checkout@v4<br/>
 <span style="color: green;"><br/>
@@ -623,7 +623,7 @@ steps:<span style="color: green;"><br/>
 </div></div>
 <h3>5、actions/upload-artifact / download-artifact（Job 间传递文件）</h3>
 <p>Different Jobs run on independent virtual machines, so files cannot be shared directly. Using artifacts, you can pass one Job's output files to another Job:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 jobs:<span style="color: #007F45;"><br/>
   build</span>:<span style="color: green;"><br/>
     runs-on</span><span style="font-weight: bold; color: brown;">: </span>ubuntu-latest<span style="color: #007F45;"><br/>
@@ -654,7 +654,7 @@ jobs:<span style="color: #007F45;"><br/>
 <hr/>
 <h2>Matrix Builds (Matrix)</h2>
 <p>Matrix builds allow you to run a single Job configuration across multiple environments in parallel, commonly used for compatibility testing across versions and operating systems:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 jobs:<span style="color: #007F45;"><br/>
   test</span>:<span style="color: green;"><br/>
     name</span><span style="font-weight: bold; color: brown;">: </span>测试 Node $<span class="br0">{</span><span class="br0">{</span> matrix.node-version <span class="br0">}</span><span class="br0">}</span> on $<span class="br0">{</span><span class="br0">{</span> matrix.os <span class="br0">}</span><span class="br0">}</span><span style="color: green;"><br/>
@@ -897,7 +897,7 @@ jobs</span>:<span style="color: #007F45;"><br/>
 <li><code>ACTIONS_STEP_DEBUG</code>: Enable detailed debug logging for each Step.</li>
 </ul>
 <h3>2. Printing Context Information to Aid Troubleshooting</h3>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps:<span style="color: green;"><br/>
   - name</span><span style="font-weight: bold; color: brown;">: </span>打印所有上下文信息（调试用，排查问题时加入，解决后删除）<span style="color: green;"><br/>
     run</span><span style="font-weight: bold; color: brown;">: |<br/>
@@ -943,7 +943,7 @@ permissions</span>:<span style="color: green;"><br/>
 <pre>git commit -m "自动格式化代码 [skip ci]"</pre>
 <p><strong>3. YAML Special Character Escaping</strong></p>
 <p>在 <code>run</code>In the Shell command of the field, use<code>${{ }}</code>expression, if the expression contains a colon (<code>:</code>) and other YAML special characters, you need to wrap the entire value in quotes, or instead assign it to an environment variable first and then use it:</p>
-<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #007F45;"&gt;<br/>
+<div class="example"><h2 class="example">实例</h2><div class="example_code">span style="color: #0053A6;"&gt;<br/>
 steps<span style="font-weight: bold; color: brown;">:<br/>
 </span>  <span style="color: blue;"># 不推荐：${{ }} 表达式直接嵌入复杂命令，可能引发 YAML 解析错误</span><span style="color: green;"><br/>
   - run</span><span style="font-weight: bold; color: brown;">: </span>echo $<span class="br0">{</span><span class="br0">{</span> github.event.pull_request.title <span class="br0">}</span><span class="br0">}</span><br/>
@@ -987,7 +987,7 @@ steps<span style="font-weight: bold; color: brown;">:<br/>
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -1032,7 +1032,7 @@ steps<span style="font-weight: bold; color: brown;">:<br/>
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -1071,7 +1071,7 @@ steps<span style="font-weight: bold; color: brown;">:<br/>
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

@@ -380,7 +380,7 @@ white-space: pre-wrap;
 </ul>
 <h2>Usage</h2>
 <p>The tree is defined in a &lt;ul&gt; element. This tag can define leaf nodes and child nodes. The nodes will be &lt;li&gt; elements inside the ul list. The following demonstrates the elements used to create tree nodes nested inside a ul element.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 &lt;ul id="tt" class="easyui-tree"&gt;
     &lt;li&gt;
         &lt;span&gt;Folder&lt;/span&gt;
@@ -401,16 +401,16 @@ white-space: pre-wrap;
 &lt;/ul&gt;
 </pre>
 <p>A tree can also be defined in an empty &lt;ul&gt; element, and data can be loaded using JavaScript.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 &lt;ul id="tt"&gt;&lt;/ul&gt;
 </pre>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 $('#tt').tree({
     url:'tree_data.json'
 });
 </pre>
 <p>Use loadFilter to process JSON data from an ASP.NET web service.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 $('#tt').tree({
     url: ...,
     loadFilter: function(data){
@@ -433,7 +433,7 @@ $('#tt').tree({
 <li>children: An array of nodes that defines some child nodes.</li>
 </ul>
 <p>Example:</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 [{
     "id":1,
     "text":"Folder1",
@@ -469,12 +469,12 @@ $('#tt').tree({
 </pre>
 <h2>Asynchronous Tree</h2>
 <p>The tree supports a built-in asynchronous loading mode, so users can create an empty tree and then specify a server-side that dynamically returns JSON data to populate the tree asynchronously as needed. The following is an example:</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 &lt;ul class="easyui-tree" data-options="url:'get_data.php'"&gt;&lt;/ul&gt;
 </pre>
 <p>The tree is loaded via the URL 'get_data.php'. Child nodes are loaded depending on the state of the parent node. When a closed node is expanded, if no child nodes have been loaded for it, it sends the node's id value to the server through the URL defined above as an HTTP request parameter named 'id' to retrieve child nodes.</p>
 <p>Look at the data returned from the server:</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 [{
     "id": 1,
     "text": "Node 1",
@@ -553,7 +553,7 @@ $('#tt').tree({
 <tr>
 <td>data</td>
 <td>array</td>
-<td>The node data to be loaded.<pre style="color:#006600">
+<td>The node data to be loaded.<pre style="color:#0053A6">
 $('#tt').tree({
     data: [{
         text: 'Item1',
@@ -574,7 +574,7 @@ $('#tt').tree({
 <tr>
 <td>formatter</td>
 <td>function(node)</td>
-<td>Defines how to render the node text.<br/>Code example:<pre style="color:#006600">
+<td>Defines how to render the node text.<br/>Code example:<pre style="color:#0053A6">
 $('#tt').tree({
     formatter:function(node){
         return node.text;
@@ -618,7 +618,7 @@ $('#tt').tree({
 <tr>
 <td>onClick</td>
 <td>node</td>
-<td>Triggered when a user clicks a node. Code example:<pre style="color:#006600">
+<td>Triggered when a user clicks a node. Code example:<pre style="color:#0053A6">
 $('#tt').tree({
     onClick: function(node){
         alert(node.text);  // alert node text property when clicked
@@ -690,7 +690,7 @@ $('#tt').tree({
 <tr>
 <td>onContextMenu</td>
 <td>e, node</td>
-<td>Triggered when a node is right-clicked. Code example:<pre style="color:#006600">
+<td>Triggered when a node is right-clicked. Code example:<pre style="color:#0053A6">
 // right click node and then display the context menu
 $('#tt').tree({
     onContextMenu: function(e, node){
@@ -825,7 +825,7 @@ $('#tt').tree({
 <tr>
 <td>getChecked</td>
 <td>state</td>
-<td>Get the selected nodes. Available state values: 'checked', 'unchecked', 'indeterminate'. If the state is not assigned, returns 'checked' nodes.<br/>Code example:<pre style="color:#006600">
+<td>Get the selected nodes. Available state values: 'checked', 'unchecked', 'indeterminate'. If the state is not assigned, returns 'checked' nodes.<br/>Code example:<pre style="color:#0053A6">
 var nodes = $('#tt').tree('getChecked');    // get checked nodes
 var nodes = $('#tt').tree('getChecked', 'unchecked');    // get unchecked nodes
 var nodes = $('#tt').tree('getChecked', 'indeterminate');    // get indeterminate nodes
@@ -846,7 +846,7 @@ var nodes = $('#tt').tree('getChecked', ['checked','indeterminate']);    // 
 <tr>
 <td>find</td>
 <td>id</td>
-<td>Find the specified node and return that node object. Code example:<pre style="color:#006600">
+<td>Find the specified node and return that node object. Code example:<pre style="color:#0053A6">
 // find a node and then select it
 var node = $('#tt').tree('find', 12);
 $('#tt').tree('select', node.target);
@@ -902,7 +902,7 @@ $('#tt').tree('select', node.target);
 <td>append</td>
 <td>param</td>
 <td>Append some child nodes to a parent node. The param parameter has two properties:<br/>parent: DOM object, the parent node to append to. If not assigned, appends as a root node.<br/>data: array, the node data.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 // append some nodes to the selected node
 var selected = $('#tt').tree('getSelected');
 $('#tt').tree('append', {
@@ -932,7 +932,7 @@ $('#tt').tree('append', {
 <td>insert</td>
 <td>param</td>
 <td>Insert a node before or after the specified node. The param parameter includes the following properties:<br/>before: DOM object, the node before which to insert.<br/>after: DOM object, the node after which to insert.<br/>data: object, the node data.<br/>
-<br/>The following code demonstrates how to insert a new node before the selected node:<pre style="color:#006600">
+<br/>The following code demonstrates how to insert a new node before the selected node:<pre style="color:#0053A6">
 var node = $('#tt').tree('getSelected');
 if (node){
     $('#tt').tree('insert', {
@@ -960,7 +960,7 @@ if (node){
 <td>update</td>
 <td>param</td>
 <td>Update the specified node. The 'param' parameter has the following properties:<br/>target (DOM object, the node to be updated), id, text, iconCls, checked, etc.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 // update the selected node text
 var node = $('#tt').tree('getSelected');
 if (node){
@@ -1033,7 +1033,7 @@ Note list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -1078,7 +1078,7 @@ Note list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -1117,7 +1117,7 @@ Note list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes should be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain registration invitation code</a></p>
@@ -1336,7 +1336,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

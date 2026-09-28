@@ -115,11 +115,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>If no delay value is specified, the default delay is 0.</p><p>If the user specifies 1 delay value, then all types of delay values are equal to that value.</p><p>If the user specifies 2 delay values, they represent the rise delay and fall delay respectively, and the turn-off and "to_x" delays are both the smaller of these 2 delay values.</p><p>If the user specifies 3 delay values, they represent the rise delay, fall delay, and turn-off delay respectively, and the "to_x" delay is the smallest of these 3 delay values.</p><p>A gate-level primitive instantiation with delay values is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
    <span style="color: #00008B; font-style: italic;">//rise, fall and turn-off delay are all 1</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">and</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #9F79EE;">)</span>             <span style="color: #9F79EE;">(</span>OUT1<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">and</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #9F79EE;">)</span>             <span style="color: #9F79EE;">(</span>OUT1<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//rise delay = 2.1, fall dalay = 2, trun-off delay = 2</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">or</span>  <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2.1</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span><span style="color: #9F79EE;">)</span>        <span style="color: #9F79EE;">(</span>OUT2<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">or</span>  <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2.1</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span><span style="color: #9F79EE;">)</span>        <span style="color: #9F79EE;">(</span>OUT2<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//rise delay = 2, fall dalay = 1, trun-off delay = 1.3</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">bufif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">1</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">1.3</span><span style="color: #9F79EE;">)</span>  <span style="color: #9F79EE;">(</span>OUT3<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">bufif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">1</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">1.3</span><span style="color: #9F79EE;">)</span>  <span style="color: #9F79EE;">(</span>OUT3<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
 </div></div>
 <p>It should be noted that multi-input gates (such as AND gates) and multi-output gates (such as NOT gates) can only define at most 2 delays, because the output will not be z.</p>
 <p>Three-state gates and unidirectional switches (MOS transistors, CMOS transistors, etc.) can define 3 delays.</p>
@@ -128,9 +128,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Bidirectional switches with control terminals (tranif1, tranif0) have a turn-on or turn-off delay when switching. Such bidirectional switches can be specified with 0, 1, or 2 delays, for example:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
    <span style="color: #00008B; font-style: italic;">//turn-on and turn-off delay are all 1</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">tranif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #9F79EE;">)</span>         <span style="color: #9F79EE;">(</span>inout1<span style="color: #5D478B;">,</span> inout2<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">tranif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #9F79EE;">)</span>         <span style="color: #9F79EE;">(</span>inout1<span style="color: #5D478B;">,</span> inout2<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//turn-on delay = 1, turn-off delay = 1.2</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">tranif1</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">1.2</span><span style="color: #9F79EE;">)</span>    <span style="color: #9F79EE;">(</span>inout3<span style="color: #5D478B;">,</span> inout4<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">tranif1</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">1.2</span><span style="color: #9F79EE;">)</span>    <span style="color: #9F79EE;">(</span>inout3<span style="color: #5D478B;">,</span> inout4<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
 </div></div><hr/>
 <h2>Minimum/typical/maximum delays</h2>
 <p>Due to differences in integrated circuit manufacturing processes, the delay of devices in actual circuits always fluctuates within a certain range. In Verilog, users can not only specify the 3 types of gate delays, but also specify the minimum, typical, and maximum values for each type. At the compilation or simulation stage, one of these delay values can be selected, providing support for more realistic simulation.</p>
@@ -140,15 +140,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <strong>Maximum value</strong>: the maximum delay that the gate primitive has.</li></ul><p>The following instantiation example illustrates the use of minimum, typical, and maximum delays.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
    <span style="color: #00008B; font-style: italic;">//all delay types: min 1, typical 2, max 3</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">and</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">3</span><span style="color: #9F79EE;">)</span>             <span style="color: #9F79EE;">(</span>OUT1<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">and</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">3</span><span style="color: #9F79EE;">)</span>             <span style="color: #9F79EE;">(</span>OUT1<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//rise delay: min 1, typical 2, max 3</span><br/>
    <span style="color: #00008B; font-style: italic;">//fall delay: min 3, typical 4, max 5</span><br/>
    <span style="color: #00008B; font-style: italic;">//turn-off delay: min min(1,3), typical min(2,4), max min(3,5)</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">or</span>  <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">3</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">4</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">5</span><span style="color: #9F79EE;">)</span>        <span style="color: #9F79EE;">(</span>OUT2<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">or</span>  <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">3</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">4</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">5</span><span style="color: #9F79EE;">)</span>        <span style="color: #9F79EE;">(</span>OUT2<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> IN2<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//rise delay: min 1, typical 2, max 3</span><br/>
    <span style="color: #00008B; font-style: italic;">//fall delay: min 3, typical 4, max 5</span><br/>
    <span style="color: #00008B; font-style: italic;">//turn-off delay: min 2, typical 3, max 4</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">bufif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">3</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">4</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">5</span><span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">4</span><span style="color: #9F79EE;">)</span>  <span style="color: #9F79EE;">(</span>OUT3<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">bufif0</span> <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">3</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">4</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">5</span><span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">4</span><span style="color: #9F79EE;">)</span>  <span style="color: #9F79EE;">(</span>OUT3<span style="color: #5D478B;">,</span> IN1<span style="color: #5D478B;">,</span> CTRL<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
 </div></div>
 <hr/>
 <h2>D flip-flop</h2><p>Next, we design a D flip-flop from the perspective of gate-level modeling.</p>
@@ -186,8 +186,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #A52A2A; font-weight: bold;">module</span> D_TRI<span style="color: #9F79EE;">(</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">input</span>       D<span style="color: #5D478B;">,</span> CP<span style="color: #5D478B;">,</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">output</span>      Q<span style="color: #5D478B;">,</span> QR<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">parameter</span> RISE_TIME <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0.11</span> <span style="color: #5D478B;">;</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">parameter</span> FALL_TIME <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0.07</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">parameter</span> RISE_TIME <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0.11</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">parameter</span> FALL_TIME <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0.07</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #00008B; font-style: italic;">//part1, not gate</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">wire</span>         CPN<span style="color: #5D478B;">,</span> DN <span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">not</span>  <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span>RISE_TIME<span style="color: #5D478B;">,</span> FALL_TIME<span style="color: #9F79EE;">)</span>         <span style="color: #9F79EE;">(</span>CPN<span style="color: #5D478B;">,</span> CP<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
@@ -212,18 +212,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div></div>
 <p>The testbench is written as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ps</span><br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ps</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test <span style="color: #5D478B;">;</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">reg</span>  D<span style="color: #5D478B;">,</span> CP <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">reg</span>  D<span style="color: #5D478B;">,</span> CP <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">wire</span> Q<span style="color: #5D478B;">,</span> QR <span style="color: #5D478B;">;</span><br/>
-   <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">5</span> CP <span style="color: #5D478B;">=</span> <span style="color: #5D478B;">~</span>CP <span style="color: #5D478B;">;</span><br/>
+   <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">5</span> CP <span style="color: #5D478B;">=</span> <span style="color: #5D478B;">~</span>CP <span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-      D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-      <span style="color: #5D478B;">#</span><span style="color: #ff0055;">12</span> D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
-      <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-      <span style="color: #5D478B;">#</span><span style="color: #ff0055;">14</span> D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
-      <span style="color: #5D478B;">#</span><span style="color: #ff0055;">3</span>  D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-      <span style="color: #5D478B;">#</span><span style="color: #ff0055;">18</span> D <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+      D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">12</span> D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">14</span> D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">3</span>  D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">18</span> D <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
    D_TRI u_d_trigger<span style="color: #9F79EE;">(</span><br/>
         .D      <span style="color: #9F79EE;">(</span>D<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span><br/>
@@ -232,9 +232,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         .QR     <span style="color: #9F79EE;">(</span>QR<span style="color: #9F79EE;">)</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
       <span style="color: #A52A2A; font-weight: bold;">forever</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-         <span style="color: #5D478B;">#</span><span style="color: #ff0055;">100</span><span style="color: #5D478B;">;</span><br/>
+         <span style="color: #5D478B;">#</span><span style="color: #FF0055;">100</span><span style="color: #5D478B;">;</span><br/>
          <span style="color: #00008B; font-style: italic;">//$display("---gyc---%d", $time);</span><br/>
-         <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #ff0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
+         <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #FF0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
             <span style="color: #9932CC;">$finish</span> <span style="color: #5D478B;">;</span><br/>
          <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
       <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
@@ -273,7 +273,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -318,7 +318,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -357,7 +357,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to obtain registration invitation code</a></p>
@@ -568,7 +568,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }

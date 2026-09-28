@@ -209,9 +209,9 @@ variable_name=value
 variable_name = value</pre>
 <p>In addition to explicit direct assignment, you can also use statements to assign values to variables, such as:</p>
 <div class="example"> <div class="example_code">
-<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #c20cb9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>etc<span style="color: #000000; font-weight: bold;">`</span><br/>
+<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #C20CB9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #C20CB9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>etc<span style="color: #000000; font-weight: bold;">`</span><br/>
 或<br/>
-<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #c20cb9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> $<span style="color: #7a0874; font-weight: bold;">(</span><span style="color: #c20cb9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>etc<span style="color: #7a0874; font-weight: bold;">)</span><br/>
+<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #C20CB9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> $<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #C20CB9; font-weight: bold;">ls</span> <span style="color: #000000; font-weight: bold;">/</span>etc<span style="color: #7A0874; font-weight: bold;">)</span><br/>
 </div></div>
 <p>The above statement uses a loop to list the file names in the /etc directory.</p>
 <hr/>
@@ -219,13 +219,13 @@ variable_name = value</pre>
 <p>To use a defined variable, just add a dollar sign before the variable name, like:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">your_name</span>=<span style="color: #a10;">"qinjx"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #800000;">${your_name}</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #800000;">${your_name}</span><br/>
 </div></div>
 <p>The curly braces around the variable name are optional; you can add them or not. Adding curly braces is to help the interpreter identify the boundary of the variable, such as in the following case:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #c20cb9; font-weight: bold;">skill</span> <span style="color: #000000; font-weight: bold;">in</span> Ada Coffe Action Java; <span style="color: #000000; font-weight: bold;">do</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"I am good at <span style="color: #007800;">${skill}</span>Script"</span><br/>
+<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #C20CB9; font-weight: bold;">skill</span> <span style="color: #000000; font-weight: bold;">in</span> Ada Coffe Action Java; <span style="color: #000000; font-weight: bold;">do</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"I am good at <span style="color: #007800;">${skill}</span>Script"</span><br/>
 <span style="color: #000000; font-weight: bold;">done</span><br/>
 </div></div>
 <p>If you do not add curly braces to the skill variable and write echo "I am good at $skillScript", the interpreter will treat $skillScript as a variable (with an empty value), and the code execution result will not be what we expected.</p>
@@ -233,9 +233,9 @@ variable_name = value</pre>
 <p>A defined variable can be redefined, such as:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">your_name</span>=<span style="color: #a10;">"tom"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
 <span style="color: #007800;">your_name</span>=<span style="color: #a10;">"alibaba"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$your_name</span><br/>
 </div></div>
 <p>This is legal, but note that when assigning for the second time, you cannot write $your_name="alibaba"; you only add the dollar sign ($) when using the variable.</p>
 <h3>Read-only Variables</h3>
@@ -245,7 +245,7 @@ variable_name = value</pre>
 <span style="color: #666666; font-style: italic;">#!/bin/bash</span><br/>
 <br/>
 <span style="color: #007800;">myUrl</span>=<span style="color: #a10;">"https://www.google.com"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">readonly</span> myUrl<br/>
+<span style="color: #7A0874; font-weight: bold;">readonly</span> myUrl<br/>
 <span style="color: #007800;">myUrl</span>=<span style="color: #a10;">"https://www.runoob.com"</span><br/>
 </div></div>
 <p>Run the script, the result is as follows:</p><pre>
@@ -259,8 +259,8 @@ variable_name = value</pre>
 <span style="color: #666666; font-style: italic;">#!/bin/sh</span><br/>
 <br/>
 <span style="color: #007800;">myUrl</span>=<span style="color: #a10;">"https://www.runoob.com"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">unset</span> myUrl<br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$myUrl</span><br/>
+<span style="color: #7A0874; font-weight: bold;">unset</span> myUrl<br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$myUrl</span><br/>
 </div></div>
 <p>Executing the above example will produce no output.</p>
 <h3>Variable Types</h3>
@@ -303,7 +303,7 @@ str='this is a string'
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">your_name</span>=<span style="color: #a10;">"runoob"</span><br/>
 <span style="color: #007800;">str</span>=<span style="color: #a10;">"Hello, I know you are <span style="color: #000099; font-weight: bold;">\"</span><span style="color: #007800;">$your_name</span><span style="color: #000099; font-weight: bold;">\"</span>! <span style="color: #000099; font-weight: bold;">\n</span>"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #660033;">-e</span> <span style="color: #007800;">$str</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #660033;">-e</span> <span style="color: #007800;">$str</span><br/>
 </div></div>
 <p>The output is:</p>
 <pre>Hello, I know you are "runoob"! </pre>
@@ -318,12 +318,12 @@ str='this is a string'
 <span style="color: #666666; font-style: italic;"># Concatenate using double quotes</span><br/>
 <span style="color: #007800;">greeting</span>=<span style="color: #a10;">"hello, "</span><span style="color: #007800;">$your_name</span><span style="color: #a10;">" !"</span><br/>
 <span style="color: #007800;">greeting_1</span>=<span style="color: #a10;">"hello, <span style="color: #007800;">${your_name}</span> !"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$greeting</span>  <span style="color: #007800;">$greeting_1</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$greeting</span>  <span style="color: #007800;">$greeting_1</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Concatenate using single quotes</span><br/>
 <span style="color: #007800;">greeting_2</span>=<span style="color: #a10;">'hello, '</span><span style="color: #007800;">$your_name</span><span style="color: #a10;">' !'</span><br/>
 <span style="color: #007800;">greeting_3</span>=<span style="color: #a10;">'hello, ${your_name} !'</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #007800;">$greeting_2</span>  <span style="color: #007800;">$greeting_3</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #007800;">$greeting_2</span>  <span style="color: #007800;">$greeting_3</span><br/>
 </div></div>
 <p>The output is:</p>
 <pre>hello, runoob ! hello, runoob !
@@ -331,25 +331,25 @@ hello, runoob ! hello, ${your_name} !</pre>
 <h3>Getting String Length</h3>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">string</span>=<span style="color: #a10;">"abcd"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #800000;">${#string}</span>   <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #800000;">${#string}</span>   <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
 </div></div>
 <p>When the variable is a string,<span class="marked">${#string}</span>is equivalent to<span class="marked">${#string[0]}</span>:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">string</span>=<span style="color: #a10;">"abcd"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #800000;">${#string[0]}</span>   <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #800000;">${#string[0]}</span>   <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
 </div></div>
 <h3>Extracting Substrings</h3>
 <p>The following example starts from the<strong>2</strong>character of the string and begins extracting<strong>4</strong>characters:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">string</span>=<span style="color: #a10;">"runoob is a great site"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #800000;">${string:1:4}</span> <span style="color: #666666; font-style: italic;"># Outputs unoo</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #800000;">${string:1:4}</span> <span style="color: #666666; font-style: italic;"># Outputs unoo</span><br/>
 </div></div>
 <p><strong>Note</strong>: the index value of the first character is<strong>0</strong>。</p>
 <h3>Finding Substrings</h3>
 <p>Find the character<strong>i</strong> 或 <strong>o</strong>'s position (whichever letter appears first is counted):</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #007800;">string</span>=<span style="color: #a10;">"runoob is a great site"</span><br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">expr</span> index <span style="color: #a10;">"<span style="color: #007800;">$string</span>"</span> io<span style="color: #000000; font-weight: bold;">`</span>  <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #C20CB9; font-weight: bold;">expr</span> index <span style="color: #a10;">"<span style="color: #007800;">$string</span>"</span> io<span style="color: #000000; font-weight: bold;">`</span>  <span style="color: #666666; font-style: italic;"># Outputs 4</span><br/>
 </div></div>
 <p>
 <strong>Note:</strong>In the above script,<span class="marked">`</span>it is a backtick, not a single quote<span class="marked">'</span>, don't misread it.</p>
@@ -427,11 +427,11 @@ echo ${array_name[@]}
 <h3>Multi-line Comments</h3> <p><strong>Using Here documents</strong></p>
 <p>Multi-line comments can also use the following format:</p>
 <div class="example"> <div class="example_code">
-:<span style="color: #cc0000; font-style: italic;">&lt;&lt;EOF<br/>Comment content...<br/>Comment content...<br/>Comment content...<br/>
+:<span style="color: #CC0000; font-style: italic;">&lt;&lt;EOF<br/>Comment content...<br/>Comment content...<br/>Comment content...<br/>
 EOF</span><br/>
 </div></div>In the above example,<span class="marked">:</span>is a null command used to execute the following Here document,<span class="marked">&lt;&lt;'EOF'</span>indicates the start of a Here document, COMMENT is the identifier of the Here document, and the content between these two identifiers will be treated as a comment and will not be executed.<p>Other symbols can also be used instead of EOF:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-: <span style="color: #cc0000; font-style: italic;">&lt;&lt;'COMMENT'<br/>This is the commented part.<br/>It can contain multiple lines.<br/>
+: <span style="color: #CC0000; font-style: italic;">&lt;&lt;'COMMENT'<br/>This is the commented part.<br/>It can contain multiple lines.<br/>
 COMMENT</span><br/>
 <br/>
 :<span style="color: #000000; font-weight: bold;">&lt;&lt;</span><span style="color: #a10;">'<br/>Comment content...<br/>Comment content...<br/>Comment content...<br/>
@@ -478,7 +478,7 @@ Notes list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -523,7 +523,7 @@ Notes list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -688,7 +688,7 @@ done</pre>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes need to be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get registration invitation code</a></p>

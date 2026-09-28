@@ -382,7 +382,7 @@ white-space: pre-wrap;
 <h4>Create Tabs</h4>
 <p>1. Creating Tabs via Markup</p>
 <p>Creating tabs from markup is easier, we don't need to write any JavaScript code. Remember to add the 'easyui-tabs' class to the &lt;div&gt; markup. Each tab panel is created via a child &lt;div&gt; markup, and its usage is the same as the panel.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 &lt;div id="tt" class="easyui-tabs" style="width:500px;height:250px;"&gt;
     &lt;div title="Tab1" style="padding:20px;display:none;"&gt;
         tab1
@@ -397,7 +397,7 @@ white-space: pre-wrap;
 </pre>
 <p>2. Creating Tabs Programmatically</p>
 <p>Now we create tabs programmatically, and we also capture the 'onSelect' event.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 $('#tt').tabs({
     border:false,
     onSelect:function(title){
@@ -407,7 +407,7 @@ $('#tt').tabs({
 </pre>
 <h4>Add a new tab panel</h4>
 <p>Add a new tab panel via a mini tool, the mini tool icon (8x8) is placed before the close button.</p>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 // 添加一个新的标签页面板（tab panel）
 $('#tt').tabs('add',{
     title:'New Tab',
@@ -422,7 +422,7 @@ $('#tt').tabs('add',{
 });
 </pre>
 <h4>Get the selected tab</h4>
-<pre style="color:#006600">
+<pre style="color:#0053A6">
 // 获取选中的标签页面板（tab panel）和它的标签页（tab）对象
 var pp = $('#tt').tabs('getSelected');
 var tab = pp.panel('options').tab; // 相应的标签页（tab）对象 
@@ -481,7 +481,7 @@ var tab = pp.panel('options').tab; // 相应的标签页（tab）对象
 <td>tools</td>
 <td>array,selector</td>
 <td>A toolbar placed on the left or right side of the header. Possible values:<br/>1. An array, indicating a group of tools, each tool option is the same as a link button (Linkbutton).<br/>2. A selector, indicating a &lt;div&gt; that contains the tools.<br/>
-<br/>Code examples:<br/>Define tools via an array.<pre style="color:#006600">
+<br/>Code examples:<br/>Define tools via an array.<pre style="color:#0053A6">
 $('#tt').tabs({
     tools:[{
         iconCls:'icon-add',
@@ -495,7 +495,7 @@ $('#tt').tabs({
         }
     }]
 });
-</pre>Define tools via an existing DOM container.<pre style="color:#006600">
+</pre>Define tools via an existing DOM container.<pre style="color:#0053A6">
 $('#tt').tabs({
     tools:'#tab-tools'
 });
@@ -575,7 +575,7 @@ $('#tt').tabs({
 <tr>
 <td>onBeforeClose</td>
 <td>title,index</td>
-<td>Triggered before a tab panel is closed. Return false to cancel the close action. The example below demonstrates how to display a confirmation dialog before closing a tab panel.<pre style="color:#006600">
+<td>Triggered before a tab panel is closed. Return false to cancel the close action. The example below demonstrates how to display a confirmation dialog before closing a tab panel.<pre style="color:#0053A6">
 $('#tt').tabs({
   onBeforeClose: function(title){
     return confirm('Are you sure you want to close ' + title);
@@ -646,7 +646,7 @@ $('#tt').tabs({
 <tr>
 <td>add</td>
 <td>options</td>
-<td>Add a new tab panel. The options parameter is a configuration object. For more details, see the tab panel properties.<br/>When a new tab panel is added, it will be selected.<br/>If you want to add an unselected tab panel, remember to set the 'selected' property to false.<pre style="color:#006600">
+<td>Add a new tab panel. The options parameter is a configuration object. For more details, see the tab panel properties.<br/>When a new tab panel is added, it will be selected.<br/>If you want to add an unselected tab panel, remember to set the 'selected' property to false.<pre style="color:#0053A6">
 // add a unselected tab panel
 $('#tt').tabs('add',{
     title: 'new tab',
@@ -674,7 +674,7 @@ $('#tt').tabs('add',{
 <tr>
 <td>getSelected</td>
 <td>none</td>
-<td>Get the selected tab panel. The example below demonstrates how to get the index of the selected tab panel.<pre style="color:#006600">
+<td>Get the selected tab panel. The example below demonstrates how to get the index of the selected tab panel.<pre style="color:#0053A6">
 var tab = $('#tt').tabs('getSelected');
 var index = $('#tt').tabs('getTabIndex',tab);
 alert(index);
@@ -710,7 +710,7 @@ alert(index);
 <td>update</td>
 <td>param</td>
 <td>Update the specified tab panel. The param parameter contains two properties:<br/>tab: the tab panel to be updated.<br/>options: the options of the panel.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 // update the selected panel with new title and content
 var tab = $('#tt').tabs('getSelected');  // get selected panel
 $('#tt').tabs('update', {
@@ -731,7 +731,7 @@ tab.panel('refresh', 'get_content.php');
 <td>enableTab</td>
 <td>which</td>
 <td>Enable the specified tab panel. The 'which' parameter can be the title or index of the tab panel. This method is available since version 1.3.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 $('#tt').tabs('enableTab', 1);    // enable the second tab panel
 $('#tt').tabs('enableTab', 'Tab2');    enable the tab panel that has 'Tab2' title
 </pre>
@@ -741,7 +741,7 @@ $('#tt').tabs('enableTab', 'Tab2');    enable the tab panel that has 'Tab2' 
 <td>disableTab</td>
 <td>which</td>
 <td>Disable the specified tab panel. The 'which' parameter can be the title or index of the tab panel. This method is available since version 1.3.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 $('#tt').tabs('disableTab', 1);    // disable the second tab panel.
 </pre>
 </td>
@@ -750,7 +750,7 @@ $('#tt').tabs('disableTab', 1);    // disable the second tab panel.
 <td>scrollBy</td>
 <td>deltaX</td>
 <td>Scroll the tab header by the specified number of pixels. A negative value scrolls to the right, a positive value scrolls to the left. This method is available since version 1.3.2.<br/>
-<br/>Code example:<pre style="color:#006600">
+<br/>Code example:<pre style="color:#0053A6">
 // scroll the tab header to left
 $('#tt').tabs('scroll', 10);
 </pre>
@@ -877,7 +877,7 @@ Note list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -922,7 +922,7 @@ Note list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -961,7 +961,7 @@ Note list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes need to be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -1180,7 +1180,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

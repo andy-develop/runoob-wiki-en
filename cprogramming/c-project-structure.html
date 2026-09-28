@@ -265,29 +265,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #666666; font-style: italic;"># Makefile 基本结构：目标: 依赖\n\t命令</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 编译器设置</span><br/>
-CC      = <span style="color: #c20cb9; font-weight: bold;">gcc</span>                    <span style="color: #666666; font-style: italic;"># 指定 C 编译器</span><br/>
+CC      = <span style="color: #C20CB9; font-weight: bold;">gcc</span>                    <span style="color: #666666; font-style: italic;"># 指定 C 编译器</span><br/>
 CFLAGS  = <span style="color: #660033;">-Wall</span> <span style="color: #660033;">-Wextra</span> <span style="color: #660033;">-g</span>      <span style="color: #666666; font-style: italic;"># 编译选项：全部警告 + 调试信息</span><br/>
 INCLUDE = -I.<span style="color: #000000; font-weight: bold;">/</span>include           <span style="color: #666666; font-style: italic;"># 头文件搜索路径</span><br/>
 TARGET  = runoob_app            <span style="color: #666666; font-style: italic;"># 最终生成的可执行文件名</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 源文件和目标文件</span><br/>
-SRCS    = $<span style="color: #7a0874; font-weight: bold;">(</span>wildcard src<span style="color: #000000; font-weight: bold;">/*</span>.c<span style="color: #7a0874; font-weight: bold;">)</span>   <span style="color: #666666; font-style: italic;"># 自动收集 src/ 下所有 .c 文件</span><br/>
-OBJS    = $<span style="color: #7a0874; font-weight: bold;">(</span>SRCS:.c=.o<span style="color: #7a0874; font-weight: bold;">)</span>         <span style="color: #666666; font-style: italic;"># 推导出对应的 .o 文件名</span><br/>
+SRCS    = $<span style="color: #7A0874; font-weight: bold;">(</span>wildcard src<span style="color: #000000; font-weight: bold;">/*</span>.c<span style="color: #7A0874; font-weight: bold;">)</span>   <span style="color: #666666; font-style: italic;"># 自动收集 src/ 下所有 .c 文件</span><br/>
+OBJS    = $<span style="color: #7A0874; font-weight: bold;">(</span>SRCS:.c=.o<span style="color: #7A0874; font-weight: bold;">)</span>         <span style="color: #666666; font-style: italic;"># 推导出对应的 .o 文件名</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 默认目标：生成可执行文件</span><br/>
-$<span style="color: #7a0874; font-weight: bold;">(</span>TARGET<span style="color: #7a0874; font-weight: bold;">)</span>: $<span style="color: #7a0874; font-weight: bold;">(</span>OBJS<span style="color: #7a0874; font-weight: bold;">)</span><br/>
-        $<span style="color: #7a0874; font-weight: bold;">(</span>CC<span style="color: #7a0874; font-weight: bold;">)</span> $<span style="color: #7a0874; font-weight: bold;">(</span>CFLAGS<span style="color: #7a0874; font-weight: bold;">)</span> <span style="color: #660033;">-o</span> $<span style="color: #000000; font-weight: bold;">@</span> $^<br/>
-        <span style="color: #000000; font-weight: bold;">@</span><span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"构建成功: ./<span style="color: #007800;">$(TARGET)</span>"</span><br/>
+$<span style="color: #7A0874; font-weight: bold;">(</span>TARGET<span style="color: #7A0874; font-weight: bold;">)</span>: $<span style="color: #7A0874; font-weight: bold;">(</span>OBJS<span style="color: #7A0874; font-weight: bold;">)</span><br/>
+        $<span style="color: #7A0874; font-weight: bold;">(</span>CC<span style="color: #7A0874; font-weight: bold;">)</span> $<span style="color: #7A0874; font-weight: bold;">(</span>CFLAGS<span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #660033;">-o</span> $<span style="color: #000000; font-weight: bold;">@</span> $^<br/>
+        <span style="color: #000000; font-weight: bold;">@</span><span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"构建成功: ./<span style="color: #007800;">$(TARGET)</span>"</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 编译规则：.c → .o</span><br/>
 <span style="color: #000000; font-weight: bold;">%</span>.o: <span style="color: #000000; font-weight: bold;">%</span>.c<br/>
-        $<span style="color: #7a0874; font-weight: bold;">(</span>CC<span style="color: #7a0874; font-weight: bold;">)</span> $<span style="color: #7a0874; font-weight: bold;">(</span>CFLAGS<span style="color: #7a0874; font-weight: bold;">)</span> $<span style="color: #7a0874; font-weight: bold;">(</span>INCLUDE<span style="color: #7a0874; font-weight: bold;">)</span> <span style="color: #660033;">-c</span> $<span style="color: #000000; font-weight: bold;">&lt;</span> <span style="color: #660033;">-o</span> $<span style="color: #000000; font-weight: bold;">@</span><br/>
+        $<span style="color: #7A0874; font-weight: bold;">(</span>CC<span style="color: #7A0874; font-weight: bold;">)</span> $<span style="color: #7A0874; font-weight: bold;">(</span>CFLAGS<span style="color: #7A0874; font-weight: bold;">)</span> $<span style="color: #7A0874; font-weight: bold;">(</span>INCLUDE<span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #660033;">-c</span> $<span style="color: #000000; font-weight: bold;">&lt;</span> <span style="color: #660033;">-o</span> $<span style="color: #000000; font-weight: bold;">@</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 清理构建产物</span><br/>
 .PHONY: clean<br/>
 clean:<br/>
-        <span style="color: #c20cb9; font-weight: bold;">rm</span> <span style="color: #660033;">-f</span> $<span style="color: #7a0874; font-weight: bold;">(</span>OBJS<span style="color: #7a0874; font-weight: bold;">)</span> $<span style="color: #7a0874; font-weight: bold;">(</span>TARGET<span style="color: #7a0874; font-weight: bold;">)</span><br/>
-        <span style="color: #000000; font-weight: bold;">@</span><span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"已清理构建文件"</span><br/>
+        <span style="color: #C20CB9; font-weight: bold;">rm</span> <span style="color: #660033;">-f</span> $<span style="color: #7A0874; font-weight: bold;">(</span>OBJS<span style="color: #7A0874; font-weight: bold;">)</span> $<span style="color: #7A0874; font-weight: bold;">(</span>TARGET<span style="color: #7A0874; font-weight: bold;">)</span><br/>
+        <span style="color: #000000; font-weight: bold;">@</span><span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"已清理构建文件"</span><br/>
 </div>
 </div>
 <h3>CMake — cross-platform build system</h3>
@@ -298,23 +298,23 @@ clean:<br/>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># 文件路径：CMakeLists.txt</span><br/>
 <span style="color: #666666; font-style: italic;"># CMake 的最低版本要求</span><br/>
-<span style="color: #1f3f81; font-style: bold;">cmake_minimum_required</span><span style="color: #197d8b;">(</span><span style="color: #077807; font-sytle: italic;">VERSION</span> 3.10<span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">cmake_minimum_required</span><span style="color: #197D8B;">(</span><span style="color: #077807; font-sytle: italic;">VERSION</span> 3.10<span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 项目名称和语言</span><br/>
-<span style="color: #1f3f81; font-style: bold;">project</span><span style="color: #197d8b;">(</span>runoob_app C<span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">project</span><span style="color: #197D8B;">(</span>runoob_app C<span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 设置 C 标准为 C11</span><br/>
-<span style="color: #1f3f81; font-style: bold;">set</span><span style="color: #197d8b;">(</span>CMAKE_C_STANDARD 11<span style="color: #197d8b;">)</span><br/>
-<span style="color: #1f3f81; font-style: bold;">set</span><span style="color: #197d8b;">(</span>CMAKE_C_STANDARD_REQUIRED <span style="color: #077807; font-sytle: italic;">ON</span><span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">set</span><span style="color: #197D8B;">(</span>CMAKE_C_STANDARD 11<span style="color: #197D8B;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">set</span><span style="color: #197D8B;">(</span>CMAKE_C_STANDARD_REQUIRED <span style="color: #077807; font-sytle: italic;">ON</span><span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 收集所有源文件</span><br/>
-<span style="color: #1f3f81; font-style: bold;">file</span><span style="color: #197d8b;">(</span>GLOB SOURCES <span style="color: #912f11;">"src/*.c"</span><span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">file</span><span style="color: #197D8B;">(</span>GLOB SOURCES <span style="color: #912F11;">"src/*.c"</span><span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 定义头文件搜索路径</span><br/>
-<span style="color: #1f3f81; font-style: bold;">include_directories</span><span style="color: #197d8b;">(</span>include<span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">include_directories</span><span style="color: #197D8B;">(</span>include<span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 生成可执行文件</span><br/>
-<span style="color: #1f3f81; font-style: bold;">add_executable</span><span style="color: #197d8b;">(</span><span style="color: #b08000;">${PROJECT_NAME}</span> <span style="color: #b08000;">${SOURCES}</span><span style="color: #197d8b;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">add_executable</span><span style="color: #197D8B;">(</span><span style="color: #B08000;">${PROJECT_NAME}</span> <span style="color: #B08000;">${SOURCES}</span><span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 可选：链接第三方库</span><br/>
 <span style="color: #666666; font-style: italic;"># target_link_libraries(${PROJECT_NAME} PRIVATE m)</span><br/>
@@ -354,7 +354,7 @@ RUNOOB C 项目启动
 箭头 2→3
 <line marker-end="url(#flowArrow)" stroke="#2c3e50" stroke-width="2" x1="330" x2="365" y1="75" y2="75"></line>
 阶段3：汇编
-<rect fill="#d5f5e3" height="70" rx="8" stroke="#27ae60" stroke-width="2" width="140" x="370" y="40"></rect>
+<rect fill="#D5E5F5" height="70" rx="8" stroke="#276AAE" stroke-width="2" width="140" x="370" y="40"></rect>
 <text fill="#2c3e50" font-weight="bold" text-anchor="middle" x="440" y="65">汇编</text>
 <text fill="#7f8c8d" font-size="11" text-anchor="middle" x="440" y="83">Assembly</text>
 <text fill="#555" font-size="11" text-anchor="middle" x="440" y="100">汇编 → .o 目标文件</text>
@@ -368,11 +368,11 @@ RUNOOB C 项目启动
 输出产物标注
 <text fill="#e67e22" font-size="11" font-weight="bold" text-anchor="middle" x="80" y="155">→ .i 文件</text>
 <text fill="#3498db" font-size="11" font-weight="bold" text-anchor="middle" x="260" y="155">→ .s 文件</text>
-<text fill="#27ae60" font-size="11" font-weight="bold" text-anchor="middle" x="440" y="155">→ .o 文件</text>
+<text fill="#276AAE" font-size="11" font-weight="bold" text-anchor="middle" x="440" y="155">→ .o 文件</text>
 <text fill="#9b59b6" font-size="11" font-weight="bold" text-anchor="middle" x="620" y="155">→ 可执行文件</text>
 gcc 命令
 <rect fill="#2c3e50" height="30" rx="4" width="680" x="10" y="165"></rect>
-<text fill="#1abc9c" font-family="'Courier New', monospace" font-size="12" text-anchor="middle" x="350" y="185">gcc -E → -S → -c → (ld)</text>
+<text fill="#1A6BBC" font-family="'Courier New', monospace" font-size="12" text-anchor="middle" x="350" y="185">gcc -E → -S → -c → (ld)</text>
 </svg>
 <h3>Step-by-step compilation commands</h3>
 <p>You can use GCC to execute it step by step and observe the output at each stage:</p>
@@ -538,7 +538,7 @@ build/
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -583,7 +583,7 @@ build/
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -622,7 +622,7 @@ build/
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

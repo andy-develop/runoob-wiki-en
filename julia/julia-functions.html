@@ -272,36 +272,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 end</pre>
 <p>By default, the value returned by a function is the value of the last evaluated expression, so you can see that above there is no<span class="marked">return</span>statement. Of course, if you use<span class="marked">return</span>keyword, the function will return immediately:.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> f<span style="color: #3b972e;">(</span>x,y<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> f<span style="color: #3B972E;">(</span>x,y<span style="color: #3B972E;">)</span><br/>
            x + y<br/>
-       <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-f <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
-julia<span style="color: #6bab5b;">&gt;</span> f<span style="color: #3b972e;">(</span><span style="color: black;">2</span>,<span style="color: black;">3</span><span style="color: #3b972e;">)</span><br/>
+       <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+f <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> f<span style="color: #3B972E;">(</span><span style="color: black;">2</span>,<span style="color: black;">3</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">5</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> bills<span style="color: #3b972e;">(</span>money<span style="color: #3b972e;">)</span><br/>
-      <span style="color: #4266d5;font-weight:bold;">if</span> money <span style="color: #6bab5b;">&lt;</span> <span style="color: black;">0</span><br/>
-         <span style="color: #4266d5;font-weight:bold;">return</span> <span style="color: #4266d5;font-weight:bold;">false</span><br/>
-      <span style="color: #4266d5;font-weight:bold;">else</span><br/>
-         <span style="color: #4266d5;font-weight:bold;">return</span> <span style="color: #4266d5;font-weight:bold;">true</span><br/>
-      <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-   <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-bills <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> bills<span style="color: #3B972E;">(</span>money<span style="color: #3B972E;">)</span><br/>
+      <span style="color: #4266D5;font-weight:bold;">if</span> money <span style="color: #6BAB5B;">&lt;</span> <span style="color: black;">0</span><br/>
+         <span style="color: #4266D5;font-weight:bold;">return</span> <span style="color: #4266D5;font-weight:bold;">false</span><br/>
+      <span style="color: #4266D5;font-weight:bold;">else</span><br/>
+         <span style="color: #4266D5;font-weight:bold;">return</span> <span style="color: #4266D5;font-weight:bold;">true</span><br/>
+      <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+   <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+bills <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> bills<span style="color: #3b972e;">(</span><span style="color: black;">50</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: #4266d5;font-weight:bold;">true</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> bills<span style="color: #3B972E;">(</span><span style="color: black;">50</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: #4266D5;font-weight:bold;">true</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> bills<span style="color: #3b972e;">(</span>-<span style="color: black;">50</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: #4266d5;font-weight:bold;">false</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> bills<span style="color: #3B972E;">(</span>-<span style="color: black;">50</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: #4266D5;font-weight:bold;">false</span><br/>
 </div></div><p>If a function needs to return multiple values, you can use a tuple:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> mul<span style="color: #3b972e;">(</span>x,y<span style="color: #3b972e;">)</span><br/>
-                  x+y, x<span style="color: #6bab5b;">*</span>y<br/>
-               <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-mul <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> mul<span style="color: #3B972E;">(</span>x,y<span style="color: #3B972E;">)</span><br/>
+                  x+y, x<span style="color: #6BAB5B;">*</span>y<br/>
+               <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+mul <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> mul<span style="color: #3b972e;">(</span><span style="color: black;">5</span>, <span style="color: black;">10</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: #3b972e;">(</span><span style="color: black;">15</span>, <span style="color: black;">50</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> mul<span style="color: #3B972E;">(</span><span style="color: black;">5</span>, <span style="color: black;">10</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: #3B972E;">(</span><span style="color: black;">15</span>, <span style="color: black;">50</span><span style="color: #3B972E;">)</span><br/>
 </div></div>
 <p>When a function contains only one expression, you can omit the<span class="marked">function</span>keyword, set the function name and parameters on the left side of the equals sign, and set the expression on the right side, similar to an assignment form:</p>
 <pre>julia&gt; f(x,y) = x + y
@@ -311,16 +311,16 @@ f (generic function with 1 method)</pre>
 julia&gt; g(2,3)
 5</pre>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> f<span style="color: #3b972e;">(</span>a<span style="color: #3b972e;">)</span> = a <span style="color: #6bab5b;">*</span> a<br/>
-f <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> f<span style="color: #3B972E;">(</span>a<span style="color: #3B972E;">)</span> = a <span style="color: #6BAB5B;">*</span> a<br/>
+f <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> f<span style="color: #3b972e;">(</span><span style="color: black;">5</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> f<span style="color: #3B972E;">(</span><span style="color: black;">5</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">25</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> func<span style="color: #3b972e;">(</span>x, y<span style="color: #3b972e;">)</span> = sqrt<span style="color: #3b972e;">(</span>x^<span style="color: black;">2</span> + y^<span style="color: black;">2</span><span style="color: #3b972e;">)</span><br/>
-func <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> func<span style="color: #3B972E;">(</span>x, y<span style="color: #3B972E;">)</span> = sqrt<span style="color: #3B972E;">(</span>x^<span style="color: black;">2</span> + y^<span style="color: black;">2</span><span style="color: #3B972E;">)</span><br/>
+func <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> func<span style="color: #3b972e;">(</span><span style="color: black;">5</span>, <span style="color: black;">4</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> func<span style="color: #3B972E;">(</span><span style="color: black;">5</span>, <span style="color: black;">4</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">6.4031242374328485</span><br/>
 </div></div>
 <p>Like variable names, Unicode characters can also be used as function names:</p>
@@ -332,31 +332,31 @@ julia&gt; ∑(2, 3)
 <h3>Return Type</h3>
 <p>We can use the<span class="marked">::</span>operator to specify the return type of the function.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> g<span style="color: #3b972e;">(</span>x, y<span style="color: #3b972e;">)</span>::<span style="color: #0000A8;font-weight:bold;">Int8</span><br/>
-           <span style="color: #4266d5;font-weight:bold;">return</span> x <span style="color: #6bab5b;">*</span> y<br/>
-       <span style="color: #4266d5;font-weight:bold;">end</span><span style="color: #6bab5b;">;</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> g<span style="color: #3B972E;">(</span>x, y<span style="color: #3B972E;">)</span>::<span style="color: #0000A8;font-weight:bold;">Int8</span><br/>
+           <span style="color: #4266D5;font-weight:bold;">return</span> x <span style="color: #6BAB5B;">*</span> y<br/>
+       <span style="color: #4266D5;font-weight:bold;">end</span><span style="color: #6BAB5B;">;</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> typeof<span style="color: #3b972e;">(</span>g<span style="color: #3b972e;">(</span><span style="color: black;">1</span>, <span style="color: black;">2</span><span style="color: #3b972e;">)</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> typeof<span style="color: #3B972E;">(</span>g<span style="color: #3B972E;">(</span><span style="color: black;">1</span>, <span style="color: black;">2</span><span style="color: #3B972E;">)</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: #0000A8;font-weight:bold;">Int8</span><br/>
 </div></div><p>The above function example ignores the types of x and y and returns a value of type Int8.</p>
 <h3>Optional Arguments</h3><p>In functions, we can set default values for parameters, so that when the parameter is not provided, the default value can be used for calculation:</p><p>The following example defines a function pos with three parameters, where parameter cz has a default value of 0. When calling the function, this parameter can be omitted:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> pos<span style="color: #3b972e;">(</span>ax, <span style="color: #0000A8;font-weight:bold;">by</span>, cz=<span style="color: black;">0</span><span style="color: #3b972e;">)</span><br/>
-         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3b972e;">(</span><span style="color: #c93d39;">"$ax, $by, $cz"</span><span style="color: #3b972e;">)</span><br/>
-      <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-pos <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">2</span> methods<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> pos<span style="color: #3B972E;">(</span>ax, <span style="color: #0000A8;font-weight:bold;">by</span>, cz=<span style="color: black;">0</span><span style="color: #3B972E;">)</span><br/>
+         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3B972E;">(</span><span style="color: #C93D39;">"$ax, $by, $cz"</span><span style="color: #3B972E;">)</span><br/>
+      <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+pos <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">2</span> methods<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> pos<span style="color: #3b972e;">(</span><span style="color: black;">10</span>, <span style="color: black;">30</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> pos<span style="color: #3B972E;">(</span><span style="color: black;">10</span>, <span style="color: black;">30</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">10</span>, <span style="color: black;">30</span>, <span style="color: black;">0</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> pos<span style="color: #3b972e;">(</span><span style="color: black;">10</span>, <span style="color: black;">30</span>, <span style="color: black;">50</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> pos<span style="color: #3B972E;">(</span><span style="color: black;">10</span>, <span style="color: black;">30</span>, <span style="color: black;">50</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">10</span>, <span style="color: black;">30</span>, <span style="color: black;">50</span><br/>
 </div></div>
 <h3>Keyword Arguments</h3><p>Sometimes the functions we define require a large number of arguments, but calling these functions can be troublesome because we may forget the order in which to provide the arguments. For example:</p>
 <div class="example"><div class="example_code">
-<span style="color: #4266d5;font-weight:bold;">function</span> foo<span style="color: #3b972e;">(</span>a, b, c, d, e, f<span style="color: #3b972e;">)</span><br/>
+<span style="color: #4266D5;font-weight:bold;">function</span> foo<span style="color: #3B972E;">(</span>a, b, c, d, e, f<span style="color: #3B972E;">)</span><br/>
 ...<br/>
-<span style="color: #4266d5;font-weight:bold;">end</span><br/>
+<span style="color: #4266D5;font-weight:bold;">end</span><br/>
 </div></div><p>We might forget the order of arguments, resulting in the following function call:</p>
 <pre>foo("25", -5.6987, "hello", 56, good, 'ABC')
 或
@@ -364,28 +364,28 @@ foo("hello", 56, "25", -5.6987, 'ABC', good)</pre>
 <p>This looks very confusing.</p><p>Julia keyword arguments allow arguments to be identified by name rather than only by position, making these complex functions easy to use and extend.</p>
 <p>To mark arguments with keywords, you need to use a semicolon after the unmarked arguments of the function<span class="marked">;</span>, followed by one or more key-value pairs<span class="marked">key=value</span>, as shown below:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> foo<span style="color: #3b972e;">(</span>a, b <span style="color: #6bab5b;">;</span> c = <span style="color: black;">10</span>, d = <span style="color: #c93d39;">"hi"</span><span style="color: #3b972e;">)</span><br/>
-         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3b972e;">(</span><span style="color: #c93d39;">"a is $a"</span><span style="color: #3b972e;">)</span><br/>
-         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3b972e;">(</span><span style="color: #c93d39;">"b is $b"</span><span style="color: #3b972e;">)</span><br/>
-         <span style="color: #4266d5;font-weight:bold;">return</span> <span style="color: #c93d39;">"c =&gt; $c, d =&gt; $d"</span><br/>
-      <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-foo <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> foo<span style="color: #3B972E;">(</span>a, b <span style="color: #6BAB5B;">;</span> c = <span style="color: black;">10</span>, d = <span style="color: #C93D39;">"hi"</span><span style="color: #3B972E;">)</span><br/>
+         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3B972E;">(</span><span style="color: #C93D39;">"a is $a"</span><span style="color: #3B972E;">)</span><br/>
+         <span style="color: #0000A8;font-weight:bold;">println</span><span style="color: #3B972E;">(</span><span style="color: #C93D39;">"b is $b"</span><span style="color: #3B972E;">)</span><br/>
+         <span style="color: #4266D5;font-weight:bold;">return</span> <span style="color: #C93D39;">"c =&gt; $c, d =&gt; $d"</span><br/>
+      <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+foo <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> foo<span style="color: #3b972e;">(</span><span style="color: black;">100</span>,<span style="color: black;">20</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> foo<span style="color: #3B972E;">(</span><span style="color: black;">100</span>,<span style="color: black;">20</span><span style="color: #3B972E;">)</span><br/>
 a is <span style="color: black;">100</span><br/>
 b is <span style="color: black;">20</span><br/>
-<span style="color: #c93d39;">"c =&gt; 10, d =&gt; hi"</span><br/>
+<span style="color: #C93D39;">"c =&gt; 10, d =&gt; hi"</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> foo<span style="color: #3b972e;">(</span><span style="color: #c93d39;">"Hello"</span>, <span style="color: #c93d39;">"Runoob"</span>, c=pi, d=<span style="color: black;">22</span>//<span style="color: black;">7</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> foo<span style="color: #3B972E;">(</span><span style="color: #C93D39;">"Hello"</span>, <span style="color: #C93D39;">"Runoob"</span>, c=pi, d=<span style="color: black;">22</span>//<span style="color: black;">7</span><span style="color: #3B972E;">)</span><br/>
 a is Hello<br/>
 b is Runoob<br/>
-<span style="color: #c93d39;">"c =&gt; π, d =&gt; 22//7"</span><br/>
+<span style="color: #C93D39;">"c =&gt; π, d =&gt; 22//7"</span><br/>
 </div></div><p>With keyword arguments, the position of the arguments is not so important. We can also call the above function like this:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> foo<span style="color: #3b972e;">(</span>c=pi, d =<span style="color: black;">22</span>/<span style="color: black;">7</span>, <span style="color: #c93d39;">"Hello"</span>, <span style="color: #c93d39;">"Runoob"</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> foo<span style="color: #3B972E;">(</span>c=pi, d =<span style="color: black;">22</span>/<span style="color: black;">7</span>, <span style="color: #C93D39;">"Hello"</span>, <span style="color: #C93D39;">"Runoob"</span><span style="color: #3B972E;">)</span><br/>
 a is Hello<br/>
 b is Runoob<br/>
-<span style="color: #c93d39;">"c =&gt; π, d =&gt; 3.142857142857143"</span><br/>
+<span style="color: #C93D39;">"c =&gt; π, d =&gt; 3.142857142857143"</span><br/>
 </div></div>
 <hr/>
 <h2>Anonymous Functions</h2>
@@ -395,55 +395,55 @@ b is Runoob<br/>
 <p>After using anonymous functions, our code becomes more concise.</p>
 <p>The syntax of anonymous functions uses the symbol<span class="marked">-&gt;</span>。 </p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> x -<span style="color: #6bab5b;">&gt;</span> x^<span style="color: black;">2</span> + 2x - <span style="color: black;">1</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> x -<span style="color: #6BAB5B;">&gt;</span> x^<span style="color: black;">2</span> + 2x - <span style="color: black;">1</span><br/>
 <span style="color: #888888;">#1 (generic function with 1 method)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> <span style="color: #3b972e;">(</span>x<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> <span style="color: #3B972E;">(</span>x<span style="color: #3B972E;">)</span><br/>
            x^<span style="color: black;">2</span> + 2x - <span style="color: black;">1</span><br/>
-       <span style="color: #4266d5;font-weight:bold;">end</span><br/>
+       <span style="color: #4266D5;font-weight:bold;">end</span><br/>
 <span style="color: #888888;">#3 (generic function with 1 method)</span><br/>
 </div></div><p>The above example creates a function that accepts one parameter<strong>x</strong>and returns the polynomial of the current value<span class="marked">x^2+2x-1</span>function.</p>
 <p>The main use of anonymous functions is to pass them to functions that receive functions as arguments. A classic example is map, which applies a function to each element of an array and then returns a new array containing the resulting values:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3b972e;">(</span><span style="color: #0000A8;font-weight:bold;">round</span>, <span style="color: #3b972e;">[</span><span style="color: black;">1.2</span>, <span style="color: black;">3.5</span>, <span style="color: black;">1.7</span><span style="color: #3b972e;">]</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Vector</span><span style="color: #3b972e;">{</span><span style="color: #0000A8;font-weight:bold;">Float64</span><span style="color: #3b972e;">}</span>:<br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3B972E;">(</span><span style="color: #0000A8;font-weight:bold;">round</span>, <span style="color: #3B972E;">[</span><span style="color: black;">1.2</span>, <span style="color: black;">3.5</span>, <span style="color: black;">1.7</span><span style="color: #3B972E;">]</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Vector</span><span style="color: #3B972E;">{</span><span style="color: #0000A8;font-weight:bold;">Float64</span><span style="color: #3B972E;">}</span>:<br/>
  <span style="color: black;">1.0</span><br/>
  <span style="color: black;">4.0</span><br/>
  <span style="color: black;">2.0</span><br/>
 </div></div>
 <p>If the transformation function passed as the first argument to map already exists, then using the function name directly is fine. But usually the function to be used has not been defined yet, so using an anonymous function is more convenient:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3b972e;">(</span>x -<span style="color: #6bab5b;">&gt;</span> x^<span style="color: black;">2</span> + 2x - <span style="color: black;">1</span>, <span style="color: #3b972e;">[</span><span style="color: black;">1</span>, <span style="color: black;">3</span>, -<span style="color: black;">1</span><span style="color: #3b972e;">]</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Vector</span><span style="color: #3b972e;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span><span style="color: #3b972e;">}</span>:<br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3B972E;">(</span>x -<span style="color: #6BAB5B;">&gt;</span> x^<span style="color: black;">2</span> + 2x - <span style="color: black;">1</span>, <span style="color: #3B972E;">[</span><span style="color: black;">1</span>, <span style="color: black;">3</span>, -<span style="color: black;">1</span><span style="color: #3B972E;">]</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Vector</span><span style="color: #3B972E;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span><span style="color: #3B972E;">}</span>:<br/>
   <span style="color: black;">2</span><br/>
  <span style="color: black;">14</span><br/>
  -<span style="color: black;">2</span><br/>
 </div></div><p>Anonymous functions that accept multiple arguments can be written using the syntax (x,y,z)-&gt;2x+y-z, while zero-argument anonymous functions are written as ()-&gt;3. This way of writing zero-argument functions may look a bit strange, but it is very necessary for lazy evaluation. This usage wraps a code block into a zero-argument function and later calls it as f.</p>
 <p>For example, consider the call to get:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #0000A8;font-weight:bold;">get</span><span style="color: #3b972e;">(</span>dict, key<span style="color: #3b972e;">)</span> <span style="color: #4266d5;font-weight:bold;">do</span><br/>
+<span style="color: #0000A8;font-weight:bold;">get</span><span style="color: #3B972E;">(</span>dict, key<span style="color: #3B972E;">)</span> <span style="color: #4266D5;font-weight:bold;">do</span><br/>
     <span style="color: #888888;"># default value calculated here</span><br/>
-    <span style="color: #0000A8;font-weight:bold;">time</span><span style="color: #3b972e;">(</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: #4266d5;font-weight:bold;">end</span><br/>
+    <span style="color: #0000A8;font-weight:bold;">time</span><span style="color: #3B972E;">(</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: #4266D5;font-weight:bold;">end</span><br/>
 </div></div><p>The above code is equivalent to calling get with an anonymous function containing the code. It is wrapped between do and end, as shown below:</p>
 <pre>get(()-&gt;time(), dict, key)</pre><p>Here, the call to time is delayed by a zero-argument anonymous function wrapping it. This anonymous function is called only when dict lacks the requested key.</p>
 <hr/>
 <h2>Function Nesting and Recursion</h2>
 <p>In Julia, functions can be nested.</p><p>The following example nests an add1 function inside the add() function:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #4266d5;font-weight:bold;">function</span> add<span style="color: #3b972e;">(</span>x<span style="color: #3b972e;">)</span><br/>
-         Y = x <span style="color: #6bab5b;">*</span> <span style="color: black;">2</span><br/>
-         <span style="color: #4266d5;font-weight:bold;">function</span> add1<span style="color: #3b972e;">(</span>Y<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #4266D5;font-weight:bold;">function</span> add<span style="color: #3B972E;">(</span>x<span style="color: #3B972E;">)</span><br/>
+         Y = x <span style="color: #6BAB5B;">*</span> <span style="color: black;">2</span><br/>
+         <span style="color: #4266D5;font-weight:bold;">function</span> add1<span style="color: #3B972E;">(</span>Y<span style="color: #3B972E;">)</span><br/>
            Y += <span style="color: black;">1</span><br/>
-         <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-         add1<span style="color: #3b972e;">(</span>Y<span style="color: #3b972e;">)</span><br/>
-       <span style="color: #4266d5;font-weight:bold;">end</span><br/>
-add <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+         <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+         add1<span style="color: #3B972E;">(</span>Y<span style="color: #3B972E;">)</span><br/>
+       <span style="color: #4266D5;font-weight:bold;">end</span><br/>
+add <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> d = <span style="color: black;">10</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> d = <span style="color: black;">10</span><br/>
 <span style="color: black;">10</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> add<span style="color: #3b972e;">(</span>d<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> add<span style="color: #3B972E;">(</span>d<span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">21</span><br/>
 </div></div>
 <p>Similarly, functions in Julia can also be recursive.</p>
@@ -451,22 +451,22 @@ julia<span style="color: #6bab5b;">&gt;</span> add<span style="color: #3b972e;">
 <blockquote><p>For example:<br/>Once upon a time there was a mountain, in the mountain there was a temple, in the temple there was an old monk telling a story to a young monk! What was the story? "Once upon a time there was a mountain, in the mountain there was a temple, in the temple there was an old monk telling a story to a young monk! What was the story? 'Once upon a time there was a mountain, in the mountain there was a temple, in the temple there was an old monk telling a story to a young monk! What was the story? ...'"</p></blockquote>
 <p>Below we use the ternary operator to test recursion. The ternary operator operates on three operands<span class="marked">expr ? a : b</span>, if expr is true, the value is the result of evaluating a, otherwise it is the result of evaluating b.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> sum<span style="color: #3b972e;">(</span>x<span style="color: #3b972e;">)</span> = x <span style="color: #6bab5b;">&gt;</span> <span style="color: black;">1</span> <span style="color: #6bab5b;">?</span> sum<span style="color: #3b972e;">(</span>x-<span style="color: black;">1</span><span style="color: #3b972e;">)</span> + x : x<br/>
-sum <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> sum<span style="color: #3B972E;">(</span>x<span style="color: #3B972E;">)</span> = x <span style="color: #6BAB5B;">&gt;</span> <span style="color: black;">1</span> <span style="color: #6BAB5B;">?</span> sum<span style="color: #3B972E;">(</span>x-<span style="color: black;">1</span><span style="color: #3B972E;">)</span> + x : x<br/>
+sum <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> sum<span style="color: #3b972e;">(</span><span style="color: black;">10</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> sum<span style="color: #3B972E;">(</span><span style="color: black;">10</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">55</span><br/>
 </div></div><p>The above example is used to calculate the sum of all numbers up to and including a certain integer. In this recursion, because there is a base case, that is, when x is 1, this value is returned.</p>
 <p>The most famous example of recursion is calculating the nth Fibonacci number. The Fibonacci sequence is a sequence like this: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368........</p>
 <p>Starting from the 3rd term, each term in this sequence is equal to the sum of the previous two terms.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> fib<span style="color: #3b972e;">(</span>x<span style="color: #3b972e;">)</span> = x <span style="color: #6bab5b;">&lt;</span> <span style="color: black;">2</span> <span style="color: #6bab5b;">?</span> x : fib<span style="color: #3b972e;">(</span>x-<span style="color: black;">1</span><span style="color: #3b972e;">)</span> + fib<span style="color: #3b972e;">(</span>x-<span style="color: black;">2</span><span style="color: #3b972e;">)</span><br/>
-fib <span style="color: #3b972e;">(</span>generic <span style="color: #4266d5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> fib<span style="color: #3B972E;">(</span>x<span style="color: #3B972E;">)</span> = x <span style="color: #6BAB5B;">&lt;</span> <span style="color: black;">2</span> <span style="color: #6BAB5B;">?</span> x : fib<span style="color: #3B972E;">(</span>x-<span style="color: black;">1</span><span style="color: #3B972E;">)</span> + fib<span style="color: #3B972E;">(</span>x-<span style="color: black;">2</span><span style="color: #3B972E;">)</span><br/>
+fib <span style="color: #3B972E;">(</span>generic <span style="color: #4266D5;font-weight:bold;">function</span> with <span style="color: black;">1</span> method<span style="color: #3B972E;">)</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> fib<span style="color: #3b972e;">(</span><span style="color: black;">10</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> fib<span style="color: #3B972E;">(</span><span style="color: black;">10</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">55</span><br/>
 <br/>
-julia<span style="color: #6bab5b;">&gt;</span> fib<span style="color: #3b972e;">(</span><span style="color: black;">20</span><span style="color: #3b972e;">)</span><br/>
+julia<span style="color: #6BAB5B;">&gt;</span> fib<span style="color: #3B972E;">(</span><span style="color: black;">20</span><span style="color: #3B972E;">)</span><br/>
 <span style="color: black;">6765</span><br/>
 </div></div>
 <hr/>
@@ -474,8 +474,8 @@ julia<span style="color: #6bab5b;">&gt;</span> fib<span style="color: #3b972e;">
 <pre>map(func, coll)</pre>
 <p>Here, func is a function that is applied to each element of the collection coll in turn. Map generally contains an anonymous function and returns a new collection.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3b972e;">(</span>A -<span style="color: #6bab5b;">&gt;</span> A^<span style="color: black;">3</span> + 3A - <span style="color: black;">3</span>, <span style="color: #3b972e;">[</span><span style="color: black;">10</span>,<span style="color: black;">3</span>,-<span style="color: black;">2</span><span style="color: #3b972e;">]</span><span style="color: #3b972e;">)</span><br/>
-<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3b972e;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3b972e;">}</span>:<br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">map</span><span style="color: #3B972E;">(</span>A -<span style="color: #6BAB5B;">&gt;</span> A^<span style="color: black;">3</span> + 3A - <span style="color: black;">3</span>, <span style="color: #3B972E;">[</span><span style="color: black;">10</span>,<span style="color: black;">3</span>,-<span style="color: black;">2</span><span style="color: #3B972E;">]</span><span style="color: #3B972E;">)</span><br/>
+<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3B972E;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3B972E;">}</span>:<br/>
  <span style="color: black;">1027</span><br/>
    <span style="color: black;">33</span><br/>
   -<span style="color: black;">17</span><br/>
@@ -487,14 +487,14 @@ julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #0000A8;font-
 filter(function, collection)</pre>
 <p>The filter function returns a copy of the collection, removing elements for which the result of calling the function is false.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-julia<span style="color: #6bab5b;">&gt;</span> array = <span style="color: #0000A8;font-weight:bold;">Int</span><span style="color: #3b972e;">[</span><span style="color: black;">1</span>,<span style="color: black;">2</span>,<span style="color: black;">3</span><span style="color: #3b972e;">]</span><br/>
-<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3b972e;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3b972e;">}</span>:<br/>
+julia<span style="color: #6BAB5B;">&gt;</span> array = <span style="color: #0000A8;font-weight:bold;">Int</span><span style="color: #3B972E;">[</span><span style="color: black;">1</span>,<span style="color: black;">2</span>,<span style="color: black;">3</span><span style="color: #3B972E;">]</span><br/>
+<span style="color: black;">3</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3B972E;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3B972E;">}</span>:<br/>
  <span style="color: black;">1</span><br/>
  <span style="color: black;">2</span><br/>
  <span style="color: black;">3</span><br/>
  <br/>
-julia<span style="color: #6bab5b;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">filter</span><span style="color: #3b972e;">(</span>x -<span style="color: #6bab5b;">&gt;</span> x <span style="color: #6bab5b;">%</span> <span style="color: black;">2</span> == <span style="color: black;">0</span>, array<span style="color: #3b972e;">)</span><br/>
-<span style="color: black;">1</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3b972e;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3b972e;">}</span>:<br/>
+julia<span style="color: #6BAB5B;">&gt;</span> <span style="color: #0000A8;font-weight:bold;">filter</span><span style="color: #3B972E;">(</span>x -<span style="color: #6BAB5B;">&gt;</span> x <span style="color: #6BAB5B;">%</span> <span style="color: black;">2</span> == <span style="color: black;">0</span>, array<span style="color: #3B972E;">)</span><br/>
+<span style="color: black;">1</span>-element <span style="color: #0000A8;font-weight:bold;">Array</span><span style="color: #3B972E;">{</span><span style="color: #0000A8;font-weight:bold;">Int64</span>,<span style="color: black;">1</span><span style="color: #3B972E;">}</span>:<br/>
  <span style="color: black;">2</span><br/>
 </div></div>
 Other Extensions
@@ -531,7 +531,7 @@ Note List
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -576,7 +576,7 @@ Note List
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -615,7 +615,7 @@ Note List
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, you can click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -834,7 +834,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

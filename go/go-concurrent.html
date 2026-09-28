@@ -181,25 +181,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <pre>f(x, y, z)</pre>
 <p>Go allows the go statement to start a new runtime thread, namely a goroutine, executing a function in a distinct, newly created goroutine. All goroutines in the same program share the same address space.</p>
 <div class="example"><h2 class="example">实例</h2><div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
-        <span style="color: #cc66cc;">"fmt"</span><br/>
-        <span style="color: #cc66cc;">"time"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
+        <span style="color: #CC66CC;">"fmt"</span><br/>
+        <span style="color: #CC66CC;">"time"</span><br/>
 <span style="color: #339933;">)</span><br/>
 <br/>
 <span style="color: #993333;">func</span> sayHello<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #cc66cc;">5</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
-                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #cc66cc;">"Hello"</span><span style="color: #339933;">)</span><br/>
-                time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #cc66cc;">100</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Millisecond<span style="color: #339933;">)</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #CC66CC;">5</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Hello"</span><span style="color: #339933;">)</span><br/>
+                time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #CC66CC;">100</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Millisecond<span style="color: #339933;">)</span><br/>
         <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">go</span> sayHello<span style="color: #339933;">()</span> <span style="color: #666666; font-style: italic;">// 启动 Goroutine</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #cc66cc;">5</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
-                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #cc66cc;">"Main"</span><span style="color: #339933;">)</span><br/>
-                time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #cc66cc;">100</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Millisecond<span style="color: #339933;">)</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">go</span> sayHello<span style="color: #339933;">()</span> <span style="color: #666666; font-style: italic;">// 启动 Goroutine</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #CC66CC;">5</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Main"</span><span style="color: #339933;">)</span><br/>
+                time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #CC66CC;">100</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Millisecond<span style="color: #339933;">)</span><br/>
         <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
@@ -224,24 +224,24 @@ v := &lt;-ch  // 从 ch 接收数据
 <strong>注意</strong>By default, channels are unbuffered. When the sender sends data, there must be a corresponding receiver receiving the data at the same time.</p>
 <p>The following example uses two goroutines to calculate the sum of numbers. After the goroutines complete their calculations, it calculates the sum of the two results:</p>
 <div class="example"><h2 class="example">实例</h2><div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #cc66cc;">"fmt"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> sum<span style="color: #339933;">(</span>s <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> c <span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
-    sum <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> _<span style="color: #339933;">,</span> v <span style="color: #339933;">:=</span> <span style="color: #b1b100; font-weight: bold;">range</span> s <span style="color: #339933;">{</span><br/>
+    sum <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> _<span style="color: #339933;">,</span> v <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> s <span style="color: #339933;">{</span><br/>
         sum <span style="color: #339933;">+=</span> v<br/>
     <span style="color: #339933;">}</span><br/>
     c &lt;<span style="color: #339933;">-</span> sum <span style="color: #666666; font-style: italic;">// 把 sum 发送到通道 c</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    s <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #cc66cc;">7</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">2</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">8</span><span style="color: #339933;">,</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">4</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">}</span><br/>
+    s <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">7</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">8</span><span style="color: #339933;">,</span> <span style="color: #339933;">-</span><span style="color: #CC66CC;">9</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">}</span><br/>
 <br/>
     c <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> sum<span style="color: #339933;">(</span>s<span style="color: #339933;">[:</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">)</span><span style="color: #339933;">/</span><span style="color: #cc66cc;">2</span><span style="color: #339933;">],</span> c<span style="color: #339933;">)</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> sum<span style="color: #339933;">(</span>s<span style="color: #339933;">[</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">)</span><span style="color: #339933;">/</span><span style="color: #cc66cc;">2</span><span style="color: #339933;">:],</span> c<span style="color: #339933;">)</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> sum<span style="color: #339933;">(</span>s<span style="color: #339933;">[:</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">)</span><span style="color: #339933;">/</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">],</span> c<span style="color: #339933;">)</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> sum<span style="color: #339933;">(</span>s<span style="color: #339933;">[</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">)</span><span style="color: #339933;">/</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">:],</span> c<span style="color: #339933;">)</span><br/>
     x<span style="color: #339933;">,</span> y <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>c<span style="color: #339933;">,</span> &lt;<span style="color: #339933;">-</span>c <span style="color: #666666; font-style: italic;">// 从通道 c 中接收</span><br/>
 <br/>
     fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span>x<span style="color: #339933;">,</span> y<span style="color: #339933;">,</span> x<span style="color: #339933;">+</span>y<span style="color: #339933;">)</span><br/>
@@ -256,19 +256,19 @@ v := &lt;-ch  // 从 ch 接收数据
 <p>However, since the buffer size is limited, there must still be a receiver to receive data. Otherwise, once the buffer is full, the sender cannot send more data.</p>
 <p><strong>注意</strong>If a channel is unbuffered, the sender blocks until the receiver has received a value from the channel. If a channel is buffered, the sender blocks until the sent value is copied into the buffer; if the buffer is full, it means waiting until some receiver retrieves a value. The receiver blocks until there is a value to receive.</p>
 <div class="example"><h2 class="example">实例</h2><div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #cc66cc;">"fmt"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #666666; font-style: italic;">// 这里我们定义了一个可以存储整数类型的带缓冲通道</span><br/>
     <span style="color: #666666; font-style: italic;">// 缓冲区大小为2</span><br/>
-    ch <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">2</span><span style="color: #339933;">)</span><br/>
+    ch <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">)</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">// 因为 ch 是带缓冲的通道，我们可以同时发送两个数据</span><br/>
     <span style="color: #666666; font-style: italic;">// 而不用立刻需要去同步读取数据</span><br/>
-    ch &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">1</span><br/>
-    ch &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">2</span><br/>
+    ch &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">1</span><br/>
+    ch &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">2</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">// 获取这两个数据</span><br/>
     fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #339933;">&lt;-</span>ch<span style="color: #339933;">)</span><br/>
@@ -283,15 +283,15 @@ v := &lt;-ch  // 从 ch 接收数据
 <pre>v, ok := &lt;-ch</pre>
 <p>If the channel receives no data, ok becomes false, and then the channel can be closed using close().<span class="marked">close()</span>function to close.</p>
 <div class="example"><h2 class="example">实例</h2><div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
-    <span style="color: #cc66cc;">"fmt"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
+    <span style="color: #CC66CC;">"fmt"</span><br/>
 <span style="color: #339933;">)</span><br/>
 <br/>
 <span style="color: #993333;">func</span> fibonacci<span style="color: #339933;">(</span>n <span style="color: #993333;">int</span><span style="color: #339933;">,</span> c <span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
-    x<span style="color: #339933;">,</span> y <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">1</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; n<span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+    x<span style="color: #339933;">,</span> y <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">1</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; n<span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
         c &lt;<span style="color: #339933;">-</span> x<br/>
         x<span style="color: #339933;">,</span> y <span style="color: #339933;">=</span> y<span style="color: #339933;">,</span> x<span style="color: #339933;">+</span>y<br/>
     <span style="color: #339933;">}</span><br/>
@@ -299,13 +299,13 @@ v := &lt;-ch  // 从 ch 接收数据
 <span style="color: #339933;">}</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    c <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">10</span><span style="color: #339933;">)</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> fibonacci<span style="color: #339933;">(</span><span style="color: #000066;">cap</span><span style="color: #339933;">(</span>c<span style="color: #339933;">),</span> c<span style="color: #339933;">)</span><br/>
+    c <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">10</span><span style="color: #339933;">)</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> fibonacci<span style="color: #339933;">(</span><span style="color: #000066;">cap</span><span style="color: #339933;">(</span>c<span style="color: #339933;">),</span> c<span style="color: #339933;">)</span><br/>
     <span style="color: #666666; font-style: italic;">// range 函数遍历每个从通道接收到的数据，因为 c 在发送完 10 个</span><br/>
     <span style="color: #666666; font-style: italic;">// 数据之后就关闭了通道，所以这里我们 range 函数在接收到 10 个数据</span><br/>
     <span style="color: #666666; font-style: italic;">// 之后就结束了。如果上面的 c 通道不关闭，那么 range 函数就不</span><br/>
     <span style="color: #666666; font-style: italic;">// 会结束，从而在接收第 11 个数据的时候就阻塞了。</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #b1b100; font-weight: bold;">range</span> c <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> c <span style="color: #339933;">{</span><br/>
         fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="">i</span><span style="color: #339933;">)</span><br/>
     <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -324,19 +324,19 @@ v := &lt;-ch  // 从 ch 接收数据
 <h3>Select 语句</h3>
 <p><code>select</code>The select statement allows a goroutine to wait for multiple communication operations.<code>select</code>It will block until one of its cases can proceed:</p>
 <div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #cc66cc;">"fmt"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> fibonacci<span style="color: #339933;">(</span>c<span style="color: #339933;">,</span> quit <span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
-    x<span style="color: #339933;">,</span> y <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">1</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">case</span> c &lt;<span style="color: #339933;">-</span> x<span style="color: #339933;">:</span><br/>
+    x<span style="color: #339933;">,</span> y <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">1</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">case</span> c &lt;<span style="color: #339933;">-</span> x<span style="color: #339933;">:</span><br/>
             x<span style="color: #339933;">,</span> y <span style="color: #339933;">=</span> y<span style="color: #339933;">,</span> x<span style="color: #339933;">+</span>y<br/>
-        <span style="color: #b1b100; font-weight: bold;">case</span> &lt;<span style="color: #339933;">-</span>quit<span style="color: #339933;">:</span><br/>
-            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #cc66cc;">"quit"</span><span style="color: #339933;">)</span><br/>
-            <span style="color: #b1b100; font-weight: bold;">return</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">case</span> &lt;<span style="color: #339933;">-</span>quit<span style="color: #339933;">:</span><br/>
+            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"quit"</span><span style="color: #339933;">)</span><br/>
+            <span style="color: #B1B100; font-weight: bold;">return</span><br/>
         <span style="color: #339933;">}</span><br/>
     <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -345,11 +345,11 @@ v := &lt;-ch  // 从 ch 接收数据
     c <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span><br/>
     quit <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">int</span><span style="color: #339933;">)</span><br/>
 <br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #cc66cc;">10</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #CC66CC;">10</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
             fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>&lt;<span style="color: #339933;">-</span>c<span style="color: #339933;">)</span><br/>
         <span style="color: #339933;">}</span><br/>
-        quit &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">0</span><br/>
+        quit &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">0</span><br/>
     <span style="color: #339933;">}()</span><br/>
     fibonacci<span style="color: #339933;">(</span>c<span style="color: #339933;">,</span> quit<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -371,29 +371,29 @@ quit</pre>
 <p>sync.WaitGroup is used to wait for multiple Goroutines to complete.</p><p>
 <strong>Synchronizing multiple goroutines:</strong></p>
 <div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
-        <span style="color: #cc66cc;">"fmt"</span><br/>
-        <span style="color: #cc66cc;">"sync"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
+        <span style="color: #CC66CC;">"fmt"</span><br/>
+        <span style="color: #CC66CC;">"sync"</span><br/>
 <span style="color: #339933;">)</span><br/>
 <br/>
 <span style="color: #993333;">func</span> worker<span style="color: #339933;">(</span>id <span style="color: #993333;">int</span><span style="color: #339933;">,</span> wg <span style="color: #339933;">*</span>sync<span style="color: #339933;">.</span>WaitGroup<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">defer</span> wg<span style="color: #339933;">.</span>Done<span style="color: #339933;">()</span> <span style="color: #666666; font-style: italic;">// Goroutine 完成时调用 Done()</span><br/>
-        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #cc66cc;">"Worker %d started<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> id<span style="color: #339933;">)</span><br/>
-        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #cc66cc;">"Worker %d finished<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> id<span style="color: #339933;">)</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">defer</span> wg<span style="color: #339933;">.</span>Done<span style="color: #339933;">()</span> <span style="color: #666666; font-style: italic;">// Goroutine 完成时调用 Done()</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Worker %d started<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> id<span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Worker %d finished<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> id<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">var</span> wg sync<span style="color: #339933;">.</span>WaitGroup<br/>
+        <span style="color: #B1B100; font-weight: bold;">var</span> wg sync<span style="color: #339933;">.</span>WaitGroup<br/>
 <br/>
-        <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span> <span style="">i</span> &lt;<span style="color: #339933;">=</span> <span style="color: #cc66cc;">3</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
-                wg<span style="color: #339933;">.</span>Add<span style="color: #339933;">(</span><span style="color: #cc66cc;">1</span><span style="color: #339933;">)</span> <span style="color: #666666; font-style: italic;">// 增加计数器</span><br/>
-                <span style="color: #b1b100; font-weight: bold;">go</span> worker<span style="color: #339933;">(</span><span style="">i</span><span style="color: #339933;">,</span> &amp;wg<span style="color: #339933;">)</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">1</span><span style="color: #339933;">;</span> <span style="">i</span> &lt;<span style="color: #339933;">=</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+                wg<span style="color: #339933;">.</span>Add<span style="color: #339933;">(</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">)</span> <span style="color: #666666; font-style: italic;">// 增加计数器</span><br/>
+                <span style="color: #B1B100; font-weight: bold;">go</span> worker<span style="color: #339933;">(</span><span style="">i</span><span style="color: #339933;">,</span> &amp;wg<span style="color: #339933;">)</span><br/>
         <span style="color: #339933;">}</span><br/>
 <br/>
         wg<span style="color: #339933;">.</span>Wait<span style="color: #339933;">()</span> <span style="color: #666666; font-style: italic;">// 等待所有 Goroutine 完成</span><br/>
-        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #cc66cc;">"All workers done"</span><span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"All workers done"</span><span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div><p>For the above code, the execution output is as follows:</p>
 <pre>Worker 1 started
@@ -460,7 +460,7 @@ mu.Unlock()</pre>
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -505,7 +505,7 @@ mu.Unlock()</pre>
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -859,7 +859,7 @@ func main() {
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

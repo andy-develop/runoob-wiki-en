@@ -121,9 +121,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>There are three types of template parameters: type parameters, non-type parameters, and template parameters.</p>
 <h3>1. Type Parameters</h3>
 <p>1.1 Type template parameters:<strong><span>A type parameter is composed of the keyword class or typename followed by a specifier</span></strong>, such as<strong>template&lt;class T&gt; void h(T a){}</strong>; where<strong>T</strong>is a type parameter. The name of the type parameter is determined by the user himself.<span><strong>A template parameter represents an unknown type.</strong></span>A template type parameter can be used as a type specifier anywhere in the template, exactly the same way as built-in type specifiers or class type specifiers; that is, it can be used to specify return types, variable declarations, etc.</p>
-<p><strong><span style="color: #ff0000;">Author's original version:</span><span style="color: #ff0000;">1.2、</span></strong>You cannot specify two different types for the same template type parameter. For example,<strong>template&lt;class T&gt;void h(T a, T b){}，</strong>the statement calling<strong>h(2, 3.2)</strong>will cause an error, because the statement specifies, for the same template parameter,<strong>T</strong>two types. The first argument<strong>2</strong>specifies template parameter T as<strong>int</strong>, while the second argument<strong>3.2</strong>specifies the template parameter as<strong>double</strong>, the two types of parameters are inconsistent, causing an error.<span style="color: #ff0000; background-color: #99ccff;"><strong>(Applies to function templates)</strong></span></p>
+<p><strong><span style="color: #FF0000;">Author's original version:</span><span style="color: #FF0000;">1.2、</span></strong>You cannot specify two different types for the same template type parameter. For example,<strong>template&lt;class T&gt;void h(T a, T b){}，</strong>the statement calling<strong>h(2, 3.2)</strong>will cause an error, because the statement specifies, for the same template parameter,<strong>T</strong>two types. The first argument<strong>2</strong>specifies template parameter T as<strong>int</strong>, while the second argument<strong>3.2</strong>specifies the template parameter as<strong>double</strong>, the two types of parameters are inconsistent, causing an error.<span style="color: #FF0000; background-color: #99ccff;"><strong>(Applies to function templates)</strong></span></p>
 <p>Author's original version: 1.2 is correct for function templates, but it ignores class templates. Below, the situation for class templates will be supplemented.</p>
-<p><strong><span style="color: #ff0000;">My supplementary version 1.2 (for class templates):</span></strong>When we declare a class object as:<strong>A&lt;int&gt; a</strong>, for example<strong>template&lt;class T&gt;T g(T a, T b){}</strong>, a call statement<strong>a.g(2, 3.2)</strong>will not cause an error at compile time, but there will be a warning, because when declaring the class object, it has already<strong>T</strong>converted to<strong>int</strong>type, while the second argument<strong>3.2</strong>specifies the template parameter as<strong>double</strong>, at runtime, it will<strong>3.2</strong>perform a forced type conversion to<strong>3</strong>. When we declare the object of the class as:<strong>A&lt;double&gt; a</strong>, at this time there will be no such warning, because from<strong>int</strong>到<strong>double</strong>is an automatic type conversion.</p>
+<p><strong><span style="color: #FF0000;">My supplementary version 1.2 (for class templates):</span></strong>When we declare a class object as:<strong>A&lt;int&gt; a</strong>, for example<strong>template&lt;class T&gt;T g(T a, T b){}</strong>, a call statement<strong>a.g(2, 3.2)</strong>will not cause an error at compile time, but there will be a warning, because when declaring the class object, it has already<strong>T</strong>converted to<strong>int</strong>type, while the second argument<strong>3.2</strong>specifies the template parameter as<strong>double</strong>, at runtime, it will<strong>3.2</strong>perform a forced type conversion to<strong>3</strong>. When we declare the object of the class as:<strong>A&lt;double&gt; a</strong>, at this time there will be no such warning, because from<strong>int</strong>到<strong>double</strong>is an automatic type conversion.</p>
 <h3>Demonstration Example 1:</h3>
 <div class="example">
 <h2 class="example">TemplateDemo.h</h2>
@@ -162,15 +162,15 @@ TemplateDemo.obj - 0 error(s), 1 warning(s)</pre>
 
 <p>From the test example above, we can see that it is not as rigorous as in the author's original work! This is only my personal test result! Please adopt a practical and truth-seeking attitude and verify it yourself!</p>
 <h3>2. Non-type Parameters</h3>
-<p>2.1 Non-type template parameters:<span style="color: #0000ff;"><strong>A non-type template parameter is a built-in type parameter</strong></span>, such as<strong>template&lt;class T, int a&gt; class B{};</strong>where<strong>int a</strong>is a non-type template parameter.</p>
+<p>2.1 Non-type template parameters:<span style="color: #0000FF;"><strong>A non-type template parameter is a built-in type parameter</strong></span>, such as<strong>template&lt;class T, int a&gt; class B{};</strong>where<strong>int a</strong>is a non-type template parameter.</p>
 <p>2.2 Non-type parameters are constant values inside the template definition; that is, non-type parameters are constants inside the template.</p>
-<p>　　　　<strong>2.3、 <span style="color: #0000ff;">Non-type<strong><span style="color: #0000ff;">template</span></strong>parameters can only be integral types, pointers, and references</span>, types such as double, String, and String** are not allowed.</strong>But<strong>double &amp;，double *，</strong>references or pointers to objects are valid.</p>
+<p>　　　　<strong>2.3、 <span style="color: #0000FF;">Non-type<strong><span style="color: #0000FF;">template</span></strong>parameters can only be integral types, pointers, and references</span>, types such as double, String, and String** are not allowed.</strong>But<strong>double &amp;，double *，</strong>references or pointers to objects are valid.</p>
 <p>　　　　2.4、 <strong>The argument to a non-type template parameter must be a constant expression,</strong>that is, it must be computable at compile time.</p>
 <p>2.5 Note:<strong>Any local object, local variable, address of a local object, or address of a local variable is not a constant expression and cannot be used as an argument for a non-type template parameter.</strong>Global pointer types, global variables, and global objects are also not constant expressions and cannot be used as arguments for non-type template parameters.</p>
-<p>　　　　2.6、 <span style="color: #0000ff;"><strong>; A&lt;b&gt; m; that is, array-to-pointer conversion.</strong></span>。</p>
+<p>　　　　2.6、 <span style="color: #0000FF;"><strong>; A&lt;b&gt; m; that is, array-to-pointer conversion.</strong></span>。</p>
 <p>　　　　2.7 、<strong>sizeof</strong>The result of an expression is a constant expression, and it can also be used as an argument for a non-type template parameter.</p>
 <p>2.8. When the template parameter is an integer type, the argument used when calling the template must be of integer type and must be a constant during compilation. For example,<strong>template &lt;class T, int a&gt; class A{};</strong>If there is<strong>int b, then A&lt;int, b&gt; m;</strong>will cause an error, because<strong>b</strong>b is not a constant. If<strong>const int b, then A&lt;int, b&gt; m</strong>; is correct, because at this time<strong>b</strong>b is a constant.</p>
-<p>　　　　<strong>2.9 、<span style="color: #0000ff;">Non-type parameters are generally not used in function templates.</span></strong>For example, there is a function template<strong>template&lt;class T, int a&gt; void h(T b){}</strong>, if using<strong>h(2)</strong>to call it, an error will occur indicating that the argument for the non-type parameter a cannot be deduced. For such a template function, explicit template arguments can be used to solve the problem, such as h&lt;int, 3&gt;(2), which sets the non-type parameter a to the integer 3. Explicit template arguments will be introduced later.</p>
+<p>　　　　<strong>2.9 、<span style="color: #0000FF;">Non-type parameters are generally not used in function templates.</span></strong>For example, there is a function template<strong>template&lt;class T, int a&gt; void h(T b){}</strong>, if using<strong>h(2)</strong>to call it, an error will occur indicating that the argument for the non-type parameter a cannot be deduced. For such a template function, explicit template arguments can be used to solve the problem, such as h&lt;int, 3&gt;(2), which sets the non-type parameter a to the integer 3. Explicit template arguments will be introduced later.</p>
 <p>2.10. Allowed conversions between the parameter and argument of non-type template parameters<br/><strong>1. Conversions from array to pointer and from function to pointer are allowed. For example: template &lt;int *a&gt; class A{}; int b</strong><br/><strong>2. Conversion of the const qualifier. For example: template&lt;const int *a&gt; class A{}; int b; A&lt;&amp;b&gt; m; that is, conversion from int * to const int *.</strong><br/><strong>3. Promotion conversion. For example: template&lt;int a&gt; class A{}; const short b=2; A&lt;b&gt; m; that is, promotion conversion from short to int.</strong><br/><strong>4. Integral conversion. For example: template&lt;unsigned int a&gt; class A{}; A&lt;3&gt; m; that is, conversion from int to unsigned int.</strong><br/><strong>5. Usual conversions.</strong></p>
 <p><span style="color: #008000;"><strong><span style="font-size: 14pt;">Non-type parameter demonstration example 1:</span></strong></span></p>
 <p>　　<strong>The user specifies the size of the stack by themselves and implements the related operations of the stack.</strong></p>
@@ -377,7 +377,7 @@ TemplateDemo02.obj - 0 error(s), 2 warning(s)</pre>
 <p>2. The form of default values for class template type parameters is:<strong>template&lt;class T1, class T2=int&gt; class A{};</strong>for the second template type parameter<strong>T2</strong>provide<strong>int</strong>a default value of type ...</p>
 <p>3. Default values for class template type parameters are the same as default parameters of functions. If there are multiple type parameters, then all template parameters after the first parameter that has a default value must also have default values. For example,<strong>template&lt;class T1=int, class T2&gt;class A{};</strong>it is wrong, because<strong>T1</strong>a default value is given for ..., while<strong>T2</strong>no default value is set for ...</p>
 <p>4. When defining members of a class outside the class template,<strong>template</strong>the parameter list after 'template' should omit the default parameter types. For example,<strong>template&lt;class  T1, class T2=int&gt; class A{public: void h();}</strong>; the definition method is<strong>template&lt;class T1,class T2&gt; void A&lt;T1,T2&gt;::h(){}</strong>。</p>
-<p><span style="color: #ff0000;"><strong>Define class template type parameters:</strong></span></p>
+<p><span style="color: #FF0000;"><strong>Define class template type parameters:</strong></span></p>
 <h3>Demonstration Example 1:</h3>
 <div class="example">
 <h2 class="example">TemplateDemo.h</h2>
@@ -695,7 +695,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }
@@ -726,7 +726,7 @@ var aid = 19684;
 
 	&lt;div class="sidebar-box cate-list"&gt;
 	&lt;div class="sidebar-box recommend-here list-link"&gt;
-			&lt;a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"&gt;Notes List&lt;/a&gt;
+			&lt;a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"&gt;Notes List&lt;/a&gt;
 		&lt;/div&gt;
 
  
@@ -735,7 +735,7 @@ var aid = 19684;
 
 <div class="sidebar-box cate-list" style="display:none;">
 <div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">Popular Articles</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;">Popular Articles</a>
 </div>
 <div class="membership">
 <ul class="membership">
@@ -750,7 +750,7 @@ var aid = 19684;
 </div>
 <div class="sidebar-box cate-list">
 <div class="sidebar-box recommend-here list-link">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;">Tutorial List</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;">Tutorial List</a>
 </div>
 <div class="cate-items">
 <a href="../ado.html">ADO Tutorial</a>

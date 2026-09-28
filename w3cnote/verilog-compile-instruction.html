@@ -123,9 +123,9 @@ reg  [DATA_DW-1:0]    data_in   ;
 <p>In the following example, if WINDOW is defined, the second type of parameter description is used. If WINDOW is not defined, the first type of parameter description is used.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #008800;">`ifndef</span>     WINDOW<br/>
-    <span style="color: #A52A2A; font-weight: bold;">parameter</span> DATA_DW <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">32</span> <span style="color: #5D478B;">;</span>  <br/>
+    <span style="color: #A52A2A; font-weight: bold;">parameter</span> DATA_DW <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">32</span> <span style="color: #5D478B;">;</span>  <br/>
  `<span style="color: #A52A2A; font-weight: bold;">else</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">parameter</span> DATA_DW <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">64</span> <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">parameter</span> DATA_DW <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">64</span> <span style="color: #5D478B;">;</span><br/>
  <span style="color: #008800;">`endif</span><br/>
 </div></div>
 <h3>`include</h3>
@@ -139,26 +139,26 @@ reg  [DATA_DW-1:0]    data_in   ;
 <pre>`timescale      time_unit / time_precision</pre>
 <p>time_unit represents the time unit, and time_precision represents the time precision. Both are composed of a number and a unit: s (seconds), ms (milliseconds), us (microseconds), ns (nanoseconds), ps (picoseconds), and fs (femtoseconds). The time precision can be the same as the time unit, but the time precision value cannot exceed the time unit value. For example, in the following example, output Z will delay 5.21ns before outputting the result of A&amp;B.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">100ps</span>    <span style="color: #00008B; font-style: italic;">//Time unit is 1ns, precision is 100ps, legal</span><br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">100ps</span>    <span style="color: #00008B; font-style: italic;">//Time unit is 1ns, precision is 100ps, legal</span><br/>
 <span style="color: #00008B; font-style: italic;">//`timescale 100ps/1ns  //invalid</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> AndFunc<span style="color: #9F79EE;">(</span>Z<span style="color: #5D478B;">,</span> A<span style="color: #5D478B;">,</span> B<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">output</span> Z<span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">input</span> A<span style="color: #5D478B;">,</span> B <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">5.207</span> Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B<br/>
+    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">5.207</span> Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B<br/>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span><br/>
 </div></div>
 <p>During compilation, the<span class="marked">`timescale</span>directive affects the delay values in all subsequent modules, until another<span class="marked">`timescale</span>directive or the<span class="marked">`resetall</span>directive is encountered.</p><p>Since there is no default<span class="marked">`timescale</span>, if not specified<span class="marked">`timescale</span>, Verilog modules will inherit the previously compiled module's<span class="marked">`timescale</span>parameter. This may lead to design errors.</p><p>If multiple modules in a design all have<span class="marked">`timescale</span>, the simulator always positions itself at the smallest delay precision among all modules, and all delays are correspondingly converted to the smallest delay precision. The delay unit is not affected. For example:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ns</span>      <br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ns</span>      <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test<span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">reg</span>        A<span style="color: #5D478B;">,</span> B <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">wire</span>       OUTZ <span style="color: #5D478B;">;</span><br/>
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        A     <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span><span style="color: #5D478B;">;</span><br/>
-        B     <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span><span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span> <span style="color: #ff0055;">1.28</span>    B <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span><span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span> <span style="color: #ff0055;">3.1</span>     A <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span><span style="color: #5D478B;">;</span><br/>
+        A     <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span><span style="color: #5D478B;">;</span><br/>
+        B     <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span><span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span> <span style="color: #FF0055;">1.28</span>    B <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span><span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span> <span style="color: #FF0055;">3.1</span>     A <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span><span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
  <br/>
     AndFunc        u_and<span style="color: #9F79EE;">(</span>OUTZ<span style="color: #5D478B;">,</span> A<span style="color: #5D478B;">,</span> B<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
@@ -169,25 +169,25 @@ reg  [DATA_DW-1:0]    data_in   ;
 <p>For example, instantiate another submodule OrFunc in module test. When simulating test, the #5.207 delay in OrFunc still corresponds to 52ns.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #00008B; font-style: italic;">//Submodule:</span><br/>
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ns</span>      <span style="color: #00008B; font-style: italic;">//Time unit is 1ns, precision is 100ps, legal</span><br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ns</span>      <span style="color: #00008B; font-style: italic;">//Time unit is 1ns, precision is 100ps, legal</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> OrFunc<span style="color: #9F79EE;">(</span>Z<span style="color: #5D478B;">,</span> A<span style="color: #5D478B;">,</span> B<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">output</span> Z<span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">input</span> A<span style="color: #5D478B;">,</span> B <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">5.207</span> Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">|</span> B<br/>
+    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">5.207</span> Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">|</span> B<br/>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span><br/>
  <br/>
 <span style="color: #00008B; font-style: italic;">//Top-level module:</span><br/>
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ns</span>      <br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">10ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ns</span>      <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test<span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">reg</span>        A<span style="color: #5D478B;">,</span> B <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">wire</span>       OUTZ <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">wire</span>       OUTX <span style="color: #5D478B;">;</span><br/>
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        A     <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span><span style="color: #5D478B;">;</span><br/>
-        B     <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span><span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span> <span style="color: #ff0055;">1.28</span>    B <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span><span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span> <span style="color: #ff0055;">3.1</span>     A <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span><span style="color: #5D478B;">;</span><br/>
+        A     <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span><span style="color: #5D478B;">;</span><br/>
+        B     <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span><span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span> <span style="color: #FF0055;">1.28</span>    B <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span><span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span> <span style="color: #FF0055;">3.1</span>     A <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span><span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
  <br/>
     AndFunc        u_and<span style="color: #9F79EE;">(</span>OUTZ<span style="color: #5D478B;">,</span> A<span style="color: #5D478B;">,</span> B<span style="color: #9F79EE;">)</span> <span style="color: #5D478B;">;</span><br/>
@@ -272,7 +272,7 @@ reg  [DATA_DW-1:0]    data_in   ;
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -317,7 +317,7 @@ reg  [DATA_DW-1:0]    data_in   ;
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -356,7 +356,7 @@ reg  [DATA_DW-1:0]    data_in   ;
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
 <p style="font-size:14px;">The note should be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
@@ -567,7 +567,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }

@@ -305,42 +305,42 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #666666; font-style: italic;">; File path: string_to_int.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Convert a decimal digit string to an integer value</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    input_str <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'12345'</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>      <span style="color: #666666; font-style: italic;">; Input string "12345"</span><br/>
-    input_len <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">5</span>               <span style="color: #666666; font-style: italic;">; String length</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    input_str <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'12345'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>      <span style="color: #666666; font-style: italic;">; Input string "12345"</span><br/>
+    input_len <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">5</span>               <span style="color: #666666; font-style: italic;">; String length</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    result_val <span style="color: #0000ff; font-weight: bold;">resd</span> <span style="color: #ff0000;">1</span>            <span style="color: #666666; font-style: italic;">; Store the converted numeric value</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    result_val <span style="color: #0000FF; font-weight: bold;">resd</span> <span style="color: #FF0000;">1</span>            <span style="color: #666666; font-style: italic;">; Store the converted numeric value</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Conversion algorithm: result = 0</span><br/>
     <span style="color: #666666; font-style: italic;">; result = result * 10 + (current character - '0')</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> input_str           <span style="color: #666666; font-style: italic;">; esi points to the input string</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>input_len<span style="color: #009900; font-weight: bold;">]</span>         <span style="color: #666666; font-style: italic;">; ecx = loop count</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; eax = accumulated result</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> input_str           <span style="color: #666666; font-style: italic;">; esi points to the input string</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>input_len<span style="color: #009900; font-weight: bold;">]</span>         <span style="color: #666666; font-style: italic;">; ecx = loop count</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; eax = accumulated result</span><br/>
 <br/>
 convert_loop<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mul</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; eax = eax * 10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mul</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; eax = eax * 10</span><br/>
     <span style="color: #666666; font-style: italic;">; mul ebx: edx:eax = eax * ebx</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Read the current character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric: character - '0'</span><br/>
-    <span style="color: #00007f; font-weight: bold;">movzx</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">bl</span>                <span style="color: #666666; font-style: italic;">; Zero-extend ebx (bl -&gt; ebx)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; eax = eax + current digit's value</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Read the current character</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric: character - '0'</span><br/>
+    <span style="color: #00007F; font-weight: bold;">movzx</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">bl</span>                <span style="color: #666666; font-style: italic;">; Zero-extend ebx (bl -&gt; ebx)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; eax = eax + current digit's value</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">esi</span>                      <span style="color: #666666; font-style: italic;">; Move to the next character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> convert_loop<br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">esi</span>                      <span style="color: #666666; font-style: italic;">; Move to the next character</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> convert_loop<br/>
     <span style="color: #666666; font-style: italic;">; eax now = 12345</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_val<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">eax</span>        <span style="color: #666666; font-style: italic;">; Save the result</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_val<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">eax</span>        <span style="color: #666666; font-style: italic;">; Save the result</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <blockquote><p>Algorithm analysis: take "12345" as an example:<br/>Round 1: result = 0×10 + 1 = 1<br/>Round 2: result = 1×10 + 2 = 12<br/>Round 3: result = 12×10 + 3 = 123<br/>...Finally we get 12345.</p></blockquote>
@@ -353,60 +353,60 @@ convert_loop<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: int_to_string.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Convert an integer value to a decimal string and output</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    number <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">12345</span>              <span style="color: #666666; font-style: italic;">; The number to output</span><br/>
-    newline <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0xA</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    number <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">12345</span>              <span style="color: #666666; font-style: italic;">; The number to output</span><br/>
+    newline <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0xA</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    output_buf <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">12</span>           <span style="color: #666666; font-style: italic;">; Output buffer (maximum 32-bit integer is 10 digits + sign + null)</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    output_buf <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">12</span>           <span style="color: #666666; font-style: italic;">; Output buffer (maximum 32-bit integer is 10 digits + sign + null)</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>number<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; Load the number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> output_buf <span style="color: #339933;">+</span> <span style="color: #ff0000;">11</span>     <span style="color: #666666; font-style: italic;">; edi points to the end of the buffer</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #0000ff; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>            <span style="color: #666666; font-style: italic;">; null terminator (for easy debugging)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">edi</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>number<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; Load the number</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> output_buf <span style="color: #339933;">+</span> <span style="color: #FF0000;">11</span>     <span style="color: #666666; font-style: italic;">; edi points to the end of the buffer</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #0000FF; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>            <span style="color: #666666; font-style: italic;">; null terminator (for easy debugging)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">edi</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span>                  <span style="color: #666666; font-style: italic;">; Divisor = 10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Digit counter</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span>                  <span style="color: #666666; font-style: italic;">; Divisor = 10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Digit counter</span><br/>
 <br/>
 convert_digit<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Clear edx (div requires edx:eax)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">div</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; eax = eax/10, edx = eax%10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">dl</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert remainder to character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">dl</span>                <span style="color: #666666; font-style: italic;">; Store into buffer (from back to front)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">edi</span>                      <span style="color: #666666; font-style: italic;">; Move buffer pointer forward</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                      <span style="color: #666666; font-style: italic;">; Digit count +1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Is the quotient 0?</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jne</span> convert_digit            <span style="color: #666666; font-style: italic;">; No, continue the loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Clear edx (div requires edx:eax)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">div</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; eax = eax/10, edx = eax%10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">dl</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert remainder to character</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">dl</span>                <span style="color: #666666; font-style: italic;">; Store into buffer (from back to front)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">edi</span>                      <span style="color: #666666; font-style: italic;">; Move buffer pointer forward</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                      <span style="color: #666666; font-style: italic;">; Digit count +1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Is the quotient 0?</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jne</span> convert_digit            <span style="color: #666666; font-style: italic;">; No, continue the loop</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Now edi+1 points to the first valid digit character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">edi</span>                      <span style="color: #666666; font-style: italic;">; Fix pointer, point to the start of the string</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">edi</span>                      <span style="color: #666666; font-style: italic;">; Fix pointer, point to the start of the string</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Calculate valid character length</span><br/>
     <span style="color: #666666; font-style: italic;">; output_buf + 11 - edi is the valid length</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">edi</span>                 <span style="color: #666666; font-style: italic;">; Point to the converted string</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">edi</span>                 <span style="color: #666666; font-style: italic;">; Point to the converted string</span><br/>
     <span style="color: #666666; font-style: italic;">; Calculate length</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> output_buf <span style="color: #339933;">+</span> <span style="color: #ff0000;">11</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">edi</span>                 <span style="color: #666666; font-style: italic;">; edx = buffer end - string start</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> output_buf <span style="color: #339933;">+</span> <span style="color: #FF0000;">11</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">edi</span>                 <span style="color: #666666; font-style: italic;">; edx = buffer end - string start</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output newline</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>Running result:</p>
@@ -425,73 +425,73 @@ $ ./int_to_string
 <span style="color: #666666; font-style: italic;">; File path: hex_output.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Output a value in hexadecimal format</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    number <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">0x1A2B3C4D</span>         <span style="color: #666666; font-style: italic;">; Value to output</span><br/>
-    hex_prefix <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'0x'</span><br/>
-    hex_prefix_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> hex_prefix<br/>
-    newline <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0xA</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    number <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">0x1A2B3C4D</span>         <span style="color: #666666; font-style: italic;">; Value to output</span><br/>
+    hex_prefix <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'0x'</span><br/>
+    hex_prefix_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> hex_prefix<br/>
+    newline <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0xA</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    hex_buf <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">10</span>              <span style="color: #666666; font-style: italic;">; 8 hexadecimal digits + prefix + null</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    hex_buf <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">10</span>              <span style="color: #666666; font-style: italic;">; 8 hexadecimal digits + prefix + null</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Output prefix "0x"</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> hex_prefix<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> hex_prefix_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> hex_prefix<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> hex_prefix_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>number<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; Value to convert</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> hex_buf <span style="color: #339933;">+</span> <span style="color: #ff0000;">8</span>         <span style="color: #666666; font-style: italic;">; End of buffer (8 hexadecimal digits)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">8</span>                   <span style="color: #666666; font-style: italic;">; Loop 8 times (32 bits = 8 hexadecimal digits)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>number<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; Value to convert</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> hex_buf <span style="color: #339933;">+</span> <span style="color: #FF0000;">8</span>         <span style="color: #666666; font-style: italic;">; End of buffer (8 hexadecimal digits)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">8</span>                   <span style="color: #666666; font-style: italic;">; Loop 8 times (32 bits = 8 hexadecimal digits)</span><br/>
 <br/>
 hex_loop<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Prepare for division</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">16</span>                  <span style="color: #666666; font-style: italic;">; Divide by 16</span><br/>
-    <span style="color: #00007f; font-weight: bold;">div</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; Now: eax divided by ebx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Prepare for division</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">16</span>                  <span style="color: #666666; font-style: italic;">; Divide by 16</span><br/>
+    <span style="color: #00007F; font-weight: bold;">div</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; Now: eax divided by ebx</span><br/>
     <span style="color: #666666; font-style: italic;">; Note: div ebx here is actually edx:eax / ebx</span><br/>
     <span style="color: #666666; font-style: italic;">; Remainder in edx (0-15), quotient in eax</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">eax</span>                 <span style="color: #666666; font-style: italic;">; Save quotient</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">eax</span>                 <span style="color: #666666; font-style: italic;">; Save quotient</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Convert remainder to hexadecimal character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">dl</span><br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jl</span>  digit_09                 <span style="color: #666666; font-style: italic;">; 0-9</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'A'</span> <span style="color: #339933;">-</span> <span style="color: #ff0000;">10</span>             <span style="color: #666666; font-style: italic;">; A-F</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jmp</span> store_char<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">dl</span><br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jl</span>  digit_09                 <span style="color: #666666; font-style: italic;">; 0-9</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'A'</span> <span style="color: #339933;">-</span> <span style="color: #FF0000;">10</span>             <span style="color: #666666; font-style: italic;">; A-F</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jmp</span> store_char<br/>
 <br/>
 digit_09<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; 0-9</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; 0-9</span><br/>
 <br/>
 store_char<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">edi</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">al</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; Restore quotient</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> hex_loop<br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">edi</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">al</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; Restore quotient</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> hex_loop<br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Removed loop, directly using decrement method</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output hexadecimal digits (8 digits)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> hex_buf<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">8</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> hex_buf<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">8</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output newline</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <hr/>
@@ -503,97 +503,97 @@ store_char<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: simple_calc.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Input two single-digit numbers (0-9), calculate sum and output</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    prompt1 <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Enter first number (0-9): '</span><br/>
-    prompt1_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt1<br/>
-    prompt2 <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Enter second number (0-9): '</span><br/>
-    prompt2_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt2<br/>
-    result_msg <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Sum = '</span><br/>
-    result_msg_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> result_msg<br/>
-    newline <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0xA</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    prompt1 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Enter first number (0-9): '</span><br/>
+    prompt1_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt1<br/>
+    prompt2 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Enter second number (0-9): '</span><br/>
+    prompt2_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt2<br/>
+    result_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Sum = '</span><br/>
+    result_msg_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> result_msg<br/>
+    newline <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0xA</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    num1 <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">2</span>                  <span style="color: #666666; font-style: italic;">; Input for the first number (1 digit + newline)</span><br/>
-    num2 <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">2</span>                  <span style="color: #666666; font-style: italic;">; Input for the second number</span><br/>
-    result_str <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">3</span>            <span style="color: #666666; font-style: italic;">; Result string (up to 2 digits + newline)</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    num1 <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">2</span>                  <span style="color: #666666; font-style: italic;">; Input for the first number (1 digit + newline)</span><br/>
+    num2 <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">2</span>                  <span style="color: #666666; font-style: italic;">; Input for the second number</span><br/>
+    result_str <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">3</span>            <span style="color: #666666; font-style: italic;">; Result string (up to 2 digits + newline)</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Prompt to input the first number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt1<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt1_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt1<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt1_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Read the first number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> num1<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">2</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> num1<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">2</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Prompt to input the second number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt2<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt2_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt2<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt2_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Read the second number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> num2<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">2</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> num2<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">2</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Calculate sum</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>num1<span style="color: #009900; font-weight: bold;">]</span>               <span style="color: #666666; font-style: italic;">; Read the first number (ASCII character)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric value</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>num2<span style="color: #009900; font-weight: bold;">]</span>               <span style="color: #666666; font-style: italic;">; Read the second number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric value</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">bl</span>                   <span style="color: #666666; font-style: italic;">; Sum</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>num1<span style="color: #009900; font-weight: bold;">]</span>               <span style="color: #666666; font-style: italic;">; Read the first number (ASCII character)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric value</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>num2<span style="color: #009900; font-weight: bold;">]</span>               <span style="color: #666666; font-style: italic;">; Read the second number</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert to numeric value</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">bl</span>                   <span style="color: #666666; font-style: italic;">; Sum</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Convert result to string</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ah</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                    <span style="color: #666666; font-style: italic;">; Prepare for division</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span>                   <span style="color: #666666; font-style: italic;">; Divide by 10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">div</span> <span style="color: #46aa03; font-weight: bold;">bl</span>                       <span style="color: #666666; font-style: italic;">; al = tens digit, ah = ones digit</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ah</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                    <span style="color: #666666; font-style: italic;">; Prepare for division</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">bl</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span>                   <span style="color: #666666; font-style: italic;">; Divide by 10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">div</span> <span style="color: #46AA03; font-weight: bold;">bl</span>                       <span style="color: #666666; font-style: italic;">; al = tens digit, ah = ones digit</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Save result</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert tens digit to character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">al</span>         <span style="color: #666666; font-style: italic;">; Store tens digit</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">ah</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert ones digit to character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str <span style="color: #339933;">+</span> <span style="color: #ff0000;">1</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">ah</span>     <span style="color: #666666; font-style: italic;">; Store ones digit</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #0000ff; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span>result_str <span style="color: #339933;">+</span> <span style="color: #ff0000;">2</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xA</span>  <span style="color: #666666; font-style: italic;">; Newline</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert tens digit to character</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">al</span>         <span style="color: #666666; font-style: italic;">; Store tens digit</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">ah</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Convert ones digit to character</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str <span style="color: #339933;">+</span> <span style="color: #FF0000;">1</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">ah</span>     <span style="color: #666666; font-style: italic;">; Store ones digit</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #0000FF; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span>result_str <span style="color: #339933;">+</span> <span style="color: #FF0000;">2</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span>  <span style="color: #666666; font-style: italic;">; Newline</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output result message</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_msg<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> result_msg_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_msg<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> result_msg_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output calculation result (may be 1 or 2 digits)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_str<br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #0000ff; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span><br/>
-    <span style="color: #00007f; font-weight: bold;">je</span>  output_one_digit        <span style="color: #666666; font-style: italic;">; If the tens digit is '0', output only the ones digit</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span>                  <span style="color: #666666; font-style: italic;">; 2 digits + newline</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jmp</span> do_output<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_str<br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #0000FF; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span><br/>
+    <span style="color: #00007F; font-weight: bold;">je</span>  output_one_digit        <span style="color: #666666; font-style: italic;">; If the tens digit is '0', output only the ones digit</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span>                  <span style="color: #666666; font-style: italic;">; 2 digits + newline</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jmp</span> do_output<br/>
 <br/>
 output_one_digit<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; Skip the tens digit '0'</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">2</span>                  <span style="color: #666666; font-style: italic;">; 1 digit + newline</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; Skip the tens digit '0'</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">2</span>                  <span style="color: #666666; font-style: italic;">; 1 digit + newline</span><br/>
 <br/>
 do_output<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>Running result:</p>
@@ -640,7 +640,7 @@ Note list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -685,7 +685,7 @@ Note list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -724,7 +724,7 @@ Note list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit an article, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -943,7 +943,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

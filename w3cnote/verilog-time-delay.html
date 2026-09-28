@@ -99,17 +99,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="example"> <div class="example_code">
 <span style="color: #00008B; font-style: italic;">//Ordinary delay, the result of A&amp;B is assigned to Z with a delay of 10 time units</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">wire</span> Z<span style="color: #5D478B;">,</span> A<span style="color: #5D478B;">,</span> B <span style="color: #5D478B;">;</span><br/>
-<span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span>    Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B <span style="color: #5D478B;">;</span><br/>
+<span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span>    Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B <span style="color: #5D478B;">;</span><br/>
 </div></div>
 <div class="example"> <div class="example_code"> <br/>
 <span style="color: #00008B; font-style: italic;">//Implicit delay, when declaring a wire variable, perform a continuous assignment to it with a certain delay.</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">wire</span> A<span style="color: #5D478B;">,</span> B<span style="color: #5D478B;">;</span><br/>
-<span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span>        Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B<span style="color: #5D478B;">;</span><br/>
+<span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span>        Z <span style="color: #5D478B;">=</span> A <span style="color: #5D478B;">&amp;</span> B<span style="color: #5D478B;">;</span><br/>
 </div></div>
 <div class="example"> <div class="example_code"> <br/>
 <span style="color: #00008B; font-style: italic;">//Declaration delay, when declaring a wire variable, a delay is specified. Therefore, all continuous assignments to this variable will be deferred to the specified time. Unless in gate-level modeling, this method of modeling is generally not recommended.</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">wire</span> A<span style="color: #5D478B;">,</span> B<span style="color: #5D478B;">;</span><br/>
-<span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> Z <span style="color: #5D478B;">;</span><br/>
+<span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> Z <span style="color: #5D478B;">;</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">assign</span>           Z <span style="color: #5D478B;">=</span>A <span style="color: #5D478B;">&amp;</span> B<br/>
 </div></div>
 <h3>Inertial Delay</h3>
@@ -120,31 +120,31 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #A52A2A; font-weight: bold;">input</span>   ai<span style="color: #5D478B;">,</span> bi<span style="color: #5D478B;">,</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">output</span>  so_lose<span style="color: #5D478B;">,</span> so_get<span style="color: #5D478B;">,</span> so_normal<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
  <br/>
-    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #ff0055;">20</span>      so_lose      <span style="color: #5D478B;">=</span> ai <span style="color: #5D478B;">&amp;</span> bi <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">assign</span>  <span style="color: #5D478B;">#</span><span style="color: #ff0055;">5</span>      so_get       <span style="color: #5D478B;">=</span> ai <span style="color: #5D478B;">&amp;</span> bi <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">assign</span> <span style="color: #5D478B;">#</span><span style="color: #FF0055;">20</span>      so_lose      <span style="color: #5D478B;">=</span> ai <span style="color: #5D478B;">&amp;</span> bi <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">assign</span>  <span style="color: #5D478B;">#</span><span style="color: #FF0055;">5</span>      so_get       <span style="color: #5D478B;">=</span> ai <span style="color: #5D478B;">&amp;</span> bi <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">assign</span>          so_normal    <span style="color: #5D478B;">=</span> ai <span style="color: #5D478B;">&amp;</span> bi <span style="color: #5D478B;">;</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span><br/>
 </div></div>
 <p>The testbench reference is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ns</span><br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ns</span><br/>
 <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">reg</span>  ai<span style="color: #5D478B;">,</span> bi <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">wire</span> so_lose<span style="color: #5D478B;">,</span> so_get<span style="color: #5D478B;">,</span> so_normal <span style="color: #5D478B;">;</span><br/>
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        ai        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">25</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">35</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//60ns</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">40</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//100ns</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//110ns</span><br/>
+        ai        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">25</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">35</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//60ns</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">40</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//100ns</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span>      ai        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span>        <span style="color: #00008B; font-style: italic;">//110ns</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        bi        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">70</span> <span style="color: #5D478B;">;</span>      bi        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">20</span> <span style="color: #5D478B;">;</span>      bi        <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+        bi        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">70</span> <span style="color: #5D478B;">;</span>      bi        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">20</span> <span style="color: #5D478B;">;</span>      bi        <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
  <br/>
     time_delay_module  u_wire_delay<span style="color: #9F79EE;">(</span><br/>
@@ -156,9 +156,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">forever</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-            <span style="color: #5D478B;">#</span><span style="color: #ff0055;">100</span><span style="color: #5D478B;">;</span><br/>
+            <span style="color: #5D478B;">#</span><span style="color: #FF0055;">100</span><span style="color: #5D478B;">;</span><br/>
             <span style="color: #00008B; font-style: italic;">//$display("---gyc---%d", $time);</span><br/>
-            <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #ff0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
+            <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #FF0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
                 <span style="color: #9932CC;">$finish</span> <span style="color: #5D478B;">;</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
@@ -194,7 +194,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -239,7 +239,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -278,7 +278,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note should be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
 	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
@@ -489,7 +489,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }

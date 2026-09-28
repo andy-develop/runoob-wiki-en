@@ -111,21 +111,21 @@ endcase</pre>
 <p>In the following, a case statement is used instead of an if statement to implement the function of a 4-way selector. The simulation results and testbench can be referred to<a href="./verilog-condition-statement.html" rel="noopener noreferrer" target="_blank">Conditional Statements</a>chapter, and the two are exactly the same.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">module</span> mux4to1<span style="color: #9F79EE;">(</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
  <br/>
-    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #5D478B;">@</span><span style="color: #9F79EE;">(</span><span style="color: #5D478B;">*</span><span style="color: #9F79EE;">)</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">case</span><span style="color: #9F79EE;">(</span>sel<span style="color: #9F79EE;">)</span><br/>
-            <span style="color: #ff0055;">2'b00</span><span style="color: #5D478B;">:</span>   <span style="color: #A52A2A; font-weight: bold;">begin</span>       <br/>
+            <span style="color: #FF0055;">2'b00</span><span style="color: #5D478B;">:</span>   <span style="color: #A52A2A; font-weight: bold;">begin</span>       <br/>
                     sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
                 <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
-            <span style="color: #ff0055;">2'b01</span><span style="color: #5D478B;">:</span>       sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
-            <span style="color: #ff0055;">2'b10</span><span style="color: #5D478B;">:</span>       sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">2'b01</span><span style="color: #5D478B;">:</span>       sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">2'b10</span><span style="color: #5D478B;">:</span>       sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">default</span><span style="color: #5D478B;">:</span>     sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">endcase</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">assign</span> sout <span style="color: #5D478B;">=</span> sout_t <span style="color: #5D478B;">;</span><br/>
@@ -138,35 +138,35 @@ endcase</pre>
 <p>For example, extend the case statement of the 4-way selector, as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">case</span><span style="color: #9F79EE;">(</span>sel<span style="color: #9F79EE;">)</span><br/>
-    <span style="color: #ff0055;">2'b00</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #ff0055;">2'b01</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #ff0055;">2'b10</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #ff0055;">2</span>'b11<span style="color: #5D478B;">:</span>     sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #ff0055;">2</span>'bx0<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bx1<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bxz<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bxx<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'b0x<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'b1x<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bzx <span style="color: #5D478B;">:</span><br/>
-        sout_t <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">2</span>'bxx <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #ff0055;">2</span>'bz0<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bz1<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'bzz<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'b0z<span style="color: #5D478B;">,</span> <span style="color: #ff0055;">2</span>'b1z <span style="color: #5D478B;">:</span><br/>
-        sout_t <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">2</span>'bzz <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2'b00</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2'b01</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2'b10</span><span style="color: #5D478B;">:</span>   sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2</span>'b11<span style="color: #5D478B;">:</span>     sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2</span>'bx0<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bx1<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bxz<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bxx<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'b0x<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'b1x<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bzx <span style="color: #5D478B;">:</span><br/>
+        sout_t <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">2</span>'bxx <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #FF0055;">2</span>'bz0<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bz1<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'bzz<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'b0z<span style="color: #5D478B;">,</span> <span style="color: #FF0055;">2</span>'b1z <span style="color: #5D478B;">:</span><br/>
+        sout_t <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">2</span>'bzz <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">default</span><span style="color: #5D478B;">:</span>  <span style="color: #9932CC;">$display</span><span style="color: #9F79EE;">(</span><span style="color: #FF00FF;">"Unexpected input control!!!"</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">endcase</span><br/>
 </div></div>
 <h3>casex/casez statements</h3><p>The casex and casez statements are variants of the case statement, used to represent don't-care terms in conditional options.</p><p>casex uses "x" to represent don't-care values, and casez uses the question mark "?" to represent don't-care values.</p><p>The functions implemented by the two are exactly the same, and the syntax is also exactly the same as the case statement.</p><p>However, casex and casez are generally not synthesizable and are mostly used in simulation.</p><p>For example, use a casez statement to implement a 4-way selector with a 4-bit control input.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">module</span> mux4to1<span style="color: #9F79EE;">(</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">3</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
  <br/>
-    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #5D478B;">@</span><span style="color: #9F79EE;">(</span><span style="color: #5D478B;">*</span><span style="color: #9F79EE;">)</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">casez</span><span style="color: #9F79EE;">(</span>sel<span style="color: #9F79EE;">)</span><br/>
-            <span style="color: #ff0055;">4</span>'b<span style="color: #5D478B;">???</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span>     sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
-            <span style="color: #ff0055;">4</span>'b<span style="color: #5D478B;">??</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">?:</span>     sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
-            <span style="color: #ff0055;">4</span>'b<span style="color: #5D478B;">?</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">??:</span>     sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
-            <span style="color: #ff0055;">4'b1</span><span style="color: #5D478B;">???:</span>     sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span>  <br/>
-        <span style="color: #A52A2A; font-weight: bold;">default</span><span style="color: #5D478B;">:</span>         sout_t <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">2</span>'b0 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">4</span>'b<span style="color: #5D478B;">???</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span>     sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">4</span>'b<span style="color: #5D478B;">??</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">?:</span>     sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">4</span>'b<span style="color: #5D478B;">?</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">??:</span>     sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
+            <span style="color: #FF0055;">4'b1</span><span style="color: #5D478B;">???:</span>     sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span>  <br/>
+        <span style="color: #A52A2A; font-weight: bold;">default</span><span style="color: #5D478B;">:</span>         sout_t <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">2</span>'b0 <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">endcase</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">assign</span>      sout <span style="color: #5D478B;">=</span> sout_t <span style="color: #5D478B;">;</span><br/>
  <br/>
@@ -197,7 +197,7 @@ endcase</pre>
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -242,7 +242,7 @@ endcase</pre>
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -281,7 +281,7 @@ endcase</pre>
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
 	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -492,7 +492,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }

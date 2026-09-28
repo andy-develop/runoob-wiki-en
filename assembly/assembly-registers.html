@@ -304,29 +304,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #666666; font-style: italic;">; File path: register_parts.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Demonstrate access to different parts of registers</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0x12345678</span>     <span style="color: #666666; font-style: italic;">; Complete 32-bit register</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0x12345678</span>     <span style="color: #666666; font-style: italic;">; Complete 32-bit register</span><br/>
     <span style="color: #666666; font-style: italic;">; At this point: EAX = 0x12345678</span><br/>
     <span style="color: #666666; font-style: italic;">;       AX  = 0x5678      (low 16 bits)</span><br/>
     <span style="color: #666666; font-style: italic;">;       AH  = 0x56        (high 8 bits, i.e., the high 8 bits of AX)</span><br/>
     <span style="color: #666666; font-style: italic;">;       AL  = 0x78        (low 8 bits)</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xAABB</span>          <span style="color: #666666; font-style: italic;">; Modify AX (low 16 bits)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xAABB</span>          <span style="color: #666666; font-style: italic;">; Modify AX (low 16 bits)</span><br/>
     <span style="color: #666666; font-style: italic;">; At this point: EAX = 0x1234AABB  (the high 16 bits remain unchanged!)</span><br/>
     <span style="color: #666666; font-style: italic;">;       AX  = 0xAABB</span><br/>
     <span style="color: #666666; font-style: italic;">;       AL  = 0xBB</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xCC</span>            <span style="color: #666666; font-style: italic;">; Modify AL (lowest 8 bits)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xCC</span>            <span style="color: #666666; font-style: italic;">; Modify AL (lowest 8 bits)</span><br/>
     <span style="color: #666666; font-style: italic;">; At this point: EAX = 0x1234AACC  (only the low 8 bits changed)</span><br/>
     <span style="color: #666666; font-style: italic;">;       AX  = 0xAACC</span><br/>
     <span style="color: #666666; font-style: italic;">;       AL  = 0xCC</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <blockquote><p>When modifying the low 16 bits of a 32-bit register (such as AX), the high 16 bits remain unchanged. However, when a 32-bit register is used as the destination operand, the entire 32 bits are overwritten. This is a common source of errors for beginners.</p></blockquote>
@@ -374,25 +374,25 @@ _start<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: flags_demo.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Demonstrates the effect of arithmetic on flag bits</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">10</span>         <span style="color: #666666; font-style: italic;">; 10 - 10 = 0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">10</span>         <span style="color: #666666; font-style: italic;">; 10 - 10 = 0</span><br/>
     <span style="color: #666666; font-style: italic;">; ZF = 1 (result is zero)</span><br/>
     <span style="color: #666666; font-style: italic;">; SF = 0 (result is non-negative)</span><br/>
     <span style="color: #666666; font-style: italic;">; CF = 0 (no borrow)</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xFFFFFFFF</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span>          <span style="color: #666666; font-style: italic;">; 0xFFFFFFFF + 1 = 0x100000000 (exceeds 32 bits)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xFFFFFFFF</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span>          <span style="color: #666666; font-style: italic;">; 0xFFFFFFFF + 1 = 0x100000000 (exceeds 32 bits)</span><br/>
     <span style="color: #666666; font-style: italic;">; ZF = 1 (32-bit result is 0)</span><br/>
     <span style="color: #666666; font-style: italic;">; CF = 1 (carry produced)</span><br/>
     <span style="color: #666666; font-style: italic;">; OF = 0 (no overflow from a signed perspective)</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <hr/>
@@ -441,7 +441,7 @@ Notes list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -486,7 +486,7 @@ Notes list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -525,7 +525,7 @@ Notes list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note needs to be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
@@ -744,7 +744,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

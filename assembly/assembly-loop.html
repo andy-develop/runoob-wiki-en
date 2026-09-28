@@ -281,34 +281,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #666666; font-style: italic;">; File path: loop_basic.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Basic usage of LOOP instruction: repeat output 5 times</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    msg <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'runoob'</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xA</span><br/>
-    len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
+    len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">5</span>                  <span style="color: #666666; font-style: italic;">; Loop counter = 5 (loop 5 times)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">5</span>                  <span style="color: #666666; font-style: italic;">; Loop counter = 5 (loop 5 times)</span><br/>
 <br/>
 repeat<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Save ecx (system calls may modify it)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">push</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">push</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output msg</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Restore ecx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">pop</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> repeat                 <span style="color: #666666; font-style: italic;">; ecx--; if ecx != 0 jump to repeat</span><br/>
+    <span style="color: #00007F; font-weight: bold;">pop</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> repeat                 <span style="color: #666666; font-style: italic;">; ecx--; if ecx != 0 jump to repeat</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>Output:</p>
@@ -336,28 +336,28 @@ runoob
 <div class="example_code">
 <span style="color: #666666; font-style: italic;">; LOOPE example: find the first non-zero value in an array</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    array <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">5</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>  <span style="color: #666666; font-style: italic;">; The first three are 0, the fourth is 5</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    array <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">5</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>  <span style="color: #666666; font-style: italic;">; The first three are 0, the fourth is 5</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">6</span>                  <span style="color: #666666; font-style: italic;">; Array length</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> array <span style="color: #339933;">-</span> <span style="color: #ff0000;">1</span>          <span style="color: #666666; font-style: italic;">; Point to one position before the array</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">6</span>                  <span style="color: #666666; font-style: italic;">; Array length</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> array <span style="color: #339933;">-</span> <span style="color: #FF0000;">1</span>          <span style="color: #666666; font-style: italic;">; Point to one position before the array</span><br/>
 <br/>
 find_nonzero<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">esi</span>                     <span style="color: #666666; font-style: italic;">; Move to the next element</span><br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #0000ff; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>           <span style="color: #666666; font-style: italic;">; Is the current element == 0?</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loope</span> find_nonzero          <span style="color: #666666; font-style: italic;">; If it is 0 and ecx &gt; 0, continue the loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">esi</span>                     <span style="color: #666666; font-style: italic;">; Move to the next element</span><br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #0000FF; font-weight: bold;">byte</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>           <span style="color: #666666; font-style: italic;">; Is the current element == 0?</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loope</span> find_nonzero          <span style="color: #666666; font-style: italic;">; If it is 0 and ecx &gt; 0, continue the loop</span><br/>
     <span style="color: #666666; font-style: italic;">; Loop ends: found the first non-zero element, or finished traversal</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; esi now points to the address of the first non-zero element</span><br/>
     <span style="color: #666666; font-style: italic;">; ecx holds the number of elements not yet compared</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <hr/>
@@ -369,31 +369,31 @@ find_nonzero<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: while_loop.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Implements: while (x &lt; 100) x = x * 2;</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    x <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">1</span><br/>
-    limit <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">100</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    x <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">1</span><br/>
+    limit <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">100</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; while loop</span><br/>
 while_start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Load x</span><br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>limit<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; x &lt; 100 ?</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jge</span> while_end               <span style="color: #666666; font-style: italic;">; If x &gt;= 100, exit the loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Load x</span><br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>limit<span style="color: #009900; font-weight: bold;">]</span>            <span style="color: #666666; font-style: italic;">; x &lt; 100 ?</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jge</span> while_end               <span style="color: #666666; font-style: italic;">; If x &gt;= 100, exit the loop</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">shl</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span>                  <span style="color: #666666; font-style: italic;">; x = x * 2</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">eax</span>                <span style="color: #666666; font-style: italic;">; Store x back</span><br/>
+    <span style="color: #00007F; font-weight: bold;">shl</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span>                  <span style="color: #666666; font-style: italic;">; x = x * 2</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">eax</span>                <span style="color: #666666; font-style: italic;">; Store x back</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">jmp</span> while_start             <span style="color: #666666; font-style: italic;">; Go back to loop start and re-test</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jmp</span> while_start             <span style="color: #666666; font-style: italic;">; Go back to loop start and re-test</span><br/>
 <br/>
 while_end<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; x is now 128 (1-&gt;2-&gt;4-&gt;8-&gt;16-&gt;32-&gt;64-&gt;128, stops when 128 &gt;= 100)</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Return x as the exit code</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>x<span style="color: #009900; font-weight: bold;">]</span>                <span style="color: #666666; font-style: italic;">; Return x as the exit code</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <hr/>
@@ -404,27 +404,27 @@ while_end<span style="color: #339933;">:</span><br/>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;">; DO-WHILE loop: executes at least once</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    counter <span style="color: #0000ff; font-weight: bold;">dd</span> <span style="color: #ff0000;">0</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    counter <span style="color: #0000FF; font-weight: bold;">dd</span> <span style="color: #FF0000;">0</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #0000ff; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #0000FF; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
 <br/>
 do_loop<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Loop body: counter++ (executes at least once)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #0000ff; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #0000FF; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Test condition</span><br/>
-    <span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #0000ff; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">5</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jl</span>  do_loop                 <span style="color: #666666; font-style: italic;">; Continue while counter &lt; 5</span><br/>
+    <span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #0000FF; font-weight: bold;">dword</span> <span style="color: #009900; font-weight: bold;">[</span>counter<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">5</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jl</span>  do_loop                 <span style="color: #666666; font-style: italic;">; Continue while counter &lt; 5</span><br/>
     <span style="color: #666666; font-style: italic;">; counter finally = 5</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <hr/>
@@ -436,45 +436,45 @@ do_loop<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: nested_loop.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Nested loop example: print a multiplication table (3×3)</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    space <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">' '</span><br/>
-    newline <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0xA</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    space <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">' '</span><br/>
+    newline <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0xA</span><br/>
     <span style="color: #666666; font-style: italic;">; Used to store the converted numeric characters (2 digits + space + null)</span><br/>
-    num_str <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'  '</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
+    num_str <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'  '</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span>                  <span style="color: #666666; font-style: italic;">; Outer loop counter (row count)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span>                  <span style="color: #666666; font-style: italic;">; Outer loop counter (row count)</span><br/>
 <br/>
 outer_loop<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">push</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                    <span style="color: #666666; font-style: italic;">; ★ Save the outer loop counter! (Important)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span>                  <span style="color: #666666; font-style: italic;">; Inner loop counter (column count)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">push</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                    <span style="color: #666666; font-style: italic;">; ★ Save the outer loop counter! (Important)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span>                  <span style="color: #666666; font-style: italic;">; Inner loop counter (column count)</span><br/>
 <br/>
 inner_loop<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">push</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                    <span style="color: #666666; font-style: italic;">; Save the inner loop counter</span><br/>
+    <span style="color: #00007F; font-weight: bold;">push</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                    <span style="color: #666666; font-style: italic;">; Save the inner loop counter</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Calculate product = outer row number (4 - current ecx) × inner column number</span><br/>
     <span style="color: #666666; font-style: italic;">; Specific number conversion output omitted here, only demonstrating the structure</span><br/>
     <span style="color: #666666; font-style: italic;">; Actual output: row number × column number</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">pop</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; Restore the inner loop counter</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> inner_loop             <span style="color: #666666; font-style: italic;">; Inner loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">pop</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; Restore the inner loop counter</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> inner_loop             <span style="color: #666666; font-style: italic;">; Inner loop</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output newline</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">pop</span> <span style="color: #46aa03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; ★ Restore the outer loop counter</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> outer_loop             <span style="color: #666666; font-style: italic;">; Outer loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">pop</span> <span style="color: #46AA03; font-weight: bold;">ecx</span>                     <span style="color: #666666; font-style: italic;">; ★ Restore the outer loop counter</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> outer_loop             <span style="color: #666666; font-style: italic;">; Outer loop</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <blockquote><p>The most common mistake in nested loops is forgetting to use the stack to save the outer loop counter's value. LOOP modifies ECX; when you reset ECX in the inner loop, the outer loop count is lost. The solution is to save it before each entry into the inner loop,<code>push ecx</code>and restore it after leaving.<code>pop ecx</code>。</p></blockquote>
@@ -487,40 +487,40 @@ inner_loop<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; Loop optimization comparison</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Method A: Using LOOP instruction (slower, but not obvious)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1000</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1000</span><br/>
 loop_a<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> loop_a<br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> loop_a<br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Method B: Using conditional jump (manual counting) (usually faster)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1000</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1000</span><br/>
 loop_b<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jnz</span> loop_b<br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jnz</span> loop_b<br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Method C: Loop unrolling (fastest, but large code size)</span><br/>
     <span style="color: #666666; font-style: italic;">; Unroll a 1000-iteration loop to process 4 elements per iteration</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">250</span>                <span style="color: #666666; font-style: italic;">; 1000 / 4 = 250</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">250</span>                <span style="color: #666666; font-style: italic;">; 1000 / 4 = 250</span><br/>
 loop_unrolled<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #ff0000;">4</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #ff0000;">8</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #ff0000;">12</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">16</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jnz</span> loop_unrolled<br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #FF0000;">4</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #FF0000;">8</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span> <span style="color: #339933;">+</span> <span style="color: #FF0000;">12</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">16</span><br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jnz</span> loop_unrolled<br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Method D: Counting down (reduces compare instructions)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1000</span><br/>
-    <span style="color: #00007f; font-weight: bold;">lea</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>array <span style="color: #339933;">+</span> <span style="color: #ff0000;">1000</span><span style="color: #339933;">*</span><span style="color: #ff0000;">4</span> <span style="color: #339933;">-</span> <span style="color: #ff0000;">4</span><span style="color: #009900; font-weight: bold;">]</span>  <span style="color: #666666; font-style: italic;">; Start from the end of the array</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1000</span><br/>
+    <span style="color: #00007F; font-weight: bold;">lea</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span>array <span style="color: #339933;">+</span> <span style="color: #FF0000;">1000</span><span style="color: #339933;">*</span><span style="color: #FF0000;">4</span> <span style="color: #339933;">-</span> <span style="color: #FF0000;">4</span><span style="color: #009900; font-weight: bold;">]</span>  <span style="color: #666666; font-style: italic;">; Start from the end of the array</span><br/>
 loop_reverse<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
-    <span style="color: #00007f; font-weight: bold;">sub</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">dec</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">jnz</span> loop_reverse<br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">[</span><span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #009900; font-weight: bold;">]</span><br/>
+    <span style="color: #00007F; font-weight: bold;">sub</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">dec</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">jnz</span> loop_reverse<br/>
 </div>
 </div>
 <hr/>
@@ -531,59 +531,59 @@ loop_reverse<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; File path: sum_1_to_100.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Calculate 1+2+...+100 = 5050</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    msg <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Sum of 1 to 100 is: '</span><br/>
-    msg_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
-    newline <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #ff0000;">0xA</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Sum of 1 to 100 is: '</span><br/>
+    msg_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
+    newline <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #FF0000;">0xA</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    result_str <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">12</span>           <span style="color: #666666; font-style: italic;">; Store the converted numeric string</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    result_str <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">12</span>           <span style="color: #666666; font-style: italic;">; Store the converted numeric string</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Calculate the cumulative sum</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">100</span>                 <span style="color: #666666; font-style: italic;">; Loop 100 times</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Initial cumulative sum is 0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span>                   <span style="color: #666666; font-style: italic;">; The current number to add</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">100</span>                 <span style="color: #666666; font-style: italic;">; Loop 100 times</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                   <span style="color: #666666; font-style: italic;">; Initial cumulative sum is 0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span>                   <span style="color: #666666; font-style: italic;">; The current number to add</span><br/>
 <br/>
 sum_loop<span style="color: #339933;">:</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; eax += ebx</span><br/>
-    <span style="color: #00007f; font-weight: bold;">inc</span> <span style="color: #46aa03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; Next number</span><br/>
-    <span style="color: #00007f; font-weight: bold;">loop</span> sum_loop                <span style="color: #666666; font-style: italic;">; Continue loop</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                 <span style="color: #666666; font-style: italic;">; eax += ebx</span><br/>
+    <span style="color: #00007F; font-weight: bold;">inc</span> <span style="color: #46AA03; font-weight: bold;">ebx</span>                      <span style="color: #666666; font-style: italic;">; Next number</span><br/>
+    <span style="color: #00007F; font-weight: bold;">loop</span> sum_loop                <span style="color: #666666; font-style: italic;">; Continue loop</span><br/>
     <span style="color: #666666; font-style: italic;">; eax = 5050</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output prompt text</span><br/>
-    <span style="color: #00007f; font-weight: bold;">push</span> <span style="color: #46aa03; font-weight: bold;">eax</span>                     <span style="color: #666666; font-style: italic;">; Save result</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> msg_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
-    <span style="color: #00007f; font-weight: bold;">pop</span> <span style="color: #46aa03; font-weight: bold;">eax</span>                      <span style="color: #666666; font-style: italic;">; Restore result</span><br/>
+    <span style="color: #00007F; font-weight: bold;">push</span> <span style="color: #46AA03; font-weight: bold;">eax</span>                     <span style="color: #666666; font-style: italic;">; Save result</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> msg_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">pop</span> <span style="color: #46AA03; font-weight: bold;">eax</span>                      <span style="color: #666666; font-style: italic;">; Restore result</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Convert number to string (simple version: directly output the integer value)</span><br/>
     <span style="color: #666666; font-style: italic;">; Simplified here: convert the low byte of eax to a character</span><br/>
-    <span style="color: #00007f; font-weight: bold;">add</span> <span style="color: #46aa03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7f007f;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Not accurate, only for demonstration</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">al</span><br/>
+    <span style="color: #00007F; font-weight: bold;">add</span> <span style="color: #46AA03; font-weight: bold;">al</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'0'</span>                  <span style="color: #666666; font-style: italic;">; Not accurate, only for demonstration</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #009900; font-weight: bold;">[</span>result_str<span style="color: #009900; font-weight: bold;">]</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">al</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output result</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_str<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">12</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> result_str<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">12</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> newline<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <blockquote><p>Converting numbers to strings is a common problem in assembly. The simple method above only works when the number is 0-9. The complete number-to-string algorithm will be explained in detail in the "Number Processing" chapter.</p></blockquote>
@@ -621,7 +621,7 @@ Note list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -666,7 +666,7 @@ Note list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -705,7 +705,7 @@ Note list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note must be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain registration invitation code</a></p>
@@ -924,7 +924,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

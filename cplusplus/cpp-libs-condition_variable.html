@@ -205,13 +205,13 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">conditio
 std<span style="color: #008080;">::</span><span style="color: #007788;">queue</span><span style="color: #000080;">&lt;</span><span style="color: #05a;">int</span><span style="color: #000080;">&gt;</span> product<span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">void</span> producer<span style="color: #008000;">(</span><span style="color: #05a;">int</span> id<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">5</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000DD;">5</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lck<span style="color: #008000;">(</span>mtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        product.<span style="color: #007788;">push</span><span style="color: #008000;">(</span>id <span style="color: #000040;">*</span> <span style="color: #0000dd;">100</span> <span style="color: #000040;">+</span> i<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+        product.<span style="color: #007788;">push</span><span style="color: #008000;">(</span>id <span style="color: #000040;">*</span> <span style="color: #0000DD;">100</span> <span style="color: #000040;">+</span> i<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
         std<span style="color: #008080;">::</span><span style="color: #05a;">cout</span> <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">"Producer "</span> <span style="color: #000080;">&lt;&lt;</span> id <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">" produced "</span> <span style="color: #000080;">&lt;&lt;</span> product.<span style="color: #007788;">back</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #000080;">&lt;&lt;</span> std<span style="color: #008080;">::</span><span style="color: #007788;">endl</span><span style="color: #008080;">;</span><br/>
         cv.<span style="color: #007788;">notify_one</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
         lck.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        std<span style="color: #008080;">::</span><span style="color: #007788;">this_thread</span><span style="color: #008080;">::</span><span style="color: #007788;">sleep_for</span><span style="color: #008000;">(</span>std<span style="color: #008080;">::</span><span style="color: #007788;">chrono</span><span style="color: #008080;">::</span><span style="color: #007788;">milliseconds</span><span style="color: #008000;">(</span><span style="color: #0000dd;">100</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+        std<span style="color: #008080;">::</span><span style="color: #007788;">this_thread</span><span style="color: #008080;">::</span><span style="color: #007788;">sleep_for</span><span style="color: #008000;">(</span>std<span style="color: #008080;">::</span><span style="color: #007788;">chrono</span><span style="color: #008080;">::</span><span style="color: #007788;">milliseconds</span><span style="color: #008000;">(</span><span style="color: #0000DD;">100</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
 <span style="color: #008000;">}</span><br/>
 <br/>
@@ -229,23 +229,23 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">queue</s
 <span style="color: #008000;">}</span><br/>
 <br/>
 <span style="color: #05a;">int</span> main<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> producers<span style="color: #008000;">[</span><span style="color: #0000dd;">2</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span><br/>
-    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> consumers<span style="color: #008000;">[</span><span style="color: #0000dd;">2</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span><br/>
+    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> producers<span style="color: #008000;">[</span><span style="color: #0000DD;">2</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span><br/>
+    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> consumers<span style="color: #008000;">[</span><span style="color: #0000DD;">2</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span><br/>
 <br/>
-    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        producers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span> <span style="color: #000080;">=</span> std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span><span style="color: #008000;">(</span>producer, i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000DD;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+        producers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span> <span style="color: #000080;">=</span> std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span><span style="color: #008000;">(</span>producer, i <span style="color: #000040;">+</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
 <br/>
-    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        consumers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span> <span style="color: #000080;">=</span> std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span><span style="color: #008000;">(</span>consumer, i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000DD;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+        consumers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span> <span style="color: #000080;">=</span> std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span><span style="color: #008000;">(</span>consumer, i <span style="color: #000040;">+</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
 <br/>
-    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+    <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000DD;">2</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         producers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span>.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
         consumers<span style="color: #008000;">[</span>i<span style="color: #008000;">]</span>.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
 <br/>
-    <span style="color: #05a;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div>
 <p>The output of this program may vary because it depends on thread scheduling. However, you will see the producer produce items, and then the consumer consume them. The output will be similar to:</p>
@@ -295,7 +295,7 @@ Consumer 1 consumed 101
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -340,7 +340,7 @@ Consumer 1 consumed 101
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -379,7 +379,7 @@ Consumer 1 consumed 101
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

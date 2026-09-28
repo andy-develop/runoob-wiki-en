@@ -109,21 +109,21 @@ else                      default_statement ;
 <p>The following code implements a 4-to-1 selector.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">module</span> mux4to1<span style="color: #9F79EE;">(</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sel <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p0 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p1 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p2 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">input</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     p3 <span style="color: #5D478B;">,</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">output</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>    sout<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
 <br/>
-    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>     sout_t <span style="color: #5D478B;">;</span><br/>
 <br/>
     <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #5D478B;">@</span><span style="color: #9F79EE;">(</span><span style="color: #5D478B;">*</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #ff0055;">2'b00</span><span style="color: #9F79EE;">)</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">2'b00</span><span style="color: #9F79EE;">)</span><br/>
             sout_t <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">else</span> <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #ff0055;">2'b01</span><span style="color: #9F79EE;">)</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">else</span> <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">2'b01</span><span style="color: #9F79EE;">)</span><br/>
             sout_t <span style="color: #5D478B;">=</span> p1 <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">else</span> <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #ff0055;">2'b10</span><span style="color: #9F79EE;">)</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">else</span> <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">2'b10</span><span style="color: #9F79EE;">)</span><br/>
             sout_t <span style="color: #5D478B;">=</span> p2 <span style="color: #5D478B;">;</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">else</span><br/>
             sout_t <span style="color: #5D478B;">=</span> p3 <span style="color: #5D478B;">;</span><br/>
@@ -134,32 +134,32 @@ else                      default_statement ;
 </div></div>
 <p>The testbench code is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #008800;">`timescale</span> <span style="color: #ff0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #ff0055;">1ns</span><br/>
+<span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ns</span><br/>
 <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>    sel <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #9F79EE;">[</span><span style="color: #ff0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #ff0055;">0</span><span style="color: #9F79EE;">]</span>   sout <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">reg</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>    sel <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">wire</span> <span style="color: #9F79EE;">[</span><span style="color: #FF0055;">1</span><span style="color: #5D478B;">:</span><span style="color: #FF0055;">0</span><span style="color: #9F79EE;">]</span>   sout <span style="color: #5D478B;">;</span><br/>
 <br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        sel       <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">3</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">1</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #ff0055;">2</span> <span style="color: #5D478B;">;</span><br/>
+        sel       <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">3</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> sel   <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">2</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
 <br/>
     mux4to1 u_mux4to1 <span style="color: #9F79EE;">(</span><br/>
         .sel    <span style="color: #9F79EE;">(</span>sel<span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span><br/>
-        .p0     <span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2'b00</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path0 are assigned to 0</span><br/>
-        .p1     <span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2'b01</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path1 are assigned to 1</span><br/>
-        .p2     <span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2'b10</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path2 are assigned to 2</span><br/>
-        .p3     <span style="color: #9F79EE;">(</span><span style="color: #ff0055;">2'b11</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path3 are assigned to 3</span><br/>
+        .p0     <span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2'b00</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path0 are assigned to 0</span><br/>
+        .p1     <span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2'b01</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path1 are assigned to 1</span><br/>
+        .p2     <span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2'b10</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path2 are assigned to 2</span><br/>
+        .p3     <span style="color: #9F79EE;">(</span><span style="color: #FF0055;">2'b11</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">,</span>        <span style="color: #00008B; font-style: italic;">//path3 are assigned to 3</span><br/>
         .sout   <span style="color: #9F79EE;">(</span>sout<span style="color: #9F79EE;">)</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
 <br/>
    <span style="color: #00008B; font-style: italic;">//finish the simulation</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        <span style="color: #5D478B;">#</span><span style="color: #ff0055;">100</span><span style="color: #5D478B;">;</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #ff0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #9932CC;">$finish</span> <span style="color: #5D478B;">;</span><br/>
+        <span style="color: #5D478B;">#</span><span style="color: #FF0055;">100</span><span style="color: #5D478B;">;</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span><span style="color: #9932CC;">$time</span> <span style="color: #5D478B;">&gt;=</span> <span style="color: #FF0055;">1000</span><span style="color: #9F79EE;">)</span> <span style="color: #9932CC;">$finish</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
 <br/>
  <br/>
@@ -172,15 +172,15 @@ else                      default_statement ;
 <p>For example, in the following code, although the formatting distinguishes it, which if condition the else corresponds to is ambiguous.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>en<span style="color: #9F79EE;">)</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #ff0055;">2</span>'b1<span style="color: #9F79EE;">)</span><br/>
-        sout <span style="color: #5D478B;">=</span> p<span style="color: #ff0055;">1s</span> <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">2</span>'b1<span style="color: #9F79EE;">)</span><br/>
+        sout <span style="color: #5D478B;">=</span> p<span style="color: #FF0055;">1s</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">else</span><br/>
         sout <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
 </div></div><p>Of course, compilers generally follow the nearest-match principle, making else correspond to the nearest if (the second if in the example).</p><p>But obviously this style of writing is non-standard and unsafe.</p><p>Therefore, it is a good habit to add the begin and end keywords in conditional statements.</p><p>For example, if the above code is slightly modified, there will be no more ambiguity in writing.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>en<span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #ff0055;">2</span>'b1<span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
-        sout <span style="color: #5D478B;">=</span> p<span style="color: #ff0055;">1s</span> <span style="color: #5D478B;">;</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">if</span><span style="color: #9F79EE;">(</span>sel <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">2</span>'b1<span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
+        sout <span style="color: #5D478B;">=</span> p<span style="color: #FF0055;">1s</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">else</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
         sout <span style="color: #5D478B;">=</span> p0 <span style="color: #5D478B;">;</span><br/>
@@ -213,7 +213,7 @@ else                      default_statement ;
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -258,7 +258,7 @@ else                      default_statement ;
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -297,7 +297,7 @@ else                      default_statement ;
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes should be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -508,7 +508,7 @@ p.note-author {
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
-    color: #78a15a;
+    color: #5B80A6;
     padding-bottom: 2px;
     margin-bottom: 4px;
 }

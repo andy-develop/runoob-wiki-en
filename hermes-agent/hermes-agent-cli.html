@@ -392,13 +392,13 @@ EOF<br/>
 <h2 class="example">实例</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># 将文件内容作为上下文发送给 Agent</span><br/>
-<span style="color: #c20cb9; font-weight: bold;">cat</span> error.log <span style="color: #000000; font-weight: bold;">|</span> hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"分析这些错误日志，找出根本原因"</span><br/>
+<span style="color: #C20CB9; font-weight: bold;">cat</span> error.log <span style="color: #000000; font-weight: bold;">|</span> hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"分析这些错误日志，找出根本原因"</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 将 Agent 的回复保存到文件</span><br/>
 hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"生成项目的 README.md"</span> <span style="color: #000000; font-weight: bold;">&gt;</span> README.md<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 在管道中使用 Agent 作为过滤器</span><br/>
-<span style="color: #c20cb9; font-weight: bold;">cat</span> data.csv <span style="color: #000000; font-weight: bold;">|</span> hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"提取所有邮箱地址，每行一个"</span> <span style="color: #000000; font-weight: bold;">&gt;</span> emails.txt<br/>
+<span style="color: #C20CB9; font-weight: bold;">cat</span> data.csv <span style="color: #000000; font-weight: bold;">|</span> hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"提取所有邮箱地址，每行一个"</span> <span style="color: #000000; font-weight: bold;">&gt;</span> emails.txt<br/>
 </div>
 </div>
 <h3>Combined with Profile command aliases</h3>
@@ -467,10 +467,10 @@ approvals</span>:<span style="color: green;"><br/>
 <span style="color: #666666; font-style: italic;"># 自动代码审查脚本——对 Git 变更的文件逐一审查</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 获取所有变更的 Python 文件</span><br/>
-<span style="color: #007800;">changed_files</span>=$<span style="color: #7a0874; font-weight: bold;">(</span><span style="color: #c20cb9; font-weight: bold;">git diff</span> <span style="color: #660033;">--name-only</span> HEAD~<span style="color: #000000;">1</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #a10;">'\.py$'</span><span style="color: #7a0874; font-weight: bold;">)</span><br/>
+<span style="color: #007800;">changed_files</span>=$<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #C20CB9; font-weight: bold;">git diff</span> <span style="color: #660033;">--name-only</span> HEAD~<span style="color: #000000;">1</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #C20CB9; font-weight: bold;">grep</span> <span style="color: #a10;">'\.py$'</span><span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <br/>
-<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #c20cb9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #007800;">$changed_files</span>; <span style="color: #000000; font-weight: bold;">do</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"=== 审查:<span style="color: #007800;">$file</span> ==="</span><br/>
+<span style="color: #000000; font-weight: bold;">for</span> <span style="color: #C20CB9; font-weight: bold;">file</span> <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #007800;">$changed_files</span>; <span style="color: #000000; font-weight: bold;">do</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"=== 审查:<span style="color: #007800;">$file</span> ==="</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;"># 使用 Hermes 审查代码，结果直接输出到终端</span><br/>
     hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"审查以下 Python 文件的代码风格和潜在问题：<br/>
@@ -478,11 +478,11 @@ approvals</span>:<span style="color: green;"><br/>
 <br/>请以列表形式给出发现的问题和建议。"</span> <span style="color: #000000;">2</span><span style="color: #000000; font-weight: bold;">&gt;/</span>dev<span style="color: #000000; font-weight: bold;">/</span>null<br/>
 <br/>
     <span style="color: #666666; font-style: italic;"># 检查退出码</span><br/>
-    <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">[</span> <span style="color: #007800;">$?</span> <span style="color: #660033;">-ne</span> <span style="color: #000000;">0</span> <span style="color: #7a0874; font-weight: bold;">]</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
-        <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"[警告]<span style="color: #007800;">$file</span>审查过程中出现错误"</span><br/>
+    <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7A0874; font-weight: bold;">[</span> <span style="color: #007800;">$?</span> <span style="color: #660033;">-ne</span> <span style="color: #000000;">0</span> <span style="color: #7A0874; font-weight: bold;">]</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
+        <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"[警告]<span style="color: #007800;">$file</span>审查过程中出现错误"</span><br/>
     <span style="color: #000000; font-weight: bold;">fi</span><br/>
 <br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">""</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">""</span><br/>
 <span style="color: #000000; font-weight: bold;">done</span><br/>
 </div>
 </div>
@@ -496,33 +496,33 @@ approvals</span>:<span style="color: green;"><br/>
 <span style="color: #666666; font-style: italic;"># Git pre-commit hook：提交前由 Agent 检查代码</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 获取暂存区中变更的文件列表</span><br/>
-<span style="color: #007800;">staged_files</span>=$<span style="color: #7a0874; font-weight: bold;">(</span><span style="color: #c20cb9; font-weight: bold;">git diff</span> <span style="color: #660033;">--cached</span> --name-only<span style="color: #7a0874; font-weight: bold;">)</span><br/>
+<span style="color: #007800;">staged_files</span>=$<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #C20CB9; font-weight: bold;">git diff</span> <span style="color: #660033;">--cached</span> --name-only<span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <br/>
-<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">[</span> <span style="color: #660033;">-z</span> <span style="color: #a10;">"<span style="color: #007800;">$staged_files</span>"</span> <span style="color: #7a0874; font-weight: bold;">]</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">exit</span> <span style="color: #000000;">0</span><br/>
+<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7A0874; font-weight: bold;">[</span> <span style="color: #660033;">-z</span> <span style="color: #a10;">"<span style="color: #007800;">$staged_files</span>"</span> <span style="color: #7A0874; font-weight: bold;">]</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">exit</span> <span style="color: #000000;">0</span><br/>
 <span style="color: #000000; font-weight: bold;">fi</span><br/>
 <br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"Hermes Agent 正在检查代码变更..."</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"Hermes Agent 正在检查代码变更..."</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 让 Agent 审查暂存的变更</span><br/>
-<span style="color: #007800;">result</span>=$<span style="color: #7a0874; font-weight: bold;">(</span>hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"审查以下 Git 暂存区的代码变更，<span style="color: #000099; font-weight: bold;">\<br/>
+<span style="color: #007800;">result</span>=$<span style="color: #7A0874; font-weight: bold;">(</span>hermes chat <span style="color: #660033;">-q</span> <span style="color: #a10;">"审查以下 Git 暂存区的代码变更，<span style="color: #000099; font-weight: bold;">\<br/>
 </span>只报告严重问题（安全漏洞、逻辑错误、破坏性变更）。<span style="color: #000099; font-weight: bold;">\<br/>
 </span>如果没有严重问题，回复 PASS。<span style="color: #000099; font-weight: bold;">\<br/>
 </span><span style="color: #000099; font-weight: bold;">\<br/>
 </span>变更文件：<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #007800;">$staged_files</span><span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\<br/>
-</span>详细 diff：<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #007800;">$(git diff --cached)</span>"</span> <span style="color: #000000;">2</span><span style="color: #000000; font-weight: bold;">&gt;/</span>dev<span style="color: #000000; font-weight: bold;">/</span>null<span style="color: #7a0874; font-weight: bold;">)</span><br/>
+</span>详细 diff：<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #007800;">$(git diff --cached)</span>"</span> <span style="color: #000000;">2</span><span style="color: #000000; font-weight: bold;">&gt;/</span>dev<span style="color: #000000; font-weight: bold;">/</span>null<span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <br/>
-<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"<span style="color: #007800;">$result</span>"</span><br/>
+<span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"<span style="color: #007800;">$result</span>"</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># 如果 Agent 发现了严重问题，阻止提交</span><br/>
-<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"<span style="color: #007800;">$result</span>"</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #c20cb9; font-weight: bold;">grep</span> <span style="color: #660033;">-q</span> <span style="color: #a10;">"PASS"</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"审查通过"</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">exit</span> <span style="color: #000000;">0</span><br/>
+<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"<span style="color: #007800;">$result</span>"</span> <span style="color: #000000; font-weight: bold;">|</span> <span style="color: #C20CB9; font-weight: bold;">grep</span> <span style="color: #660033;">-q</span> <span style="color: #a10;">"PASS"</span>; <span style="color: #000000; font-weight: bold;">then</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"审查通过"</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">exit</span> <span style="color: #000000;">0</span><br/>
 <span style="color: #000000; font-weight: bold;">else</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">""</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"Agent 发现了需要关注的问题。"</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #a10;">"如果确认无误，使用 git commit --no-verify 跳过此检查。"</span><br/>
-    <span style="color: #7a0874; font-weight: bold;">exit</span> <span style="color: #000000;">1</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">""</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"Agent 发现了需要关注的问题。"</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">echo</span> <span style="color: #a10;">"如果确认无误，使用 git commit --no-verify 跳过此检查。"</span><br/>
+    <span style="color: #7A0874; font-weight: bold;">exit</span> <span style="color: #000000;">1</span><br/>
 <span style="color: #000000; font-weight: bold;">fi</span><br/>
 </div>
 </div>
@@ -561,7 +561,7 @@ approvals</span>:<span style="color: green;"><br/>
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -606,7 +606,7 @@ approvals</span>:<span style="color: green;"><br/>
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -645,7 +645,7 @@ approvals</span>:<span style="color: green;"><br/>
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

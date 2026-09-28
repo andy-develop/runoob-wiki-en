@@ -317,33 +317,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <ul><li><code>table_name</code>is the name of the table you want to create.</li><li><code>column1</code>, <code>column2</code>, ... are the column names in the table.</li><li><code>datatype</code>is the data type of each column.</li></ul>
 <p>The following is a specific example to create a user table.<strong>users</strong>：</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> users <span style="color: #66cc66;">(</span><br/>
-    id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span><span style="color: #66cc66;">,</span><br/>
-    username <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">50</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-    email <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">100</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-    birthdate <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66cc66;">,</span><br/>
+<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> users <span style="color: #66CC66;">(</span><br/>
+    id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span><span style="color: #66CC66;">,</span><br/>
+    username <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">50</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+    email <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">100</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+    birthdate <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66CC66;">,</span><br/>
     is_active <span style="color: #993333; font-weight: bold;">BOOLEAN</span> <span style="color: #993333; font-weight: bold;">DEFAULT</span> <span style="color: #993333; font-weight: bold;">TRUE</span><br/>
-<span style="color: #66cc66;">)</span>;<br/>
+<span style="color: #66CC66;">)</span>;<br/>
 </div></div>
 <p>Example analysis:</p>
 <ul><li><code>id</code>: User id, integer type, auto-increment, used as primary key.</li><li><code>username</code>: Username, variable-length string, not allowed to be empty.</li><li><code>email</code>: User email, variable-length string, not allowed to be empty.</li><li><code>birthdate</code>: User's birthday, date type.</li><li><code>is_active</code>: Whether the user is activated, boolean type, default value is true.</li></ul>
 <p>The above is just a simple example, using some common data types including INT, VARCHAR, DATE, BOOLEAN. You can choose different data types according to actual needs. The AUTO_INCREMENT keyword is used to create an auto-increment column, and PRIMARY KEY is used to define the primary key.</p>
 <p>If you want to specify the storage engine, character set, collation, etc. when creating a table, you can use<strong>CHARACTER SET</strong> 和 <strong>COLLATE</strong>clause:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> mytable <span style="color: #66cc66;">(</span><br/>
-    id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span><span style="color: #66cc66;">,</span><br/>
-    name <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">50</span><span style="color: #66cc66;">)</span><br/>
-<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">CHARACTER</span> <span style="color: #993333; font-weight: bold;">SET</span> utf8mb4 <span style="color: #993333; font-weight: bold;">COLLATE</span> utf8mb4_general_ci;<br/>
+<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> mytable <span style="color: #66CC66;">(</span><br/>
+    id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span><span style="color: #66CC66;">,</span><br/>
+    name <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">50</span><span style="color: #66CC66;">)</span><br/>
+<span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">CHARACTER</span> <span style="color: #993333; font-weight: bold;">SET</span> utf8mb4 <span style="color: #993333; font-weight: bold;">COLLATE</span> utf8mb4_general_ci;<br/>
 </div></div><p>The above code creates a table using the utf8mb4 character set and utf8mb4_general_ci collation.</p>
 <p>In the following example, we will create the data table runoob_tbl in the RUNOOB database:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> <span style="color: #993333; font-weight: bold;">IF</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">EXISTS</span> <span style="color: #ff0000;">`runoob_tbl`</span><span style="color: #66cc66;">(</span><br/>
-   <span style="color: #ff0000;">`runoob_id`</span> <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">UNSIGNED</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #ff0000;">`runoob_title`</span> <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">100</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #ff0000;">`runoob_author`</span> <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">40</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #ff0000;">`submission_date`</span> <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span> <span style="color: #66cc66;">(</span> <span style="color: #ff0000;">`runoob_id`</span> <span style="color: #66cc66;">)</span><br/>
-<span style="color: #66cc66;">)</span>ENGINE<span style="color: #66cc66;">=</span>InnoDB <span style="color: #993333; font-weight: bold;">DEFAULT</span> CHARSET<span style="color: #66cc66;">=</span>utf8;<br/>
+<span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> <span style="color: #993333; font-weight: bold;">IF</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">EXISTS</span> <span style="color: #FF0000;">`runoob_tbl`</span><span style="color: #66CC66;">(</span><br/>
+   <span style="color: #FF0000;">`runoob_id`</span> <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">UNSIGNED</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #FF0000;">`runoob_title`</span> <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">100</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #FF0000;">`runoob_author`</span> <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">40</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #FF0000;">`submission_date`</span> <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span> <span style="color: #66CC66;">(</span> <span style="color: #FF0000;">`runoob_id`</span> <span style="color: #66CC66;">)</span><br/>
+<span style="color: #66CC66;">)</span>ENGINE<span style="color: #66CC66;">=</span>InnoDB <span style="color: #993333; font-weight: bold;">DEFAULT</span> CHARSET<span style="color: #66CC66;">=</span>utf8;<br/>
 </div></div>
 <p>Example analysis:</p>
 <ul>
@@ -360,19 +360,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Example</h3>
 <p>The following is an example of creating the data table runoob_tbl:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-root@host# mysql <span style="color: #66cc66;">-</span>u root <span style="color: #66cc66;">-</span>p<br/>
-Enter password:<span style="color: #66cc66;">*******</span><br/>
-mysql<span style="color: #66cc66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> RUNOOB;<br/>
+root@host# mysql <span style="color: #66CC66;">-</span>u root <span style="color: #66CC66;">-</span>p<br/>
+Enter password:<span style="color: #66CC66;">*******</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> RUNOOB;<br/>
 <span style="color: #993333; font-weight: bold;">DATABASE</span> changed<br/>
-mysql<span style="color: #66cc66;">&gt;</span> <span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> runoob_tbl<span style="color: #66cc66;">(</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> runoob_id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> runoob_title <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">100</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> runoob_author <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66cc66;">(</span><span style="color: #cc66cc;">40</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> submission_date <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66cc66;">,</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span> <span style="color: #66cc66;">(</span> runoob_id <span style="color: #66cc66;">)</span><br/>
-   <span style="color: #66cc66;">-&gt;</span> <span style="color: #66cc66;">)</span>ENGINE<span style="color: #66cc66;">=</span>InnoDB <span style="color: #993333; font-weight: bold;">DEFAULT</span> CHARSET<span style="color: #66cc66;">=</span>utf8;<br/>
-Query OK<span style="color: #66cc66;">,</span> <span style="color: #cc66cc;">0</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected <span style="color: #66cc66;">(</span><span style="color: #cc66cc;">0.16</span> sec<span style="color: #66cc66;">)</span><br/>
-mysql<span style="color: #66cc66;">&gt;</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">CREATE</span> <span style="color: #993333; font-weight: bold;">TABLE</span> runoob_tbl<span style="color: #66CC66;">(</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> runoob_id <span style="color: #993333; font-weight: bold;">INT</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span> <span style="color: #993333; font-weight: bold;">AUTO_INCREMENT</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> runoob_title <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">100</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> runoob_author <span style="color: #993333; font-weight: bold;">VARCHAR</span><span style="color: #66CC66;">(</span><span style="color: #CC66CC;">40</span><span style="color: #66CC66;">)</span> <span style="color: #993333; font-weight: bold;">NOT</span> <span style="color: #993333; font-weight: bold;">NULL</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> submission_date <span style="color: #993333; font-weight: bold;">DATE</span><span style="color: #66CC66;">,</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> <span style="color: #993333; font-weight: bold;">PRIMARY</span> <span style="color: #993333; font-weight: bold;">KEY</span> <span style="color: #66CC66;">(</span> runoob_id <span style="color: #66CC66;">)</span><br/>
+   <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">)</span>ENGINE<span style="color: #66CC66;">=</span>InnoDB <span style="color: #993333; font-weight: bold;">DEFAULT</span> CHARSET<span style="color: #66CC66;">=</span>utf8;<br/>
+Query OK<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">0</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected <span style="color: #66CC66;">(</span><span style="color: #CC66CC;">0.16</span> sec<span style="color: #66CC66;">)</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span><br/>
 </div></div>
 <p>
 <strong>Note:</strong>The MySQL command terminator is a semicolon.<span class="marked">;</span> 。</p>
@@ -475,7 +475,7 @@ Notes list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -520,7 +520,7 @@ Notes list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -596,7 +596,7 @@ Notes list
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -815,7 +815,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

@@ -172,17 +172,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The syntax of the select statement in the Go programming language is as follows:</p>
 <div class="example"><div class="example_code">
 <br/>
-<span style="color: #b1b100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">case</span> &lt;<span style="color: #339933;">-</span> channel1<span style="color: #339933;">:</span><br/>
+<span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">case</span> &lt;<span style="color: #339933;">-</span> channel1<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">case</span> value <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span> channel2<span style="color: #339933;">:</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">case</span> value <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span> channel2<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">case</span> channel3 &lt;<span style="color: #339933;">-</span> value<span style="color: #339933;">:</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">case</span> channel3 &lt;<span style="color: #339933;">-</span> value<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">// 你可以定义任意数量的 case</span><br/>
 <br/>
-  <span style="color: #b1b100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">// 所有通道都没有准备好，执行的代码</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
@@ -193,11 +193,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>实例</h3>
 <p>select statement application demonstration:</p>
 <div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
-    <span style="color: #cc66cc;">"fmt"</span><br/>
-    <span style="color: #cc66cc;">"time"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
+    <span style="color: #CC66CC;">"fmt"</span><br/>
+    <span style="color: #CC66CC;">"time"</span><br/>
 <span style="color: #339933;">)</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
@@ -205,21 +205,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     c1 <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
     c2 <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
 <br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #cc66cc;">1</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Second<span style="color: #339933;">)</span><br/>
-        c1 &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">"one"</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
+        time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #CC66CC;">1</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Second<span style="color: #339933;">)</span><br/>
+        c1 &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">"one"</span><br/>
     <span style="color: #339933;">}()</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #cc66cc;">2</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Second<span style="color: #339933;">)</span><br/>
-        c2 &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">"two"</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
+        time<span style="color: #339933;">.</span>Sleep<span style="color: #339933;">(</span><span style="color: #CC66CC;">2</span> <span style="color: #339933;">*</span> time<span style="color: #339933;">.</span>Second<span style="color: #339933;">)</span><br/>
+        c2 &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">"two"</span><br/>
     <span style="color: #339933;">}()</span><br/>
 <br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #cc66cc;">2</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">case</span> msg1 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>c1<span style="color: #339933;">:</span><br/>
-            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #cc66cc;">"received"</span><span style="color: #339933;">,</span> msg1<span style="color: #339933;">)</span><br/>
-        <span style="color: #b1b100; font-weight: bold;">case</span> msg2 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>c2<span style="color: #339933;">:</span><br/>
-            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #cc66cc;">"received"</span><span style="color: #339933;">,</span> msg2<span style="color: #339933;">)</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span> <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> <span style="">i</span> &lt; <span style="color: #CC66CC;">2</span><span style="color: #339933;">;</span> <span style="">i</span><span style="color: #339933;">++</span> <span style="color: #339933;">{</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">case</span> msg1 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>c1<span style="color: #339933;">:</span><br/>
+            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"received"</span><span style="color: #339933;">,</span> msg1<span style="color: #339933;">)</span><br/>
+        <span style="color: #B1B100; font-weight: bold;">case</span> msg2 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>c2<span style="color: #339933;">:</span><br/>
+            fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"received"</span><span style="color: #339933;">,</span> msg2<span style="color: #339933;">)</span><br/>
         <span style="color: #339933;">}</span><br/>
     <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -233,9 +233,9 @@ received two
 <p>In the following example, we define two channels and start two goroutines to receive data from these channels. In the main function, we use a select statement to make a non-blocking selection between the two channels. If neither channel has available data, the statement in the default clause is executed.</p>
 <p>After the following example is executed, it will continuously receive data from the two channels. When neither channel has available data, it will output "no message received".</p>
 <div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #b1b100; font-weight: bold;">package</span> main<br/>
+<span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
-<span style="color: #b1b100; font-weight: bold;">import</span> <span style="color: #cc66cc;">"fmt"</span><br/>
+<span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
   <span style="color: #666666; font-style: italic;">// 定义两个通道</span><br/>
@@ -243,27 +243,27 @@ received two
   ch2 <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
 <br/>
   <span style="color: #666666; font-style: italic;">// 启动两个 goroutine，分别从两个通道中获取数据</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
-      ch1 &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">"from 1"</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
+      ch1 &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">"from 1"</span><br/>
     <span style="color: #339933;">}</span><br/>
   <span style="color: #339933;">}()</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
-      ch2 &lt;<span style="color: #339933;">-</span> <span style="color: #cc66cc;">"from 2"</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
+      ch2 &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">"from 2"</span><br/>
     <span style="color: #339933;">}</span><br/>
   <span style="color: #339933;">}()</span><br/>
 <br/>
   <span style="color: #666666; font-style: italic;">// 使用 select 语句非阻塞地从两个通道中获取数据</span><br/>
-  <span style="color: #b1b100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">case</span> msg1 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch1<span style="color: #339933;">:</span><br/>
+  <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">case</span> msg1 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch1<span style="color: #339933;">:</span><br/>
       fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>msg1<span style="color: #339933;">)</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">case</span> msg2 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch2<span style="color: #339933;">:</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">case</span> msg2 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch2<span style="color: #339933;">:</span><br/>
       fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>msg2<span style="color: #339933;">)</span><br/>
-    <span style="color: #b1b100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
       <span style="color: #666666; font-style: italic;">// 如果两个通道都没有可用的数据，则执行这里的语句</span><br/>
-      fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #cc66cc;">"no message received"</span><span style="color: #339933;">)</span><br/>
+      fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"no message received"</span><span style="color: #339933;">)</span><br/>
     <span style="color: #339933;">}</span><br/>
   <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -302,7 +302,7 @@ received two
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -347,7 +347,7 @@ received two
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -471,7 +471,7 @@ end:
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

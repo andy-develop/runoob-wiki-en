@@ -306,12 +306,12 @@ let iter_mut = vec.iter_mut();</pre><p>Use the into_iter() method to create an o
 let vec = vec![1, 2, 3, 4, 5];
 let into_iter = vec.into_iter();</pre>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">3</span><span style="">]</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">3</span><span style="">]</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> <span style="color: #708;">mut</span> iter <span style="">=</span> v.iter<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 <br/>
-assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000dd;">1</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
-assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000dd;">2</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
-assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000dd;">3</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
+assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000DD;">1</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
+assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000DD;">2</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
+assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> Some<span style="">(</span><span style="">&amp;</span><span style="color: #0000DD;">3</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
 assert_eq<span style="">!</span><span style="">(</span>iter.next<span style="">(</span><span style="">)</span><span style="">,</span> None<span style="">)</span><span style="">;</span>  <span style="color: #a50; font-style: italic;">// Iteration ends</span><br/>
 </div></div>
 <h3>Iterator Methods</h3><p>Rust's iterators provide a rich set of methods to process elements in collections, some of which include:</p>
@@ -332,9 +332,9 @@ for &amp;num in vec.iter() {
 <h3>Consuming Adapters</h3><p>Use the iterator until it is completely consumed.</p><p>Iterators have many methods that can consume the iterator. They return a final result (such as a sum, collection, etc.) by performing iteration, and these methods consume the iterator itself.</p>
 <ul><li><code>collect()</code>: Converts the iterator into a collection (such as a vector, hash set).</li><li><code>sum()</code>: Computes the sum of all elements in the iterator.</li><li><code>product()</code>: Computes the product of all elements in the iterator.</li><li><code>count()</code>: Returns the number of elements in the iterator.</li></ul>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">3</span><span style="">]</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">3</span><span style="">]</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> sum<span style="">:</span> <span style="color: #05a;">i32</span> <span style="">=</span> v.iter<span style="">(</span><span style="">)</span>.sum<span style="">(</span><span style="">)</span><span style="">;</span><br/>
-assert_eq<span style="">!</span><span style="">(</span>sum<span style="">,</span> <span style="color: #0000dd;">6</span><span style="">)</span><span style="">;</span><br/>
+assert_eq<span style="">!</span><span style="">(</span>sum<span style="">,</span> <span style="color: #0000DD;">6</span><span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>Adapters</h3><p>Iterator adapters allow you to change or filter the contents of an iterator through method chaining, without consuming it immediately.</p><ul><li><code>map()</code>: Applies a function to each element and returns a new iterator.</li><li><code>filter()</code>: Filters out elements that satisfy a condition.</li><li><code>take(n)</code>: Returns only the first<code>n</code>elements of the iterator.</li><li><code>skip(n)</code>: Skips the first<code>n</code>elements and returns an iterator of the remaining elements.</li></ul>
 <pre>let v = vec![1, 2, 3, 4, 5];
@@ -344,10 +344,10 @@ assert_eq!(doubled, vec![2, 4, 6, 8, 10]);</pre>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">iter</span><span style="">::</span><span style="color: #05a;">Peekable</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> arr <span style="">=</span> <span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">3</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">5</span><span style="">]</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> arr <span style="">=</span> <span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">3</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">5</span><span style="">]</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> <span style="color: #708;">mut</span> iter <span style="">=</span> arr.into_iter<span style="">(</span><span style="">)</span>.peekable<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">while</span> <span style="color: #708;">let</span> Some<span style="">(</span>val<span style="">)</span> <span style="">=</span> iter.next<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">if</span> val <span style="">%</span> <span style="color: #0000dd;">2</span> <span style="">==</span> <span style="color: #0000dd;">0</span> <span style="">{</span><br/>
+    <span style="color: #708;">if</span> val <span style="">%</span> <span style="color: #0000DD;">2</span> <span style="">==</span> <span style="color: #0000DD;">0</span> <span style="">{</span><br/>
         <span style="color: #708;">continue</span><span style="">;</span><br/>
     <span style="">}</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> val<span style="">)</span><span style="">;</span><br/>
@@ -365,7 +365,7 @@ let sum: i32 = arr.into_iter().sum();</pre>
 <br/>
 <span style="color: #708;">impl</span> <span style="color: #05a;">Counter</span> <span style="">{</span><br/>
     <span style="color: #708;">fn</span> new<span style="">(</span><span style="">)</span> <span style="">-&gt;</span> <span style="color: #05a;">Counter</span> <span style="">{</span><br/>
-        <span style="color: #05a;">Counter</span> <span style="">{</span> count<span style="">:</span> <span style="color: #0000dd;">0</span> <span style="">}</span><br/>
+        <span style="color: #05a;">Counter</span> <span style="">{</span> count<span style="">:</span> <span style="color: #0000DD;">0</span> <span style="">}</span><br/>
     <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -373,8 +373,8 @@ let sum: i32 = arr.into_iter().sum();</pre>
     <span style="color: #708;">type</span> Item <span style="">=</span> usize<span style="">;</span><br/>
     <br/>
     <span style="color: #708;">fn</span> next<span style="">(</span><span style="">&amp;</span><span style="color: #708;">mut</span> <span style="color: #708;">self</span><span style="">)</span> <span style="">-&gt;</span> Option<span style="">&lt;</span>Self<span style="">::</span><span style="color: #164;">Item</span><span style="">&gt;</span> <span style="">{</span><br/>
-        <span style="color: #708;">self</span>.count <span style="">+=</span> <span style="color: #0000dd;">1</span><span style="">;</span><br/>
-        <span style="color: #708;">if</span> <span style="color: #708;">self</span>.count <span style="">&lt;=</span> <span style="color: #0000dd;">5</span> <span style="">{</span><br/>
+        <span style="color: #708;">self</span>.count <span style="">+=</span> <span style="color: #0000DD;">1</span><span style="">;</span><br/>
+        <span style="color: #708;">if</span> <span style="color: #708;">self</span>.count <span style="">&lt;=</span> <span style="color: #0000DD;">5</span> <span style="">{</span><br/>
             Some<span style="">(</span><span style="color: #708;">self</span>.count<span style="">)</span><br/>
         <span style="">}</span> <span style="color: #708;">else</span> <span style="">{</span><br/>
             None<br/>
@@ -396,7 +396,7 @@ let sum: i32 = arr.into_iter().sum();</pre>
 <span style="color: #a50; font-style: italic;">// Main function</span><br/>
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// Define an array containing integers</span><br/>
-    <span style="color: #708;">let</span> numbers <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">3</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">5</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> numbers <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">3</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">5</span><span style="">]</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Use an iterator to traverse the array and output each element</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Iterating through the array:"</span><span style="">)</span><span style="">;</span><br/>
@@ -426,10 +426,10 @@ Squared numbers: [1, 4, 9, 16, 25]</pre>
 <span style="color: #a50; font-style: italic;">// Main function</span><br/>
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// Define an array containing integers</span><br/>
-    <span style="color: #708;">let</span> numbers <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">3</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">5</span><span style="">,</span> <span style="color: #0000dd;">6</span><span style="">,</span> <span style="color: #0000dd;">7</span><span style="">,</span> <span style="color: #0000dd;">8</span><span style="">,</span> <span style="color: #0000dd;">9</span><span style="">,</span> <span style="color: #0000dd;">10</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> numbers <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">3</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">5</span><span style="">,</span> <span style="color: #0000DD;">6</span><span style="">,</span> <span style="color: #0000DD;">7</span><span style="">,</span> <span style="color: #0000DD;">8</span><span style="">,</span> <span style="color: #0000DD;">9</span><span style="">,</span> <span style="color: #0000DD;">10</span><span style="">]</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Use the iterator's filter method to filter the array, selecting even numbers</span><br/>
-    <span style="color: #708;">let</span> even_numbers<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> numbers.iter<span style="">(</span><span style="">)</span>.filter<span style="">(</span><span style="">|&amp;</span>x<span style="">|</span> x <span style="">%</span> <span style="color: #0000dd;">2</span> <span style="">==</span> <span style="color: #0000dd;">0</span><span style="">)</span>.cloned<span style="">(</span><span style="">)</span>.collect<span style="">(</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> even_numbers<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> numbers.iter<span style="">(</span><span style="">)</span>.filter<span style="">(</span><span style="">|&amp;</span>x<span style="">|</span> x <span style="">%</span> <span style="color: #0000DD;">2</span> <span style="">==</span> <span style="color: #0000DD;">0</span><span style="">)</span>.cloned<span style="">(</span><span style="">)</span>.collect<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Output the filtered result</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Even numbers: {:?}"</span><span style="">,</span> even_numbers<span style="">)</span><span style="">;</span><br/>
@@ -643,7 +643,7 @@ Notes List
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -688,7 +688,7 @@ Notes List
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -727,7 +727,7 @@ Notes List
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, you can click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get registration invitation code</a></p>
@@ -946,7 +946,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

@@ -346,7 +346,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         ObjectMapper mapper <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> ObjectMapper<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
         <span style="color: #666666; font-style: italic;">// Java object to JSON</span><br/>
-        Person person <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000ff;">"张三"</span>, <span style="color: #cc66cc;">30</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        Person person <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000FF;">"张三"</span>, <span style="color: #CC66CC;">30</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">writeValueAsString</span><span style="color: #009900;">(</span>person<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span>json<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
@@ -386,7 +386,7 @@ ObjectMapper mapper = new ObjectMapper();</pre>
     <span style="color: #666666; font-style: italic;">// Omit constructor, getters and setters</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-Person person <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000ff;">"张三"</span>, <span style="color: #cc66cc;">25</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+Person person <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000FF;">"张三"</span>, <span style="color: #CC66CC;">25</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">writeValueAsString</span><span style="color: #009900;">(</span>person<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span>json<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #666666; font-style: italic;">// Output: {"name":"张三","age":25}</span><br/>
@@ -406,7 +406,7 @@ Person person <span style="color: #339933;">=</span> <span style="color: #000000
 <h2>JSON Deserialization (JSON → Object)</h2>
 <h3>Simple Example</h3>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> <span style="color: #0000ff;">"{<span style="color: #000099; font-weight: bold;">\"</span>name<span style="color: #000099; font-weight: bold;">\"</span>:<span style="color: #000099; font-weight: bold;">\"</span>李四<span style="color: #000099; font-weight: bold;">\"</span>,<span style="color: #000099; font-weight: bold;">\"</span>age<span style="color: #000099; font-weight: bold;">\"</span>:30}"</span><span style="color: #339933;">;</span><br/>
+<span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> <span style="color: #0000FF;">"{<span style="color: #000099; font-weight: bold;">\"</span>name<span style="color: #000099; font-weight: bold;">\"</span>:<span style="color: #000099; font-weight: bold;">\"</span>李四<span style="color: #000099; font-weight: bold;">\"</span>,<span style="color: #000099; font-weight: bold;">\"</span>age<span style="color: #000099; font-weight: bold;">\"</span>:30}"</span><span style="color: #339933;">;</span><br/>
 Person person <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">readValue</span><span style="color: #009900;">(</span>json, Person.<span style="color: #000000; font-weight: bold;">class</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span>person.<span style="color: #006633;">getName</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Output: 李四</span><br/>
 </div></div>
@@ -435,8 +435,8 @@ private Date birthDate;</pre>
 <h3>Collection Types</h3>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #003399;">List</span> people <span style="color: #339933;">=</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">asList</span><span style="color: #009900;">(</span><br/>
-    <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000ff;">"王五"</span>, <span style="color: #cc66cc;">28</span><span style="color: #009900;">)</span>,<br/>
-    <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000ff;">"赵六"</span>, <span style="color: #cc66cc;">32</span><span style="color: #009900;">)</span><br/>
+    <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000FF;">"王五"</span>, <span style="color: #CC66CC;">28</span><span style="color: #009900;">)</span>,<br/>
+    <span style="color: #000000; font-weight: bold;">new</span> Person<span style="color: #009900;">(</span><span style="color: #0000FF;">"赵六"</span>, <span style="color: #CC66CC;">32</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">writeValueAsString</span><span style="color: #009900;">(</span>people<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -445,9 +445,9 @@ private Date birthDate;</pre>
 <h3>Map Type</h3>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 Map<span style="color: #339933;">&lt;</span><span style="color: #003399;">String</span>, Object<span style="color: #339933;">&gt;</span> data <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> HashMap<span style="color: #339933;">&lt;&gt;</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"name"</span>, <span style="color: #0000ff;">"张三"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"age"</span>, <span style="color: #cc66cc;">25</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"isStudent"</span>, <span style="color: #000066; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"name"</span>, <span style="color: #0000FF;">"张三"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"age"</span>, <span style="color: #CC66CC;">25</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+data.<span style="color: #006633;">put</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"isStudent"</span>, <span style="color: #000066; font-weight: bold;">true</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #003399;">String</span> json <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">writeValueAsString</span><span style="color: #009900;">(</span>data<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #666666; font-style: italic;">// Output: {"name":"张三","age":25,"isStudent":true}</span><br/>
@@ -461,8 +461,8 @@ data.<span style="color: #006633;">put</span><span style="color: #009900;">(</sp
 <h3>Tree Model</h3><p>Jackson provides a Tree Model API that allows direct manipulation of JSON nodes:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 JsonNode rootNode <span style="color: #339933;">=</span> mapper.<span style="color: #006633;">readTree</span><span style="color: #009900;">(</span>json<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-<span style="color: #003399;">String</span> name <span style="color: #339933;">=</span> rootNode.<span style="color: #006633;">get</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"name"</span><span style="color: #009900;">)</span>.<span style="color: #006633;">asText</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-<span style="color: #000066; font-weight: bold;">int</span> age <span style="color: #339933;">=</span> rootNode.<span style="color: #006633;">get</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"age"</span><span style="color: #009900;">)</span>.<span style="color: #006633;">asInt</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #003399;">String</span> name <span style="color: #339933;">=</span> rootNode.<span style="color: #006633;">get</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"name"</span><span style="color: #009900;">)</span>.<span style="color: #006633;">asText</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000066; font-weight: bold;">int</span> age <span style="color: #339933;">=</span> rootNode.<span style="color: #006633;">get</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"age"</span><span style="color: #009900;">)</span>.<span style="color: #006633;">asInt</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div></div>
 <hr/>
 <h2>Best Practices</h2>
@@ -515,7 +515,7 @@ Note List
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -560,7 +560,7 @@ Note List
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -599,7 +599,7 @@ Note List
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain registration invitation code</a></p>
@@ -818,7 +818,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

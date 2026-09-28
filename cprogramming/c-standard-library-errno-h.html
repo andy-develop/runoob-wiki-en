@@ -184,12 +184,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #05a;">FILE</span> <span style="color: #000040;">*</span>file <span style="color: #000080;">=</span> <span style="color: #05a;">fopen</span><span style="color: #008000;">(</span><span style="color: #a11;">"nonexistent_file.txt"</span>, <span style="color: #a11;">"r"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>file <span style="color: #000080;">==</span> <span style="color: #05a;">NULL</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         <span style="color: #05a;">printf</span><span style="color: #008000;">(</span><span style="color: #a11;">"Error opening file: %s<span style="color: #000099; font-weight: bold;">\n</span>"</span>, <span style="color: #05a;">strerror</span><span style="color: #008000;">(</span><span style="color: #05a;">errno</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        <span style="color: #05a;">return</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span><br/>
+        <span style="color: #05a;">return</span> <span style="color: #0000DD;">1</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
 <br/>
     <span style="color: #666666;">// 文件处理代码</span><br/>
     <span style="color: #05a;">fclose</span><span style="color: #008000;">(</span>file<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #05a;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div>
 <p>In this example, if<code>fopen</code>函数失败，<code>errno</code>will be set to the corresponding error code.<code>strerror</code>函数用于将<code>errno</code>converted to a human-readable error message.</p><h3>注意事项</h3><ol><li><strong>线程安全</strong>: In multi-threaded programs,<code>errno</code>It is usually implemented as thread-local storage (Thread-Local Storage, TLS) to ensure that each thread has an independent error code.</li><li><strong>初始值</strong>In the case of a successful call, library functions usually do not modify<code>errno</code>the value. Therefore, before checking the error, you should ensure<code>errno</code>is set to 0.</li><li><strong>错误码范围</strong>Different operating systems and C standard library implementations may define additional error codes. Programs should avoid relying on the numeric values of specific error codes.</li></ol><h3>Error handling recommendations</h3><ol><li><strong>检查返回值</strong>When calling a function that may fail, always check its return value.</li><li><strong>设定<code>errno</code>为 0</strong>: Before calling a function, you can set<code>errno</code>set to 0 so that it can be checked after the call.<code>errno</code>whether it has been modified.</li><li><strong>使用<code>strerror</code></strong>：通过<code>strerror</code> 将 <code>errno</code>Convert it to a readable string to facilitate debugging and logging.</li></ol><p>总之，<code>&lt;errno.h&gt;</code>It provides a standardized way to report and handle errors in a program, making error-handling code more consistent and maintainable.</p>
@@ -233,7 +233,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -278,7 +278,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -317,7 +317,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

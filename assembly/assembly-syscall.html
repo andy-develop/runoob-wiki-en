@@ -312,27 +312,27 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #666666; font-style: italic;">; File path: write_syscall.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Use sys_write to output a string</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    msg <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Hello, runoob! Welcome to assembly.'</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0xA</span><br/>
-    len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, runoob! Welcome to assembly.'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
+    len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Call sys_write (4)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span>                  <span style="color: #666666; font-style: italic;">; System call number 4 = sys_write</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span>                  <span style="color: #666666; font-style: italic;">; File descriptor 1 = stdout (standard output)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg                <span style="color: #666666; font-style: italic;">; Address of data to output</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> len                <span style="color: #666666; font-style: italic;">; Data length (bytes)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span>                    <span style="color: #666666; font-style: italic;">; Trigger system call</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span>                  <span style="color: #666666; font-style: italic;">; System call number 4 = sys_write</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span>                  <span style="color: #666666; font-style: italic;">; File descriptor 1 = stdout (standard output)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> msg                <span style="color: #666666; font-style: italic;">; Address of data to output</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> len                <span style="color: #666666; font-style: italic;">; Data length (bytes)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span>                    <span style="color: #666666; font-style: italic;">; Trigger system call</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; On success, EAX returns the actual number of bytes written</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Exit program</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>Output:</p>
@@ -351,54 +351,54 @@ Hello, runoob! Welcome to assembly.
 <span style="color: #666666; font-style: italic;">; File path: read_syscall.asm</span><br/>
 <span style="color: #666666; font-style: italic;">; Use sys_read to read user input and echo it</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.bss</span><br/>
-    buffer <span style="color: #0000ff; font-weight: bold;">resb</span> <span style="color: #ff0000;">64</span>              <span style="color: #666666; font-style: italic;">; Reserve a 64-byte input buffer</span><br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
+    buffer <span style="color: #0000FF; font-weight: bold;">resb</span> <span style="color: #FF0000;">64</span>              <span style="color: #666666; font-style: italic;">; Reserve a 64-byte input buffer</span><br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.data</span><br/>
-    prompt <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Please enter your name: '</span><br/>
-    prompt_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt<br/>
-    output_msg <span style="color: #0000ff; font-weight: bold;">db</span> <span style="color: #7f007f;">'Hello, '</span><br/>
-    output_msg_len <span style="color: #0000ff; font-weight: bold;">equ</span> <span style="color: #0000ff; font-weight: bold;">$</span> <span style="color: #339933;">-</span> output_msg<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
+    prompt <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Please enter your name: '</span><br/>
+    prompt_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> prompt<br/>
+    output_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, '</span><br/>
+    output_msg_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> output_msg<br/>
 <br/>
-<span style="color: #0000ff; font-weight: bold;">section</span> <span style="color: #0000ff; font-weight: bold;">.text</span><br/>
-    <span style="color: #0000ff; font-weight: bold;">global</span> _start<br/>
+<span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
+    <span style="color: #0000FF; font-weight: bold;">global</span> _start<br/>
 <br/>
 _start<span style="color: #339933;">:</span><br/>
     <span style="color: #666666; font-style: italic;">; Output prompt message</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> prompt<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> prompt_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Read user input</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">3</span>                  <span style="color: #666666; font-style: italic;">; System call number 3 = sys_read</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                  <span style="color: #666666; font-style: italic;">; File descriptor 0 = stdin (standard input)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> buffer             <span style="color: #666666; font-style: italic;">; Input buffer address</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">64</span>                 <span style="color: #666666; font-style: italic;">; Read at most 64 bytes</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">3</span>                  <span style="color: #666666; font-style: italic;">; System call number 3 = sys_read</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                  <span style="color: #666666; font-style: italic;">; File descriptor 0 = stdin (standard input)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> buffer             <span style="color: #666666; font-style: italic;">; Input buffer address</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">64</span>                 <span style="color: #666666; font-style: italic;">; Read at most 64 bytes</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; EAX returns the actual number of bytes read (including the trailing newline)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">eax</span>                <span style="color: #666666; font-style: italic;">; Save the actual input length to esi</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">eax</span>                <span style="color: #666666; font-style: italic;">; Save the actual input length to esi</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output "Hello, "</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> output_msg<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> output_msg_len<br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> output_msg<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> output_msg_len<br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Output the user's input content</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">4</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> buffer<br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #46aa03; font-weight: bold;">esi</span>                <span style="color: #666666; font-style: italic;">; Use the actual number of bytes entered</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">4</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> buffer<br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> <span style="color: #46AA03; font-weight: bold;">esi</span>                <span style="color: #666666; font-style: italic;">; Use the actual number of bytes entered</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Exit the program</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>Running result:</p>
@@ -417,9 +417,9 @@ Hello, runoob
 <div class="example_code">
 <span style="color: #666666; font-style: italic;">; Exit with different exit codes</span><br/>
 <br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">1</span>                  <span style="color: #666666; font-style: italic;">; System call number 1 = sys_exit</span><br/>
-    <span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span>                  <span style="color: #666666; font-style: italic;">; Exit code 0 = normal exit (a non-zero value is also allowed)</span><br/>
-    <span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">1</span>                  <span style="color: #666666; font-style: italic;">; System call number 1 = sys_exit</span><br/>
+    <span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>                  <span style="color: #666666; font-style: italic;">; Exit code 0 = normal exit (a non-zero value is also allowed)</span><br/>
+    <span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 </div>
 </div>
 <p>The exit code can be checked in the shell via<code>$?</code>View:</p>
@@ -438,22 +438,22 @@ $ echo $?
 <span style="color: #666666; font-style: italic;">; Applicable to Linux 32-bit systems</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Step 1: Put the system call number into EAX</span><br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span>System call number<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span>System call number<br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Step 2: Put the arguments in order</span><br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> 第<span style="color: #ff0000;">1</span>argument(s)<br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> 第<span style="color: #ff0000;">2</span>argument(s)<br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> 第<span style="color: #ff0000;">3</span>argument(s)<br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> 第<span style="color: #ff0000;">4</span>argument(s)<br/>
-<span style="color: #00007f; font-weight: bold;">mov</span> <span style="color: #46aa03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> 第<span style="color: #ff0000;">5</span>argument(s)<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ebx</span><span style="color: #339933;">,</span> 第<span style="color: #FF0000;">1</span>argument(s)<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">ecx</span><span style="color: #339933;">,</span> 第<span style="color: #FF0000;">2</span>argument(s)<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edx</span><span style="color: #339933;">,</span> 第<span style="color: #FF0000;">3</span>argument(s)<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">esi</span><span style="color: #339933;">,</span> 第<span style="color: #FF0000;">4</span>argument(s)<br/>
+<span style="color: #00007F; font-weight: bold;">mov</span> <span style="color: #46AA03; font-weight: bold;">edi</span><span style="color: #339933;">,</span> 第<span style="color: #FF0000;">5</span>argument(s)<br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Step 3: Trigger the system call</span><br/>
-<span style="color: #00007f; font-weight: bold;">int</span> <span style="color: #ff0000;">0x80</span><br/>
+<span style="color: #00007F; font-weight: bold;">int</span> <span style="color: #FF0000;">0x80</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;">; Step 4: Check the return value (in EAX)</span><br/>
 <span style="color: #666666; font-style: italic;">; A negative value usually indicates an error</span><br/>
-<span style="color: #00007f; font-weight: bold;">cmp</span> <span style="color: #46aa03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">0</span><br/>
-<span style="color: #00007f; font-weight: bold;">jl</span> error_handler              <span style="color: #666666; font-style: italic;">; If EAX &lt; 0, jump to error handling</span><br/>
+<span style="color: #00007F; font-weight: bold;">cmp</span> <span style="color: #46AA03; font-weight: bold;">eax</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+<span style="color: #00007F; font-weight: bold;">jl</span> error_handler              <span style="color: #666666; font-style: italic;">; If EAX &lt; 0, jump to error handling</span><br/>
 </div>
 </div>
 <blockquote><p><code>int 0x80</code>After triggering, EAX holds the return value. Most system calls return a non-negative value on success, and a negative error code on failure (e.g., -1 indicates EPERM).</p></blockquote>
@@ -491,7 +491,7 @@ Notes list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -536,7 +536,7 @@ Notes list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -575,7 +575,7 @@ Notes list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">The note must be an extension of this article's content!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invite code</a></p>
@@ -794,7 +794,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

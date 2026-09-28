@@ -282,10 +282,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 let vector = vec![1, 2, 4, 8];     // 通过数组创建向量</pre><p>When using linear lists, we often need to append operations. However, appending is essentially the same as the stack's push operation, so vectors only have the push method to append a single element:</p>
 <div class="example"><h2 class="example">, the vector will return an error.</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> vector <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">8</span><span style="">]</span><span style="">;</span><br/>
-    vector.push<span style="">(</span><span style="color: #0000dd;">16</span><span style="">)</span><span style="">;</span><br/>
-    vector.push<span style="">(</span><span style="color: #0000dd;">32</span><span style="">)</span><span style="">;</span><br/>
-    vector.push<span style="">(</span><span style="color: #0000dd;">64</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> vector <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">8</span><span style="">]</span><span style="">;</span><br/>
+    vector.push<span style="">(</span><span style="color: #0000DD;">16</span><span style="">)</span><span style="">;</span><br/>
+    vector.push<span style="">(</span><span style="color: #0000DD;">32</span><span style="">)</span><span style="">;</span><br/>
+    vector.push<span style="">(</span><span style="color: #0000DD;">64</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{:?}"</span><span style="">,</span> vector<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div></div>
@@ -293,8 +293,8 @@ let vector = vec![1, 2, 4, 8];     // 通过数组创建向量</pre><p>When usin
 [1, 2, 4, 8, 16, 32, 64]</pre><p>The append method is used to concatenate one vector to the end of another:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v1<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">8</span><span style="">]</span><span style="">;</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v2<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">16</span><span style="">,</span> <span style="color: #0000dd;">32</span><span style="">,</span> <span style="color: #0000dd;">64</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v1<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">8</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v2<span style="">:</span> Vec<span style="">&lt;</span>i32<span style="">&gt;</span> <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">16</span><span style="">,</span> <span style="color: #0000DD;">32</span><span style="">,</span> <span style="color: #0000DD;">64</span><span style="">]</span><span style="">;</span><br/>
     v1.append<span style="">(</span><span style="">&amp;</span><span style="color: #708;">mut</span> v2<span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{:?}"</span><span style="">,</span> v1<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
@@ -304,8 +304,8 @@ let vector = vec![1, 2, 4, 8];     // 通过数组创建向量</pre><p>When usin
 <p>The get method is used to retrieve a value from a vector:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">8</span><span style="">]</span><span style="">;</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> <span style="color: #708;">match</span> v.get<span style="">(</span><span style="color: #0000dd;">0</span><span style="">)</span> <span style="">{</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">8</span><span style="">]</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> <span style="color: #708;">match</span> v.get<span style="">(</span><span style="color: #0000DD;">0</span><span style="">)</span> <span style="">{</span><br/>
         Some<span style="">(</span>value<span style="">)</span> <span style="">=&gt;</span> value.to_string<span style="">(</span><span style="">)</span><span style="">,</span><br/>
         None <span style="">=&gt;</span> <span style="color: #a11;">"None"</span>.to_string<span style="">(</span><span style="">)</span><br/>
     <span style="">}</span><span style="">)</span><span style="">;</span><br/>
@@ -315,15 +315,15 @@ let vector = vec![1, 2, 4, 8];     // 通过数组创建向量</pre><p>When usin
 <pre>1</pre><p>Because the length of a vector cannot be logically inferred, the get method cannot guarantee that a value will be returned, so the return type of the get method is the Option enum, which may be None.</p><p>This is a safe way to get a value, but it is a bit cumbersome to write. If you can guarantee that the index is within the vector's valid range, you can also use the array indexing syntax:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #0000dd;">2</span><span style="">,</span> <span style="color: #0000dd;">4</span><span style="">,</span> <span style="color: #0000dd;">8</span><span style="">]</span><span style="">;</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> v<span style="">[</span><span style="color: #0000dd;">1</span><span style="">]</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">4</span><span style="">,</span> <span style="color: #0000DD;">8</span><span style="">]</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> v<span style="">[</span><span style="color: #0000DD;">1</span><span style="">]</span><span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div></div>
 <p>Output:</p>
 <pre>2</pre><p>But if we try to access v</p><p>Iterating over a vector:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">100</span><span style="">,</span> <span style="color: #0000dd;">32</span><span style="">,</span> <span style="color: #0000dd;">57</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">100</span><span style="">,</span> <span style="color: #0000DD;">32</span><span style="">,</span> <span style="color: #0000DD;">57</span><span style="">]</span><span style="">;</span><br/>
     <span style="color: #708;">for</span> i <span style="color: #708;">in</span> <span style="">&amp;</span>v <span style="">{</span><br/>
             println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> i<span style="">)</span><span style="">;</span><br/>
     <span style="">}</span><br/>
@@ -335,9 +335,9 @@ let vector = vec![1, 2, 4, 8];     // 通过数组创建向量</pre><p>When usin
 57</pre><p>If you need to change the value of a variable during iteration:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000dd;">100</span><span style="">,</span> <span style="color: #0000dd;">32</span><span style="">,</span> <span style="color: #0000dd;">57</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> v <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">100</span><span style="">,</span> <span style="color: #0000DD;">32</span><span style="">,</span> <span style="color: #0000DD;">57</span><span style="">]</span><span style="">;</span><br/>
     <span style="color: #708;">for</span> i <span style="color: #708;">in</span> <span style="">&amp;</span><span style="color: #708;">mut</span> v <span style="">{</span><br/>
-        <span style="">*</span>i <span style="">+=</span> <span style="color: #0000dd;">50</span><span style="">;</span><br/>
+        <span style="">*</span>i <span style="">+=</span> <span style="color: #0000DD;">50</span><span style="">;</span><br/>
     <span style="">}</span><br/>
 <span style="">}</span><br/>
 </div></div><hr/>
@@ -410,7 +410,7 @@ o
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #708;">let</span> s <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EN中文"</span><span style="">)</span><span style="">;</span><br/>
-    <span style="color: #708;">let</span> a <span style="">=</span> s.chars<span style="">(</span><span style="">)</span>.nth<span style="">(</span><span style="color: #0000dd;">2</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> a <span style="">=</span> s.chars<span style="">(</span><span style="">)</span>.nth<span style="">(</span><span style="color: #0000DD;">2</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{:?}"</span><span style="">,</span> a<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div></div>
@@ -419,7 +419,7 @@ o
 <p><strong>Note</strong>: The nth function is a method to retrieve a value from an iterator. Please do not use it this way while iterating! Because the length of each character in UTF-8 is not necessarily equal!</p>If you want to extract a substring from a string:<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #708;">let</span> s <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EN中文"</span><span style="">)</span><span style="">;</span><br/>
-    <span style="color: #708;">let</span> sub <span style="">=</span> <span style="">&amp;</span>s<span style="">[</span><span style="color: #0000dd;">0</span>..<span style="color: #0000dd;">2</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> sub <span style="">=</span> <span style="">&amp;</span>s<span style="">[</span><span style="color: #0000DD;">0</span>..<span style="color: #0000DD;">2</span><span style="">]</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> sub<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div></div>
@@ -428,7 +428,7 @@ o
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #708;">let</span> s <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EN中文"</span><span style="">)</span><span style="">;</span><br/>
-    <span style="color: #708;">let</span> sub <span style="">=</span> <span style="">&amp;</span>s<span style="">[</span><span style="color: #0000dd;">0</span>..<span style="color: #0000dd;">3</span><span style="">]</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> sub <span style="">=</span> <span style="">&amp;</span>s<span style="">[</span><span style="color: #0000DD;">0</span>..<span style="color: #0000DD;">3</span><span style="">]</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> sub<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div></div>
@@ -479,9 +479,9 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.</
 <br/>
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> map <span style="">=</span> <span style="color: #05a;">HashMap</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="">)</span><span style="">;</span><br/>
-    map.insert<span style="">(</span><span style="color: #0000dd;">1</span><span style="">,</span> <span style="color: #a11;">"a"</span><span style="">)</span><span style="">;</span><br/>
+    map.insert<span style="">(</span><span style="color: #0000DD;">1</span><span style="">,</span> <span style="color: #a11;">"a"</span><span style="">)</span><span style="">;</span><br/>
     <br/>
-    <span style="color: #708;">if</span> <span style="color: #708;">let</span> Some<span style="">(</span>x<span style="">)</span> <span style="">=</span> map.get_mut<span style="">(</span><span style="">&amp;</span><span style="color: #0000dd;">1</span><span style="">)</span> <span style="">{</span><br/>
+    <span style="color: #708;">if</span> <span style="color: #708;">let</span> Some<span style="">(</span>x<span style="">)</span> <span style="">=</span> map.get_mut<span style="">(</span><span style="">&amp;</span><span style="color: #0000DD;">1</span><span style="">)</span> <span style="">{</span><br/>
         <span style="">*</span>x <span style="">=</span> <span style="color: #a11;">"b"</span><span style="">;</span><br/>
     <span style="">}</span><br/>
 <span style="">}</span><br/>
@@ -520,7 +520,7 @@ Notes list
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -565,7 +565,7 @@ Notes list
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -604,7 +604,7 @@ Notes list
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
@@ -823,7 +823,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">

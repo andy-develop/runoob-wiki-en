@@ -377,21 +377,21 @@ size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);</pre>
 <span style="color: #666666;">// 注意：必须使用固定长度数组，不能用 char *name 指针成员</span><br/>
 <span style="color: #05a;">typedef</span> <span style="color: #05a;">struct</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">int</span> id<span style="color: #008080;">;</span>             <span style="color: #666666;">// 学号</span><br/>
-    <span style="color: #05a;">char</span> name<span style="color: #008000;">[</span><span style="color: #0000dd;">50</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span>      <span style="color: #666666;">// 姓名（固定数组，不可用指针）</span><br/>
+    <span style="color: #05a;">char</span> name<span style="color: #008000;">[</span><span style="color: #0000DD;">50</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span>      <span style="color: #666666;">// 姓名（固定数组，不可用指针）</span><br/>
     <span style="color: #05a;">float</span> score<span style="color: #008080;">;</span>        <span style="color: #666666;">// 成绩</span><br/>
 <span style="color: #008000;">}</span> Student<span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">int</span> main<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #666666;">// ===== 写入结构体到文件 =====</span><br/>
-    Student s <span style="color: #000080;">=</span> <span style="color: #008000;">{</span><span style="color: #0000dd;">101</span>, <span style="color: #a11;">"Alice"</span>, <span style="color:#800080;">95.5f</span><span style="color: #008000;">}</span><span style="color: #008080;">;</span>  <span style="color: #666666;">// 初始化数据</span><br/>
+    Student s <span style="color: #000080;">=</span> <span style="color: #008000;">{</span><span style="color: #0000DD;">101</span>, <span style="color: #a11;">"Alice"</span>, <span style="color:#800080;">95.5f</span><span style="color: #008000;">}</span><span style="color: #008080;">;</span>  <span style="color: #666666;">// 初始化数据</span><br/>
     <span style="color: #05a;">FILE</span> <span style="color: #000040;">*</span>fp <span style="color: #000080;">=</span> <span style="color: #05a;">fopen</span><span style="color: #008000;">(</span><span style="color: #a11;">"student.bin"</span>, <span style="color: #a11;">"wb"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>fp <span style="color: #000080;">==</span> <span style="color: #05a;">NULL</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         <span style="color: #05a;">perror</span><span style="color: #008000;">(</span><span style="color: #a11;">"文件打开失败"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        <span style="color: #05a;">return</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span><br/>
+        <span style="color: #05a;">return</span> <span style="color: #0000DD;">1</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
     <span style="color: #666666;">// 将整个结构体作为一块数据写入</span><br/>
-    <span style="color: #05a;">size_t</span> written <span style="color: #000080;">=</span> <span style="color: #05a;">fwrite</span><span style="color: #008000;">(</span><span style="color: #000040;">&amp;</span>s, <span style="color: #05a;">sizeof</span><span style="color: #008000;">(</span>Student<span style="color: #008000;">)</span>, <span style="color: #0000dd;">1</span>, fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>written <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+    <span style="color: #05a;">size_t</span> written <span style="color: #000080;">=</span> <span style="color: #05a;">fwrite</span><span style="color: #008000;">(</span><span style="color: #000040;">&amp;</span>s, <span style="color: #05a;">sizeof</span><span style="color: #008000;">(</span>Student<span style="color: #008000;">)</span>, <span style="color: #0000DD;">1</span>, fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>written <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         <span style="color: #05a;">printf</span><span style="color: #008000;">(</span><span style="color: #a11;">"写入失败<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
     <span style="color: #05a;">fclose</span><span style="color: #008000;">(</span>fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
@@ -400,18 +400,18 @@ size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);</pre>
     fp <span style="color: #000080;">=</span> <span style="color: #05a;">fopen</span><span style="color: #008000;">(</span><span style="color: #a11;">"student.bin"</span>, <span style="color: #a11;">"rb"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>fp <span style="color: #000080;">==</span> <span style="color: #05a;">NULL</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         <span style="color: #05a;">perror</span><span style="color: #008000;">(</span><span style="color: #a11;">"文件打开失败"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        <span style="color: #05a;">return</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span><br/>
+        <span style="color: #05a;">return</span> <span style="color: #0000DD;">1</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
     Student loaded<span style="color: #008080;">;</span>  <span style="color: #666666;">// 未初始化，将由 fread 填充</span><br/>
-    <span style="color: #05a;">size_t</span> read_count <span style="color: #000080;">=</span> <span style="color: #05a;">fread</span><span style="color: #008000;">(</span><span style="color: #000040;">&amp;</span>loaded, <span style="color: #05a;">sizeof</span><span style="color: #008000;">(</span>Student<span style="color: #008000;">)</span>, <span style="color: #0000dd;">1</span>, fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>read_count <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
+    <span style="color: #05a;">size_t</span> read_count <span style="color: #000080;">=</span> <span style="color: #05a;">fread</span><span style="color: #008000;">(</span><span style="color: #000040;">&amp;</span>loaded, <span style="color: #05a;">sizeof</span><span style="color: #008000;">(</span>Student<span style="color: #008000;">)</span>, <span style="color: #0000DD;">1</span>, fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>read_count <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
         <span style="color: #05a;">printf</span><span style="color: #008000;">(</span><span style="color: #a11;">"读取失败或文件结束<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
         <span style="color: #05a;">fclose</span><span style="color: #008000;">(</span>fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-        <span style="color: #05a;">return</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span><br/>
+        <span style="color: #05a;">return</span> <span style="color: #0000DD;">1</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span><br/>
     <span style="color: #05a;">printf</span><span style="color: #008000;">(</span><span style="color: #a11;">"学号: %d, 姓名: %s, 成绩: %.1f<span style="color: #000099; font-weight: bold;">\n</span>"</span>, loaded.<span style="color: #007788;">id</span>, loaded.<span style="color: #007788;">name</span>, loaded.<span style="color: #007788;">score</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #05a;">fclose</span><span style="color: #008000;">(</span>fp<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #05a;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span><br/>
+    <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div>
 </div>
@@ -818,7 +818,7 @@ fclose 也会自动刷新缓冲区
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -863,7 +863,7 @@ fclose 也会自动刷新缓冲区
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -980,7 +980,7 @@ int main()
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>

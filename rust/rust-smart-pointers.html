@@ -287,51 +287,51 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 <h3>Box&lt;T&gt; Smart Pointer</h3><p>Box&lt;T&gt; is one of the simplest smart pointers in Rust. It allows allocating a block of memory on the heap and storing a value in that memory.</p><p>Due to Rust's ownership rules, using Box allows you to create data of known size on the heap.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #708;">let</span> b <span style="">=</span> Box<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> b <span style="">=</span> Box<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 println<span style="">!</span><span style="">(</span><span style="color: #a11;">"b = {}"</span><span style="">,</span> b<span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>Rc&lt;T&gt; Smart Pointer</h3><p>Rc&lt;T&gt; (reference counting pointer) allows multiple owners to share data. It uses reference counting to track the number of owners of the data and releases the data when the owner count reaches zero.</p><p>Rc&lt;T&gt; is suitable for data sharing in single-threaded environments.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">rc</span><span style="">::</span><span style="color: #05a;">Rc</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> data <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> data <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> data_clone <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">clone</span><span style="">(</span><span style="">&amp;</span>data<span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>Arc&lt;T&gt; Smart Pointer</h3><p>Arc&lt;T&gt; (atomic reference counting pointer) is similar to Rc&lt;T&gt;, but it can safely share data in multi-threaded environments because it uses atomic operations to update the reference count.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">sync</span><span style="">::</span><span style="color: #164;">Arc</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> data <span style="">=</span> Arc<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> data <span style="">=</span> Arc<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> data_clone <span style="">=</span> Arc<span style="">::</span><span style="color: #164;">clone</span><span style="">(</span><span style="">&amp;</span>data<span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>RefCell&lt;T&gt; Smart Pointer</h3><p>RefCell&lt;T&gt; allows borrow rules to be checked at runtime. It uses interior mutability to provide a safe interior mutability pattern, allowing data to be modified in the presence of immutable references.</p><p>However, RefCell&lt;T&gt; can only be used in single-threaded environments.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">cell</span><span style="">::</span><span style="color: #164;">RefCell</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> data <span style="">=</span> RefCell<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> data <span style="">=</span> RefCell<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> <span style="color: #708;">mut</span> borrowed_data <span style="">=</span> data.borrow_mut<span style="">(</span><span style="">)</span><span style="">;</span><br/>
-<span style="">*</span>borrowed_data <span style="">=</span> <span style="color: #0000dd;">10</span><span style="">;</span><br/>
+<span style="">*</span>borrowed_data <span style="">=</span> <span style="color: #0000DD;">10</span><span style="">;</span><br/>
 </div></div>
 <h3>Mutex&lt;T&gt; Smart Pointer</h3>
 <p>Mutex&lt;T&gt; is a mutual exclusion lock that guarantees only one thread can access the data inside the Mutex at any given time.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">sync</span><span style="">::</span><span style="color: #164;">Mutex</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> m <span style="">=</span> Mutex<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> m <span style="">=</span> Mutex<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> <span style="color: #708;">mut</span> data <span style="">=</span> m.lock<span style="">(</span><span style="">)</span>.unwrap<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>RwLock&lt;T&gt; Smart Pointer</h3><p>RwLock&lt;T&gt; is a read-write lock that allows multiple readers to access data simultaneously, but writes are exclusive.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">sync</span><span style="">::</span><span style="color: #164;">RwLock</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> lock <span style="">=</span> RwLock<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> lock <span style="">=</span> RwLock<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> read_guard <span style="">=</span> lock.read<span style="">(</span><span style="">)</span>.unwrap<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>Weak&lt;T&gt; Smart Pointer</h3><p>Weak&lt;T&gt; is a non-owning smart pointer of Rc&lt;T&gt;. It does not increase the reference count and is used to solve reference cycle problems.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">use</span> std<span style="">::</span><span style="color: #164;">rc</span><span style="">::</span><span style="">{</span><span style="color: #05a;">Rc</span><span style="">,</span> Weak<span style="">}</span><span style="">;</span><br/>
 <br/>
-<span style="color: #708;">let</span> five <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000dd;">5</span><span style="">)</span><span style="">;</span><br/>
+<span style="color: #708;">let</span> five <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="color: #0000DD;">5</span><span style="">)</span><span style="">;</span><br/>
 <span style="color: #708;">let</span> weak_five <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">downgrade</span><span style="">(</span><span style="">&amp;</span>five<span style="">)</span><span style="">;</span><br/>
 </div></div>
 <h3>Lifetime Management of Smart Pointers</h3><p>Smart pointers can help manage the lifetime of data. When smart pointers are destroyed, they automatically free memory, thereby avoiding memory leaks and dangling pointers.</p><p>In addition, smart pointers allow specifying a custom destructor at creation time to achieve custom resource management.</p>
@@ -349,7 +349,7 @@ println<span style="">!</span><span style="">(</span><span style="color: #a11;">
 <span style="color: #a50; font-style: italic;">// Main function</span><br/>
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// Create an Rc smart pointer to share data</span><br/>
-    <span style="color: #708;">let</span> data <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span>Data <span style="">{</span> value<span style="">:</span> <span style="color: #0000dd;">5</span> <span style="">}</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> data <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span>Data <span style="">{</span> value<span style="">:</span> <span style="color: #0000DD;">5</span> <span style="">}</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Clone the Rc smart pointer to increase the data's reference count</span><br/>
     <span style="color: #708;">let</span> data_clone1 <span style="">=</span> <span style="color: #05a;">Rc</span><span style="">::</span><span style="color: #164;">clone</span><span style="">(</span><span style="">&amp;</span>data<span style="">)</span><span style="">;</span><br/>
@@ -405,7 +405,7 @@ Notes List
   white-space: nowrap;
   font-size: 14px;
   text-align: left;
-  background: #96b97d;
+  background: #668FB9;
   bottom: 100%;
   color: #fff;
   display: block;
@@ -450,7 +450,7 @@ Notes List
 .wrapper .tooltip:after {
   border-left: solid transparent 10px;
   border-right: solid transparent 10px;
-  border-top: solid #96b97d 10px;
+  border-top: solid #668FB9 10px;
   bottom: -10px;
   content: " ";
   height: 0;
@@ -489,7 +489,7 @@ Notes List
 <script src="../static.char123.com/assets/upvotejs/dist/upvotejs/upvotejs.jquery.js"></script>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
-<h3 class="text-muted" id="share_code" style="color: #799961;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
+<h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
 <p style="font-size:14px;">Notes must be an extension of the content of this article!</p><br>
 	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit articles, click here</a></p>
 	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
@@ -708,7 +708,7 @@ function kFormatter(num) {
 </style>
 <div class="sidebar-box re-box re-box-large">
 <div class="sidebar-box recommend-here" style="margin: 0 auto;">
-<a href="#" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
+<a href="#" style="font-size: 16px; color:#5B80A6;font-weight:bold;"> <i aria-hidden="true" class="fa fa-list"></i> Category Navigation</a>
 </div>
 <div class="sidebar-box sidebar-cate">
 <div class="sidebar-tree">
