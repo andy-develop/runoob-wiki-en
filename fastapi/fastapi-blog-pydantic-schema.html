@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Pydantic Schema — 数据验证与序列化 | 菜鸟教程</title>
+<title>Pydantic Schema — Data Validation and Serialization | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Pydantic Schema — 数据验证与序列化  本章你将学会 Pydantic Schema，理解它与 ORM 模型的职责分离，这是 FastAPI 最核心的特性。   为什么需要 Schema？ ORM 模型（models.py）定义数据库结构，但不能直接用于 API 的请求/响应校验。 原因：ORM 模型包含数据库专用逻辑（如 relationship），且不希望将所有字段暴露给 API。  Pydantic Schema .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-sqlalchemy.html" rel="prev">SQLAlchemy 模型 — 设计数据库表</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-routers-views.html" rel="next">路由与文章列表、详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-sqlalchemy.html" rel="prev">SQLAlchemy Models — Designing Database Tables</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-routers-views.html" rel="next">Routes and article list, detail page</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -176,35 +176,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 客户端 ← [Pydantic Schema 序列化] ← 路由函数 ← [ORM 模型] ← 数据库
 </pre>
 <hr/>
-<h2>Pydantic Schema 基础</h2>
+<h2>Pydantic Schema Basics</h2>
 <p>Pydantic V2 is FastAPI's data engine, defining data structures through type hints.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<span style="color: Gray;">,</span> ConfigDict<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> ItemCreate<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""创建请求的 Schema"""</span><br/>
+    <span style="color: #a11;">"""Schema for creating requests"""</span><br/>
     name: <span style="color: Teal;">str</span><br/>
-    price: <span style="color: Teal;">float</span>                       <span style="color: #a50"># 自动校验类型</span><br/>
-    is_offer: <span style="color: Teal;">bool</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span>             <span style="color: #a50"># 带默认值（可选字段）</span><br/>
+    price: <span style="color: Teal;">float</span>                       <span style="color: #a50"># Automatically validate type</span><br/>
+    is_offer: <span style="color: Teal;">bool</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span>             <span style="color: #a50"># With default values (optional fields)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> ItemResponse<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""响应 Schema"""</span><br/>
+    <span style="color: #a11;">"""Response Schema"""</span><br/>
     <span style="color: Teal;">id</span>: <span style="color: Teal;">int</span><br/>
     name: <span style="color: Teal;">str</span><br/>
     price: <span style="color: Teal;">float</span><br/>
 <br/>
-    <span style="color: #a50"># V2 写法：开启 ORM 模式，允许从 ORM 对象直接转换</span><br/>
+    <span style="color: #a50"># V2 approach: enable ORM mode, allowing direct conversion from ORM objects.</span><br/>
     model_config <span style="color: Gray;">=</span> ConfigDict<span style="color: Olive;">(</span>from_attributes<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Define the Schema for the blog</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：schemas.py</span><br/>
+<span style="color: #a50"># File path: schemas.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<span style="color: Gray;">,</span> ConfigDict<br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">datetime</span> <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">datetime</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Optional<br/>
@@ -222,16 +222,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: Green;font-weight:bold;">class</span> PostBase<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     title: <span style="color: Teal;">str</span><br/>
     slug: <span style="color: Teal;">str</span><br/>
-    summary: Optional<span style="color: Olive;">[</span><span style="color: Teal;">str</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>      <span style="color: #a50"># Optional = 可为 None</span><br/>
+    summary: Optional<span style="color: Olive;">[</span><span style="color: Teal;">str</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>      <span style="color: #a50"># Optional = can be None</span><br/>
     content: <span style="color: Teal;">str</span><br/>
     category_id: <span style="color: Teal;">int</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> PostCreate<span style="color: Olive;">(</span>PostBase<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""创建文章时的请求体 Schema"""</span><br/>
-    <span style="color: Green;font-weight:bold;">pass</span>                               <span style="color: #a50"># 直接继承 PostBase，字段完全一致</span><br/>
+    <span style="color: #a11;">"""Request body Schema for creating an article."""</span><br/>
+    <span style="color: Green;font-weight:bold;">pass</span>                               <span style="color: #a50"># Directly inherits PostBase, fields are identical.</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> PostUpdate<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""更新文章（所有字段可选）"""</span><br/>
+    <span style="color: #a11;">"""Update article (all fields optional)"""</span><br/>
     title: Optional<span style="color: Olive;">[</span><span style="color: Teal;">str</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
     slug: Optional<span style="color: Olive;">[</span><span style="color: Teal;">str</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
     summary: Optional<span style="color: Olive;">[</span><span style="color: Teal;">str</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
@@ -239,79 +239,74 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     category_id: Optional<span style="color: Olive;">[</span><span style="color: Teal;">int</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> PostResponse<span style="color: Olive;">(</span>PostBase<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""返回给客户端的响应 Schema"""</span><br/>
+    <span style="color: #a11;">"""Response Schema returned to the client."""</span><br/>
     <span style="color: Teal;">id</span>: <span style="color: Teal;">int</span><br/>
     created_at: <span style="color: #05a;">datetime</span><br/>
     updated_at: <span style="color: #05a;">datetime</span><br/>
-    category: CategoryResponse         <span style="color: #a50"># 嵌套 Schema：返回分类信息</span><br/>
+    category: CategoryResponse         <span style="color: #a50"># Nested Schema: Return category information</span><br/>
 <br/>
     model_config <span style="color: Gray;">=</span> ConfigDict<span style="color: Olive;">(</span>from_attributes<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># from_attributes=True 告诉 Pydantic：这个 Schema 可以从 ORM 对象创建</span><br/>
+    <span style="color: #a50">from_attributes=True tells Pydantic: this Schema can be created from ORM objects</span><br/>
 </div>
 </div>
-<blockquote><p>Pydantic V2 中，<code>model_config = ConfigDict(from_attributes=True)</code>Replaces the one in V1<code>class Config: orm_mode = True</code>This configuration allows you to directly build a Pydantic Schema from SQLAlchemy ORM objects:<code>PostResponse.model_validate(post_orm_obj)</code>。</p></blockquote>
+<blockquote><p>In Pydantic V2,<code>model_config = ConfigDict(from_attributes=True)</code>Replaces the one in V1<code>class Config: orm_mode = True</code>This configuration allows you to directly build a Pydantic Schema from SQLAlchemy ORM objects:<code>PostResponse.model_validate(post_orm_obj)</code>。</p></blockquote>
 <hr/>
 <h2>Using Schema in routes</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：routers/posts.py（创建 POST 路由的示例）</span><br/>
+<span style="color: #a50"># File path: routers/posts.py (example of creating a POST route)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> APIRouter<span style="color: Gray;">,</span> Depends<span style="color: Gray;">,</span> HTTPException<br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy.<span style="color: #05a;">orm</span> <span style="color: Green;font-weight:bold;">import</span> Session<br/>
 <span style="color: Green;font-weight:bold;">from</span> database <span style="color: Green;font-weight:bold;">import</span> get_db<br/>
 <span style="color: Green;font-weight:bold;">from</span> models <span style="color: Green;font-weight:bold;">import</span> Post<br/>
 <span style="color: Green;font-weight:bold;">from</span> schemas <span style="color: Green;font-weight:bold;">import</span> PostCreate<span style="color: Gray;">,</span> PostResponse<br/>
 <br/>
-router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">(</span>prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/posts"</span><span style="color: Gray;">,</span> tags<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"文章"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
+router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">(</span>prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/posts"</span><span style="color: Gray;">,</span> tags<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"Article"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 声明 response_model=PostResponse 后：</span><br/>
-<span style="color: #a50"># 1. FastAPI 自动将 ORM 对象转换为 Schema（序列化）</span><br/>
-<span style="color: #a50"># 2. API 文档自动显示响应结构</span><br/>
+<span style="color: #a50"># After declaring response_model=PostResponse:</span><br/>
+<span style="color: #a50"># 1. FastAPI automatically converts ORM objects to Schema (serialization)</span><br/>
+<span style="color: #a50"># 2. API documentation automatically displays the response structure</span><br/>
 <span style="color: Gray;">@</span>router.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>PostResponse<span style="color: Gray;">,</span> status_code<span style="color: Gray;">=</span><span style="color: Maroon;">201</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_post<span style="color: Olive;">(</span>post_data: PostCreate<span style="color: Gray;">,</span> db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>创建新文章<br/>- post_data：请求体，FastAPI 自动按 PostCreate Schema 校验<br/>- db：通过 Depends(get_db) 注入的数据库会话<br/>
+    <span style="color: #a11;">"""<br/>Create new article<br/>- post_data: request body, FastAPI automatically validates against the PostCreate Schema<br/>db: database session injected via Depends(get_db)<br/>
     """</span><br/>
-    post <span style="color: Gray;">=</span> Post<span style="color: Olive;">(</span>**post_data.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># model_dump() 将 Schema 转字典</span><br/>
+    post <span style="color: Gray;">=</span> Post<span style="color: Olive;">(</span>**post_data.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># model_dump() converts Schema to dict</span><br/>
     db.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>post<span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    db.<span style="color: #05a;">refresh</span><span style="color: Olive;">(</span>post<span style="color: Olive;">)</span>                       <span style="color: #a50"># 刷新，获取数据库自增 ID</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> post                            <span style="color: #a50"># FastAPI 自动用 PostResponse 序列化</span><br/>
+    db.<span style="color: #05a;">refresh</span><span style="color: Olive;">(</span>post<span style="color: Olive;">)</span>                       <span style="color: #a50"># Refresh and get the database auto-increment ID</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> post                            <span style="color: #a50"># FastAPI automatically serializes using PostResponse.</span><br/>
 </div>
 </div>
 <blockquote><p><code>response_model</code>It is one of FastAPI's strongest features. Once declared, FastAPI will: 1. Automatically filter out fields from ORM objects that are not declared in the Schema; 2. Automatically convert types such as datetime into JSON strings; 3. Generate precise OpenAPI documentation.</p></blockquote>
 <hr/>
-<h2>ORM 模型 vs Pydantic Schema 对照</h2>
+<h2>ORM Model vs Pydantic Schema Comparison</h2>
 <table class="reference">
 <tbody>
-<tr><th>方面</th><th>SQLAlchemy ORM 模型</th><th>Pydantic Schema</th></tr>
-<tr><td>定义位置</td><td>models.py</td><td>schemas.py</td></tr>
-<tr><td>基类</td><td>Base (DeclarativeBase)</td><td>BaseModel (Pydantic)</td></tr>
-<tr><td>职责</td><td>Define database table structures and relationships</td><td>Define API input/output formats and validation rules.</td></tr>
+<tr><th>Aspect</th><th>SQLAlchemy ORM Model</th><th>Pydantic Schema</th></tr>
+<tr><td>Definition location</td><td>models.py</td><td>schemas.py</td></tr>
+<tr><td>base class</td><td>Base (DeclarativeBase)</td><td>BaseModel (Pydantic)</td></tr>
+<tr><td>Responsibilities</td><td>Define database table structures and relationships</td><td>Define API input/output formats and validation rules.</td></tr>
 <tr><td>Relationship with database</td><td>Directly maps to database tables</td><td>It doesn't care about the database, only about the API contract.</td></tr>
-<tr><td>字段声明</td><td>Column(Integer, ...)</td><td>Python type hints: int, str</td></tr>
-<tr><td>序列化</td><td>Cannot be directly converted to JSON</td><td>Built-in .model_dump() and JSON serialization</td></tr>
-<tr><td>转换方向</td><td>ORM → Schema：model_validate(obj)</td><td>Schema → ORM：Model(**schema.model_dump())</td></tr>
+<tr><td>Field declaration</td><td>Column(Integer, ...)</td><td>Python type hints: int, str</td></tr>
+<tr><td>serialization</td><td>Cannot be directly converted to JSON</td><td>Built-in .model_dump() and JSON serialization</td></tr>
+<tr><td>Conversion direction</td><td>ORM → Schema：model_validate(obj)</td><td>Schema → ORM：Model(**schema.model_dump())</td></tr>
 </tbody>
 </table>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you have mastered FastAPI's most core Pydantic Schema concepts: BaseModel for defining request/response Schemas, from_attributes=True to enable ORM mode, response_model for automatically serializing ORM objects, and the principle of separating responsibilities between Schemas and ORM models.</p>
-<p>This is the essence of FastAPI's type-driven architecture—define the data shape first, and routes and documentation are generated automatically.</p>
-其他扩展
-</div>
+<p>This is the essence of FastAPI's type-driven architecture—define the data shape first, and routes and documentation are generated automatically.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-sqlalchemy.html" rel="prev">SQLAlchemy 模型 — 设计数据库表</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-routers-views.html" rel="next">路由与文章列表、详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-sqlalchemy.html" rel="prev">SQLAlchemy Models — Designing Database Tables</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-routers-views.html" rel="next">Routes and article list, detail page</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -415,16 +410,16 @@ router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -432,14 +427,14 @@ router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31170"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -617,7 +612,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -708,7 +703,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

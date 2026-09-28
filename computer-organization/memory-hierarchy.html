@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>存储金字塔 — 为什么要分这么多层 | 菜鸟教程</title>
+<title>Storage Pyramid — Why So Many Layers? | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="存储金字塔 -- 为什么要分这么多层   /* ========== runoob 存储金字塔配图与交互演示专用样式（仅作用于本节容器，不污染主题） ========== */  /* SVG 金字塔图容器 */ .storage-fig-wrap {   position: relative;   max-width: 760px;   margin: 24px auto; }  .storage-fig-wrap svg {   d.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/multi-core-processors.html" rel="prev">多核心是怎么回事</a> </div>
-<div class="next-design-link"><a href="../computer-organization/cache-hits-and-misses.html" rel="next">缓存命中与缓存未命中</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/multi-core-processors.html" rel="prev">What Is Multi-Core All About?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/cache-hits-and-misses.html" rel="next">Cache hit and cache miss</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -239,75 +239,55 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 <p>Have you ever wondered why computers have both "memory" and "hard drive"? Why not put all data in the fastest place?</p>
-<p>The answer lies in the design of computer storage systems--<span class="marked">存储金字塔</span>This lecture gives you a thorough understanding of the architect's most core trade-off wisdom.</p>
+<p>The answer lies in the design of computer storage systems--<span class="marked">Storage pyramid</span>This lecture gives you a thorough understanding of the architect's most core trade-off wisdom.</p>
 <hr/>
 <h2>Everyday analogy: kitchen vs. supermarket warehouse</h2>
 <p>Use the placement of ingredients while cooking to build an intuitive impression first.</p>
 <p>Imagine you are cooking.</p>
-<p>Salt and soy sauce, you put them by the stove, within reach--these are the computer's<span class="marked">寄存器</span>和<span class="marked">L1 缓存</span>。</p>
-<p>Ingredients in the fridge, you need to walk a few steps to get them--this is equivalent to<span class="marked">内存（RAM）</span>。</p>
-<p>Rice, flour, and oil stored in the basement, you have to make a special trip--this is<span class="marked">固态硬盘（SSD）</span>。</p>
-<p>And the stock in the supermarket warehouse, you wouldn't keep it at home at all--that is<span class="marked">机械硬盘（HDD）</span>和云存储。</p>
-<p>This reveals a simple rule:<span class="marked">越常用的东西放在越近的地方，但近的地方空间有限也越贵；不常用的放远一点，容量更大也更便宜。</span></p>
+<p>Salt and soy sauce, you put them by the stove, within reach--these are the computer's<span class="marked">register</span>and<span class="marked">L1 cache</span>。</p>
+<p>Ingredients in the fridge, you need to walk a few steps to get them--this is equivalent to<span class="marked">Memory (RAM)</span>。</p>
+<p>Rice, flour, and oil stored in the basement, you have to make a special trip--this is<span class="marked">Solid State Drive (SSD)</span>。</p>
+<p>And the stock in the supermarket warehouse, you wouldn't keep it at home at all--that is<span class="marked">Hard Disk Drive (HDD)</span>and cloud storage.</p>
+<p>This reveals a simple rule:<span class="marked">Things used more often are placed closer, but closer space is limited and more expensive; things used less often are placed farther away, with larger capacity and also cheaper.</span></p>
 <p>Computer storage systems are designed according to this simple rule.</p>
 <hr/>
 <h2>Storage pyramid: the trade-off between speed and capacity</h2>
 <p>Inside a computer, storage devices form a pyramid structure according to the progressive relationship of "speed-capacity-cost".</p>
-runoob 存储金字塔配图 — diagram-design 规范 SVG：纸色底 + 发丝线分层，锈红 accent 仅标注顶层寄存器
+runoob Storage pyramidallocateGraph — diagram-design Specification SVG：纸色底 + emit丝LineDividelayer，锈red accent onlymarkNote顶layerregister
 <div class="storage-fig-wrap">
 <svg aria-label="存储金字塔示意图" role="img" viewbox="0 0 760 348" xmlns="http://www.w3.org/2000/svg">
-<defs>
-背景网点纹理
-<pattern height="22" id="storage-dots" patternunits="userSpaceOnUse" width="22">
+<defs>Background halftone dot texture<pattern height="22" id="storage-dots" patternunits="userSpaceOnUse" width="22">
 <circle cx="1" cy="1" fill="rgba(28,25,23,0.10)" r="0.9"></circle>
 </pattern>
 </defs>
 <rect fill="#faf7f2" height="100%" width="100%"></rect>
-<rect fill="url(#storage-dots)" height="100%" opacity="0.6" width="100%"></rect>
-第 1 层：寄存器 — 最顶层，accent 强调（唯一焦点）
-<polygon class="poly-accent" data-cap="~1 KB" data-detail="CPU 核心里面 | 速度基准 1x" data-lat="~0.3 ns" data-layer="寄存器" points="316,16 444,16 480,60 280,60"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="35">寄存器</text>
-<text fill="#b5523a" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="49">~1 KB · 0.3 ns</text>
-第 2 层：L1 缓存
-<polygon class="poly-base" data-cap="~64 KB" data-detail="CPU 核心内部 | 3x 慢于寄存器" data-lat="~1 ns" data-layer="L1 缓存" points="280,60 480,60 516,104 244,104"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="79">L1 缓存</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="93">~64 KB · 1 ns</text>
-第 3 层：L2 缓存
-<polygon class="poly-base" data-cap="~256 KB" data-detail="CPU 核心内部 | 13x 慢于寄存器" data-lat="~4 ns" data-layer="L2 缓存" points="244,104 516,104 552,148 208,148"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="123">L2 缓存</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="137">~256 KB · 4 ns</text>
-第 4 层：L3 缓存
-<polygon class="poly-base" data-cap="~8 MB" data-detail="CPU 芯片上，多核共享 | 40x 慢" data-lat="~12 ns" data-layer="L3 缓存" points="208,148 552,148 588,192 172,192"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="167">L3 缓存</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="181">~8 MB · 12 ns</text>
-第 5 层：内存 RAM
-<polygon class="poly-base" data-cap="~16 GB" data-detail="主板上独立芯片 | 333x 慢" data-lat="~100 ns" data-layer="内存 RAM" points="172,192 588,192 624,236 136,236"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="211">内存 RAM</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="225">~16 GB · 100 ns</text>
-第 6 层：固态硬盘 SSD
-<polygon class="poly-base" data-cap="~1 TB" data-detail="机箱内部独立设备 | 333,333x 慢" data-lat="~100 μs" data-layer="固态硬盘 SSD" points="136,236 624,236 660,280 100,280"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="255">固态硬盘 SSD</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="269">~1 TB · 100 μs</text>
-第 7 层：机械硬盘 HDD — 最底层，最宽
-<polygon class="poly-base" data-cap="~10 TB" data-detail="机箱内部独立设备 | 33,333,333x 慢" data-lat="~10 ms" data-layer="机械硬盘 HDD" points="100,280 660,280 696,324 64,324"></polygon>
-<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="299">机械硬盘 HDD</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="313">~10 TB · 10 ms</text>
-左右两侧标注（Geist Mono 小字）
-<text fill="#b5523a" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" font-weight="600" x="8" y="20">更快 ↑</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" x="8" y="320">更慢 ↓</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="end" x="752" y="20">容量更小</text>
-<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="end" x="752" y="320">容量更大</text>
-</svg>
-鼠标悬停详情浮层
-<div class="storage-tip" id="storagePyramidTip"></div>
+<rect fill="url(#storage-dots)" height="100%" opacity="0.6" width="100%"></rect>Layer 1: Registers — topmost layer, accent emphasizes (only focus)<polygon class="poly-accent" data-cap="~1 KB" data-detail="CPU 核心里面 | 速度基准 1x" data-lat="~0.3 ns" data-layer="寄存器" points="316,16 444,16 480,60 280,60"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="35">register</text>
+<text fill="#b5523a" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="49">~1 KB · 0.3 ns</text>Layer 2: L1 cache<polygon class="poly-base" data-cap="~64 KB" data-detail="CPU 核心内部 | 3x 慢于寄存器" data-lat="~1 ns" data-layer="L1 缓存" points="280,60 480,60 516,104 244,104"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="79">L1 cache</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="93">~64 KB · 1 ns</text>Layer 3: L2 cache<polygon class="poly-base" data-cap="~256 KB" data-detail="CPU 核心内部 | 13x 慢于寄存器" data-lat="~4 ns" data-layer="L2 缓存" points="244,104 516,104 552,148 208,148"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="123">L2 cache</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="137">~256 KB · 4 ns</text>Layer 4: L3 cache<polygon class="poly-base" data-cap="~8 MB" data-detail="CPU 芯片上，多核共享 | 40x 慢" data-lat="~12 ns" data-layer="L3 缓存" points="208,148 552,148 588,192 172,192"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="167">L3 cache</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="181">~8 MB · 12 ns</text>Layer 5: Memory (RAM)<polygon class="poly-base" data-cap="~16 GB" data-detail="主板上独立芯片 | 333x 慢" data-lat="~100 ns" data-layer="内存 RAM" points="172,192 588,192 624,236 136,236"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="211">Memory RAM</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="225">~16 GB · 100 ns</text>Layer 6: Solid State Drive (SSD)<polygon class="poly-base" data-cap="~1 TB" data-detail="机箱内部独立设备 | 333,333x 慢" data-lat="~100 μs" data-layer="固态硬盘 SSD" points="136,236 624,236 660,280 100,280"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="255">Solid State Drive (SSD)</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="269">~1 TB · 100 μs</text>Layer 7: Mechanical Hard Disk (HDD) — bottommost, widest<polygon class="poly-base" data-cap="~10 TB" data-detail="机箱内部独立设备 | 33,333,333x 慢" data-lat="~10 ms" data-layer="机械硬盘 HDD" points="100,280 660,280 696,324 64,324"></polygon>
+<text fill="#1c1917" font-family="-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="380" y="299">Mechanical Hard Disk (HDD)</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="middle" x="380" y="313">~10 TB · 10 ms</text>Left and right side annotations (Geist Mono small text)<text fill="#b5523a" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" font-weight="600" x="8" y="20">Faster ↑</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" x="8" y="320">Slower ↓</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="end" x="752" y="20">Smaller capacity</text>
+<text fill="#57534e" font-family="'Geist Mono','SF Mono',Consolas,monospace" font-size="9" text-anchor="end" x="752" y="320">Larger capacity</text>
+</svg>Mouse hover detail overlay<div class="storage-tip" id="storagePyramidTip"></div>
 </div>
 <p class="storage-caption">Storage pyramid diagram: the higher up, the faster and smaller; the lower down, the slower and larger. Hover over a trapezoid to see details for each layer.</p>
-<h3>核心规律</h3>
+<h3>Core rules</h3>
 <p>This pyramid diagram reveals an iron rule in hardware design:</p>
 <ul>
-<li><span class="tag1">越快越贵、越小</span>Registers are inside the CPU, made of the fastest transistors, but only a few kilobytes in size. Because chip area is extremely expensive.</li>
-<li><span class="tag1">越慢越便宜、越大</span>Hard drives use magnetic heads and spinning platters, with extremely low cost, and can hold tens of terabytes of data.</li>
-<li><span class="tag1">金字塔结构的目的</span>Using a combination of "small and fast + large and slow" achieves an experience close to the fastest storage at a reasonable cost.</li>
+<li><span class="tag1">Faster, more expensive, smaller</span>Registers are inside the CPU, made of the fastest transistors, but only a few kilobytes in size. Because chip area is extremely expensive.</li>
+<li><span class="tag1">Slower, cheaper, larger</span>Hard drives use magnetic heads and spinning platters, with extremely low cost, and can hold tens of terabytes of data.</li>
+<li><span class="tag1">Purpose of the pyramid structure</span>Using a combination of "small and fast + large and slow" achieves an experience close to the fastest storage at a reasonable cost.</li>
 </ul>
 <p>If a computer used registers for all storage, not only would the price be astronomical, the chip area would also be too large to manufacture.</p>
 <p>Conversely, if it used only hard drives, the computer would be too slow to use--you would have to wait hundreds of milliseconds to open any program.</p>
@@ -315,14 +295,14 @@ runoob 存储金字塔配图 — diagram-design 规范 SVG：纸色底 + 发丝�
 <h2>Detailed comparison of each layer</h2>
 <p>Put the key attributes of the seven storage layers into one table for easy horizontal comparison.</p>
 <table class="reference">
-<tr><th>层级</th><th>典型容量</th><th>访问延迟</th><th>相对速度</th><th>物理位置</th><th>制造成本</th></tr>
-<tr><td>寄存器</td><td>~1 KB</td><td>~0.3 ns</td><td>1x（基准）</td><td>Inside the CPU core</td><td>极高</td></tr>
-<tr><td>L1 缓存</td><td>~64 KB</td><td>~1 ns</td><td>3x slower than registers</td><td>Inside the CPU core</td><td>极高</td></tr>
-<tr><td>L2 缓存</td><td>~256 KB</td><td>~4 ns</td><td>13x 慢</td><td>Inside the CPU core</td><td>很高</td></tr>
-<tr><td>L3 缓存</td><td>~8 MB</td><td>~12 ns</td><td>40x 慢</td><td>On the CPU chip, shared by multiple cores</td><td>高</td></tr>
-<tr><td>内存 (RAM)</td><td>~16 GB</td><td>~100 ns</td><td>333x 慢</td><td>On the motherboard (separate chip)</td><td>中等</td></tr>
-<tr><td>Solid State Drive (SSD)</td><td>~1 TB</td><td>~100 μs</td><td>333,333x 慢</td><td>Inside the computer case (separate device)</td><td>较低</td></tr>
-<tr><td>Hard Disk Drive (HDD)</td><td>~10 TB</td><td>~10 ms</td><td>33,333,333x 慢</td><td>Inside the computer case (separate device)</td><td>低</td></tr>
+<tr><th>Tier</th><th>Typical capacity</th><th>Access latency</th><th>Relative speed</th><th>Physical location</th><th>Manufacturing cost</th></tr>
+<tr><td>register</td><td>~1 KB</td><td>~0.3 ns</td><td>1x (baseline)</td><td>Inside the CPU core</td><td>extremely high</td></tr>
+<tr><td>L1 cache</td><td>~64 KB</td><td>~1 ns</td><td>3x slower than registers</td><td>Inside the CPU core</td><td>extremely high</td></tr>
+<tr><td>L2 cache</td><td>~256 KB</td><td>~4 ns</td><td>13x slower</td><td>Inside the CPU core</td><td>Very High</td></tr>
+<tr><td>L3 cache</td><td>~8 MB</td><td>~12 ns</td><td>40x slower</td><td>On the CPU chip, shared by multiple cores</td><td>High</td></tr>
+<tr><td>Memory (RAM)</td><td>~16 GB</td><td>~100 ns</td><td>333x slower</td><td>On the motherboard (separate chip)</td><td>Medium</td></tr>
+<tr><td>Solid State Drive (SSD)</td><td>~1 TB</td><td>~100 μs</td><td>333,333x slower</td><td>Inside the computer case (separate device)</td><td>Relatively Low</td></tr>
+<tr><td>Hard Disk Drive (HDD)</td><td>~10 TB</td><td>~10 ms</td><td>33,333,333x slower</td><td>Inside the computer case (separate device)</td><td>Low</td></tr>
 </table>
 <blockquote><p>Notice the order-of-magnitude jumps: memory is 100 times slower than L1 cache, SSD is 1000 times slower than memory, and HDD is 100 times slower than SSD. The speed gap between every layer is measured in orders of magnitude.</p></blockquote>
 <h3>Why is SSD so much faster than HDD?</h3>
@@ -334,16 +314,16 @@ runoob 存储金字塔配图 — diagram-design 规范 SVG：纸色底 + 发丝�
 <h2>Interactive demo: simulating access times of multi-layer storage</h2>
 <p>Use a Python snippet to simulate the latency differences when reading the same address from each of the seven storage layers.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>存储金字塔访问延迟模拟器 (runoob 演示)<br/>模拟从不同层级读取同样大小的数据块，直观对比各层的速度差异<br/>
+<span style="color: #a11;">"""<br/>Memory Pyramid Access Latency Simulator (runoob Demo)<br/>Simulate reading data blocks of the same size from different levels to intuitively compare the speed differences of each level<br/>
 """</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> StorageHierarchy:<br/>
-    <span style="color: #a11;">"""模拟计算机的存储层次结构"""</span><br/>
+    <span style="color: #a11;">"""Simulate the memory hierarchy of a computer"""</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 各层存储的模拟延迟（单位：纳秒）与典型容量</span><br/>
+        <span style="color: #a50"># Simulated latency (in nanoseconds) and typical capacity of each storage layer</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">layers</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
             <span style="color: #a11;">'Register'</span>:  <span style="color: Olive;">{</span><span style="color: #a11;">'latency_ns'</span>: <span style="color: Maroon;">0.3</span><span style="color: Gray;">,</span>  <span style="color: #a11;">'capacity'</span>: <span style="color: #a11;">'~1 KB'</span><span style="color: Gray;">,</span>   <span style="color: #a11;">'color'</span>: <span style="color: #a11;">'red'</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
             <span style="color: #a11;">'L1 Cache'</span>:  <span style="color: Olive;">{</span><span style="color: #a11;">'latency_ns'</span>: <span style="color: Maroon;">1</span><span style="color: Gray;">,</span>    <span style="color: #a11;">'capacity'</span>: <span style="color: #a11;">'~64 KB'</span><span style="color: Gray;">,</span>  <span style="color: #a11;">'color'</span>: <span style="color: #a11;">'orange'</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
@@ -355,17 +335,17 @@ runoob 存储金字塔配图 — diagram-design 规范 SVG：纸色底 + 发丝�
         <span style="color: Olive;">}</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> read<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> layer_name<span style="color: Gray;">,</span> address<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>模拟从指定层读取数据<br/>返回模拟的数据值<br/>
+        <span style="color: #a11;">"""<br/>Simulate reading data from the specified layer<br/>Return simulated data values<br/>
         """</span><br/>
         value <span style="color: Gray;">=</span> f<span style="color: #a11;">"DATA_FROM_{layer_name.upper()}_{address}"</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> value<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> compare_access<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> address<span style="color: Gray;">,</span> num_accesses<span style="color: Gray;">=</span><span style="color: Maroon;">3</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""对比同一地址从各层读取的速度"""</span><br/>
+        <span style="color: #a11;">"""Compare the speed of reading the same address from each level."""</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">65</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"存储层次访问延迟对比（地址: {address}）"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Memory hierarchy access latency comparison (address: {address})"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">65</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'层级':&lt;12} {'延迟(纳秒)':&gt;12} {'容量':&lt;12} {'相对寄存器':&gt;12}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">{'Level':&lt;12} {'Latency (ns)':&gt;12} {'Capacity':&lt;12} {'Relative to register':&gt;12}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">65</span><span style="color: Olive;">)</span><br/>
 <br/>
         baseline <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">layers</span><span style="color: Olive;">[</span><span style="color: #a11;">'Register'</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span><span style="color: #a11;">'latency_ns'</span><span style="color: Olive;">]</span><br/>
@@ -377,8 +357,8 @@ runoob 存储金字塔配图 — diagram-design 规范 SVG：纸色底 + 发丝�
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{name:&lt;12} {lat_ns:&gt;10,.1f} ns {cap:&lt;12} {ratio:&gt;10,.0f}x"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 运行演示</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"RUNOOB 存储系统教学: 存储金字塔访问延迟对比"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Run demo</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">RUNOOB Storage System Tutorial: Storage Pyramid Access Latency Comparison</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 store <span style="color: Gray;">=</span> StorageHierarchy<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -386,27 +366,27 @@ store.<span style="color: #05a;">compare_access</span><span style="color: Olive;
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">65</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"结论分析："</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Conclusion analysis:"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">65</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 计算关键比例</span><br/>
+<span style="color: #a50"># Calculate key ratios</span><br/>
 register_lat <span style="color: Gray;">=</span> <span style="color: Maroon;">0.3</span>          <span style="color: #a50"># ns</span><br/>
 ram_lat <span style="color: Gray;">=</span> <span style="color: Maroon;">100</span>               <span style="color: #a50"># ns</span><br/>
 ssd_lat <span style="color: Gray;">=</span> <span style="color: Maroon;">100000</span>            <span style="color: #a50"># ns</span><br/>
 hdd_lat <span style="color: Gray;">=</span> <span style="color: Maroon;">10000000</span>          <span style="color: #a50"># ns</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"1. 内存(RAM) 比 寄存器 慢 {ram_lat / register_lat:,.0f} 倍"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"2. SSD 比 内存(RAM) 慢 {ssd_lat / ram_lat:,.0f} 倍"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"3. HDD 比 内存(RAM) 慢 {hdd_lat / ram_lat:,.0f} 倍"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"4. HDD 比 寄存器 慢 {hdd_lat / register_lat:,.0f} 倍"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">1. Memory (RAM) is {ram_lat / register_lat:,.0f} times slower than registers</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">2. SSD is {ssd_lat / ram_lat:,.0f} times slower than memory (RAM)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">3. HDD is {hdd_lat / ram_lat:,.0f} times slower than memory (RAM)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">4. HDD is {hdd_lat / register_lat:,.0f} times slower than registers</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"如果寄存器访问数据需要 1 秒，那么："</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  - 从 L1 缓存获取需要 {1/register_lat:.0f} 秒"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  - 从内存获取需要 {ram_lat/register_lat:,.0f} 秒（约 {ram_lat/register_lat/60:.0f} 分钟）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  - 从 HDD 获取需要 {hdd_lat/register_lat:,.0f} 秒（约 {hdd_lat/register_lat/3600:,.0f} 小时）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"If register access takes 1 second, then:"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">- Fetching from L1 cache takes {1/register_lat:.0f} seconds</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  - fromMemoryGetrequires {ram_lat/register_lat:,.0f} second（约 {ram_lat/register_lat/60:.0f} Divide钟）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  - from HDD Getrequires {hdd_lat/register_lat:,.0f} second（约 {hdd_lat/register_lat/3600:,.0f} hours）"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<p>运行结果：</p>
+<p>Run result:</p>
 <pre>
 RUNOOB 存储系统教学: 存储金字塔访问延迟对比
 
@@ -437,9 +417,7 @@ HDD          10,000,000.0 ns ~10 TB       33,333,333x
   - 从 HDD 获取需要 33,333,333 秒（约 9,259 小时）
 </pre>
 <h3>Interactive demo: logarithmic comparison chart of access latency across layers</h3>
-<p>The chart below draws a bar chart on a logarithmic scale; adjacent intervals on the horizontal axis differ by 10 times. Hover over a bar to see capacity and latency details.</p>
-runoob 存储层级延迟对比 — Plotly 对数坐标横向条形图（规范选型：对数坐标系用 Plotly）
-<div class="storage-chart-card">
+<p>The chart below draws a bar chart on a logarithmic scale; adjacent intervals on the horizontal axis differ by 10 times. Hover over a bar to see capacity and latency details.</p>runoob storage hierarchy latency comparison — Plotly log-coordinate horizontal bar chart (standard selection: use Plotly for logarithmic coordinate system)<div class="storage-chart-card">
 <div id="storageLatencyChart"></div>
 </div>
 <script src="../static.jyshare.com/assets/libs/plotly-2.32.0.min.js"></script>
@@ -570,49 +548,44 @@ runoob 存储层级延迟对比 — Plotly 对数坐标横向条形图（规范�
 <p>The pyramid is not static--it has an automatic data movement mechanism.</p>
 <h4>Data flow rules</h4>
 <ol>
-<li><span class="tag1 green">CPU 需要数据时</span>First look in the fastest L1 cache; if not found, go to L2; if still not found, go to L3, and so on down to main memory.</li>
-<li><span class="tag1 green">从慢层读到数据后</span>It not only gives the data to the CPU, but also stores a copy in a faster layer. That way the next use is fast.</li>
-<li><span class="tag1 green">快速层满了怎么办</span>According to a certain policy (such as LRU--evicting the least recently used), kick infrequently used data back to slower layers to make room for new data.</li>
+<li><span class="tag1 green">When the CPU Needs Data</span>First look in the fastest L1 cache; if not found, go to L2; if still not found, go to L3, and so on down to main memory.</li>
+<li><span class="tag1 green">After reading data from the slow layer</span>It not only gives the data to the CPU, but also stores a copy in a faster layer. That way the next use is fast.</li>
+<li><span class="tag1 green">What to do when the fast layer is full?</span>According to a certain policy (such as LRU--evicting the least recently used), kick infrequently used data back to slower layers to make room for new data.</li>
 </ol>
 <p>This process is completely transparent to programmers--you don't need to manually manage which cache layer when writing programs; hardware and the operating system automatically do all of this.</p>
 <h4>Real-world examples</h4>
 <p>Suppose you are editing a video file:</p>
 <ul>
-<li>Video files exist<span class="marked">HDD 或 SSD</span>Above (bottom layer).</li>
-<li>When you open a file, the operating system loads part of it into<span class="marked">内存（RAM）</span>中。</li>
-<li>When you start playing, the CPU copies the data of the frames currently being processed to<span class="marked">L3/L2/L1 缓存</span>中。</li>
-<li>Pixel values currently being computed by the ALU are stored in<span class="marked">寄存器</span>中。</li>
+<li>Video files exist<span class="marked">HDD or SSD</span>Above (bottom layer).</li>
+<li>When you open a file, the operating system loads part of it into<span class="marked">Memory (RAM)</span>In.</li>
+<li>When you start playing, the CPU copies the data of the frames currently being processed to<span class="marked">L3/L2/L1 cache</span>In.</li>
+<li>Pixel values currently being computed by the ALU are stored in<span class="marked">register</span>In.</li>
 </ul>
 <p>When you feel "very smooth" in editing software, it's because the CPU finds the data it needs in the cache most of the time.</p>
 <hr/>
 <h2>Historical background: why the pyramid has this shape</h2>
 <p>The number of pyramid layers is a historical product of the ever-widening speed gap between CPU and memory.</p>
 <p>In the 1980s, the speed gap between CPU and memory was not large. But as semiconductor manufacturing advanced, CPU speed grew at about 60% per year, while memory speed only grew at about 10% per year.</p>
-<p>This ever-widening gap is called<span class="marked">「内存墙」（Memory Wall）</span>。</p>
+<p>This ever-widening gap is called<span class="marked">「Memory Wall」（Memory Wall）</span>。</p>
 <p>The storage pyramid is engineers' response to the "memory wall"--using multiple levels of cache to buffer the speed gap between CPU and main memory.</p>
 <table class="reference">
-<tr><th>年代</th><th>CPU 频率</th><th>内存延迟</th><th>速度差距</th><th>缓存层级</th></tr>
-<tr><td>1980s</td><td>~10 MHz</td><td>~200 ns</td><td>约 2 倍</td><td>None or Level 1</td></tr>
-<tr><td>1990s</td><td>~200 MHz</td><td>~70 ns</td><td>约 14 倍</td><td>L1 + L2</td></tr>
-<tr><td>2000s</td><td>~3 GHz</td><td>~50 ns</td><td>约 150 倍</td><td>L1 + L2 + L3</td></tr>
-<tr><td>2020s</td><td>~5 GHz</td><td>~80 ns</td><td>约 400 倍</td><td>L1 + L2 + L3</td></tr>
+<tr><th>era</th><th>CPU frequency</th><th>Memory latency</th><th>Speed gap</th><th>Cache hierarchy</th></tr>
+<tr><td>1980s</td><td>~10 MHz</td><td>~200 ns</td><td>approximately 2x</td><td>None or Level 1</td></tr>
+<tr><td>1990s</td><td>~200 MHz</td><td>~70 ns</td><td>About 14 times</td><td>L1 + L2</td></tr>
+<tr><td>2000s</td><td>~3 GHz</td><td>~50 ns</td><td>About 150 times</td><td>L1 + L2 + L3</td></tr>
+<tr><td>2020s</td><td>~5 GHz</td><td>~80 ns</td><td>About 400 times</td><td>L1 + L2 + L3</td></tr>
 </table>
-<blockquote><p>Note that memory latency has barely changed in essence over 40 years! It's not that memory hasn't improved, but that CPU has improved too fast. The physical limit of memory (capacitor charge/discharge speed) makes it very difficult to significantly shorten its latency.</p></blockquote>
-其他扩展
-</div>
+<blockquote><p>Note that memory latency has barely changed in essence over 40 years! It's not that memory hasn't improved, but that CPU has improved too fast. The physical limit of memory (capacitor charge/discharge speed) makes it very difficult to significantly shorten its latency.</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/multi-core-processors.html" rel="prev">多核心是怎么回事</a> </div>
-<div class="next-design-link"><a href="../computer-organization/cache-hits-and-misses.html" rel="next">缓存命中与缓存未命中</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/multi-core-processors.html" rel="prev">What Is Multi-Core All About?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/cache-hits-and-misses.html" rel="next">Cache hit and cache miss</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -716,16 +689,16 @@ runoob 存储层级延迟对比 — Plotly 对数坐标横向条形图（规范�
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -733,14 +706,14 @@ runoob 存储层级延迟对比 — Plotly 对数坐标横向条形图（规范�
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31886"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -918,7 +891,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1009,7 +982,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

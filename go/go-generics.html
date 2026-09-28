@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Go 语言泛型 | 菜鸟教程</title>
+<title>Go Language Generics | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Go 语言泛型 泛型是 Go 语言在 1.18 版本中引入的重要特性，它让开发者能够编写更加灵活和可重用的代码。  泛型主要通过以下两个核心概念来实现： 	  类型参数（Type Parameters）：允许你在函数或类型定义中使用一个或多个类型作为参数。  	 类型约束（Type Constraints）：指定类型参数必须满足的条件，确保在函数内部可以安全地操作这些类型。                             概念 .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,7 +158,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-inheritance.html" rel="prev">Go 继承</a> </div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-inheritance.html" rel="prev">Go inheritance</a> </div>
 <div class="next-design-link"><a href="../go/go-modules.html" rel="next"> Go Modules</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
@@ -168,36 +168,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Generics is mainly implemented through the following two core concepts:</p>
 <ul>
 <li>
-<strong>类型参数（Type Parameters）：</strong>Allows you to use one or more types as parameters in function or type definitions.</li>
+<strong>Type Parameters:</strong>Allows you to use one or more types as parameters in function or type definitions.</li>
 <li>
-<strong>类型约束（Type Constraints）：</strong>Specifies the conditions that type parameters must satisfy, ensuring that these types can be safely operated on inside functions.</li></ul>
+<strong>Type Constraints:</strong>Specifies the conditions that type parameters must satisfy, ensuring that these types can be safely operated on inside functions.</li></ul>
 <table class="reference">
 <thead>
 <tr>
-<th style="text-align:left">概念</th>
-<th style="text-align:left">作用</th>
-<th style="text-align:left">示例</th>
+<th style="text-align:left">Concepts</th>
+<th style="text-align:left">Function</th>
+<th style="text-align:left">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>类型参数</strong></td>
+<td style="text-align:left"><strong>Type parameter</strong></td>
 <td style="text-align:left">Declared after the function or type name, representing an unspecified type.</td>
 <td style="text-align:left"><code>[T any]</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>类型约束</strong></td>
+<td style="text-align:left"><strong>Type constraint</strong></td>
 <td style="text-align:left">Defines the conditions that type parameters must satisfy (such as supported operators or methods).</td>
 <td style="text-align:left"><code>int，float64，comparable，constraints.Ordered，any</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>any</code></strong></td>
-<td style="text-align:left">Constrain type parameters to<strong>任何</strong>类型。</td>
+<td style="text-align:left">Constrain type parameters to<strong>any</strong>type.</td>
 <td style="text-align:left"><code>[T any]</code></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>comparable</code></strong></td>
-<td style="text-align:left">Constrain type parameters to<strong>可比较</strong>的类型。</td>
+<td style="text-align:left">Constrain type parameters to<strong>comparable</strong>type.</td>
 <td style="text-align:left"><code>[K comparable]</code></td>
 </tr>
 </tbody>
@@ -205,9 +205,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Generics allows us to write code that does not depend on specific data types.</p><p>Before the introduction of generics, if we wanted to handle different types of data, we usually had to write duplicate functions for each type.</p>
 <p><strong>Limitations of the traditional approach:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 处理 int 类型的函数</span><br/>
+<span style="color: #666666; font-style: italic;">// Function to handle int type</span><br/>
 <span style="color: #993333;">func</span> MaxInt<span style="color: #339933;">(</span>a<span style="color: #339933;">,</span> b <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #993333;">int</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> a &gt; b <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">return</span> a<br/>
@@ -215,7 +215,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #B1B100; font-weight: bold;">return</span> b<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 处理 float64 类型的函数</span><br/>
+<span style="color: #666666; font-style: italic;">// Function to handle float64 type</span><br/>
 <span style="color: #993333;">func</span> MaxFloat<span style="color: #339933;">(</span>a<span style="color: #339933;">,</span> b <span style="color: #993333;">float64</span><span style="color: #339933;">)</span> <span style="color: #993333;">float64</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> a &gt; b <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">return</span> a<br/>
@@ -226,9 +226,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <p><strong>Solution using generics:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 一个函数处理多种类型</span><br/>
+<span style="color: #666666; font-style: italic;">// A function handles multiple types</span><br/>
 <span style="color: #993333;">func</span> Max<span style="color: #339933;">[</span>T comparable<span style="color: #339933;">](</span>a<span style="color: #339933;">,</span> b T<span style="color: #339933;">)</span> T <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> a &gt; b <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">return</span> a<br/>
@@ -242,49 +242,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Type Parameter Declaration</h3>
 <p>Generic functions and types are declared through type parameter lists, with the syntax:<code>[Type parameters  Constraints]</code>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 基本语法结构</span><br/>
-<span style="color: #993333;">func</span>函数名<span style="color: #339933;">[</span>T 约束<span style="color: #339933;">](</span>参数 T<span style="color: #339933;">)</span>返回值类型<span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 函数体</span><br/>
+<span style="color: #666666; font-style: italic;">// Basic syntax structure</span><br/>
+<span style="color: #993333;">func</span>Function Name<span style="color: #339933;">[</span>T constraint<span style="color: #339933;">](</span>parameter T<span style="color: #339933;">)</span>Return value type<span style="color: #339933;">{</span><br/>
+    <span style="color: #666666; font-style: italic;">// Function body</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #B1B100; font-weight: bold;">type</span>类型名<span style="color: #339933;">[</span>T 约束<span style="color: #339933;">]</span> <span style="color: #993333;">struct</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 结构体字段</span><br/>
+<span style="color: #B1B100; font-weight: bold;">type</span>type name<span style="color: #339933;">[</span>T constraint<span style="color: #339933;">]</span> <span style="color: #993333;">struct</span> <span style="color: #339933;">{</span><br/>
+    <span style="color: #666666; font-style: italic;">// Struct field</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <h3>Type parameter naming conventions</h3>
 <ul>
-<li>Usually uppercase letters are used:<code>T</code>、<code>K</code>、<code>V</code>、<code>E</code> 等</li>
+<li>Usually uppercase letters are used:<code>T</code>、<code>K</code>、<code>V</code>、<code>E</code>wait</li>
 <li><code>T</code>: denotes Type</li>
 <li><code>K</code>: indicates Key</li>
 <li><code>V</code>: indicates Value</li>
 <li><code>E</code>: denotes Element</li>
 </ul>
 <hr/>
-<h2>约束（Constraints）</h2>
+<h2>Constraints</h2>
 <p>Constraints define the conditions that type parameters must satisfy and are a core concept of generics.</p>
-<h3>内置约束</h3>
-<h4>1. <code>any</code>约束</h4>
-<p><code>any</code>是空接口<code>interface{}</code>an alias for, meaning any type is allowed.</p>
+<h3>Built-in constraints</h3>
+<h4>1. <code>any</code>constraint</h4>
+<p><code>any</code>is an empty interface<code>interface{}</code>an alias for, meaning any type is allowed.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #993333;">func</span> PrintAny<span style="color: #339933;">[</span>T any<span style="color: #339933;">](</span>value T<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     fmt<span style="color: #339933;">.</span>Printf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Value: %v, Type: %T<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> value<span style="color: #339933;">,</span> value<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 PrintAny<span style="color: #339933;">(</span><span style="color: #CC66CC;">42</span><span style="color: #339933;">)</span>        <span style="color: #666666; font-style: italic;">// Value: 42, Type: int</span><br/>
 PrintAny<span style="color: #339933;">(</span><span style="color: #CC66CC;">"hello"</span><span style="color: #339933;">)</span>   <span style="color: #666666; font-style: italic;">// Value: hello, Type: string</span><br/>
 PrintAny<span style="color: #339933;">(</span><span style="color: #CC66CC;">3</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">14</span><span style="color: #339933;">)</span>      <span style="color: #666666; font-style: italic;">// Value: 3.14, Type: float64</span><br/>
 </div>
 </div>
-<h4>2. <code>comparable</code>约束</h4>
-<p><code>comparable</code>Indicates type support<code>==</code> 和 <code>!=</code>操作符。</p>
+<h4>2. <code>comparable</code>constraint</h4>
+<p><code>comparable</code>Indicates type support<code>==</code>and<code>!=</code>operator.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #993333;">func</span> FindIndex<span style="color: #339933;">[</span>T comparable<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">,</span> target T<span style="color: #339933;">)</span> <span style="color: #993333;">int</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">for</span> <span style="">i</span><span style="color: #339933;">,</span> v <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> slice <span style="color: #339933;">{</span><br/>
@@ -295,20 +295,20 @@ PrintAny<span style="color: #339933;">(</span><span style="color: #CC66CC;">3</s
     <span style="color: #B1B100; font-weight: bold;">return</span> <span style="color: #339933;">-</span><span style="color: #CC66CC;">1</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 numbers <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">}</span><br/>
-fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>FindIndex<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// 输出: 2</span><br/>
+fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>FindIndex<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// Output: 2</span><br/>
 <br/>
 names <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">string</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">"Alice"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Bob"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Charlie"</span><span style="color: #339933;">}</span><br/>
-fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span>FindIndex<span style="color: #339933;">(</span>names<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Bob"</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// 输出: 1</span><br/>
+fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span>FindIndex<span style="color: #339933;">(</span>names<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Bob"</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// Output: 1</span><br/>
 </div>
 </div>
-<h4>3. 联合约束（Union Constraints）</h4>
-<p>使用<code>|</code>Operator combines multiple types.</p>
+<h4>3. Union Constraints</h4>
+<p>Usage<code>|</code>Operator combines multiple types.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 数字类型约束</span><br/>
+<span style="color: #666666; font-style: italic;">// Numeric type constraint</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> Number <span style="color: #993333;">interface</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #993333;">int</span> <span style="color: #339933;">|</span> <span style="color: #993333;">int8</span> <span style="color: #339933;">|</span> <span style="color: #993333;">int16</span> <span style="color: #339933;">|</span> <span style="color: #993333;">int32</span> <span style="color: #339933;">|</span> <span style="color: #993333;">int64</span> <span style="color: #339933;">|</span> <br/>
     <span style="color: #993333;">uint</span> <span style="color: #339933;">|</span> <span style="color: #993333;">uint8</span> <span style="color: #339933;">|</span> <span style="color: #993333;">uint16</span> <span style="color: #339933;">|</span> <span style="color: #993333;">uint32</span> <span style="color: #339933;">|</span> <span style="color: #993333;">uint64</span> <span style="color: #339933;">|</span> <br/>
@@ -319,18 +319,18 @@ fmt<span style="color: #339933;">.</span><span style="">Println</span><span styl
     <span style="color: #B1B100; font-weight: bold;">return</span> a <span style="color: #339933;">+</span> b<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
-fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Add<span style="color: #339933;">(</span><span style="color: #CC66CC;">10</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">20</span><span style="color: #339933;">))</span>        <span style="color: #666666; font-style: italic;">// 输出: 30</span><br/>
-fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Add<span style="color: #339933;">(</span><span style="color: #CC66CC;">3</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">14</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">71</span><span style="color: #339933;">))</span>    <span style="color: #666666; font-style: italic;">// 输出: 5.85</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
+fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Add<span style="color: #339933;">(</span><span style="color: #CC66CC;">10</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">20</span><span style="color: #339933;">))</span>        <span style="color: #666666; font-style: italic;">// Output: 30</span><br/>
+fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Add<span style="color: #339933;">(</span><span style="color: #CC66CC;">3</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">14</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">71</span><span style="color: #339933;">))</span>    <span style="color: #666666; font-style: italic;">// Output: 5.85</span><br/>
 </div>
 </div>
-<h3>自定义约束</h3>
+<h3>Custom constraint</h3>
 <h4>1. Method constraints</h4>
 <p>Define constraints that require specific methods.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 定义 Stringer 约束</span><br/>
+<span style="color: #666666; font-style: italic;">// Define Stringer constraint</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> Stringer <span style="color: #993333;">interface</span> <span style="color: #339933;">{</span><br/>
     String<span style="color: #339933;">()</span> <span style="color: #993333;">string</span><br/>
 <span style="color: #339933;">}</span><br/>
@@ -339,7 +339,7 @@ fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(<
     fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>value<span style="color: #339933;">.</span>String<span style="color: #339933;">())</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 实现自定义类型</span><br/>
+<span style="color: #666666; font-style: italic;">// Implement a custom type</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> Person <span style="color: #993333;">struct</span> <span style="color: #339933;">{</span><br/>
     Name <span style="color: #993333;">string</span><br/>
     Age  <span style="color: #993333;">int</span><br/>
@@ -349,17 +349,17 @@ fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(<
     <span style="color: #B1B100; font-weight: bold;">return</span> fmt<span style="color: #339933;">.</span>Sprintf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"%s (%d years old)"</span><span style="color: #339933;">,</span> p<span style="color: #339933;">.</span><span style="">Name</span><span style="color: #339933;">,</span> p<span style="color: #339933;">.</span><span style="">Age</span><span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 person <span style="color: #339933;">:=</span> Person<span style="color: #339933;">{</span>Name<span style="color: #339933;">:</span> <span style="color: #CC66CC;">"Alice"</span><span style="color: #339933;">,</span> Age<span style="color: #339933;">:</span> <span style="color: #CC66CC;">25</span><span style="color: #339933;">}</span><br/>
-PrintString<span style="color: #339933;">(</span>person<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// 输出: Alice (25 years old)</span><br/>
+PrintString<span style="color: #339933;">(</span>person<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// Output: Alice (25 years old)</span><br/>
 </div>
 </div>
 <h4>2. Complex constraints</h4>
 <p>Combine type and method requirements.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 要求类型是数字且实现 String() 方法</span><br/>
+<span style="color: #666666; font-style: italic;">// Requires the type to be numeric and implement String() method</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> NumericStringer <span style="color: #993333;">interface</span> <span style="color: #339933;">{</span><br/>
     Number<br/>
     String<span style="color: #339933;">()</span> <span style="color: #993333;">string</span><br/>
@@ -370,14 +370,14 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
 <h2>Generics Function Practice</h2>
 <h3>1. Generic utility functions</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 交换两个值</span><br/>
+<span style="color: #666666; font-style: italic;">// Swap two values</span><br/>
 <span style="color: #993333;">func</span> Swap<span style="color: #339933;">[</span>T any<span style="color: #339933;">](</span>a<span style="color: #339933;">,</span> b T<span style="color: #339933;">)</span> <span style="color: #339933;">(</span>T<span style="color: #339933;">,</span> T<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">return</span> b<span style="color: #339933;">,</span> a<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 判断切片是否包含元素</span><br/>
+<span style="color: #666666; font-style: italic;">// Check whether the slice contains an element</span><br/>
 <span style="color: #993333;">func</span> Contains<span style="color: #339933;">[</span>T comparable<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">,</span> target T<span style="color: #339933;">)</span> <span style="color: #993333;">bool</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">for</span> _<span style="color: #339933;">,</span> item <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> slice <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">if</span> item <span style="color: #339933;">==</span> target <span style="color: #339933;">{</span><br/>
@@ -387,7 +387,7 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> <span style="color: #000000; font-weight: bold;">false</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 去重函数</span><br/>
+<span style="color: #666666; font-style: italic;">// Deduplicate function</span><br/>
 <span style="color: #993333;">func</span> Unique<span style="color: #339933;">[</span>T comparable<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">)</span> <span style="color: #339933;">[]</span>T <span style="color: #339933;">{</span><br/>
     seen <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">map</span><span style="color: #339933;">[</span>T<span style="color: #339933;">]</span><span style="color: #993333;">bool</span><span style="color: #339933;">)</span><br/>
     result <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span>T<span style="color: #339933;">{}</span><br/>
@@ -401,29 +401,29 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> result<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// Swap 示例</span><br/>
+    <span style="color: #666666; font-style: italic;">// Swap example</span><br/>
     a<span style="color: #339933;">,</span> b <span style="color: #339933;">:=</span> <span style="color: #CC66CC;">10</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">20</span><br/>
     a<span style="color: #339933;">,</span> b <span style="color: #339933;">=</span> Swap<span style="color: #339933;">(</span>a<span style="color: #339933;">,</span> b<span style="color: #339933;">)</span><br/>
-    fmt<span style="color: #339933;">.</span>Printf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"a=%d, b=%d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> a<span style="color: #339933;">,</span> b<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// 输出: a=20, b=10</span><br/>
+    fmt<span style="color: #339933;">.</span>Printf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"a=%d, b=%d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> a<span style="color: #339933;">,</span> b<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// Output: a=20, b=10</span><br/>
     <br/>
-    <span style="color: #666666; font-style: italic;">// Contains 示例</span><br/>
+    <span style="color: #666666; font-style: italic;">// Contains example</span><br/>
     numbers <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">}</span><br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Contains<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// 输出: true</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Contains<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">))</span>  <span style="color: #666666; font-style: italic;">// Output: true</span><br/>
     <br/>
-    <span style="color: #666666; font-style: italic;">// Unique 示例</span><br/>
+    <span style="color: #666666; font-style: italic;">// Unique example</span><br/>
     duplicates <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">}</span><br/>
     unique <span style="color: #339933;">:=</span> Unique<span style="color: #339933;">(</span>duplicates<span style="color: #339933;">)</span><br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>unique<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// 输出: [1 2 3 4 5]</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>unique<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// Output: [1 2 3 4 5]</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <h3>2. Mathematical operation functions</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 求切片最大值</span><br/>
+<span style="color: #666666; font-style: italic;">// Find the maximum value of a slice</span><br/>
 <span style="color: #993333;">func</span> Max<span style="color: #339933;">[</span>T Number<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">)</span> T <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>slice<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">var</span> zero T<br/>
@@ -439,7 +439,7 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> max<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 求切片最小值</span><br/>
+<span style="color: #666666; font-style: italic;">// Find the minimum value of a slice</span><br/>
 <span style="color: #993333;">func</span> Min<span style="color: #339933;">[</span>T Number<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">)</span> T <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>slice<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">var</span> zero T<br/>
@@ -455,7 +455,7 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> min<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 求切片平均值</span><br/>
+<span style="color: #666666; font-style: italic;">// Find the average value of a slice</span><br/>
 <span style="color: #993333;">func</span> Average<span style="color: #339933;">[</span>T Number<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">)</span> <span style="color: #993333;">float64</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>slice<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">return</span> <span style="color: #CC66CC;">0</span><br/>
@@ -468,34 +468,34 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> <span style="color: #993333;">float64</span><span style="color: #339933;">(</span>sum<span style="color: #339933;">)</span> <span style="color: #339933;">/</span> <span style="color: #993333;">float64</span><span style="color: #339933;">(</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>slice<span style="color: #339933;">))</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
     ints <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">9</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">}</span><br/>
     floats <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">float64</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">5</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">9</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">9</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">}</span><br/>
     <br/>
-    fmt<span style="color: #339933;">.</span>Printf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Max int: %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Max<span style="color: #339933;">(</span>ints<span style="color: #339933;">))</span>           <span style="color: #666666; font-style: italic;">// 输出: 9</span><br/>
-    fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Min float: %.1f<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Min<span style="color: #339933;">(</span>floats<span style="color: #339933;">))</span>     <span style="color: #666666; font-style: italic;">// 输出: 1.1</span><br/>
-    fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Average: %.2f<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Average<span style="color: #339933;">(</span>floats<span style="color: #339933;">))</span>   <span style="color: #666666; font-style: italic;">// 输出: 4.40</span><br/>
+    fmt<span style="color: #339933;">.</span>Printf<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Max int: %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Max<span style="color: #339933;">(</span>ints<span style="color: #339933;">))</span>           <span style="color: #666666; font-style: italic;">// Output: 9</span><br/>
+    fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Min float: %.1f<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Min<span style="color: #339933;">(</span>floats<span style="color: #339933;">))</span>     <span style="color: #666666; font-style: italic;">// Output: 1.1</span><br/>
+    fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Average: %.2f<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> Average<span style="color: #339933;">(</span>floats<span style="color: #339933;">))</span>   <span style="color: #666666; font-style: italic;">// Output: 4.40</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>泛型类型</h2>
+<h2>Generic types</h2>
 <h3>1. Generic structs</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 泛型栈实现</span><br/>
+<span style="color: #666666; font-style: italic;">// Generic stack implementation</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> Stack<span style="color: #339933;">[</span>T any<span style="color: #339933;">]</span> <span style="color: #993333;">struct</span> <span style="color: #339933;">{</span><br/>
     elements <span style="color: #339933;">[]</span>T<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 入栈</span><br/>
+<span style="color: #666666; font-style: italic;">// Push</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>s <span style="color: #339933;">*</span>Stack<span style="color: #339933;">[</span>T<span style="color: #339933;">])</span> Push<span style="color: #339933;">(</span>value T<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     s<span style="color: #339933;">.</span>elements <span style="color: #339933;">=</span> append<span style="color: #339933;">(</span>s<span style="color: #339933;">.</span>elements<span style="color: #339933;">,</span> value<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 出栈</span><br/>
+<span style="color: #666666; font-style: italic;">// Pop</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>s <span style="color: #339933;">*</span>Stack<span style="color: #339933;">[</span>T<span style="color: #339933;">])</span> Pop<span style="color: #339933;">()</span> <span style="color: #339933;">(</span>T<span style="color: #339933;">,</span> <span style="color: #993333;">bool</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">.</span>elements<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">var</span> zero T<br/>
@@ -508,7 +508,7 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> value<span style="color: #339933;">,</span> <span style="color: #000000; font-weight: bold;">true</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 查看栈顶元素</span><br/>
+<span style="color: #666666; font-style: italic;">// Peek at the top element</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>s <span style="color: #339933;">*</span>Stack<span style="color: #339933;">[</span>T<span style="color: #339933;">])</span> Peek<span style="color: #339933;">()</span> <span style="color: #339933;">(</span>T<span style="color: #339933;">,</span> <span style="color: #993333;">bool</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">.</span>elements<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">var</span> zero T<br/>
@@ -517,55 +517,55 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> s<span style="color: #339933;">.</span>elements<span style="color: #339933;">[</span><span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">.</span>elements<span style="color: #339933;">)</span><span style="color: #339933;">-</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">],</span> <span style="color: #000000; font-weight: bold;">true</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 判断栈是否为空</span><br/>
+<span style="color: #666666; font-style: italic;">// Check if the stack is empty</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>s <span style="color: #339933;">*</span>Stack<span style="color: #339933;">[</span>T<span style="color: #339933;">])</span> IsEmpty<span style="color: #339933;">()</span> <span style="color: #993333;">bool</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">return</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>s<span style="color: #339933;">.</span>elements<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 整数栈</span><br/>
+    <span style="color: #666666; font-style: italic;">// Integer stack</span><br/>
     intStack <span style="color: #339933;">:=</span> Stack<span style="color: #339933;">[</span><span style="color: #993333;">int</span><span style="color: #339933;">]{}</span><br/>
     intStack<span style="color: #339933;">.</span>Push<span style="color: #339933;">(</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">)</span><br/>
     intStack<span style="color: #339933;">.</span>Push<span style="color: #339933;">(</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">)</span><br/>
     intStack<span style="color: #339933;">.</span>Push<span style="color: #339933;">(</span><span style="color: #CC66CC;">3</span><span style="color: #339933;">)</span><br/>
     <br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>intStack<span style="color: #339933;">.</span>Pop<span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// 输出: 3 true</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>intStack<span style="color: #339933;">.</span>Pop<span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// Output: 3 true</span><br/>
     <br/>
-    <span style="color: #666666; font-style: italic;">// 字符串栈</span><br/>
+    <span style="color: #666666; font-style: italic;">// String stack</span><br/>
     stringStack <span style="color: #339933;">:=</span> Stack<span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]{}</span><br/>
     stringStack<span style="color: #339933;">.</span>Push<span style="color: #339933;">(</span><span style="color: #CC66CC;">"hello"</span><span style="color: #339933;">)</span><br/>
     stringStack<span style="color: #339933;">.</span><span style="">Push</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"world"</span><span style="color: #339933;">)</span><br/>
     <br/>
-    fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span>stringStack<span style="color: #339933;">.</span><span style="">Pop</span><span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// 输出: world true</span><br/>
+    fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span>stringStack<span style="color: #339933;">.</span><span style="">Pop</span><span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// Output: world true</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <h3>2. Generic map (Map)</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 线程安全的泛型映射</span><br/>
+<span style="color: #666666; font-style: italic;">// Thread-safe generic map</span><br/>
 <span style="color: #B1B100; font-weight: bold;">type</span> SafeMap<span style="color: #339933;">[</span>K comparable<span style="color: #339933;">,</span> V any<span style="color: #339933;">]</span> <span style="color: #993333;">struct</span> <span style="color: #339933;">{</span><br/>
     data <span style="color: #993333;">map</span><span style="color: #339933;">[</span>K<span style="color: #339933;">]</span>V<br/>
     mutex <span style="color: #003399;">sync.<span style="">RWMutex</span></span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 创建新的 SafeMap</span><br/>
+<span style="color: #666666; font-style: italic;">// Create a new SafeMap</span><br/>
 <span style="color: #993333;">func</span> NewSafeMap<span style="color: #339933;">[</span>K comparable<span style="color: #339933;">,</span> V any<span style="color: #339933;">]()</span> <span style="color: #339933;">*</span>SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">]</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">return</span> &amp;SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">]{</span><br/>
         data<span style="color: #339933;">:</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">map</span><span style="color: #339933;">[</span>K<span style="color: #339933;">]</span>V<span style="color: #339933;">),</span><br/>
     <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 设置键值对</span><br/>
+<span style="color: #666666; font-style: italic;">// Set key-value pair</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>m <span style="color: #339933;">*</span>SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">])</span> Set<span style="color: #339933;">(</span>key K<span style="color: #339933;">,</span> value V<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>Lock<span style="color: #339933;">()</span><br/>
     <span style="color: #B1B100; font-weight: bold;">defer</span> m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>Unlock<span style="color: #339933;">()</span><br/>
     m<span style="color: #339933;">.</span>data<span style="color: #339933;">[</span>key<span style="color: #339933;">]</span> <span style="color: #339933;">=</span> value<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 获取值</span><br/>
+<span style="color: #666666; font-style: italic;">// Get value</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>m <span style="color: #339933;">*</span>SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">])</span> Get<span style="color: #339933;">(</span>key K<span style="color: #339933;">)</span> <span style="color: #339933;">(</span>V<span style="color: #339933;">,</span> <span style="color: #993333;">bool</span><span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>RLock<span style="color: #339933;">()</span><br/>
     <span style="color: #B1B100; font-weight: bold;">defer</span> m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>RUnlock<span style="color: #339933;">()</span><br/>
@@ -573,14 +573,14 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> value<span style="color: #339933;">,</span> exists<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 删除键</span><br/>
+<span style="color: #666666; font-style: italic;">// Delete key</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>m <span style="color: #339933;">*</span>SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">])</span> Delete<span style="color: #339933;">(</span>key K<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>Lock<span style="color: #339933;">()</span><br/>
     <span style="color: #B1B100; font-weight: bold;">defer</span> m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>Unlock<span style="color: #339933;">()</span><br/>
     delete<span style="color: #339933;">(</span>m<span style="color: #339933;">.</span>data<span style="color: #339933;">,</span> key<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 获取所有键</span><br/>
+<span style="color: #666666; font-style: italic;">// Get all keys</span><br/>
 <span style="color: #993333;">func</span> <span style="color: #339933;">(</span>m <span style="color: #339933;">*</span>SafeMap<span style="color: #339933;">[</span>K<span style="color: #339933;">,</span> V<span style="color: #339933;">])</span> Keys<span style="color: #339933;">()</span> <span style="color: #339933;">[]</span>K <span style="color: #339933;">{</span><br/>
     m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>RLock<span style="color: #339933;">()</span><br/>
     <span style="color: #B1B100; font-weight: bold;">defer</span> m<span style="color: #339933;">.</span>mutex<span style="color: #339933;">.</span>RUnlock<span style="color: #339933;">()</span><br/>
@@ -592,72 +592,72 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> keys<br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #666666; font-style: italic;">// Usage example</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 创建字符串到整数的映射</span><br/>
+    <span style="color: #666666; font-style: italic;">// Create a string-to-integer map</span><br/>
     scores <span style="color: #339933;">:=</span> NewSafeMap<span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">,</span> <span style="color: #993333;">int</span><span style="color: #339933;">]()</span><br/>
     scores<span style="color: #339933;">.</span>Set<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Alice"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">95</span><span style="color: #339933;">)</span><br/>
     scores<span style="color: #339933;">.</span>Set<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Bob"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">87</span><span style="color: #339933;">)</span><br/>
     <br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> score<span style="color: #339933;">,</span> exists <span style="color: #339933;">:=</span> scores<span style="color: #339933;">.</span>Get<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Alice"</span><span style="color: #339933;">);</span> exists <span style="color: #339933;">{</span><br/>
-        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Alice's score: %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> score<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// 输出: Alice's score: 95</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Printf</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Alice's score: %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> score<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// Output: Alice's score: 95</span><br/>
     <span style="color: #339933;">}</span><br/>
     <br/>
-    fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Keys:"</span><span style="color: #339933;">,</span> scores<span style="color: #339933;">.</span><span style="">Keys</span><span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// 输出: Keys: [Alice Bob]</span><br/>
+    fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Keys:"</span><span style="color: #339933;">,</span> scores<span style="color: #339933;">.</span><span style="">Keys</span><span style="color: #339933;">())</span>  <span style="color: #666666; font-style: italic;">// Output: Keys: [Alice Bob]</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>类型推断</h2>
+<h2>Type inference</h2>
 <p>The Go compiler can automatically infer type parameters, making code more concise.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 无需显式指定类型</span><br/>
+<span style="color: #666666; font-style: italic;">// No need to explicitly specify the type</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 类型推断示例</span><br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Max<span style="color: #339933;">([]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">}))</span>        <span style="color: #666666; font-style: italic;">// 编译器推断 T 为 int</span><br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Max<span style="color: #339933;">([]</span><span style="color: #993333;">float64</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">}))</span>   <span style="color: #666666; font-style: italic;">// 编译器推断 T 为 float64</span><br/>
+    <span style="color: #666666; font-style: italic;">// Type inference example</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Max<span style="color: #339933;">([]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">}))</span>        <span style="color: #666666; font-style: italic;">// The compiler infers T as int</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>Max<span style="color: #339933;">([]</span><span style="color: #993333;">float64</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">.</span><span style="color: #CC66CC;">2</span><span style="color: #339933;">}))</span>   <span style="color: #666666; font-style: italic;">// The compiler infers T as float64</span><br/>
     <br/>
-    <span style="color: #666666; font-style: italic;">// 显式指定类型（有时需要）</span><br/>
+    <span style="color: #666666; font-style: italic;">// Explicitly specify the type (sometimes necessary)</span><br/>
     <span style="color: #B1B100; font-weight: bold;">var</span> result <span style="color: #993333;">int</span> <span style="color: #339933;">=</span> Max<span style="color: #339933;">[</span><span style="color: #993333;">int</span><span style="color: #339933;">]([]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">})</span><br/>
     fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>result<span style="color: #339933;">)</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>实践练习</h2>
+<h2>Practice exercises</h2>
 <h3>Exercise 1: Implement a generic filter</h3>
-<p>编写一个<code>Filter</code>function that filters slice elements based on a condition.</p>
+<p>Write a<code>Filter</code>function that filters slice elements based on a condition.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 你的实现代码在这里</span><br/>
+<span style="color: #666666; font-style: italic;">// Your implementation code goes here</span><br/>
 <span style="color: #993333;">func</span> Filter<span style="color: #339933;">[</span>T any<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">,</span> predicate <span style="color: #993333;">func</span><span style="color: #339933;">(</span>T<span style="color: #339933;">)</span> <span style="color: #993333;">bool</span><span style="color: #339933;">)</span> <span style="color: #339933;">[]</span>T <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 实现过滤逻辑</span><br/>
+    <span style="color: #666666; font-style: italic;">// Implement filtering logic</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 测试代码</span><br/>
+<span style="color: #666666; font-style: italic;">// Test code</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
     numbers <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">6</span><span style="color: #339933;">}</span><br/>
     even <span style="color: #339933;">:=</span> Filter<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #993333;">func</span><span style="color: #339933;">(</span>n <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #993333;">bool</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">return</span> n<span style="color: #339933;">%</span><span style="color: #CC66CC;">2</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span><br/>
     <span style="color: #339933;">})</span><br/>
-    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>even<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// 应该输出: [2 4 6]</span><br/>
+    fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>even<span style="color: #339933;">)</span>  <span style="color: #666666; font-style: italic;">// Should output: [2 4 6]</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
 </div>
 <h3>Exercise 2: Implement a generic map function</h3>
-<p>编写一个<code>Map</code>A function that converts each element in a slice to another type.</p>
+<p>Write a<code>Map</code>A function that converts each element in a slice to another type.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 你的实现代码在这里</span><br/>
+<span style="color: #666666; font-style: italic;">// Your implementation code goes here</span><br/>
 <span style="color: #993333;">func</span> Map<span style="color: #339933;">[</span>T any<span style="color: #339933;">,</span> U any<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">,</span> mapper <span style="color: #993333;">func</span><span style="color: #339933;">(</span>T<span style="color: #339933;">)</span> U<span style="color: #339933;">)</span> <span style="color: #339933;">[]</span>U <span style="color: #339933;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">// 实现映射逻辑</span><br/>
+    <span style="color: #666666; font-style: italic;">// Implement mapping logic</span><br/>
 <span style="color: #339933;">}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 测试代码</span><br/>
+<span style="color: #666666; font-style: italic;">// Test code</span><br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
     numbers <span style="color: #339933;">:=</span> <span style="color: #339933;">[]</span><span style="color: #993333;">int</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">1</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">3</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">4</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">5</span><span style="color: #339933;">}</span><br/>
     strings <span style="color: #339933;">:=</span> Map<span style="color: #339933;">(</span>numbers<span style="color: #339933;">,</span> <span style="color: #993333;">func</span><span style="color: #339933;">(</span>n <span style="color: #993333;">int</span><span style="color: #339933;">)</span> <span style="color: #993333;">string</span> <span style="color: #339933;">{</span><br/>
@@ -673,15 +673,15 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
 <p>Generics perform type specialization at compile time, with runtime performance comparable to hand-written specific-type code.</p>
 <h3>2. Choice of type constraints</h3>
 <ul>
-<li>使用<code>any</code>is most flexible when, but limited in functionality.</li>
-<li>使用<code>comparable</code>Supports equality comparison</li>
+<li>Usage<code>any</code>is most flexible when, but limited in functionality.</li>
+<li>Usage<code>comparable</code>Supports equality comparison</li>
 <li>Use union constraints to restrict the available concrete types.</li>
 </ul>
 <h3>3. Error handling</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 良好的错误处理实践</span><br/>
+<span style="color: #666666; font-style: italic;">// Good error handling practices</span><br/>
 <span style="color: #993333;">func</span> SafeMax<span style="color: #339933;">[</span>T Number<span style="color: #339933;">](</span>slice <span style="color: #339933;">[]</span>T<span style="color: #339933;">)</span> <span style="color: #339933;">(</span>T<span style="color: #339933;">,</span> error<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #000066;">len</span><span style="color: #339933;">(</span>slice<span style="color: #339933;">)</span> <span style="color: #339933;">==</span> <span style="color: #CC66CC;">0</span> <span style="color: #339933;">{</span><br/>
         <span style="color: #B1B100; font-weight: bold;">var</span> zero T<br/>
@@ -690,22 +690,17 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
     <span style="color: #B1B100; font-weight: bold;">return</span> Max<span style="color: #339933;">(</span>slice<span style="color: #339933;">),</span> <span style="color: #000000; font-weight: bold;">nil</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div>
-</div>
-其他扩展
-</div>
+</div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-inheritance.html" rel="prev">Go 继承</a> </div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-inheritance.html" rel="prev">Go inheritance</a> </div>
 <div class="next-design-link"><a href="../go/go-modules.html" rel="next"> Go Modules</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -809,16 +804,16 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -826,14 +821,14 @@ PrintString<span style="color: #339933;">(</span>person<span style="color: #3399
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="28764"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1011,7 +1006,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1102,7 +1097,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

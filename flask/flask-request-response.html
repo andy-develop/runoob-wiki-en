@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 请求与响应 | 菜鸟教程</title>
+<title>Flask Request and Response | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask 请求与响应 Web 应用的核心是「接收请求，返回响应」，本章全面讲解 Flask 中如何读取请求数据和构造各种类型的响应。 所有示例都可以在开发服务器中直接运行验证。   请求对象——request Flask 通过全局代理对象 request 提供所有请求信息。 虽然它是「全局」对象，但 Flask 内部通过线程隔离机制确保每个请求获取的是自己的数据。   实例  [mycode4 type='python�.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-intro.html" rel="prev">Flask 简介</a> </div>
-<div class="next-design-link"><a href="../flask/flask-static-file.html" rel="next">Flask 静态文件</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-intro.html" rel="prev">Flask Introduction</a> </div>
+<div class="next-design-link"><a href="../flask/flask-static-file.html" rel="next">Flask Static Files</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,95 +171,95 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Flask provides all request information through a global proxy object.<span class="marked">request</span>All request information is provided.</p>
 <p>Although it is a "global" object, Flask internally uses thread isolation to ensure each request gets its own data.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 导入 request，这是一个线程安全的代理对象</span><br/>
+<span style="color: #a50"># Import request, a thread-safe proxy object</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> request<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/debug"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> debug<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 输出请求的各种信息，帮助理解 request 对象</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"""<br/>&lt;h1&gt;请求调试信息&lt;/h1&gt;<br/>
-    &lt;ul&gt;<br/>&lt;li&gt;方法：{request.method}&lt;/li&gt;<br/>&lt;li&gt;路径：{request.path}&lt;/li&gt;<br/>&lt;li&gt;完整 URL：{request.url}&lt;/li&gt;<br/>&lt;li&gt;主机：{request.host}&lt;/li&gt;<br/>&lt;li&gt;客户端 IP：{request.remote_addr}&lt;/li&gt;<br/>
+    <span style="color: #a50"># Output various request information to help understand the request object</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"""<br/>&lt;h1&gt;Request Debugging Info&lt;/h1&gt;<br/>
+    &lt;ul&gt;<br/>&lt;li&gt;Method: {request.method}&lt;/li&gt;<br/>&lt;li&gt;Path: {request.path}&lt;/li&gt;<br/>&lt;li&gt;Full URL: {request.url}&lt;/li&gt;<br/>&lt;li&gt;Host: {request.host}&lt;/li&gt;<br/>&lt;li&gt;Client IP: {request.remote_addr}&lt;/li&gt;<br/>
         &lt;li&gt;User-Agent：{request.headers.get('User-Agent')}&lt;/li&gt;<br/>
     &lt;/ul&gt;<br/>
     """</span><br/>
 </div>
 </div>
-<p>访问<span class="marked">http://127.0.0.1:5000/debug?foo=bar</span>You can see the detailed request information.</p>
+<p>Visit<span class="marked">http://127.0.0.1:5000/debug?foo=bar</span>You can see the detailed request information.</p>
 <p><img decoding="async" src="../wp-content/uploads/2026/05/runoob_1778664795724.png"/></p>
 <hr/>
 <h2>Get query parameters — request.args</h2>
-<p>URL 中<span class="marked">?</span>The parameters after it are called query parameters (Query String).</p>
-<p>使用<span class="marked">request.args</span>Reading it, it works like a dictionary:</p>
+<p>In the URL<span class="marked">?</span>The parameters after it are called query parameters (Query String).</p>
+<p>Usage<span class="marked">request.args</span>Reading it, it works like a dictionary:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/search"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> search<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># request.args.get() 安全获取参数，key 不存在时返回 None</span><br/>
-    <span style="color: #05a;">keyword</span> <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"keyword"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 获取查询关键词</span><br/>
-    page <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"page"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"1"</span><span style="color: Olive;">)</span>       <span style="color: #a50"># 获取页码，默认为 1</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"""<br/>&lt;h1&gt;搜索结果&lt;/h1&gt;<br/>&lt;p&gt;关键词：{keyword}&lt;/p&gt;<br/>&lt;p&gt;页码：{page}&lt;/p&gt;<br/>
+    <span style="color: #a50"># request.args.get() safely gets the parameter, returns None when the key doesn't exist</span><br/>
+    <span style="color: #05a;">keyword</span> <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"keyword"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Get the query keyword</span><br/>
+    page <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"page"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"1"</span><span style="color: Olive;">)</span>       <span style="color: #a50"># Get the page number, defaults to 1</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"""<br/>&lt;h1&gt;Search Results&lt;/h1&gt;<br/>&lt;p&gt;Keyword: {keyword}&lt;/p&gt;<br/>&lt;p&gt;Page: {page}&lt;/p&gt;<br/>
     """</span><br/>
-<span style="color: #a50"># 测试：/search?keyword=flask&amp;page=2</span><br/>
-<span style="color: #a50"># 测试：/search?keyword=RUNOOB</span><br/>
+<span style="color: #a50"># Test: /search?keyword=flask&amp;page=2</span><br/>
+<span style="color: #a50"># Test: /search?keyword=RUNOOB</span><br/>
 </div>
 </div>
-<blockquote><p>推荐使用<span class="marked">.get()</span>Use the method instead of direct subscript access.<span class="marked">request.args["key"]</span>, because the latter throws an exception when the key does not exist.<span class="marked">KeyError</span>, resulting in a 400 error page.</p></blockquote>
+<blockquote><p>Recommended<span class="marked">.get()</span>Use the method instead of direct subscript access.<span class="marked">request.args["key"]</span>, because the latter throws an exception when the key does not exist.<span class="marked">KeyError</span>, resulting in a 400 error page.</p></blockquote>
 <hr/>
 <h2>Get form data — request.form</h2>
 <p>To handle form data submitted by POST requests, use<span class="marked">request.form</span>：</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/register"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> register<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">method</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"POST"</span>:<br/>
-        <span style="color: #a50"># 使用表单中 name="username" 字段的值</span><br/>
+        <span style="color: #a50"># Use the value of the name="username" field in the form</span><br/>
         username <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"username"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
         password <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"password"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> username <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> password:<br/>
-            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;错误&lt;/h1&gt;&lt;p&gt;用户名和密码不能为空&lt;/p&gt;"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
+            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;Error&lt;/h1&gt;&lt;p&gt;Username and password cannot be empty&lt;/p&gt;"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;注册成功&lt;/h1&gt;&lt;p&gt;欢迎 {username} 加入 RUNOOB！&lt;/p&gt;"</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Registration successful&lt;/h1&gt;&lt;p&gt;Welcome {username} to RUNOOB!&lt;/p&gt;"</span><br/>
 <br/>
-    <span style="color: #a50"># GET 请求时显示注册表单</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>&lt;h1&gt;注册&lt;/h1&gt;<br/>
-    &lt;form method="post"&gt;<br/>&lt;p&gt;用户名：&lt;input type="text" name="username"&gt;&lt;/p&gt;<br/>&lt;p&gt;密码：&lt;input type="password" name="password"&gt;&lt;/p&gt;<br/>&lt;p&gt;&lt;input type="submit" value="注册"&gt;&lt;/p&gt;<br/>
+    <span style="color: #a50"># Display registration form on GET request</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>&lt;h1&gt;Register&lt;/h1&gt;<br/>
+    &lt;form method="post"&gt;<br/>&lt;p&gt;Username: &lt;input type="text" name="username"&gt;&lt;/p&gt;<br/>&lt;p&gt;Password: &lt;input type="password" name="password"&gt;&lt;/p&gt;<br/>&lt;p&gt;&lt;input type="submit" value="Register"&gt;&lt;/p&gt;<br/>
     &lt;/form&gt;<br/>
     """</span><br/>
 </div>
 </div>
-<blockquote><p>Note: In the HTML page that handles the form,<span class="marked">&lt;form&gt;</span>必须设置<span class="marked">method="post"</span>, otherwise the data will be sent via the URL query string (GET method), and sensitive information will be exposed in the URL.</p></blockquote>
+<blockquote><p>Note: In the HTML page that handles the form,<span class="marked">&lt;form&gt;</span>Must be set<span class="marked">method="post"</span>, otherwise the data will be sent via the URL query string (GET method), and sensitive information will be exposed in the URL.</p></blockquote>
 <hr/>
-<h2>获取 JSON 数据——request.json</h2>
+<h2>Get JSON data — request.json</h2>
 <p>In modern web development, JSON is the most common data format.</p>
 <p>When the client sends<span class="marked">Content-Type: application/json</span>a request, use<span class="marked">request.json</span>Get the parsed data:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/user"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># request.json 返回已经解析为 Python dict 的 JSON 数据</span><br/>
-    data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span>  <span style="color: #a50"># 例如客户端发送 {"name": "runoob", "email": "test@runoob.com"}</span><br/>
+    <span style="color: #a50"># request.json returns JSON data already parsed into a Python dict</span><br/>
+    data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span>  <span style="color: #a50"># For example, the client sends {"name": "runoob", "email": "test@runoob.com"}</span><br/>
 <br/>
-    <span style="color: #a50"># 安全获取字段</span><br/>
-    name <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"name"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"未知"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"email"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"未提供"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Safely get the field</span><br/>
+    name <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"name"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Unknown"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"email"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Not provided"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 直接返回 dict，Flask 自动转换为 JSON 响应</span><br/>
+    <span style="color: #a50"># Return dict directly, Flask automatically converts it to a JSON response</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><br/>
-        <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"用户创建成功"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"User created successfully"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"name"</span>: name<span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"email"</span>: <span style="color: #05a;">email</span><br/>
     <span style="color: Olive;">}</span><br/>
 </div>
 </div>
-<p>可以用<span class="marked">curl</span>or Postman to test:</p>
+<p>Can be used<span class="marked">curl</span>or Postman to test:</p>
 <pre>
 $ curl -X POST http://127.0.0.1:5000/api/user \
   -H "Content-Type: application/json" \
@@ -271,45 +271,45 @@ $ curl -X POST http://127.0.0.1:5000/api/user \
 }
 </pre>
 <hr/>
-<h2>文件上传</h2>
+<h2>File upload</h2>
 <p>Use this to handle uploaded files:<span class="marked">request.files</span>, combined with the Werkzeug-provided<span class="marked">secure_filename()</span>Ensure the filename is safe:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">os</span><br/>
-<span style="color: Green;font-weight:bold;">from</span> werkzeug.<span style="color: #05a;">utils</span> <span style="color: Green;font-weight:bold;">import</span> secure_filename  <span style="color: #a50"># 过滤危险的文件名字符</span><br/>
+<span style="color: Green;font-weight:bold;">from</span> werkzeug.<span style="color: #05a;">utils</span> <span style="color: Green;font-weight:bold;">import</span> secure_filename  <span style="color: #a50"># Filter dangerous filename characters</span><br/>
 <br/>
-<span style="color: #a50"># 配置上传目录（实际项目中应从配置读取）</span><br/>
+<span style="color: #a50"># Configure the upload directory (in a real project, this should be read from config)</span><br/>
 UPLOAD_DIR <span style="color: Gray;">=</span> <span style="color: #a11;">"uploads"</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/upload"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> upload_file<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">method</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"POST"</span>:<br/>
-        <span style="color: #a50"># 检查是否有文件被上传</span><br/>
+        <span style="color: #a50"># Check if a file was uploaded</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"file"</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> request.<span style="color: #05a;">files</span>:<br/>
-            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"未选择文件"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
+            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"No file selected"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
         <span style="color: Teal;">file</span> <span style="color: Gray;">=</span> request.<span style="color: #05a;">files</span><span style="color: Olive;">[</span><span style="color: #a11;">"file"</span><span style="color: Olive;">]</span><br/>
 <br/>
-        <span style="color: #a50"># 用户可能提交了空表单（未选择文件）</span><br/>
+        <span style="color: #a50"># User may have submitted an empty form (no file selected)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">file</span>.<span style="color: #05a;">filename</span> <span style="color: Gray;">==</span> <span style="color: #a11;">""</span>:<br/>
-            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"文件名为空"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
+            <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Filename is empty"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
-        <span style="color: #a50"># secure_filename 过滤掉路径遍历等危险字符</span><br/>
-        <span style="color: #a50"># 例如 "../../etc/passwd" 会被处理为 "etc_passwd"</span><br/>
+        <span style="color: #a50"># secure_filename filters out dangerous characters like path traversal</span><br/>
+        <span style="color: #a50"># For example, "../../etc/passwd" would be processed as "etc_passwd"</span><br/>
         filename <span style="color: Gray;">=</span> secure_filename<span style="color: Olive;">(</span><span style="color: Teal;">file</span>.<span style="color: #05a;">filename</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 确保上传目录存在</span><br/>
+        <span style="color: #a50"># Ensure the upload directory exists</span><br/>
         <span style="color: #05a;">os</span>.<span style="color: #05a;">makedirs</span><span style="color: Olive;">(</span>UPLOAD_DIR<span style="color: Gray;">,</span> exist_ok<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 保存文件</span><br/>
+        <span style="color: #a50"># Save the file</span><br/>
         <span style="color: Teal;">file</span>.<span style="color: #05a;">save</span><span style="color: Olive;">(</span><span style="color: #05a;">os</span>.<span style="color: #05a;">path</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>UPLOAD_DIR<span style="color: Gray;">,</span> filename<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"文件 {filename} 上传成功"</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">File {filename} uploaded successfully</span><br/>
 <br/>
-    <span style="color: #a50"># GET 请求显示上传表单</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>&lt;h1&gt;上传文件&lt;/h1&gt;<br/>
+    <span style="color: #a50"># GET request shows upload form</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>&lt;h1&gt;Upload File&lt;/h1&gt;<br/>
     &lt;form method="post" enctype="multipart/form-data"&gt;<br/>
-        &lt;p&gt;&lt;input type="file" name="file"&gt;&lt;/p&gt;<br/>&lt;p&gt;&lt;input type="submit" value="上传"&gt;&lt;/p&gt;<br/>
+        &lt;p&gt;&lt;input type="file" name="file"&gt;&lt;/p&gt;<br/>&lt;p&gt;&lt;input type="submit" value="Upload"&gt;&lt;/p&gt;<br/>
     &lt;/form&gt;<br/>
     """</span><br/>
 </div>
@@ -319,57 +319,57 @@ UPLOAD_DIR <span style="color: Gray;">=</span> <span style="color: #a11;">"uploa
 <h2>Complete Guide to Response Types</h2>
 <p>View functions can return multiple types of data, and Flask will automatically convert them into appropriate HTTP responses.</p>
 <p>Understanding this conversion rule is the key to mastering Flask.</p>
-<h3>返回字符串</h3>
+<h3>Return string</h3>
 <p>The returned string serves as the HTML response body, with a default status code of 200 and Content-Type of<span class="marked">text/html</span>。</p>
 <h3>Return a dictionary or list (JSON)</h3>
-<p>自动调用<span class="marked">jsonify()</span>convert to JSON response, with Content-Type set to<span class="marked">application/json</span>。</p>
+<p>Automatically called<span class="marked">jsonify()</span>convert to JSON response, with Content-Type set to<span class="marked">application/json</span>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_posts<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 返回 dict，Flask 自动转为 JSON</span><br/>
+    <span style="color: #a50"># Return dict, Flask automatically converts to JSON</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"status"</span>: <span style="color: #a11;">"ok"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"data"</span>: <span style="color: Olive;">[</span><br/>
-            <span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"Flask 入门教程"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
-            <span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"RESTful API 设计"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+            <span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: <span style="color: #a11;">Flask Tutorial</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+            <span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: <span style="color: #a11;">RESTful API Design</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
         <span style="color: Olive;">]</span><br/>
     <span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/tags"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_tags<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 返回 list，Flask 自动转为 JSON</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Python"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Flask"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Web 开发"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"RUNOOB"</span><span style="color: Olive;">]</span><br/>
+    <span style="color: #a50"># Return list, Flask automatically converts to JSON</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Python"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Flask"</span><span style="color: Gray;">,</span> <span style="color: #a11;">Web Development</span><span style="color: Gray;">,</span> <span style="color: #a11;">"RUNOOB"</span><span style="color: Olive;">]</span><br/>
 </div>
 </div>
 <h3>Returning a tuple—controlling the status code and response headers</h3>
 <p>The tuple format is very practical and has three forms:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 形式 1：(body, status_code)</span><br/>
+<span style="color: #a50"># Form 1: (body, status_code)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/not-found"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> not_found<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;页面不存在&lt;/h1&gt;"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">404</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">&lt;h1&gt;Page Not Found&lt;/h1&gt;</span><span style="color: Gray;">,</span> <span style="color: Maroon;">404</span><br/>
 <br/>
-<span style="color: #a50"># 形式 2：(body, headers_dict)</span><br/>
+<span style="color: #a50"># Form 2: (body, headers_dict)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/custom-header"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> custom_header<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"OK"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-Custom-Header"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><br/>
 <br/>
-<span style="color: #a50"># 形式 3：(body, status_code, headers_dict)</span><br/>
+<span style="color: #a50"># Form 3: (body, status_code, headers_dict)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> api_login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 返回 token 和自定义状态码</span><br/>
+    <span style="color: #a50"># Return token and custom status code</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"token"</span>: <span style="color: #a11;">"abc123"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"user"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span> <span style="color: Maroon;">201</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-RateLimit"</span>: <span style="color: #a11;">"100"</span><span style="color: Olive;">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>重定向</h2>
-<p>使用<span class="marked">redirect()</span>The function redirects the user to another URL:</p>
+<h2>Redirect</h2>
+<p>Usage<span class="marked">redirect()</span>The function redirects the user to another URL:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<br/>
 <br/>
@@ -377,66 +377,66 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 访问首页时重定向到登录页</span><br/>
+    <span style="color: #a50"># Redirect to login page when visiting home page</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;请先登录&lt;/h1&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">&lt;h1&gt;Please Log In First&lt;/h1&gt;</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/old-page"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> old_page<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 旧页面永久迁移到新页面，使用 301 状态码</span><br/>
+    <span style="color: #a50"># Old page permanently moved to new page, use 301 status code</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"new_page"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #05a;">code</span><span style="color: Gray;">=</span><span style="color: Maroon;">301</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/new-page"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> new_page<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;这是新页面&lt;/h1&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">&lt;h1&gt;This is a new page&lt;/h1&gt;</span><br/>
 </div>
 </div>
 <p>The default redirect status code is<span class="marked">303 See Other</span>, suitable for redirecting after form submission (PRG pattern).</p>
 <p>For permanent migration scenarios, use<span class="marked">code=301</span>。</p>
 <hr/>
 <h2>Terminate Request — abort</h2>
-<p>使用<span class="marked">abort()</span>Immediately terminate the current request and return an HTTP error:</p>
+<p>Usage<span class="marked">abort()</span>Immediately terminate the current request and return an HTTP error:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> abort<br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/post/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> view_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 假设文章 ID 只有 1-100</span><br/>
+    <span style="color: #a50"># Assume article IDs are only 1-100</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> post_id <span style="color: Gray;">&lt;</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">or</span> post_id <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">100</span>:<br/>
-        <span style="color: #a50"># 立即返回 404，后续代码不会执行</span><br/>
+        <span style="color: #a50"># Immediately return 404, subsequent code will not execute</span><br/>
         abort<span style="color: Olive;">(</span><span style="color: Maroon;">404</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;文章 #{post_id}&lt;/h1&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Article #{post_id}&lt;/h1&gt;"</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/admin"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> admin<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 未授权访问时返回 403</span><br/>
-    abort<span style="color: Olive;">(</span><span style="color: Maroon;">403</span><span style="color: Gray;">,</span> description<span style="color: Gray;">=</span><span style="color: #a11;">"你没有权限访问此页面"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Return 403 for unauthorized access</span><br/>
+    abort<span style="color: Olive;">(</span><span style="color: Maroon;">403</span><span style="color: Gray;">,</span> description<span style="color: Gray;">=</span><span style="color: #a11;">You do not have permission to access this page</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>make_response — manually control the response</h2>
 <p>When you need to manually set cookies or customize response headers, use<span class="marked">make_response()</span>：</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> make_response<br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/set-cookie"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> set_cookie<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># make_response 将视图函数的返回值包装为 Response 对象</span><br/>
-    resp <span style="color: Gray;">=</span> make_response<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;h1&gt;Cookie 已设置&lt;/h1&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># make_response wraps the view function's return value into a Response object</span><br/>
+    resp <span style="color: Gray;">=</span> make_response<span style="color: Olive;">(</span><span style="color: #a11;">&lt;h1&gt;Cookie Set&lt;/h1&gt;</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 在 Response 对象上设置 Cookie</span><br/>
-    resp.<span style="color: #05a;">set_cookie</span><span style="color: Olive;">(</span><span style="color: #a11;">"theme"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"dark"</span><span style="color: Gray;">,</span> max_age<span style="color: Gray;">=</span><span style="color: Maroon;">60</span>*<span style="color: Maroon;">60</span>*<span style="color: Maroon;">24</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 有效期 24 小时</span><br/>
+    <span style="color: #a50"># Set cookie on the Response object</span><br/>
+    resp.<span style="color: #05a;">set_cookie</span><span style="color: Olive;">(</span><span style="color: #a11;">"theme"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"dark"</span><span style="color: Gray;">,</span> max_age<span style="color: Gray;">=</span><span style="color: Maroon;">60</span>*<span style="color: Maroon;">60</span>*<span style="color: Maroon;">24</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Valid for 24 hours</span><br/>
     resp.<span style="color: #05a;">set_cookie</span><span style="color: Olive;">(</span><span style="color: #a11;">"lang"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"zh-CN"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 也可以自定义响应头</span><br/>
+    <span style="color: #a50"># You can also customize response headers</span><br/>
     resp.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-Powered-By"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"RUNOOB-Flask"</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> resp<br/>
@@ -446,10 +446,10 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <h2>Quick reference table of common request attributes</h2>
 <table class="reference">
 <tr>
-<th>属性</th>
-<th>类型</th>
-<th>说明</th>
-<th>示例值</th>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example value</th>
 </tr>
 <tr>
 <td>request.method</td>
@@ -477,20 +477,20 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 </tr>
 <tr>
 <td>request.json</td>
-<td>dict 或 None</td>
+<td>dict or None</td>
 <td>JSON Request Body (parsed)</td>
 <td>{"name": "runoob"}</td>
 </tr>
 <tr>
 <td>request.files</td>
 <td>FileMultiDict</td>
-<td>上传的文件</td>
+<td>Uploaded file</td>
 <td>request.files["avatar"]</td>
 </tr>
 <tr>
 <td>request.headers</td>
 <td>Headers</td>
-<td>请求头</td>
+<td>Request headers</td>
 <td>request.headers["User-Agent"]</td>
 </tr>
 <tr>
@@ -505,21 +505,17 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <td>Client IP Address</td>
 <td>"127.0.0.1"</td>
 </tr>
-</table> 其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-intro.html" rel="prev">Flask 简介</a> </div>
-<div class="next-design-link"><a href="../flask/flask-static-file.html" rel="next">Flask 静态文件</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-intro.html" rel="prev">Flask Introduction</a> </div>
+<div class="next-design-link"><a href="../flask/flask-static-file.html" rel="next">Flask Static Files</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -623,16 +619,16 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -640,14 +636,14 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="30989"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -825,7 +821,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -916,7 +912,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

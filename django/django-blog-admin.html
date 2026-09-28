@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Django Admin — 后台管理文章 | 菜鸟教程</title>
+<title>Django Admin — Admin Article Management | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Django Admin — 后台管理文章  本章你将学会配置 Django Admin，无需写前端代码就能拥有内容管理后台。   Admin 是什么？ Django Admin 是 Django 最强大的内置功能之一：你只需注册模型，它就自动生成一个完整的后台管理系统。 后台提供文章的增删改查、搜索、过滤、分页等功能，无需你自己写任何 CRUD 代码。   创建超级用户 首先需要创建一个管理员账号来登录后台：   (venv) $ p.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-models.html" rel="prev">模型与数据库</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-views-templates.html" rel="next">视图与模板 — 渲染文章列表</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-models.html" rel="prev">Models and Databases</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-views-templates.html" rel="next">Views and Templates — Rendering Article List</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -180,54 +180,54 @@ Password:        # 输入密码（不会回显）
 Password (again): # 重复密码
 Superuser created successfully.
 </pre>
-<p>启动服务器后访问 http://127.0.0.1:8000/admin/，用刚才创建的账号登录。</p>
+<p>After starting the server, visit http://127.0.0.1:8000/admin/ and log in with the account you just created.</p>
 <pre>
 (venv) $ python manage.py runserver
 </pre>
 <hr/>
 <h2>Registering models with Admin</h2>
-<p>打开<code>blog/admin.py</code>, register the Post and Category models.</p>
+<p>Open<code>blog/admin.py</code>, register the Post and Category models.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/admin.py</span><br/>
+<span style="color: #a50"># File path: blog/admin.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span> <span style="color: Green;font-weight:bold;">import</span> admin<br/>
 <span style="color: Green;font-weight:bold;">from</span> .<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Category<span style="color: Gray;">,</span> Post<br/>
 <br/>
-<span style="color: #a50"># 注册分类模型：最简单的注册方式</span><br/>
+<span style="color: #a50"># Registering the Category Model: The Easiest Way to Register</span><br/>
 <span style="color: Gray;">@</span>admin.<span style="color: #05a;">register</span><span style="color: Olive;">(</span>Category<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> CategoryAdmin<span style="color: Olive;">(</span>admin.<span style="color: #05a;">ModelAdmin</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 列表页显示的列</span><br/>
+    <span style="color: #a50"># Columns displayed on the list page</span><br/>
     list_display <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'name'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'slug'</span><span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: #a50"># 注册文章模型：带自定义配置</span><br/>
+<span style="color: #a50"># Register article model: with custom configuration</span><br/>
 <span style="color: Gray;">@</span>admin.<span style="color: #05a;">register</span><span style="color: Olive;">(</span>Post<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> PostAdmin<span style="color: Olive;">(</span>admin.<span style="color: #05a;">ModelAdmin</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 列表页显示的列</span><br/>
+    <span style="color: #a50"># Columns displayed on the list page</span><br/>
     list_display <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'created_at'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'updated_at'</span><span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># 右侧过滤栏：按分类和时间过滤</span><br/>
+    <span style="color: #a50"># Right filter bar: filter by category and time</span><br/>
     list_filter <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'created_at'</span><span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># 顶部搜索框：按标题和摘要搜索</span><br/>
+    <span style="color: #a50"># Top search box: search by title and summary</span><br/>
     search_fields <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'summary'</span><span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># 发布时间的层级导航（年 → 月 → 日）</span><br/>
+    <span style="color: #a50"># Hierarchical navigation of publication time (Year → Month → Day)</span><br/>
     date_hierarchy <span style="color: Gray;">=</span> <span style="color: #a11;">'created_at'</span><br/>
 <br/>
-    <span style="color: #a50"># 每页显示 20 条记录</span><br/>
+    <span style="color: #a50"># Display 20 records per page</span><br/>
     list_per_page <span style="color: Gray;">=</span> <span style="color: Maroon;">20</span><br/>
 </div>
 </div>
 <h3>Key configuration instructions for admin.py</h3>
 <table class="reference">
 <tbody>
-<tr><th>配置项</th><th>类型</th><th>作用</th></tr>
-<tr><td>list_display</td><td>列表</td><td>Specify which fields to display on the list page</td></tr>
-<tr><td>list_filter</td><td>列表</td><td>Add a filter sidebar on the right</td></tr>
-<tr><td>search_fields</td><td>列表</td><td>Adding a search box at the top</td></tr>
-<tr><td>date_hierarchy</td><td>字符串</td><td>Navigating by date hierarchy</td></tr>
-<tr><td>list_per_page</td><td>数字</td><td>Number of items per page (default 100)</td></tr>
+<tr><th>Configuration Item</th><th>Type</th><th>Function</th></tr>
+<tr><td>list_display</td><td>List</td><td>Specify which fields to display on the list page</td></tr>
+<tr><td>list_filter</td><td>List</td><td>Add a filter sidebar on the right</td></tr>
+<tr><td>search_fields</td><td>List</td><td>Adding a search box at the top</td></tr>
+<tr><td>date_hierarchy</td><td>String</td><td>Navigating by date hierarchy</td></tr>
+<tr><td>list_per_page</td><td>Numbers</td><td>Number of items per page (default 100)</td></tr>
 </tbody>
 </table>
 <p>Refresh the admin page, click "Posts" on the left, and you can see the complete list, filtering, and search functions.</p>
@@ -240,20 +240,20 @@ Superuser created successfully.
 <hr/>
 <h2>Rich text editing (optional extension)</h2>
 <p>The default body input box is a plain text field, which makes entering HTML inconvenient.</p>
-<p>可以安装<code>django-summernote</code>to get a WYSIWYG rich text editor:</p>
+<p>Can Install<code>django-summernote</code>to get a WYSIWYG rich text editor:</p>
 <pre>
 (venv) $ pip install django-summernote
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog_project/settings.py</span><br/>
+<span style="color: #a50"># File path: blog_project/settings.py</span><br/>
 INSTALLED_APPS <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
     <span style="color: #a50"># ...</span><br/>
-    <span style="color: #a11;">'django_summernote'</span><span style="color: Gray;">,</span>   <span style="color: #a50"># 注册应用</span><br/>
+    <span style="color: #a11;">'django_summernote'</span><span style="color: Gray;">,</span>   <span style="color: #a50"># Register App</span><br/>
 <span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: #a50"># 支持的文件上传大小限制（可选）</span><br/>
+<span style="color: #a50"># Supported File Upload Size Limit (Optional)</span><br/>
 SUMMERNOTE_CONFIG <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
     <span style="color: #a11;">'summernote'</span>: <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">'width'</span>: <span style="color: #a11;">'100%'</span><span style="color: Gray;">,</span><br/>
@@ -264,17 +264,17 @@ SUMMERNOTE_CONFIG <span style="color: Gray;">=</span> <span style="color: Olive;
 </div>
 <p>Then in Admin, change the content field to a Summernote editor:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/admin.py</span><br/>
+<span style="color: #a50"># File path: blog/admin.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django_summernote.<span style="color: #05a;">admin</span> <span style="color: Green;font-weight:bold;">import</span> SummernoteModelAdmin<br/>
 <br/>
 <span style="color: Gray;">@</span>admin.<span style="color: #05a;">register</span><span style="color: Olive;">(</span>Post<span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">class</span> PostAdmin<span style="color: Olive;">(</span>SummernoteModelAdmin<span style="color: Olive;">)</span>:  <span style="color: #a50"># 继承 SummernoteModelAdmin</span><br/>
+<span style="color: Green;font-weight:bold;">class</span> PostAdmin<span style="color: Olive;">(</span>SummernoteModelAdmin<span style="color: Olive;">)</span>:  <span style="color: #a50"># Inherit SummernoteModelAdmin</span><br/>
     list_display <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'created_at'</span><span style="color: Olive;">]</span><br/>
     list_filter <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'category'</span><span style="color: Olive;">]</span><br/>
     search_fields <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'summary'</span><span style="color: Olive;">]</span><br/>
-    summernote_fields <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'content'</span><span style="color: Olive;">]</span>     <span style="color: #a50"># content 字段使用富文本编辑器</span><br/>
+    summernote_fields <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'content'</span><span style="color: Olive;">]</span>     <span style="color: #a50"># The content field uses a rich text editor.</span><br/>
 </div>
 </div>
 <p>Now when editing articles, the body area is a full-featured rich text editor, allowing you to format, insert images, and adjust styles.</p>
@@ -284,24 +284,19 @@ SUMMERNOTE_CONFIG <span style="color: Gray;">=</span> <span style="color: Olive;
 <p>If you set the following in settings.py:<code>LANGUAGE_CODE = 'zh-hans'</code>, the Admin interface has automatically switched to Chinese.</p>
 <p>In the model definition<code>verbose_name</code>The parameter will be used for the field labels in the Admin form.</p>
 <hr/>
-<h2>本章小结</h2>
-<p>本章你配置了 Django Admin 后台：创建超级用户、注册模型、配置列表展示/搜索/过滤、可选接入富文本编辑器。</p>
-<p>Now you can visually manage article content in the browser without needing to go into the Shell to manually enter data.</p>
-其他扩展
-</div>
+<h2>Chapter summary</h2>
+<p>In this chapter, you configured the Django Admin backend: created a superuser, registered models, configured list display/search/filtering, and optionally integrated a rich text editor.</p>
+<p>Now you can visually manage article content in the browser without needing to go into the Shell to manually enter data.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-models.html" rel="prev">模型与数据库</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-views-templates.html" rel="next">视图与模板 — 渲染文章列表</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-models.html" rel="prev">Models and Databases</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-views-templates.html" rel="next">Views and Templates — Rendering Article List</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -405,16 +400,16 @@ SUMMERNOTE_CONFIG <span style="color: Gray;">=</span> <span style="color: Olive;
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -422,14 +417,14 @@ SUMMERNOTE_CONFIG <span style="color: Gray;">=</span> <span style="color: Olive;
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31148"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -607,7 +602,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -698,7 +693,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

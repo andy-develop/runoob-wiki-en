@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 路由 | 菜鸟教程</title>
+<title>Flask Routing | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask 路由路由（Routing）是 Web 框架最核心的功能之一，它决定了哪个 URL 由哪个函数处理。 Flask 路由是 Web 应用程序中将 URL 映射到 Python 函数的机制。  Flask 路由是 Flask 应用的核心部分，用于处理不同 URL 的请求，并将请求的处理委托给相应的视图函数。 以下是关于 Flask 路由的详细说明，包括路由的定义、参数、方法和规则等。   基础路由 使用 @app.route() .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,71 +158,71 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-layout.html" rel="prev">Flask 项目结构</a> </div>
-<div class="next-design-link"><a href="../flask/flask-views-functions.html" rel="next">Flask 视图函数</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-layout.html" rel="prev">Flask Project Structure</a> </div>
+<div class="next-design-link"><a href="../flask/flask-views-functions.html" rel="next">Flask View Functions</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Flask 路由</h1><p>Routing is one of the core features of web frameworks; it determines which URL is handled by which function.</p><p>Flask routing is a mechanism in web applications that maps URLs to Python functions.</p>
+<h1>Flask Routing</h1><p>Routing is one of the core features of web frameworks; it determines which URL is handled by which function.</p><p>Flask routing is a mechanism in web applications that maps URLs to Python functions.</p>
 <p>Flask routing is a core part of the Flask application, used to handle requests for different URLs and delegate request handling to corresponding view functions.</p>
 <p>The following is a detailed description of Flask routing, including route definitions, parameters, methods, and rules.</p>
 <hr/>
-<h2>基础路由</h2>
-<p>使用<span class="marked">@app.route()</span>The decorator binds the URL path to the view function:</p>
+<h2>Basic Routing</h2>
+<p>Usage<span class="marked">@app.route()</span>The decorator binds the URL path to the view function:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 绑定根路径 "/"</span><br/>
+<span style="color: #a50"># Bind the root path "/"</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"这是首页"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"This is the homepage"</span><br/>
 <br/>
-<span style="color: #a50"># 绑定 "/hello" 路径</span><br/>
+<span style="color: #a50"># Bind the "/hello" path</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/hello"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> hello<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Hello, RUNOOB!"</span><br/>
 <br/>
-<span style="color: #a50"># 不同路径对应不同函数</span><br/>
+<span style="color: #a50"># Different paths correspond to different functions</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/about"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> about<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"关于本站"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"About this site"</span><br/>
 </div>
 </div>
-<p>访问<span class="marked">http://127.0.0.1:5000/hello</span>when Flask calls<span class="marked">hello()</span>函数。</p>
-<p>访问<span class="marked">http://127.0.0.1:5000/about</span>when Flask calls<span class="marked">about()</span>函数。</p>
+<p>Visit<span class="marked">http://127.0.0.1:5000/hello</span>when Flask calls<span class="marked">hello()</span>function.</p>
+<p>Visit<span class="marked">http://127.0.0.1:5000/about</span>when Flask calls<span class="marked">about()</span>function.</p>
 <p><img decoding="async" src="../wp-content/uploads/2024/08/runoob_1778664940027.png"/></p>
 <hr/>
-<h2>变量规则</h2>
+<h2>Variable Rules</h2>
 <p>In real applications, URLs often contain dynamic parts, such as user IDs, article titles, etc.</p>
-<p>Flask 使用<span class="marked">&lt;变量名&gt;</span>The syntax defines dynamic parts in the URL, and the corresponding parameters are automatically passed to the view function.</p>
+<p>Flask uses<span class="marked">&lt;variable_name&gt;</span>The syntax defines dynamic parts in the URL, and the corresponding parameters are automatically passed to the view function.</p>
 <h3>String variable (default type)</h3>
 <p>When no type is specified, the variable defaults to a string and matches anything except a slash.<span class="marked">/</span>Any character other than:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># &lt;username&gt; 是动态变量，Flask 将其值作为 keyword 参数传递给视图函数</span><br/>
+<span style="color: #a50"># &lt;username&gt; is a dynamic variable; Flask passes its value to the view function as a keyword parameter</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/user/&lt;username&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> show_user<span style="color: Olive;">(</span>username<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 注意：username 可能包含恶意脚本，实际生产环境需要转义</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;用户：{username}&lt;/h1&gt;"</span><br/>
+    <span style="color: #a50"># Note: username may contain malicious scripts; in production, escaping is required</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;User: {username}&lt;/h1&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># 测试访问：</span><br/>
-<span style="color: #a50"># /user/runoob  →  页面显示 "用户：runoob"</span><br/>
-<span style="color: #a50"># /user/RUNOOB  →  页面显示 "用户：RUNOOB"</span><br/>
+<span style="color: #a50"># Test visits:</span><br/>
+<span style="color: #a50"># /user/runoob  →  page displays "User: runoob"</span><br/>
+<span style="color: #a50"># /user/RUNOOB  →  page displays "User: RUNOOB"</span><br/>
 </div>
 </div>
-<h3>类型转换器</h3>
-<p>Flask provides multiple built-in converters, through<span class="marked">&lt;类型:变量名&gt;</span>语法指定：</p>
+<h3>Type Converters</h3>
+<p>Flask provides multiple built-in converters, through<span class="marked">&lt;type:variable_name&gt;</span>Syntax specification:</p>
 <table class="reference">
 <tr>
-<th>转换器</th>
-<th>说明</th>
-<th>示例 URL</th>
-<th>匹配结果</th>
+<th>Converter</th>
+<th>Description</th>
+<th>Example URL</th>
+<th>Match Result</th>
 </tr>
 <tr>
 <td>string</td>
@@ -232,13 +232,13 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 </tr>
 <tr>
 <td>int</td>
-<td>正整数</td>
+<td>Positive integer</td>
 <td>/post/42</td>
 <td>post_id = 42</td>
 </tr>
 <tr>
 <td>float</td>
-<td>正浮点数</td>
+<td>Positive float</td>
 <td>/price/19.99</td>
 <td>price = 19.99</td>
 </tr>
@@ -252,74 +252,74 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <td>uuid</td>
 <td>UUID format string</td>
 <td>/item/550e8400-e29b-41d4-a716-446655440000</td>
-<td>item_id = UUID 字符串</td>
+<td>item_id = UUID string</td>
 </tr>
 </table>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># int 转换器：只有数字才能匹配，/post/abc 会返回 404</span><br/>
+<span style="color: #a50"># int converter: Only digits can match; /post/abc returns 404</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/post/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> show_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># post_id 的类型是 int，不是字符串</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;文章 #{post_id}&lt;/h1&gt;"</span><br/>
+    <span style="color: #a50"># post_id is of type int, not string</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Article #{post_id}&lt;/h1&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># path 转换器：可以匹配包含 / 的路径</span><br/>
+<span style="color: #a50"># path converter: Can match paths containing /</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/file/&lt;path:filepath&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> show_file<span style="color: Olive;">(</span>filepath<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;文件路径：{filepath}&lt;/p&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;File path: {filepath}&lt;/p&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># float 转换器：匹配浮点数</span><br/>
+<span style="color: #a50"># float converter: Matches floating-point numbers</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/price/&lt;float:amount&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> show_price<span style="color: Olive;">(</span>amount<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;价格：¥{amount}&lt;/p&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;Price: ¥{amount}&lt;/p&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># uuid 转换器：只接受标准 UUID 格式</span><br/>
+<span style="color: #a50"># uuid converter: Only accepts standard UUID format</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/item/&lt;uuid:item_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> show_item<span style="color: Olive;">(</span>item_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;商品 ID：{item_id}&lt;/p&gt;"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;p&gt;Product ID: {item_id}&lt;/p&gt;"</span><br/>
 </div>
 </div>
-<blockquote><p>Converters not only perform type validation, but also automatically convert matched values into corresponding Python types. For example<span class="marked">&lt;int:post_id&gt;</span>What is passed to the view function is<span class="marked">int</span>而不是<span class="marked">str</span>。</p></blockquote>
+<blockquote><p>Converters not only perform type validation, but also automatically convert matched values into corresponding Python types. For example<span class="marked">&lt;int:post_id&gt;</span>What is passed to the view function is<span class="marked">int</span>instead of<span class="marked">str</span>。</p></blockquote>
 <hr/>
 <h2>Trailing slash redirect behavior</h2>
 <p>at the end of the URL<span class="marked">/</span>It has a direct impact on route matching behavior, and many beginners are confused by this.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 规则 1：以 / 结尾——类似目录</span><br/>
-<span style="color: #a50"># 访问 /projects 会自动 308 重定向到 /projects/</span><br/>
+<span style="color: #a50"># Rule 1: Ends with / — similar to a directory</span><br/>
+<span style="color: #a50"># Accessing /projects automatically 308 redirects to /projects/</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/projects/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> projects<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"项目列表页面"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Projects list page"</span><br/>
 <br/>
-<span style="color: #a50"># 规则 2：不以 / 结尾——类似文件</span><br/>
-<span style="color: #a50"># 访问 /about/ 会返回 404 Not Found</span><br/>
+<span style="color: #a50"># Rule 2: Does not end with / — similar to a file</span><br/>
+<span style="color: #a50"># Accessing /about/ returns 404 Not Found</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/about"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> about<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"关于页面"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"About page"</span><br/>
 </div>
 </div>
 <table class="reference">
 <tr>
-<th>路由定义</th>
-<th>访问 /projects</th>
-<th>访问 /projects/</th>
+<th>Route Definition</th>
+<th>Visit /projects</th>
+<th>Visit /projects/</th>
 </tr>
 <tr>
 <td>@app.route("/projects/")</td>
 <td>308 redirect to /projects/</td>
-<td>正常返回</td>
+<td>Normal response</td>
 </tr>
 <tr>
 <td>@app.route("/about")</td>
-<td>正常返回</td>
+<td>Normal response</td>
 <td>404 Not Found</td>
 </tr>
 </table>
 <blockquote><p>This design helps with SEO: it ensures that the same content has only one canonical URL, preventing search engines from indexing the same page twice.</p></blockquote>
 <hr/>
-<h2>URL 构建——url_for</h2>
+<h2>URL Building — url_for</h2>
 <p><span class="marked">url_for()</span>is Flask's built-in URL generation function, which generates the corresponding URL based on the view function name.</p>
 <p>This has many advantages over hard-coded URL strings:</p>
 <ul>
@@ -328,7 +328,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <li>The generated path is always an absolute path</li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> url_for<br/>
 <br/>
@@ -336,51 +336,51 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"首页"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Home"</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"登录页面"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Login page"</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/user/&lt;username&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> <span style="color: #05a;">profile</span><span style="color: Olive;">(</span>username<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"{username} 的个人主页"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"{username}'s profile"</span><br/>
 <br/>
-<span style="color: #a50"># 使用 test_request_context() 来模拟请求上下文</span><br/>
-<span style="color: #a50"># 这样 url_for() 才能正确生成 URL</span><br/>
+<span style="color: #a50"># Use test_request_context() to simulate a request context</span><br/>
+<span style="color: #a50"># This allows url_for() to generate URLs correctly</span><br/>
 <span style="color: Green;font-weight:bold;">with</span> app.<span style="color: #05a;">test_request_context</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"index"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># 输出 /</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># 输出 /login</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Gray;">,</span> next<span style="color: Gray;">=</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>          <span style="color: #a50"># 输出 /login?next=%2F</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"profile"</span><span style="color: Gray;">,</span> username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出 /user/runoob</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"index"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># Output /</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># Output /login</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Gray;">,</span> next<span style="color: Gray;">=</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>          <span style="color: #a50"># Output /login?next=%2F</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"profile"</span><span style="color: Gray;">,</span> username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output /user/runoob</span><br/>
 </div>
 </div>
 <p><span class="marked">url_for()</span>The first parameter is the view function name (note: it is the function name, not the URL path).</p>
 <p>If the URL contains dynamic variables, pass the corresponding values as keyword arguments.</p>
 <p>Extra unknown parameters are automatically concatenated into the query string.</p>
 <hr/>
-<h2>HTTP 方法</h2>
-<p>By default, the route only responds to<span class="marked">GET</span>请求。</p>
-<p>通过<span class="marked">methods</span>The parameter can specify allowed HTTP methods:</p>
+<h2>HTTP Methods</h2>
+<p>By default, the route only responds to<span class="marked">GET</span>request.</p>
+<p>Through<span class="marked">methods</span>The parameter can specify allowed HTTP methods:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> request<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 同一个 URL 同时响应 GET 和 POST 请求</span><br/>
+<span style="color: #a50"># The same URL responds to both GET and POST requests</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 通过 request.method 判断当前请求类型</span><br/>
+    <span style="color: #a50"># Determine the current request type using request.method</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">method</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"POST"</span>:<br/>
-        <span style="color: #a50"># 处理登录表单提交（POST 请求时执行）</span><br/>
+        <span style="color: #a50"># Handle login form submission (executed on POST request)</span><br/>
         username <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"username"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;欢迎回来，{username}！&lt;/h1&gt;"</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Welcome back, {username}!&lt;/h1&gt;"</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: #a50"># 显示登录表单（GET 请求时执行）</span><br/>
+        <span style="color: #a50"># Display login form (executed on GET request)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>
-        &lt;form method="post"&gt;<br/>&lt;input type="text" name="username" placeholder="用户名"&gt;<br/>&lt;input type="submit" value="登录"&gt;<br/>
+        &lt;form method="post"&gt;<br/>&lt;input type="text" name="username" placeholder="Username"&gt;<br/>&lt;input type="submit" value="Login"&gt;<br/>
         &lt;/form&gt;<br/>
         """</span><br/>
 </div>
@@ -388,30 +388,30 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <h3>shortcut method decorator</h3>
 <p>Flask provides shorthand decorators for common HTTP methods to make the code clearer:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 等价于 @app.route("/login", methods=["GET"])</span><br/>
+<span style="color: #a50"># Equivalent to @app.route("/login", methods=["GET"])</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login_form<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;form&gt;...&lt;/form&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># 等价于 @app.route("/login", methods=["POST"])</span><br/>
+<span style="color: #a50"># Equivalent to @app.route("/login", methods=["POST"])</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login_submit<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"登录成功"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Login successful"</span><br/>
 <br/>
-<span style="color: #a50"># 还支持 @app.put()、@app.delete()、@app.patch()</span><br/>
+<span style="color: #a50"># Also supports @app.put(), @app.delete(), @app.patch()</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">delete</span><span style="color: Olive;">(</span><span style="color: #a11;">"/post/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> delete_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 删除文章的 API</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"文章 {post_id} 已删除"</span><br/>
+    <span style="color: #a50"># API to delete an article</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Article {post_id} deleted"</span><br/>
 </div>
 </div>
 <table class="reference">
 <tr>
-<th>快捷装饰器</th>
-<th>等价写法</th>
-<th>典型用途</th>
+<th>Convenience Decorators</th>
+<th>Equivalent syntax</th>
+<th>Typical use</th>
 </tr>
 <tr>
 <td>@app.get("/path")</td>
@@ -431,7 +431,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <tr>
 <td>@app.delete("/path")</td>
 <td>@app.route("/path", methods=["DELETE"])</td>
-<td>删除数据</td>
+<td>Delete data</td>
 </tr>
 <tr>
 <td>@app.patch("/path")</td>
@@ -439,39 +439,34 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <td>Update data (partial update)</td>
 </tr>
 </table>
-<blockquote><p><span class="tag1">自动处理</span>If the route defines<span class="marked">GET</span>method, Flask automatically adds support for<span class="marked">HEAD</span>Support for methods. Also<span class="marked">OPTIONS</span>Methods are usually handled automatically.</p></blockquote>
+<blockquote><p><span class="tag1">Automatically handles</span>If the route defines<span class="marked">GET</span>method, Flask automatically adds support for<span class="marked">HEAD</span>Support for methods. Also<span class="marked">OPTIONS</span>Methods are usually handled automatically.</p></blockquote>
 <hr/>
 <h2>Bind multiple routes at the same time</h2>
 <p>The same view function can be bound to multiple routes:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 两个不同的 URL 指向同一个视图函数</span><br/>
+<span style="color: #a50"># Two different URLs point to the same view function</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/hello"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/hello/&lt;name&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> greet<span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: Teal;">None</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># name 有默认值 None，当访问 /hello 时 name 为 None</span><br/>
+    <span style="color: #a50"># name has a default value of None; when visiting /hello, name is None</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> name <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;Hello, World!&lt;/h1&gt;"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Hello, {name}!&lt;/h1&gt;"</span><br/>
 </div>
 </div>
-<p>访问<span class="marked">/hello</span> 时 <span class="marked">name</span>取默认值<span class="marked">None</span>，访问<span class="marked">/hello/runoob</span> 时 <span class="marked">name</span> 为 <span class="marked">"runoob"</span>。</p>
-其他扩展
-</div>
+<p>Visit<span class="marked">/hello</span>when<span class="marked">name</span>uses the default value<span class="marked">None</span>, visiting<span class="marked">/hello/runoob</span>when<span class="marked">name</span>is<span class="marked">"runoob"</span>。</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-layout.html" rel="prev">Flask 项目结构</a> </div>
-<div class="next-design-link"><a href="../flask/flask-views-functions.html" rel="next">Flask 视图函数</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-layout.html" rel="prev">Flask Project Structure</a> </div>
+<div class="next-design-link"><a href="../flask/flask-views-functions.html" rel="next">Flask View Functions</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -575,16 +570,16 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -592,14 +587,14 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="25768"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -777,7 +772,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -868,7 +863,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

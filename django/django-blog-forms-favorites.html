@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>表单与收藏功能 | 菜鸟教程</title>
+<title>Forms and Favorites Function | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="表单与收藏功能  本章你将学会处理用户 POST 请求，建立多对多关系，并实现「收藏文章」功能。   收藏功能的数据模型设计 收藏功能的核心是：一个用户可以收藏多篇文章，一篇文章可以被多个用户收藏。 这是典型的多对多（ManyToMany）关系。  我们不需要新建模型——Django 的 User 模型是内置的，只需要在 Post 模型中添加一个 ManyToManyField 指向 User。   实例  [mycode4 type=.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-auth.html" rel="prev">用户系统 — 注册、登录、登出</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-cbv.html" rel="next">类视图（CBV）重构</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-auth.html" rel="prev">User System — Registration, Login, Logout</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-cbv.html" rel="next">Class-based view (CBV) refactoring</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -167,22 +167,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In this chapter, you will learn to handle user POST requests, establish many-to-many relationships, and implement the "favorite articles" feature.</p>
 <hr/>
 <h2>Data model design for the favorites feature</h2>
-<p>The core of the favorites feature is:<span class="marked">一个用户可以收藏多篇文章，一篇文章可以被多个用户收藏</span>。</p>
+<p>The core of the favorites feature is:<span class="marked">A user can favorite multiple posts, and a post can be favorited by multiple users.</span>。</p>
 <p>This is a typical many-to-many (ManyToMany) relationship.</p>
 <p>We don't need to create a new model — Django's User model is built-in; we just need to add a ManyToManyField pointing to User in the Post model.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/models.py 的 Post 类中添加</span><br/>
+<span style="color: #a50"># File path: add to the Post class in blog/models.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span>.<span style="color: #05a;">auth</span>.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> User<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Post<span style="color: Olive;">(</span>models.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># ... 已有字段 ...</span><br/>
-    <span style="color: #a50"># 收藏者：ManyToManyField 自动创建中间表</span><br/>
+    <span style="color: #a50"># ... existing fields ...</span><br/>
+    <span style="color: #a50"># Collector: ManyToManyField automatically creates an intermediate table</span><br/>
     favorites <span style="color: Gray;">=</span> models.<span style="color: #05a;">ManyToManyField</span><span style="color: Olive;">(</span><br/>
         User<span style="color: Gray;">,</span><br/>
-        related_name<span style="color: Gray;">=</span><span style="color: #a11;">'favorite_posts'</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 反向查询：user.favorite_posts.all()</span><br/>
-        verbose_name<span style="color: Gray;">=</span><span style="color: #a11;">'收藏者'</span><span style="color: Gray;">,</span><br/>
+        related_name<span style="color: Gray;">=</span><span style="color: #a11;">'favorite_posts'</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Reverse query: user.favorite_posts.all()</span><br/>
+        verbose_name<span style="color: Gray;">=</span><span style="color: #a11;">'collector'</span><span style="color: Gray;">,</span><br/>
         blank<span style="color: Gray;">=</span><span style="color: Teal;">True</span><br/>
     <span style="color: Olive;">)</span><br/>
 </div>
@@ -195,31 +195,31 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>View logic for favoriting and unfavoriting</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/views.py 新增</span><br/>
+<span style="color: #a50"># File path: blog/views.py (newly added)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> get_object_or_404<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span>.<span style="color: #05a;">auth</span>.<span style="color: #05a;">decorators</span> <span style="color: Green;font-weight:bold;">import</span> login_required<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span> <span style="color: Green;font-weight:bold;">import</span> messages<br/>
 <span style="color: Green;font-weight:bold;">from</span> .<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Post<br/>
 <br/>
-<span style="color: #a50"># login_required 装饰器：未登录用户访问此视图时，自动跳转到登录页</span><br/>
+<span style="color: #a50"># login_required decorator: when an unauthenticated user accesses this view, automatically redirect to the login page</span><br/>
 <span style="color: Gray;">@</span>login_required<br/>
 <span style="color: Green;font-weight:bold;">def</span> toggle_favorite<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> pk<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""切换收藏状态：收藏 → 取消，未收藏 → 收藏"""</span><br/>
+    <span style="color: #a11;">"""Toggle favorite status: favorited → unfavorite, not favorited → favorite"""</span><br/>
     post <span style="color: Gray;">=</span> get_object_or_404<span style="color: Olive;">(</span>Post<span style="color: Gray;">,</span> pk<span style="color: Gray;">=</span>pk<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 检查当前用户是否已收藏</span><br/>
+    <span style="color: #a50"># Check whether the current user has favorited</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> post.<span style="color: #05a;">favorites</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span><span style="color: Teal;">id</span><span style="color: Gray;">=</span>request.<span style="color: #05a;">user</span>.<span style="color: Teal;">id</span><span style="color: Olive;">)</span>.<span style="color: #05a;">exists</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 已收藏 → 取消收藏</span><br/>
+        <span style="color: #a50"># Favorited → Unfavorite</span><br/>
         post.<span style="color: #05a;">favorites</span>.<span style="color: #05a;">remove</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
-        messages.<span style="color: #05a;">info</span><span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> f<span style="color: #a11;">'已取消收藏「{post.title}」'</span><span style="color: Olive;">)</span><br/>
+        messages.<span style="color: #05a;">info</span><span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> f<span style="color: #a11;">'Unfavorited "{post.title}"'</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: #a50"># 未收藏 → 添加收藏</span><br/>
+        <span style="color: #a50"># Not favorited → Add to favorites</span><br/>
         post.<span style="color: #05a;">favorites</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
-        messages.<span style="color: #05a;">success</span><span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> f<span style="color: #a11;">'已收藏「{post.title}」'</span><span style="color: Olive;">)</span><br/>
+        messages.<span style="color: #05a;">success</span><span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> f<span style="color: #a11;">'Favorited "{post.title}"'</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 重定向回当前页面（HTTP_REFERER 是来源页面的 URL）</span><br/>
+    <span style="color: #a50"># Redirect back to current page (HTTP_REFERER is the URL of the source page)</span><br/>
     referer <span style="color: Gray;">=</span> request.<span style="color: #05a;">META</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'HTTP_REFERER'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'/'</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>referer<span style="color: Olive;">)</span><br/>
 </div>
@@ -227,11 +227,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>ManyToMany operation method quick reference</h3>
 <table class="reference">
 <tbody>
-<tr><th>方法</th><th>作用</th><th>示例</th></tr>
-<tr><td>add(obj)</td><td>添加关联</td><td><code>post.favorites.add(user)</code></td></tr>
-<tr><td>remove(obj)</td><td>移除关联</td><td><code>post.favorites.remove(user)</code></td></tr>
+<tr><th>Methods</th><th>Function</th><th>Example</th></tr>
+<tr><td>add(obj)</td><td>Add association</td><td><code>post.favorites.add(user)</code></td></tr>
+<tr><td>remove(obj)</td><td>Remove association</td><td><code>post.favorites.remove(user)</code></td></tr>
 <tr><td>all()</td><td>Query all associated objects</td><td><code>post.favorites.all()</code></td></tr>
-<tr><td>filter(...)</td><td>带条件过滤</td><td><code>post.favorites.filter(id=1)</code></td></tr>
+<tr><td>filter(...)</td><td>Filter with conditions</td><td><code>post.favorites.filter(id=1)</code></td></tr>
 <tr><td>exists()</td><td>Determine whether there is a matching record</td><td><code>post.favorites.filter(id=1).exists()</code></td></tr>
 <tr><td>clear()</td><td>Clear All Associations</td><td><code>post.favorites.clear()</code></td></tr>
 </tbody>
@@ -239,11 +239,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Configure Favorites Route</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/urls.py 追加</span><br/>
+<span style="color: #a50"># File path: append to blog/urls.py</span><br/>
 urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a50"># ... 已有路由 ...</span><br/>
+    <span style="color: #a50"># ... existing routes ...</span><br/>
     path<span style="color: Olive;">(</span><span style="color: #a11;">'post/&lt;int:pk&gt;/favorite/'</span><span style="color: Gray;">,</span> views.<span style="color: #05a;">toggle_favorite</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'toggle_favorite'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">]</span><br/>
 </div>
@@ -251,25 +251,25 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <hr/>
 <h2>Add a favorites button to the detail page</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：blog/templates/blog/post_detail.html（修改） --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: blog/templates/blog/post_detail.html (modified) --&gt;</span><br/>
 {% extends 'blog/base.html' %}<br/>
-<br/>{% block title %}{{ post.title }} - RUNOOB 博客{% endblock %}<br/>
+<br/>{% block title %}{{ post.title }} - RUNOOB Blog{% endblock %}<br/>
 <br/>
 {% block content %}<br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">article</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post-view"</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">span</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"category-tag"</span>&gt;</span>{{ post.category.name }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">span</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post-header"</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h1</span>&gt;</span>{{ post.title }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h1</span>&gt;</span><br/>
-        <span style="color: #808080; font-style: italic;">&lt;!-- 收藏按钮：仅登录用户可见 --&gt;</span><br/>
+        <span style="color: #808080; font-style: italic;">&lt;!-- Favorite button: Only visible to logged-in users --&gt;</span><br/>
         {% if user.is_authenticated %}<br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">form</span> <span style="color: #00c;">method</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post"</span> <span style="color: #00c;">action</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{% url 'toggle_favorite' post.pk %}"</span>&gt;</span><br/>
             {% csrf_token %}<br/>
             <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"submit"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"fav-btn"</span>&gt;</span><br/>
                 {% if user in post.favorites.all %}<br/>
-                    <span style="color: #DDBB00;">&amp;#x2665;</span>已收藏<br/>
-                {% else %}<br/>♡ 收藏<br/>
+                    <span style="color: #DDBB00;">&amp;#x2665;</span>favorited<br/>
+                {% else %}<br/>♡ Favorite<br/>
                 {% endif %}<br/>
             <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">form</span>&gt;</span><br/>
@@ -277,16 +277,16 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">time</span>&gt;</span>{{ post.created_at|date:"Y-m-d" }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">time</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"content"</span>&gt;</span>{{ post.content|safe }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{% url 'index' %}"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"back-link"</span>&gt;</span>← 返回首页<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{% url 'index' %}"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"back-link"</span>&gt;</span>← Back to Home<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">article</span>&gt;</span><br/>
 {% endblock %}<br/>
 </div>
 </div>
 <p>Also add a favorites button to the article cards on the homepage:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 在 index.html 的文章卡片中加入收藏按钮（footer 区域） --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- Add a favorite button to the article card in index.html (footer area) --&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"article-card"</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"card-content"</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">span</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"card-category"</span>&gt;</span>{{ post.category.name }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">span</span>&gt;</span><br/>
@@ -312,17 +312,17 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <h2>Favorites List Page</h2>
 <p>Display the list of favorited articles for logged-in users.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/views.py 新增</span><br/>
+<span style="color: #a50"># File path: blog/views.py (newly added)</span><br/>
 <span style="color: Gray;">@</span>login_required<br/>
 <span style="color: Green;font-weight:bold;">def</span> favorites<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""当前用户的收藏列表"""</span><br/>
-    <span style="color: #a50"># 通过 related_name 反向查询用户的收藏文章</span><br/>
+    <span style="color: #a11;">"""Current user's favorites list"""</span><br/>
+    <span style="color: #a50"># Use related_name to reverse query the user's favorited articles</span><br/>
     posts <span style="color: Gray;">=</span> request.<span style="color: #05a;">user</span>.<span style="color: #05a;">favorite_posts</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">order_by</span><span style="color: Olive;">(</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">'blog/favorites.html'</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">'posts'</span>: posts<span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">'title'</span>: <span style="color: #a11;">'我的收藏 - RUNOOB 博客'</span><br/>
+        <span style="color: #a11;">'title'</span>: <span style="color: #a11;">'My Favorites - RUNOOB Blog'</span><br/>
     <span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -330,9 +330,9 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <hr/>
 <h2>Favorites Button Style</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">/* 在 base.html style 中追加 */</span><br/>
+<span style="color: #808080; font-style: italic;">/* Append to the style in base.html */</span><br/>
 <span style="color: #6666FF;">.post-header</span> <span style="color: #00AA00;">{</span><br/>
     <span style="color: #000000; font-weight: bold;">display</span><span style="color: #00AA00;">:</span> <span style="color: #000000; font-weight: bold;">flex</span><span style="color: #00AA00;">;</span><br/>
     <span style="color: #000000; font-weight: bold;">justify-content</span><span style="color: #00AA00;">:</span> <span style="color: #993333;">space-between</span><span style="color: #00AA00;">;</span><br/>
@@ -370,24 +370,19 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 </div>
 </div>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you mastered user interaction handling in Django: ManyToManyField to establish many-to-many relationships, POST requests to handle forms, csrf_token for security protection, login_required decorator to protect views, and request.user to determine the current user's identity.</p>
-<p>The favorite feature allows users to mark articles they like and view them in their personal favorites list.</p>
-其他扩展
-</div>
+<p>The favorite feature allows users to mark articles they like and view them in their personal favorites list.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-auth.html" rel="prev">用户系统 — 注册、登录、登出</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-cbv.html" rel="next">类视图（CBV）重构</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-auth.html" rel="prev">User System — Registration, Login, Logout</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-cbv.html" rel="next">Class-based view (CBV) refactoring</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -491,16 +486,16 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -508,14 +503,14 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31153"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -693,7 +688,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -784,7 +779,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

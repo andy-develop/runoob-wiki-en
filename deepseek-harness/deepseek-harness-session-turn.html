@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 会话日志与轮次生命周期 | 菜鸟教程</title>
+<title>DeepSeek Harness Session Logs and Turn Lifecycle | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 会话日志与轮次生命周期 你有没有想过：模型看到的那段对话历史，到底是存在哪里的？ dsh 的答案很特别：不存在专门的地方，而是从一份会话日志里派生出来的。 本章节我们将讲会话日志与轮次生命周期：日志怎么当唯一真源，轮次与步骤怎么划分，以及「模型可见即已记录」这条不变量。   一句话：会话是一份仅追加的事件日志，模型历史从日志派生；轮次与步骤是日志上的执行边界。     会话日志：唯一真源 Session.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,14 +158,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="prev">DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="next">DeeSeek Harness 防御性编程：结果报告、清理与凭据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="prev">DeepSeek Harness sandbox and approval: making Agent's dangerous actions controllable</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="next">DeeSeek Harness Defensive Programming: Result Reporting, Cleanup and Credentials</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>DeepSeek Harness Session Log and Turn Lifecycle</h1>
 <p>Have you ever wondered: where exactly is the conversation history that the model sees stored?</p>
-<p>dsh's answer is quite special:<span class="marked">不存在专门的地方，而是从一份会话日志里派生出来的</span>。</p>
+<p>dsh's answer is quite special:<span class="marked">There is no dedicated place; rather, it is derived from a session log.</span>。</p>
 <p>In this section, we'll cover session logs and the turn lifecycle: how the log serves as the single source of truth, how turns and steps are divided, and the invariant that "what the model sees is what has been recorded."</p>
 <blockquote>
 <p>In one sentence: a session is an append-only event log, model history is derived from the log; turns and steps are execution boundaries on the log.</p>
@@ -176,13 +176,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>It is the single source of truth for the agent's complete interaction history; the LLM message history is derived from the log and never stored separately.</p>
 <p>Replaying means re-deriving history from the same set of events.</p>
 <p>Every event in the log has a monotonically increasing<code>seq</code>（<code>seq = log.length</code>) and epoch milliseconds of<code>time</code>。</p>
-<p>事件基于<code>type</code>to form a true discriminated union, therefore<code>switch (event.type)</code>能直接收窄<code>event.data</code>, without type assertions.</p>
-<p>所有<code>event.data</code>and must all be losslessly serializable to JSON,<code>Session.append</code>will enforce this at the source.</p>
+<p>Events are based on<code>type</code>to form a true discriminated union, therefore<code>switch (event.type)</code>Can directly narrow<code>event.data</code>, without type assertions.</p>
+<p>All<code>event.data</code>and must all be losslessly serializable to JSON,<code>Session.append</code>will enforce this at the source.</p>
 <blockquote>
 <p><strong>What is visible to the model is already recorded.</strong>Everything that reaches the model request must be reconstructable from the log, and a runtime invariant asserts this.</p>
 <p>Therefore, adding a model-visible input requires adding a session event: extend SessionEventMap and render it from the log.</p>
 </blockquote>
-<p>SDK users who need replayable transcript data should consume<code>session/event</code>事件流。</p>
+<p>SDK users who need replayable transcript data should consume<code>session/event</code>Event flow.</p>
 <hr/>
 <h2>deriveMessages: projects model history from the log</h2>
 <p><code>Session.deriveMessages()</code>Project the event log into what the model sees<code>Message[]</code>。</p>
@@ -191,38 +191,38 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The projection rules are straightforward:</p>
 <table class="reference">
 <thead>
-<tr><th>事件</th><th>投影为</th><th>说明</th></tr>
+<tr><th>Events</th><th>Projected as</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>user/message</code></td><td>one user message</td><td>Carries the exact content; the optional envelope serves only as log-display metadata.</td></tr>
 <tr><td><code>assistant/message</code></td><td>one assistant message</td><td>Contains provider, model, and optional replay state.</td></tr>
-<tr><td><code>assistant/chunk</code></td><td>跳过</td><td>Belongs to replay/UI data; the assembled message is authoritative.</td></tr>
+<tr><td><code>assistant/chunk</code></td><td>skip</td><td>Belongs to replay/UI data; the assembled message is authoritative.</td></tr>
 <tr><td><code>tool/result</code></td><td>A user message with a tool-result block</td><td>tool results return to the model with the user role</td></tr>
-<tr><td><code>turn/*</code>、<code>step/*</code></td><td>跳过</td><td>structural information, not projected as messages</td></tr>
+<tr><td><code>turn/*</code>、<code>step/*</code></td><td>skip</td><td>structural information, not projected as messages</td></tr>
 </tbody>
 </table>
 <p>One detail: content that is empty<code>assistant/message</code>will also be skipped.</p>
 <p>Steps truncated due to max-tokens with no content still record an assistant/message to preserve usage, provider, and model, but content-less assistant turns must not enter the provider transcript.</p>
 <hr/>
-<h2>事件三域</h2>
+<h2>Three event domains</h2>
 <p>Choosing the right event domain is the first decision for most changes.</p>
 <p>The official documentation divides events into three domains, each with its own purpose:</p>
 <table class="reference">
 <thead>
-<tr><th>事件域</th><th>代表事件</th><th>特性</th><th>什么时候用</th></tr>
+<tr><th>Event domain</th><th>Representative event</th><th>Features</th><th>When to use</th></tr>
 </thead>
 <tbody>
-<tr><td><span class="tag1">会话事件</span></td><td><code>turn/start</code>、<code>step/start</code>、<code>user/message</code>、<code>assistant/*</code>、<code>tool/call</code>、<code>tool/result</code></td><td>appended to the log and broadcast, a persistent fact</td><td>A fact that must still exist after a reload</td></tr>
-<tr><td><span class="tag1 blue">Agent 事件</span></td><td><code>agent/pre-step</code>、<code>agent/request</code>、<code>agent/status</code>、<code>agent/turn-stopping</code></td><td>Carries the live Agent, real-time control, and state.</td><td>observe or intercept in-progress work</td></tr>
-<tr><td><span class="tag1 green">能力事件</span></td><td><code>tools/*</code>、<code>fs/*</code>、<code>llm/stream</code></td><td>Attach policies to seams without import cycles.</td><td>Hang policies and adapters on capability seams.</td></tr>
+<tr><td><span class="tag1">Session event</span></td><td><code>turn/start</code>、<code>step/start</code>、<code>user/message</code>、<code>assistant/*</code>、<code>tool/call</code>、<code>tool/result</code></td><td>appended to the log and broadcast, a persistent fact</td><td>A fact that must still exist after a reload</td></tr>
+<tr><td><span class="tag1 blue">Agent event</span></td><td><code>agent/pre-step</code>、<code>agent/request</code>、<code>agent/status</code>、<code>agent/turn-stopping</code></td><td>Carries the live Agent, real-time control, and state.</td><td>observe or intercept in-progress work</td></tr>
+<tr><td><span class="tag1 green">Capability event</span></td><td><code>tools/*</code>、<code>fs/*</code>、<code>llm/stream</code></td><td>Attach policies to seams without import cycles.</td><td>Hang policies and adapters on capability seams.</td></tr>
 </tbody>
 </table>
-<p>其中<code>agent/pre-step</code>、<code>agent/request</code>、<code>llm/stream</code>和三个<code>tools/*</code>Events are a waterfall; listeners must call<code>next()</code>only then can it be delegated further.</p>
+<p>where<code>agent/pre-step</code>、<code>agent/request</code>、<code>llm/stream</code>and three<code>tools/*</code>Events are a waterfall; listeners must call<code>next()</code>only then can it be delegated further.</p>
 <p><code>agent/turn-stopping</code>is a serial event, without<code>next()</code>。</p>
 <hr/>
 <h2>the definition of turns and steps</h2>
-<p>一个<span class="marked">步骤（step）</span>Is one model request plus the tools it calls.</p>
-<p>一个<span class="marked">轮次（turn）</span>Contains zero or more steps: it opens before claiming the first input and closes when no work is owed.</p>
+<p>a<span class="marked">Step</span>Is one model request plus the tools it calls.</p>
+<p>a<span class="marked">Turn</span>Contains zero or more steps: it opens before claiming the first input and closes when no work is owed.</p>
 <p>Note: a turn wraps one model-loop execution, not the entire session log.</p>
 <p>The official sequence diagram depicts the complete flow as:<code>turn/start → agent/pre-step → step/start → llm/stream → 工具 → step/end → turn/end</code>。</p>
 <p><img alt="轮次时序图" decoding="async" src="../wp-content/uploads/2026/08/26-session-turn.svg" style="width:100%;max-width:920px;"/></p>
@@ -235,13 +235,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Every boundary in the log has a corresponding event; below are the most commonly used ones.</p>
 <table class="reference">
 <thead>
-<tr><th>事件</th><th>携带的数据</th><th>说明</th></tr>
+<tr><th>Events</th><th>Data carried</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><code>turn/start</code></td><td><code>{ turn }</code></td><td>Open a turn before the loop claims queued input or runs pre-steps</td></tr>
-<tr><td><code>turn/end</code></td><td><code>{ turn, reason }</code></td><td>以 TurnEndReason 关闭轮次（completed / aborted / blocked / error / max-tokens / interrupted）</td></tr>
+<tr><td><code>turn/end</code></td><td><code>{ turn, reason }</code></td><td>with TurnEndReason Close轮times（completed / aborted / blocked / error / max-tokens / interrupted）</td></tr>
 <tr><td><code>step/start</code></td><td><code>{ turn, step }</code></td><td>Open a step within a turn</td></tr>
-<tr><td><code>step/end</code></td><td><code>{ turn, step }</code></td><td>关闭该步骤</td></tr>
+<tr><td><code>step/end</code></td><td><code>{ turn, step }</code></td><td>Close this step</td></tr>
 <tr><td><code>user/message</code></td><td>UserMessage</td><td>A tagged value shared by direct prompts, injected context, steering, and live inbox events.</td></tr>
 <tr><td><code>assistant/chunk</code></td><td><code>{ turn, step, chunk }</code></td><td>Raw streaming chunks, token-level replay fidelity.</td></tr>
 <tr><td><code>assistant/message</code></td><td><code>{ turn, step, message, usage? }</code></td><td>The assembled assistant message (used by derived history).</td></tr>
@@ -251,7 +251,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>A useful semantic:<code>assistant/message</code>The event records every successful provider call, including calls that return empty content or end with max-tokens.</p>
 <p>Empty content does not enter the derived history, but the persisted event still preserves usage.</p>
-<p>它通过<code>sourceEventSeqs</code>precisely list the corresponding<code>assistant/chunk</code>events, including explicit empty lists.</p>
+<p>It passes through<code>sourceEventSeqs</code>precisely list the corresponding<code>assistant/chunk</code>events, including explicit empty lists.</p>
 <hr/>
 <h2>Hands-on example: parsing a JSONL session log</h2>
 <p>Below is a short session log (standard JSONL line packing layout) from a task to "fix a typo in the runoob repository."</p>
@@ -267,21 +267,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"type":"tool/result","seq":7,"time":1755000000070,"data":{"turn":1,"step":1,"message":{"role":"tool","toolName":"bash","content":"runoob","isError":false}},"surfaceOp":"append","sourceEventSeqs":[6]}
 {"type":"step/end","seq":8,"time":1755000000080,"data":{"turn":1,"step":1}}
 {"type":"turn/end","seq":9,"time":1755000000090,"data":{"turn":1,"reason":{"kind":"completed"}}}</pre>
-<p>注意<code>user/message</code>、<code>assistant/message</code>、<code>tool/result</code>Three surface events carry<code>surfaceOp</code>a marker, indicating how they are added to the derived surface.</p>
+<p>Note<code>user/message</code>、<code>assistant/message</code>、<code>tool/result</code>Three surface events carry<code>surfaceOp</code>a marker, indicating how they are added to the derived surface.</p>
 <p><code>turn/start</code>、<code>step/start</code>Boundary events like these do not carry surfaceOp and are not projected as model messages.</p>
 <p>Below, we replay this log in Python, rebuild the conversation, and mark the turn/step boundaries.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：examples/parse_session_log.py</span><br/>
-<span style="color: #a50"># 解析一份 JSONL 会话日志，重建模型可见的对话并标出 turn/step 边界。</span><br/>
-<span style="color: #a50"># 这是 Session.deriveMessages() 的一个简化教学模型；真实实现是缓存的且返回冻结消息。</span><br/>
+<span style="color: #a50"># File path: examples/parse_session_log.py</span><br/>
+<span style="color: #a50"># Parse a JSONL conversation log, reconstruct the model-visible dialogue, and mark turn/step boundaries.</span><br/>
+<span style="color: #a50"># This is Session.deriveMessages() ofa简transformTeach学Model；truerealImplementationYesCachingofandreturn冻结message.</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> json<br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">sys</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> derive_messages<span style="color: Olive;">(</span>events<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""只投影 surface 事件，模拟 deriveMessages 的投影规则。<br/>
-<br/>user/message      -&gt; user 消息<br/>assistant/message -&gt; assistant 消息<br/>tool/result       -&gt; 携带 tool-result 块的 user 消息<br/>turn/*, step/*, assistant/chunk, tool/call 不投影为消息<br/>
+    <span style="color: #a11;">"""Only project surface events, simulating the projection rules of deriveMessages.<br/>
+<br/>user/message -&gt; user message<br/>assistant/message -&gt; assistant message<br/>tool/result       -&gt; user message carrying a tool-result block<br/>turn/*, step/*, assistant/chunk, tool/call are not projected as messages<br/>
     """</span><br/>
     messages <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> ev <span style="color: Green;font-weight:bold;">in</span> events:<br/>
@@ -299,7 +299,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span>path<span style="color: Gray;">,</span> encoding<span style="color: Gray;">=</span><span style="color: #a11;">"utf-8"</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> f:<br/>
         events <span style="color: Gray;">=</span> <span style="color: Olive;">[</span>json.<span style="color: #05a;">loads</span><span style="color: Olive;">(</span>line<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> line <span style="color: Green;font-weight:bold;">in</span> f <span style="color: Green;font-weight:bold;">if</span> line.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># 第一遍：打印执行边界，理解 turn 与 step 的嵌套关系。</span><br/>
+    <span style="color: #a50"># First pass: print execution boundaries to understand the nested relationship between turn and step.</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> ev <span style="color: Green;font-weight:bold;">in</span> events:<br/>
         d <span style="color: Gray;">=</span> ev<span style="color: Olive;">[</span><span style="color: #a11;">"data"</span><span style="color: Olive;">]</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> ev<span style="color: Olive;">[</span><span style="color: #a11;">"type"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"turn/start"</span>:<br/>
@@ -315,8 +315,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: Green;font-weight:bold;">elif</span> ev<span style="color: Olive;">[</span><span style="color: #a11;">"type"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"tool/call"</span>:<br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    tool/call: {d['name']} args={d['arguments']}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 第二遍：重建模型可见的派生历史。</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>模型可见的派生消息："</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Second pass: rebuild the derived history visible from the model.</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Model-visible derived messages:"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> m <span style="color: Green;font-weight:bold;">in</span> derive_messages<span style="color: Olive;">(</span>events<span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> m<span style="color: Olive;">[</span><span style="color: #a11;">"role"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"tool"</span>:<br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [tool] {m['name']}: {m['content']}"</span><span style="color: Olive;">)</span><br/>
@@ -343,38 +343,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   [tool] bash: runoob
 </pre>
 <blockquote>
-<p>原始<code>assistant/chunk</code>skipped during derivation, the assembled<code>assistant/message</code>才是权威。</p>
+<p>original<code>assistant/chunk</code>skipped during derivation, the assembled<code>assistant/message</code>is the authority.</p>
 <p>This is exactly "what the model sees is what has been recorded": every message the model sees can be rebuilt verbatim from this log.</p>
 </blockquote>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>The session log is the sole source of the context the model sees; turns and steps are execution boundaries on the log; the three event domains help you choose the right extension point.</p>
-<p>自测题：</p>
+<p>Self-test questions:</p>
 <table class="reference">
 <thead>
-<tr><th>问题</th><th>参考</th></tr>
+<tr><th>Problem</th><th>Reference</th></tr>
 </thead>
 <tbody>
 <tr><td>Which event domain should you use to persist facts that must survive a reload?</td><td>session events (persistent, appended to the log)</td></tr>
 <tr><td>Where does the history seen by the model come from?</td><td><code>Session.deriveMessages()</code>Derived from the log, never stored separately.</td></tr>
 <tr><td>How many steps can a turn contain?</td><td>Zero or more; opens before claiming the first input, closes when no work is owed.</td></tr>
 </tbody>
-</table>
-其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="prev">DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="next">DeeSeek Harness 防御性编程：结果报告、清理与凭据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="prev">DeepSeek Harness sandbox and approval: making Agent's dangerous actions controllable</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="next">DeeSeek Harness Defensive Programming: Result Reporting, Cleanup and Credentials</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -478,16 +473,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -495,14 +490,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31990"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -680,7 +675,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -771,7 +766,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

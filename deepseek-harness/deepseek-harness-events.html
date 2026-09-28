@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 事件系统：emit / bail / serial / waterfall | 菜鸟教程</title>
+<title>DeepSeek Harness Event System: emit / bail / serial / waterfall | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 事件系统：emit / bail / serial / waterfall   插件之间怎么松耦合通信？事件就是 Cordis 的通信核心机制。 Harness 大量使用事件来实现可扩展的扩展点，这一篇把五种分发模式讲清楚。    基本用法 事件分监听与触发两端。   实例  [mycode4 type='javascript'] // 监听事件：注册一个回调 ctx.on(.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,26 +158,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-isolation-scope.html" rel="prev">DeepSeek Harness 服务隔离与作用域</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-capability-seams.html" rel="next">DeepSeek Harness 能力三角色：Definition / Provider / Consumer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-isolation-scope.html" rel="prev">DeepSeek Harness Service Isolation and Scope</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-capability-seams.html" rel="next">DeepSeek Harness capability three roles: Definition / Provider / Consumer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>DeepSeek Harness 事件系统：emit / bail / serial / waterfall</h1>
+<h1>DeepSeek Harness Event System: emit / bail / serial / waterfall</h1>
 <p>How do plugins communicate in a loosely coupled way? Events are Cordis's core communication mechanism.</p>
 <p>Harness extensively uses events to implement extensible extension points. This article explains the five dispatch modes clearly.</p>
 <hr/>
-<h2>基本用法</h2>
+<h2>Basic Usage</h2>
 <p>Events are split into two ends: listening and triggering.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 监听事件：注册一个回调</span><br/>
+<span style="color: #006600; font-style: italic;">// Listen for events: register a callback</span><br/>
 ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'event-name'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>payload<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 处理事件</span><br/>
+  <span style="color: #006600; font-style: italic;">// Handle events</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 触发事件：广播给所有监听器</span><br/>
+<span style="color: #006600; font-style: italic;">// Trigger event: broadcast to all listeners</span><br/>
 ctx.<span style="color: #660066;">emit</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'event-name'</span><span style="color: #339933;">,</span> payload<span style="color: #009900;">)</span><br/>
 </div>
 </div>
@@ -188,14 +188,14 @@ ctx.<span style="color: #660066;">emit</span><span style="color: #009900;">(</sp
 <p><img alt="五种分发模式行为示意图" decoding="async" src="../wp-content/uploads/2026/08/16-dispatch-modes.svg" style="width:100%;max-width:800px;"/></p>
 <table class="reference">
 <thead>
-<tr><th>模式</th><th>分发方法</th><th>是否 await</th><th>顺序</th><th>Whether there is a return value</th><th>典型场景</th></tr>
+<tr><th>Mode</th><th>Distribution method</th><th>Whether to await</th><th>Sequence</th><th>Whether there is a return value</th><th>Typical scenarios</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>emit</strong>广播</td><td>ctx.emit</td><td>否</td><td>按注册顺序</td><td>否</td><td>Notification type: all listeners observe</td></tr>
-<tr><td><strong>bail</strong>短路</td><td>ctx.bail</td><td>否</td><td>按注册顺序</td><td>是</td><td>Decision type: the first valid return value wins</td></tr>
-<tr><td><strong>serial</strong>顺序</td><td>ctx.serial</td><td>是</td><td>按注册顺序</td><td>是</td><td>Phased initialization: execute in order and wait</td></tr>
-<tr><td><strong>waterfall</strong>流水线</td><td>ctx.waterfall</td><td>否</td><td>按注册顺序</td><td>是</td><td>Processing chain: wrap downstream return values layer by layer</td></tr>
-<tr><td><strong>parallel</strong>并行</td><td>ctx.parallel</td><td>是</td><td>全部并行</td><td>否</td><td>Fan-out: multiple listeners process in parallel</td></tr>
+<tr><td><strong>emit</strong>Broadcast</td><td>ctx.emit</td><td>no</td><td>In registration order</td><td>no</td><td>Notification type: all listeners observe</td></tr>
+<tr><td><strong>bail</strong>Short circuit</td><td>ctx.bail</td><td>no</td><td>In registration order</td><td>Yes</td><td>Decision type: the first valid return value wins</td></tr>
+<tr><td><strong>serial</strong>Sequence</td><td>ctx.serial</td><td>Yes</td><td>In registration order</td><td>Yes</td><td>Phased initialization: execute in order and wait</td></tr>
+<tr><td><strong>waterfall</strong>Pipeline</td><td>ctx.waterfall</td><td>no</td><td>In registration order</td><td>Yes</td><td>Processing chain: wrap downstream return values layer by layer</td></tr>
+<tr><td><strong>parallel</strong>Parallelism</td><td>ctx.parallel</td><td>Yes</td><td>All parallel</td><td>no</td><td>Fan-out: multiple listeners process in parallel</td></tr>
 </tbody>
 </table>
 <p>Each event has exactly one dispatch mode, and can only be dispatched through the corresponding method.</p>
@@ -203,33 +203,33 @@ ctx.<span style="color: #660066;">emit</span><span style="color: #009900;">(</sp
 <p>The official getting-started documentation marks `waterfall` as “not await”; however, since listeners are usually async functions, tutorial examples commonly write `await ctx.waterfall(...)` to wait for the final result of the entire processing chain. Just remember this difference – both styles are acceptable.</p>
 </blockquote>
 <hr/>
-<h2>emit：广播</h2>
+<h2>emit: broadcast</h2>
 <p>All listeners execute synchronously, and return values are ignored.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 触发方：广播一条「就绪」消息</span><br/>
+<span style="color: #006600; font-style: italic;">// Trigger side: broadcast a 'ready' message</span><br/>
 ctx.<span style="color: #660066;">emit</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'my-plugin/ready'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> id<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob-worker-1'</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 监听方：收到就绪消息，打印日志</span><br/>
+<span style="color: #006600; font-style: italic;">// Listener: receives ready message, prints log</span><br/>
 ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'my-plugin/ready'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span><span style="color: #009900;">{</span> id <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>`$<span style="color: #009900;">{</span>id<span style="color: #009900;">}</span> is ready`<span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 </div>
 </div>
 <hr/>
-<h2>bail：短路</h2>
+<h2>bail: short-circuit</h2>
 <p>Listeners run in order; the first return value that is not `null`, `false`, or `undefined` becomes the final result.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 分发方：做一次检查，取第一个「有意见」的结果</span><br/>
+<span style="color: #006600; font-style: italic;">// Dispatcher: perform one check, take the first result with an objection</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> result <span style="color: #339933;">=</span> ctx.<span style="color: #660066;">bail</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'some-check'</span><span style="color: #339933;">,</span> input<span style="color: #009900;">)</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 监听方：命中拦截条件就返回 'blocked'，否则继续</span><br/>
+<span style="color: #006600; font-style: italic;">// Listener: if the interception condition is met, return 'blocked', otherwise continue</span><br/>
 ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'some-check'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>input<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>shouldBlock<span style="color: #009900;">(</span>input<span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #3366CC;">'blocked'</span><br/>
-  <span style="color: #006600; font-style: italic;">// 返回 null / false / undefined 表示「我没意见」，让后面的监听器继续</span><br/>
+  <span style="color: #006600; font-style: italic;">// Return null / false / undefined to indicate 'I have no objection', letting subsequent listeners continue.</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 </div>
 </div>
@@ -238,9 +238,9 @@ ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 <p>Listeners execute one by one in registration order, waiting for async results.</p>
 <p>The first return value that is not null, false, or undefined terminates subsequent execution.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 顺序执行一段分阶段初始化，等每一阶段完成</span><br/>
+<span style="color: #006600; font-style: italic;">// Sequentially execute a phased initialization, waiting for each phase to complete</span><br/>
 await ctx.<span style="color: #660066;">serial</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'setup-phase'</span><span style="color: #339933;">,</span> context<span style="color: #009900;">)</span><br/>
 </div>
 </div>
@@ -249,12 +249,12 @@ await ctx.<span style="color: #660066;">serial</span><span style="color: #009900
 <p>Each listener can wrap the downstream return value, forming a processing chain.</p>
 <p>Listeners receive (...args, next); calling next() executes downstream listeners, and the downstream return value is returned to the current wrapping layer via next().</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 分发方：初始值就是 input，传给第一个监听器</span><br/>
+<span style="color: #006600; font-style: italic;">// Dispatcher: the initial value is input, passed to the first listener</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> output <span style="color: #339933;">=</span> await ctx.<span style="color: #660066;">waterfall</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'my-plugin/transform'</span><span style="color: #339933;">,</span> input<span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> input<span style="color: #009900;">)</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 监听方：必须调用 next()，拿到下游结果后做一次加工再返回</span><br/>
+<span style="color: #006600; font-style: italic;">// Listener side: must call next(), after obtaining the downstream result, process it once and then return.</span><br/>
 ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'my-plugin/transform'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span>_input<span style="color: #339933;">,</span> next<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> downstream <span style="color: #339933;">=</span> await next<span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
   <span style="color: #000066; font-weight: bold;">return</span> downstream.<span style="color: #660066;">trim</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
@@ -270,12 +270,12 @@ ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 <h2>Type-safe events</h2>
 <p>Use TypeScript declaration merging to provide type safety for events.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：scratch-plugin/src/events.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: scratch-plugin/src/events.ts</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 声明合并：注册事件名与签名</span><br/>
+<span style="color: #006600; font-style: italic;">// Declaration merging: register event name and signature</span><br/>
 declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #FF0000;">interface</span> Events <span style="color: #009900;">{</span><br/>
     <span style="color: #3366CC;">'my-plugin/ready'</span><span style="color: #339933;">:</span> <span style="color: #009900;">(</span>payload<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> id<span style="color: #339933;">:</span> string <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000066; font-weight: bold;">void</span><br/>
@@ -284,21 +284,21 @@ declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span 
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 此后 ctx.on('my-plugin/ready', ...) 与 ctx.emit('my-plugin/ready', ...)</span><br/>
-<span style="color: #006600; font-style: italic;">// 的参数会被自动推断，拼错事件名或参数类型都会在编译期报错</span><br/>
+<span style="color: #006600; font-style: italic;">// After this, ctx.on('my-plugin/ready', ...) and ctx.emit('my-plugin/ready', ...)</span><br/>
+<span style="color: #006600; font-style: italic;">// arguments will be automatically inferred; misspelling event names or parameter types will cause compile-time errors</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Cordis events and session records</h2>
-<p>Harness 的 Cordis 事件遵循 namespace/action 命名，例如 agent/step、agent/request、agent/request-error、tools/result 和 session/event。</p>
+<p>Harness's Cordis events follow namespace/action naming, e.g., agent/step, agent/request, agent/request-error, tools/result, and session/event.</p>
 <p>Note the distinction between two types of events:</p>
 <table class="reference">
 <thead>
-<tr><th>事件</th><th>是什么</th><th>如何观察</th></tr>
+<tr><th>Events</th><th>What is it</th><th>How to observe</th></tr>
 </thead>
 <tbody>
-<tr><td>agent/step、tools/result 等</td><td>Cordis events, distributed in real time</td><td>直接 ctx.on('tools/result', ...)</td></tr>
-<tr><td>turn/*、step/*、tool/call、tool/result、compaction/*</td><td>Persisted session event types</td><td>监听 session/event，检查 event.type</td></tr>
+<tr><td>agent/step, tools/result, etc.</td><td>Cordis events, distributed in real time</td><td>Directly ctx.on('tools/result', ...)</td></tr>
+<tr><td>turn/*、step/*、tool/call、tool/result、compaction/*</td><td>Persisted session event types</td><td>Listen to session/event, check event.type</td></tr>
 </tbody>
 </table>
 <blockquote>
@@ -309,20 +309,20 @@ declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span 
 <h2>Hands-on example: logging plugin</h2>
 <p>The official documentation uses the following plugin to log tool calls and tool results, listening to the Cordis event `tools/result`.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：scratch-plugin/src/tool-logger.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: scratch-plugin/src/tool-logger.ts</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #3366CC;">'@deepseek-ai/dsh-tools'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'tool-logger'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 监听 tools/result 事件：每次工具执行完成都会触发</span><br/>
+  <span style="color: #006600; font-style: italic;">// Listen to the tools/result event: triggered every time tool execution completes.</span><br/>
   ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'tools/result'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>exec<span style="color: #339933;">,</span> result<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 打印工具名与参数</span><br/>
+    <span style="color: #006600; font-style: italic;">// Print tool name and arguments</span><br/>
     console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>`<span style="color: #009900;">[</span>tool<span style="color: #009900;">]</span> $<span style="color: #009900;">{</span>exec.<span style="color: #660066;">name</span><span style="color: #009900;">}</span><span style="color: #009900;">(</span>$<span style="color: #009900;">{</span>JSON.<span style="color: #660066;">stringify</span><span style="color: #009900;">(</span>exec.<span style="color: #660066;">arguments</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span>`<span style="color: #009900;">)</span><br/>
-    <span style="color: #006600; font-style: italic;">// 把结果内容里的文本块拼起来，只打印前 100 个字符</span><br/>
+    <span style="color: #006600; font-style: italic;">// Concatenate the text blocks in the result content, and print only the first 100 characters.</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> text <span style="color: #339933;">=</span> result.<span style="color: #660066;">content</span><br/>
       .<span style="color: #660066;">map</span><span style="color: #009900;">(</span>block <span style="color: #339933;">=&gt;</span> block.<span style="color: #660066;">type</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'text'</span> <span style="color: #339933;">?</span> block.<span style="color: #660066;">text</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">''</span><span style="color: #009900;">)</span><br/>
       .<span style="color: #660066;">join</span><span style="color: #009900;">(</span><span style="color: #3366CC;">''</span><span style="color: #009900;">)</span><br/>
@@ -334,29 +334,24 @@ declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span 
 <p>This plugin prints the tool name, parameters, and result summary to the terminal after each tool call by the Agent.</p>
 <p>Listeners are registered via `ctx.on` and are automatically removed when the plugin is unloaded.</p>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>The five dispatch modes cover five types of contracts: broadcast, decision, sequential, pipeline, and parallel; waterfall must call next(); declare module merging provides type guarantees for event names and parameters.</p>
-<p>自测一下：</p>
+<p>Test yourself:</p>
 <ol>
 <li>Which method triggers each of the five dispatch modes? Which ones have return values?</li>
 <li>What happens if a waterfall listener does not call next()? Is this a bug or by design?</li>
 <li>For persistent session events like turn/start, which event should be listened to, and which field should be checked?</li>
-</ol>
-其他扩展
-</div>
+</ol>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-isolation-scope.html" rel="prev">DeepSeek Harness 服务隔离与作用域</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-capability-seams.html" rel="next">DeepSeek Harness 能力三角色：Definition / Provider / Consumer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-isolation-scope.html" rel="prev">DeepSeek Harness Service Isolation and Scope</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-capability-seams.html" rel="next">DeepSeek Harness capability three roles: Definition / Provider / Consumer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -460,16 +455,16 @@ declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span 
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -477,14 +472,14 @@ declare module <span style="color: #3366CC;">'@deepseek-ai/cordis'</span> <span 
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31980"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -662,7 +657,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -753,7 +748,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

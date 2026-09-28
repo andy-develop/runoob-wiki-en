@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 开发第一个工具：defineTool | 菜鸟教程</title>
+<title>DeepSeek Harness: Developing the First Tool: defineTool | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 开发第一个工具：defineTool   工具是 Agent 用来干活的函数，模型看到工具定义后决定调用。 本章节我们将用 defineTool 写出第一个工具 greet，并让模型真的调用它。    工具是什么 工具（tool）是一个描述清晰的函数，包含名称、说明、参数和输出格式。 模型在生成回复时，可以根据这些信息发起调用。 在 dsh 里，工具通过 ctx.tools.register 注册到工具.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-inject.html" rel="prev">DeepSeek Harness 声明依赖：inject 与内置服务</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="next">DeepSeek Harness 插件配置：Config 与 Schemastery</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-inject.html" rel="prev">DeepSeek Harness Declaring Dependencies: inject and Built-in Services</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="next">DeepSeek Harness plugin configuration: Config and Schemastery</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -167,7 +167,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Tools are functions used by an Agent to get things done. After the model sees the tool definition, it decides whether to call it.</p>
 <p>In this chapter, we will use defineTool to write our first tool, greet, and have the model actually call it.</p>
 <hr/>
-<h2>工具是什么</h2>
+<h2>What is a tool?</h2>
 <p>A tool is a clearly described function that includes a name, description, parameters, and output format.</p>
 <p>When generating a response, the model can make calls based on this information.</p>
 <p>In dsh, tools are registered to the tool registry via ctx.tools.register.</p>
@@ -176,52 +176,52 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>defineTool is a DSL for defining tools. It takes an object that describes all the information about the tool.</p>
 <table class="reference">
 <thead>
-<tr><th>字段</th><th>作用</th><th>说明</th></tr>
+<tr><th>Fields</th><th>Function</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>name</strong></td><td>工具名</td><td>The model uses it to initiate calls.</td></tr>
-<tr><td><strong>description</strong></td><td>工具说明</td><td>Tells the model what this tool does.</td></tr>
-<tr><td><strong>parameters</strong></td><td>入参 schema</td><td>Typed definition: defineTool infers and validates args from it.</td></tr>
+<tr><td><strong>name</strong></td><td>Tool name</td><td>The model uses it to initiate calls.</td></tr>
+<tr><td><strong>description</strong></td><td>Tool description</td><td>Tells the model what this tool does.</td></tr>
+<tr><td><strong>parameters</strong></td><td>input parameter schema</td><td>Typed definition: defineTool infers and validates args from it.</td></tr>
 <tr><td><strong>output.schema</strong></td><td>Return value schema</td><td>Declares the canonical value type returned by execute.</td></tr>
-<tr><td><strong>output.render</strong></td><td>结果格式化</td><td>Converts canonical values into model-oriented content.</td></tr>
-<tr><td><strong>execute</strong></td><td>工具实现</td><td>Actually executes the logic and returns canonical values.</td></tr>
+<tr><td><strong>output.render</strong></td><td>Result formatting</td><td>Converts canonical values into model-oriented content.</td></tr>
+<tr><td><strong>execute</strong></td><td>Tool implementation</td><td>Actually executes the logic and returns canonical values.</td></tr>
 </tbody>
 </table>
 <hr/>
 <h2>Create a greet tool.</h2>
-<p>把 scratch-plugin/src/my-plugin.ts 替换为以下内容。</p>
+<p>Replace scratch-plugin/src/my-plugin.ts with the following content.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：scratch-plugin/src/my-plugin.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: scratch-plugin/src/my-plugin.ts</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> defineTool <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-tools'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'greet-tool'</span><br/>
-<span style="color: #006600; font-style: italic;">// 需要 tools 服务：注册工具的前提</span><br/>
+<span style="color: #006600; font-style: italic;">// Requires tools service: prerequisite for registering tools.</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> inject <span style="color: #339933;">=</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'tools'</span><span style="color: #009900;">]</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 注册一个名为 greet 的工具</span><br/>
+  <span style="color: #006600; font-style: italic;">// Register a tool named greet</span><br/>
   ctx.<span style="color: #660066;">tools</span>.<span style="color: #660066;">register</span><span style="color: #009900;">(</span>defineTool<span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 工具名：模型会以这个名字发起调用</span><br/>
+    <span style="color: #006600; font-style: italic;">// Tool name: the model will invoke the tool by this name</span><br/>
     name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'greet'</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #006600; font-style: italic;">// 工具说明：告诉模型什么时候用</span><br/>
+    <span style="color: #006600; font-style: italic;">// Tool description: tell the model when to use it</span><br/>
     description<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Greet someone by name.'</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #006600; font-style: italic;">// 入参 schema：defineTool 会推导并校验 args</span><br/>
+    <span style="color: #006600; font-style: italic;">// Input parameter schema: defineTool will infer and validate args</span><br/>
     parameters<span style="color: #339933;">:</span> <span style="color: #009900;">{</span><br/>
       name<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'string'</span><span style="color: #339933;">,</span> required<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span> description<span style="color: #339933;">:</span> <span style="color: #3366CC;">'The name to greet'</span> <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #006600; font-style: italic;">// 输出定义</span><br/>
+    <span style="color: #006600; font-style: italic;">// Output definition</span><br/>
     output<span style="color: #339933;">:</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 规范值类型：execute 的返回值</span><br/>
+      <span style="color: #006600; font-style: italic;">// Normalize value type: return value of execute</span><br/>
       schema<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'string'</span> <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-      <span style="color: #006600; font-style: italic;">// render：把规范值转成面向模型的内容</span><br/>
+      <span style="color: #006600; font-style: italic;">// render: convert canonical values into model-oriented content</span><br/>
       render<span style="color: #339933;">:</span> <span style="color: #009900;">(</span>_args<span style="color: #339933;">,</span> value<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">[</span><span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text'</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> value <span style="color: #009900;">}</span><span style="color: #009900;">]</span><span style="color: #339933;">,</span><br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #006600; font-style: italic;">// 工具实现：真正执行逻辑</span><br/>
+    <span style="color: #006600; font-style: italic;">// Tool implementation: actually execute logic</span><br/>
     async execute<span style="color: #009900;">(</span>args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 返回规范值，这里是一个字符串</span><br/>
+      <span style="color: #006600; font-style: italic;">// Return a canonical value; here it is a string</span><br/>
       <span style="color: #000066; font-weight: bold;">return</span> `Hello<span style="color: #339933;">,</span> $<span style="color: #009900;">{</span>args.<span style="color: #660066;">name</span><span style="color: #009900;">}</span><span style="color: #339933;">!</span>`<br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><br/>
@@ -229,17 +229,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 <p>inject makes Cordis wait for the tool registry to be ready.</p>
-<p>defineTool 根据 parameters 推导并校验 args。</p>
+<p>defineTool derives and validates args based on parameters.</p>
 <p>execute returns the canonical value declared by output.schema.</p>
 <p>output.render then converts the canonical value into model-facing content.</p>
 <p><img decoding="async" src="../wp-content/uploads/2026/08/runoob_1786761995720-1.png"/></p>
 <hr/>
-<h2>运行并调用</h2>
+<h2>Run and invoke</h2>
 <p>If the development command is not running, restart it:</p>
 <pre>
 pnpm dsh web --patch ./scratch-plugin/cordis.yml
 </pre>
-<p>打开 http://127.0.0.1:3080，输入：</p>
+<p>Open http://127.0.0.1:3080, enter:</p>
 <pre>
 Use the greet tool to greet RUNOOB.
 </pre>
@@ -252,34 +252,30 @@ Use the greet tool to greet RUNOOB.
 <p>The model "knows" such a tool exists and will call it at the right time.</p>
 <p>You don't need to hand-write function signatures for the model. The schema is the interface the model sees.</p>
 <blockquote>
-<p><strong>规范值</strong>（canonical value）是 execute 返回、output.schema 声明的值。</p>
+<p><strong>Canonical value</strong>(canonical value) is the value returned by execute and declared in output.schema.</p>
 <p>It is decoupled from "model-facing content": the same canonical value can be turned into different formats through different render functions.</p>
 </blockquote>
 <blockquote>
 <p>Tip: to see more complex tool examples (nested schemas, background work, policy hooks), refer to the official tool writing guide.</p>
 </blockquote>
 <hr/>
-<h2>小结与自测</h2>
+<h2>Summary and self-test</h2>
 <p>defineTool describes the tool with a schema, ctx.tools.register registers it, and the model calls it directly after seeing the schema.</p>
 <blockquote>
 <p>1. What does defineTool's execute return?</p>
 <p>2. What is the purpose of output.render?</p>
 <p>3. How does the model know to call greet?</p>
-</blockquote> 其他扩展
-</div>
+</blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-inject.html" rel="prev">DeepSeek Harness 声明依赖：inject 与内置服务</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="next">DeepSeek Harness 插件配置：Config 与 Schemastery</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-inject.html" rel="prev">DeepSeek Harness Declaring Dependencies: inject and Built-in Services</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="next">DeepSeek Harness plugin configuration: Config and Schemastery</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -383,16 +379,16 @@ Use the greet tool to greet RUNOOB.
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -400,14 +396,14 @@ Use the greet tool to greet RUNOOB.
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31972"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -585,7 +581,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -676,7 +672,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

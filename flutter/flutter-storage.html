@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flutter 本地存储 | 菜鸟教程</title>
+<title>Flutter Local Storage | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flutter 本地存储 本节将介绍 Flutter 中的本地存储方案，包括 SharedPreferences、文件存储和 SQLite 数据库。   SharedPreferences - 轻量级存储 SharedPreferences 适合存储简单的键值对数据。  添加依赖  dependencies:   shared_preferences: ^2.0.0    实例：SharedPreferences 使用  [mycode.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-animation.html" rel="prev">Flutter 动画基础</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-images.html" rel="next">Flutter 图片与资源</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-animation.html" rel="prev">Flutter Animation Basics</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-images.html" rel="next">Flutter Images and Assets</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,34 +168,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>SharedPreferences - lightweight storage</h2>
 <p>SharedPreferences is suitable for storing simple key-value pair data.</p>
-<h3>添加依赖</h3>
+<h3>Add dependency</h3>
 <pre>
 dependencies:
   shared_preferences: ^2.0.0
 </pre>
 <div class="example">
-<h2 class="example">实例：SharedPreferences 使用</h2>
+<h2 class="example">Example: SharedPreferences Usage</h2>
 <div class="example_code">
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:shared_preferences/shared_preferences.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 保存数据</span><br/>
+<span style="color: #999988; font-style: italic;">// Save data</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> saveData<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> prefs <span style="font-weight: bold;">=</span> await SharedPreferences.<span style="color: #006633;">getInstance</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 保存字符串</span><br/>
-  await prefs.<span style="color: #006633;">setString</span><span style="">(</span><span style="color: #d14;">'username'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'张三'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Save string</span><br/>
+  await prefs.<span style="color: #006633;">setString</span><span style="">(</span><span style="color: #d14;">'username'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Zhang San'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 保存整数</span><br/>
+  <span style="color: #999988; font-style: italic;">// Save integer</span><br/>
   await prefs.<span style="color: #006633;">setInt</span><span style="">(</span><span style="color: #d14;">'age'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">25</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 保存布尔值</span><br/>
+  <span style="color: #999988; font-style: italic;">// Save boolean</span><br/>
   await prefs.<span style="color: #006633;">setBool</span><span style="">(</span><span style="color: #d14;">'isLoggedIn'</span><span style="font-weight: bold;">,</span> <span style="font-weight: bold;">true</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 保存列表（JSON 字符串）</span><br/>
+  <span style="color: #999988; font-style: italic;">// Save list (JSON string)</span><br/>
   await prefs.<span style="color: #006633;">setStringList</span><span style="">(</span><span style="color: #d14;">'tags'</span><span style="font-weight: bold;">,</span> <span style="">[</span><span style="color: #d14;">'flutter'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'dart'</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 读取数据</span><br/>
+<span style="color: #999988; font-style: italic;">// Read data</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> loadData<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> prefs <span style="font-weight: bold;">=</span> await SharedPreferences.<span style="color: #006633;">getInstance</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -204,28 +204,28 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
   <span style="font-weight: bold;">final</span> isLoggedIn <span style="font-weight: bold;">=</span> prefs.<span style="color: #006633;">getBool</span><span style="">(</span><span style="color: #d14;">'isLoggedIn'</span><span style="">)</span> <span style="font-weight: bold;">??</span> <span style="font-weight: bold;">false</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> tags <span style="font-weight: bold;">=</span> prefs.<span style="color: #006633;">getStringList</span><span style="">(</span><span style="color: #d14;">'tags'</span><span style="">)</span> <span style="font-weight: bold;">??</span> <span style="">[</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'用户名: $username'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'年龄: $age'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'已登录: $isLoggedIn'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'标签: $tags'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Username: $username'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Age: $age'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Logged in: $isLoggedIn'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Tags: $tags'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 删除数据</span><br/>
+<span style="color: #999988; font-style: italic;">// Delete data</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> deleteData<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> prefs <span style="font-weight: bold;">=</span> await SharedPreferences.<span style="color: #006633;">getInstance</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 删除单个</span><br/>
+  <span style="color: #999988; font-style: italic;">// Delete single</span><br/>
   await prefs.<span style="color: #006633;">remove</span><span style="">(</span><span style="color: #d14;">'username'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 删除所有</span><br/>
+  <span style="color: #999988; font-style: italic;">// Delete all</span><br/>
   await prefs.<span style="color: #006633;">clear</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>文件存储</h2>
+<h2>File Storage</h2>
 <p>Use path_provider to get the app document directory for file storage.</p>
-<h3>添加依赖</h3>
+<h3>Add dependency</h3>
 <pre>
 dependencies:
   path_provider: ^2.0.0
@@ -236,52 +236,52 @@ dependencies:
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:io'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:path_provider/path_provider.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 获取文档目录</span><br/>
+<span style="color: #999988; font-style: italic;">// Get documents directory</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>Directory<span style="font-weight: bold;">&gt;</span> <span style="font-weight: bold;">get</span> _documentDirectory async <span style="">{</span><br/>
   <span style="font-weight: bold;">return</span> await getApplicationDocumentsDirectory<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 写入文件</span><br/>
+<span style="color: #999988; font-style: italic;">// Write file</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> writeFile<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> dir <span style="font-weight: bold;">=</span> await _documentDirectory<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> file <span style="font-weight: bold;">=</span> File<span style="">(</span><span style="color: #d14;">'${dir.path}/my_file.txt'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 写入文本</span><br/>
+  <span style="color: #999988; font-style: italic;">// Write text</span><br/>
   await file.<span style="color: #006633;">writeAsString</span><span style="">(</span><span style="color: #d14;">'Hello Flutter!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 写入字节</span><br/>
+  <span style="color: #999988; font-style: italic;">// Write bytes</span><br/>
   <span style="font-weight: bold;">final</span> bytes <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #009999;">72</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">101</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">108</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">108</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">111</span><span style="">]</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// "Hello"</span><br/>
   await file.<span style="color: #006633;">writeAsBytes</span><span style="">(</span>bytes<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 读取文件</span><br/>
+<span style="color: #999988; font-style: italic;">// Read file</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> readFile<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> dir <span style="font-weight: bold;">=</span> await _documentDirectory<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> file <span style="font-weight: bold;">=</span> File<span style="">(</span><span style="color: #d14;">'${dir.path}/my_file.txt'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">if</span> <span style="">(</span>await file.<span style="color: #006633;">exists</span><span style="">(</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #999988; font-style: italic;">// 读取文本</span><br/>
+    <span style="color: #999988; font-style: italic;">// Read text</span><br/>
     <span style="font-weight: bold;">final</span> content <span style="font-weight: bold;">=</span> await file.<span style="color: #006633;">readAsString</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'文件内容: $content'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'File content: $content'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-    <span style="color: #999988; font-style: italic;">// 读取字节</span><br/>
+    <span style="color: #999988; font-style: italic;">// Read bytes</span><br/>
     <span style="font-weight: bold;">final</span> bytes <span style="font-weight: bold;">=</span> await file.<span style="color: #006633;">readAsBytes</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'字节: $bytes'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Bytes: $bytes'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// JSON 文件存储</span><br/>
+<span style="color: #999988; font-style: italic;">// JSON file storage</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> saveJson<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> dir <span style="font-weight: bold;">=</span> await _documentDirectory<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> file <span style="font-weight: bold;">=</span> File<span style="">(</span><span style="color: #d14;">'${dir.path}/data.json'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">final</span> data <span style="font-weight: bold;">=</span> <span style="">{</span><br/>
-    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'张三'</span><span style="font-weight: bold;">,</span><br/>
+    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'Zhang San'</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">25</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'skills'</span><span style="font-weight: bold;">:</span> <span style="">[</span><span style="color: #d14;">'Flutter'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Dart'</span><span style="">]</span><span style="font-weight: bold;">,</span><br/>
   <span style="">}</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 使用 jsonEncode 保存 JSON</span><br/>
+  <span style="color: #999988; font-style: italic;">// Use jsonEncode to save JSON</span><br/>
   await file.<span style="color: #006633;">writeAsString</span><span style="">(</span>jsonEncode<span style="">(</span>data<span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -289,7 +289,7 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 <hr/>
 <h2>SQLite Database</h2>
 <p>Use sqflite for SQLite database operations.</p>
-<h3>添加依赖</h3>
+<h3>Add dependency</h3>
 <pre>
 dependencies:
   sqflite: ^2.0.0
@@ -301,7 +301,7 @@ dependencies:
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:sqflite/sqflite.dart'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:path/path.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 数据库帮助类</span><br/>
+<span style="color: #999988; font-style: italic;">// Database helper class</span><br/>
 <span style="font-weight: bold;">class</span> DatabaseHelper <span style="">{</span><br/>
   <span style="font-weight: bold;">static</span> <span style="font-weight: bold;">final</span> DatabaseHelper instance <span style="font-weight: bold;">=</span> DatabaseHelper._init<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">static</span> Database<span style="font-weight: bold;">?</span> _database<span style="font-weight: bold;">;</span><br/>
@@ -314,7 +314,7 @@ dependencies:
     <span style="font-weight: bold;">return</span> _database<span style="font-weight: bold;">!</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 初始化数据库</span><br/>
+  <span style="color: #999988; font-style: italic;">// Initialize database</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>Database<span style="font-weight: bold;">&gt;</span> _initDB<span style="">(</span>String filePath<span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> dbPath <span style="font-weight: bold;">=</span> await getDatabasesPath<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">final</span> path <span style="font-weight: bold;">=</span> join<span style="">(</span>dbPath<span style="font-weight: bold;">,</span> filePath<span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -326,7 +326,7 @@ dependencies:
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 创建表</span><br/>
+  <span style="color: #999988; font-style: italic;">// Create table</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> _createDB<span style="">(</span>Database db<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> version<span style="">)</span> async <span style="">{</span><br/>
     await db.<span style="color: #006633;">execute</span><span style="">(</span><span style="color: #d14;">''</span><span style="color: #d14;">'<br/>
       CREATE TABLE users(<br/>
@@ -338,19 +338,19 @@ dependencies:
     '</span><span style="color: #d14;">''</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 插入数据</span><br/>
+  <span style="color: #999988; font-style: italic;">// Insert data</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> insertUser<span style="">(</span>Map<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> dynamic<span style="font-weight: bold;">&gt;</span> user<span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">return</span> await db.<span style="color: #006633;">insert</span><span style="">(</span><span style="color: #d14;">'users'</span><span style="font-weight: bold;">,</span> user<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 查询所有用户</span><br/>
+  <span style="color: #999988; font-style: italic;">// Query all users</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>List<span style="font-weight: bold;">&lt;</span>Map<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> dynamic<span style="font-weight: bold;">&gt;&gt;&gt;</span> getAllUsers<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">return</span> await db.<span style="color: #006633;">query</span><span style="">(</span><span style="color: #d14;">'users'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 条件查询</span><br/>
+  <span style="color: #999988; font-style: italic;">// Conditional query</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>List<span style="font-weight: bold;">&lt;</span>Map<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> dynamic<span style="font-weight: bold;">&gt;&gt;&gt;</span> getUserByName<span style="">(</span>String name<span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">return</span> await db.<span style="color: #006633;">query</span><span style="">(</span><br/>
@@ -360,7 +360,7 @@ dependencies:
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 更新数据</span><br/>
+  <span style="color: #999988; font-style: italic;">// Update data</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> updateUser<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> id<span style="font-weight: bold;">,</span> Map<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> dynamic<span style="font-weight: bold;">&gt;</span> user<span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">return</span> await db.<span style="color: #006633;">update</span><span style="">(</span><br/>
@@ -371,7 +371,7 @@ dependencies:
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 删除数据</span><br/>
+  <span style="color: #999988; font-style: italic;">// Delete data</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> deleteUser<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> id<span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">return</span> await db.<span style="color: #006633;">delete</span><span style="">(</span><br/>
@@ -381,54 +381,49 @@ dependencies:
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 关闭数据库</span><br/>
+  <span style="color: #999988; font-style: italic;">// Close database</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> close<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
     <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> await database<span style="font-weight: bold;">;</span><br/>
     db.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 使用示例</span><br/>
+<span style="color: #999988; font-style: italic;">// Usage example</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> dbExample<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> db <span style="font-weight: bold;">=</span> DatabaseHelper.<span style="color: #006633;">instance</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 添加用户</span><br/>
+  <span style="color: #999988; font-style: italic;">// Add user</span><br/>
   await db.<span style="color: #006633;">insertUser</span><span style="">(</span><span style="">{</span><br/>
-    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'张三'</span><span style="font-weight: bold;">,</span><br/>
+    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'Zhang San'</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'email'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'zhangsan@example.com'</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">25</span><span style="font-weight: bold;">,</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 查询所有</span><br/>
+  <span style="color: #999988; font-style: italic;">// Query all</span><br/>
   <span style="font-weight: bold;">final</span> users <span style="font-weight: bold;">=</span> await db.<span style="color: #006633;">getAllUsers</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'用户列表: $users'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'User list: $users'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 更新用户</span><br/>
-  await db.<span style="color: #006633;">updateUser</span><span style="">(</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="">{</span><span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'李四'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">30</span><span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Update user</span><br/>
+  await db.<span style="color: #006633;">updateUser</span><span style="">(</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="">{</span><span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'Li Si'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">30</span><span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 删除用户</span><br/>
+  <span style="color: #999988; font-style: italic;">// Delete user</span><br/>
   await db.<span style="color: #006633;">deleteUser</span><span style="">(</span><span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
 <blockquote>
 <p>Data storage solution selection: use SharedPreferences for simple key-value pairs, SQLite for complex structures, and file storage is suitable for large files.</p>
-</blockquote>
-其他扩展
-</div>
+</blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-animation.html" rel="prev">Flutter 动画基础</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-images.html" rel="next">Flutter 图片与资源</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-animation.html" rel="prev">Flutter Animation Basics</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-images.html" rel="next">Flutter Images and Assets</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -532,16 +527,16 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -549,14 +544,14 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29928"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -734,7 +729,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -825,7 +820,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content=".fn-demo{border:1px solid #e3e6ea;border-radius:8px;background:#fbfcfd;padding:18px 20px;margin:20px 0} .fn-demo-title{font-weight:bold;font-size:15px;color:#2c3e50;margin-bottom:6px} .fn-demo-desc{font-size:13px;color:#.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -246,21 +246,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Activation functions are the "source of nonlinearity" for each layer of a neural network, and their shapes directly determine how easy or difficult training is.</p>
 <h3>sigmoid：σ(x) = 1 / (1 + e⁻ˣ)</h3>
 <p>The shape is an S-shaped curve that slowly climbs from 0 to 1, rising fastest in the middle (near x=0), and flattening out at both ends.</p>
-<p>The value range is an open interval<span data-latex="(0, 1)"></span>，常被解释为"概率"。 -&gt; is often interpreted as "probability".</p>
+<p>The value range is an open interval<span data-latex="(0, 1)"></span>, often interpreted as 'probability'.</p>
 <p><strong>The biggest side effect: the slope at both ends approaches 0.</strong>When the absolute value of the input is large (e.g., x=10 or x=-10), the sigmoid curve is nearly flat, and the gradient is nearly zero.</p>
-<blockquote><p>In deep networks, if many layers all use sigmoid, the gradient gets weakened layer by layer by these "flat regions" during backpropagation, and ultimately cannot reach the earlier layers—this is...<strong>The vanishing gradient problem</strong>最直观的几何来源。 -&gt; The most intuitive geometric origin.</p></blockquote>
+<blockquote><p>In deep networks, if many layers all use sigmoid, the gradient gets weakened layer by layer by these "flat regions" during backpropagation, and ultimately cannot reach the earlier layers—this is...<strong>The vanishing gradient problem</strong>The most intuitive geometric origin.</p></blockquote>
 <h3>ReLU：f(x) = max(0, x)</h3>
 <p>The shape is a piecewise linear line: when x&lt;0 it hugs the x-axis (output is always 0), and when x≥0 it is a straight line with slope 1.</p>
 <p>The derivative is always 0 on the negative half-axis and always 1 on the positive half-axis. There's no "gradually flattening" process like sigmoid, and the computation is extremely simple (only one comparison needed).</p>
 <p>The gradient on the positive half-axis is always 1 and does not decay as the input grows larger, greatly alleviating the vanishing gradient problem. This is the intuitive reason why ReLU became the default activation function.</p>
-<p>它也有自己的问题：负半轴梯度恒为 0，可能导致某些神经元"死掉"不再更新--这从图像形状上也能直接看出来。 -&gt; It also has its own problems: the gradient on the negative half-axis is always 0, which may cause some neurons to "die" and stop updating—this can be directly seen from the shape of the image.</p>
+<p>italsoYesownProblem：negative半轴梯degreeHengis 0，possible导致some神经元"死掉"No再Update--这fromimage形stateTopalsoabilitystraightJie看出come。 -&gt; It also has its own problems: the gradient on the negative half-axis is always 0, which may cause some neurons to "die" and stop updating—this can be directly seen from the shape of the image.</p>
 <h3>tanh：f(x) = (eˣ - e⁻ˣ) / (eˣ + e⁻ˣ)</h3>
 <p>An S-shaped curve very similar to sigmoid, but centered at the origin, with a range of...<span data-latex="(-1, 1)"></span>。</p>
 <p>Compared to sigmoid, tanh's output is centered at 0. If the next layer's input mean is close to 0, training tends to be more stable—this is why tanh is more popular in certain scenarios.</p>
 <p>But it doesn't solve the fundamental problem of "flattening at both ends," which is also the background for why ReLU-family functions later became popular.</p>
 <div class="fn-demo">
-<div class="fn-demo-title">交互演示：激活函数及其导数</div>
-<div class="fn-demo-desc">切换激活函数，实线是函数本身，虚线是它的导数（斜率）。注意观察导数曲线的峰值和两端的衰减情况。</div>
+<div class="fn-demo-title">Interactive Demo: Activation Function and Its Derivative</div>
+<div class="fn-demo-desc">Switch the activation function. The solid line is the function itself, and the dashed line is its derivative (slope). Note the peak of the derivative curve and the decay at both ends.</div>
 <div class="fn-demo-ctrl">
 <button class="fn-btn fn-active" data-act="sigmoid">sigmoid</button>
 <button class="fn-btn" data-act="tanh">tanh</button>
@@ -268,17 +268,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <div class="fn-chart-box"><canvas id="fn-act-chart"></canvas></div>
 <div class="fn-readout" id="fn-act-readout"></div>
-<div class="fn-note">sigmoid 的导数最大值只有 0.25，且在 |x| &gt; 4 时几乎为 0--多层连乘后梯度迅速消失，这就是"梯度消失"的几何来源。</div>
+<div class="fn-note">sigmoid of导numbermaximum valueOnly 0.25, andIn |x| &gt; 4 when几乎is 0--multi-layerconnectmultiplyafter梯degreerapidlyeliminateloss,This is"梯degreeeliminate失"of几whatSource。</div>
 </div>
 <hr/>
 <h2>Why cross-entropy uses -log(p)</h2>
-<p>In binary classification problems, the probability that the model predicts the "correct class" is...<span data-latex="p"></span>，交叉熵损失就是 -&gt; , the cross-entropy loss is<span data-latex="-\log(p)"></span>。</p>
-<p>直觉上你可能会想：用 -&gt; Intuitively, you might think: use<span data-latex="1 - p"></span>Wouldn't the loss be simpler? When the two curves are placed together, the difference is immediately visible.</p>
+<p>In binary classification problems, the probability that the model predicts the "correct class" is...<span data-latex="p"></span>, the cross-entropy loss is<span data-latex="-\log(p)"></span>。</p>
+<p>Intuitively, you might think: use<span data-latex="1 - p"></span>Wouldn't the loss be simpler? When the two curves are placed together, the difference is immediately visible.</p>
 <div class="fn-demo">
-<div class="fn-demo-title">交互演示：-log(p) 与 1-p 的惩罚对比</div>
-<div class="fn-demo-desc">拖动滑块改变模型预测概率 p，观察两种损失给出的惩罚差异。当 p 很小（模型自信地犯错）时，-log(p) 的惩罚远大于 1-p。</div>
+<div class="fn-demo-title">Interactive demo: penalty comparison of -log(p) vs 1-p</div>
+<div class="fn-demo-desc">Drag滑blockchangeModelPredicted probability p，observationtwo种损失Give出of惩罚Poordifferent。When p 很small（Model自信ground犯错）when,-log(p) of惩罚fargreater than 1-p。</div>
 <div class="fn-demo-ctrl">
-<label>预测概率 p<input id="fn-ce-p" max="0.99" min="0.01" step="0.01" type="range" value="0.5"/><span class="fn-val" id="fn-ce-pv">0.50</span></label>
+<label>Predicted probability p<input id="fn-ce-p" max="0.99" min="0.01" step="0.01" type="range" value="0.5"/><span class="fn-val" id="fn-ce-pv">0.50</span></label>
 </div>
 <div class="fn-chart-box"><canvas id="fn-ce-chart"></canvas></div>
 <div class="fn-readout" id="fn-ce-readout"></div>
@@ -685,11 +685,11 @@ Notes list
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share my notes</h3>
-<p style="font-size:14px;">The note must be an extension of this article's content!</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit an article, click here</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> You must <a href=";.html" class="runoob-pop">log in</a> before sharing notes!</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit an article, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i> You must <a class="runoob-pop" href=";.html">log in</a> before sharing notes!</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain a registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
@@ -887,7 +887,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -978,7 +978,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

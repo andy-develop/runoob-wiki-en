@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Django 模板 | 菜鸟教程</title>
+<title>Django Templates | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Django 模板 Django 的模板系统（Template System）是用于将业务逻辑（Python）与展示层（HTML）分离的核心组件，它允许开发者通过简单的标签和变量动态生成 HTML 页面。 在上一章节中我们使用 django.http.HttpResponse() 来输出 “Hello World！”，该方式将数据与视图混合在一起，不符合 Django 的 MVT 思想。  本章节我们将为大家详细介绍 Django 模板.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,15 +158,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-first-app.html" rel="prev">Django 创建第一个项目</a> </div>
-<div class="next-design-link"><a href="../django/django-model.html" rel="next">Django 模型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-first-app.html" rel="prev">Django Creating Your First Project</a> </div>
+<div class="next-design-link"><a href="../django/django-model.html" rel="next">Django models</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Django 模板</h1><p>Django's template system (Template System) is a core component used to separate business logic (Python) from the presentation layer (HTML). It allows developers to dynamically generate HTML pages through simple tags and variables.</p>
-<p>In the previous chapter, we used<span class="marked">django.http.HttpResponse()</span>来输出<strong>"Hello World！"</strong>This approach mixes data and views together, which does not conform to Django's MVT philosophy.</p>
+<h1>Django templates</h1><p>Django's template system (Template System) is a core component used to separate business logic (Python) from the presentation layer (HTML). It allows developers to dynamically generate HTML pages through simple tags and variables.</p>
+<p>In the previous chapter, we used<span class="marked">django.http.HttpResponse()</span>to output<strong>"Hello World！"</strong>This approach mixes data and views together, which does not conform to Django's MVT philosophy.</p>
 <p>In this section, we will introduce the application of Django templates in detail. A template is a text used to separate the presentation form and content of a document.</p>
-<table class="reference"><thead><tr><th>功能</th><th>语法/示例</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>变量渲染</strong></td><td><code>{{ variable }}</code></td><td>Dynamically display data</td></tr><tr><td><strong>逻辑控制</strong></td><td><code>{% if %}</code>, <code>{% for %}</code></td><td>条件/循环渲染</td></tr><tr><td><strong>模板继承</strong></td><td><code>{% extends %}</code>, <code>{% block %}</code></td><td>Avoid duplicate HTML structures</td></tr><tr><td><strong>静态文件</strong></td><td><code>{% static 'path' %}</code></td><td>Load CSS/JS/images</td></tr><tr><td><strong>Custom filters</strong></td><td><code>@register.filter</code></td><td>Extend template functionality</td></tr></tbody></table>
+<table class="reference"><thead><tr><th>Features</th><th>Syntax/Examples</th><th>Applicable scenarios</th></tr></thead><tbody><tr><td><strong>Variable Rendering</strong></td><td><code>{{ variable }}</code></td><td>Dynamically display data</td></tr><tr><td><strong>Logic Control</strong></td><td><code>{% if %}</code>, <code>{% for %}</code></td><td>Conditional/Loop rendering</td></tr><tr><td><strong>Template inheritance</strong></td><td><code>{% extends %}</code>, <code>{% block %}</code></td><td>Avoid duplicate HTML structures</td></tr><tr><td><strong>Static Files</strong></td><td><code>{% static 'path' %}</code></td><td>Load CSS/JS/images</td></tr><tr><td><strong>Custom filters</strong></td><td><code>@register.filter</code></td><td>Extend template functionality</td></tr></tbody></table>
 <hr/>
 <h2>Template application examples</h2>
 <p>Continuing from the project in the previous chapter, we will create a templates directory under the HelloWorld directory and create a runoob.html file. The entire directory structure is as follows:</p>
@@ -189,22 +189,22 @@ HelloWorld/
 </pre>
 <p>The runoob.html file code is as follows:</p>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ hello }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span></div>
 </div>
 </div>
 <p>From templates we know that variables use double curly braces.<span class="marked">{{ }}</span>。</p>
-<p>Next, we need to explain the template file path to Django. Open the HelloWorld/HelloWorld/settings.py file and modify<strong>TEMPLATES</strong>中的<span class="marked">DIRS</span> 为 <b>[BASE_DIR / "templates"]</b>, as shown below:</p>
+<p>Next, we need to explain the template file path to Django. Open the HelloWorld/HelloWorld/settings.py file and modify<strong>TEMPLATES</strong>in<span class="marked">DIRS</span>is<b>[BASE_DIR / "templates"]</b>, as shown below:</p>
 <div class="example">
-<h2 class="example">HelloWorld/HelloWorld/settings.py 文件代码：</h2>
+<h2 class="example">HelloWorld/HelloWorld/settings.py file code:</h2>
 <div class="example_code">
 
 ...<br/>
 <span style="color: #05a;">TEMPLATES</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
     <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">'BACKEND'</span>: <span style="color: #a11;">'django.template.backends.django.DjangoTemplates'</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">'DIRS'</span>: <span style="color: Olive;">[</span>BASE_DIR / <span style="color: #a11;">"templates"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>       <span style="color: #a50"># 修改位置</span><br/>
+        <span style="color: #a11;">'DIRS'</span>: <span style="color: Olive;">[</span>BASE_DIR / <span style="color: #a11;">"templates"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>       <span style="color: #a50"># Modify here</span><br/>
         <span style="color: #a11;">'APP_DIRS'</span>: <span style="color: Teal;">True</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">'OPTIONS'</span>: <span style="color: Olive;">{</span><br/>
             <span style="color: #a11;">'context_processors'</span>: <span style="color: Olive;">[</span><br/>
@@ -221,7 +221,7 @@ HelloWorld/
 </div>
 <p>Now we modify views.py to add a new object to submit data to the template:</p>
 <div class="example">
-<h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2>
+<h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">runoob</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
@@ -233,7 +233,7 @@ HelloWorld/
 <p>As you can see, we use render here to replace the previously used HttpResponse. render also takes a dictionary context as a parameter.</p>
 <p>The key-value pairs of elements in the context dictionary.<strong>hello</strong>Corresponds to variables in the template<span class="marked">{{ hello }}</span>。</p>
 <div class="example">
-<h2 class="example">HelloWorld/HelloWorld/urls.py  文件代码：</h2>
+<h2 class="example">HelloWorld/HelloWorld/urls.py file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">contrib</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">admin</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">urls</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">path</span><span class="hl-code">
@@ -247,62 +247,62 @@ HelloWorld/
 <p>Next, enter the HelloWorld directory and run the following command to start the server:</p>
 <pre>
 python3 manage.py runserver 0.0.0.0:8000</pre>
-<p>再次访问<strong>http://127.0.0.1:8000/runoob</strong>, you can see the page:</p>
+<p>Visit Again<strong>http://127.0.0.1:8000/runoob</strong>, you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/6BC47EC1-ABC8-4EA7-A536-756648FBBC20.jpg" width="50%"/></p>
 <p>In this way, we have completed using templates to output data, thereby achieving the separation of data and views.</p><p>Next, we will specifically introduce the commonly used syntax rules in templates.</p>
 <hr/>
 <h2>Django template tags</h2>
-<p>语法：</p><pre>{% tag %}</pre>
+<p>Syntax:</p><pre>{% tag %}</pre>
 <p>Control template logic, common tags:</p>
-<table class="reference"><thead><tr><th>标签</th><th>用途</th></tr></thead><tbody><tr><td><code>{% for %}</code></td><td>循环遍历列表/字典</td></tr><tr><td><code>{% if %}</code></td><td>条件判断</td></tr><tr><td><code>{% extends %}</code></td><td>继承基模板</td></tr><tr><td><code>{% block %}</code></td><td>Define content blocks that can be overridden by child templates</td></tr><tr><td><code>{% include %}</code></td><td>Embed other template fragments</td></tr><tr><td><code>{% url %}</code></td><td>Reverse resolution of URLs (to avoid hardcoded paths)</td></tr><tr><td><code>{% csrf_token %}</code></td><td>Generate CSRF token (for POST forms)</td></tr></tbody></table>
-<h3>变量</h3>
-<p>模板语法：</p>
+<table class="reference"><thead><tr><th>Tags</th><th>Purpose</th></tr></thead><tbody><tr><td><code>{% for %}</code></td><td>Looping through lists/dictionaries</td></tr><tr><td><code>{% if %}</code></td><td>Conditional Judgment</td></tr><tr><td><code>{% extends %}</code></td><td>Inherit base template</td></tr><tr><td><code>{% block %}</code></td><td>Define content blocks that can be overridden by child templates</td></tr><tr><td><code>{% include %}</code></td><td>Embed other template fragments</td></tr><tr><td><code>{% url %}</code></td><td>Reverse resolution of URLs (to avoid hardcoded paths)</td></tr><tr><td><code>{% csrf_token %}</code></td><td>Generate CSRF token (for POST forms)</td></tr></tbody></table>
+<h3>Variable</h3>
+<p>Template syntax:</p>
 <pre>view：｛"HTML变量名" : "views变量名"｝
 HTML：｛｛变量名｝｝</pre>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>: <br/>
-  views_name <span style="color: Gray;">=</span> <span style="color: #a11;">"菜鸟教程"</span> <br/>
+  views_name <span style="color: Gray;">=</span> <span style="color: #a11;">"Runoob"</span> <br/>
   <span style="color: Green;font-weight:bold;">return</span>  render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span><span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:views_name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p>templates 中的 runoob.html ：</p>
+<p>runoob.html in templates:</p>
 <pre>&lt;p&gt;{{ name }}&lt;/p&gt;</pre>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_1.png"/></p>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/3B90F88C-3E6A-48A7-AA0C-738EE10E0543.jpg"/></p>
-<h3>列表</h3>
+<h3>List</h3>
 <p>In runoob.html in templates, you can use<span class="marked">.</span>Retrieve the corresponding element by index subscript.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"菜鸟教程1"</span><span style="color: Gray;">,</span><span style="color: #a11;">"菜鸟教程2"</span><span style="color: Gray;">,</span><span style="color: #a11;">"菜鸟教程3"</span><span style="color: Olive;">]</span><br/>
+    views_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Rookie Tutorial 1"</span><span style="color: Gray;">,</span><span style="color: #a11;">"Rookie Tutorial 2"</span><span style="color: Gray;">,</span><span style="color: #a11;">"Rookie Tutorial 3"</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_list"</span>: views_list<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_list }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code"># 取出整个列表</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_list.0 }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code"># 取出列表的第一个元素</span></div></div></div>
+<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_list }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code"># Retrieve the entire list</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_list.0 }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code"># Take the first element of the list</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_3.png"/></p>
-<h3>字典</h3>
-<p>In runoob.html in templates, you can use<span class="marked">.键</span>Retrieve the corresponding value.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<h3>Dictionary</h3>
+<p>In runoob.html in templates, you can use<span class="marked">.key</span>Retrieve the corresponding value.</p>
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_dict <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:<span style="color: #a11;">"菜鸟教程"</span><span style="color: Olive;">}</span><br/>
+    views_dict <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:<span style="color: #a11;">"Runoob"</span><span style="color: Olive;">}</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_dict"</span>: views_dict<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_dict }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">{{ views_dict.name }}</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_4.png"/></p>
-<h3>过滤器</h3>模板语法：<pre>{{ Variable name | Filter: optional parameter }}</pre>
+<h3>Filter</h3>Template syntax:<pre>{{ Variable name | Filter: optional parameter }}</pre>
 <p>Template filters can modify a variable before it is displayed. Filters use the pipe character, as shown below:</p>
 <pre>
 {{ name|lower }}
@@ -329,7 +329,7 @@ HTML：｛｛变量名｝｝</pre>
 <pre>
 0  0.0  False  0j  ""  []  ()  set()  {}  None
 </pre>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -337,22 +337,22 @@ HTML：｛｛变量名｝｝</pre>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>: name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-code">{{ name|default:"菜鸟教程666" }}</span></div></div></div>
+<div class="hl-main"><span class="hl-code">{{ name|default:"Rookie Tutorial 666" }}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_5.png"/></p>
 <p><strong>length</strong></p>
 <p>Returns the length of the object, applicable to strings and lists.</p><p>For a dictionary, it returns the number of key-value pairs; for a set, it returns the length after deduplication.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    name <span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><br/>
+    name <span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>: name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{{ name|length}}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
@@ -360,7 +360,7 @@ HTML：｛｛变量名｝｝</pre>
 <p><strong>filesizeformat</strong></p>
 <p>Display the file size in a more readable format (i.e., '13 KB', '4.1 MB', '102 bytes', etc.).</p>
 <p>For a dictionary, it returns the number of key-value pairs; for a set, it returns the length after deduplication.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -368,13 +368,13 @@ HTML：｛｛变量名｝｝</pre>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"num"</span>: num<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{{ num|filesizeformat}}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_7.png"/></p>
-<p><strong>date</strong></p><p>Formats a date variable according to a given format.</p><p>格式<span class="marked">Y-m-d H:i:s</span>返回<strong>Year-Month-Day Hour:Minute:Second</strong>time in the format of.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<p><strong>date</strong></p><p>Formats a date variable according to a given format.</p><p>Formatting<span class="marked">Y-m-d H:i:s</span>return<strong>Year-Month-Day Hour:Minute:Second</strong>time in the format of.</p>
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -383,23 +383,23 @@ HTML：｛｛变量名｝｝</pre>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"time"</span>: now<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{{ time|date:"Y-m-d" }}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_9.png"/></p>
 <p><strong>truncatechars</strong></p>
 <p>If the total number of characters in a string exceeds the specified number, the trailing part will be truncated.</p>
-<p>The truncated string will end with<span class="marked">...</span>结尾。</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<p>The truncated string will end with<span class="marked">...</span>ending.</p>
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_str <span style="color: Gray;">=</span> <span style="color: #a11;">"菜鸟教程"</span><br/>
+    views_str <span style="color: Gray;">=</span> <span style="color: #a11;">"Runoob"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_str"</span>: views_str<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{{ views_str|truncatechars:2}}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
@@ -408,27 +408,27 @@ HTML：｛｛变量名｝｝</pre>
 <p>Marks a string as safe and does not require escaping.</p><p>Only use safe when you can guarantee that the data passed from views.py is absolutely safe.</p>
 <p>It has the same effect as mark_safe in the backend views.py.</p>
 <p>Django automatically escapes the tag syntax passed from views.py to HTML files, making its semantics ineffective. Adding the safe filter tells Django that the data is safe and does not need to be escaped, allowing the data semantics to take effect.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_str <span style="color: Gray;">=</span> <span style="color: #a11;">"&lt;a href='/index.html'&gt;点击跳转&lt;/a&gt;"</span><br/>
+    views_str <span style="color: Gray;">=</span> <span style="color: #a11;">"&lt;a href='/index.html'&gt;Click to jump&lt;/a&gt;"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_str"</span>: views_str<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{{ views_str|safe }}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_1.gif"/></p>
-<h3>if/else 标签</h3>
+<h3>if/else tag</h3>
 <p>The basic syntax format is as follows:</p>
 <pre>
 {% if condition %}
      ... display
 {% endif %}
 </pre>
-<p>或者：</p>
+<p>Or:</p>
 <pre>
 {% if condition1 %}
    ... display 1
@@ -445,7 +445,7 @@ HTML：｛｛变量名｝｝</pre>
      athletes 和 coaches 变量都是可用的。
 {% endif %}
 </pre>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -453,37 +453,36 @@ HTML：｛｛变量名｝｝</pre>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"num"</span>: views_num<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{%</span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> &gt; </span><span class="hl-number">90</span><span class="hl-code"> </span><span class="hl-reserved">and</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> &lt;= </span><span class="hl-number">100</span><span class="hl-code">%}
-优秀
+Excellent
 {%</span><span class="hl-reserved">elif</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> &gt; </span><span class="hl-number">60</span><span class="hl-code"> </span><span class="hl-reserved">and</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> &lt;= </span><span class="hl-number">90</span><span class="hl-code">%}
-合格
+Qualified
 {%</span><span class="hl-reserved">else</span><span class="hl-code">%}
-一边玩去～
+Go play~
 {%</span><span class="hl-identifier">endif</span><span class="hl-code"> %}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_15.png"/></p>
-<h3>for 标签</h3>
+<h3>for tag</h3>
 <p>{% for %} allows us to iterate over a sequence.</p>
 <p>Similar to the case of Python's for statement, the loop syntax is for X in Y, where Y is the sequence to iterate over and X is the variable name used in each specific loop.</p>
-<p>In each loop, the template system will render in<span class="marked">{% for %}</span> 和 <span class="marked">{% endfor %}</span>all content between.</p>例如，给定一个运动员列表 athlete_list 变量，我们可以使用下面的代码来显示这个列表：
-<pre>
+<p>In each loop, the template system will render in<span class="marked">{% for %}</span>and<span class="marked">{% endfor %}</span>all content between.</p>For example, given an athlete list variable athlete_list, we can use the following code to display this list:<pre>
 &lt;ul&gt;
 {% for athlete in athlete_list %}
     &lt;li&gt;{{ athlete.name }}&lt;/li&gt;
 {% endfor %}
 &lt;/ul&gt;
 </pre>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"菜鸟教程"</span><span style="color: Gray;">,</span><span style="color: #a11;">"菜鸟教程1"</span><span style="color: Gray;">,</span><span style="color: #a11;">"菜鸟教程2"</span><span style="color: Gray;">,</span><span style="color: #a11;">"菜鸟教程3"</span><span style="color: Gray;">,</span><span style="color: Olive;">]</span><br/>
+    views_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Runoob"</span><span style="color: Gray;">,</span><span style="color: #a11;">"Rookie Tutorial 1"</span><span style="color: Gray;">,</span><span style="color: #a11;">"Rookie Tutorial 2"</span><span style="color: Gray;">,</span><span style="color: #a11;">"Rookie Tutorial 3"</span><span style="color: Gray;">,</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_list"</span>: views_list<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% for i in views_list %}
 {{ i }}
@@ -497,30 +496,30 @@ HTML：｛｛变量名｝｝</pre>
 {% endfor %}
 </pre>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% for i in views_list  reversed%}
 {{ i }}
 {% endfor %}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_12.png"/></p>
-<p><strong>遍历字典</strong>: You can directly use a dictionary<strong>.items</strong>Method: use variable unpacking to get keys and values separately.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<p><strong>Iterate Dictionary</strong>: You can directly use a dictionary<strong>.items</strong>Method: use variable unpacking to get keys and values separately.</p>
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    views_dict <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:<span style="color: #a11;">"菜鸟教程"</span><span style="color: Gray;">,</span><span style="color: #a11;">"age"</span>:<span style="color: Maroon;">18</span><span style="color: Olive;">}</span><br/>
+    views_dict <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:<span style="color: #a11;">"Runoob"</span><span style="color: Gray;">,</span><span style="color: #a11;">"age"</span>:<span style="color: Maroon;">18</span><span style="color: Olive;">}</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"views_dict"</span>: views_dict<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% for i,j in views_dict.items %}
 {{ i }}---{{ j }}
 {% endfor %}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
-<p><img decoding="async" src="../wp-content/uploads/2015/01/Django_13.png"/></p>在 {% for %} 标签里可以通过 {{forloop}} 变量获取循环序号。<ul><li>forloop.counter: Gets the loop index in order, starting from 1.</li><li>forloop.counter0: Gets the loop index in order, starting from 0.</li><li>forloop.revcounter: Gets the loop index in reverse order, with the final index being 1.</li><li>forloop.revcounter0: Gets the loop index in reverse order, with the final index being 0.</li><li>forloop.first (usually used with the if tag): Returns True for the first item, False for others.</li><li>forloop.last (usually used with the if tag): Returns True for the last item, False for others.</li></ul>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<p><img decoding="async" src="../wp-content/uploads/2015/01/Django_13.png"/></p>In the {% for %} tag, you can get the loop index via the {{forloop}} variable.<ul><li>forloop.counter: Gets the loop index in order, starting from 1.</li><li>forloop.counter0: Gets the loop index in order, starting from 0.</li><li>forloop.revcounter: Gets the loop index in reverse order, with the final index being 1.</li><li>forloop.revcounter0: Gets the loop index in reverse order, with the final index being 0.</li><li>forloop.first (usually used with the if tag): Returns True for the first item, False for others.</li><li>forloop.last (usually used with the if tag): Returns True for the last item, False for others.</li></ul>
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -528,7 +527,7 @@ HTML：｛｛变量名｝｝</pre>
      <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"listvar"</span>: views_list<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% for i in listvar %}
     {{ forloop.counter }}
@@ -542,7 +541,7 @@ HTML：｛｛变量名｝｝</pre>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_2.gif"/></p>
 <p>
 <strong>{% empty %}</strong></p><p>Optional {% empty %} clause: It is executed when the loop is empty (i.e., when the boolean value of the argument after in is False).</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
@@ -550,12 +549,12 @@ HTML：｛｛变量名｝｝</pre>
   <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"listvar"</span>: views_list<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% for i in listvar %}
     {{ forloop.counter0 }}
 {% empty %}
-    空空如也～
+    EmptyEmptyFor examplealso～
 {% endfor %}</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/Django_14.png"/></p>
@@ -570,18 +569,18 @@ HTML：｛｛变量名｝｝</pre>
     &lt;/ul&gt;
 {% endfor %}
 </pre>
-<h3>注释标签</h3>
+<h3>Comment Tag</h3>
 <p>Django comments use {# #}.</p>
 <pre>{# This is a comment #}</pre>
-<h3>include 标签</h3>
+<h3>include tag</h3>
 <p>The {% include %} tag allows including the content of other templates in a template.</p>
 <p>The following example includes the nav.html template:</p>
 <pre>
 {% include "nav.html" %}
 </pre>
 <hr/>
-<h2>csrf_token</h2><p>csrf_token is used in form forms, and its function is cross-site request forgery protection.</p><p>如果不用<strong>{% csrf_token %}</strong>Tag: when using a form, if you need to redirect to a page again, a 403 permission error will be reported.</p><p>用了<strong>{% csrf_token %}</strong>Tag: it will only succeed when submitting data through a form.</p>
-<p><strong>解析：</strong></p>
+<h2>csrf_token</h2><p>csrf_token is used in form forms, and its function is cross-site request forgery protection.</p><p>If Not Used<strong>{% csrf_token %}</strong>Tag: when using a form, if you need to redirect to a page again, a 403 permission error will be reported.</p><p>Used<strong>{% csrf_token %}</strong>Tag: it will only succeed when submitting data through a form.</p>
+<p><strong>Analysis:</strong></p>
 <p>First, send a request to the server to obtain the login page. At this point, the csrf middleware will automatically generate a hidden input tag. The value attribute in this tag is a random string. When the user obtains the login page, they also obtain this hidden input tag.</p>
 <p>Then, when the user needs to use a form to submit data, they will carry this input tag and submit it to the CSRF middleware. The reason is that when a form submits data, it includes all input tags. When the CSRF middleware receives the data, it will determine whether this random string is the one it sent to the user for the first time. If yes, the data submission succeeds; if not, it returns a 403 permission error.</p>
 <hr/>
@@ -617,16 +616,16 @@ register = template.Library()   #register的名字是固定的,不可改变</pre
                 <span style="color: #a11;">'django.contrib.auth.context_processors.auth'</span><span style="color: Gray;">,</span><br/>
                 <span style="color: #a11;">'django.contrib.messages.context_processors.messages'</span><span style="color: Gray;">,</span><br/>
             <span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">"libraries"</span>:<span style="color: Olive;">{</span>                          <span style="color: #a50"># 添加这边三行配置</span><br/>
-                <span style="color: #a11;">'my_tags'</span>:<span style="color: #a11;">'templatetags.my_tags'</span>   <span style="color: #a50"># 添加这边三行配置</span><br/>
-            <span style="color: Olive;">}</span>                                      <span style="color: #a50"># 添加这边三行配置</span><br/>
+            <span style="color: #a11;">"libraries"</span>:<span style="color: Olive;">{</span>                          <span style="color: #a50"># Add these three lines of configuration here</span><br/>
+                <span style="color: #a11;">'my_tags'</span>:<span style="color: #a11;">'templatetags.my_tags'</span>   <span style="color: #a50"># Add these three lines of configuration here</span><br/>
+            <span style="color: Olive;">}</span>                                      <span style="color: #a50"># Add these three lines of configuration here</span><br/>
         <span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">]</span><br/>
 ...<br/>
 </div></div>
 <p>4. Use the decorator @register.filter to define a custom filter.</p>
-<p><strong>注意：</strong>The decorator can have at most 2 parameters.</p>
+<p><strong>Note:</strong>The decorator can have at most 2 parameters.</p>
 <pre>@register.filter
 def my_filter(v1, v2):
     return v1 * v2</pre>
@@ -660,33 +659,33 @@ STATICFILES_DIRS = [
 ]</pre><p><img decoding="async" src="../wp-content/uploads/2015/01/Django_18.png"/></p>
 <p>3. Create the css, js, images, and plugins directories under the statics directory, to hold CSS files, JS files, images, and plugins respectively.</p>
 <p>4. Put the bootstrap framework into the plugins directory.</p><p>5. Import bootstrap in the head tag of the HTML file.</p><p>
-<strong>注意：</strong>At this point, the alias static in the configuration file should be used in the reference path, not the directory statics.</p>
+<strong>Note:</strong>At this point, the alias static in the configuration file should be used in the reference path, not the directory statics.</p>
 <pre>&lt;link rel="stylesheet" href="../static/plugins/bootstrap-3.3.7/dist/css/bootstrap.css.html"&gt;</pre><p>To use it in templates, you need to add<span class="marked">{% load static %}</span>code. In the following example, we import an image from the static directory.</p>
-<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">HelloWorld/HelloWorld/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    name <span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><br/>
+    name <span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>: name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{% load static %}
 {{name}}</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">img</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{% static 'images/runoob-logo.png' %}</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">alt</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">runoob-logo</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span></div></div></div>
 <p>Visit http://127.0.0.1:8000/runoob again, and you can see the page:</p>
 <p><img decoding="async" src="../wp-content/uploads/2015/01/87493622-D5C4-4883-8229-0813B608BB4A.jpg"/></p>
 <hr/>
-<h2>模板继承</h2>
+<h2>Template inheritance</h2>
 <p>Templates can achieve reuse through inheritance, reducing redundant content.</p>
 <p>The header and footer content of a webpage is generally consistent, so we can use template inheritance to achieve reuse.</p>
 <p>The parent template is used to place reusable content, and the child template inherits the parent template's content and places its own content.</p>
-<h3>父模板</h3>
-<p><strong>标签 block...endblock:</strong>The reserved blocks in the parent template are left for the child template to fill with differentiated content. Different reserved blocks must not have the same name.</p>
+<h3>parent template</h3>
+<p><strong>Tag block...endblock:</strong>The reserved blocks in the parent template are left for the child template to fill with differentiated content. Different reserved blocks must not have the same name.</p>
 <pre>{% block 名称 %} 
 预留给子模板的区域，可以设置设置默认内容
 {% endblock 名称 %}</pre>
-<h3>子模板</h3><p>The child template uses the extends tag to inherit the parent template:</p>
+<h3>child template</h3><p>The child template uses the extends tag to inherit the parent template:</p>
 <pre>{% extends "父模板路径"%} </pre>
 <p>If the child template does not set the content of the parent template's reserved blocks, the default content set in the parent template is used. Of course, you can also leave them unset, and they will be empty.</p>
 <p>The child template sets the content of the parent template's reserved blocks:</p>
@@ -697,17 +696,17 @@ STATICFILES_DIRS = [
 </pre>
 <p>Next, we first create a base.html file in the templates directory of the previous project. The code is as follows:</p>
 <div class="example">
-<h2 class="example">HelloWorld/templates/base.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/base.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">meta</span><span class="hl-code"> </span><span class="hl-var">charset</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">utf-8</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程(runoob.com)</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">Runoob (runoob.com)</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">Hello World!</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程 Django 测试。</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">Runoob Django test.</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
     {% block mainbody %}
        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">original</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
     {% endblock %}
@@ -719,32 +718,28 @@ STATICFILES_DIRS = [
 <p>All {% block %} tags tell the template engine that child templates can override these parts.</p>
 <p>In runoob.html, inherit base.html and replace specific blocks. The modified runoob.html code is as follows:</p>
 <div class="example">
-<h2 class="example">HelloWorld/templates/runoob.html 文件代码：</h2>
+<h2 class="example">HelloWorld/templates/runoob.html file code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-code">{%</span><span class="hl-identifier">extends</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">base.html</span><span class="hl-quotes">"</span><span class="hl-code"> %}
  
 {% </span><span class="hl-identifier">block</span><span class="hl-code"> </span><span class="hl-identifier">mainbody</span><span class="hl-code"> %}
-&lt;</span><span class="hl-identifier">p</span><span class="hl-code">&gt;继承了</span><span class="hl-identifier">base</span><span class="hl-code">.</span><span class="hl-identifier">html</span><span class="hl-code">文件&lt;/</span><span class="hl-identifier">p</span><span class="hl-code">&gt;
+&lt;</span><span class="hl-identifier">p</span><span class="hl-code">&gt; Inherited</span><span class="hl-identifier">base</span><span class="hl-code">.</span><span class="hl-identifier">html</span><span class="hl-code">File&lt;/</span><span class="hl-identifier">p</span><span class="hl-code">&gt;
 {% </span><span class="hl-identifier">endblock</span><span class="hl-code"> %}</span></div>
 </div>
 </div>
 <p>The first line of code indicates that runoob.html inherits the base.html file. It can be seen that block tags with the same name here are used to replace the corresponding blocks in base.html.</p>
-<p>重新访问地址 http://127.0.0.1:8000/runoob，输出结果如下：</p><p>
-<img decoding="async" src="../wp-content/uploads/2015/01/F54E0EF3-2E76-4B3E-B1DA-1541EDCB5CD2.jpg"/></p> 其他扩展
-</div>
+<p>Revisit the address http://127.0.0.1:8000/runoob, the output is as follows:</p><p>
+<img decoding="async" src="../wp-content/uploads/2015/01/F54E0EF3-2E76-4B3E-B1DA-1541EDCB5CD2.jpg"/></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-first-app.html" rel="prev">Django 创建第一个项目</a> </div>
-<div class="next-design-link"><a href="../django/django-model.html" rel="next">Django 模型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-first-app.html" rel="prev">Django Creating Your First Project</a> </div>
+<div class="next-design-link"><a href="../django/django-model.html" rel="next">Django models</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -850,37 +845,37 @@ STATICFILES_DIRS = [
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">2  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">2 notes</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments">
 <ol class="commentlist">
-<li class="comment even thread-even depth-1" id="comment-58056"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>It is not a trifoliate orange, it is a tangerine.</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  469***701@qq.com</p></div><div class="upvotejs" data-commid="58056" id="runoobvote-id-58056"><a class="upvote"></a> <span class="count">164</span></div></div><div class="comt-main" id="div-comment-58056"><p><strong>关于报错：TemplateDoesNotExist （Django 3.1.2 Python 3.7）同楼上问题</strong>。</p>
+<li class="comment even thread-even depth-1" id="comment-58056"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>It is not a trifoliate orange, it is a tangerine.</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  469***701@qq.com</p></div><div class="upvotejs" data-commid="58056" id="runoobvote-id-58056"><a class="upvote"></a> <span class="count">164</span></div></div><div class="comt-main" id="div-comment-58056"><p><strong>Regarding the error: TemplateDoesNotExist (Django 3.1.2 Python 3.7) Same issue as above.</strong>。</p>
 <p>Provide several other solutions:</p>
-<p>配置如下：</p>
+<p>Configuration as follows:</p>
 <pre>
 'DIRS': ["templates"]  
 'DIRS': [os.path.join(BASE_DIR, 'templates')]
 'DIRS': [BASE_DIR / "templates", ]</pre>
-<p>All three above methods have been tested and work in my environment.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">不是枳是橘子</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>It is not a trifoliate orange, it is a tangerine.</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  469***701@qq.com</p></div></span>6年前 (2020-10-22)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-59356"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>巴神的春天</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  739***783@qq.com</p></div><div class="upvotejs" data-commid="59356" id="runoobvote-id-59356"><a class="upvote"></a> <span class="count">136</span></div></div><div class="comt-main" id="div-comment-59356"><p>If PyCharm reports an error<strong>TemplateDoesNotExist, the problem lies in</strong></p><pre>os.path.join(BASE_DIR, 'templates')
-</pre><p>In this setting, this line refers to fetching templates from the "BASE_DIR/templates" folder. By running to this line in settings through debug, you can discover that BASE_DIR actually points to the first-level Hello World folder, while templates is in the second-level Hello World folder, so errors are always reported. Note:<b>BASE_DIR是manage.py文件的所在路径</b>.</p><p>The correct choices are as follows:</p><pre>os.path.join(BASE_DIR, 'HelloWorld/templates')</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">巴神的春天</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>巴神的春天</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  739***783@qq.com</p></div></span>6年前 (2020-12-08)</div></div></li><!-- #comment-## -->
+<p>All three above methods have been tested and work in my environment.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">It's not a trifoliate orange, it's a tangerine.</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>It is not a trifoliate orange, it is a tangerine.</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  469***701@qq.com</p></div></span>6 years ago (2020-10-22)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-59356"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>Ba Shen's Spring</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  739***783@qq.com</p></div><div class="upvotejs" data-commid="59356" id="runoobvote-id-59356"><a class="upvote"></a> <span class="count">136</span></div></div><div class="comt-main" id="div-comment-59356"><p>If PyCharm reports an error<strong>TemplateDoesNotExist, the problem lies in</strong></p><pre>os.path.join(BASE_DIR, 'templates')
+</pre><p>In this setting, this line refers to fetching templates from the "BASE_DIR/templates" folder. By running to this line in settings through debug, you can discover that BASE_DIR actually points to the first-level Hello World folder, while templates is in the second-level Hello World folder, so errors are always reported. Note:<b>BASE_DIR is the path where manage.py is located</b>.</p><p>The correct choices are as follows:</p><pre>os.path.join(BASE_DIR, 'HelloWorld/templates')</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Ba Shen's Spring</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>Ba Shen's Spring</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  739***783@qq.com</p></div></span>6 years ago (2020-12-08)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -888,14 +883,14 @@ STATICFILES_DIRS = [
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="11123"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1073,7 +1068,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1164,7 +1159,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

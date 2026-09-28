@@ -31,50 +31,34 @@ tt, kbd, code {
 <h1>
 <a href="http://www.lua.org/"><img alt="Lua" border="0" src="logo.gif"/></a>Welcome to Lua 5.3</h1>
 <p>
-<a href="#about">关于</a>
+<a href="#about">About</a>
 ·
-<a href="#install">安装</a>
+<a href="#install">Installation</a>
 ·
-<a href="#changes">变更</a>
+<a href="#changes">Change</a>
 ·
-<a href="#license">许可证</a>
+<a href="#license">License</a>
 ·
-<a href="contents.html">参考手册</a>
+<a href="contents.html">Reference Manual</a>
 ·
-<a href="glossary.html">中英术语对照表</a>
-<h2><a name="about">关于 Lua</a></h2>
+<a href="glossary.html">Chinese-English terminology glossary</a>
+<h2><a name="about">About Lua</a></h2>
 <p>Lua is a powerful, fast, lightweight embeddable scripting language. It was created by the Pontifical Catholic University of Rio de Janeiro in Brazil,<a href="http://www.puc-rio.br/">PUC-Rio</a>
-<a href="http://www.lua.org/authors.html">团队</a>development. Lua is a<a href="#license">自由软件</a>and is widely used in countless products and projects around the world.<p>
-Lua 的
-<a href="http://www.lua.org/">官方网站</a>provides complete information about Lua, including<a href="http://www.lua.org/about.html">综合概要</a>
-和最新的
-<a href="http://www.lua.org/docs.html">文档</a>, note that<a href="http://www.lua.org/manual/5.3/">参考手册</a> 可能和
-<a href="contents.html">这里的版本</a> 有所不同。
-
-<h2><a name="install">安装 Lua</a></h2>
-<p>
-Lua 以
-<a href="http://www.lua.org/ftp/">源代码</a>is distributed in source form; you need to build it before using it. Building Lua is very simple, because Lua is implemented in pure ANSI C and can be compiled directly on all platforms that have an ANSI C compiler. Lua can also be compiled directly as C++. The build process on Unix-like platforms is described below. There is also<a href="#other">其它系统构建介绍</a>
-与
-<a href="#customization">配置选项</a> 以作参考。
-
-<p>If you do not have the time or interest to compile Lua yourself, you can get<a href="http://lua-users.org/wiki/LuaBinaries">LuaBinaries</a>compiled binaries from<a href="http://luadist.org/">LuaDist</a>or get a multi-platform distribution of Lua (batteries included) here.<h3>Building Lua</h3>
+<a href="http://www.lua.org/authors.html">Team</a>development. Lua is a<a href="#license">Free software</a>and is widely used in countless products and projects around the world.<p>Lua's<a href="http://www.lua.org/">Official website</a>provides complete information about Lua, including<a href="http://www.lua.org/about.html">Comprehensive summary</a>and the latest<a href="http://www.lua.org/docs.html">Documentation</a>, note that<a href="http://www.lua.org/manual/5.3/">Reference Manual</a>May be related to<a href="contents.html">The version here</a>There are differences.<h2><a name="install">Install Lua</a></h2>
+<p>Lua uses<a href="http://www.lua.org/ftp/">Source code</a>is distributed in source form; you need to build it before using it. Building Lua is very simple, because Lua is implemented in pure ANSI C and can be compiled directly on all platforms that have an ANSI C compiler. Lua can also be compiled directly as C++. The build process on Unix-like platforms is described below. There is also<a href="#other">Introduction to other system builds</a>and<a href="#customization">Configuration options</a>for reference.<p>If you do not have the time or interest to compile Lua yourself, you can get<a href="http://lua-users.org/wiki/LuaBinaries">LuaBinaries</a>compiled binaries from<a href="http://luadist.org/">LuaDist</a>or get a multi-platform distribution of Lua (batteries included) here.<h3>Building Lua</h3>
 <p>On most Unix-like platforms, type "<kbd>make</kbd>" plus an appropriate platform name. The steps are:<ol>
 <li>Open a console window and switch to<tt>lua-5.3.0</tt>directory. Under the directory<tt>Makefile</tt>The file contains the build and installation process.<p>
-<li>
-  运行 "<kbd>make</kbd>" and check whether your platform is listed. Currently supported platforms are:<p>
+<li>Run "<kbd>make</kbd>" and check whether your platform is listed. Currently supported platforms are:<p>
 <p class="display">
    aix bsd c89 freebsd generic linux macosx mingw posix solaris
 </p>
 <p>If your platform is among them, run "<kbd>make xxx</kbd>" is enough, where xxx represents your platform name.<p>If your platform is not among them, first try the most similar platform, then try in the order posix, generic, c89.<p>
 <li>The compilation process is very short, and finally in<tt>src</tt>the directory, three files are generated: lua (interpreter), luac (compiler), and liblua.a (static library).<p>
 <li>After the build is complete, you can run "<kbd>make test</kbd>to check whether it was successful. It will run the interpreter and print the version number.</li></p></li></p></p></p></p></li></p></li></ol>
-<p>If you are on Linux and get compilation errors, make sure you have installed<tt>readline</tt> （也可能叫 <tt>libreadline-dev</tt> 或者 <tt>readline-devel</tt>) development package. After that, if there are still link errors, try "<kbd>make linux MYLIBS=-ltermcap</kbd>" 。
+<p>If you are on Linux and get compilation errors, make sure you have installed<tt>readline</tt>(also may be called<tt>libreadline-dev</tt>or<tt>readline-devel</tt>) development package. After that, if there are still link errors, try "<kbd>make linux MYLIBS=-ltermcap</kbd>" 。
 
 <h3>Installing Lua</h3>
-<p>Once you have built Lua, you may want to install it in the system default location, so run "<kbd>make install</kbd>" and that's it. The system default location and how to install are defined in<tt>Makefile</tt>in. This process may require relevant permissions.<p>
-  运行 "<kbd>make xxx install</kbd>" can build and install in one step, where xxx refers to your platform name.<p>If you want to install Lua locally, run "<kbd>make local</kbd>. It will create a<tt>install</tt> 目录，内有
-  <tt>bin</tt>, <tt>include</tt>, <tt>lib</tt>, <tt>man</tt>, <tt>share</tt>, subdirectory, and install the following files in it.<kbd>make install INSTALL_TOP=xxx</kbd>, xxx refers to the directory you choose.<tt>src</tt> 以及 <tt>doc</tt>proceed in the directory, so when<tt>INSTALL_TOP</tt>be careful when it is not an absolute path.<dl class="display">
+<p>Once you have built Lua, you may want to install it in the system default location, so run "<kbd>make install</kbd>" and that's it. The system default location and how to install are defined in<tt>Makefile</tt>in. This process may require relevant permissions.<p>Run "<kbd>make xxx install</kbd>" can build and install in one step, where xxx refers to your platform name.<p>If you want to install Lua locally, run "<kbd>make local</kbd>. It will create a<tt>install</tt>directory, containing<tt>bin</tt>, <tt>include</tt>, <tt>lib</tt>, <tt>man</tt>, <tt>share</tt>, subdirectory, and install the following files in it.<kbd>make install INSTALL_TOP=xxx</kbd>, xxx refers to the directory you choose.<tt>src</tt>And<tt>doc</tt>proceed in the directory, so when<tt>INSTALL_TOP</tt>be careful when it is not an absolute path.<dl class="display">
 <dt>
     bin:
 <dd>
@@ -92,59 +76,48 @@ Lua 以
 <dd>
     lua.1 luac.1
 </dd></dt></dd></dt></dd></dt></dd></dt></dl>
-<p>These are the directories needed for development. If you merely want to run some Lua programs, then you only need<tt>bin</tt> 和 <tt>man</tt> 下的文件。
-  <tt>include</tt> 和 <tt>lib</tt>The files under are used to embed Lua into C or C++ programs.<h3><a name="customization">定制</a></h3>
+<p>These are the directories needed for development. If you merely want to run some Lua programs, then you only need<tt>bin</tt>and<tt>man</tt>files under it.<tt>include</tt>and<tt>lib</tt>The files under are used to embed Lua into C or C++ programs.<h3><a name="customization">Customization</a></h3>
 <p>There are three kinds of customization that can be done by editing files:<ul>
 <li>How to install Lua and where to install it — edit<tt>Makefile</tt>。
     <li>How to build Lua — editing<tt>src/Makefile</tt>。
     <li>Lua features — edit<tt>src/luaconf.h</tt>。
 </li></li></li></ul>
-<p>Actually you don't need to edit the Makefile; when running make, you can specify the relevant variables on the command line. Of course, editing and saving the Makefile can leave a record of the customization.<p>On the other hand, if you need to customize some Lua features, you need to edit before building and installing Lua<tt>src/luaconf.h</tt>. The edited files must ensure consistency, that is, they are installed in only one place, so that all the programs you compile that use Lua use this single copy. Experts can customize more by editing the Lua source code.<h3><a name="other">在其它系统上构建 Lua</a></h3>
+<p>Actually you don't need to edit the Makefile; when running make, you can specify the relevant variables on the command line. Of course, editing and saving the Makefile can leave a record of the customization.<p>On the other hand, if you need to customize some Lua features, you need to edit before building and installing Lua<tt>src/luaconf.h</tt>. The edited files must ensure consistency, that is, they are installed in only one place, so that all the programs you compile that use Lua use this single copy. Experts can customize more by editing the Lua source code.<h3><a name="other">Building Lua on other systems</a></h3>
 <p>If you do not use the standard Unix tools, then the process of building Lua depends on the compiler you use. You need to create several projects to build the library, the interpreter, and the compiler, etc. Please add the following source files to the relevant projects:<dl class="display">
-<dt>
-库:
-<dd>
+<dt>Library:<dd>
 lapi.c lcode.c lctype.c ldebug.c ldo.c ldump.c lfunc.c lgc.c llex.c
 lmem.c lobject.c lopcodes.c lparser.c lstate.c lstring.c ltable.c
 ltm.c lundump.c lvm.c lzio.c
 lauxlib.c lbaselib.c lbitlib.c lcorolib.c ldblib.c liolib.c
 lmathlib.c loslib.c lstrlib.c ltablib.c lutf8lib.c loadlib.c linit.c
-<dt>
-解释器:
-<dd>
+<dt>Interpreter:<dd>
   library, lua.c
-<dt>
-编译器:
-<dd>
+<dt>Compiler:<dd>
   library, luac.c
 </dd></dt></dd></dt></dd></dt></dl>
-<p>To use Lua as a library in your program, you need to know how to create libraries and use libraries with your compiler. For example, to use Lua as a dynamically loaded C library, you need to know how to create a dynamic library and make the Lua API functions visible in the dynamic library —<em>不要</em>link the Lua library into each dynamic library.<tt>src/Makefile</tt>That is how the Lua interpreter is handled. On Windows, we recommend compiling the Lua library as a DLL. In any case, the compiler luac should be statically linked.<p>As mentioned above, you can edit before building Lua<tt>src/luaconf.h</tt>to customize some features.<h2><a name="changes">自 Lua 5.2 以来的变更</a></h2>
-<p>Here are the main changes introduced in Lua 5.3:<a href="contents.html">参考手册</a>
-中列出了
-<a href="manual.html#8">不兼容的地方</a>。
+<p>To use Lua as a library in your program, you need to know how to create libraries and use libraries with your compiler. For example, to use Lua as a dynamically loaded C library, you need to know how to create a dynamic library and make the Lua API functions visible in the dynamic library —<em>Do not</em>link the Lua library into each dynamic library.<tt>src/Makefile</tt>That is how the Lua interpreter is handled. On Windows, we recommend compiling the Lua library as a DLL. In any case, the compiler luac should be statically linked.<p>As mentioned above, you can edit before building Lua<tt>src/luaconf.h</tt>to customize some features.<h2><a name="changes">Changes since Lua 5.2</a></h2>
+<p>Here are the main changes introduced in Lua 5.3:<a href="contents.html">Reference Manual</a>listed in<a href="manual.html#8">Incompatibilities</a>。
 
 <h3>Main Changes</h3>
 <ul>
-<li>Integers (64-bit by default)<li>Official support for 32-bit integers<li> 位操作符
-<li>Basic utf-8 support<li>Functions for packing and unpacking values</li></li></li></li></li></ul>These are other changes introduced in Lua 5.3:<h3>Language</h3>
+<li>Integers (64-bit by default)<li>Official support for 32-bit integers<li>Bitwise operator<li>Basic utf-8 support<li>Functions for packing and unpacking values</li></li></li></li></li></ul>These are other changes introduced in Lua 5.3:<h3>Language</h3>
 <ul>
-<li>Userdata can be any Lua value<li> 整数除法
-<li>Some metamethods have more flexible rules</li></li></li></ul>
-<h3>库</h3>
+<li>Userdata can be any Lua value<li>Integer division<li>Some metamethods have more flexible rules</li></li></li></ul>
+<h3>library</h3>
 <ul>
-<li> <code>ipairs</code>and the table library will also take metamethods into account<li> <code>string.dump</code>added more trimming options<li>The table library takes metamethods into account<li> 新函数 <code>table.move</code>
-<li> 新函数 <code>string.pack</code>
-<li> 新函数 <code>string.unpack</code>
-<li> 新函数 <code>string.packsize</code>
+<li> <code>ipairs</code>and the table library will also take metamethods into account<li> <code>string.dump</code>added more trimming options<li>The table library takes metamethods into account<li>New function<code>table.move</code>
+<li>New function<code>string.pack</code>
+<li>New function<code>string.unpack</code>
+<li>New function<code>string.packsize</code>
 </li></li></li></li></li></li></li></ul>
 <h3>C API</h3>
 <ul>
-<li>Simplified the continuation-point API<li> <code>lua_gettable</code>as well as the value types of results returned by similar functions<li> <code>lua_dump</code>added trimming options<li> 新函数： <code>lua_geti</code>
-<li> 新函数： <code>lua_seti</code>
-<li> 新函数： <code>lua_isyieldable</code>
-<li> 新函数： <code>lua_numbertointeger</code>
-<li> 新函数： <code>lua_rotate</code>
-<li> 新函数： <code>lua_stringtonumber</code>
+<li>Simplified the continuation-point API<li> <code>lua_gettable</code>as well as the value types of results returned by similar functions<li> <code>lua_dump</code>added trimming options<li>New function:<code>lua_geti</code>
+<li>New function:<code>lua_seti</code>
+<li>New function:<code>lua_isyieldable</code>
+<li>New function:<code>lua_numbertointeger</code>
+<li>New function:<code>lua_rotate</code>
+<li>New function:<code>lua_stringtonumber</code>
 </li></li></li></li></li></li></li></li></li></ul>
 <h3>The Standalone Lua Interpreter</h3>
 <ul>
@@ -192,10 +165,8 @@ THE SOFTWARE.
 </p></p></p></blockquote>
 <p>
 <hr/>
-<small class="footer">
-最后修改时间:
-2015年1月13日15:16
-</small>
+<small class="footer">Last modified time:
+January 13, 2015 15:16</small>
 <div style="display:none;">
 <script>
 var _hmt = _hmt || [];

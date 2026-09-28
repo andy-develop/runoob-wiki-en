@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>负数怎么表示 — 原码、反码、补码 | 菜鸟教程</title>
+<title>How Negative Numbers Are Represented — Sign-Magnitude, One's Complement, Two's Complement | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="负数怎么表示 -- 原码、反码、补码 本讲你将理解：为什么计算机里表示负数不像「加个负号」那么简单，以及补码是如何巧妙地解决了所有问题。    生活化类比：旅馆的楼层编号  想象一栋有 256 层的旅馆。 如果用自然数编号，只能用 0 到 255。 但如果我们想把「地下 128 层」到「地上 127 层」都编进去呢？ 一个巧妙的做法：把编号 128~255 重新解释为 -128~-1。 编号 128 就成了 -128，编号 255 就成.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/number-system-conversion.html" rel="prev">进制转换 — 二进制、十进制、十六进制</a> </div>
-<div class="next-design-link"><a href="../computer-organization/floating-point-ieee754.html" rel="next">小数怎么表示 — 浮点数与 IEEE 754</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/number-system-conversion.html" rel="prev">Base conversion — binary, decimal, hexadecimal</a> </div>
+<div class="next-design-link"><a href="../computer-organization/floating-point-ieee754.html" rel="next">How are decimals represented — Floating-point and IEEE 754</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -172,10 +172,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>But what if we want to number from "128 floors underground" to "127 floors above ground"?</p>
 <p>A clever approach: reinterpret the numbers 128~255 as -128~-1.</p>
 <p>Number 128 becomes -128, number 255 becomes -1, and number 0 remains 0.</p>
-<p>这就是<span class="marked">补码的核心思想</span>— Within a finite bit range, reinterpret the "latter half" of the value space as negative numbers.</p>
+<p>This is<span class="marked">Core idea of two's complement</span>— Within a finite bit range, reinterpret the "latter half" of the value space as negative numbers.</p>
 <hr/>
 <h2>The simplest idea: sign-magnitude (original code)</h2>
-<p>The most direct idea for representing negative numbers: use the highest bit as<span class="tag1 red">符号位</span>。</p>
+<p>The most direct idea for representing negative numbers: use the highest bit as<span class="tag1 red">Sign bit</span>。</p>
 <ul>
 <li>Highest bit 0 = positive number</li>
 <li>Highest bit 1 = negative number</li>
@@ -192,7 +192,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="bit-cell">1</div>
 <div class="bit-cell high">0</div>
 <div class="bit-cell high">1</div>
-<span style="font-size:12px;color:#aaa;margin-left:4px;">符号位 0=正</span>
+<span style="font-size:12px;color:#aaa;margin-left:4px;">Sign bit 0 = positive</span>
 </div>
 <div class="bit-display">
 <span style="font-size:14px;color:#888;">-5 = </span>
@@ -204,33 +204,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="bit-cell">1</div>
 <div class="bit-cell high">0</div>
 <div class="bit-cell high">1</div>
-<span style="font-size:12px;color:#aaa;margin-left:4px;">符号位 1=负</span>
+<span style="font-size:12px;color:#aaa;margin-left:4px;">Sign bit 1 = negative</span>
 </div>
 <p>Seems reasonable, right? But sign-magnitude has two fatal problems.</p>
 <h3>Problem one: +0 and -0 both exist.</h3>
-<p>正 0 是<code>00000000</code>，负 0 是<code>10000000</code>。</p>
+<p>Positive 0 is<code>00000000</code>, negative 0 is<code>10000000</code>。</p>
 <p>The same value has two representations.</p>
 <p>This means every comparison operation (checking whether two numbers are equal) requires the hardware to additionally handle this special case.</p>
 <h3>Problem 2: The adder cannot do subtraction</h3>
-<p>用原码计算<code>5 + (-3)</code>：</p>
+<p>Calculate using sign-magnitude<code>5 + (-3)</code>：</p>
 <div class="steps-visual">
 <div class="step-box">
-<div class="step-title">5 (原码)</div>
+<div class="step-title">5 (sign-magnitude)</div>
 <div class="step-value">00000101</div>
 </div>
 <div class="step-arrow">+</div>
 <div class="step-box">
-<div class="step-title">-3 (原码)</div>
+<div class="step-title">-3 (sign-magnitude)</div>
 <div class="step-value">10000011</div>
 </div>
 <div class="step-arrow">=</div>
 <div class="step-box">
-<div class="step-title">直接相加</div>
+<div class="step-title">Add directly</div>
 <div class="step-value" style="color:#c62828;">10001000</div>
 </div>
 <div class="step-arrow">=</div>
 <div class="step-box">
-<div class="step-title">结果</div>
+<div class="step-title">Result</div>
 <div class="step-value" style="color:#c62828;">-8</div>
 </div>
 </div>
@@ -239,20 +239,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <blockquote><p>The problem with sign-magnitude can be summarized as: intuitive but not practical. It is suitable for humans to read, but not suitable for circuit implementation.</p></blockquote>
 <hr/>
 <h2>The clock's revelation: modular arithmetic</h2>
-<p>Before continuing, we need to understand a key concept—<span class="marked">模运算</span>。</p>
+<p>Before continuing, we need to understand a key concept—<span class="marked">Modulo operation</span>。</p>
 <p>Look at a clock: the face has only 12 markings.</p>
 <p>Starting from 10 o'clock, you want to adjust to 7 o'clock. There are two ways:</p>
 <div style="text-align:center; margin: 20px 0; background:#f5f5f5; border-radius:8px; padding:16px;">
-<p style="font-size:18px; font-family:monospace;">Method one (counterclockwise): 10 - 3 =<span class="tag1 green">7</span>（减法）</p>
-<p style="font-size:18px; font-family:monospace;">方法二（顺时针）：10 + 9 = 19，19 mod 12 =<span class="tag1 green">7</span>（加法）</p>
+<p style="font-size:18px; font-family:monospace;">Method one (counterclockwise): 10 - 3 =<span class="tag1 green">7</span>(Subtraction)</p>
+<p style="font-size:18px; font-family:monospace;">Method 2 (clockwise): 10 + 9 = 19, 19 mod 12 =<span class="tag1 green">7</span>(Addition)</p>
 </div>
 <p>In a "modulo 12" system, -3 and +9 are equivalent (because -3 + 12 = 9).</p>
-<p>More generally:<span class="marked">在模 M 的系统中，减一个数等于加 (M - 该数)</span>。</p>
+<p>More generally:<span class="marked">In a modulo M system, subtracting a number is equivalent to adding (M - that number)</span>。</p>
 <p>Two's complement applies this idea to binary. For 8-bit binary, the modulus is 2^8 = 256.</p>
 <p>The two's complement of -3 = 256 - 3 = 253 = binary.<code>11111101</code>。</p>
-<p>于是<code>5 + (-3)</code>可以变成<code>5 + 253 = 258</code>。</p>
+<p>therefore<code>5 + (-3)</code>Can become<code>5 + 253 = 258</code>。</p>
 <p>But in an 8-bit system, 258 exceeds the upper limit of 255. The carry from the highest bit "overflows" and is discarded, leaving<code>258 mod 256 = 2</code>。</p>
-<p><span class="marked">加法得到了减法的正确结果。</span></p>
+<p><span class="marked">Addition obtained the correct result of subtraction.</span></p>
 <hr/>
 <h2>Two's complement ring diagram (interactive demo)</h2>
 <p>The ring diagram below intuitively shows a 4-bit two's complement system.</p>
@@ -470,7 +470,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="circle-demo">
 <canvas height="320" id="circleCanvas" style="background:#1a1a2e;border-radius:50%;" width="320"></canvas>
 <div class="circle-controls" style="color:#ccc;margin-top:12px;">
-<label for="valSlider">数值：</label>
+<label for="valSlider">Value:</label>
 <input id="valSlider" max="7" min="-8" oninput="updateCircle()" step="1" type="range" value="0"/>
 <span class="dec-val" id="circleDecVal">0</span>
 </div>
@@ -478,9 +478,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     Unsigned interpretation:<span id="circleUnsig" style="font-family:monospace;color:#90a4ae;">0</span>
 </p>
 </div>
-</div>
-加载 Plotly.js 库，用于绘制极坐标圆环图
-<script src="../static.jyshare.com/assets/libs/plotly-2.32.0.min.js"></script>
+</div>Load the Plotly.js library to draw polar donut chart<script src="../static.jyshare.com/assets/libs/plotly-2.32.0.min.js"></script>
 <script>
 const canvas = document.getElementById('circleCanvas');
 const ctx = canvas.getContext('2d');
@@ -605,10 +603,10 @@ updateCircle();
 <p style="color:#90a4ae;font-size:13px;">The figure below uses Plotly.js polar coordinates to display the 16 ticks of 4-bit two's complement. Blue = positive region, red = negative region, green = zero point.</p>
 <div id="plotlyCircle" style="width:100%;max-width:500px;margin:0 auto;"></div>
 <div class="circle-legend" style="margin-bottom:16px;">
-<div class="legend-item"><div class="legend-dot" style="background:#42a5f5;"></div>正数区域 (0 ~ +7)</div>
-<div class="legend-item"><div class="legend-dot" style="background:#ef5350;"></div>负数区域 (-8 ~ -1)</div>
-<div class="legend-item"><div class="legend-dot" style="background:#6690BB;"></div>零点</div>
-<div class="legend-item"><div class="legend-dot" style="background:#ff9800;"></div>溢出点 (+7→-8)</div>
+<div class="legend-item"><div class="legend-dot" style="background:#42a5f5;"></div>Positive range (0 to +7)</div>
+<div class="legend-item"><div class="legend-dot" style="background:#ef5350;"></div>Negative number region (-8 to -1)</div>
+<div class="legend-item"><div class="legend-dot" style="background:#6690BB;"></div>zero point</div>
+<div class="legend-item"><div class="legend-dot" style="background:#ff9800;"></div>Overflow point (+7→-8)</div>
 </div>
 <script>
 /* ===================================================
@@ -748,7 +746,7 @@ updateCircle();
 <li>Red region = negative numbers (two's complement interpretation), blue region = positive numbers</li>
 <li>The inner ring is labeled with unsigned interpretation (corresponding to 0~15), the outer ring is labeled with two's complement interpretation (-8~+7)</li>
 </ul>
-<p>From the diagram, we can see that,<span class="marked">补码本质上是把数值空间折叠成了一个环</span>。</p>
+<p>From the diagram, we can see that,<span class="marked">Two's complement essentially folds the value space into a ring.</span>。</p>
 <p>When positive numbers reach the end (after +7), they naturally become negative (-8). Subtraction and addition are the same direction on the ring.</p>
 <hr/>
 <h2>Two's complement calculation rules</h2>
@@ -768,17 +766,17 @@ updateCircle();
 <p>Take -20 as an example (8-bit system), verify with both methods:</p>
 <div class="steps-visual">
 <div class="step-box">
-<div class="step-title">20 的二进制</div>
+<div class="step-title">20 in binary</div>
 <div class="step-value">00010100</div>
 </div>
 <div class="step-arrow">→</div>
 <div class="step-box">
-<div class="step-title">取反（反码）</div>
+<div class="step-title">Invert (ones' complement)</div>
 <div class="step-value">11101011</div>
 </div>
 <div class="step-arrow">→</div>
 <div class="step-box">
-<div class="step-title">加 1（补码）</div>
+<div class="step-title">Add 1 (two's complement)</div>
 <div class="step-value" style="color:#3D71A6;">11101100</div>
 </div>
 </div>
@@ -787,20 +785,20 @@ updateCircle();
 <hr/>
 <h2>Comparison of the three representations</h2>
 <table class="reference">
-<tr><th>数值</th><th>原码</th><th>反码</th><th>补码</th></tr>
+<tr><th>value</th><th>sign-magnitude</th><th>ones' complement</th><th>two's complement</th></tr>
 <tr><td>+5</td><td>00000101</td><td>00000101</td><td>00000101</td></tr>
 <tr><td>-5</td><td>10000101</td><td>11111010</td><td>11111011</td></tr>
 <tr><td>+0</td><td>00000000</td><td>00000000</td><td>00000000</td></tr>
-<tr><td>-0</td><td style="color:#c62828;">10000000</td><td style="color:#c62828;">11111111</td><td style="color:#3D71A6;">不存在</td></tr>
+<tr><td>-0</td><td style="color:#c62828;">10000000</td><td style="color:#c62828;">11111111</td><td style="color:#3D71A6;">Does not exist</td></tr>
 <tr><td>+127</td><td>01111111</td><td>01111111</td><td>01111111</td></tr>
 <tr><td>-127</td><td>11111111</td><td>10000000</td><td>10000001</td></tr>
-<tr><td>-128</td><td style="color:#888;">无法表示</td><td style="color:#888;">无法表示</td><td style="color:#3D71A6;">10000000</td></tr>
+<tr><td>-128</td><td style="color:#888;">Cannot represent</td><td style="color:#888;">Cannot represent</td><td style="color:#3D71A6;">10000000</td></tr>
 </table>
 <p>Note three key differences:</p>
 <ol>
-<li><span class="tag1 green">补码没有 -0</span>: All 1s are no longer wasted on -0, but instead represent -1.</li>
-<li><span class="tag1 green">补码多一个负数</span>8-bit two's complement range is -128 ~ +127, which has one more -128 than the sign-magnitude range of -127 ~ +127.</li>
-<li><span class="tag1 green">补码让加法统一</span>: Adding positive and negative numbers uses the same circuit.</li>
+<li><span class="tag1 green">Two's complement has no -0</span>: All 1s are no longer wasted on -0, but instead represent -1.</li>
+<li><span class="tag1 green">Two's complement has one extra negative number</span>8-bit two's complement range is -128 ~ +127, which has one more -128 than the sign-magnitude range of -127 ~ +127.</li>
+<li><span class="tag1 green">Two's complement unifies addition</span>: Adding positive and negative numbers uses the same circuit.</li>
 </ol>
 <blockquote><p>This is why Java's<code>byte</code>The type range is -128~127, and C language's<code>signed char</code>is also -128~127. They both use 8-bit two's complement.</p></blockquote>
 <hr/>
@@ -809,9 +807,9 @@ updateCircle();
 <div class="demo-panel">
 <h3>Two's complement calculator (8-bit)</h3>
 <div class="demo-input-row">
-<span>输入整数：</span>
+<span>Input integer:</span>
 <input class="demo-input" id="twosInput" max="127" min="-128" oninput="calcTwos()" type="number" value="-20"/>
-<button class="demo-btn calc" onclick="calcTwos()">计算</button>
+<button class="demo-btn calc" onclick="calcTwos()">Compute</button>
 <button class="demo-btn reset" onclick="document.getElementById('twosInput').value=20;calcTwos();">+20</button>
 <button class="demo-btn reset" onclick="document.getElementById('twosInput').value=-128;calcTwos();">-128</button>
 </div>
@@ -886,67 +884,67 @@ calcTwos();
 <p>The absolute value of this number is 128, but 128 is outside the 8-bit positive range (0~127).</p>
 <p>So -128 has no corresponding positive representation—this is an interesting property of the two's complement system.</p>
 <hr/>
-<h2>补码的溢出</h2>
+<h2>Two's complement overflow</h2>
 <p>8-bit two's complement range is -128~127.</p>
-<p>If the calculation result exceeds this range, it will cause<span class="marked">溢出</span>。</p>
+<p>If the calculation result exceeds this range, it will cause<span class="marked">overflow</span>。</p>
 <div class="steps-visual">
 <div class="step-box">
 <div class="step-title">127 + 1</div>
 <div class="step-value" style="color:#c62828;">-128</div>
-<div class="step-title">(正溢出，负数结果)</div>
+<div class="step-title">(Positive overflow, negative result)</div>
 </div>
 <div class="step-arrow">|</div>
 <div class="step-box">
 <div class="step-title">-128 - 1</div>
 <div class="step-value" style="color:#c62828;">+127</div>
-<div class="step-title">(负溢出，正数结果)</div>
+<div class="step-title">(Negative overflow, positive result)</div>
 </div>
 </div>
 <p>This again echoes the earlier ring diagram—after reaching the end, the value "wraps around".</p>
-<p>In C/C++, overflow of signed integers is<span class="marked">未定义行为</span>(the compiler may assume it never happens), which is the root of many strange bugs.</p>
+<p>In C/C++, overflow of signed integers is<span class="marked">Undefined behavior</span>(the compiler may assume it never happens), which is the root of many strange bugs.</p>
 <hr/>
 <h2>Code demo: complete implementation of two's complement</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 补码的完整实现与验证（runoob 演示）</span><br/>
+<span style="color: #a50"># Complete implementation and verification of two's complement (runoob demo)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> to_twos_complement<span style="color: Olive;">(</span>n<span style="color: Gray;">,</span> bits<span style="color: Gray;">=</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""将整数 n 转换为指定位宽的补码字符串"""</span><br/>
+    <span style="color: #a11;">Convert integer n to a two's complement string with the specified bit width</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">&lt;</span> -<span style="color: Maroon;">2</span>**<span style="color: Olive;">(</span>bits-<span style="color: Maroon;">1</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">or</span> n <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">2</span>**<span style="color: Olive;">(</span>bits-<span style="color: Maroon;">1</span><span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> <span style="color: Teal;">ValueError</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"数值 {n} 超出 {bits} 位补码范围 [-{2**(bits-1)}, {2**(bits-1)-1}]"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> <span style="color: Teal;">ValueError</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Value {n} is out of the {bits}-bit two's complement range [-{2**(bits-1)}, {2**(bits-1)-1}]</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 利用模运算：负数 n 的无符号对应值 = n + 2^bits</span><br/>
-    <span style="color: #a50"># Python 中直接用位掩码</span><br/>
-    mask <span style="color: Gray;">=</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> bits<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span>  <span style="color: #a50"># 比如 8 位: 0xFF = 255</span><br/>
+    <span style="color: #a50"># Using modulo arithmetic: the unsigned equivalent of a negative number n = n + 2^bits</span><br/>
+    <span style="color: #a50"># Using bitmask directly in Python</span><br/>
+    mask <span style="color: Gray;">=</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> bits<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span>  <span style="color: #a50"># For example, 8 bits: 0xFF = 255</span><br/>
     unsigned_val <span style="color: Gray;">=</span> n &amp; mask<br/>
     <span style="color: Green;font-weight:bold;">return</span> format<span style="color: Olive;">(</span>unsigned_val<span style="color: Gray;">,</span> f<span style="color: #a11;">'0{bits}b'</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> from_twos_complement<span style="color: Olive;">(</span>bin_str<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""将补码字符串转换回十进制整数"""</span><br/>
+    <span style="color: #a11;">"""Convert a two's complement string back to a decimal integer."""</span><br/>
     bits <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>bin_str<span style="color: Olive;">)</span><br/>
     unsigned_val <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>bin_str<span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 如果最高位是 1（负数），减去 2^bits</span><br/>
+    <span style="color: #a50"># If the highest bit is 1 (negative), subtract 2^bits</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> bin_str<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">'1'</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> unsigned_val - <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> bits<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> unsigned_val<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> show_conversion_steps<span style="color: Olive;">(</span>n<span style="color: Gray;">,</span> bits<span style="color: Gray;">=</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""展示从 n 到补码的详细步骤"""</span><br/>
+    <span style="color: #a11;">"""Show the detailed steps from n to two's complement."""</span><br/>
     abs_bin <span style="color: Gray;">=</span> format<span style="color: Olive;">(</span><span style="color: Teal;">abs</span><span style="color: Olive;">(</span>n<span style="color: Olive;">)</span><span style="color: Gray;">,</span> f<span style="color: #a11;">'0{bits}b'</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"数值: {n}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Step 1: 绝对值 |{n}| = {abs(n)} → 二进制 = {abs_bin}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Value: {n}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Step 1: absolute value |{n}| = {abs(n)} → binary = {abs_bin}</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">&gt;=</span> <span style="color: Maroon;">0</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Step 2: 正数的补码 = 原码 = {abs_bin}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Step 2: the two's complement of a positive number = sign-magnitude = {abs_bin}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: #a50"># 取反</span><br/>
+        <span style="color: #a50"># Invert</span><br/>
         inverted <span style="color: Gray;">=</span> <span style="color: #a11;">''</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span><span style="color: #a11;">'1'</span> <span style="color: Green;font-weight:bold;">if</span> b <span style="color: Gray;">==</span> <span style="color: #a11;">'0'</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">'0'</span> <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> abs_bin<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Step 2: 取反（反码）= {inverted}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Step 2: Invert (one's complement) = {inverted}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 加 1</span><br/>
+        <span style="color: #a50"># add 1</span><br/>
         carry <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         result_list <span style="color: Gray;">=</span> <span style="color: Teal;">list</span><span style="color: Olive;">(</span>inverted<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>bits - <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> -<span style="color: Maroon;">1</span><span style="color: Gray;">,</span> -<span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
@@ -956,35 +954,35 @@ calcTwos();
             result_list<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">str</span><span style="color: Olive;">(</span>total % <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
             carry <span style="color: Gray;">=</span> total // <span style="color: Maroon;">2</span><br/>
         result <span style="color: Gray;">=</span> <span style="color: #a11;">''</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>result_list<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Step 3: 反码 + 1   = {result}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Step 3: one's complement + 1   = {result}</span><span style="color: Olive;">)</span><br/>
 <br/>
     comp <span style="color: Gray;">=</span> to_twos_complement<span style="color: Olive;">(</span>n<span style="color: Gray;">,</span> bits<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  → 最终补码: {comp}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  → Final two's complement: {comp}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 验证</span><br/>
+    <span style="color: #a50"># Verify</span><br/>
     recovered <span style="color: Gray;">=</span> from_twos_complement<span style="color: Olive;">(</span>comp<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  验证: 补码 {comp} → 解读为 {recovered}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Verification: two's complement {comp} → interpreted as {recovered}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 测试</span><br/>
+<span style="color: #a50"># Test</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"补码转换演示 (8位系统)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Two's complement conversion demo (8-bit system)"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> val <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">5</span><span style="color: Gray;">,</span> -<span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> -<span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">127</span><span style="color: Gray;">,</span> -<span style="color: Maroon;">128</span><span style="color: Olive;">]</span>:<br/>
     show_conversion_steps<span style="color: Olive;">(</span>val<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 验证补码加法</span><br/>
+<span style="color: #a50"># Verify two's complement addition</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"补码加法验证：减法变加法"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Two's complement addition verification: subtraction becomes addition"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> twos_add<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> bits<span style="color: Gray;">=</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""补码加法（包含溢出处理）"""</span><br/>
+    <span style="color: #a11;">"""Two's complement addition (including overflow handling)"""</span><br/>
     mask <span style="color: Gray;">=</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> bits<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><br/>
     result_unsigned <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>a + b<span style="color: Olive;">)</span> &amp; mask<br/>
-    <span style="color: #a50"># 解读有符号结果</span><br/>
+    <span style="color: #a50"># Interpret Signed Result</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> result_unsigned <span style="color: Gray;">&gt;=</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> <span style="color: Olive;">(</span>bits - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
         signed_result <span style="color: Gray;">=</span> result_unsigned - <span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Gray;">&lt;&lt;</span> bits<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
@@ -992,44 +990,40 @@ calcTwos();
     <span style="color: Green;font-weight:bold;">return</span> signed_result<br/>
 <br/>
 <span style="color: #a50"># 5 - 3 = 2</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"5 + (-3) = {twos_add(5, -3)}   (期望: 2)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">5 + (-3) = {twos_add(5, -3)}   (expected: 2)</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 127 + 1 = -128 (溢出)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"127 + 1 = {twos_add(127, 1)}  (期望: -128，发生了溢出)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># 127 + 1 = -128 (overflow)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">127 + 1 = {twos_add(127, 1)}  (expected: -128, overflow occurred)</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># -128 - 1 = 127 (溢出)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"-128 + (-1) = {twos_add(-128, -1)}   (期望: 127，发生了溢出)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># -128 - 1 = 127 (overflow)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">-128 + (-1) = {twos_add(-128, -1)} (expected: 127, overflow occurred)</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 零相加</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0 + 0 = {twos_add(0, 0)}   (期望: 0)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># add zero</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">0 + 0 = {twos_add(0, 0)}   (expected: 0)</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 用 RUNOOB 字符验证：R=82, U=85 → 82 + (-85) = -3</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>RUNOOB 测试：R(82) + (-U(85)) = {twos_add(82, -85)}   (期望: -3)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Verify with RUNOOB characters: R=82, U=85 → 82 + (-85) = -3</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>RUNOOB Test：R(82) + (-U(85)) = {twos_add(82, -85)}   (period望: -3)"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 展示补码的循环特性</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>补码环形（4位简化版，范围 -8~+7）："</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"数值  | 补码   | 无符号"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Demonstrating the cyclic nature of two's complement</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Two's complement ring (4-bit simplified version, range -8 to +7):</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Value  | Two's complement   | Unsigned"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">30</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> n <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>-<span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Olive;">)</span>:<br/>
     comp <span style="color: Gray;">=</span> to_twos_complement<span style="color: Olive;">(</span>n<span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Olive;">)</span><br/>
     unsig <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>comp<span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {n:3d}  | {comp}   | {unsig:2d}"</span><span style="color: Olive;">)</span><br/>
 </div>
-</div> 其他扩展
-</div>
+</div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/number-system-conversion.html" rel="prev">进制转换 — 二进制、十进制、十六进制</a> </div>
-<div class="next-design-link"><a href="../computer-organization/floating-point-ieee754.html" rel="next">小数怎么表示 — 浮点数与 IEEE 754</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/number-system-conversion.html" rel="prev">Base conversion — binary, decimal, hexadecimal</a> </div>
+<div class="next-design-link"><a href="../computer-organization/floating-point-ieee754.html" rel="next">How are decimals represented — Floating-point and IEEE 754</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -1133,16 +1127,16 @@ calcTwos();
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1150,14 +1144,14 @@ calcTwos();
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31873"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1335,7 +1329,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1426,7 +1420,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

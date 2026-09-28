@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Django ORM – 多表实例 | 菜鸟教程</title>
+<title>Django ORM – Multi-table Examples | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Django ORM – 多表实例 表与表之间的关系可分为以下三种：  一对一: 一个人对应一个身份证号码，数据字段设置 unique。 一对多: 一个家庭有多个人，一般通过外键来实现。 多对多: 一个学生有多门课程，一个课程有很多学生，一般通过第三个表来实现关联。  创建模型 接下来我们来看下多表多实例。 实例 [mycode4 type='python'] class Book(models.Model):   .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,21 +158,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-orm-1.html" rel="prev">Django ORM – 单表实例</a> </div>
-<div class="next-design-link"><a href="../django/django-orm-3.html" rel="next">Django ORM – 多表实例（聚合与分组查询）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-orm-1.html" rel="prev">Django ORM – Single Table Example</a> </div>
+<div class="next-design-link"><a href="../django/django-orm-3.html" rel="next">Django ORM – Multi-table Examples (Aggregation and Grouped Queries)</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Django ORM – Multi-table Examples</h1>
 <p>The relationships between tables can be divided into the following three types:</p>
 <ul><li>
-<strong>一对一</strong>: One person corresponds to one ID number, set the data field to unique.</li><li>
-<strong>一对多</strong>: One family has multiple people, generally implemented through a foreign key.</li><li>
-<strong>多对多</strong>: One student has multiple courses, and one course has many students, generally the association is implemented through a third table.</li></ul>
+<strong>one-to-one</strong>: One person corresponds to one ID number, set the data field to unique.</li><li>
+<strong>one-to-many</strong>: One family has multiple people, generally implemented through a foreign key.</li><li>
+<strong>many-to-many</strong>: One student has multiple courses, and one course has many students, generally the association is implemented through a third table.</li></ul>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/orm11.png"/></p>
-<h3>创建模型</h3>
+<h3>Create Model</h3>
 <p>Next, let's look at multi-table, multi-instance scenarios.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> Book<span style="color: Olive;">(</span>models.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
     title <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span>max_length<span style="color: Gray;">=</span><span style="color: Maroon;">32</span><span style="color: Olive;">)</span><br/>
     price <span style="color: Gray;">=</span> models.<span style="color: #05a;">DecimalField</span><span style="color: Olive;">(</span>max_digits<span style="color: Gray;">=</span><span style="color: Maroon;">5</span><span style="color: Gray;">,</span> decimal_places<span style="color: Gray;">=</span><span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
@@ -195,25 +195,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> AuthorDetail<span style="color: Olive;">(</span>models.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
     gender_choices <span style="color: Gray;">=</span> <span style="color: Olive;">(</span><br/>
-        <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">"女"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"男"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        <span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">"保密"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Female"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Male"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        <span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Confidential"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">)</span><br/>
     gender <span style="color: Gray;">=</span> models.<span style="color: #05a;">SmallIntegerField</span><span style="color: Olive;">(</span>choices<span style="color: Gray;">=</span>gender_choices<span style="color: Olive;">)</span><br/>
     tel <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span>max_length<span style="color: Gray;">=</span><span style="color: Maroon;">32</span><span style="color: Olive;">)</span><br/>
     addr <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span>max_length<span style="color: Gray;">=</span><span style="color: Maroon;">64</span><span style="color: Olive;">)</span><br/>
     birthday <span style="color: Gray;">=</span> models.<span style="color: #05a;">DateField</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><strong>说明：</strong></p>
-<ul><li>1. The EmailField data type is an email format, inherits CharField at the bottom layer, and is encapsulated, equivalent to varchar in MySQL.</li><li>2、Django1.1 版本不需要联级删除：on_delete=models.CASCADE，Django2.2 需要。</li><li>3. Generally, there is no need to set up cascade updates.</li><li>4. Set the foreign key on the many side of one-to-many:<span class="marked">models.ForeignKey("关联类名", on_delete=models.CASCADE)</span>。</li><li>5、OneToOneField = ForeignKey(...，unique=True)设置一对一。</li><li>6. If a model class has a foreign key, when creating data, you must first create data for the model class associated with the foreign key; otherwise, when creating data for the model class containing the foreign key, the data of the model class associated with the foreign key will not be found.</li></ul>
-<h3>表结构</h3>
-<p><strong>Book table: Book</strong>：title 、 price 、 pub_date 、 publish（外键，多对一） 、 authors（多对多）</p>
+<p><strong>Description:</strong></p>
+<ul><li>1. The EmailField data type is an email format, inherits CharField at the bottom layer, and is encapsulated, equivalent to varchar in MySQL.</li><li>2、Django1.1 VersionNot RequiredunitelevelDelete:on_delete=models.CASCADE，Django2.2 requires。</li><li>3. Generally, there is no need to set up cascade updates.</li><li>4. Set the foreign key on the many side of one-to-many:<span class="marked">models.ForeignKey("related class name", on_delete=models.CASCADE)</span>。</li><li>5. OneToOneField = ForeignKey(..., unique=True) sets up a one-to-one relationship.</li><li>6. If a model class has a foreign key, when creating data, you must first create data for the model class associated with the foreign key; otherwise, when creating data for the model class containing the foreign key, the data of the model class associated with the foreign key will not be found.</li></ul>
+<h3>table structure</h3>
+<p><strong>Book table: Book</strong>：title 、 price 、 pub_date 、 publish（Foreign key，manyPairone） 、 authors（many-to-many）</p>
 <p><strong>Publisher table Publish</strong>：name 、 city 、 email</p>
-<p><strong>Author table: Author</strong>：name 、 age 、 au_detail（一对一）</p>
+<p><strong>Author table: Author</strong>: name, age, au_detail (one-to-one)</p>
 <p><strong>Author details table AuthorDetail</strong>：gender 、 tel 、 addr 、 birthday</p>
 <p>The following is a description of the table relationships:</p>
 <p><a href="../wp-content/uploads/2020/05/Django-orm2_1.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_1.png"/></a></p>
-<h3>插入数据</h3><p>We execute the following SQL insert operation in MySQL:</p>
+<h3>Insert Data</h3><p>We execute the following SQL insert operation in MySQL:</p>
 <pre>insert into app01_publish(name,city,email) values ("华山出版社", "华山", "hs@163.com"), ("明教出版社", "黑木崖", "mj@163.com")
  
 # 先插入 authordetail 表中多数据
@@ -225,15 +225,15 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
 <hr/>
 <h2>ORM - Adding Data</h2>
 <h3>One-to-many (foreign key ForeignKey)</h3>
-<p><strong>方式一:</strong>In the form of passing an object, the return value's data type is an object, a book object.</p>
-<p><strong>步骤：</strong></p>
+<p><strong>Method 1:</strong>In the form of passing an object, the return value's data type is an object, a book object.</p>
+<p><strong>Steps:</strong></p>
 <ul><li>a. Get the publisher object</li><li>b. Pass the publisher object to the book's publisher attribute pulish</li></ul>
 <div class="example"><h2 class="example">app01/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50">#  获取出版社对象</span><br/>
+    <span style="color: #a50">#  Get publisher object</span><br/>
     pub_obj <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>pk<span style="color: Gray;">=</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  给书籍的出版社属性publish传出版社对象</span><br/>
-    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"2010-10-10"</span><span style="color: Gray;">,</span> publish<span style="color: Gray;">=</span>pub_obj<span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Pass the publisher object to the book's publisher attribute publish</span><br/>
+    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"2010-10-10"</span><span style="color: Gray;">,</span> publish<span style="color: Gray;">=</span>pub_obj<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
@@ -241,73 +241,73 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
 <p>Method 2: Passing the object id (since the data passed in is generally an id, passing the object id is commonly used).</p>
 <p>In a one-to-many relationship, in the class (the 'many' table) that sets the foreign key property, the field name displayed in MySQL is:<strong>Foreign key attribute name _id</strong>。</p>
 <p>The return value's data type is an object, a book object.</p>
-<p><strong>步骤：</strong></p><ul><li>a. Get the id of the publisher object</li><li>b. Pass the publisher object's id to the book's associated publisher field pulish_id</li></ul>
+<p><strong>Steps:</strong></p><ul><li>a. Get the id of the publisher object</li><li>b. Pass the publisher object's id to the book's associated publisher field pulish_id</li></ul>
 <div class="example"><h2 class="example">app01/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50">#  获取出版社对象</span><br/>
+    <span style="color: #a50">#  Get publisher object</span><br/>
     pub_obj <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>pk<span style="color: Gray;">=</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  获取出版社对象的id</span><br/>
+    <span style="color: #a50"># Get the publisher object's id</span><br/>
     pk <span style="color: Gray;">=</span> pub_obj.<span style="color: #05a;">pk</span><br/>
-    <span style="color: #a50">#  给书籍的关联出版社字段 publish_id 传出版社对象的id</span><br/>
-    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"冲灵剑法"</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">100</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"2004-04-04"</span><span style="color: Gray;">,</span> publish_id<span style="color: Gray;">=</span>pk<span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Pass the publisher object's id to the book's associated publisher field publish_id</span><br/>
+    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">Chongling Sword Technique</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">100</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"2004-04-04"</span><span style="color: Gray;">,</span> publish_id<span style="color: Gray;">=</span>pk<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_3.gif"/></p>
 <h3>Many-to-many (ManyToManyField): Add data in the third relationship table</h3>
-<p><strong>方式一:</strong>Passing the object form; no return value.</p>
-<p><strong>步骤：</strong></p>
+<p><strong>Method 1:</strong>Passing the object form; no return value.</p>
+<p><strong>Steps:</strong></p>
 <ul><li>a. Get the author object</li><li>b. Get the book object</li><li>c. Use the add method to pass the author object to the authors  attribute of the book object</li></ul>
 <div class="example"><h2 class="example">app01/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50">#  获取作者对象</span><br/>
-    chong <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"令狐冲"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    ying <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"任盈盈"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  获取书籍对象</span><br/>
-    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  给书籍对象的 authors 属性用 add 方法传作者对象</span><br/>
+    <span style="color: #a50">#  Get the author object</span><br/>
+    chong <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Linghu Chong"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+    ying <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Yingying"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50">#  Get the book object</span><br/>
+    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Pass author objects to the authors attribute of the book object using the add method.</span><br/>
     book.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>chong<span style="color: Gray;">,</span> ying<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_4.gif"/></p>
-<p><strong>方式二:</strong>Passing the object id form; no return value.</p>
-<p><strong>步骤：</strong></p>
+<p><strong>Method 2:</strong>Passing the object id form; no return value.</p>
+<p><strong>Steps:</strong></p>
 <ul><li>a. Get the id of the author object</li><li>b. Get the book object</li><li>c. Use the add method to pass the author object's id to the authors  attribute of the book object</li></ul>
 <div class="example"><h2 class="example">app01/views.py file code:</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50">#  获取作者对象</span><br/>
-    chong <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"令狐冲"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  获取作者对象的id</span><br/>
+    <span style="color: #a50">#  Get the author object</span><br/>
+    chong <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Linghu Chong"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Get the id of the author object</span><br/>
     pk <span style="color: Gray;">=</span> chong.<span style="color: #05a;">pk</span><br/>
-    <span style="color: #a50">#  获取书籍对象</span><br/>
-    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"冲灵剑法"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50">#  给书籍对象的 authors 属性用 add 方法传作者对象的id</span><br/>
+    <span style="color: #a50">#  Get the book object</span><br/>
+    book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">Chongling Sword Technique</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Use the add method to pass the author object's id to the authors attribute of the book object</span><br/>
     book.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>pk<span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_5.gif"/></p>
 <h3>Related manager (object call)</h3>
-<p><strong>前提：</strong></p>
+<p><strong>Prerequisite:</strong></p>
 <ul><li>Many-to-many (both directions have related managers)</li><li>One-to-many (only the object of the 'many' class has a related manager, i.e., only in the reverse direction)</li></ul>
-<p><strong>语法格式：</strong></p>
+<p><strong>Syntax:</strong></p>
 <pre>正向：属性名
 反向：小写类名加 _set</pre>
-<p><strong>注意：</strong>One-to-many can only be done in reverse.</p>
-<p><strong>常用方法：</strong></p>
+<p><strong>Note:</strong>One-to-many can only be done in reverse.</p>
+<p><strong>Common methods:</strong></p>
 <p><strong>add()</strong>: Used for many-to-many relationships, adds the specified model object to the related object set (relationship table).</p>
-<p><strong>注意：</strong>In a one-to-many (i.e., foreign key) relationship, add() can only pass objects (*QuerySet data type), not ids (*[id table]).</p>
-<p><span class="marked">*[ ]</span>的使用:</p># 方式一：传对象<div class="example"><div class="example_code">
+<p><strong>Note:</strong>In a one-to-many (i.e., foreign key) relationship, add() can only pass objects (*QuerySet data type), not ids (*[id table]).</p>
+<p><span class="marked">*[ ]</span>Usage:</p># Method 1: Pass the object<div class="example"><div class="example_code">
 book_obj <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Teal;">id</span><span style="color: Gray;">=</span><span style="color: Maroon;">10</span><span style="color: Olive;">)</span><br/>
 author_list <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>id__gt<span style="color: Gray;">=</span><span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
-book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>*author_list<span style="color: Olive;">)</span>  <span style="color: #a50"># 将 id 大于2的作者对象添加到这本书的作者集合中</span><br/>
-<span style="color: #a50"># 方式二：传对象 id</span><br/>
-book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>*<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span><span style="color: Maroon;">3</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span> <span style="color: #a50"># 将 id=1 和 id=3 的作者对象添加到这本书的作者集合中</span><br/>
+book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>*author_list<span style="color: Olive;">)</span>  <span style="color: #a50"># Add author objects with id greater than 2 to this book's author set</span><br/>
+<span style="color: #a50"># Method 2: Pass object id</span><br/>
+book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>*<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span><span style="color: Maroon;">3</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span> <span style="color: #a50"># Add the author objects with id=1 and id=3 to this book's author set.</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_6.gif"/></p>
-<p>反向：<span class="marked">小写表名_set</span></p>
+<p>Reverse:<span class="marked">lowercase table name_set</span></p>
 <div class="example"> <div class="example_code">
-ying <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"任盈盈"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"冲灵剑法"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+ying <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Yingying"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">Chongling Sword Technique</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 ying.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
@@ -315,15 +315,15 @@ ying.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">add</
 <p><strong>create()</strong>: Creates a new object and adds it to the related object set at the same time.</p>
 <p>Returns the newly created object.</p>
 <div class="example"> <div class="example_code">
-pub <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"明教出版社"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-wo <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"任我行"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-book <span style="color: Gray;">=</span> wo.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"吸星大法"</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">300</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"1999-9-19"</span><span style="color: Gray;">,</span> publish<span style="color: Gray;">=</span>pub<span style="color: Olive;">)</span><br/>
+pub <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Mingjiao Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+wo <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Woxing"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+book <span style="color: Gray;">=</span> wo.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">Star Absorption Technique</span><span style="color: Gray;">,</span> price<span style="color: Gray;">=</span><span style="color: Maroon;">300</span><span style="color: Gray;">,</span> pub_date<span style="color: Gray;">=</span><span style="color: #a11;">"1999-9-19"</span><span style="color: Gray;">,</span> publish<span style="color: Gray;">=</span>pub<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_8.gif"/></p>
 <p><strong>remove()</strong>: Removes the specified model object from the related object set.</p><p>For ForeignKey objects, this method only exists when null=True (can be empty), and has no return value.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 author_obj <span style="color: Gray;">=</span>models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Teal;">id</span><span style="color: Gray;">=</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
 book_obj <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Teal;">id</span><span style="color: Gray;">=</span><span style="color: Maroon;">11</span><span style="color: Olive;">)</span><br/>
 author_obj.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">remove</span><span style="color: Olive;">(</span>book_obj<span style="color: Olive;">)</span><br/>
@@ -332,41 +332,41 @@ author_obj.<span style="color: #05a;">book_set</span>.<span style="color: #05a;"
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_9.gif"/></p>
 <p><strong>clear()</strong>: Removes all objects from the related object set, deletes the relationships, but does not delete the objects.</p>
 <p>For ForeignKey objects, this method only exists when null=True (can be empty).</p>
-<p>无返回值。</p>
+<p>No return value.</p>
 <div class="example"> <div class="example_code">
-<span style="color: #a50">#  清空独孤九剑关联的所有作者</span><br/>
-book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Clear all authors associated with Dugu Nine Swords.</span><br/>
+book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 book.<span style="color: #05a;">authors</span>.<span style="color: #05a;">clear</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <hr/>
-<h2>ORM 查询</h2><p>Object-based cross-table queries.</p>
+<h2>ORM Query</h2><p>Object-based cross-table queries.</p>
 <pre>正向：属性名称
 反向：小写类名_set</pre>
-<h3>一对多</h3>
+<h3>one-to-many</h3>
 <p>Query the city where the publisher of the book with primary key 1 is located (forward).</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>pk<span style="color: Gray;">=</span><span style="color: Maroon;">10</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> book.<span style="color: #05a;">publish</span>.<span style="color: #05a;">city</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_10.gif"/></p>
-<p>Query the names of books published by 明教出版社 (reverse).</p><p>反向：<span class="marked">对象.小写类名_set(pub.book_set)</span>You can jump to the associated table (the book table).</p>
+<p>Query the names of books published by Mingjiao Publishing House (reverse).</p><p>Reverse:<span class="marked">object.lowercase_class_name_set (pub.book_set)</span>You can jump to the associated table (the book table).</p>
 <p>
 <strong>pub.book_set.all()</strong>: Retrieve all book objects from the book table, and within a QuerySet, iterate to fetch each book object.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-pub <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"明教出版社"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+pub <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Mingjiao Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> pub.<span style="color: #05a;">book_set</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> res:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">title</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_11.gif"/></p>
-<h3>一对一</h3>
+<h3>one-to-one</h3>
 <p>Query Linghu Chong's phone number (forward)</p>
 <p>Forward: object.attribute (author.au_detail) can jump to the associated table (author detail table)</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-author <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"令狐冲"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+author <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Linghu Chong"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> author.<span style="color: #05a;">au_detail</span>.<span style="color: #05a;">tel</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
@@ -374,16 +374,16 @@ res <span style="color: Gray;">=</span> author.<span style="color: #05a;">au_det
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_12.gif"/></p>
 <p>Query the names of all authors whose address is on Black Wood Cliff (reverse).</p><p>For the reverse of one-to-one, use<strong>Object.lowercase class name</strong>is enough, no need to add _set.</p>
 <p>Reverse: object.lowercase_class_name (addr.author) can jump to the associated table (author table).</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-addr <span style="color: Gray;">=</span> models.<span style="color: #05a;">AuthorDetail</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>addr<span style="color: Gray;">=</span><span style="color: #a11;">"黑木崖"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+addr <span style="color: Gray;">=</span> models.<span style="color: #05a;">AuthorDetail</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>addr<span style="color: Gray;">=</span><span style="color: #a11;">"Blackwood Cliff"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> addr.<span style="color: #05a;">author</span>.<span style="color: #05a;">name</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_13.gif"/></p>
-<h3>多对多</h3><p>All authors' names and phone numbers in Runoob Tutorial (forward).</p><p>正向：<strong>object.attribute (book.authors)</strong>You can jump to the associated table (the author table).</p><p>There is no author phone in the author table, so again through<strong>object.attribute (i.au_detail)</strong>Jump to the associated table (author detail table).</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟教程"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<h3>many-to-many</h3><p>All authors' names and phone numbers in Runoob Tutorial (forward).</p><p>Forward:<strong>object.attribute (book.authors)</strong>You can jump to the associated table (the author table).</p><p>There is no author phone in the author table, so again through<strong>object.attribute (i.au_detail)</strong>Jump to the associated table (author detail table).</p>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> book.<span style="color: #05a;">authors</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> res:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">name</span><span style="color: Gray;">,</span> i.<span style="color: #05a;">au_detail</span>.<span style="color: #05a;">tel</span><span style="color: Olive;">)</span><br/>
@@ -391,8 +391,8 @@ res <span style="color: Gray;">=</span> book.<span style="color: #05a;">authors<
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_14.gif"/></p>
 <p>Query the names of all books published by Ren Woxing (reverse).</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-author <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"任我行"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+author <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Woxing"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 res <span style="color: Gray;">=</span> author.<span style="color: #05a;">book_set</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> res:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">title</span><span style="color: Olive;">)</span><br/>
@@ -402,40 +402,36 @@ res <span style="color: Gray;">=</span> author.<span style="color: #05a;">book_s
 <h2>Cross-table queries based on double underscores</h2>
 <h3>Forward: attribute name __ attribute name on the related table
 Reverse: lowercase class name __ attribute name on the related table</h3>
-<h3>一对多</h3><p>Query the names and prices of all books published by 菜鸟出版社.</p><div class="example"><h2 class="example">实例</h2> <div class="example_code">
-res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>publish__name<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟出版社"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"title"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"price"</span><span style="color: Olive;">)</span><br/>
+<h3>one-to-many</h3><p>Query the names and prices of all books published by Rookie Publishing House.</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
+res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>publish__name<span style="color: Gray;">=</span><span style="color: #a11;">"Rookie Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"title"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"price"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_16.gif"/></p><p>Reverse: through the lowercase class name<strong>Write class name__cross-table attribute name (book__title, book__price)</strong>Cross-table data retrieval.</p><div class="example"><h2 class="example">实例</h2> <div class="example_code">
-res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"菜鸟出版社"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"book__title"</span><span style="color: Gray;">,</span><span style="color: #a11;">"book__price"</span><span style="color: Olive;">)</span><br/>
+<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_16.gif"/></p><p>Reverse: through the lowercase class name<strong>Write class name__cross-table attribute name (book__title, book__price)</strong>Cross-table data retrieval.</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
+res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Rookie Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"book__title"</span><span style="color: Gray;">,</span><span style="color: #a11;">"book__price"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_17.gif"/></p>
-<h3>多对多</h3><p>Query the names of all books published by Ren Woxing.</p><p>Forward: Get data across tables through attribute name __ attribute name on the related table (authors__name):</p>
+<h3>many-to-many</h3><p>Query the names of all books published by Ren Woxing.</p><p>Forward: Get data across tables through attribute name __ attribute name on the related table (authors__name):</p>
 <pre>res = models.Book.objects.filter(authors__name="任我行").values_list("title")</pre>
 <p>Reverse: Get data across tables through lowercase class name __ attribute name on the related table (book__title):</p>
 <pre>res = models.Author.objects.filter(name="任我行").values_list("book__title")</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_18.gif"/></p>
-<h3>一对一</h3>
-<p>Query Ren Woxing's phone number.</p><p>正向：通过<strong>Attribute name __ attribute name on the related table (au_detail__tel)</strong>Cross-table data retrieval.</p>
+<h3>one-to-one</h3>
+<p>Query Ren Woxing's phone number.</p><p>Forward: through<strong>Attribute name __ attribute name on the related table (au_detail__tel)</strong>Cross-table data retrieval.</p>
 <pre>res = models.Author.objects.filter(name="任我行").values_list("au_detail__tel")</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_19.gif"/></p>
-<p>反向：通过<strong>Lowercase class name __ attribute name on the related table (author__name)</strong>Cross-table data retrieval.</p><pre>
+<p>Reverse: through<strong>Lowercase class name __ attribute name on the related table (author__name)</strong>Cross-table data retrieval.</p><pre>
 res = models.AuthorDetail.objects.filter(author__name="任我行").values_list("tel")</pre>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_20.gif"/></p> 其他扩展
-</div>
+<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_20.gif"/></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-orm-1.html" rel="prev">Django ORM – 单表实例</a> </div>
-<div class="next-design-link"><a href="../django/django-orm-3.html" rel="next">Django ORM – 多表实例（聚合与分组查询）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-orm-1.html" rel="prev">Django ORM – Single Table Example</a> </div>
+<div class="next-design-link"><a href="../django/django-orm-3.html" rel="next">Django ORM – Multi-table Examples (Aggregation and Grouped Queries)</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -539,16 +535,16 @@ res = models.AuthorDetail.objects.filter(author__name="任我行").values_list("
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes.</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -556,14 +552,14 @@ res = models.AuthorDetail.objects.filter(author__name="任我行").values_list("
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="22425"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -741,7 +737,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -832,7 +828,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

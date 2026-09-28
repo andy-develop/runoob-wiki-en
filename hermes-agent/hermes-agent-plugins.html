@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hermes Agent 插件开发与生产实践 | 菜鸟教程</title>
+<title>Hermes Agent Plugin Development and Production Practice | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Hermes Agent 插件开发与生产实践 本章面向进阶用户：如何通过插件系统扩展 Hermes、如何从 OpenClaw 迁移，以及将 Hermes 部署到生产环境的安全与成本最佳实践。   插件开发入门 Hermes 支持三种类型的插件：通用插件（工具 + Hook）、记忆提供者、上下文引擎。   实例  [mycode4 type='bash'] # 交互式管理已安装插件 hermes plugins  # .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-delegation.html" rel="prev">Hermes Agent 子 Agent 委托与批量处理</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-web-dashboard.html" rel="next">Hermes Agent 仪表盘（Dashboard）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-delegation.html" rel="prev">Hermes Agent sub-agent delegation and batch processing</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-web-dashboard.html" rel="next">Hermes Agent Dashboard</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,12 +169,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Getting Started with Plugin Development</h2>
 <p>Hermes supports three types of plugins: general-purpose plugins (tools + hooks), memory providers, and context engines.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 交互式管理已安装插件</span><br/>
+<span style="color: #666666; font-style: italic;"># Interactively Manage Installed Plugins</span><br/>
 hermes plugins<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 命令行管理</span><br/>
+<span style="color: #666666; font-style: italic;"># Command-line management</span><br/>
 hermes plugins list<br/>
 hermes plugins <span style="color: #C20CB9; font-weight: bold;">install</span> <span style="color: #000000; font-weight: bold;">&lt;</span>path<span style="color: #000000; font-weight: bold;">&gt;</span><br/>
 hermes plugins <span style="color: #7A0874; font-weight: bold;">enable</span> <span style="color: #000000; font-weight: bold;">&lt;</span>name<span style="color: #000000; font-weight: bold;">&gt;</span><br/>
@@ -185,13 +185,13 @@ hermes plugins disable <span style="color: #000000; font-weight: bold;">&lt;</sp
 <pre>
 hermes dashboard</pre><p>Open the dashboard in your browser, open the plugin list on the left, and you can see the installed plugins:</p>
 <p><img decoding="async" src="../wp-content/uploads/2026/06/runoob_1782545553168.png"/></p>
-<h3>Hook 系统</h3>
+<h3>Hook system</h3>
 <p>The most commonly used plugin capability is the Hook — injecting custom logic at key points in the Agent lifecycle:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：插件目录/logging_plugin.py</span><br/>
-<span style="color: #a50"># 简单插件示例：记录所有 LLM 调用</span><br/>
+<span style="color: #a50"># File path: plugin directory/logging_plugin.py</span><br/>
+<span style="color: #a50"># Simple plugin example: record all LLM calls</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> hermes.<span style="color: #05a;">plugins</span> <span style="color: Green;font-weight:bold;">import</span> Plugin<span style="color: Gray;">,</span> hook<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> LoggingPlugin<span style="color: Olive;">(</span>Plugin<span style="color: Olive;">)</span>:<br/>
@@ -199,49 +199,49 @@ hermes dashboard</pre><p>Open the dashboard in your browser, open the plugin lis
 <br/>
     <span style="color: Gray;">@</span>hook<span style="color: Olive;">(</span><span style="color: #a11;">"pre_llm_call"</span><span style="color: Olive;">)</span><br/>
     async <span style="color: Green;font-weight:bold;">def</span> before_call<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> ctx<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 每次 LLM 调用前触发</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[LOG] 即将调用 LLM，当前上下文长度：{len(ctx.messages)}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a50"># Trigger before each LLM call</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[LOG] About to call LLM, current context length: {len(ctx.messages)}"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Gray;">@</span>hook<span style="color: Olive;">(</span><span style="color: #a11;">"post_llm_call"</span><span style="color: Olive;">)</span><br/>
     async <span style="color: Green;font-weight:bold;">def</span> after_call<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> ctx<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 每次 LLM 调用后触发</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[LOG] LLM 调用完成，回复长度：{len(response.content)}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a50"># Trigger after each LLM call</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[LOG] LLM call completed, response length: {len(response.content)}"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <h3>Available Hook Points</h3>
 <table class="reference">
-<tr><th>Hook</th><th>触发时机</th><th>典型用途</th></tr>
+<tr><th>Hook</th><th>Trigger timing</th><th>Typical use</th></tr>
 <tr><td>pre_llm_call</td><td>Before LLM Calls</td><td>Record context, modify prompts</td></tr>
 <tr><td>post_llm_call</td><td>After LLM Calls</td><td>Record responses, statistical analysis</td></tr>
-<tr><td>pre_tool_call</td><td>工具调用前（可拦截/修改）</td><td>Permission verification, parameter filtering</td></tr>
-<tr><td>post_tool_call</td><td>工具调用后</td><td>Result Auditing, Logging</td></tr>
+<tr><td>pre_tool_call</td><td>Before tool invocation (can intercept/modify)</td><td>Permission verification, parameter filtering</td></tr>
+<tr><td>post_tool_call</td><td>After the tool call</td><td>Result Auditing, Logging</td></tr>
 <tr><td>on_message_received</td><td>When Receiving User Messages</td><td>Message preprocessing, sensitive word filtering</td></tr>
-<tr><td>on_session_start</td><td>会话开始时</td><td>Initialize resources, inject context</td></tr>
-<tr><td>on_session_end</td><td>会话结束时</td><td>Clean up resources, generate summary</td></tr>
+<tr><td>on_session_start</td><td>At the start of the session</td><td>Initialize resources, inject context</td></tr>
+<tr><td>on_session_end</td><td>At the end of the session</td><td>Clean up resources, generate summary</td></tr>
 </table>
 <h3>Registering Custom Tools</h3>
 <p>Add brand-new tool capabilities to the Agent through plugins:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：插件目录/my_tools.py</span><br/>
-<span style="color: #a50"># 注册自定义工具——Agent 可以像调用内置工具一样使用它</span><br/>
+<span style="color: #a50"># File path: plugin directory/my_tools.py</span><br/>
+<span style="color: #a50"># Register custom tools — the Agent can use them just like built-in tools</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> hermes.<span style="color: #05a;">plugins</span> <span style="color: Green;font-weight:bold;">import</span> Plugin<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> MyPlugin<span style="color: Olive;">(</span>Plugin<span style="color: Olive;">)</span>:<br/>
     name <span style="color: Gray;">=</span> <span style="color: #a11;">"my-tools"</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> register_tools<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> ctx<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 注册自定义工具，Agent 在系统提示词中可见</span><br/>
+        <span style="color: #a50"># Register custom tools, visible in the agent's system prompt</span><br/>
         ctx.<span style="color: #05a;">register_tool</span><span style="color: Olive;">(</span><br/>
             name<span style="color: Gray;">=</span><span style="color: #a11;">"my_custom_tool"</span><span style="color: Gray;">,</span><br/>
-            description<span style="color: Gray;">=</span><span style="color: #a11;">"这个工具做某件事，当用户需要 X 时使用"</span><span style="color: Gray;">,</span><br/>
+            description<span style="color: Gray;">=</span><span style="color: #a11;">"This tool does something, use when the user needs X"</span><span style="color: Gray;">,</span><br/>
             parameters<span style="color: Gray;">=</span><span style="color: Olive;">{</span><br/>
                 <span style="color: #a11;">"type"</span>: <span style="color: #a11;">"object"</span><span style="color: Gray;">,</span><br/>
                 <span style="color: #a11;">"properties"</span>: <span style="color: Olive;">{</span><br/>
                     <span style="color: #a11;">"input"</span>: <span style="color: Olive;">{</span><br/>
                         <span style="color: #a11;">"type"</span>: <span style="color: #a11;">"string"</span><span style="color: Gray;">,</span><br/>
-                        <span style="color: #a11;">"description"</span>: <span style="color: #a11;">"输入参数说明"</span><br/>
+                        <span style="color: #a11;">"description"</span>: <span style="color: #a11;">"Input Parameter Description"</span><br/>
                     <span style="color: Olive;">}</span><br/>
                 <span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
                 <span style="color: #a11;">"required"</span>: <span style="color: Olive;">[</span><span style="color: #a11;">"input"</span><span style="color: Olive;">]</span><br/>
@@ -250,9 +250,9 @@ hermes dashboard</pre><p>Open the dashboard in your browser, open the plugin lis
         <span style="color: Olive;">)</span><br/>
 <br/>
     async <span style="color: Green;font-weight:bold;">def</span> my_tool_handler<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> **kwargs<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 工具的实际执行逻辑</span><br/>
+        <span style="color: #a50"># Actual Execution Logic of the Tool</span><br/>
         input_text <span style="color: Gray;">=</span> kwargs.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"input"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-        <span style="color: #a50"># ... 处理逻辑 ...</span><br/>
+        <span style="color: #a50"># ... processing logic ...</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"result"</span>: <span style="color: #a11;">"done"</span><span style="color: Olive;">}</span><br/>
 </div>
 </div>
@@ -260,68 +260,68 @@ hermes dashboard</pre><p>Open the dashboard in your browser, open the plugin lis
 <h2>Migrating from OpenClaw</h2>
 <p>If you are using OpenClaw, the official zero-downtime migration solution is provided:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 导出 OpenClaw 配置</span><br/>
+<span style="color: #666666; font-style: italic;"># Export OpenClaw configuration</span><br/>
 openclaw <span style="color: #7A0874; font-weight: bold;">export</span> <span style="color: #660033;">--format</span> hermes <span style="color: #000000; font-weight: bold;">&gt;</span> openclaw-config.json<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 导入到 Hermes</span><br/>
+<span style="color: #666666; font-style: italic;"># Import to Hermes</span><br/>
 hermes import <span style="color: #660033;">--from</span> openclaw openclaw-config.json<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 验证迁移结果</span><br/>
+<span style="color: #666666; font-style: italic;"># Verify Migration Results</span><br/>
 hermes doctor<br/>
 </div>
 </div>
 <h3>Main Concept Comparison</h3>
 <table class="reference">
-<tr><th>概念</th><th>OpenClaw</th><th>Hermes</th></tr>
-<tr><td>代理定义</td><td>JSON Agent 配置</td><td>SOUL.md + config.yaml</td></tr>
-<tr><td>工作流程</td><td>Manually write YAML flows</td><td>技能（SKILL.md）</td></tr>
-<tr><td>记忆后端</td><td>外部数据库</td><td>Built-in SQLite + Pluggable</td></tr>
-<tr><td>技能/工具</td><td>代码插件</td><td>Markdown skill files</td></tr>
-<tr><td>多实例</td><td>多进程配置</td><td>Profile 系统</td></tr>
+<tr><th>Concepts</th><th>OpenClaw</th><th>Hermes</th></tr>
+<tr><td>Agent Definition</td><td>JSON Agent configuration</td><td>SOUL.md + config.yaml</td></tr>
+<tr><td>Workflow</td><td>Manually write YAML flows</td><td>Skill (SKILL.md)</td></tr>
+<tr><td>Memory Backend</td><td>External database</td><td>Built-in SQLite + Pluggable</td></tr>
+<tr><td>Skills/Tools</td><td>Code Plugin</td><td>Markdown skill files</td></tr>
+<tr><td>multiple instances</td><td>Multi-process configuration</td><td>Profile system</td></tr>
 </table>
 <hr/>
 <h2>Production environment best practices</h2>
-<h3>安全清单</h3>
+<h3>Security Checklist</h3>
 <p>Recommended Security Configuration for Production Deployment:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 生产环境推荐安全配置</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Recommended Security Configuration for Production Environment</span><span style="color: #007F45;"><br/>
 terminal</span>:<span style="color: green;"><br/>
-  backend</span><span style="font-weight: bold; color: brown;">: </span>docker          <span style="color: blue;"># 必须：隔离 Agent 命令执行环境</span><br/>
+  backend</span><span style="font-weight: bold; color: brown;">: </span>docker          <span style="color: blue;"># Required: isolate Agent command execution environment</span><br/>
 <span style="color: #007F45;"><br/>
 approvals</span>:<span style="color: green;"><br/>
-  mode</span><span style="font-weight: bold; color: brown;">: </span>smart              <span style="color: blue;"># 危险命令需审批（或 manual 更严格）</span><span style="color: green;"><br/>
-  cron_mode</span><span style="font-weight: bold; color: brown;">: </span>deny          <span style="color: blue;"># 定时任务遇到危险命令默认拒绝</span><br/>
+  mode</span><span style="font-weight: bold; color: brown;">: </span>smart              <span style="color: blue;"># Dangerous commands require approval (or manual is stricter).</span><span style="color: green;"><br/>
+  cron_mode</span><span style="font-weight: bold; color: brown;">: </span>deny          <span style="color: blue;"># Scheduled tasks reject dangerous commands by default</span><br/>
 <span style="color: #007F45;"><br/>
 security</span>:<span style="color: green;"><br/>
-  redact_secrets</span><span style="font-weight: bold; color: brown;">: </span>true     <span style="color: blue;"># 日志中自动脱敏敏感信息（默认开启）</span><br/>
+  redact_secrets</span><span style="font-weight: bold; color: brown;">: </span>true     <span style="color: blue;"># Automatically redact sensitive information in logs (enabled by default)</span><br/>
 </div>
 </div>
 <p>Access control in environment variables:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 文件路径：~/.hermes/.env</span><br/>
-<span style="color: #666666; font-style: italic;"># 生产环境访问控制配置</span><br/>
-<span style="color: #007800;">GATEWAY_ALLOW_ALL_USERS</span>=<span style="color: #C20CB9; font-weight: bold;">false</span>           <span style="color: #666666; font-style: italic;"># 绝不允许所有用户</span><br/>
-<span style="color: #007800;">TELEGRAM_ALLOWED_USERS</span>=你的用户ID<span style="color: #666666; font-style: italic;"># 明确白名单</span><br/>
+<span style="color: #666666; font-style: italic;"># File path: ~/.hermes/.env</span><br/>
+<span style="color: #666666; font-style: italic;"># Access Control Configuration for Production Environment</span><br/>
+<span style="color: #007800;">GATEWAY_ALLOW_ALL_USERS</span>=<span style="color: #C20CB9; font-weight: bold;">false</span>           <span style="color: #666666; font-style: italic;"># Never allow all users</span><br/>
+<span style="color: #007800;">TELEGRAM_ALLOWED_USERS</span>=your user ID<span style="color: #666666; font-style: italic;"># Explicit whitelist</span><br/>
 </div>
 </div>
 <h3>Token cost control</h3>
 <p>Auxiliary tasks use cheaper models, significantly reducing operating costs:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 辅助任务使用独立模型，降低 Token 费用</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Use a separate model for auxiliary tasks to reduce Token costs</span><span style="color: #007F45;"><br/>
 auxiliary</span>:<span style="color: #007F45;"><br/>
   background_review</span>:<span style="color: green;"><br/>
     provider</span><span style="font-weight: bold; color: brown;">: </span>openrouter<span style="color: green;"><br/>
-    model</span><span style="font-weight: bold; color: brown;">: </span>google/gemini-<span style="">3</span>-flash-preview    <span style="color: blue;"># 不必用主模型</span><br/>
+    model</span><span style="font-weight: bold; color: brown;">: </span>google/gemini-<span style="">3</span>-flash-preview    <span style="color: blue;"># No Need to Use the Main Model</span><br/>
 <span style="color: #007F45;"><br/>
   vision</span>:<span style="color: green;"><br/>
     provider</span><span style="font-weight: bold; color: brown;">: </span>openrouter<span style="color: green;"><br/>
@@ -334,47 +334,42 @@ auxiliary</span>:<span style="color: #007F45;"><br/>
 </div>
 <h3>Multi-Profile gateway monitoring</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 同时查看所有 Profile 的网关状态</span><br/>
+<span style="color: #666666; font-style: italic;"># View gateway status for all Profiles simultaneously</span><br/>
 hermes profile list<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 批量重启所有网关</span><br/>
+<span style="color: #666666; font-style: italic;"># Batch restart all gateways</span><br/>
 <span style="color: #000000; font-weight: bold;">for</span> profile <span style="color: #000000; font-weight: bold;">in</span> coder assistant researcher; <span style="color: #000000; font-weight: bold;">do</span><br/>
   <span style="color: #007800;">$profile</span> gateway restart<br/>
 <span style="color: #000000; font-weight: bold;">done</span><br/>
 </div>
 </div>
-<h3>更新策略</h3>
+<h3>Update Strategy</h3>
 <p>Update code and built-in skills of all Profiles with one command:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 一次更新代码 + 为所有 Profile 同步新内置技能</span><br/>
+<span style="color: #666666; font-style: italic;"># One-time code update + sync new built-in skills for all Profiles</span><br/>
 hermes update<br/>
-<span style="color: #666666; font-style: italic;"># → 代码更新（12 个提交）</span><br/>
-<span style="color: #666666; font-style: italic;"># → 技能同步：</span><br/>
-<span style="color: #666666; font-style: italic;">#    default（已是最新）</span><br/>
-<span style="color: #666666; font-style: italic;">#    coder（+2 新增技能）</span><br/>
-<span style="color: #666666; font-style: italic;">#    assistant（+2 新增技能）</span><br/>
+<span style="color: #666666; font-style: italic;"># → Code update (12 commits)</span><br/>
+<span style="color: #666666; font-style: italic;"># → Skill sync:</span><br/>
+<span style="color: #666666; font-style: italic;">#    default (already latest)</span><br/>
+<span style="color: #666666; font-style: italic;">#    coder (+2 new skills)</span><br/>
+<span style="color: #666666; font-style: italic;"># assistant (+2 new skills)</span><br/>
 </div>
 </div>
-<blockquote><p>User-modified skills will never be overwritten. Updates only sync the new and changed parts of built-in skills.</p></blockquote>
-其他扩展
-</div>
+<blockquote><p>User-modified skills will never be overwritten. Updates only sync the new and changed parts of built-in skills.</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-delegation.html" rel="prev">Hermes Agent 子 Agent 委托与批量处理</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-web-dashboard.html" rel="next">Hermes Agent 仪表盘（Dashboard）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-delegation.html" rel="prev">Hermes Agent sub-agent delegation and batch processing</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-web-dashboard.html" rel="next">Hermes Agent Dashboard</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -478,16 +473,16 @@ hermes update<br/>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -495,14 +490,14 @@ hermes update<br/>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31595"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -680,7 +675,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -771,7 +766,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

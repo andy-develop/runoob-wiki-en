@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>多核心是怎么回事 | 菜鸟教程</title>
+<title>What is multi-core? | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="多核心是怎么回事 当单核 CPU 的性能提升遇到瓶颈（功耗墙、频率墙、流水线复杂度墙）后，工程师想出了一个「简单粗暴」但有效的办法：在一个芯片上放多个 CPU 核心。本讲将介绍多核心的原理、优势以及阿姆达尔定律对并行加速的限制。   生活中的类比：快餐店厨房  想象一家快餐店在午餐高峰期的情况。  单核模式：只有一个厨师。他在拼命加快速度（提高频率），优化做菜流程（流水线），但再怎么优化，同时只能做一道菜。客人排长队，等得不耐烦。  多.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/cpu-pipeline.html" rel="prev">流水线 — 如何让 CPU 更快</a> </div>
-<div class="next-design-link"><a href="../computer-organization/memory-hierarchy.html" rel="next">存储金字塔 — 为什么要分这么多层</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/cpu-pipeline.html" rel="prev">Pipeline — How to make the CPU faster</a> </div>
+<div class="next-design-link"><a href="../computer-organization/memory-hierarchy.html" rel="next">Memory Hierarchy — Why So Many Layers</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,9 +168,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Everyday analogy: a fast-food kitchen</h2>
 <p>Imagine a fast-food restaurant during the lunch rush.</p>
-<p><span class="marked">单核模式</span>: Only one chef. He is desperately trying to speed up (increase frequency) and optimize the cooking process (pipeline), but no matter how much he optimizes, only one dish can be cooked at a time. Customers wait in a long line and become impatient.</p>
-<p><span class="marked">多核模式</span>: The boss hires four chefs, each with their own stove. The four chefs can cook four different dishes at the same time. There is no need for each chef to become faster, but the overall output increases severalfold.</p>
-<p>This is the design philosophy of multi-core:<span class="marked">当单个核心很难再提速时，不如多放几个核心，让它们并行工作。</span></p>
+<p><span class="marked">Single-core mode</span>: Only one chef. He is desperately trying to speed up (increase frequency) and optimize the cooking process (pipeline), but no matter how much he optimizes, only one dish can be cooked at a time. Customers wait in a long line and become impatient.</p>
+<p><span class="marked">Multi-core mode</span>: The boss hires four chefs, each with their own stove. The four chefs can cook four different dishes at the same time. There is no need for each chef to become faster, but the overall output increases severalfold.</p>
+<p>This is the design philosophy of multi-core:<span class="marked">When a single core is hard to speed up further, it is better to add more cores and let them work in parallel.</span></p>
 <blockquote><p>Multi-core does not mean "make 4 copies of everything." The 4 cores usually share the same memory, the same disk interface, and the same operating system; they only duplicate at the "compute unit" level. Just like 4 chefs sharing the same refrigerator and ingredient warehouse.</p></blockquote>
 <hr/>
 <h2>Single-core vs multi-core: architecture comparison</h2>
@@ -178,9 +178,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In the early 2000s, the CPU industry improved performance by constantly increasing frequency—from 1 GHz to 2 GHz to 3 GHz. But this path quickly reached its end.</p>
 <p>Three major bottlenecks of single-core frequency:</p>
 <ul>
-<li><span class="tag1">功耗墙</span>: The higher the frequency, the exponential growth in power consumption, and heat dissipation becomes a physical limit.</li>
-<li><span class="tag1">内存墙</span>: The CPU is too fast, memory cannot keep up, and most of the time it is idly waiting for data.</li>
-<li><span class="tag1">ILP 墙</span>: Instruction-level parallelism (ILP) has been exploited to its limit; fewer and fewer instructions in a single instruction stream can be parallelized.</li>
+<li><span class="tag1">power wall</span>: The higher the frequency, the exponential growth in power consumption, and heat dissipation becomes a physical limit.</li>
+<li><span class="tag1">memory wall</span>: The CPU is too fast, memory cannot keep up, and most of the time it is idly waiting for data.</li>
+<li><span class="tag1">ILP wall</span>: Instruction-level parallelism (ILP) has been exploited to its limit; fewer and fewer instructions in a single instruction stream can be parallelized.</li>
 </ul>
 <p>Around 2005, Intel and AMD successively abandoned the pure "frequency race" and turned to the multi-core route.</p>
 <h3>Structure of a multi-core CPU</h3>
@@ -205,7 +205,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   |                    +------------+
   +-----------------------------------------------------------+
 </pre>
-<p>关键设计：</p>
+<p>Key design:</p>
 <ul>
 <li>Each core has its own L1 and L2 caches (private).</li>
 <li>Multiple cores share one L3 cache</li>
@@ -215,8 +215,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Amdahl's law: the ceiling of multi-core speedup.</h2>
 <p>The intuition that "more cores means faster" is not always right. In 1967, computer scientist Gene Amdahl proposed a famous law.</p>
-<p><span class="marked">阿姆达尔定律：一个任务的整体加速比，受限于任务中必须串行执行的部分。</span></p>
-<p>公式如下：</p>
+<p><span class="marked">Amdahl's Law: The overall speedup of a task is limited by the portion that must be executed serially.</span></p>
+<p>The formula is as follows:</p>
 <pre>
 加速比 = 1 / (S + P/N)
 
@@ -226,10 +226,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   N = 并行处理单元的数量（核心数）
 </pre>
 <p>This formula reveals a cruel fact:</p>
-<p><span class="marked">即使有无限多个核心，如果任务只有 50% 可以并行，加速比最多也只能到 2 倍。</span></p>
+<p><span class="marked">Even with an infinite number of cores, if only 50% of the task can be parallelized, the speedup can be at most 2x.</span></p>
 <p>Derivation: when N approaches infinity, P/N approaches 0, and the speedup approaches 1/S.</p>
 <table class="reference">
-<tr><th>可并行比例</th><th>1 核</th><th>2 核</th><th>4 核</th><th>8 核</th><th>16 核</th><th>Infinite cores (the upper limit)</th></tr>
+<tr><th>Parallelizable proportion</th><th>1 core</th><th>2 cores</th><th>4 cores</th><th>8 cores</th><th>16-core</th><th>Infinite cores (the upper limit)</th></tr>
 <tr><td>50%</td><td>1.00x</td><td>1.33x</td><td>1.60x</td><td>1.78x</td><td>1.88x</td><td>2.00x</td></tr>
 <tr><td>75%</td><td>1.00x</td><td>1.60x</td><td>2.29x</td><td>2.91x</td><td>3.37x</td><td>4.00x</td></tr>
 <tr><td>90%</td><td>1.00x</td><td>1.82x</td><td>3.08x</td><td>4.71x</td><td>6.40x</td><td>10.00x</td></tr>
@@ -238,22 +238,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>Observe the pattern in this table:</p>
 <ul>
-<li><span class="tag1 green">可并行比例越高，多核加速越明显</span>A task that is 99% parallelizable can be sped up nearly 14 times on 16 cores.</li>
-<li><span class="tag1">核心越多，边际收益越小</span>The speedup improvement from 2 cores to 4 cores is far greater than from 16 cores to 32 cores.</li>
-<li><span class="tag1">串行部分是硬上限</span>When only 50% is parallelizable, even with ten thousand cores, it can be at most 2 times faster.</li>
+<li><span class="tag1 green">The higher the parallelism ratio, the more significant the multi-core speedup.</span>A task that is 99% parallelizable can be sped up nearly 14 times on 16 cores.</li>
+<li><span class="tag1">More cores, smaller marginal returns.</span>The speedup improvement from 2 cores to 4 cores is far greater than from 16 cores to 32 cores.</li>
+<li><span class="tag1">The serial part is the hard limit</span>When only 50% is parallelizable, even with ten thousand cores, it can be at most 2 times faster.</li>
 </ul>
 <blockquote><p>Amdahl's Law explains why "more cores does not necessarily mean faster." If your program is mainly serial logic—for example, a computation step must wait for the result of the previous step—then no matter how many cores, they can only watch and can't help.</p></blockquote>
 <hr/>
 <h2>Interactive demo: Amdahl's Law calculator</h2>
 <p>The Python code below calculates and prints a comparison table of speedups according to Amdahl's law, and also plots how the speedup changes with the number of cores, so you can intuitively feel the impact of the "serial bottleneck."</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>阿姆达尔定律计算器 (runoob 演示)<br/>计算不同并行比例和核心数下的加速比<br/>打印对比表格和趋势分析<br/>
+<span style="color: #a11;">"""<br/>Amdahl's Law Calculator (runoob demo)<br/>Calculate the speedup under different parallel ratios and core counts<br/>Print comparison table and trend analysis<br/>
 """</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> amdahl_speedup<span style="color: Olive;">(</span>parallel_fraction<span style="color: Gray;">,</span> num_cores<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>阿姆达尔定律核心公式<br/>parallel_fraction: 可并行执行的比例 (0.0 ~ 1.0)<br/>num_cores: 核心数量<br/>返回加速比<br/>
+    <span style="color: #a11;">"""<br/>Amdahl's Law core formula<br/>parallel_fraction: fraction that can be executed in parallel (0.0 ~ 1.0)<br/>num_cores: number of cores<br/>Return speedup<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> num_cores <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1.0</span><br/>
@@ -263,22 +263,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> amdahl_limit<span style="color: Olive;">(</span>parallel_fraction<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>计算阿姆达尔定律的理论加速上限（核心数趋于无穷大时）<br/>当 N→∞ 时，P/N→0，加速比 → 1/S<br/>
+    <span style="color: #a11;">"""<br/>Calculate the theoretical speedup upper limit of Amdahl's Law (as the number of cores tends to infinity)<br/>When N→∞, P/N→0, speedup → 1/S<br/>
     """</span><br/>
     serial_fraction <span style="color: Gray;">=</span> <span style="color: Maroon;">1.0</span> - parallel_fraction<br/>
     <span style="color: Green;font-weight:bold;">if</span> serial_fraction <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">float</span><span style="color: Olive;">(</span><span style="color: #a11;">'inf'</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 完全可并行，理论上可无限加速</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">float</span><span style="color: Olive;">(</span><span style="color: #a11;">'inf'</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Fully parallelizable, theoretically can be infinitely accelerated</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1.0</span> / serial_fraction<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> print_comparison_table<span style="color: Olive;">(</span>parallel_fractions<span style="color: Gray;">,</span> core_counts<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""打印完整的加速比对比表格"""</span><br/>
-    <span style="color: #a50"># 表头</span><br/>
-    header <span style="color: Gray;">=</span> f<span style="color: #a11;">"{'核心数':&gt;6} |"</span><br/>
+    <span style="color: #a11;">"""Print the complete speedup comparison table."""</span><br/>
+    <span style="color: #a50"># Table header</span><br/>
+    header <span style="color: Gray;">=</span> f<span style="color: #a11;">"{'Cores':&gt;6} |"</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> pf <span style="color: Green;font-weight:bold;">in</span> parallel_fractions:<br/>
-        header +<span style="color: Gray;">=</span> f<span style="color: #a11;">" {pf*100:&gt;5.0f}%可并行 |"</span><br/>
+        header +<span style="color: Gray;">=</span> f<span style="color: #a11;">" {pf*100:&gt;5.0f}% parallelizable |"</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">12</span> + <span style="color: Maroon;">12</span> * <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parallel_fractions<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  阿姆达尔定律 - 多核加速比对比表"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Amdahl's Law - Multi-core Speedup Comparison Table</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">12</span> + <span style="color: Maroon;">12</span> * <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parallel_fractions<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>header<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">12</span> + <span style="color: Maroon;">12</span> * <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parallel_fractions<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
@@ -290,13 +290,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  {speedup:&gt;6.2f}x   |"</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 理论上限</span><br/>
+    <span style="color: #a50"># Theoretical upper limit</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">12</span> + <span style="color: Maroon;">12</span> * <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parallel_fractions<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-    limit_row <span style="color: Gray;">=</span> f<span style="color: #a11;">" {'上限':&gt;5} |"</span><br/>
+    limit_row <span style="color: Gray;">=</span> f<span style="color: #a11;">" {'Upper limit':&gt;5} |"</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> pf <span style="color: Green;font-weight:bold;">in</span> parallel_fractions:<br/>
         limit <span style="color: Gray;">=</span> amdahl_limit<span style="color: Olive;">(</span>pf<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> limit <span style="color: Gray;">==</span> <span style="color: Teal;">float</span><span style="color: Olive;">(</span><span style="color: #a11;">'inf'</span><span style="color: Olive;">)</span>:<br/>
-            limit_row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  无上限  |"</span><br/>
+            limit_row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  no upper limit  |"</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
             limit_row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  {limit:&gt;6.2f}x   |"</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>limit_row<span style="color: Olive;">)</span><br/>
@@ -304,9 +304,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> analyze_diminishing_returns<span style="color: Olive;">(</span>parallel_fraction<span style="color: Gray;">,</span> max_cores<span style="color: Gray;">=</span><span style="color: Maroon;">64</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""分析多核加速的边际收益递减"""</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>边际收益分析（可并行比例 {parallel_fraction*100:.0f}%）："</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'核心数':&gt;6} | {'加速比':&gt;8} | {'本次提升':&gt;10} | {'效率':&gt;8}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a11;">"""Analyze the diminishing marginal returns of multi-core acceleration"""</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Marginal benefit analysis (parallelizable proportion {parallel_fraction*100:.0f}%):</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">{'Cores':&gt;6} | {'Speedup':&gt;8} | {'Improvement':&gt;10} | {'Efficiency':&gt;8}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">42</span><span style="color: Olive;">)</span><br/>
 <br/>
     prev_speedup <span style="color: Gray;">=</span> <span style="color: Maroon;">1.0</span><br/>
@@ -314,7 +314,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: Green;font-weight:bold;">while</span> cores <span style="color: Gray;">&lt;=</span> max_cores:<br/>
         speedup <span style="color: Gray;">=</span> amdahl_speedup<span style="color: Olive;">(</span>parallel_fraction<span style="color: Gray;">,</span> cores<span style="color: Olive;">)</span><br/>
         improvement <span style="color: Gray;">=</span> speedup - prev_speedup<br/>
-        <span style="color: #a50"># 效率 = 实际加速比 / 核心数（完美线性加速时为 100%）</span><br/>
+        <span style="color: #a50"># Efficiency = actual speedup / number of cores (100% under perfect linear speedup)</span><br/>
         efficiency <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>speedup / cores<span style="color: Olive;">)</span> * <span style="color: Maroon;">100</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {cores:&gt;6} | {speedup:&gt;8.2f}x | +{improvement:&gt;8.3f}x | {efficiency:&gt;7.1f}%"</span><span style="color: Olive;">)</span><br/>
         prev_speedup <span style="color: Gray;">=</span> speedup<br/>
@@ -325,7 +325,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> compare_serial_vs_parallel<span style="color: Olive;">(</span>serial_work_ms<span style="color: Gray;">,</span> parallel_work_ms<span style="color: Gray;">,</span> num_cores<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>用一个具体任务的耗时来演示阿姆达尔定律<br/>serial_work_ms: 串行部分耗时（毫秒）<br/>parallel_work_ms: 可并行部分耗时（单核下，毫秒）<br/>num_cores: 可用核心数<br/>
+    <span style="color: #a11;">"""<br/>Use the time taken by a specific task to demonstrate Amdahl's law<br/>serial_work_ms: time spent on the serial part (milliseconds)<br/>parallel_work_ms: parallelizable part time (single-core, milliseconds)<br/>num_cores: number of available cores<br/>
     """</span><br/>
     total_single_ms <span style="color: Gray;">=</span> serial_work_ms + parallel_work_ms<br/>
     parallel_fraction <span style="color: Gray;">=</span> parallel_work_ms / total_single_ms<br/>
@@ -335,61 +335,61 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
     speedup <span style="color: Gray;">=</span> total_single_ms / total_multi_ms<br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>具体任务耗时模拟："</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  串行部分耗时: {serial_work_ms} ms（无法加速）"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  可并行部分耗时: {parallel_work_ms} ms（单核）"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  并行比例: {parallel_fraction*100:.0f}%"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Simulation of specific task duration:</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Serial part elapsed: {serial_work_ms} ms (cannot be accelerated)</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Time spent in parallelizable part: {parallel_work_ms} ms (single-core)</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Parallel fraction: {parallel_fraction*100:.0f}%</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  单核总耗时: {total_single_ms} ms"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {num_cores} 核总耗时: {total_multi_ms:.1f} ms（串行 {serial_work_ms} + 并行 {parallel_work_ms}/{num_cores} = {parallel_time_multi:.1f}）"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  实际加速比: {speedup:.2f}x"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  阿姆达尔上限: {amdahl_limit(parallel_fraction):.2f}x"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Single-core total time: {total_single_ms} ms</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {num_cores} 核total耗when: {total_multi_ms:.1f} ms（stringline {serial_work_ms} + Parallelism {parallel_work_ms}/{num_cores} = {parallel_time_multi:.1f}）"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Actual speedup: {speedup:.2f}x"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Amdahl limit: {amdahl_limit(parallel_fraction):.2f}x</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> speedup<br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 主程序 =====</span><br/>
+<span style="color: #a50"># ===== Main program =====</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  阿姆达尔定律计算器 (runoob)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Amdahl's Law Calculator (runoob)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 1. 基础对比表</span><br/>
+<span style="color: #a50"># 1. Basic Comparison Table</span><br/>
 parallel_levels <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0.50</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.75</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.90</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.95</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.99</span><span style="color: Olive;">]</span><br/>
 core_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Gray;">,</span> <span style="color: Maroon;">32</span><span style="color: Gray;">,</span> <span style="color: Maroon;">64</span><span style="color: Gray;">,</span> <span style="color: Maroon;">128</span><span style="color: Gray;">,</span> <span style="color: Maroon;">256</span><span style="color: Olive;">]</span><br/>
 print_comparison_table<span style="color: Olive;">(</span>parallel_levels<span style="color: Gray;">,</span> core_list<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 2. 边际收益分析（以 75% 可并行为例）</span><br/>
+<span style="color: #a50"># 2. Marginal benefit analysis (using 75% parallelizability as an example)</span><br/>
 analyze_diminishing_returns<span style="color: Olive;">(</span><span style="color: Maroon;">0.75</span><span style="color: Gray;">,</span> max_cores<span style="color: Gray;">=</span><span style="color: Maroon;">64</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 3. 具体任务模拟</span><br/>
+<span style="color: #a50"># 3. Specific task simulation</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  实际场景模拟"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Real-scenario simulation"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 场景1：视频渲染（高度可并行，95%）</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[场景1] 视频渲染任务"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  串行部分: 读取文件、初始化编码器 = 10ms"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  并行部分: 逐帧渲染 = 200ms（单核）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Scenario 1: Video rendering (highly parallel, 95%)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Scene 1] Video rendering task"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Serial part: Read file, initialize encoder = 10ms</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Parallel part: per-frame rendering = 200ms (single core)</span><span style="color: Olive;">)</span><br/>
 compare_serial_vs_parallel<span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">200</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 场景2：数据库事务（中度可并行，50%）</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[场景2] 数据库事务处理"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  串行部分: 日志写入、锁管理 = 50ms"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  并行部分: 查询执行 = 50ms（单核）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Scenario 2: Database Transaction (moderately parallelizable, 50%)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Scenario 2] Database transaction processing"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Serial part: log writing, lock management = 50ms"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Parallel part: query execution = 50ms (single core)</span><span style="color: Olive;">)</span><br/>
 compare_serial_vs_parallel<span style="color: Olive;">(</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> <span style="color: Maroon;">50</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 场景3：纯计算（高度可并行，99%）</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[场景3] 科学计算/矩阵运算"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  串行部分: 结果汇总 = 1ms"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  并行部分: 矩阵乘法 = 1000ms（单核）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Scenario 3: Pure computation (highly parallel, 99%)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Scenario 3] Scientific computing / matrix operations</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Serial part: result aggregation = 1ms</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Parallel part: matrix multiplication = 1000ms (single core)</span><span style="color: Olive;">)</span><br/>
 compare_serial_vs_parallel<span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1000</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 4. 最佳核心数建议</span><br/>
+<span style="color: #a50"># 4. Recommended Number of Cores</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  实用建议：如何判断是否需要更多核心？"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Practical Advice: How to determine whether you need more cores?</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 计算不同并行比例下的「性价比」拐点</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'并行比例':&gt;10} | {'2核提升':&gt;10} | {'4核提升':&gt;10} | {'8核提升':&gt;10} | {'16核提升':&gt;9} | {'建议核心数':&gt;10}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Calculate the 'cost-performance' inflection point at different parallel ratios</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'Parallelismratio':&gt;10} | {'2核mention升':&gt;10} | {'4核mention升':&gt;10} | {'8核mention升':&gt;10} | {'16核mention升':&gt;9} | {'Suggestions核心number':&gt;10}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> pf <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0.50</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.60</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.70</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.75</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.80</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.85</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.90</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.95</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.99</span><span style="color: Olive;">]</span>:<br/>
@@ -398,33 +398,33 @@ compare_serial_vs_parallel<span style="color: Olive;">(</span><span style="color
     recommendations <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> cores <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Olive;">]</span>:<br/>
         sp <span style="color: Gray;">=</span> amdahl_speedup<span style="color: Olive;">(</span>pf<span style="color: Gray;">,</span> cores<span style="color: Olive;">)</span><br/>
-        gain <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>sp / prev - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> * <span style="color: Maroon;">100</span>  <span style="color: #a50"># 相对于上一级的提升百分比</span><br/>
+        gain <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>sp / prev - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> * <span style="color: Maroon;">100</span>  <span style="color: #a50"># Percentage improvement relative to the previous level</span><br/>
         ratios.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>gain<span style="color: Olive;">)</span><br/>
         prev <span style="color: Gray;">=</span> sp<br/>
         <span style="color: Green;font-weight:bold;">if</span> gain <span style="color: Gray;">&lt;</span> <span style="color: Maroon;">10</span>:<br/>
             recommendations.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>cores<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 建议：提升低于 10% 就不值得升级</span><br/>
-    suggested <span style="color: Gray;">=</span> <span style="color: #a11;">"&gt;=16核"</span> <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> recommendations <span style="color: Green;font-weight:bold;">else</span> f<span style="color: #a11;">"{recommendations[0]}核够用"</span><br/>
+    <span style="color: #a50"># Suggestion: Improvement below 10% is not worth upgrading</span><br/>
+    suggested <span style="color: Gray;">=</span> <span style="color: #a11;">"&gt;=16 cores"</span> <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> recommendations <span style="color: Green;font-weight:bold;">else</span> f<span style="color: #a11;">{recommendations[0]} cores are enough</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {pf*100:&gt;9.0f}% | {ratios[0]:&gt;9.1f}% | {ratios[1]:&gt;9.1f}% | {ratios[2]:&gt;9.1f}% | {ratios[3]:&gt;8.1f}% | {suggested:&gt;10}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  经验法则:"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  - 日常办公、网页浏览（并行比例低）: 4-6 核足够"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  - 编程编译、轻度游戏: 6-8 核"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  - 视频渲染、3D 建模: 8-16 核"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  - 科学计算、AI 训练: 核心多多益善（但还需考虑显存、内存带宽）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Rule of thumb:"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">- Daily office work, web browsing (low parallel ratio): 4-6 cores are sufficient</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">- Programming compilation, light gaming: 6-8 cores</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">- Video rendering, 3D modeling: 8-16 cores</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">- Scientific computing, AI training: the more cores the better (but also consider VRAM and memory bandwidth)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p>Running the above code, you will see several key phenomena:</p>
 <ul>
-<li><span class="tag1 green">并行比例决定一切</span>: A task that is 50% parallelizable, even with 256 cores, achieves a speedup of less than 2 times. But a 99% parallelizable task can achieve nearly 14 times speedup on 16 cores.</li>
-<li><span class="tag1 green">边际收益递减</span>: The biggest improvement is from 1 core to 2 cores; after that, each time the core count doubles, the additional speedup becomes smaller and smaller.</li>
-<li><span class="tag1 green">效率下降</span>: When the core count doubles, the efficiency (actual speedup / number of cores) continues to decline. This is why blindly piling on cores is not cost-effective.</li>
+<li><span class="tag1 green">The parallel proportion determines everything</span>: A task that is 50% parallelizable, even with 256 cores, achieves a speedup of less than 2 times. But a 99% parallelizable task can achieve nearly 14 times speedup on 16 cores.</li>
+<li><span class="tag1 green">Diminishing marginal returns</span>: The biggest improvement is from 1 core to 2 cores; after that, each time the core count doubles, the additional speedup becomes smaller and smaller.</li>
+<li><span class="tag1 green">Efficiency drop</span>: When the core count doubles, the efficiency (actual speedup / number of cores) continues to decline. This is why blindly piling on cores is not cost-effective.</li>
 </ul>
 <h2>Interactive demo: multi-core task allocation animation</h2>
-<p>The following demonstration assigns 12 computation tasks to<strong>1 个核心</strong> 和 <strong>4 个核心</strong>be processed. In 1-core mode, tasks are queued and executed serially; in 4-core mode, four tasks are processed in parallel at the same time. Observe the difference in progress bar fill speed and completion time between the two modes.</p>
+<p>The following demonstration assigns 12 computation tasks to<strong>1 core</strong>and<strong>4 cores</strong>be processed. In 1-core mode, tasks are queued and executed serially; in 4-core mode, four tasks are processed in parallel at the same time. Observe the difference in progress bar fill speed and completion time between the two modes.</p>
 <style>
 /* 多核任务分配动画样式 (runoob) */
 .mcore-demo-container {
@@ -604,76 +604,62 @@ compare_serial_vs_parallel<span style="color: Olive;">(</span><span style="color
 }
 </style>
 <div class="mcore-demo-container">
-<h3>Multi-core task assignment animation demo (runoob)</h3>
-任务队列
-<div class="mcore-task-queue">
-<div class="mcore-task-queue-label">待处理任务队列（共<span id="mcoreRemainCount">12</span>个）</div>
+<h3>Multi-core task assignment animation demo (runoob)</h3>Task queue<div class="mcore-task-queue">
+<div class="mcore-task-queue-label">Pending task queue (total<span id="mcoreRemainCount">12</span>one)</div>
 <div class="mcore-task-blocks" id="mcoreTaskQueue"></div>
-</div>
-对比面板
-<div class="mcore-compare-row">
-单核面板
-<div class="mcore-core-panel mcore-panel-single single">
+</div>Comparison panel<div class="mcore-compare-row">Single-core panel<div class="mcore-core-panel mcore-panel-single single">
 <h4>1 core (serial processing)</h4>
 <div class="mcore-progress-group">
-<div class="mcore-progress-label">核心 1 进度</div>
+<div class="mcore-progress-label">Core 1 Progress</div>
 <div class="mcore-progress-bar-wrap">
 <div class="mcore-progress-bar-fill" id="mcoreProgressSingle" style="width:0%;"></div>
 </div>
 </div>
 <div class="mcore-done-tasks" id="mcoreDoneSingle"></div>
-</div>
-多核面板
-<div class="mcore-core-panel mcore-panel-multi multi">
+</div>Multi-core panel<div class="mcore-core-panel mcore-panel-multi multi">
 <h4>4 cores (parallel processing)</h4>
 <div class="mcore-progress-group">
-<div class="mcore-progress-label">核心 1 进度</div>
+<div class="mcore-progress-label">Core 1 Progress</div>
 <div class="mcore-progress-bar-wrap">
 <div class="mcore-progress-bar-fill" id="mcoreProgressMulti1" style="width:0%;"></div>
 </div>
 </div>
 <div class="mcore-progress-group">
-<div class="mcore-progress-label">核心 2 进度</div>
+<div class="mcore-progress-label">Core 2 Progress</div>
 <div class="mcore-progress-bar-wrap">
 <div class="mcore-progress-bar-fill" id="mcoreProgressMulti2" style="width:0%;"></div>
 </div>
 </div>
 <div class="mcore-progress-group">
-<div class="mcore-progress-label">核心 3 进度</div>
+<div class="mcore-progress-label">Core 3 Progress</div>
 <div class="mcore-progress-bar-wrap">
 <div class="mcore-progress-bar-fill" id="mcoreProgressMulti3" style="width:0%;"></div>
 </div>
 </div>
 <div class="mcore-progress-group">
-<div class="mcore-progress-label">核心 4 进度</div>
+<div class="mcore-progress-label">Core 4 Progress</div>
 <div class="mcore-progress-bar-wrap">
 <div class="mcore-progress-bar-fill" id="mcoreProgressMulti4" style="width:0%;"></div>
 </div>
 </div>
 <div class="mcore-done-tasks" id="mcoreDoneMulti"></div>
 </div>
-</div>
-计时器
-<div class="mcore-timer-row">
+</div>Timer<div class="mcore-timer-row">
 <div class="mcore-timer-card">
-<div class="mcore-timer-label">1 核心耗时</div>
+<div class="mcore-timer-label">1 core time</div>
 <div class="mcore-timer-value slow" id="mcoreTimeSingle">0.0 s</div>
 </div>
 <div class="mcore-timer-card">
-<div class="mcore-timer-label">4 核心耗时</div>
+<div class="mcore-timer-label">4 core time</div>
 <div class="mcore-timer-value fast" id="mcoreTimeMulti">0.0 s</div>
 </div>
 <div class="mcore-timer-card">
-<div class="mcore-timer-label">加速比</div>
+<div class="mcore-timer-label">Speedup</div>
 <div class="mcore-timer-value" id="mcoreSpeedup" style="color:#58a6ff;">—</div>
 </div>
-</div>
-结果文字
-<div class="mcore-result" id="mcoreResult"></div>
-按钮
-<div class="mcore-btn-row">
-<button class="mcore-btn" id="mcoreBtnStart" onclick="mcoreStart()">开始演示</button>
-<button class="mcore-btn reset" id="mcoreBtnReset" onclick="mcoreReset()">重置</button>
+</div>Result text<div class="mcore-result" id="mcoreResult"></div>Button<div class="mcore-btn-row">
+<button class="mcore-btn" id="mcoreBtnStart" onclick="mcoreStart()">Start demo</button>
+<button class="mcore-btn reset" id="mcoreBtnReset" onclick="mcoreReset()">reset</button>
 </div>
 </div>
 <script>
@@ -918,45 +904,40 @@ mcoreCreateTasks();
 <h2>Multi-core in real-world applications</h2>
 <h3>How the operating system schedules multi-core</h3>
 <p>The scheduler in the operating system is responsible for assigning different processes and threads to different cores.</p>
-<p>它会考虑：</p>
+<p>It will consider:</p>
 <ul>
-<li><span class="tag1">负载均衡</span>: Try to keep every core busy, avoiding "one core in trouble, many cores watching."</li>
-<li><span class="tag1">缓存亲和性</span>: try to keep the same thread running on the same core, leveraging that core's private cache</li>
-<li><span class="tag1">功耗管理</span>: When the load is low, shut down some cores to save power.</li>
+<li><span class="tag1">Load balancing</span>: Try to keep every core busy, avoiding "one core in trouble, many cores watching."</li>
+<li><span class="tag1">cache affinity</span>: try to keep the same thread running on the same core, leveraging that core's private cache</li>
+<li><span class="tag1">Power management</span>: When the load is low, shut down some cores to save power.</li>
 </ul>
 <h3>Multi-core vs Hyper-Threading</h3>
-<p>Besides physical multi-core, there is also a technology called<span class="marked">超线程（Hyper-Threading / SMT）</span>。</p>
+<p>Besides physical multi-core, there is also a technology called<span class="marked">Hyper-Threading (SMT)</span>。</p>
 <p>Hyper-Threading makes one physical core look like two "logical cores." When one thread is waiting for data (cache miss), the core can switch to another thread to continue working.</p>
 <table class="reference">
-<tr><th>方案</th><th>硬件成本</th><th>性能提升</th><th>适用场景</th></tr>
-<tr><td>物理多核</td><td>High (requires duplicating the entire execution unit)</td><td>Nearly double (ideal case)</td><td>Sustained high-load tasks</td></tr>
-<tr><td>Hyper-threading (SMT)</td><td>Low (only requires extra registers + control logic).</td><td>约 10%~30%</td><td>Fully utilize the waiting time</td></tr>
+<tr><th>Solution</th><th>Hardware cost</th><th>Performance improvement</th><th>Applicable scenarios</th></tr>
+<tr><td>Physical multi-core</td><td>High (requires duplicating the entire execution unit)</td><td>Nearly double (ideal case)</td><td>Sustained high-load tasks</td></tr>
+<tr><td>Hyper-threading (SMT)</td><td>Low (only requires extra registers + control logic).</td><td>About 10%~30%</td><td>Fully utilize the waiting time</td></tr>
 </table>
 <p>Many modern CPUs use both technologies at the same time. For example, an Intel Core i7 might be "4 physical cores + hyper-threading = 8 logical cores."</p>
 <hr/>
-<h2>小结与检验</h2>
-<p><span class="marked">一句话总结：多核心通过在单个芯片上放置多个 CPU 核心来并行执行不同任务。但阿姆达尔定律指出，实际加速比取决于任务中可并行的比例——串行部分决定了加速上限，核心越多，边际收益越小。</span></p>
-<h3>自测题</h3>
+<h2>Summary and verification</h2>
+<p><span class="marked">One-sentence summary：many核心ThroughInsingle芯片Top放putmultiple CPU 核心comeParallel executionNosameTask。But阿姆reach尔decide律指出，real际SpeedupDepends onTaskMediumcanParallelismofratio——stringlinePartdeterminealreadyadd速Upper limit，More cores, smaller marginal returns.。</span></p>
+<h3>self-test questions</h3>
 <ol>
-<li>A task has 80% that can be executed in parallel. On a 4-core CPU, what speedup does Amdahl's law give?<p>答案：S=0.2, P=0.8, N=4。加速比 = 1/(0.2 + 0.8/4) = 1/(0.2 + 0.2) = 1/0.4 = 2.5x。也就是说 4 核只带来了 2.5 倍加速，效率仅 62.5%。</p></li>
+<li>A task has 80% that can be executed in parallel. On a 4-core CPU, what speedup does Amdahl's law give?<p>Answer:S=0.2, P=0.8, N=4。Speedup = 1/(0.2 + 0.8/4) = 1/(0.2 + 0.2) = 1/0.4 = 2.5x。alsoJustYes说 4 cores只带comealready 2.5 timesadd速，Efficiencyonly 62.5%。</p></li>
 <li>If a task can be almost 100% parallelized, what is the theoretical upper limit? Why is it still unreachable in practice?<p>Answer: The theoretical upper limit is infinity (speedup = number of cores). But in practice it is limited by: (1) overhead in splitting and merging tasks; (2) latency in synchronization and communication between cores; (3) contention for shared resources (such as memory bandwidth).</p></li>
 <li>Why can modern server CPUs have 64 or even 128 cores, while personal computers usually have only 4 to 16 cores?<p>Answer: Requests handled by servers (such as web requests and database queries) are naturally highly parallel—each user request is independent, so the parallelizable proportion is close to 100%. On the other hand, everyday tasks on personal computers (such as browser rendering and Office document processing) have limited parallelism; too many cores would be of no use and instead increase power consumption and cost.</p></li>
-</ol>
-其他扩展
-</div>
+</ol>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/cpu-pipeline.html" rel="prev">流水线 — 如何让 CPU 更快</a> </div>
-<div class="next-design-link"><a href="../computer-organization/memory-hierarchy.html" rel="next">存储金字塔 — 为什么要分这么多层</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/cpu-pipeline.html" rel="prev">Pipeline — How to make the CPU faster</a> </div>
+<div class="next-design-link"><a href="../computer-organization/memory-hierarchy.html" rel="next">Memory Hierarchy — Why So Many Layers</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -1060,16 +1041,16 @@ mcoreCreateTasks();
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1077,14 +1058,14 @@ mcoreCreateTasks();
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31885"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1262,7 +1243,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1353,7 +1334,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 工具执行流水线与权限门禁 | 菜鸟教程</title>
+<title>DeepSeek Harness Tool Execution Pipeline and Permission Gate | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 工具执行流水线与权限门禁   前面几章节我们学会了用 defineTool 注册工具，也学会了用事件系统监听各种扩展点。 但现在有个疑问：模型发出一条工具调用之后，到工具真正执行、结果回到模型，中间到底走了哪些环节？ 本章节我们将讲清楚 dsh 的「工具执行流水线」，以及如何用钩子插件实现权限门禁。   一句话：一次工具调用会按固定顺序经过多个环节，每个环节负责一类策略，钩子插件可以在其中允许、拒绝或询.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-publish.html" rel="prev">DeepSeek Harness 发布插件：npm / GitHub / tarball</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="next">DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-publish.html" rel="prev">DeepSeek Harness Publish Plugin: npm / GitHub / tarball</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="next">DeepSeek Harness sandbox and approval: making Agent's dangerous actions controllable</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -173,12 +173,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>The overall order of the pipeline</h2>
 <p>Tool execution is not as simple as "calling a function"; it is a pipeline with a fixed order.</p>
-<p>The official documentation summarizes the order as:<span class="marked">tools/pre-execute → 单调守卫 → tools/execute → tools/post-execute → finalizeContent → tools/result</span>。</p>
+<p>The official documentation summarizes the order as:<span class="marked">tools/pre-execute → Monotonic guard → tools/execute → tools/post-execute → finalizeContent → tools/result</span>。</p>
 <p>Among them, the first three waterfalls can rewrite a call once, while finalizeContent and tools/result, controlled by the definition itself, run after them.</p>
 <p><img alt="工具执行流水线流程图" decoding="async" src="../wp-content/uploads/2026/08/24-tool-pipeline-fixed.svg" style="width:100%;max-width:900px;"/></p>
 <p>First, let's look at two concepts that are easily confused:</p>
 <p><span class="tag1">waterfall</span>(Waterfall event) is an event dispatch pattern; listeners can<code>next()</code>delegate the decision authority onward, or directly return a decision to short-circuit.</p>
-<p><span class="tag1 blue">单调守卫</span>(Monotonic guard) is a final line of defense that only allows tightening, never revocation.</p>
+<p><span class="tag1 blue">Monotonic guard</span>(Monotonic guard) is a final line of defense that only allows tightening, never revocation.</p>
 <p>Below we explain each step one by one.</p>
 <hr/>
 <h2>tools/pre-execute: a reorderable policy layer</h2>
@@ -187,15 +187,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>This waterfall returns a typed decision<span class="marked">PreToolDecision</span>There are three possible values:</p>
 <table class="reference">
 <thead>
-<tr><th>决策</th><th>含义</th><th>后续行为</th></tr>
+<tr><th>Decision</th><th>Meaning</th><th>Subsequent behavior</th></tr>
 </thead>
 <tbody>
 <tr><td><code>{ kind: 'allow' }</code></td><td>Allow this call</td><td>Continue with the monotonic guard and subsequent steps.</td></tr>
 <tr><td><code>{ kind: 'deny'; reason: string }</code></td><td>Reject this call</td><td>It is materialized into an error result, and the tool body is skipped.</td></tr>
-<tr><td><code>{ kind: 'ask'; reason?: string }</code></td><td>询问用户</td><td>Only when the approval service returns<code>allowed-once</code>Then continue, otherwise reject.</td></tr>
+<tr><td><code>{ kind: 'ask'; reason?: string }</code></td><td>Ask the user</td><td>Only when the approval service returns<code>allowed-once</code>Then continue, otherwise reject.</td></tr>
 </tbody>
 </table>
-<p>注意<code>ask</code>Branch: it will trigger<code>ctx.approval</code>as a one-time inquiry; this part will be left for the next article.</p>
+<p>Note<code>ask</code>Branch: it will trigger<code>ctx.approval</code>as a one-time inquiry; this part will be left for the next article.</p>
 <p>Parameters cannot be modified, because history records, audit, UI, and execution must stay consistent.</p>
 <blockquote>
 <p><strong>When to use pre-execute?</strong></p>
@@ -212,9 +212,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 type ToolGuard = (execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undefined</pre>
 <p>Because the guard has no allow result, the order of listeners can never turn a rejection back into an approval.</p>
 <p>This is what "monotonic" means: only decrease, never increase; only revoke permissions, never grant them.</p>
-<p><span class="tag1 green">实践原则</span>: Place reorderable policies here.<code>tools/pre-execute</code>; invariants that must be "final and irrevocable" go into<code>ctx.tools.guard()</code>。</p>
+<p><span class="tag1 green">Practical principles</span>: Place reorderable policies here.<code>tools/pre-execute</code>; invariants that must be "final and irrevocable" go into<code>ctx.tools.guard()</code>。</p>
 <hr/>
-<h2>tools/execute 与 tools/post-execute</h2>
+<h2>tools/execute and tools/post-execute</h2>
 <p><code>tools/execute</code>It is responsible for "around dispatch," that is, wrapping the actual invocation of the tool body.</p>
 <p>Timeout, retry, and metrics collection are all handled at this layer; what it wraps is the actual dispatch lifecycle.</p>
 <p>The view it obtains is<span class="marked">ToolDispatchExecution</span>: only this view can replace the required<code>exec.signal</code>, used to impose a deadline.</p>
@@ -222,7 +222,7 @@ type ToolGuard = (execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undef
 <p><code>tools/post-execute</code>It is responsible for checking or rewriting after the tool execution and before result normalization; it returns<span class="marked">PostToolDecision</span>：</p>
 <table class="reference">
 <thead>
-<tr><th>决策</th><th>含义</th></tr>
+<tr><th>Decision</th><th>Meaning</th></tr>
 </thead>
 <tbody>
 <tr><td><code>{ kind: 'accept'; content? }</code></td><td>Accept the result, can replace the displayed content (retaining canonical value and metadata).</td></tr>
@@ -233,11 +233,11 @@ type ToolGuard = (execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undef
 <p>Content replacement is a display policy, not a confidentiality policy.</p>
 <p>To hide a programmatic value, you must replace that value or block the result.</p>
 <hr/>
-<h2>finalizeContent 与 tools/result</h2>
+<h2>finalizeContent and tools/result</h2>
 <p><code>finalizeContent</code>It is a callback owned by the ToolDefinition itself, and the registry calls it exactly once.</p>
 <p>It is the "last content-only invariant": executed synchronously, allowing only final corrections at the content level.</p>
 <p>After this, the registry materializes and freezes the accepted result, then triggers<code>tools/result</code>。</p>
-<p><code>tools/result</code>It is a synchronous notification, used for observation.<span class="marked">冻结的、不可变的权威结果</span>。</p>
+<p><code>tools/result</code>It is a synchronous notification, used for observation.<span class="marked">Frozen, immutable authoritative result</span>。</p>
 <p>Observers cannot transform the result, and observer failures are isolated, not affecting the main flow.</p>
 <p>Use it when you need "audit, metrics, capturing the final result"; use it only when you need to "transform the result or attach context".<code>tools/post-execute</code>。</p>
 <blockquote>
@@ -248,23 +248,23 @@ type ToolGuard = (execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undef
 <p>The official documentation uses "permission gate" as an example to show how hook plugins use<code>tools/pre-execute</code>。</p>
 <p>Hook plugins are ordinary Cordis plugins and do not require an external protocol.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：my-plugins/permission-gate/src/index.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 一个基于 tools/pre-execute 的权限门禁插件。</span><br/>
-<span style="color: #006600; font-style: italic;">// 它返回类型化的决策：命中黑名单就 deny，否则调用 next() 委托下去。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: my-plugins/permission-gate/src/index.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// A permission gate plugin based on tools/pre-execute.</span><br/>
+<span style="color: #006600; font-style: italic;">// It returns a typed decision: deny if blacklisted, otherwise call next() to delegate.</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> PreToolDecision<span style="color: #339933;">,</span> ToolExecution <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-tools'</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 黑名单：runoob 项目里禁止直接写文件系统的工具。</span><br/>
-<span style="color: #006600; font-style: italic;">// 这里用最简单的集合演示；真实项目里可以查数据库、问审批服务。</span><br/>
+<span style="color: #006600; font-style: italic;">// Blacklist: tools that are forbidden to directly write to the file system in the runoob project.</span><br/>
+<span style="color: #006600; font-style: italic;">// Here we use a simple set for demonstration; in real projects you can query a database or consult an approval service.</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> DENY_TOOLS <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Set<span style="color: #009900;">(</span><span style="color: #009900;">[</span><span style="color: #3366CC;">'fs_write'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'fs_edit'</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 策略判定函数：返回这次调用是否被允许。</span><br/>
-<span style="color: #006600; font-style: italic;">// exec 携带不可变的调用身份（callId、name、arguments、agent、token、signal）。</span><br/>
+<span style="color: #006600; font-style: italic;">// Policy decision function: returns whether this call is allowed.</span><br/>
+<span style="color: #006600; font-style: italic;">// exec carries an immutable call identity (callId, name, arguments, agent, token, signal).</span><br/>
 async <span style="color: #000066; font-weight: bold;">function</span> isAllowed<span style="color: #009900;">(</span>exec<span style="color: #339933;">:</span> ToolExecution<span style="color: #009900;">)</span><span style="color: #339933;">:</span> Promise<span style="color: #339933;">&lt;</span>boolean<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>DENY_TOOLS.<span style="color: #660066;">has</span><span style="color: #009900;">(</span>exec.<span style="color: #660066;">name</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">false</span><br/>
-  <span style="color: #006600; font-style: italic;">// 额外示例：runoob 演示里禁止修改 .env 文件（参数在进入策略前已被冻结）。</span><br/>
+  <span style="color: #006600; font-style: italic;">// Additional example: in the runoob demo, modifying .env files is forbidden (arguments are frozen before entering the policy).</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> raw <span style="color: #339933;">=</span> exec.<span style="color: #660066;">arguments</span> as <span style="color: #009900;">{</span> path<span style="color: #339933;">?:</span> string <span style="color: #009900;">}</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">typeof</span> raw.<span style="color: #660066;">path</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'string'</span> <span style="color: #339933;">&amp;&amp;</span> raw.<span style="color: #660066;">path</span>.<span style="color: #660066;">includes</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'.env'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">false</span><br/>
   <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">true</span><br/>
@@ -273,13 +273,13 @@ async <span style="color: #000066; font-weight: bold;">function</span> isAllowed
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'permission-gate'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// tools/pre-execute 是 waterfall：监听器可以返回决策，或调用 next() 委托。</span><br/>
+  <span style="color: #006600; font-style: italic;">// tools/pre-execute is waterfall: listeners can return a decision, or call next() to delegate.</span><br/>
   ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'tools/pre-execute'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span>exec<span style="color: #339933;">,</span> next<span style="color: #009900;">)</span><span style="color: #339933;">:</span> Promise<span style="color: #339933;">&lt;</span>PreToolDecision<span style="color: #339933;">&gt;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span><span style="color: #339933;">!</span><span style="color: #009900;">(</span>await isAllowed<span style="color: #009900;">(</span>exec<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 返回 deny 会立即终止这次调用，后续监听器不再执行。</span><br/>
+      <span style="color: #006600; font-style: italic;">// Returning deny will immediately terminate this call; subsequent listeners will not be executed.</span><br/>
       <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">{</span> kind<span style="color: #339933;">:</span> <span style="color: #3366CC;">'deny'</span><span style="color: #339933;">,</span> reason<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Denied by policy: this tool is not allowed in the runoob workspace.'</span> <span style="color: #009900;">}</span><br/>
     <span style="color: #009900;">}</span><br/>
-    <span style="color: #006600; font-style: italic;">// 放行：把决定权交给流水线中后续的监听器。</span><br/>
+    <span style="color: #006600; font-style: italic;">// pass through: hand over the decision to subsequent listeners in the pipeline.</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span> next<span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -292,27 +292,27 @@ async <span style="color: #000066; font-weight: bold;">function</span> isAllowed
 <h2>Hands-on example: adding a timeout with tools/execute</h2>
 <p>Timeout belongs to the "around dispatch" concern and should be wrapped with<code>tools/execute</code>, rather than written into the tool body.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：my-plugins/tool-guard/src/index.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 用 tools/execute 包装实际分发生命周期：给每次工具调用加 30 秒超时。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: my-plugins/tool-guard/src/index.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Use tools/execute to wrap the actual dispatch lifecycle: add a 30-second timeout to each tool call.</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'tool-guard'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// tools/execute 是 waterfall：必须调用 next() 才会执行真正的工具主体。</span><br/>
+  <span style="color: #006600; font-style: italic;">// tools/execute is waterfall: must call next() to execute the actual tool body.</span><br/>
   ctx.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'tools/execute'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span>exec<span style="color: #339933;">,</span> next<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 注意：只有 tools/execute 视图可以替换 exec.signal。</span><br/>
-    <span style="color: #006600; font-style: italic;">// 这里把调用方信号与一个 30 秒截止时间融合，覆盖掉原来的 signal。</span><br/>
+    <span style="color: #006600; font-style: italic;">// Note: Only the tools/execute view can replace exec.signal.</span><br/>
+    <span style="color: #006600; font-style: italic;">// Here, the caller's signal is combined with a 30-second deadline, overriding the original signal.</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> originalSignal <span style="color: #339933;">=</span> exec.<span style="color: #660066;">signal</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> deadline <span style="color: #339933;">=</span> AbortSignal.<span style="color: #660066;">timeout</span><span style="color: #009900;">(</span><span style="color: #CC0000;">30</span>_000<span style="color: #009900;">)</span><br/>
     exec.<span style="color: #660066;">signal</span> <span style="color: #339933;">=</span> AbortSignal.<span style="color: #660066;">any</span><span style="color: #009900;">(</span><span style="color: #009900;">[</span>originalSignal<span style="color: #339933;">,</span> deadline<span style="color: #009900;">]</span><span style="color: #009900;">)</span><br/>
     <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 委托给真正的工具 execute()；超时或调用方取消都会触发 abort。</span><br/>
+      <span style="color: #006600; font-style: italic;">// Delegate to the actual tool execute(); timeout or caller cancellation will trigger abort.</span><br/>
       <span style="color: #000066; font-weight: bold;">return</span> await next<span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
     <span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">finally</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 用完后恢复原信号，避免污染后续调用。</span><br/>
+      <span style="color: #006600; font-style: italic;">// Restore the original signal after use to avoid polluting subsequent calls.</span><br/>
       exec.<span style="color: #660066;">signal</span> <span style="color: #339933;">=</span> originalSignal<br/>
     <span style="color: #009900;">}</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
@@ -328,58 +328,53 @@ async <span style="color: #000066; font-weight: bold;">function</span> isAllowed
 <p>When an invariant requires "final denial, irrevocable," use<code>ctx.tools.guard()</code>。</p>
 <p>Note that the guard's return type is<code>string | undefined</code>, there is no allow branch.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：my-plugins/invariant-guard/src/index.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 一个不可撤销的最终拒绝：禁止在 runoob 演示环境执行 run_code。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: my-plugins/invariant-guard/src/index.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// An irrevocable final rejection: prohibits executing run_code in the runoob demo environment.</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'invariant-guard'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 注册一个单调守卫。返回字符串即拒绝；返回 undefined 表示维持现状。</span><br/>
+  <span style="color: #006600; font-style: italic;">// Register a monotonic guard. Returning a string means rejection; returning undefined means no change.</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> disposer <span style="color: #339933;">=</span> ctx.<span style="color: #660066;">tools</span>.<span style="color: #660066;">guard</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>execution<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>execution.<span style="color: #660066;">name</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'run_code'</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
       <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #3366CC;">'run_code is disabled in the runoob demo profile.'</span><br/>
     <span style="color: #009900;">}</span><br/>
-    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">undefined</span> <span style="color: #006600; font-style: italic;">// 放行：让 pre-execute 的决策保持不变</span><br/>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #003366; font-weight: bold;">undefined</span> <span style="color: #006600; font-style: italic;">// Pass through: keep the pre-execute decision unchanged</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// guard() 返回精确的卸载函数；插件卸载时框架会自动调用它。</span><br/>
+  <span style="color: #006600; font-style: italic;">// guard() returns a precise cleanup function; the framework automatically calls it when the plugin is unloaded.</span><br/>
   ctx.<span style="color: #660066;">effect</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> disposer<span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
 </div>
 <p>Because the guard has no allow result, even if a later listener wants to allow<code>run_code</code>, it cannot turn this rejection back into an approval.</p>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>The tool execution pipeline decouples "policies" from the "tool body," allowing hooks to span different tool families without coupling tools to a specific policy service.</p>
-<p>自测题：</p>
+<p>Self-test questions:</p>
 <table class="reference">
 <thead>
-<tr><th>问题</th><th>参考</th></tr>
+<tr><th>Problem</th><th>Reference</th></tr>
 </thead>
 <tbody>
 <tr><td>If you want a tool to be "never approvable by anyone," should you use pre-execute or guard?</td><td>guard, because the guard has no allow result, it is irrevocable.</td></tr>
 <tr><td>To add a unified timeout to all tools, which event should you listen to?</td><td><code>tools/execute</code>, it wraps dispatch and can replace signal</td></tr>
 <tr><td>If you only want to record the final result for auditing without changing anything, which step should you use?</td><td><code>tools/result</code>It observes the frozen authoritative result</td></tr>
 </tbody>
-</table>
-其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-publish.html" rel="prev">DeepSeek Harness 发布插件：npm / GitHub / tarball</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="next">DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-publish.html" rel="prev">DeepSeek Harness Publish Plugin: npm / GitHub / tarball</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-sandbox-approval.html" rel="next">DeepSeek Harness sandbox and approval: making Agent's dangerous actions controllable</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -483,16 +478,16 @@ async <span style="color: #000066; font-weight: bold;">function</span> isAllowed
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -500,14 +495,14 @@ async <span style="color: #000066; font-weight: bold;">function</span> isAllowed
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31988"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -685,7 +680,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -776,7 +771,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

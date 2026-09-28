@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>三路排序算法 | 菜鸟教程</title>
+<title>Three-way Sorting Algorithm | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="三路排序算法 三路排序算法（Three-Way Partitioning）是一种特殊的快速排序变体，专门为处理包含大量重复元素的数组而优化。它的核心思想是在一次分区过程中，将数组划分为三个部分，而不是传统的两个部分。 三路快速排序是双路快速排序的进一步改进版本，三路排序算法把排序的数据分为三部分，分别为小于 v，等于 v，大于 v，v 为标定值，这样三部分的数据中，等于 v 的数据在下次递归中不再需要排序，小于 v 和大于 v 的数据也.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/2way-quick-sort.html" rel="prev">双路快速排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/sorting-algorithm-derivative-problem.html" rel="next">排序算法衍生问题</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/2way-quick-sort.html" rel="prev">Two-way Quick Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/sorting-algorithm-derivative-problem.html" rel="next">Derived problems of sorting algorithms</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,13 +171,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <table class="reference">
 <thead>
 <tr>
-<th>特性</th>
+<th>Features</th>
 <th>Traditional quicksort</th>
 <th>Three-way quicksort</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>分区数量</strong></td>
+<td><strong>Number of partitions</strong></td>
 <td>2 (less than pivot, greater than pivot)</td>
 <td>3 (less than pivot, equal to pivot, greater than pivot)</td>
 </tr>
@@ -187,25 +187,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <td>Extremely efficient, duplicate elements are handled together</td>
 </tr>
 <tr>
-<td><strong>时间复杂度</strong></td>
-<td>平均 O(n log n)，最坏 O(n²)</td>
-<td>平均 O(n log n)，最坏 O(n²)</td>
+<td><strong>Time complexity</strong></td>
+<td>Average O(n log n), worst O(n²)</td>
+<td>Average O(n log n), worst O(n²)</td>
 </tr>
 <tr>
-<td><strong>空间复杂度</strong></td>
+<td><strong>Space complexity</strong></td>
 <td>O(log n) (recursion stack)</td>
 <td>O(log n) (recursion stack)</td>
 </tr>
 <tr>
-<td><strong>适用场景</strong></td>
+<td><strong>Applicable scenarios</strong></td>
 <td>General-purpose sorting, low element duplication rate</td>
 <td>High duplication of elements, such as color sorting and score segmentation</td>
 </tr>
 </tbody></table>
-<h3>适用说明</h3>
+<h3>Applicability</h3>
 <p>The time and space complexity are the same as randomized quicksort.</p>
 <p>The three-way quicksort algorithm partitions the array using a three-way partitioning strategy, which is very effective for arrays with many duplicate elements and improves the quicksort process. It adds logic to handle elements equal to the partition value, grouping all values equal to the partition element together.</p>
-<h3>过程图示</h3>
+<h3>Process Diagram</h3>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/3WayQiuckSort-01.png"/></p>
 <p>We discuss the partition process in three cases, where i represents the current traversal index position:</p>
 <p>(1) The current element e = V is directly placed into the blue interval, and i moves one position to the right.</p>
@@ -214,22 +214,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p><img decoding="async" src="../wp-content/uploads/2020/09/3WayQiuckSort-03.png"/></p>
 <p>(3) The current element e &gt; v: swap e with the value at index gt-1, and move the gt index one position to the left.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/3WayQiuckSort-04.png"/></p>
-<p>最后当<span class="marked">i=gt</span>When the traversal ends, swap v with the value pointed to by index lt, and this completes the partitioning process. Then, use the same method to recursively sort the &lt;V and &gt;V parts.</p>
+<p>Finally, when<span class="marked">i=gt</span>When the traversal ends, swap v with the value pointed to by index lt, and this completes the partitioning process. Then, use the same method to recursively sort the &lt;V and &gt;V parts.</p>
 <h3>Java example code</h3>
 <p><strong>Source code package download:</strong><a class="download" download="" href="../wp-content/uploads/2020/09/runoob-algorithm-QuickSort3Ways.zip">Download</a></p>
-<div class="example"><h2 class="example">QuickSort3Ways.java 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">QuickSort3Ways.java file code:</h2> <div class="example_code">
 <span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">runoob</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #008000; font-style: italic; font-weight: bold;">/**<br/>* 三路快速排序<br/>
+<span style="color: #008000; font-style: italic; font-weight: bold;">/**<br/>* Three-way quick sort<br/>
  */</span><br/>
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> QuickSort3Ways <span style="color: #009900;">{</span><br/>
-    <span style="color: #666666; font-style: italic;">//核心代码---开始</span><br/>
-    <span style="color: #666666; font-style: italic;">// 递归使用快速排序,对arr[l...r]的范围进行排序</span><br/>
+    <span style="color: #666666; font-style: italic;">// Core code --- start</span><br/>
+    <span style="color: #666666; font-style: italic;">// Recursively use quicksort to sort the range arr[l...r]</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> sort<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> l, <span style="color: #000066; font-weight: bold;">int</span> r<span style="color: #009900;">)</span><span style="color: #009900;">{</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>l <span style="color: #339933;">&gt;=</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
             <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span><br/>
         <span style="color: #009900;">}</span><br/>
-        <span style="color: #666666; font-style: italic;">// 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot</span><br/>
+        <span style="color: #666666; font-style: italic;">// Randomly select a value as the pivot in the range arr[l...r]</span><br/>
         swap<span style="color: #009900;">(</span> arr, l, <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span><span style="color: #003399;">Math</span>.<span style="color: #006633;">random</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">*</span><span style="color: #009900;">(</span>r<span style="color: #339933;">-</span>l<span style="color: #339933;">+</span><span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #339933;">+</span> l <span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Comparable</span> v <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> lt <span style="color: #339933;">=</span> l<span style="color: #339933;">;</span>     <span style="color: #666666; font-style: italic;">// arr[l+1...lt] &lt; v</span><br/>
@@ -253,7 +253,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         sort<span style="color: #009900;">(</span>arr, l, lt<span style="color: #339933;">-</span><span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr, gt, r<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
-    <span style="color: #666666; font-style: italic;">//核心代码---结束</span><br/>
+    <span style="color: #666666; font-style: italic;">// Core code --- end</span><br/>
 <br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> sort<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr<span style="color: #009900;">)</span><span style="color: #009900;">{</span><br/>
 <br/>
@@ -267,11 +267,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         arr<span style="color: #009900;">[</span>j<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 测试 QuickSort3Ways</span><br/>
+    <span style="color: #666666; font-style: italic;">// Test QuickSort3Ways</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">// 三路快速排序算法也是一个O(nlogn)复杂度的算法</span><br/>
-        <span style="color: #666666; font-style: italic;">// 可以在1秒之内轻松处理100万数量级的数据</span><br/>
+        <span style="color: #666666; font-style: italic;">// The three-way quick sort algorithm is also an O(nlogn) complexity algorithm</span><br/>
+        <span style="color: #666666; font-style: italic;">// Can easily handle data on the order of 1 million within 1 second</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> N <span style="color: #339933;">=</span> <span style="color: #CC66CC;">1000000</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Integer</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr <span style="color: #339933;">=</span> SortTestHelper.<span style="color: #006633;">generateRandomArray</span><span style="color: #009900;">(</span>N, <span style="color: #CC66CC;">0</span>, <span style="color: #CC66CC;">100000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -285,82 +285,82 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Algorithm partition state</h3>
 <p>Let's understand the partitioning process of the algorithm through a state diagram:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/f9e8a5fe-8151-4d38-9dc7-809740ff886a.png"/></p>
-<p><strong>图说明</strong>The algorithm maintains three pointers (<code>lt</code>, <code>i</code>, <code>gt</code>It divides the array into four regions; as processing proceeds, the undealt region gradually shrinks, finally forming three clear partitions.</p>
+<p><strong>Figure description</strong>The algorithm maintains three pointers (<code>lt</code>, <code>i</code>, <code>gt</code>It divides the array into four regions; as processing proceeds, the undealt region gradually shrinks, finally forming three clear partitions.</p>
 <h3>Roles of the three key pointers</h3>
 <ol>
-<li><strong><code>lt</code>（less than）指针</strong>Points to the end of the region less than the pivot</li>
-<li><strong><code>i</code>（current）指针</strong>Position of the element currently being examined</li>
-<li><strong><code>gt</code>（greater than）指针</strong>Points to the beginning of the region greater than the pivot</li>
+<li><strong><code>lt</code>(less than) pointer</strong>Points to the end of the region less than the pivot</li>
+<li><strong><code>i</code>(current) pointer</strong>Position of the element currently being examined</li>
+<li><strong><code>gt</code>(greater than) pointer</strong>Points to the beginning of the region greater than the pivot</li>
 </ol>
 <hr/>
-<h2>Python 实现</h2>
+<h2>Python implementation</h2>
 <h3>Basic three-way partition function</h3>
 <p>Below is a standard implementation of the three-way partition function; we will analyze it line by line:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> three_way_partition<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> low<span style="color: Gray;">,</span> high<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>对数组 arr 的 low 到 high 范围进行三路分区<br/>
-    <br/>参数:<br/>arr: 待分区的数组<br/>low: 分区起始索引<br/>high: 分区结束索引<br/>
-        <br/>返回:<br/>(lt, gt): 等于基准值区域的左右边界<br/>
+    <span style="color: #a11;">"""<br/>Perform three-way partitioning on array arr in the range from low to high<br/>
+    <br/>Parameters:<br/>arr: The array to be partitioned<br/>low: The starting index of the partition<br/>high: The ending index of the partition<br/>
+        <br/>Returns:<br/>(lt, gt): The left and right boundaries of the region equal to the pivot value<br/>
     """</span><br/>
-    <span style="color: #a50"># 选择基准值（这里选择第一个元素）</span><br/>
+    <span style="color: #a50"># Choose the pivot (here the first element is chosen)</span><br/>
     pivot <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>low<span style="color: Olive;">]</span><br/>
     <br/>
-    <span style="color: #a50"># 初始化三个指针</span><br/>
-    lt <span style="color: Gray;">=</span> low      <span style="color: #a50"># 小于基准值区域的右边界（初始为low）</span><br/>
-    i <span style="color: Gray;">=</span> low + <span style="color: Maroon;">1</span>   <span style="color: #a50"># 当前检查的元素位置</span><br/>
-    gt <span style="color: Gray;">=</span> high     <span style="color: #a50"># 大于基准值区域的左边界（初始为high）</span><br/>
+    <span style="color: #a50"># Initialize three pointers</span><br/>
+    lt <span style="color: Gray;">=</span> low      <span style="color: #a50"># The right boundary of the region less than the pivot (initialized to low)</span><br/>
+    i <span style="color: Gray;">=</span> low + <span style="color: Maroon;">1</span>   <span style="color: #a50"># Position of the current element being examined</span><br/>
+    gt <span style="color: Gray;">=</span> high     <span style="color: #a50"># The left boundary of the region greater than the pivot (initialized to high)</span><br/>
     <br/>
-    <span style="color: #a50"># 主循环：当还有未处理的元素时继续</span><br/>
+    <span style="color: #a50"># Main loop: continue while there are still unprocessed elements</span><br/>
     <span style="color: Green;font-weight:bold;">while</span> i <span style="color: Gray;">&lt;=</span> gt:<br/>
         <span style="color: Green;font-weight:bold;">if</span> arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;</span> pivot:<br/>
-            <span style="color: #a50"># 情况1：当前元素小于基准值</span><br/>
-            <span style="color: #a50"># 将其与lt指针的下一个元素交换，扩大小于区域</span><br/>
+            <span style="color: #a50"># Case 1: The current element is less than the pivot</span><br/>
+            <span style="color: #a50"># Swap it with the next element of the lt pointer to expand the less-than region</span><br/>
             arr<span style="color: Olive;">[</span>lt<span style="color: Olive;">]</span><span style="color: Gray;">,</span> arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Gray;">,</span> arr<span style="color: Olive;">[</span>lt<span style="color: Olive;">]</span><br/>
             lt +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
             i +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">elif</span> arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">&gt;</span> pivot:<br/>
-            <span style="color: #a50"># 情况2：当前元素大于基准值</span><br/>
-            <span style="color: #a50"># 将其与gt指针的元素交换，扩大大于区域</span><br/>
+            <span style="color: #a50"># Case 2: The current element is greater than the pivot</span><br/>
+            <span style="color: #a50"># Swap it with the element at the gt pointer to expand the greater-than region</span><br/>
             arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Gray;">,</span> arr<span style="color: Olive;">[</span>gt<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>gt<span style="color: Olive;">]</span><span style="color: Gray;">,</span> arr<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><br/>
             gt -<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-            <span style="color: #a50"># 注意：这里不增加i，因为交换过来的元素还未检查</span><br/>
+            <span style="color: #a50"># Note: i is not incremented here because the swapped-in element has not been examined yet</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
-            <span style="color: #a50"># 情况3：当前元素等于基准值</span><br/>
-            <span style="color: #a50"># 直接跳过，扩大等于区域</span><br/>
+            <span style="color: #a50"># Case 3: The current element equals the pivot</span><br/>
+            <span style="color: #a50"># Skip directly, expanding the equal-to region</span><br/>
             i +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 返回等于基准值区域的边界</span><br/>
+    <span style="color: #a50"># Return the boundaries of the region equal to the pivot</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> lt<span style="color: Gray;">,</span> gt<br/>
 </div>
 </div>
 <h3>Complete three-way quicksort implementation</h3>
 <p>Based on the partition function above, we can implement the complete three-way quicksort:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> three_way_quicksort<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> low<span style="color: Gray;">=</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> high<span style="color: Gray;">=</span><span style="color: Teal;">None</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>三路快速排序主函数<br/>
-    <br/>参数:<br/>arr: 待排序的数组<br/>low: 排序起始索引（默认为0）<br/>high: 排序结束索引（默认为数组末尾）<br/>
+    <span style="color: #a11;">"""<br/>Three-way quick sort main function<br/>
+    <br/>Parameters:<br/>arr: The array to be sorted<br/>low: The starting index for sorting (default is 0)<br/>high: The ending index for sorting (default is the end of the array)<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> high <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
         high <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 递归终止条件：子数组长度小于等于1</span><br/>
+    <span style="color: #a50"># Recursion termination condition: subarray length is less than or equal to 1</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> low <span style="color: Gray;">&gt;=</span> high:<br/>
         <span style="color: Green;font-weight:bold;">return</span><br/>
     <br/>
-    <span style="color: #a50"># 进行三路分区</span><br/>
+    <span style="color: #a50"># Perform three-way partitioning</span><br/>
     lt<span style="color: Gray;">,</span> gt <span style="color: Gray;">=</span> three_way_partition<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> low<span style="color: Gray;">,</span> high<span style="color: Olive;">)</span><br/>
     <br/>
-    <span style="color: #a50"># 递归排序小于基准值的部分</span><br/>
+    <span style="color: #a50"># Recursively sort the part less than the pivot</span><br/>
     three_way_quicksort<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> low<span style="color: Gray;">,</span> lt - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
     <br/>
-    <span style="color: #a50"># 递归排序大于基准值的部分</span><br/>
+    <span style="color: #a50"># Recursively sort the part greater than the pivot</span><br/>
     three_way_quicksort<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> gt + <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> high<span style="color: Olive;">)</span><br/>
     <br/>
-    <span style="color: #a50"># 注意：等于基准值的部分已经在正确位置，无需再排序</span><br/>
+    <span style="color: #a50"># Note: the part equal to the pivot is already in its correct position, no need to sort further</span><br/>
 </div>
 </div>
 <hr/>
@@ -368,62 +368,62 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Example 1: Color sorting problem</h3>
 <p>This is a classic application scenario of the three-way partitioning algorithm, also known as the "Dutch National Flag Problem".</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> sort_colors<span style="color: Olive;">(</span>colors<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>颜色排序：将只包含0(红), 1(白), 2(蓝)的数组按顺序排列<br/>
-    <br/>参数:<br/>colors: 颜色数组，元素为0, 1, 2<br/>
-        <br/>返回:<br/>排序后的颜色数组<br/>
+    <span style="color: #a11;">"""<br/>Color sorting: arrange an array containing only 0 (red), 1 (white), 2 (blue) in order<br/>
+    <br/>Parameters:<br/>colors: The color array, elements are 0, 1, 2<br/>
+        <br/>Returns:<br/>The sorted color array<br/>
     """</span><br/>
-    <span style="color: #a50"># 初始化三个指针</span><br/>
-    red_ptr <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>          <span style="color: #a50"># 红色区域的末尾</span><br/>
-    white_ptr <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>        <span style="color: #a50"># 当前检查的位置（也是白色区域的末尾）</span><br/>
-    blue_ptr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>colors<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span>  <span style="color: #a50"># 蓝色区域的开头</span><br/>
+    <span style="color: #a50"># Initialize three pointers</span><br/>
+    red_ptr <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>          <span style="color: #a50"># The end of the red region</span><br/>
+    white_ptr <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>        <span style="color: #a50"># The current position being examined (also the end of the white region)</span><br/>
+    blue_ptr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>colors<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span>  <span style="color: #a50"># The beginning of the blue region</span><br/>
     <br/>
     <span style="color: Green;font-weight:bold;">while</span> white_ptr <span style="color: Gray;">&lt;=</span> blue_ptr:<br/>
         <span style="color: Green;font-weight:bold;">if</span> colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
-            <span style="color: #a50"># 红色：交换到红色区域</span><br/>
+            <span style="color: #a50"># Red: swap to the red region</span><br/>
             colors<span style="color: Olive;">[</span>red_ptr<span style="color: Olive;">]</span><span style="color: Gray;">,</span> colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span><span style="color: Gray;">,</span> colors<span style="color: Olive;">[</span>red_ptr<span style="color: Olive;">]</span><br/>
             red_ptr +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
             white_ptr +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">elif</span> colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
-            <span style="color: #a50"># 白色：留在中间区域</span><br/>
+            <span style="color: #a50"># White: remains in the middle region</span><br/>
             white_ptr +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
-            <span style="color: #a50"># 蓝色：交换到蓝色区域</span><br/>
+            <span style="color: #a50"># Blue: swap to the blue region</span><br/>
             colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span><span style="color: Gray;">,</span> colors<span style="color: Olive;">[</span>blue_ptr<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> colors<span style="color: Olive;">[</span>blue_ptr<span style="color: Olive;">]</span><span style="color: Gray;">,</span> colors<span style="color: Olive;">[</span>white_ptr<span style="color: Olive;">]</span><br/>
             blue_ptr -<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-            <span style="color: #a50"># 注意：这里不增加white_ptr，因为交换过来的元素还未检查</span><br/>
+            <span style="color: #a50"># Note: white_ptr is not incremented here because the element swapped in has not been checked yet</span><br/>
     <br/>
     <span style="color: Green;font-weight:bold;">return</span> colors<br/>
 <br/>
-<span style="color: #a50"># 测试数据</span><br/>
+<span style="color: #a50"># Test data</span><br/>
 test_colors <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"原始颜色数组:"</span><span style="color: Gray;">,</span> test_colors<span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"排序后颜色数组:"</span><span style="color: Gray;">,</span> sort_colors<span style="color: Olive;">(</span>test_colors.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Original color array:"</span><span style="color: Gray;">,</span> test_colors<span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Sorted color array:"</span><span style="color: Gray;">,</span> sort_colors<span style="color: Olive;">(</span>test_colors.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p><strong>Test data description</strong>The array above represents color codes (0=red, 1=white, 2=blue). After sorting, all zeros should be in front, ones in the middle, and twos at the end.</p>
 <h3>Example 2: Student score grouping</h3>
 <p>Suppose we need to segment students by score: below 60 is failing, 60-80 is good, and above 80 is excellent.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> categorize_grades<span style="color: Olive;">(</span>scores<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>将成绩分为三个等级：不及格(&lt;60), 良好(60-80), 优秀(&gt;80)<br/>
-    <br/>参数:<br/>scores: 成绩数组<br/>
-        <br/>返回:<br/>分段后的成绩数组<br/>
+    <span style="color: #a11;">"""<br/>Classify the scores into three levels: Fail (&lt;60), Good (60-80), Excellent (&gt;80)<br/>
+    <br/>Parameters:<br/>scores: array of scores<br/>
+        <br/>Returns:<br/>Segmented scores array<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> scores:<br/>
         <span style="color: Green;font-weight:bold;">return</span> scores<br/>
     <br/>
-    <span style="color: #a50"># 使用三路分区思想，以60和80为界点</span><br/>
-    <span style="color: #a50"># 先按60分区：不及格 vs 及格以上</span><br/>
+    <span style="color: #a50"># Use the three-way partitioning idea, with 60 and 80 as the boundaries</span><br/>
+    <span style="color: #a50"># First partition by 60: Fail vs. Pass or above</span><br/>
     low <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     mid <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     high <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>scores<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 第一轮：分离不及格成绩(&lt;60)</span><br/>
+    <span style="color: #a50"># First round: separate fail scores (&lt;60)</span><br/>
     <span style="color: Green;font-weight:bold;">while</span> mid <span style="color: Gray;">&lt;=</span> high:<br/>
         <span style="color: Green;font-weight:bold;">if</span> scores<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;</span> <span style="color: Maroon;">60</span>:<br/>
             scores<span style="color: Olive;">[</span>low<span style="color: Olive;">]</span><span style="color: Gray;">,</span> scores<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> scores<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span><span style="color: Gray;">,</span> scores<span style="color: Olive;">[</span>low<span style="color: Olive;">]</span><br/>
@@ -435,8 +435,8 @@ test_colors <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
             scores<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span><span style="color: Gray;">,</span> scores<span style="color: Olive;">[</span>high<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> scores<span style="color: Olive;">[</span>high<span style="color: Olive;">]</span><span style="color: Gray;">,</span> scores<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span><br/>
             high -<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 第二轮：在及格以上部分中分离良好和优秀</span><br/>
-    <span style="color: #a50"># 此时low指向第一个良好成绩的位置</span><br/>
+    <span style="color: #a50"># Second round: separate good and excellent scores from the pass-and-above part</span><br/>
+    <span style="color: #a50"># At this point, low points to the position of the first good score</span><br/>
     mid <span style="color: Gray;">=</span> low<br/>
     high <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>scores<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><br/>
     <br/>
@@ -449,35 +449,35 @@ test_colors <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
     <br/>
     <span style="color: Green;font-weight:bold;">return</span> scores<br/>
 <br/>
-<span style="color: #a50"># 测试数据</span><br/>
+<span style="color: #a50"># Test data</span><br/>
 test_scores <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">45</span><span style="color: Gray;">,</span> <span style="color: Maroon;">78</span><span style="color: Gray;">,</span> <span style="color: Maroon;">92</span><span style="color: Gray;">,</span> <span style="color: Maroon;">56</span><span style="color: Gray;">,</span> <span style="color: Maroon;">85</span><span style="color: Gray;">,</span> <span style="color: Maroon;">67</span><span style="color: Gray;">,</span> <span style="color: Maroon;">72</span><span style="color: Gray;">,</span> <span style="color: Maroon;">88</span><span style="color: Gray;">,</span> <span style="color: Maroon;">59</span><span style="color: Gray;">,</span> <span style="color: Maroon;">95</span><span style="color: Gray;">,</span> <span style="color: Maroon;">61</span><span style="color: Gray;">,</span> <span style="color: Maroon;">73</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"原始成绩:"</span><span style="color: Gray;">,</span> test_scores<span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"分段后成绩:"</span><span style="color: Gray;">,</span> categorize_grades<span style="color: Olive;">(</span>test_scores.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"说明: 前部分&lt;60, 中间60-80, 后部分&gt;80"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Original scores:"</span><span style="color: Gray;">,</span> test_scores<span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Segmented scores:"</span><span style="color: Gray;">,</span> categorize_grades<span style="color: Olive;">(</span>test_scores.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Note: first part &lt;60, middle part 60-80, last part &gt;80"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Algorithm complexity analysis</h2>
-<h3>时间复杂度</h3>
+<h3>Time complexity</h3>
 <p>The time complexity analysis of the three-way sorting algorithm can be expressed with the following formula:</p>
 <p>$$
 T(n) = O(n) + T(k) + T(n - k - m)
 $$</p>
-<p>其中：</p>
+<p>Where:</p>
 <ul>
 <li>$n$ is the length of the array</li>
 <li>$k$ is the number of elements less than the pivot value</li>
 <li>$m$ is the number of elements equal to the pivot value</li>
 <li>$n - k - m$ is the number of elements greater than the pivot value</li>
 </ul>
-<p><strong>最佳情况</strong>Best case: Each partition can evenly divide the array into three parts, with time complexity $O(n \log_3 n)$, which is actually still $O(n \log n)$.</p>
-<p><strong>最坏情况</strong>Worst case: Each partition is extremely unbalanced, with time complexity $O(n^2)$.</p>
-<p><strong>平均情况</strong>Average case: For random data, the average time complexity is $O(n \log n)$.</p>
-<h3>空间复杂度</h3>
+<p><strong>Best case</strong>Best case: Each partition can evenly divide the array into three parts, with time complexity $O(n \log_3 n)$, which is actually still $O(n \log n)$.</p>
+<p><strong>Worst case</strong>Worst case: Each partition is extremely unbalanced, with time complexity $O(n^2)$.</p>
+<p><strong>Average case</strong>Average case: For random data, the average time complexity is $O(n \log n)$.</p>
+<h3>Space complexity</h3>
 <p>The algorithm is implemented recursively, and the recursion depth depends on the partitioning situation:</p>
 <ul>
-<li><strong>最佳情况</strong>：$O(\log n)$</li>
-<li><strong>最坏情况</strong>：$O(n)$</li>
+<li><strong>Best case</strong>：$O(\log n)$</li>
+<li><strong>Worst case</strong>：$O(n)$</li>
 </ul>
 <p>Space usage can be reduced through tail recursion optimization or by using an iterative approach.</p>
 <hr/>
@@ -800,21 +800,17 @@ func quickSort3Way<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) {
         }
     }
 });
-</script> 其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/2way-quick-sort.html" rel="prev">双路快速排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/sorting-algorithm-derivative-problem.html" rel="next">排序算法衍生问题</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/2way-quick-sort.html" rel="prev">Two-way Quick Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/sorting-algorithm-derivative-problem.html" rel="next">Derived problems of sorting algorithms</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ECECEC;
@@ -918,16 +914,16 @@ func quickSort3Way<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -935,14 +931,14 @@ func quickSort3Way<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="23055"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1120,7 +1116,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1211,7 +1207,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

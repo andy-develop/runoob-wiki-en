@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 部署 | 菜鸟教程</title>
+<title>Flask Deployment | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask 部署 开发完成后，需要将 Flask 应用部署到生产环境，让真实用户能够访问。 本章介绍从开发到生产的关键步骤和注意事项。   开发服务器 vs 生产服务器  重要：Flask 内置的开发服务器（flask run）仅适用于开发环境。它不具备生产环境所需的安全性、稳定性和性能。生产环境必须使用专业的 WSGI 服务器。          特性     Flask 开发服务器     生产 WSGI 服务器（Gunicorn/.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,40 +158,40 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-middleware.html" rel="prev">Flask 中间件和扩展</a> </div>
-<div class="next-design-link"><a href="../flask/flask-intro.html" rel="next">Flask 简介</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-middleware.html" rel="prev">Flask Middleware and Extensions</a> </div>
+<div class="next-design-link"><a href="../flask/flask-intro.html" rel="next">Flask Introduction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Flask 部署</h1>
+<h1>Flask Deployment</h1>
 <p>After development is complete, the Flask application needs to be deployed to a production environment so that real users can access it.</p>
 <p>This chapter covers the key steps and considerations from development to production.</p>
 <hr/>
 <h2>Development Server vs Production Server</h2>
-<blockquote><p><span class="tag1 red">重要</span>: Flask's built-in development server (<span class="marked">flask run</span>) is only suitable for development environments. It lacks the security, stability, and performance required for production. Production environments must use a professional WSGI server.</p></blockquote>
+<blockquote><p><span class="tag1 red">Important</span>: Flask's built-in development server (<span class="marked">flask run</span>) is only suitable for development environments. It lacks the security, stability, and performance required for production. Production environments must use a professional WSGI server.</p></blockquote>
 <table class="reference">
 <tr>
-<th>特性</th>
+<th>Features</th>
 <th>Flask Development Server</th>
-<th>生产 WSGI 服务器（Gunicorn/Waitress）</th>
+<th>Production WSGI Server (Gunicorn/Waitress)</th>
 </tr>
 <tr>
-<td>并发处理</td>
+<td>Concurrency Handling</td>
 <td>Single-threaded (default)</td>
-<td>多进程/多线程/协程</td>
+<td>Multi-process/Multi-thread/Coroutine</td>
 </tr>
 <tr>
-<td>安全性</td>
+<td>Security</td>
 <td>Debug mode allows code execution in the browser</td>
 <td>No debugging features, secure and controllable</td>
 </tr>
 <tr>
-<td>性能</td>
-<td>未经优化</td>
+<td>Performance</td>
+<td>Unoptimized</td>
 <td>Optimized for high concurrency</td>
 </tr>
 <tr>
-<td>适用场景</td>
+<td>Applicable scenarios</td>
 <td>Local development and debugging</td>
 <td>Production environment</td>
 </tr>
@@ -200,92 +200,92 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Deployment checklist</h2>
 <p>Before deployment, ensure that all of the following have been completed:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py（生产环境相关配置检查）</span><br/>
+<span style="color: #a50"># File path: app.py (Production environment configuration checks)</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">os</span><br/>
 <br/>
 app.<span style="color: #05a;">config</span>.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><br/>
-    <span style="color: #a50"># 1. 关闭 Debug 模式（必须！）</span><br/>
+    <span style="color: #a50"># 1. Disable Debug mode (required!)</span><br/>
     DEBUG<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Gray;">,</span><br/>
 <br/>
-    <span style="color: #a50"># 2. 从环境变量读取密钥（永远不要硬编码）</span><br/>
+    <span style="color: #a50"># 2. Read secret key from environment variables (never hardcode it)</span><br/>
     SECRET_KEY<span style="color: Gray;">=</span><span style="color: #05a;">os</span>.<span style="color: #05a;">environ</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"FLASK_SECRET_KEY"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
 <br/>
-    <span style="color: #a50"># 3. 配置 Session Cookie 安全选项</span><br/>
-    SESSION_COOKIE_SECURE<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span>   <span style="color: #a50"># 仅通过 HTTPS 传输</span><br/>
-    SESSION_COOKIE_HTTPONLY<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> <span style="color: #a50"># 禁止 JavaScript 访问</span><br/>
-    SESSION_COOKIE_SAMESITE<span style="color: Gray;">=</span><span style="color: #a11;">"Lax"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 防止 CSRF 攻击</span><br/>
+    <span style="color: #a50"># 3. Configure Session Cookie security options</span><br/>
+    SESSION_COOKIE_SECURE<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span>   <span style="color: #a50"># Only transmit over HTTPS</span><br/>
+    SESSION_COOKIE_HTTPONLY<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> <span style="color: #a50"># Block JavaScript access</span><br/>
+    SESSION_COOKIE_SAMESITE<span style="color: Gray;">=</span><span style="color: #a11;">"Lax"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Prevent CSRF attacks</span><br/>
 <span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p>Complete checklist:</p>
 <table class="reference">
 <tr>
-<th>检查项</th>
-<th>说明</th>
-<th>风险等级</th>
+<th>Check Item</th>
+<th>Description</th>
+<th>Risk Level</th>
 </tr>
 <tr>
 <td>DEBUG = False</td>
 <td>Disable debug mode to prevent code leakage</td>
-<td><span class="tag1 red">严重</span></td>
+<td><span class="tag1 red">Critical</span></td>
 </tr>
 <tr>
 <td>SECRET_KEY random and secret</td>
 <td>Session and flash rely on key signing</td>
-<td><span class="tag1 red">严重</span></td>
+<td><span class="tag1 red">Critical</span></td>
 </tr>
 <tr>
 <td>SECRET_KEY is read from environment variables</td>
 <td>No hardcoding, don't commit to Git</td>
-<td><span class="tag1 red">严重</span></td>
+<td><span class="tag1 red">Critical</span></td>
 </tr>
 <tr>
 <td>Read database passwords from environment variables</td>
 <td>Sensitive information not in code</td>
-<td><span class="tag1 red">严重</span></td>
+<td><span class="tag1 red">Critical</span></td>
 </tr>
 <tr>
 <td>SESSION_COOKIE_SECURE = True</td>
 <td>Only send cookies over HTTPS</td>
-<td>高</td>
+<td>High</td>
 </tr>
 <tr>
 <td>Error pages don't expose stack trace information</td>
 <td>Use custom errorhandler</td>
-<td>中</td>
+<td>Medium</td>
 </tr>
 </table>
 <hr/>
-<h2>使用 Waitress 部署（Windows/macOS/Linux）</h2>
+<h2>Deploying with Waitress (Windows/macOS/Linux)</h2>
 <p><span class="marked">Waitress</span>It is a pure Python WSGI server, cross-platform, and easy to install:</p>
 <pre>
 (.venv) $ pip install waitress
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：run.py（生产环境启动脚本）</span><br/>
+<span style="color: #a50"># File path: run.py (production startup script)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> waitress <span style="color: Green;font-weight:bold;">import</span> serve<br/>
 <span style="color: Green;font-weight:bold;">from</span> app <span style="color: Green;font-weight:bold;">import</span> create_app<br/>
 <br/>
 app <span style="color: Gray;">=</span> create_app<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">if</span> __name__ <span style="color: Gray;">==</span> <span style="color: #a11;">"__main__"</span>:<br/>
-    <span style="color: #a50"># 启动生产服务器</span><br/>
+    <span style="color: #a50"># Start production server</span><br/>
     serve<span style="color: Olive;">(</span>app<span style="color: Gray;">,</span> host<span style="color: Gray;">=</span><span style="color: #a11;">"0.0.0.0"</span><span style="color: Gray;">,</span> port<span style="color: Gray;">=</span><span style="color: Maroon;">8000</span><span style="color: Gray;">,</span> threads<span style="color: Gray;">=</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># host="0.0.0.0" 允许外部访问</span><br/>
-    <span style="color: #a50"># threads=4 使用 4 个线程处理并发请求</span><br/>
+    <span style="color: #a50"># host="0.0.0.0" allows external access</span><br/>
+    <span style="color: #a50"># threads=4 uses 4 threads to handle concurrent requests</span><br/>
 </div>
 </div>
-<p>启动：</p>
+<p>Start:</p>
 <pre>
 (.venv) $ python run.py
 Serving on http://0.0.0.0:8000
 </pre>
 <hr/>
-<h2>使用 Gunicorn 部署（Linux/macOS）</h2>
+<h2>Deploying with Gunicorn (Linux/macOS)</h2>
 <p><span class="marked">Gunicorn</span>It is the most popular Python WSGI server on Linux, with excellent performance:</p>
 <pre>
 (.venv) $ pip install gunicorn
@@ -300,15 +300,15 @@ $ gunicorn -w 4 -b 0.0.0.0:8000 "app:create_app()"
 # -b 0.0.0.0:8000 : 监听所有网络接口的 8000 端口
 # "app:create_app()" : 模块名:工厂函数（与 flask --app 语法相同）
 </pre>
-<p>Gunicorn worker 类型选择：</p>
+<p>Gunicorn worker type selection:</p>
 <table class="reference">
 <tr>
-<th>Worker 类型</th>
-<th>适用场景</th>
-<th>命令</th>
+<th>Worker Type</th>
+<th>Applicable scenarios</th>
+<th>Command</th>
 </tr>
 <tr>
-<td>sync（默认）</td>
+<td>sync (default)</td>
 <td>CPU-intensive, low concurrency</td>
 <td>gunicorn -w 4 app:app</td>
 </tr>
@@ -335,20 +335,20 @@ $ gunicorn -w 4 -b 0.0.0.0:8000 "app:create_app()"
 <img alt="Flask 生产环境部署架构" decoding="async" src="../wp-content/uploads/2024/08/flask-deployment.svg" style="width:100%;height:auto;margin:20px 0;"/></p>
 <p>A minimal example Nginx configuration:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 文件路径：/etc/nginx/sites-available/runoob</span><br/>
+<span style="color: #666666; font-style: italic;"># File path: /etc/nginx/sites-available/runoob</span><br/>
 server <span style="color: #7A0874; font-weight: bold;">{</span><br/>
     listen <span style="color: #000000;">80</span>;<br/>
     server_name runoob.com www.runoob.com;<br/>
 <br/>
-    <span style="color: #666666; font-style: italic;"># 静态文件由 Nginx 直接处理</span><br/>
+    <span style="color: #666666; font-style: italic;"># Static files are handled directly by Nginx</span><br/>
     location <span style="color: #000000; font-weight: bold;">/</span>static<span style="color: #000000; font-weight: bold;">/</span> <span style="color: #7A0874; font-weight: bold;">{</span><br/>
         <span style="color: #7A0874; font-weight: bold;">alias</span> <span style="color: #000000; font-weight: bold;">/</span>var<span style="color: #000000; font-weight: bold;">/</span>www<span style="color: #000000; font-weight: bold;">/</span>runoob<span style="color: #000000; font-weight: bold;">/</span>static<span style="color: #000000; font-weight: bold;">/</span>;<br/>
-        expires 30d;  <span style="color: #666666; font-style: italic;"># 浏览器缓存 30 天</span><br/>
+        expires 30d;  <span style="color: #666666; font-style: italic;"># Browser cache for 30 days</span><br/>
     <span style="color: #7A0874; font-weight: bold;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;"># 其他请求转发给 Gunicorn</span><br/>
+    <span style="color: #666666; font-style: italic;"># Other requests are forwarded to Gunicorn</span><br/>
     location <span style="color: #000000; font-weight: bold;">/</span> <span style="color: #7A0874; font-weight: bold;">{</span><br/>
         proxy_pass http:<span style="color: #000000; font-weight: bold;">//</span>127.0.0.1:<span style="color: #000000;">8000</span>;<br/>
         proxy_set_header Host <span style="color: #007800;">$host</span>;<br/>
@@ -368,9 +368,9 @@ $ sudo systemctl reload nginx
 <h2>Use systemd to manage services (Linux)</h2>
 <p>Create a systemd service file so that the Flask application starts on boot and automatically restarts after a crash:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 文件路径：/etc/systemd/system/runoob.service</span><br/>
+<span style="color: #666666; font-style: italic;"># File path: /etc/systemd/system/runoob.service</span><br/>
 <span style="color: #7A0874; font-weight: bold;">[</span>Unit<span style="color: #7A0874; font-weight: bold;">]</span><br/>
 <span style="color: #007800;">Description</span>=RUNOOB Flask Application<br/>
 <span style="color: #007800;">After</span>=network.target<br/>
@@ -378,11 +378,11 @@ $ sudo systemctl reload nginx
 <span style="color: #7A0874; font-weight: bold;">[</span>Service<span style="color: #7A0874; font-weight: bold;">]</span><br/>
 <span style="color: #007800;">User</span>=www-data<br/>
 <span style="color: #007800;">WorkingDirectory</span>=<span style="color: #000000; font-weight: bold;">/</span>var<span style="color: #000000; font-weight: bold;">/</span>www<span style="color: #000000; font-weight: bold;">/</span>runoob<br/>
-<span style="color: #666666; font-style: italic;"># 启动时自动加载 .env 文件中的环境变量</span><br/>
+<span style="color: #666666; font-style: italic;"># Automatically load environment variables from .env file on startup</span><br/>
 <span style="color: #007800;">EnvironmentFile</span>=-<span style="color: #000000; font-weight: bold;">/</span>var<span style="color: #000000; font-weight: bold;">/</span>www<span style="color: #000000; font-weight: bold;">/</span>runoob<span style="color: #000000; font-weight: bold;">/</span>.env<br/>
-<span style="color: #666666; font-style: italic;"># 使用 Gunicorn 启动应用</span><br/>
+<span style="color: #666666; font-style: italic;"># Start the application with Gunicorn</span><br/>
 <span style="color: #007800;">ExecStart</span>=<span style="color: #000000; font-weight: bold;">/</span>var<span style="color: #000000; font-weight: bold;">/</span>www<span style="color: #000000; font-weight: bold;">/</span>runoob<span style="color: #000000; font-weight: bold;">/</span>.venv<span style="color: #000000; font-weight: bold;">/</span>bin<span style="color: #000000; font-weight: bold;">/</span>gunicorn <span style="color: #660033;">-w</span> <span style="color: #000000;">4</span> <span style="color: #660033;">-b</span> 127.0.0.1:<span style="color: #000000;">8000</span> <span style="color: #a10;">"app:create_app()"</span><br/>
-<span style="color: #666666; font-style: italic;"># 崩溃后自动重启</span><br/>
+<span style="color: #666666; font-style: italic;"># Automatically restart after a crash</span><br/>
 <span style="color: #007800;">Restart</span>=always<br/>
 <span style="color: #007800;">RestartSec</span>=<span style="color: #000000;">5</span><br/>
 <br/>
@@ -402,21 +402,21 @@ $ sudo journalctl -u runoob -f        # 实时查看日志
 <h2>WSGI Server Quick Reference</h2>
 <table class="reference">
 <tr>
-<th>服务器</th>
-<th>平台</th>
-<th>特点</th>
-<th>安装</th>
+<th>Server</th>
+<th>Platform</th>
+<th>Features</th>
+<th>Installation</th>
 </tr>
 <tr>
-<td>Werkzeug（内置）</td>
-<td>全平台</td>
+<td>Werkzeug (built-in)</td>
+<td>All platforms</td>
 <td>Development only, supports hot reload and debugger</td>
 <td>Bundled with Flask</td>
 </tr>
 <tr>
 <td>Waitress</td>
-<td>全平台</td>
-<td>纯 Python，Windows 首选</td>
+<td>All platforms</td>
+<td>Pure Python, preferred on Windows</td>
 <td>pip install waitress</td>
 </tr>
 <tr>
@@ -433,68 +433,68 @@ $ sudo journalctl -u runoob -f        # 实时查看日志
 </tr>
 </table>
 <hr/>
-<h2>教程总结</h2>
+<h2>Tutorial Summary</h2>
 <p>Congratulations on completing all the content of the Flask introductory tutorial!</p>
 <p>Let's review what you've learned:</p>
 <table class="reference">
 <tr>
-<th>章节</th>
-<th>核心技能</th>
+<th>Chapter</th>
+<th>Core Skills</th>
 </tr>
 <tr>
-<td>认识 Flask</td>
+<td>Understanding Flask</td>
 <td>Understand Flask's positioning and ecosystem</td>
 </tr>
 <tr>
-<td>环境准备</td>
+<td>Environment Preparation</td>
 <td>Create virtual environment, install dependencies</td>
 </tr>
 <tr>
-<td>第一个应用</td>
+<td>First Application</td>
 <td>Create a minimal application and use flask run</td>
 </tr>
 <tr>
-<td>路由系统</td>
+<td>Routing System</td>
 <td>URL mapping, variable rules, url_for, HTTP methods</td>
 </tr>
 <tr>
-<td>请求与响应</td>
+<td>Request and Response</td>
 <td>Read request data and construct various types of responses</td>
 </tr>
 <tr>
-<td>模板渲染</td>
+<td>Template Rendering</td>
 <td>Jinja2 syntax, template inheritance, XSS protection</td>
 </tr>
 <tr>
-<td>静态文件</td>
+<td>Static Files</td>
 <td>Manage static assets such as CSS/JS/images</td>
 </tr>
 <tr>
-<td>Session 与 Cookie</td>
+<td>Session and Cookie</td>
 <td>User session persistence, Flash messages</td>
 </tr>
 <tr>
-<td>配置管理</td>
+<td>Configuration Management</td>
 <td>Multi-environment configuration, environment variable loading</td>
 </tr>
 <tr>
-<td>Blueprint 蓝图</td>
+<td>Blueprint</td>
 <td>Modular code organization, factory pattern</td>
 </tr>
 <tr>
-<td>错误处理</td>
+<td>Error Handling</td>
 <td>Custom error pages, logging</td>
 </tr>
 <tr>
-<td>数据库集成</td>
+<td>Database Integration</td>
 <td>SQLite operations, using the g object to manage connections</td>
 </tr>
 <tr>
-<td>测试</td>
-<td>test_client、pytest 测试路由和 API</td>
+<td>Testing</td>
+<td>test_client, pytest test routes and APIs</td>
 </tr>
 <tr>
-<td>部署</td>
+<td>Deployment</td>
 <td>Gunicorn/Waitress + Nginx + systemd</td>
 </tr>
 </table>
@@ -504,24 +504,19 @@ $ sudo journalctl -u runoob -f        # 实时查看日志
 <li><span class="marked">Flask-Login</span>: User authentication and permission management</li>
 <li><span class="marked">Flask-WTF</span>: Form processing and CSRF protection</li>
 <li><span class="marked">Flask-Migrate</span>: Database migration management</li>
-<li><span class="marked">Flask-RESTful</span> 或 <span class="marked">Flask-RESTX</span>：构建 RESTful API</li>
+<li><span class="marked">Flask-RESTful</span>or<span class="marked">Flask-RESTX</span>: Building RESTful API</li>
 <li><span class="marked">Docker</span>Containerized deployment to further improve portability</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-middleware.html" rel="prev">Flask 中间件和扩展</a> </div>
-<div class="next-design-link"><a href="../flask/flask-intro.html" rel="next">Flask 简介</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-middleware.html" rel="prev">Flask Middleware and Extensions</a> </div>
+<div class="next-design-link"><a href="../flask/flask-intro.html" rel="next">Flask Introduction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -625,16 +620,16 @@ $ sudo journalctl -u runoob -f        # 实时查看日志
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -642,14 +637,14 @@ $ sudo journalctl -u runoob -f        # 实时查看日志
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="25777"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -827,7 +822,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -918,7 +913,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

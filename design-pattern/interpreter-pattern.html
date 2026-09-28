@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>解释器模式 | 菜鸟教程</title>
+<title>Interpreter Pattern | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="解释器模式  解释器模式（Interpreter Pattern）提供了评估语言的语法或表达式的方式，它属于行为型模式。 解释器模式给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。 这种模式被用在 SQL 解析、符号处理引擎等。  介绍 意图定义一种语言的文法表示，并创建一个解释器，该解释器能够解释该语言中的句子。。 主要解决的问题  解释器模式用于构建一个能够解释特定语言或文法的句子的解.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,66 +158,65 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/command-pattern.html" rel="prev">命令模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/iterator-pattern.html" rel="next">迭代器模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/command-pattern.html" rel="prev">Command Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/iterator-pattern.html" rel="next">Iterator Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>解释器模式</h1>
+<h1>Interpreter Pattern</h1>
 <p>The Interpreter Pattern provides a way to evaluate the grammar or expressions of a language, and it belongs to behavioral patterns.</p>
 <p>The Interpreter Pattern, given a language, defines a representation of its grammar and defines an interpreter that uses this representation to interpret sentences in the language.</p>
 <p>This pattern is used in SQL parsing, symbol processing engines, etc.</p>
-<h2 class="tutheader">介绍</h2>
-<h3>意图</h3>定义一种语言的文法表示，并创建一个解释器，该解释器能够解释该语言中的句子。。
-<h3>Main problems solved</h3>
+<h2 class="tutheader">Introduction</h2>
+<h3>intent</h3>Define a grammatical representation for a language and create an interpreter that can interpret sentences in the language.<h3>Main problems solved</h3>
 <ul>
 <li>The Interpreter Pattern is used to build an interpreter capable of interpreting sentences of a specific language or grammar.</li>
 </ul>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>When a particular type of problem occurs frequently, and instances of these problems can be expressed through a simple language.</li>
 </ul>
-<h3>实现方式</h3>
+<h3>Implementation Approach</h3>
 <ul>
-<li><strong>定义文法</strong>: Defines the terminal and non-terminal symbols of the language.</li>
-<li><strong>构建语法树</strong>: Builds the corresponding syntax tree structure based on the sentences of the language.</li>
-<li><strong>创建环境类</strong>: Contains the global information needed during the interpretation process, usually a HashMap.</li>
+<li><strong>Define Grammar</strong>: Defines the terminal and non-terminal symbols of the language.</li>
+<li><strong>Build syntax tree</strong>: Builds the corresponding syntax tree structure based on the sentences of the language.</li>
+<li><strong>Create context class</strong>: Contains the global information needed during the interpretation process, usually a HashMap.</li>
 </ul>
-<h3>关键代码</h3>
+<h3>Key code</h3>
 <ul>
 <li><strong>Terminal and non-terminal symbols</strong>: Define the grammar structure of the language.</li>
-<li><strong>环境类</strong>: Stores the external environment information needed during the interpretation process.</li>
+<li><strong>Environment class</strong>: Stores the external environment information needed during the interpretation process.</li>
 </ul>
-<h3>应用实例</h3>
-<ul><li><strong>编译器</strong>: The Interpreter Pattern can be used in compiler design to interpret source code into target code.</li><li><strong>正则表达式</strong>: The Interpreter Pattern can be used to parse and execute regular expressions.</li><li><strong>SQL解析</strong>: The Interpreter Pattern can be used to parse and execute SQL statements.</li></ul>
-<h3>优点</h3>
+<h3>Application example</h3>
+<ul><li><strong>Compiler</strong>: The Interpreter Pattern can be used in compiler design to interpret source code into target code.</li><li><strong>Regular expression</strong>: The Interpreter Pattern can be used to parse and execute regular expressions.</li><li><strong>SQL parsing</strong>: The Interpreter Pattern can be used to parse and execute SQL statements.</li></ul>
+<h3>Advantages</h3>
 <ul>
-<li><strong>可扩展性好</strong>: Easy to add new ways to interpret expressions.</li>
-<li><strong>灵活性</strong>: Can easily extend or modify the grammar as needed.</li>
+<li><strong>Good extensibility</strong>: Easy to add new ways to interpret expressions.</li>
+<li><strong>Flexibility</strong>: Can easily extend or modify the grammar as needed.</li>
 <li><strong>Easy to implement simple grammars</strong>: For simple languages, it is relatively easy to implement.</li>
 </ul>
-<h3>缺点</h3>
+<h3>Disadvantages</h3>
 <ol>
 <li><strong>Limited use scenarios</strong>: Only suitable for simple grammars that are appropriate for interpretation.</li>
-<li><strong>维护困难</strong>: For complex grammars, maintenance and extension become difficult.</li>
-<li><strong>类膨胀</strong>: It may produce many classes, with one class corresponding to each grammar rule.</li>
-<li><strong>递归调用</strong>: The Interpreter Pattern usually uses recursive calls, which can be difficult to understand and trace.</li>
+<li><strong>Difficult to Maintain</strong>: For complex grammars, maintenance and extension become difficult.</li>
+<li><strong>Class explosion</strong>: It may produce many classes, with one class corresponding to each grammar rule.</li>
+<li><strong>Recursive call</strong>: The Interpreter Pattern usually uses recursive calls, which can be difficult to understand and trace.</li>
 </ol>
-<h3>使用建议</h3>
+<h3>Usage suggestions</h3>
 <ul>
 <li>Consider using the Interpreter Pattern when you need to interpret and execute sentences in a language.</li>
 <li>Ensure the grammar is simple to avoid making the system overly complex.</li>
 </ul>
-<h3>注意事项</h3>
+<h3>Notes</h3>
 <ul>
 <li>The Interpreter Pattern may not be the first choice in Java. If applicable scenarios arise, consider using libraries such as expression4J instead.</li>
-</ul><h3>结构</h3><p>The Interpreter Pattern includes the following main roles:</p>
-<ul><li><p><strong>抽象表达式（Abstract Expression）</strong>: Defines the abstract interface of the interpreter, declares the methods for interpretation operations, usually an abstract class or interface.</p></li><li><p><strong>Terminal Expression</strong>: A terminal expression class that implements the abstract expression interface, used to represent terminals in the language (such as variables, constants, etc.), and implements the corresponding interpretation operations.</p></li><li><p><strong>Non-terminal Expression</strong>: A non-terminal expression class that implements the abstract expression interface, used to represent non-terminals in the language (such as sentences, expressions, etc.), and implements the corresponding interpretation operations.</p></li><li><p><strong>Context</strong>: Contains some global information outside the interpreter, provided to the interpreter during the interpretation process, usually used to store variable values, save interpreter state, etc.</p></li><li><p><strong>Client</strong>: Creates and configures specific interpreter objects, and passes the expression to be interpreted to the interpreter for interpretation.</p></li></ul>
-<h2 class="tutheader">实现</h2>
-<p>We will create an interface<i>Expression</i>和实现了<i>Expression</i>Concrete class of the interface. Defines the main interpreter in the context.<i>TerminalExpression</i>Class. Other classes<i>OrExpression</i>、<i>AndExpression</i>For creating composite expressions.</p>
+</ul><h3>Structure</h3><p>The Interpreter Pattern includes the following main roles:</p>
+<ul><li><p><strong>Abstract Expression</strong>: Defines the abstract interface of the interpreter, declares the methods for interpretation operations, usually an abstract class or interface.</p></li><li><p><strong>Terminal Expression</strong>: A terminal expression class that implements the abstract expression interface, used to represent terminals in the language (such as variables, constants, etc.), and implements the corresponding interpretation operations.</p></li><li><p><strong>Non-terminal Expression</strong>: A non-terminal expression class that implements the abstract expression interface, used to represent non-terminals in the language (such as sentences, expressions, etc.), and implements the corresponding interpretation operations.</p></li><li><p><strong>Context</strong>: Contains some global information outside the interpreter, provided to the interpreter during the interpretation process, usually used to store variable values, save interpreter state, etc.</p></li><li><p><strong>Client</strong>: Creates and configures specific interpreter objects, and passes the expression to be interpreted to the interpreter for interpretation.</p></li></ul>
+<h2 class="tutheader">Implementation</h2>
+<p>We will create an interface<i>Expression</i>and implements<i>Expression</i>Concrete class of the interface. Defines the main interpreter in the context.<i>TerminalExpression</i>Class. Other classes<i>OrExpression</i>、<i>AndExpression</i>For creating composite expressions.</p>
 <p><i>InterpreterPatternDemo</i>, our demo class uses<i>Expression</i>Class creation rules and the parsing of demonstration expressions.</p>
 <img alt="解释器模式的 UML 图" decoding="async" src="../wp-content/uploads/2014/08/interpreter_pattern_uml_diagram.jpg"/>
-<h3>步骤 1</h3>
+<h3>Step 1</h3>
 <p>Create an expression interface.</p>
 <div class="example">
 <h2 class="example">Expression.java</h2>
@@ -226,7 +225,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">boolean</span><span class="hl-code"> </span><span class="hl-identifier">interpret</span><span class="hl-brackets">(</span><span class="hl-identifier">String</span><span class="hl-code"> </span><span class="hl-identifier">context</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 2</h3>
+<h3>Step 2</h3>
 <p>Create entity classes that implement the above interface.</p>
 <div class="example">
 <h2 class="example">TerminalExpression.java</h2>
@@ -283,19 +282,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 3</h3>
-<p><i>InterpreterPatternDemo</i>使用<i>Expression</i>classes to create rules and parse them.</p>
+<h3>Step 3</h3>
+<p><i>InterpreterPatternDemo</i>Usage<i>Expression</i>classes to create rules and parse them.</p>
 <div class="example">
 <h2 class="example">InterpreterPatternDemo.java</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code"> </span><span class="hl-identifier">InterpreterPatternDemo</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">规则：Robert 和 John 是男性</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Rule: Robert and John are male</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">static</span><span class="hl-code"> </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">getMaleExpression</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">robert</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">TerminalExpression</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Robert</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">john</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">TerminalExpression</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">John</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">OrExpression</span><span class="hl-brackets">(</span><span class="hl-identifier">robert</span><span class="hl-code">, </span><span class="hl-identifier">john</span><span class="hl-brackets">)</span><span class="hl-code">;    
    </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">规则：Julie 是一个已婚的女性</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Rule: Julie is a married woman</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">static</span><span class="hl-code"> </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">getMarriedWomanExpression</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">julie</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">TerminalExpression</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Julie</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">Expression</span><span class="hl-code"> </span><span class="hl-identifier">married</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">TerminalExpression</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Married</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
@@ -311,26 +310,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 4</h3>
+<h3>Step 4</h3>
 <p>Execute the program, output results:</p>
 <pre>
 John is male? true
 Julie is a married women? true
-</pre> 其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/command-pattern.html" rel="prev">命令模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/iterator-pattern.html" rel="next">迭代器模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/command-pattern.html" rel="prev">Command Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/iterator-pattern.html" rel="next">Iterator Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -436,13 +431,13 @@ Julie is a married women? true
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">2  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">2 notes</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments">
 <ol class="commentlist">
-<li class="comment even thread-even depth-1" id="comment-51428"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51428" id="runoobvote-id-51428"><a class="upvote"></a> <span class="count">41</span></div></div><div class="comt-main" id="div-comment-51428"><p>Python 代码：</p>
+<li class="comment even thread-even depth-1" id="comment-51428"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51428" id="runoobvote-id-51428"><a class="upvote"></a> <span class="count">41</span></div></div><div class="comt-main" id="div-comment-51428"><p>Python code:</p>
 <pre>
 # Interpreter Pattern with Python Code
 from abc import abstractmethod,ABCMeta
@@ -492,8 +487,8 @@ if __name__ == '__main__':
     isMarriedWoman = getMarriedWomanExpression()    
     print("John is male? " + str(isMale.interpret("John")))    
     print("Julie is a married women? " + str(isMarriedWoman.interpret("Married Julie")))</pre>
-<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7年前 (2020-03-10)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-63528"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   olly liang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  oll***ang@outlook.com</p></div><div class="upvotejs" data-commid="63528" id="runoobvote-id-63528"><a class="upvote"></a> <span class="count">24</span></div></div><div class="comt-main" id="div-comment-63528"><p>C# 代码：</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7 years ago (2020-03-10)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-63528"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   olly liang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  oll***ang@outlook.com</p></div><div class="upvotejs" data-commid="63528" id="runoobvote-id-63528"><a class="upvote"></a> <span class="count">24</span></div></div><div class="comt-main" id="div-comment-63528"><p>C# Code:</p>
 <pre>public interface IExpression
 {
     bool Interpret(string context);
@@ -576,22 +571,22 @@ public class InterpreterPatternDemo
         IExpression isMarriedWoman = GetMarriedWomanExpression();
         Console.WriteLine($"Julie is a married women? {isMarriedWoman.Interpret("Married Julie")}");
     }
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">olly liang</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   olly liang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  oll***ang@outlook.com</p></div></span>5年前 (2021-05-06)</div></div></li><!-- #comment-## -->
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">olly liang</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   olly liang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  oll***ang@outlook.com</p></div></span>5 years ago (2021-05-06)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -599,14 +594,14 @@ public class InterpreterPatternDemo
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="8937"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -784,7 +779,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -875,7 +870,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

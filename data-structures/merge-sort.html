@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>归并排序 | 菜鸟教程</title>
+<title>Merge Sort | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="归并排序 归并排序（英语：Merge sort，或mergesort），是建立在归并操作上的一种有效的排序算法。 归并排序是采用分治法(Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。 想象一下，你要整理一副完全打乱的扑克牌。一个高效的方法是：先把这副牌分成两小堆，分别把每一小堆整理好，最后再把这.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,25 +158,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/shell-sort.html" rel="prev">希尔排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/random-quick-sort.html" rel="next">随机化快速排序</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/shell-sort.html" rel="prev">Shell Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/random-quick-sort.html" rel="next">Randomized Quick Sort</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>归并排序</h1>
+<h1>Merge Sort</h1>
 <p>Merge sort (English: Merge sort, or mergesort) is an efficient sorting algorithm based on the merge operation.</p>
 <p>Merge sort is a very typical application of the divide-and-conquer (Divide and Conquer) approach. It merges already ordered subsequences to obtain a fully ordered sequence; that is, first make each subsequence ordered, then make the segments between subsequences ordered. Merging two ordered lists into one ordered list is called a two-way merge.</p>
-<p>Imagine you need to sort a completely shuffled deck of playing cards. An efficient way is: first split the deck into two smaller piles, sort each pile separately, and finally merge these two ordered piles into one fully ordered deck.<strong>归并排序</strong>It is precisely based on this<strong>分而治之</strong>The classic sorting algorithm of thought.</p>
+<p>Imagine you need to sort a completely shuffled deck of playing cards. An efficient way is: first split the deck into two smaller piles, sort each pile separately, and finally merge these two ordered piles into one fully ordered deck.<strong>Merge Sort</strong>It is precisely based on this<strong>Divide and conquer</strong>The classic sorting algorithm of thought.</p>
 <p>Its core operations can be summarized in two steps:</p>
 <ul>
-<li><strong>分</strong>: Recursively split a large unordered list from the middle over and over, decomposing it into many small sublists, until each sublist contains only one element (a list of one element is naturally ordered).</li>
-<li><strong>治</strong>: Recursively merge these ordered sublists pairwise, sorting during the merging process, and finally merge them into one complete ordered list.</li>
+<li><strong>Divide</strong>: Recursively split a large unordered list from the middle over and over, decomposing it into many small sublists, until each sublist contains only one element (a list of one element is naturally ordered).</li>
+<li><strong>Conquer</strong>: Recursively merge these ordered sublists pairwise, sorting during the merging process, and finally merge them into one complete ordered list.</li>
 </ul>
-<h3>适用说明</h3><p>Merge sort is suitable for scenarios with large amounts of data and where stability is required.</p>
+<h3>Applicability</h3><p>Merge sort is suitable for scenarios with large amounts of data and where stability is required.</p>
 <p>Merge sort is a stable sorting algorithm (that is, the relative order of equal elements remains unchanged after sorting). Its time complexity is O(n log n) in all cases, which makes it very efficient when processing large-scale data, but its space complexity is O(n), because the merging process requires extra arrays to temporarily store data.</p>
 <p>The following flowchart clearly shows the entire process of divide and conquer in merge sort:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/56583369-dc58-4921-b700-514e3f62bbca.png"/></p>
-<h3>过程图示</h3>
+<h3>Process Diagram</h3>
 <p>Merge sort is an example of a recursive algorithm. The basic operation in this algorithm is merging two sorted arrays: it takes two input arrays A and B, an output array C, and three counters i, j, k, which are initially positioned at the beginnings of their corresponding arrays.</p><p>The smaller of A[i] and B[j] is copied to the next position in C, and the corresponding counter advances one step.</p><p>When one of the two input arrays is exhausted, copy the remaining part of the other array into C.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/MergeSort-01.png"/></p>
 <p>Top-down merge sort, recursive grouping diagram:</p>
@@ -192,32 +192,32 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="example"><h2 class="example">MergeSort.java file code:</h2> <div class="example_code">
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> MergeSort <span style="color: #009900;">{</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 将arr[l...mid]和arr[mid+1...r]两部分进行归并</span><br/>
+    <span style="color: #666666; font-style: italic;">// Merge the two parts arr[l...mid] and arr[mid+1...r]</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> merge<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> l, <span style="color: #000066; font-weight: bold;">int</span> mid, <span style="color: #000066; font-weight: bold;">int</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
 <br/>
         <span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> aux <span style="color: #339933;">=</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">copyOfRange</span><span style="color: #009900;">(</span>arr, l, r <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">// 初始化，i指向左半部分的起始索引位置l；j指向右半部分起始索引位置mid+1</span><br/>
+        <span style="color: #666666; font-style: italic;">// Initialize: i points to the starting index l of the left half; j points to the starting index mid+1 of the right half</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">=</span> l, j <span style="color: #339933;">=</span> mid <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span><span style="color: #339933;">;</span><br/>
         <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span> k <span style="color: #339933;">=</span> l<span style="color: #339933;">;</span> k <span style="color: #339933;">&lt;=</span> r<span style="color: #339933;">;</span> k<span style="color: #339933;">++</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
 <br/>
-            <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>i <span style="color: #339933;">&gt;</span> mid<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// 如果左半部分元素已经全部处理完毕</span><br/>
+            <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>i <span style="color: #339933;">&gt;</span> mid<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// If all elements in the left half have been processed</span><br/>
                 arr<span style="color: #009900;">[</span>k<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> aux<span style="color: #009900;">[</span>j <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
                 j<span style="color: #339933;">++;</span><br/>
-            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>j <span style="color: #339933;">&gt;</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>   <span style="color: #666666; font-style: italic;">// 如果右半部分元素已经全部处理完毕</span><br/>
+            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>j <span style="color: #339933;">&gt;</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>   <span style="color: #666666; font-style: italic;">// If all elements in the right half have been processed</span><br/>
                 arr<span style="color: #009900;">[</span>k<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> aux<span style="color: #009900;">[</span>i <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
                 i<span style="color: #339933;">++;</span><br/>
-            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>aux<span style="color: #009900;">[</span>i <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span>.<span style="color: #006633;">compareTo</span><span style="color: #009900;">(</span>aux<span style="color: #009900;">[</span>j <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #009900;">)</span> <span style="color: #339933;">&lt;</span> <span style="color: #CC66CC;">0</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// 左半部分所指元素 &lt; 右半部分所指元素</span><br/>
+            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>aux<span style="color: #009900;">[</span>i <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span>.<span style="color: #006633;">compareTo</span><span style="color: #009900;">(</span>aux<span style="color: #009900;">[</span>j <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #009900;">)</span> <span style="color: #339933;">&lt;</span> <span style="color: #CC66CC;">0</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// The element pointed to in the left half &lt; the element pointed to in the right half</span><br/>
                 arr<span style="color: #009900;">[</span>k<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> aux<span style="color: #009900;">[</span>i <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
                 i<span style="color: #339933;">++;</span><br/>
-            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// 左半部分所指元素 &gt;= 右半部分所指元素</span><br/>
+            <span style="color: #009900;">}</span> <span style="color: #000000; font-weight: bold;">else</span> <span style="color: #009900;">{</span>  <span style="color: #666666; font-style: italic;">// The element pointed to in the left half &gt;= the element pointed to in the right half</span><br/>
                 arr<span style="color: #009900;">[</span>k<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> aux<span style="color: #009900;">[</span>j <span style="color: #339933;">-</span> l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
                 j<span style="color: #339933;">++;</span><br/>
             <span style="color: #009900;">}</span><br/>
         <span style="color: #009900;">}</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 递归使用归并排序,对arr[l...r]的范围进行排序</span><br/>
+    <span style="color: #666666; font-style: italic;">// Recursively use merge sort to sort the range arr[l...r]</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> sort<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> l, <span style="color: #000066; font-weight: bold;">int</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>l <span style="color: #339933;">&gt;=</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
             <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span><br/>
@@ -225,8 +225,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: #000066; font-weight: bold;">int</span> mid <span style="color: #339933;">=</span> <span style="color: #009900;">(</span>l <span style="color: #339933;">+</span> r<span style="color: #009900;">)</span> <span style="color: #339933;">/</span> <span style="color: #CC66CC;">2</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr, l, mid<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr, mid <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span>, r<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #666666; font-style: italic;">// 对于arr[mid] &lt;= arr[mid+1]的情况,不进行merge</span><br/>
-        <span style="color: #666666; font-style: italic;">// 对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失</span><br/>
+        <span style="color: #666666; font-style: italic;">// For the case where arr[mid] &lt;= arr[mid+1], skip the merge</span><br/>
+        <span style="color: #666666; font-style: italic;">// This is very effective for nearly ordered arrays, but for general cases, there is a certain performance loss</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>arr<span style="color: #009900;">[</span>mid<span style="color: #009900;">]</span>.<span style="color: #006633;">compareTo</span><span style="color: #009900;">(</span>arr<span style="color: #009900;">[</span>mid <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span> <span style="color: #339933;">&gt;</span> <span style="color: #CC66CC;">0</span><span style="color: #009900;">)</span><br/>
             merge<span style="color: #009900;">(</span>arr, l, mid, r<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
@@ -237,13 +237,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         sort<span style="color: #009900;">(</span>arr, <span style="color: #CC66CC;">0</span>, n <span style="color: #339933;">-</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 测试MergeSort</span><br/>
+    <span style="color: #666666; font-style: italic;">// Test MergeSort</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
 <br/>
         <span style="color: #000066; font-weight: bold;">int</span> N <span style="color: #339933;">=</span> <span style="color: #CC66CC;">1000</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Integer</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr <span style="color: #339933;">=</span> SortTestHelper.<span style="color: #006633;">generateRandomArray</span><span style="color: #009900;">(</span>N, <span style="color: #CC66CC;">0</span>, <span style="color: #CC66CC;">100000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #666666; font-style: italic;">//打印数组</span><br/>
+        <span style="color: #666666; font-style: italic;">// Print array</span><br/>
         SortTestHelper.<span style="color: #006633;">printArray</span><span style="color: #009900;">(</span>arr<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -253,85 +253,85 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The implementation of merge sort mainly relies on two core functions:<code>merge_sort</code>(responsible for the "divide") and<code>merge</code>(responsible for "governance").</p>
 <h3>1. Decomposition function<code>merge_sort</code></h3>
 <p>This function works recursively:</p>
-<p><strong>基准情况</strong>: If the current array length is less than or equal to 1, then it is already ordered, return directly.</p>
-<p><strong>递归情况</strong>：</p><ul>
+<p><strong>Base case</strong>: If the current array length is less than or equal to 1, then it is already ordered, return directly.</p>
+<p><strong>Recursive case</strong>：</p><ul>
 <li>Find the middle position of the array<code>mid</code>。</li>
-<li>对左半部分<code>arr[:mid]</code>递归调用<code>merge_sort</code>。</li>
-<li>对右半部分<code>arr[mid:]</code>递归调用<code>merge_sort</code>。</li>
-<li>最后，调用<code>merge</code>The function merges the already sorted left and right parts.</li>
+<li>For the left half<code>arr[:mid]</code>Recursive call<code>merge_sort</code>。</li>
+<li>For the right half<code>arr[mid:]</code>Recursive call<code>merge_sort</code>。</li>
+<li>Finally, call<code>merge</code>The function merges the already sorted left and right parts.</li>
 </ul>
 <h3>2. Merge function<code>merge</code></h3>
-<p>This is the essence of the algorithm, responsible for merging two<strong>已经有序</strong>small arrays into one large ordered array. The process is similar to flipping through two phone books already sorted alphabetically and merging them into one.</p>
+<p>This is the essence of the algorithm, responsible for merging two<strong>Already sorted</strong>small arrays into one large ordered array. The process is similar to flipping through two phone books already sorted alphabetically and merging them into one.</p>
 <ol>
 <li>Create a temporary array<code>temp</code>, and three pointers:<code>i</code>(pointing to the current element of the left array),<code>j</code>(pointing to the current element of the right array),<code>k</code>(pointing to the fill position of the temporary array).</li>
-<li>比较<code>left[i]</code> 和 <code>right[j]</code>，将<strong>较小</strong>put that element into<code>temp[k]</code>, then the corresponding pointer and<code>k</code>Move forward one step.</li>
+<li>Compare<code>left[i]</code>and<code>right[j]</code>, then<strong>the smaller</strong>put that element into<code>temp[k]</code>, then the corresponding pointer and<code>k</code>Move forward one step.</li>
 <li>Repeat step 2 until all elements of one of the arrays have been placed into the temporary array.</li>
 <li>Append all the remaining elements from the other array (which are inherently larger than the already placed elements and are already ordered) directly to the end of the temporary array in order.</li>
-<li>将临时数组<code>temp</code>The ordered sequence in ... is copied back to the corresponding positions of the original array.</li>
+<li>the temporary array<code>temp</code>The ordered sequence in ... is copied back to the corresponding positions of the original array.</li>
 </ol>
 <hr/>
 <h2>Code implementation and line-by-line analysis</h2>
 <p>Let's implement merge sort in Python. We will provide a complete, thoroughly commented version.</p>
-<h3>测试数据</h3>
+<h3>Test data</h3>
 <p>First, let's prepare an unordered list as test data:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 测试数据：一个无序的整数列表</span><br/>
+<span style="color: #a50"># Test data: an unordered list of integers</span><br/>
 test_array <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">38</span><span style="color: Gray;">,</span> <span style="color: Maroon;">27</span><span style="color: Gray;">,</span> <span style="color: Maroon;">43</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">9</span><span style="color: Gray;">,</span> <span style="color: Maroon;">82</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"原始数组:"</span><span style="color: Gray;">,</span> test_array<span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Original array:"</span><span style="color: Gray;">,</span> test_array<span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<h3>完整实现</h3>
+<h3>Complete implementation</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> merge_sort<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>归并排序的主函数。<br/>参数:<br/>arr (list): 待排序的列表。<br/>返回:<br/>list: 排序后的新列表（为了清晰，本实现返回新列表）。<br/>
+    <span style="color: #a11;">"""<br/>The main function for merge sort.<br/>Parameters:<br/>arr (list): The list to be sorted.<br/>Returns:<br/>list: the new sorted list (for clarity, this implementation returns a new list).<br/>
     """</span><br/>
-    <span style="color: #a50"># 基准情况：如果数组长度为0或1，则已经有序</span><br/>
+    <span style="color: #a50"># Base case: if the array length is 0 or 1, it is already sorted</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span> <span style="color: Gray;">&lt;=</span> <span style="color: Maroon;">1</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> arr<br/>
 <br/>
-    <span style="color: #a50"># 1. 分：找到中间点，将数组分成两半</span><br/>
+    <span style="color: #a50"># 1. Divide: find the midpoint and split the array into two halves</span><br/>
     mid <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span> // <span style="color: Maroon;">2</span><br/>
-    left_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>:mid<span style="color: Olive;">]</span>  <span style="color: #a50"># 左半部分</span><br/>
-    right_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>mid:<span style="color: Olive;">]</span> <span style="color: #a50"># 右半部分</span><br/>
+    left_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>:mid<span style="color: Olive;">]</span>  <span style="color: #a50"># Left half</span><br/>
+    right_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>mid:<span style="color: Olive;">]</span> <span style="color: #a50"># Right half</span><br/>
 <br/>
-    <span style="color: #a50"># 递归地对左右两半进行排序</span><br/>
+    <span style="color: #a50"># Recursively sort the left and right halves</span><br/>
     left_sorted <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>left_half<span style="color: Olive;">)</span><br/>
     right_sorted <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>right_half<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 2. 治：合并两个已排序的子数组</span><br/>
+    <span style="color: #a50"># 2. Conquer: merge the two sorted subarrays</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> merge<span style="color: Olive;">(</span>left_sorted<span style="color: Gray;">,</span> right_sorted<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> merge<span style="color: Olive;">(</span>left<span style="color: Gray;">,</span> right<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>合并两个已排序的列表。<br/>参数:<br/>left (list): 第一个已排序的列表。<br/>right (list): 第二个已排序的列表。<br/>返回:<br/>list: 合并后的有序列表。<br/>
+    <span style="color: #a11;">"""<br/>Merge two sorted lists.<br/>Parameters:<br/>left (list): The first sorted list.<br/>right (list): The second sorted list.<br/>Returns:<br/>list: The merged sorted list.<br/>
     """</span><br/>
-    sorted_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># 用于存放合并结果的临时列表</span><br/>
-    i <span style="color: Gray;">=</span> j <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>         <span style="color: #a50"># i 和 j 分别是遍历 left 和 right 的指针</span><br/>
+    sorted_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># Temporary list to store the merge result</span><br/>
+    i <span style="color: Gray;">=</span> j <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>         <span style="color: #a50"># i and j are pointers traversing left and right, respectively</span><br/>
 <br/>
-    <span style="color: #a50"># 3. 比较并合并：当两个列表都还有元素时</span><br/>
+    <span style="color: #a50"># 3. Compare and merge: while both lists still have elements</span><br/>
     <span style="color: Green;font-weight:bold;">while</span> i <span style="color: Gray;">&lt;</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>left<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">and</span> j <span style="color: Gray;">&lt;</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>right<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">if</span> left<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;=</span> right<span style="color: Olive;">[</span>j<span style="color: Olive;">]</span>:  <span style="color: #a50"># 注意使用 &lt;= 以保持排序的稳定性</span><br/>
+        <span style="color: Green;font-weight:bold;">if</span> left<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;=</span> right<span style="color: Olive;">[</span>j<span style="color: Olive;">]</span>:  <span style="color: #a50"># Note: use &lt;= to maintain sort stability</span><br/>
             sorted_list.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>left<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             i +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
             sorted_list.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>right<span style="color: Olive;">[</span>j<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             j +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-    <span style="color: #a50"># 4. 处理剩余元素：将左列表或右列表中剩余的元素全部追加到结果中</span><br/>
-    <span style="color: #a50">#    由于 left 和 right 本身已有序，剩余的元素一定比已合并的元素都大</span><br/>
+    <span style="color: #a50"># 4. Handle remaining elements: append all remaining elements from the left or right list to the result</span><br/>
+    <span style="color: #a50">#    Since left and right are already sorted, the remaining elements must all be larger than the already merged elements</span><br/>
     sorted_list.<span style="color: #05a;">extend</span><span style="color: Olive;">(</span>left<span style="color: Olive;">[</span>i:<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
     sorted_list.<span style="color: #05a;">extend</span><span style="color: Olive;">(</span>right<span style="color: Olive;">[</span>j:<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> sorted_list<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 使用测试数据运行算法</span><br/>
-sorted_array <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>test_array.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 使用copy避免修改原数组</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"归并排序后:"</span><span style="color: Gray;">,</span> sorted_array<span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Run the algorithm with test data</span><br/>
+sorted_array <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>test_array.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Use copy to avoid modifying the original array</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"After merge sort:"</span><span style="color: Gray;">,</span> sorted_array<span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <h3>Code execution and output</h3>
@@ -345,29 +345,29 @@ sorted_array <span style="color: Gray;">=</span> merge_sort<span style="color: O
 <table class="reference">
 <thead>
 <tr>
-<th align="left">指标</th>
-<th align="left">复杂度</th>
-<th align="left">说明</th>
+<th align="left">Metric</th>
+<th align="left">Complexity</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>时间复杂度</strong></td>
+<td align="left"><strong>Time complexity</strong></td>
 <td align="left"><strong>O(n log n)</strong></td>
 <td align="left">This is the most significant advantage of merge sort.<code>log n</code>It comes from the number of recursion levels (splitting the array in half),<code>n</code>It comes from each level of merging operations needing to traverse all elements. Regardless of the initial state of the data (best, worst, average case), the time complexity is O(n log n).</td>
 </tr>
 <tr>
-<td align="left"><strong>空间复杂度</strong></td>
+<td align="left"><strong>Space complexity</strong></td>
 <td align="left"><strong>O(n)</strong></td>
 <td align="left">The merging process requires extra space equal in size to the original array to store temporary arrays. This is the main disadvantage of merge sort.</td>
 </tr>
 <tr>
-<td align="left"><strong>稳定性</strong></td>
-<td align="left"><strong>稳定</strong></td>
-<td align="left">在 <code>merge</code>函数中，当<code>left[i] == right[j]</code>When this happens, we prioritize taking<code>left[i]</code>（使用了<code>&lt;=</code>comparison), which ensures that the original relative order of equal elements remains unchanged.</td>
+<td align="left"><strong>Stability</strong></td>
+<td align="left"><strong>Stable</strong></td>
+<td align="left">In<code>merge</code>In the function, when<code>left[i] == right[j]</code>When this happens, we prioritize taking<code>left[i]</code>(using<code>&lt;=</code>comparison), which ensures that the original relative order of equal elements remains unchanged.</td>
 </tr>
 <tr>
 <td align="left"><strong>Whether it is in-place sorting</strong></td>
-<td align="left"><strong>否</strong></td>
+<td align="left"><strong>no</strong></td>
 <td align="left">It requires additional memory space.</td>
 </tr>
 </tbody></table>
@@ -751,21 +751,17 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
         }
     }
 });
-</script> 其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/shell-sort.html" rel="prev">希尔排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/random-quick-sort.html" rel="next">随机化快速排序</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/shell-sort.html" rel="prev">Shell Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/random-quick-sort.html" rel="next">Randomized Quick Sort</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ECECEC;
@@ -869,16 +865,16 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -886,14 +882,14 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="23041"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1071,7 +1067,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1162,7 +1158,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

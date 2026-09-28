@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeeSeek Harness 事故复盘与工程文化 | 菜鸟教程</title>
+<title>DeeSeek Harness Incident Retrospective and Engineering Culture | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeeSeek Harness 事故复盘与工程文化  dsh 仓库把每一次「不该出现却出现了」的 bug 都写成事故复盘（postmortem），并留下测试、文档与规则层面的防护。 理解这套复盘文化与测试纪律，你就能在 runoob 项目里活用它：不只是会用 dsh，而是会像维护者一样思考。   一句话：一个 bug 的价值，不在于那行修复，而在于为什么流程放过了它，以及新增了什么防护让同类问题下次明确报错。     复盘文化：四问 事.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="prev">DeeSeek Harness 防御性编程：结果报告、清理与凭据</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-python-sdk.html" rel="next">DeepSeek Harness Python SDK 调用</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="prev">DeeSeek Harness Defensive Programming: Result Reporting, Cleanup and Credentials</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-python-sdk.html" rel="next">DeepSeek Harness Python SDK call</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -172,75 +172,75 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Retrospective Culture: Four Questions</h2>
 <p>A postmortem records: a bug appeared where it shouldn't have — in front of real users, in a merged PR, or in a released version.</p>
-<p>What's worth noting is<span class="marked">为什么我们的流程放过了它</span>, rather than just that one-line fix.</p>
+<p>What's worth noting is<span class="marked">Why did our process let it through?</span>, rather than just that one-line fix.</p>
 <p>It is a retrospective record of failure, answering four questions:</p>
 <table class="reference">
 <thead>
-<tr><th>四问</th><th>要回答什么</th></tr>
+<tr><th>Four Questions</th><th>What to answer</th></tr>
 </thead>
 <tbody>
-<tr><td>什么坏了</td><td>A short paragraph that lets busy readers absorb the key points in thirty seconds.</td></tr>
-<tr><td>机制是什么</td><td>State the root cause in plain words, without blaming individuals.</td></tr>
+<tr><td>What's broken?</td><td>A short paragraph that lets busy readers absorb the key points in thirty seconds.</td></tr>
+<tr><td>What is the mechanism?</td><td>State the root cause in plain words, without blaming individuals.</td></tr>
 <tr><td>Why every safety net failed to catch it</td><td>Identify gaps in tests, tooling, and conventions — not a one-off typo.</td></tr>
 <tr><td>What new protections were added</td><td>Tests, AGENTS.md rules, ADRs — make similar bugs fail loudly next time.</td></tr>
 </tbody>
 </table>
 <p>Not every bug deserves a postmortem.</p>
-<p>Only write one when the bug meets all three conditions:<span class="tag1">隐蔽</span>(the mechanism is non-obvious; even a careful engineer would have to work hard to re-derive it),<span class="tag1 blue">系统性</span>(the reason it escaped was a gap in tests, tooling, or conventions),<span class="tag1 green">重新发现的代价高</span>(it consumed real debugging time, and will again next time).</p>
+<p>Only write one when the bug meets all three conditions:<span class="tag1">Hidden</span>(the mechanism is non-obvious; even a careful engineer would have to work hard to re-derive it),<span class="tag1 blue">Systematic</span>(the reason it escaped was a gap in tests, tooling, or conventions),<span class="tag1 green">The cost of rediscovery is high</span>(it consumed real debugging time, and will again next time).</p>
 <p><img alt="事故复盘流程与测试金字塔图" decoding="async" src="../wp-content/uploads/2026/08/28-postmortem.svg" style="width:100%;max-width:920px;"/></p>
 <hr/>
 <h2>Four Real Cases</h2>
 <p>The repository currently has four postmortems, each corresponding to a class of engineering mistakes that tends to recur.</p>
 <p>I'll go through each one with the focus on "why it escaped" and "what guard was added."</p>
 <blockquote>
-<p>复盘 0001</p>
+<p>Review 0001</p>
 <p><strong>ACP server crashes on connection: export default drops the plugin's inject.</strong></p>
-<p>What broke: the moment the editor (Zed) connected, the first<code>session/new</code>就报<code>cannot get property "agents" without inject</code>。</p>
-<p>Mechanism: The plugin wrote one extra.<code>export default apply</code>，Loader 的<code>unwrapExports</code>It retrieved the bare function, and the one on the namespace...<code>inject</code>Lost it entirely.</p>
+<p>What broke: the moment the editor (Zed) connected, the first<code>session/new</code>Just report<code>cannot get property "agents" without inject</code>。</p>
+<p>Mechanism: The plugin wrote one extra.<code>export default apply</code>, Loader's<code>unwrapExports</code>It retrieved the bare function, and the one on the namespace...<code>inject</code>Lost it entirely.</p>
 <p>Why the safety net didn't catch it: 178 green unit tests + 100% line coverage were all there, but every test was manually<code>ctx.plugin(...)</code>mounted, bypassing the real Loader's loading path.</p>
 <p>Guards added: removed the default export; added a keyless real-Loader smoke test; rule: "test the real entry path — line coverage is not behavior coverage."</p>
 </blockquote>
 <blockquote>
-<p>复盘 0002</p>
+<p>Review 0002</p>
 <p><strong>The filesystem snapshot tool was permanently disabled by a literal !!js object.</strong></p>
 <p>What broke: seven filesystem scenarios invoked a tool that does not exist in the registry, returning...<code>UNKNOWN_TOOL</code>。</p>
 <p>Mechanism: The author uses<code>disabled: !!js ...</code>We wanted to conditionally enable the filesystem plugin, but Cordis only evaluates JS expressions<code>config</code>inside the plugin; when directly reading<code>disabled</code>the config item, it saw a truthy object.</p>
 <p>Why the safety net didn't catch it: snapshot refresh treated "deterministic replay" as "correct behavior"—it proved the regression was stably reproduced, but did not prove that the filesystem tool was actually registered.</p>
-<p>Guards added: switched to an explicit filesystem overlay; a static config guard rejects expression nodes in Loader config metadata; the snapshot framework rejects structured<code>UNKNOWN_TOOL</code>结果。</p>
+<p>Guards added: switched to an explicit filesystem overlay; a static config guard rejects expression nodes in Loader config metadata; the snapshot framework rejects structured<code>UNKNOWN_TOOL</code>Result.</p>
 </blockquote>
 <blockquote>
-<p>复盘 0003</p>
+<p>Review 0003</p>
 <p><strong>The web agent accepted a replacement server rather than the GUI hosting its session.</strong></p>
 <p>What broke: the agent modified the GUI source code, but didn't know which URL the current session corresponded to or which process was hosting it.</p>
 <p>Mechanism: it treated the HTTP 200 returned by the bare Vite server as success (actually a blank screen), then went to accept a replacement<code>dsh web</code>server on another port, never probing port 3081.</p>
 <p>Why the safety net didn't catch it: the Web composition did not provide the model with identity information about the current GUI, canonical URL, or running mode; the first regression test also used "process timeout" to impersonate "fail fast", producing a false positive.</p>
-<p>新增防护：启动器发布规范环回 URL 与实际生产/开发模式（环境变量 + 提示词区段）；独立 Vite 服务模式在配置阶段拒绝启动；分层真实路径测试覆盖 CLI、提示词、运行时事实与浏览器 HMR。</p>
+<p>Add protection:StartdevicepublishSpecificationCycle回 URL andreal际生产/DevelopmentMode（Environment Variables + Hintword区segment）；Independent Vite ServicesModeInConfigurationPhaseRejectStart；DividelayertruerealpathTesting覆盖 CLI、Hintword、runtime事realand浏览device HMR。</p>
 </blockquote>
 <blockquote>
-<p>复盘 0004</p>
+<p>Review 0004</p>
 <p><strong>Landlock partial-enforcement notices caused child-process failures to be misclassified.</strong></p>
-<p>What broke: on kernels with an older Landlock ABI, ripgrep exits normally with code 1 when there are no matches, but it was presented as a failure.<code>SANDBOX_UNAVAILABLE</code>沙箱故障。</p>
+<p>What broke: on kernels with an older Landlock ABI, ripgrep exits normally with code 1 when there are no matches, but it was presented as a failure.<code>SANDBOX_UNAVAILABLE</code>Sandbox failure.</p>
 <p>Mechanism: the launcher prints a harmless<code>landlock-run: partial enforcement (older Landlock ABI)</code>notice; the harness uses a case-insensitive<code>landlock-run: </code>substring combined with any non-zero exit to misclassify it as a runner failure.</p>
 <p>Why the safety net didn't catch it: the sandbox result type can only express a set of substrings; it cannot express "Landlock failure must exit with code 125 + one line of fatal diagnostic"; the test matrix never constructs the combination of "notification followed by non-zero subprocess exit".</p>
-<p>新增防护：<code>RunnerFailureRule</code>Carry informational lines with allowed exit codes, per-line fatal signatures, and precise exclusions; filesystem search switches to...<code>ctx.subprocess</code>Run the bundled ripgrep, no longer routing it through sandboxed bash.</p>
+<p>Add protection:<code>RunnerFailureRule</code>Carry informational lines with allowed exit codes, per-line fatal signatures, and precise exclusions; filesystem search switches to...<code>ctx.subprocess</code>Run the bundled ripgrep, no longer routing it through sandboxed bash.</p>
 </blockquote>
-<p>Looking at the four cases together, a common lesson emerges:<span class="marked">测试必须走真实入口路径</span>。</p>
+<p>Looking at the four cases together, a common lesson emerges:<span class="marked">Tests must go through the real entry path</span>。</p>
 <p>Manual mounting, mocking everything, and treating snapshot refresh as acceptance — all of these make "unit tests all green, product broken" possible.</p>
 <hr/>
-<h2>测试四层</h2>
+<h2>Four test layers</h2>
 <p>The repository's testing strategy is layered; each layer covers blind spots the layer before it cannot catch.</p>
 <table class="reference">
 <thead>
-<tr><th>层级</th><th>命令</th><th>抓什么</th></tr>
+<tr><th>Tier</th><th>Command</th><th>What to capture</th></tr>
 </thead>
 <tbody>
-<tr><td>单元测试</td><td><code>pnpm run test</code></td><td>Vitest runs in-package tests, prioritizing edge cases, error paths, event ordering, and concurrency races.</td></tr>
-<tr><td>覆盖率门禁</td><td><code>pnpm run test:coverage</code></td><td>100% coverage per file; uncovered lines are usually dead code that should be deleted.</td></tr>
-<tr><td>真实 API e2e</td><td><code>pnpm run test:e2e</code></td><td>Calls real provider APIs with keys; automatically skips when keys are missing, keeping keyless CI green.</td></tr>
-<tr><td>快照</td><td><code>pnpm run test:snapshot</code> / <code>test:web</code></td><td>Keyless expected outputs cover external behavior; browser snapshots are replayed and compared using Chromium.</td></tr>
+<tr><td>Unit Testing</td><td><code>pnpm run test</code></td><td>Vitest runs in-package tests, prioritizing edge cases, error paths, event ordering, and concurrency races.</td></tr>
+<tr><td>Coverage gate</td><td><code>pnpm run test:coverage</code></td><td>100% coverage per file; uncovered lines are usually dead code that should be deleted.</td></tr>
+<tr><td>Real API e2e</td><td><code>pnpm run test:e2e</code></td><td>Calls real provider APIs with keys; automatically skips when keys are missing, keeping keyless CI green.</td></tr>
+<tr><td>Snapshot</td><td><code>pnpm run test:snapshot</code> / <code>test:web</code></td><td>Keyless expected outputs cover external behavior; browser snapshots are replayed and compared using Chromium.</td></tr>
 </tbody>
 </table>
-<p>The repository is DeepSeek's own, so there is one special principle:<span class="tag1 green">推理在这里很便宜，不要吝惜真实 API 测试</span>。</p>
+<p>The repository is DeepSeek's own, so there is one special principle:<span class="tag1 green">Inference is cheap here, don't skimp on real API tests.</span>。</p>
 <p>Keyless tests can only prove the underlying pathway; only running with keys can prove that the agent works correctly with a real model.</p>
 <p>The highest-value ones are smoke tests: boot a real example, send a single prompt, and inspect the outside world.</p>
 <p>They catch the "unit tests all green, product broken" class of problems that mocks cannot discover.</p>
@@ -249,7 +249,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>It proves a line was executed, not that the feature works as delivered.</p>
 <p>In case 0001, 100% coverage still let two integration bugs slip through — the perfect footnote.</p>
 </blockquote>
-<p>Another principle is<span class="marked">验证外部世界，而非自我报告</span>。</p>
+<p>Another principle is<span class="marked">Verify the external world, rather than self-report</span>。</p>
 <p>E2E assertions should rerun the command or re-read the file externally; keyword probing of the agent's own output would let a cheating agent pass.</p>
 <p>Assert that unmodified files remain byte-for-byte identical.</p>
 <hr/>
@@ -258,7 +258,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p><span class="tag1">verify-type-equiv</span>It is a gate: it uses a TypeScript parser to extract type-declaration symbols and their attached JSDoc from the source, and asserts that documentation code blocks match both.</p>
 <p>When you change a documented type declaration or its JSDoc, the gate fails until you update the pasted content.</p>
 <p>This guarantees that type definitions in the docs always match the source — no "docs copied from an older version."</p>
-<p>Another discipline is<span class="marked">一个事实一个家</span>: each fact is maintained in exactly one file; all other files reference it.</p>
+<p>Another discipline is<span class="marked">One fact, one home</span>: each fact is maintained in exactly one file; all other files reference it.</p>
 <p>For example, the "source of truth" for the tool schema is in<code>adding-a-tool.md</code>, other pages reference rather than copy.</p>
 <p>Chinese and English documents are maintained as bilingual pairs; when updating, first run...<code>pnpm run gen-doc-graphs</code>Update English, then update Chinese and verify the pairing.</p>
 <blockquote>
@@ -280,29 +280,24 @@ demo 环境里模型仍能调用被禁用的 fs_write，直接写入了工作区
 并在 AGENTS.md 记录「pre-execute 与 guard 的注册顺序」规则。</pre>
 <p>The formula for a thirty-second summary: what broke → root cause in plain words → why it escaped → a lesson you can carry forward long-term.</p>
 <hr/>
-<h2>系列结语</h2>
+<h2>Series conclusion</h2>
 <p>At this point, all 28 installments of the DeepSeek Harness introductory tutorial conclude.</p>
 <p>Look back along the road: from the first article, learning dsh's four guardrails, to installing, using the Web UI, and using the Python SDK; from writing your first plugin, to understanding plugin lifecycle, services and scopes, and the event system; from designing capabilities with the three-role pattern and integrating any LLM, to packaging and releasing. Finally, these last five articles complete the last piece of the puzzle: security and engineering culture.</p>
 <p>What you truly take away is not just how to use the API, but a way of thinking:</p>
-<p><span class="tag1">模型负责聪明，Harness 负责可靠。</span>Constraints are not restrictions; they are the foundation that makes Agents predictable, auditable, and replayable.</p>
-<p><span class="tag1 blue">一切皆插件。</span>Put policy at extension points, not inside the loop, and the system can evolve without losing control.</p>
-<p><span class="tag1 green">真实入口路径胜过一切 mock。</span>Coverage, snapshots, and smoke tests each do their own job, together preventing "all green yet broken."</p>
-<p><span class="tag1 purple">故障不可怕，可怕的是不知道为什么。</span>Postmortem culture turns a single incident into a set of defenses.</p>
-其他扩展
-</div>
+<p><span class="tag1">The model is responsible for intelligence, the Harness is responsible for reliability.</span>Constraints are not restrictions; they are the foundation that makes Agents predictable, auditable, and replayable.</p>
+<p><span class="tag1 blue">Everything is a plugin.</span>Put policy at extension points, not inside the loop, and the system can evolve without losing control.</p>
+<p><span class="tag1 green">The real entry path beats all mocks.</span>Coverage, snapshots, and smoke tests each do their own job, together preventing "all green yet broken."</p>
+<p><span class="tag1 purple">Failure is not scary. What's scary is not knowing why.</span>Postmortem culture turns a single incident into a set of defenses.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="prev">DeeSeek Harness 防御性编程：结果报告、清理与凭据</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-python-sdk.html" rel="next">DeepSeek Harness Python SDK 调用</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deeseek-harness-defensive-patterns.html" rel="prev">DeeSeek Harness Defensive Programming: Result Reporting, Cleanup and Credentials</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-python-sdk.html" rel="next">DeepSeek Harness Python SDK call</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -406,16 +401,16 @@ demo 环境里模型仍能调用被禁用的 fs_write，直接写入了工作区
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -423,14 +418,14 @@ demo 环境里模型仍能调用被禁用的 fs_write，直接写入了工作区
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31992"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -608,7 +603,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -699,7 +694,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

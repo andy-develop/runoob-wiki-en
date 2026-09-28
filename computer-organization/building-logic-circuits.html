@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>逻辑门电路搭建 | 菜鸟教程</title>
+<title>Logic Gate Circuit Construction | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="逻辑门电路搭建 上一讲我们认识了四种基本逻辑门。这一讲，我们把它们连接起来，搭出能解决实际问题的电路。 单个逻辑门就像一颗螺丝钉——本身功能有限。但把它们组合起来，就能构建出任意复杂的功能。    生活化类比：乐高积木搭建城堡  想象你面前有四种颜色的乐高积木：   绿色积木 = AND 门：只有两端都连接时才能通电 橙色积木 = OR 门：任意一端连接就能通电 红色积木 = NOT 门：通电变断电，断电变通电 紫色积木 = XOR 门.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/boolean-algebra-logic-gates.html" rel="prev">布尔代数基础 — AND / OR / NOT / XOR</a> </div>
-<div class="next-design-link"><a href="../computer-organization/from-gates-to-adder.html" rel="next">从逻辑门到加法器</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/boolean-algebra-logic-gates.html" rel="prev">Boolean Algebra Basics — AND / OR / NOT / XOR</a> </div>
+<div class="next-design-link"><a href="../computer-organization/from-gates-to-adder.html" rel="next">From logic gates to adders</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -170,110 +170,98 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Everyday analogy: building a castle with Lego bricks</h2>
 <p>Imagine you have four colors of LEGO bricks in front of you:</p>
 <ul>
-<li><span class="tag1 green">绿色积木 = AND 门</span>: Current flows only when both ends are connected</li>
-<li><span class="tag1">橙色积木 = OR 门</span>: Current flows when either end is connected</li>
-<li><span class="tag1">红色积木 = NOT 门</span>: On becomes off, off becomes on</li>
-<li><span class="tag1">紫色积木 = XOR 门</span>: Current flows when the two ends are in different states</li>
+<li><span class="tag1 green">Green block = AND gate</span>: Current flows only when both ends are connected</li>
+<li><span class="tag1">Orange block = OR gate</span>: Current flows when either end is connected</li>
+<li><span class="tag1">Red block = NOT gate</span>: On becomes off, off becomes on</li>
+<li><span class="tag1">Purple block = XOR gate</span>: Current flows when the two ends are in different states</li>
 </ul>
 <p>What can you build with these bricks?</p>
-<p><span class="marked">一个投票器</span>Three people vote, and the majority rules. This is a typical combinational logic circuit — just connect AND/OR gates to implement it.</p>
-<p><span class="marked">一个密码锁</span>The correct keys must be pressed simultaneously to unlock. This is essentially a cascade of AND gates — each key corresponds to an input, and only when all inputs are 1 does the output become 1.</p>
-<p><span class="marked">一个报警器</span>If any sensor triggers, the alarm sounds. This is essentially an application of OR gates — as long as one sensor outputs 1, the alarm rings.</p>
+<p><span class="marked">a voter</span>Three people vote, and the majority rules. This is a typical combinational logic circuit — just connect AND/OR gates to implement it.</p>
+<p><span class="marked">a combination lock</span>The correct keys must be pressed simultaneously to unlock. This is essentially a cascade of AND gates — each key corresponds to an input, and only when all inputs are 1 does the output become 1.</p>
+<p><span class="marked">an alarm</span>If any sensor triggers, the alarm sounds. This is essentially an application of OR gates — as long as one sensor outputs 1, the alarm rings.</p>
 <hr/>
 <h2>Combinational logic vs sequential logic</h2>
 <p>Before we dive deeper into building circuits, let's distinguish two important concepts:</p>
 <table class="reference">
-<tr><th>类型</th><th>特点</th><th>输出取决于</th><th>有记忆吗？</th><th>例子</th></tr>
-<tr><td><span class="tag1 green">组合逻辑</span></td><td>Output is determined only by current input</td><td>当前输入值</td><td>没有</td><td>Adder, majority voter, decoder</td></tr>
-<tr><td><span class="tag1">时序逻辑</span></td><td>Output is determined by current inputs + historical state</td><td>Current input + previously stored values</td><td>有</td><td>Counter, register, state machine</td></tr>
+<tr><th>Type</th><th>Features</th><th>Output depends on</th><th>Does it have memory?</th><th>Examples</th></tr>
+<tr><td><span class="tag1 green">Combinational logic</span></td><td>Output is determined only by current input</td><td>current input value</td><td>no</td><td>Adder, majority voter, decoder</td></tr>
+<tr><td><span class="tag1">Sequential logic</span></td><td>Output is determined by current inputs + historical state</td><td>Current input + previously stored values</td><td>Yes</td><td>Counter, register, state machine</td></tr>
 </table>
-<p><span class="marked">本讲关注组合逻辑。</span>Sequential logic will be introduced in detail in Lecture 9.</p>
+<p><span class="marked">This lecture focuses on combinational logic.</span>Sequential logic will be introduced in detail in Lecture 9.</p>
 <blockquote><p>A simple way to distinguish them: combinational logic is "whatever you input, I output" (like a mathematical function); sequential logic is "I still remember what you input before" (like human memory).</p></blockquote>
 <hr/>
 <h2>Circuit construction methodology: the three-step method</h2>
 <p>There is a universal three-step process for building any combinational logic circuit with logic gates:</p>
 <ol>
-<li><span class="marked">列出真值表</span>Step 1: List all combinations of inputs, and write down the expected output for each case.</li>
-<li><span class="marked">写出逻辑表达式</span>Step 2: For each row where the output is 1, write the corresponding "product term" (the AND combination of inputs), then connect all product terms with OR. This is called the "Sum of Products" form.</li>
-<li><span class="marked">画电路图 / 写代码</span>Step 3: Translate the logic expression into a gate-level circuit connection.</li>
+<li><span class="marked">List the truth table</span>Step 1: List all combinations of inputs, and write down the expected output for each case.</li>
+<li><span class="marked">Write the logic expression</span>Step 2: For each row where the output is 1, write the corresponding "product term" (the AND combination of inputs), then connect all product terms with OR. This is called the "Sum of Products" form.</li>
+<li><span class="marked">Draw circuit diagram / Write code</span>Step 3: Translate the logic expression into a gate-level circuit connection.</li>
 </ol>
 <p>Let's practice this method through three examples, from simple to advanced.</p>
 <hr/>
 <h2>Case 1: Two-input password lock</h2>
-<p><span class="marked">需求</span>Case 1: Design a simple password-checking circuit. There are two inputs A and B. Only when A=1 and B=1 does the output become 1 (unlock); otherwise, the output is 0 (locked).</p>
+<p><span class="marked">Requirements</span>Case 1: Design a simple password-checking circuit. There are two inputs A and B. Only when A=1 and B=1 does the output become 1 (unlock); otherwise, the output is 0 (locked).</p>
 <p>This requirement is actually just an AND gate. But we can use it to demonstrate the three-step method:</p>
 <h4>Step 1: Truth table</h4>
 <table class="reference">
 <tr><th>A</th><th>B</th><th>Expected output Y</th></tr>
-<tr><td>0</td><td>0</td><td>0（锁）</td></tr>
-<tr><td>0</td><td>1</td><td>0（锁）</td></tr>
-<tr><td>1</td><td>0</td><td>0（锁）</td></tr>
-<tr><td>1</td><td>1</td><td>1（解锁）</td></tr>
+<tr><td>0</td><td>0</td><td>0 (lock)</td></tr>
+<tr><td>0</td><td>1</td><td>0 (lock)</td></tr>
+<tr><td>1</td><td>0</td><td>0 (lock)</td></tr>
+<tr><td>1</td><td>1</td><td>1 (unlocked)</td></tr>
 </table>
 <h4>Step 2: Logic expression</h4>
 <p>Only the last row has output 1. The corresponding product term is: A AND B.</p>
-<p>所以：Y = A AND B</p>
+<p>So: Y = A AND B</p>
 <h4>Step 3: Circuit implementation</h4>
 <p>You only need one AND gate, with A and B as inputs, and Y as the output.</p>
 <p>Too simple? Let's look at a more practical example.</p>
 <hr/>
 <h2>Case 2: Majority Voter (Core Case)</h2>
-<p><span class="marked">需求</span>Three people (A, B, C) vote on a proposal (1 means approve, 0 means reject). The proposal passes when at least two people approve (output 1).</p>
+<p><span class="marked">Requirements</span>Three people (A, B, C) vote on a proposal (1 means approve, 0 means reject). The proposal passes when at least two people approve (output 1).</p>
 <p>This is a classic three-input majority voter and a must-learn case in digital circuit textbooks.</p>
 <h4>Step 1: List the truth table</h4>
 <p>Three inputs have a total of 2<sup>3</sup>= 8 combinations:</p>
 <table class="reference">
-<tr><th>A</th><th>B</th><th>C</th><th>赞成人数</th><th>Pass/fail: Y</th><th>说明</th></tr>
-<tr><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="tag1">0</span></td><td>无人赞成</td></tr>
+<tr><th>A</th><th>B</th><th>C</th><th>Number in favor</th><th>Pass/fail: Y</th><th>Description</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="tag1">0</span></td><td>No one in favor</td></tr>
 <tr><td>0</td><td>0</td><td>1</td><td>1</td><td><span class="tag1">0</span></td><td>Only C approves</td></tr>
 <tr><td>0</td><td>1</td><td>0</td><td>1</td><td><span class="tag1">0</span></td><td>Only B approves</td></tr>
 <tr><td>0</td><td>1</td><td>1</td><td>2</td><td><span class="tag1 green">1</span></td><td>B and C approve</td></tr>
 <tr><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="tag1">0</span></td><td>Only A approves</td></tr>
 <tr><td>1</td><td>0</td><td>1</td><td>2</td><td><span class="tag1 green">1</span></td><td>A and C approve</td></tr>
 <tr><td>1</td><td>1</td><td>0</td><td>2</td><td><span class="tag1 green">1</span></td><td>A and B approve</td></tr>
-<tr><td>1</td><td>1</td><td>1</td><td>3</td><td><span class="tag1 green">1</span></td><td>全票通过</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>3</td><td><span class="tag1 green">1</span></td><td>Passed unanimously</td></tr>
 </table>
 <h4>Step 2: Write the logic expression</h4>
 <p>Find the rows where the output is 1 (rows 4, 6, 7, 8), and write one product term for each row:</p>
 <ul>
-<li>第 4 行：NOT(A) AND B AND C</li>
-<li>第 6 行：A AND NOT(B) AND C</li>
-<li>第 7 行：A AND B AND NOT(C)</li>
-<li>第 8 行：A AND B AND C</li>
+<li>Line 4: NOT(A) AND B AND C</li>
+<li>Line 6: A AND NOT(B) AND C</li>
+<li>Line 7: A AND B AND NOT(C)</li>
+<li>Line 8: A AND B AND C</li>
 </ul>
-<p>用 OR 连接：Y = (NOT(A) AND B AND C) OR (A AND NOT(B) AND C) OR (A AND B AND NOT(C)) OR (A AND B AND C)</p>
-<p>This expression may look a bit long, but logically it is very clear:<span class="marked">Y 为 1 当且仅当任意两个或三个输入为 1</span>。</p>
+<p>use OR connection：Y = (NOT(A) AND B AND C) OR (A AND NOT(B) AND C) OR (A AND B AND NOT(C)) OR (A AND B AND C)</p>
+<p>This expression may look a bit long, but logically it is very clear:<span class="marked">Y is 1 if and only if any two or three inputs are 1</span>。</p>
 <h4>Step 3: Draw the circuit diagram with SVG</h4>
-<svg style="width:100%;height:auto;max-width:700px;" viewbox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
-三条输入线
-<text fill="#4C7EAF" font-size="14" font-weight="bold" x="10" y="90">A</text>
+<svg style="width:100%;height:auto;max-width:700px;" viewbox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">three input lines<text fill="#4C7EAF" font-size="14" font-weight="bold" x="10" y="90">A</text>
 <line stroke="#4C7EAF" stroke-width="2" x1="30" x2="80" y1="85" y2="85"></line>
 <text fill="#FF9800" font-size="14" font-weight="bold" x="10" y="160">B</text>
 <line stroke="#FF9800" stroke-width="2" x1="30" x2="80" y1="155" y2="155"></line>
 <text fill="#2196F3" font-size="14" font-weight="bold" x="10" y="230">C</text>
-<line stroke="#2196F3" stroke-width="2" x1="30" x2="80" y1="225" y2="225"></line>
-AND 门 1: A AND B
-<path d="M130 60 L130 110 Q170 110 170 85 Q170 60 130 60 Z" fill="#E8EEF5" stroke="#4C7EAF" stroke-width="2"></path>
-<text fill="#3D71A6" font-size="10" text-anchor="middle" x="148" y="90">AND</text>
-连线到 AND1
-<line stroke="#4C7EAF" stroke-width="1.5" x1="80" x2="110" y1="80" y2="80"></line>
+<line stroke="#2196F3" stroke-width="2" x1="30" x2="80" y1="225" y2="225"></line>AND gate 1: A AND B<path d="M130 60 L130 110 Q170 110 170 85 Q170 60 130 60 Z" fill="#E8EEF5" stroke="#4C7EAF" stroke-width="2"></path>
+<text fill="#3D71A6" font-size="10" text-anchor="middle" x="148" y="90">AND</text>Connect to AND1<line stroke="#4C7EAF" stroke-width="1.5" x1="80" x2="110" y1="80" y2="80"></line>
 <line stroke="#4C7EAF" stroke-width="1.5" x1="80" x2="110" y1="90" y2="90"></line>
 <line stroke="#FF9800" stroke-width="1.5" x1="90" x2="130" y1="155" y2="100"></line>
-<line stroke="#FF9800" stroke-width="1.5" x1="130" x2="110" y1="100" y2="100"></line>
-AND 门 2: B AND C
-<path d="M130 130 L130 180 Q170 180 170 155 Q170 130 130 130 Z" fill="#fff3e0" stroke="#FF9800" stroke-width="2"></path>
+<line stroke="#FF9800" stroke-width="1.5" x1="130" x2="110" y1="100" y2="100"></line>AND gate 2: B AND C<path d="M130 130 L130 180 Q170 180 170 155 Q170 130 130 130 Z" fill="#fff3e0" stroke="#FF9800" stroke-width="2"></path>
 <text fill="#e65100" font-size="10" text-anchor="middle" x="148" y="160">AND</text>
 <line stroke="#FF9800" stroke-width="1.5" x1="80" x2="110" y1="155" y2="155"></line>
 <line stroke="#2196F3" stroke-width="1.5" x1="80" x2="130" y1="225" y2="170"></line>
-<line stroke="#2196F3" stroke-width="1.5" x1="130" x2="110" y1="170" y2="170"></line>
-AND 门 3: A AND C
-<path d="M130 200 L130 250 Q170 250 170 225 Q170 200 130 200 Z" fill="#e3f2fd" stroke="#2196F3" stroke-width="2"></path>
+<line stroke="#2196F3" stroke-width="1.5" x1="130" x2="110" y1="170" y2="170"></line>AND gate 3: A AND C<path d="M130 200 L130 250 Q170 250 170 225 Q170 200 130 200 Z" fill="#e3f2fd" stroke="#2196F3" stroke-width="2"></path>
 <text fill="#0d47a1" font-size="10" text-anchor="middle" x="148" y="230">AND</text>
 <line stroke="#4C7EAF" stroke-width="1.5" x1="80" x2="110" y1="85" y2="210"></line>
 <line stroke="#4C7EAF" stroke-width="1.5" x1="110" x2="110" y1="210" y2="220"></line>
-<line stroke="#2196F3" stroke-width="1.5" x1="80" x2="110" y1="225" y2="230"></line>
-OR 门（合并三个 AND 的输出）
-<path d="M230 100 Q230 155 230 210 Q310 210 310 155 Q310 100 230 100 Z" fill="#fce4ec" stroke="#E91E63" stroke-width="3"></path>
+<line stroke="#2196F3" stroke-width="1.5" x1="80" x2="110" y1="225" y2="230"></line>OR gate (combining the outputs of three AND gates)<path d="M230 100 Q230 155 230 210 Q310 210 310 155 Q310 100 230 100 Z" fill="#fce4ec" stroke="#E91E63" stroke-width="3"></path>
 <text fill="#880e4f" font-size="11" text-anchor="middle" x="268" y="160">OR</text>
 <!-- AND1 -> OR -->
 <line stroke="#4C7EAF" stroke-width="1.5" x1="170" x2="215" y1="85" y2="85"></line>
@@ -284,23 +272,19 @@ OR 门（合并三个 AND 的输出）
 <!-- AND3 -> OR -->
 <line stroke="#2196F3" stroke-width="1.5" x1="170" x2="215" y1="225" y2="225"></line>
 <line stroke="#2196F3" stroke-width="1.5" x1="215" x2="215" y1="225" y2="195"></line>
-<line stroke="#2196F3" stroke-width="1.5" x1="215" x2="230" y1="195" y2="195"></line>
-输出线
-<line stroke="#E91E63" stroke-width="2" x1="310" x2="360" y1="155" y2="155"></line>
-<text fill="#E91E63" font-size="14" font-weight="bold" x="345" y="145">Y</text>
-标签
-<text fill="#aaa" font-size="12" text-anchor="middle" x="350" y="300">图：三输入多数表决器电路结构</text>
+<line stroke="#2196F3" stroke-width="1.5" x1="215" x2="230" y1="195" y2="195"></line>Output line<line stroke="#E91E63" stroke-width="2" x1="310" x2="360" y1="155" y2="155"></line>
+<text fill="#E91E63" font-size="14" font-weight="bold" x="345" y="145">Y</text>Tags<text fill="#aaa" font-size="12" text-anchor="middle" x="350" y="300">Figure: Three-input majority voter circuit structure</text>
 </svg>
 <p>Three AND gates check whether each of the three pairs "AB", "BC", and "AC" is 11, then the OR gate aggregates the results.</p>
 <hr/>
 <h2>Interactive demo: Python implementation of the majority voter</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 三输入多数表决器（runoob 演示）</span><br/>
-<span style="color: #a50"># 需求：三个人投票，至少两人赞成（1）时才通过（输出 1）</span><br/>
+<span style="color: #a50"># Three-input majority voter (runoob demo)</span><br/>
+<span style="color: #a50"># Requirement: three people vote; it passes (output 1) only when at least two approve (1).</span><br/>
 <br/>
-<span style="color: #a50"># ----- 复用第 6 讲的基本逻辑门 -----</span><br/>
+<span style="color: #a50"># ----- Reuse basic logic gates from Lecture 6 -----</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
@@ -311,9 +295,9 @@ OR 门（合并三个 AND 的输出）
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ----- 方法一：积之和（SOP）标准形式 -----</span><br/>
+<span style="color: #a50"># ----- Method 1: Sum-of-Products (SOP) standard form -----</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> majority_voter_sop<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> c<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>多数表决器的「积之和」实现。<br/>直接从真值表推导：找出所有输出为 1 的行，<br/>每行写一个与项，再用 OR 连接。<br/>
+    <span style="color: #a11;">"""<br/>The majority voter's sum-of-products implementation.<br/>Directly derive from the truth table: find all rows where the output is 1,<br/>Write one AND term per line, then connect with OR.<br/>
     """</span><br/>
     term1 <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><span style="color: Gray;">,</span> c<span style="color: Olive;">)</span>       <span style="color: #a50"># ~A·B·C</span><br/>
     term2 <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>b<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> c<span style="color: Olive;">)</span>       <span style="color: #a50"># A·~B·C</span><br/>
@@ -322,10 +306,10 @@ OR 门（合并三个 AND 的输出）
     <span style="color: Green;font-weight:bold;">return</span> OR<span style="color: Olive;">(</span>OR<span style="color: Olive;">(</span>term1<span style="color: Gray;">,</span> term2<span style="color: Olive;">)</span><span style="color: Gray;">,</span> OR<span style="color: Olive;">(</span>term3<span style="color: Gray;">,</span> term4<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ----- 方法二：优化简化形式 -----</span><br/>
+<span style="color: #a50"># ----- Method 2: Optimized simplified form -----</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> majority_voter_optimized<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> c<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>多数表决器的优化实现：Y = AB + BC + AC。<br/>这种形式需要的门更少，但逻辑等价于方法一。<br/>
-<br/>为什么等价？<br/>方法一的 SOP 形式展开后，利用布尔代数吸收律可以化简：<br/>
+    <span style="color: #a11;">"""<br/>Optimized implementation of majority voter: Y = AB + BC + AC.<br/>This form requires fewer gates, but is logically equivalent to method one.<br/>
+<br/>Why equivalent?<br/>After expanding the SOP form of Method 1, it can be simplified using the Boolean algebra absorption law:<br/>
     ~A·B·C + A·~B·C + A·B·~C + A·B·C<br/>
     = (~A·B·C + A·B·C) + (A·~B·C + A·B·C) + (A·B·~C + A·B·C)<br/>
     = B·C·(~A+A) + A·C·(~B+B) + A·B·(~C+C)<br/>
@@ -335,51 +319,51 @@ OR 门（合并三个 AND 的输出）
 <br/>
 <br/>
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 打印完整真值表，对比两种方法</span><br/>
+<span style="color: #a50"># Print the full truth table and compare the two methods</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  三输入多数表决器真值表（RUNOOB 演示）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Three-input majority voting truth table (RUNOOB demo)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"┌───┬───┬───┬────────┬──────────┬──────────┐"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"│ A │ B │ C │ 通过？ │ SOP 方法 │ 优化方法 │"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">│ A │ B │ C │ Pass? │ SOP Method │ Optimization Method │</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"├───┼───┼───┼────────┼──────────┼──────────┤"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
     <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
         <span style="color: Green;font-weight:bold;">for</span> c <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
             count <span style="color: Gray;">=</span> a + b + c<br/>
-            passed <span style="color: Gray;">=</span> <span style="color: #a11;">"通过"</span> <span style="color: Green;font-weight:bold;">if</span> count <span style="color: Gray;">&gt;=</span> <span style="color: Maroon;">2</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"未通过"</span><br/>
+            passed <span style="color: Gray;">=</span> <span style="color: #a11;">"Pass"</span> <span style="color: Green;font-weight:bold;">if</span> count <span style="color: Gray;">&gt;=</span> <span style="color: Maroon;">2</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"Failed"</span><br/>
             sop <span style="color: Gray;">=</span> majority_voter_sop<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> c<span style="color: Olive;">)</span><br/>
             opt <span style="color: Gray;">=</span> majority_voter_optimized<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> c<span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"│ {a} │ {b} │ {c} │  {passed}  │    {sop}     │    {opt}     │"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"└───┴───┴───┴────────┴──────────┴──────────┘"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 门电路使用统计</span><br/>
+<span style="color: #a50"># Gate circuit usage statistics</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  两种方法使用的门电路数量对比"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Comparison of the number of gates used by the two methods"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"方法一（SOP 完整形式）："</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  NOT 门: 3 个（~A, ~B, ~C）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  AND 门: 4 个（四个与项，每个需要 2 个 2 输入 AND）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  OR 门:  3 个（合并四个与项）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  总计:   约 14 个基本门调用"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Method 1 (SOP full form):</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">NOT gates: 3 (~A, ~B, ~C)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">AND gates: 4 (four AND terms, each requiring 2 two-input ANDs)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">OR gate: 3 (combining four product terms)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Total:   approximately 14 basic gate calls</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"方法二（优化形式 Y = AB + BC + AC）："</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  AND 门: 3 个（AB, BC, AC）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  OR 门:  2 个（合并三个与项）"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  总计:   5 个基本门调用"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Method 2 (optimized form Y = AB + BC + AC):"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">AND gates: 3 (AB, BC, AC)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">OR gate: 2 (combining three product terms)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Total:   5 basic gate calls"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"优化后减少了约 65% 的门电路使用量！"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"这就是布尔代数化简的工程价值。"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">After optimization, the gate count is reduced by about 65%!</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"This is the engineering value of Boolean algebra simplification."</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <blockquote><p>Note the conversion process from truth table to logic expression. This is one of the core skills in digital circuit design: seeing a truth table, you can write the expression; seeing an expression, you can draw the circuit diagram. The three correspond one-to-one.</p></blockquote>
 <hr/>
 <h2>Case 3: One-bit comparator</h2>
-<p><span class="marked">需求</span>Compare two 1-bit binary numbers A and B. Output three signals: A&gt;B, A=B, A&lt;B<b。< p="">
+<p><span class="marked">Requirements</span>Compare two 1-bit binary numbers A and B. Output three signals: A&gt;B, A=B, A&lt;B<b。< p="">
 <p>This is a very important basic circuit — multi-bit comparators and conditional judgments in CPUs are extended from here.</p>
 <h4>Step 1: Truth table</h4>
 <table class="reference">
@@ -392,17 +376,17 @@ OR 门（合并三个 AND 的输出）
 <h4>Step 2: Logic expression</h4>
 <p>Observe the truth table:</p>
 <ul>
-<li>A &gt; B 为 1 当且仅当：A=1 AND B=0。所以：Greater = A AND NOT(B)</li>
-<li>A = B 为 1 当且仅当：A 和 B 相同。所以：Equal = NOT(A XOR B)，或者说 Equal = (A AND B) OR (NOT(A) AND NOT(B))</li>
-<li>A &lt; B 为 1 当且仅当：A=0 AND B=1。所以：Less = NOT(A) AND B</li>
+<li>A &gt; B is 1 if and only if: A=1 AND B=0. So: Greater = A AND NOT(B)</li>
+<li>A = B is 1 if and only if：A and B Same.So：Equal = NOT(A XOR B), or说 Equal = (A AND B) OR (NOT(A) AND NOT(B))</li>
+<li>A &lt; B is 1 if and only if: A=0 AND B=1. Therefore: Less = NOT(A) AND B</li>
 </ul>
 <p>Note that the detection of A = B is closely related to the XOR gate. An XOR output of 1 means "different"; taking NOT of it gives "equal".</p>
 <h4>Step 3: Code implementation</h4>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 一位比较器（runoob 演示）</span><br/>
-<span style="color: #a50"># 比较两个 1 位二进制数 A 和 B</span><br/>
+<span style="color: #a50"># 1-bit comparator (runoob demo)</span><br/>
+<span style="color: #a50"># Compare two 1-bit binary numbers A and B</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
@@ -415,19 +399,19 @@ OR 门（合并三个 AND 的输出）
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> one_bit_comparator<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>一位比较器：比较 A 和 B。<br/>返回三元组 (Greater, Equal, Less)<br/>
+    <span style="color: #a11;">"""<br/>One-bit comparator: compares A and B.<br/>Return a tuple (Greater, Equal, Less).<br/>
     """</span><br/>
-    greater <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>b<span style="color: Olive;">)</span><span style="color: Olive;">)</span>   <span style="color: #a50"># A &gt; B: A=1 且 B=0</span><br/>
-    less <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>      <span style="color: #a50"># A &lt; B: A=0 且 B=1</span><br/>
-    <span style="color: #a50"># A = B: 既不是 greater 也不是 less</span><br/>
-    <span style="color: #a50"># 等价于 NOT(A XOR B)，这里用另一种实现</span><br/>
+    greater <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>b<span style="color: Olive;">)</span><span style="color: Olive;">)</span>   <span style="color: #a50"># A &gt; B: A=1 and B=0</span><br/>
+    less <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>      <span style="color: #a50"># A &lt; B: A=0 and B=1</span><br/>
+    <span style="color: #a50"># A = B: neither greater nor less</span><br/>
+    <span style="color: #a50"># Equivalent to NOT(A XOR B), here we use another implementation</span><br/>
     equal <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>greater<span style="color: Olive;">)</span><span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>less<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span>greater<span style="color: Gray;">,</span> equal<span style="color: Gray;">,</span> less<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 打印真值表</span><br/>
+<span style="color: #a50"># Print truth table</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  一位比较器真值表（RUNOOB 演示）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">One-bit Comparator Truth Table (RUNOOB Demo)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"┌───┬───┬────────┬────────┬────────┐"</span><span style="color: Olive;">)</span><br/>
@@ -439,19 +423,19 @@ OR 门（合并三个 AND 的输出）
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"│ {a} │ {b} │   {gt}    │   {eq}    │   {lt}    │"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"└───┴───┴────────┴────────┴────────┘"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 测试一些有用的场景</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>测试场景："</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Test some useful scenarios</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Test scenario: "</span><span style="color: Olive;">)</span><br/>
 a_test<span style="color: Gray;">,</span> b_test <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><br/>
 gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <span style="color: Gray;">=</span> one_bit_comparator<span style="color: Olive;">(</span>a_test<span style="color: Gray;">,</span> b_test<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"A={a_test}, B={b_test}: A&gt;B={gt}, A=B={eq}, A&lt;B={lt}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"解读：A 大于 B"</span> <span style="color: Green;font-weight:bold;">if</span> gt <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">(</span><span style="color: #a11;">"A 等于 B"</span> <span style="color: Green;font-weight:bold;">if</span> eq <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"A 小于 B"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Interpretation: A is greater than B"</span> <span style="color: Green;font-weight:bold;">if</span> gt <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">(</span><span style="color: #a11;">"A equals B"</span> <span style="color: Green;font-weight:bold;">if</span> eq <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"A is less than B"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Case 4: 2-to-4 decoder</h2>
-<p><span class="marked">需求</span>Input a 2-bit binary number (00, 01, 10, 11), and make exactly one of the corresponding 4 output lines equal to 1, with the rest equal to 0.</p>
+<p><span class="marked">Requirements</span>Input a 2-bit binary number (00, 01, 10, 11), and make exactly one of the corresponding 4 output lines equal to 1, with the rest equal to 0.</p>
 <p>The decoder is a core component in the CPU — when the CPU wants to select a register, it is essentially using a decoder.</p>
-<h4>真值表</h4>
+<h4>Truth table</h4>
 <table class="reference">
 <tr><th>A1</th><th>A0</th><th>Y0</th><th>Y1</th><th>Y2</th><th>Y3</th></tr>
 <tr><td>0</td><td>0</td><td><span class="tag1 green">1</span></td><td>0</td><td>0</td><td>0</td></tr>
@@ -459,7 +443,7 @@ gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <
 <tr><td>1</td><td>0</td><td>0</td><td>0</td><td><span class="tag1 green">1</span></td><td>0</td></tr>
 <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td><span class="tag1 green">1</span></td></tr>
 </table>
-<h4>逻辑表达式</h4>
+<h4>logical expression</h4>
 <ul>
 <li>Y0 = NOT(A1) AND NOT(A0)</li>
 <li>Y1 = NOT(A1) AND A0</li>
@@ -467,11 +451,11 @@ gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <
 <li>Y3 = A1 AND A0</li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 2-4 译码器（runoob 演示）</span><br/>
-<span style="color: #a50"># 输入：2 位二进制数 A1 A0</span><br/>
-<span style="color: #a50"># 输出：4 条线中恰好一条为 1</span><br/>
+<span style="color: #a50"># 2-4 decoder (runoob demo)</span><br/>
+<span style="color: #a50"># Input: 2-bit binary number A1 A0</span><br/>
+<span style="color: #a50"># Output: exactly one of the 4 lines is 1</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
@@ -481,7 +465,7 @@ gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> decoder_2to4<span style="color: Olive;">(</span>a1<span style="color: Gray;">,</span> a0<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>2 线到 4 线译码器。<br/>返回列表 [Y0, Y1, Y2, Y3]，<br/>其中恰好有一个为 1，其余为 0。<br/>
+    <span style="color: #a11;">"""<br/>2-to-4 line decoder.<br/>Return the list [Y0, Y1, Y2, Y3],<br/>Exactly one of them is 1, the rest are 0.<br/>
     """</span><br/>
     Y0 <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a1<span style="color: Olive;">)</span><span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>a0<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 00 → Y0</span><br/>
     Y1 <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a1<span style="color: Olive;">)</span><span style="color: Gray;">,</span> a0<span style="color: Olive;">)</span>       <span style="color: #a50"># 01 → Y1</span><br/>
@@ -490,9 +474,9 @@ gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span>Y0<span style="color: Gray;">,</span> Y1<span style="color: Gray;">,</span> Y2<span style="color: Gray;">,</span> Y3<span style="color: Olive;">]</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 打印真值表</span><br/>
+<span style="color: #a50"># Print truth table</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  2-4 译码器真值表（RUNOOB 演示）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">2-4 Decoder Truth Table (RUNOOB Demo)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"┌────┬────┬────┬────┬────┬────┐"</span><span style="color: Olive;">)</span><br/>
@@ -504,21 +488,21 @@ gt<span style="color: Gray;">,</span> eq<span style="color: Gray;">,</span> lt <
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"│ {a1}  │ {a0}  │ {Y[0]}  │ {Y[1]}  │ {Y[2]}  │ {Y[3]}  │"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"└────┴────┴────┴────┴────┴────┘"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 展示一个实际使用场景</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>实际应用场景：用译码器选择寄存器"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Show an actual usage scenario</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Practical application scenario: using a decoder to select registers</span><span style="color: Olive;">)</span><br/>
 registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"R0"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"R1"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"R2"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"R3"</span><span style="color: Olive;">]</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a1 <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
     <span style="color: Green;font-weight:bold;">for</span> a0 <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
         Y <span style="color: Gray;">=</span> decoder_2to4<span style="color: Olive;">(</span>a1<span style="color: Gray;">,</span> a0<span style="color: Olive;">)</span><br/>
-        idx <span style="color: Gray;">=</span> Y.<span style="color: #05a;">index</span><span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span>          <span style="color: #a50"># 找到哪条输出线为 1</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  地址 A1A0={a1}{a0} → 选择寄存器 {registers[idx]}"</span><span style="color: Olive;">)</span><br/>
+        idx <span style="color: Gray;">=</span> Y.<span style="color: #05a;">index</span><span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span>          <span style="color: #a50"># Find which output line is 1</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Address A1A0={a1}{a0} → selects register {registers[idx]}</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <blockquote><p>The decoder is a classic "one-to-many" circuit. Its counterpart is the multiplexer (MUX), which is "many-to-one". Both are very common in CPU data-path design. The decoder is used to "select a target" (such as which register to write), while the multiplexer is used to "select a source" (such as which register the ALU reads data from).</p></blockquote>
 <hr/>
 <h2>Universal gates: what makes NAND and NOR special</h2>
 <p>In actual chip manufacturing, NAND and NOR gates are more "low-level" than AND and OR gates.</p>
-<p><span class="marked">NAND 门 = AND + NOT</span>That is, do AND first, then invert. NAND and NOR are called "universal gates" because each one alone can implement all Boolean functions.</p>
+<p><span class="marked">NAND gate = AND + NOT</span>That is, do AND first, then invert. NAND and NOR are called "universal gates" because each one alone can implement all Boolean functions.</p>
 <p>Why do chips favor NAND/NOR? Because in CMOS technology:</p>
 <ul>
 <li>A NAND gate requires only 4 transistors, while an AND gate requires 6 (AND = NAND + NOT).</li>
@@ -527,67 +511,67 @@ registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
 </ul>
 <p>Next, let's verify the "universality" of the NAND gate:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 证明 NAND 门的通用性（runoob 演示）</span><br/>
-<span style="color: #a50"># NAND 门单独就可以实现 NOT、AND、OR 三种基本功能</span><br/>
+<span style="color: #a50"># Proving the universality of the NAND gate (runoob demo)</span><br/>
+<span style="color: #a50"># NAND gate alone can implement the three basic functions: NOT, AND, OR</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""NAND 门：AND 的结果取反。<br/>Y = 0 当且仅当 a=1 且 b=1"""</span><br/>
+    <span style="color: #a11;">"""NAND gate: the result of AND is inverted.<br/>Y = 0 if and only if a=1 and b=1"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">1</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 用 NAND 实现 NOT：NOT(A) = NAND(A, A)</span><br/>
+<span style="color: #a50">Implement NOT using NAND: NOT(A) = NAND(A, A)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> NOT_from_NAND<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> a<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 用 NAND 实现 AND：AND(A,B) = NOT(NAND(A,B)) = NAND(NAND(A,B), NAND(A,B))</span><br/>
+<span style="color: #a50"># use NAND Implementation AND：AND(A,B) = NOT(NAND(A,B)) = NAND(NAND(A,B), NAND(A,B))</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> AND_from_NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
     nand_ab <span style="color: Gray;">=</span> NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> NAND<span style="color: Olive;">(</span>nand_ab<span style="color: Gray;">,</span> nand_ab<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 用 NAND 实现 OR：OR(A,B) = NAND(NOT(A), NOT(B))</span><br/>
+<span style="color: #a50"># Implement OR using NAND: OR(A,B) = NAND(NOT(A), NOT(B))</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> OR_from_NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> NAND<span style="color: Olive;">(</span>NOT_from_NAND<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><span style="color: Gray;">,</span> NOT_from_NAND<span style="color: Olive;">(</span>b<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 验证</span><br/>
+<span style="color: #a50"># Verify</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  证明 NAND 门的通用性（RUNOOB 演示）"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Demonstrate the universality of NAND gates (RUNOOB demo).</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[验证：NAND 实现的 NOT]"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Verify: NOT implemented by NAND]"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
     expected <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
     actual <span style="color: Gray;">=</span> NOT_from_NAND<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}: NOT_from_NAND = {actual}, 期望 = {expected}, {'通过' if actual == expected else '失败'}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}: NOT_from_NAND = {actual}, period望 = {expected}, {'Through' if actual == expected else 'failure'}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[验证：NAND 实现的 AND]"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Verify: AND implemented by NAND]"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
     <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
         expected <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
         actual <span style="color: Gray;">=</span> AND_from_NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}, B={b}: AND_from_NAND = {actual}, 期望 = {expected}, {'通过' if actual == expected else '失败'}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}, B={b}: AND_from_NAND = {actual}, period望 = {expected}, {'Through' if actual == expected else 'failure'}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[验证：NAND 实现的 OR]"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[Verification: OR implemented with NAND]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
     <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span>:<br/>
         expected <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">or</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
         actual <span style="color: Gray;">=</span> OR_from_NAND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}, B={b}: OR_from_NAND = {actual}, 期望 = {expected}, {'通过' if actual == expected else '失败'}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}, B={b}: OR_from_NAND = {actual}, period望 = {expected}, {'Through' if actual == expected else 'failure'}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>结论：只需 NAND 一种门，就能构造出 ANY 布尔函数。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"这就是为什么 nand2tetris 课程从 NAND 门开始就能搭建整台计算机。"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Conclusion: Only NAND gates are needed to construct ANY Boolean function.</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">This is why the nand2tetris course can build an entire computer starting from NAND gates.</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <blockquote><p>nand2tetris (From NAND to Tetris) is a famous computer science course. It challenges you to build a CPU, memory, and operating system step by step using only NAND gates, and finally run a Tetris game. If you're interested in the low-level details of computers, I highly recommend it.</p></blockquote>
 <hr/>
 <h2>Interactive demo: Majority voter circuit builder (runoob vis-network demo)</h2>
-<p>下方使用<strong>vis-network</strong>It visualizes a three-input majority voter circuit (Y = AB + BC + AC).<span class="marked">点击输入节点 A、B、C 切换 0/1</span>, the circuit will automatically evaluate and update the colors of all wires —<span style="color:#f44336;">红色</span>indicates the signal is 1,<span style="color:#888;">灰色</span>indicates the signal is 0.</p>
+<p>Use below<strong>vis-network</strong>It visualizes a three-input majority voter circuit (Y = AB + BC + AC).<span class="marked">Click input nodes A, B, C to toggle 0/1</span>, the circuit will automatically evaluate and update the colors of all wires —<span style="color:#f44336;">Red</span>indicates the signal is 1,<span style="color:#888;">gray</span>indicates the signal is 0.</p>
 <style>
 /* === runoob 演示专用样式：vis-network 电路画布 === */
 #circuit-demo {
@@ -634,14 +618,14 @@ registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
 <div id="circuit-demo">
 <h3 style="color:#FF9800;text-align:center;margin:0 0 12px 0;">Three-input majority voter (click A/B/C nodes to toggle)</h3>
 <div id="circuit-network"></div>
-<div class="circuit-info" id="circuitResult">A=0, B=0, C=0 → 未通过（至少需要 2 票赞成）</div>
+<div class="circuit-info" id="circuitResult">A=0, B=0, C=0 → Not passed (requires at least 2 votes in favor)</div>
 <div class="circuit-legend">
-<span><span class="legend-dot" style="background:#4C7EAF;"></span>输入节点 A</span>
-<span><span class="legend-dot" style="background:#FF9800;"></span>输入节点 B</span>
-<span><span class="legend-dot" style="background:#2196F3;"></span>输入节点 C</span>
-<span><span class="legend-dot" style="background:#9C27B0;"></span>AND 门</span>
-<span><span class="legend-dot" style="background:#E91E63;"></span>OR 门</span>
-<span><span class="legend-dot" style="background:#FF5722;"></span>输出 Y</span>
+<span><span class="legend-dot" style="background:#4C7EAF;"></span>Input node A</span>
+<span><span class="legend-dot" style="background:#FF9800;"></span>Input node B</span>
+<span><span class="legend-dot" style="background:#2196F3;"></span>Input node C</span>
+<span><span class="legend-dot" style="background:#9C27B0;"></span>AND gate</span>
+<span><span class="legend-dot" style="background:#E91E63;"></span>OR gate</span>
+<span><span class="legend-dot" style="background:#FF5722;"></span>Output Y</span>
 </div>
 </div>
 <script src="../static.jyshare.com/assets/libs/vis-network.min.js"></script>
@@ -769,22 +753,17 @@ registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
   /* --- 初始化 --- */
   updateWires();
 })();
-</script>
-其他扩展
-</b。<></p></div>
+</script>other extensions</b。<></p></div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/boolean-algebra-logic-gates.html" rel="prev">布尔代数基础 — AND / OR / NOT / XOR</a> </div>
-<div class="next-design-link"><a href="../computer-organization/from-gates-to-adder.html" rel="next">从逻辑门到加法器</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/boolean-algebra-logic-gates.html" rel="prev">Boolean Algebra Basics — AND / OR / NOT / XOR</a> </div>
+<div class="next-design-link"><a href="../computer-organization/from-gates-to-adder.html" rel="next">From logic gates to adders</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -888,16 +867,16 @@ registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -905,14 +884,14 @@ registers <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31877"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1090,7 +1069,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1181,7 +1160,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hermes Agent 检查点、定时任务与持久目标 | 菜鸟教程</title>
+<title>Hermes Agent Checkpoints, Scheduled Tasks, and Persistent Goals | Beginner Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="检查点、定时任务与持久目标 本章介绍 Hermes 的三种自动化与安全保障机制：检查点在执行危险操作前保护你的文件，定时任务让 Agent 按计划自主执行，持久目标让 Agent 跨会话推进长期工作。   检查点与回滚 Hermes 提供文件系统级别的检查点（Checkpoint）机制，让你可以在 Agent 执行危险操作前创建快照，并在需要时回滚。  手动创建与恢复   实例  [mycode4 type='bash.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-dashboard.html" rel="prev">Hermes Agent 部署模式与 Dashboard</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-delegation.html" rel="next">Hermes Agent 子 Agent 委托与批量处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-dashboard.html" rel="prev">Hermes Agent deployment modes and Dashboard</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-delegation.html" rel="next">Hermes Agent sub-agent delegation and batch processing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -170,84 +170,84 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Hermes provides a filesystem-level checkpoint mechanism that lets you create snapshots before the Agent executes dangerous operations, and roll back when needed.</p>
 <h3>Manual Creation and Recovery</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 会话中手动创建检查点</span><br/>
-<span style="color: #000000; font-weight: bold;">/</span>checkpoint 重构前的状态<br/>
+<span style="color: #666666; font-style: italic;"># Manually create a checkpoint in the session</span><br/>
+<span style="color: #000000; font-weight: bold;">/</span>Checkpoint the state before refactoring<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 列出所有检查点</span><br/>
+<span style="color: #666666; font-style: italic;"># List all checkpoints</span><br/>
 <span style="color: #000000; font-weight: bold;">/</span>rollback<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 回滚到指定检查点</span><br/>
+<span style="color: #666666; font-style: italic;"># Roll back to the specified checkpoint</span><br/>
 <span style="color: #000000; font-weight: bold;">/</span>rollback <span style="color: #000000;">2</span><br/>
 </div>
 </div>
-<h3>命令行管理</h3>
+<h3>Command-line management</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 列出所有检查点</span><br/>
+<span style="color: #666666; font-style: italic;"># List all checkpoints</span><br/>
 hermes checkpoints list<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 恢复到指定检查点</span><br/>
+<span style="color: #666666; font-style: italic;"># Restore to the specified checkpoint</span><br/>
 hermes checkpoints restore <span style="color: #000000; font-weight: bold;">&lt;</span><span style="color: #C20CB9; font-weight: bold;">id</span><span style="color: #000000; font-weight: bold;">&gt;</span><br/>
 </div>
 </div>
-<p><span class="tag1">自动检查点</span>: Before executing high-risk operations (such as large-scale file modifications, database changes), the Agent automatically creates a checkpoint without manual intervention.</p>
+<p><span class="tag1">Automatic checkpoint</span>: Before executing high-risk operations (such as large-scale file modifications, database changes), the Agent automatically creates a checkpoint without manual intervention.</p>
 <blockquote><p>Checkpoints are filesystem-level snapshots, suitable for manually creating one before having the Agent perform large-scale refactoring or data migration. It is not a replacement for Git commits, but an additional safety guarantee.</p></blockquote>
 <hr/>
 <h2>Scheduled Tasks (Cron)</h2>
 <p>Hermes has a built-in first-class Cron scheduling system that supports scheduling plans in multiple formats.</p>
 <h3>Create Scheduled Tasks</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 交互式创建定时任务</span><br/>
+<span style="color: #666666; font-style: italic;"># Interactively create scheduled tasks</span><br/>
 hermes cron create<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 命令行创建每日早报任务</span><br/>
+<span style="color: #666666; font-style: italic;"># Create a daily morning report task from the command line</span><br/>
 hermes cron create \<br/>
   <span style="color: #660033;">--name</span> <span style="color: #a10;">"daily-briefing"</span> \<br/>
   <span style="color: #660033;">--schedule</span> <span style="color: #a10;">"0 8 * * *"</span> \<br/>
-  <span style="color: #660033;">--prompt</span> <span style="color: #a10;">"搜索今天的 AI 领域最新进展，发送摘要到 Telegram"</span> \<br/>
+  <span style="color: #660033;">--prompt</span> <span style="color: #a10;">Search for the latest developments in the AI field today and send the summary to Telegram</span> \<br/>
   <span style="color: #660033;">--platform</span> telegram \<br/>
   <span style="color: #660033;">--chat-id</span> <span style="color: #000000;">123456789</span><br/>
 </div>
 </div>
 <h3>Manage Scheduled Tasks</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 列出所有任务</span><br/>
+<span style="color: #666666; font-style: italic;"># List All Tasks</span><br/>
 hermes cron list<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 暂停/恢复/删除任务</span><br/>
+<span style="color: #666666; font-style: italic;"># Pause/Resume/Delete tasks</span><br/>
 hermes cron pause daily-briefing<br/>
 hermes cron resume daily-briefing<br/>
 hermes cron delete daily-briefing<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 立即执行一次（用于测试）</span><br/>
+<span style="color: #666666; font-style: italic;"># Execute once now (for testing)</span><br/>
 hermes cron run daily-briefing<br/>
 </div>
 </div>
 <h3>Managing Cron in a Session</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 在任意平台的会话中使用斜杠命令管理定时任务</span><br/>
-<span style="color: #000000; font-weight: bold;">/</span>cron list                 <span style="color: #666666; font-style: italic;"># 查看所有任务</span><br/>
-<span style="color: #000000; font-weight: bold;">/</span>cron pause <span style="color: #000000; font-weight: bold;">&lt;</span>name<span style="color: #000000; font-weight: bold;">&gt;</span>         <span style="color: #666666; font-style: italic;"># 暂停指定任务</span><br/>
-<span style="color: #000000; font-weight: bold;">/</span>cron resume <span style="color: #000000; font-weight: bold;">&lt;</span>name<span style="color: #000000; font-weight: bold;">&gt;</span>        <span style="color: #666666; font-style: italic;"># 恢复指定任务</span><br/>
+<span style="color: #666666; font-style: italic;"># Use slash commands to manage scheduled tasks in sessions on any platform.</span><br/>
+<span style="color: #000000; font-weight: bold;">/</span>cron list                 <span style="color: #666666; font-style: italic;"># View All Tasks</span><br/>
+<span style="color: #000000; font-weight: bold;">/</span>cron pause <span style="color: #000000; font-weight: bold;">&lt;</span>name<span style="color: #000000; font-weight: bold;">&gt;</span>         <span style="color: #666666; font-style: italic;"># Pause Specified Task</span><br/>
+<span style="color: #000000; font-weight: bold;">/</span>cron resume <span style="color: #000000; font-weight: bold;">&lt;</span>name<span style="color: #000000; font-weight: bold;">&gt;</span>        <span style="color: #666666; font-style: italic;"># Resume Specified Task</span><br/>
 </div>
 </div>
 <h3>Cron Configuration Format</h3>
 <p>Each scheduled task is an independent JSON file:</p>
 <div class="example">
-<h2 class="example">实例</h2>
-<div class="example_code">// 文件路径：~/.hermes/cron/daily-briefing.json<br/>
+<h2 class="example">Example</h2>
+<div class="example_code">// File path: ~/.hermes/cron/daily-briefing.json<br/>
 {<br/>
   "name": "daily-briefing",<br/>
-  "schedule": "0 8 * * *",<br/>"prompt": "搜索今天的 AI 领域最新进展，汇总成简报",<br/>
+  "schedule": "0 8 * * *",<br/>"prompt": "Search for the latest AI developments today and compile into a briefing"<br/>
   "platform": "telegram",<br/>
   "chat_id": "123456789",<br/>
   "toolsets": ["web", "memory"],<br/>
@@ -257,37 +257,37 @@ hermes cron run daily-briefing<br/>
 </div>
 <h3>Supported Scheduling Formats</h3>
 <table class="reference">
-<tr><th>格式</th><th>示例</th><th>含义</th></tr>
+<tr><th>Formatting</th><th>Example</th><th>Meaning</th></tr>
 <tr><td>Cron Expressions</td><td>"0 8 * * *"</td><td>Every day at 8 AM</td></tr>
-<tr><td>人类语言</td><td>"every day at 8am"</td><td>同上</td></tr>
-<tr><td>间隔</td><td>"every 2 hours"</td><td>Execute every 2 hours</td></tr>
+<tr><td>Human language</td><td>"every day at 8am"</td><td>Same as above</td></tr>
+<tr><td>Interval</td><td>"every 2 hours"</td><td>Execute every 2 hours</td></tr>
 </table>
 <h3>Cron Security: Handling Dangerous Commands</h3>
-<p>When a dangerous command requiring approval is encountered in a scheduled task, the default behavior is<span class="tag1">拒绝</span>(instead of waiting for approval—because no one will be waiting at 4 AM to click approve):</p>
+<p>When a dangerous command requiring approval is encountered in a scheduled task, the default behavior is<span class="tag1">Reject</span>(instead of waiting for approval—because no one will be waiting at 4 AM to click approve):</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 定时任务的审批策略</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Approval policy for scheduled tasks</span><span style="color: #007F45;"><br/>
 approvals</span>:<span style="color: green;"><br/>
-  cron_mode</span><span style="font-weight: bold; color: brown;">: </span>deny     <span style="color: blue;"># deny（默认）| approve（自动批准，谨慎使用）</span><br/>
+  cron_mode</span><span style="font-weight: bold; color: brown;">: </span>deny     <span style="color: blue;"># deny (default) | approve (auto-approve, use with caution)</span><br/>
 </div>
 </div>
 <blockquote><p>cron_mode: approve means dangerous commands in scheduled tasks are automatically approved and executed—use only in scenarios where you fully trust the task content.</p></blockquote>
 <hr/>
-<h2>持久目标（Persistent Goals）</h2>
+<h2>Persistent Goals</h2>
 <p>Persistent goals allow Hermes to autonomously advance long-term tasks across multiple sessions, without you needing to remind it each time.</p>
 <h3>Manage Persistent Targets</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 设置一个持久目标</span><br/>
-hermes goals add <span style="color: #a10;">"每周监控 GitHub 上 Hermes Agent 的 Issue，<br/>汇总未解决问题发到 Slack"</span><br/>
+<span style="color: #666666; font-style: italic;"># Set a persistent goal</span><br/>
+hermes goals add <span style="color: #a10;">"Monitor Hermes Agent's Issues on GitHub weekly,"<br/>Summarize unresolved issues and send to Slack"</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 查看所有目标</span><br/>
+<span style="color: #666666; font-style: italic;"># View All Targets</span><br/>
 hermes goals list<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 暂停/完成/删除目标</span><br/>
+<span style="color: #666666; font-style: italic;"># Pause/Complete/Delete Target</span><br/>
 hermes goals pause <span style="color: #000000; font-weight: bold;">&lt;</span><span style="color: #C20CB9; font-weight: bold;">id</span><span style="color: #000000; font-weight: bold;">&gt;</span><br/>
 hermes goals <span style="color: #7A0874; font-weight: bold;">complete</span> <span style="color: #000000; font-weight: bold;">&lt;</span><span style="color: #C20CB9; font-weight: bold;">id</span><span style="color: #000000; font-weight: bold;">&gt;</span><br/>
 hermes goals delete <span style="color: #000000; font-weight: bold;">&lt;</span><span style="color: #C20CB9; font-weight: bold;">id</span><span style="color: #000000; font-weight: bold;">&gt;</span><br/>
@@ -295,29 +295,24 @@ hermes goals delete <span style="color: #000000; font-weight: bold;">&lt;</span>
 </div>
 <h3>Persistent Goals vs. Scheduled Tasks</h3>
 <table class="reference">
-<tr><th>对比维度</th><th>Scheduled Tasks (Cron)</th><th>Persistent Goals (Goals)</th></tr>
-<tr><td>触发方式</td><td>Automatically triggered at fixed times</td><td>Agent autonomously decides when to act</td></tr>
-<tr><td>执行内容</td><td>Fixed prompt, identical every time</td><td>The Agent dynamically makes decisions based on context</td></tr>
-<tr><td>状态跟踪</td><td>None (executed independently each time)</td><td>Track Progress</td></tr>
-<tr><td>适用场景</td><td>Periodic reports, daily summaries</td><td>Long-term tasks requiring contextual judgment</td></tr>
-<tr><td>典型示例</td><td>Send AI news at 8 AM every morning</td><td>Continuously monitor issues in a repository and follow up</td></tr>
+<tr><th>Comparison Dimension</th><th>Scheduled Tasks (Cron)</th><th>Persistent Goals (Goals)</th></tr>
+<tr><td>Trigger Method</td><td>Automatically triggered at fixed times</td><td>Agent autonomously decides when to act</td></tr>
+<tr><td>Execution content</td><td>Fixed prompt, identical every time</td><td>The Agent dynamically makes decisions based on context</td></tr>
+<tr><td>State tracking</td><td>None (executed independently each time)</td><td>Track Progress</td></tr>
+<tr><td>Applicable scenarios</td><td>Periodic reports, daily summaries</td><td>Long-term tasks requiring contextual judgment</td></tr>
+<tr><td>Typical example</td><td>Send AI news at 8 AM every morning</td><td>Continuously monitor issues in a repository and follow up</td></tr>
 </table>
-<blockquote><p>Cron is suitable for "doing fixed things at fixed times," while persistent goals are suitable for "Agent, use your judgment—here's the goal, you set the pace yourself." The two complement each other rather than substitute for each other.</p></blockquote>
-其他扩展
-</div>
+<blockquote><p>Cron is suitable for "doing fixed things at fixed times," while persistent goals are suitable for "Agent, use your judgment—here's the goal, you set the pace yourself." The two complement each other rather than substitute for each other.</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-dashboard.html" rel="prev">Hermes Agent 部署模式与 Dashboard</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-delegation.html" rel="next">Hermes Agent 子 Agent 委托与批量处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-dashboard.html" rel="prev">Hermes Agent deployment modes and Dashboard</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-delegation.html" rel="next">Hermes Agent sub-agent delegation and batch processing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -421,16 +416,16 @@ hermes goals delete <span style="color: #000000; font-weight: bold;">&lt;</span>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -438,14 +433,14 @@ hermes goals delete <span style="color: #000000; font-weight: bold;">&lt;</span>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31593"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -623,7 +618,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -714,7 +709,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>一条指令的完整旅程 | 菜鸟教程</title>
+<title>The complete journey of an instruction | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="一条指令的完整旅程 从第一讲的二进制基础，到上一讲的 I/O 系统——我们已经学完了计算机组成原理的全部核心内容。本讲将把这些知识点串成一条线，追踪一条指令从出生到完成的完整旅程。 我们将实现一个完整的冯·诺依曼计算机模拟器（FullComputer），它包含：四层存储结构（硬盘、内存、缓存、寄存器）、DMA 数据传输、取指-译码-执行-写回四阶段流水线、总线交互、缓存命中率统计。最后打印一份完整的执行报告。   回顾：六个模块的知识地.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,109 +158,109 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/io-polling-interrupt-dma.html" rel="prev">I/O 的三种方式 — 轮询、中断、DMA</a> </div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/io-polling-interrupt-dma.html" rel="prev">Three I/O methods — polling, interrupt, DMA</a> </div>
 <div class="next-design-link"></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>The Complete Journey of an Instruction</h1>
 <p>From the binary basics in Lecture 1 to the I/O system in the previous lecture, we have covered all the core content of computer organization principles. This lecture will string these knowledge points together into a single line, tracing the complete journey of an instruction from birth to completion.</p>
-<p>We will implement a complete<span class="marked">冯·诺依曼计算机模拟器（FullComputer）</span>, it includes: four-level storage structure (hard disk, memory, cache, registers), DMA data transfer, four-stage pipeline of fetch-decode-execute-writeback, bus interaction, cache hit rate statistics. Finally, print a complete execution report.</p>
+<p>We will implement a complete<span class="marked">von Neumann Computer Simulator (FullComputer)</span>, it includes: four-level storage structure (hard disk, memory, cache, registers), DMA data transfer, four-stage pipeline of fetch-decode-execute-writeback, bus interaction, cache hit rate statistics. Finally, print a complete execution report.</p>
 <hr/>
 <h2>Review: Knowledge Map of Six Modules</h2>
 <p>Before starting the end-to-end simulation, let's quickly review the core concepts of each of the six modules in this course:</p>
 <table class="reference">
-<tr><th>模块</th><th>主题</th><th>核心概念</th><th>Embodiment in this lecture</th></tr>
-<tr><td>第一模块</td><td>Binary and Information Representation</td><td>0/1 encoding, base conversion, two's complement, floating-point numbers</td><td>Both instructions and data are stored in binary form in memory.</td></tr>
-<tr><td>第二模块</td><td>Logic Gates and Digital Circuits</td><td>AND/OR/NOT gates, Adders, ALU</td><td>The ALU operations in the execution stage are implemented by gate circuits.</td></tr>
-<tr><td>第三模块</td><td>Von Neumann architecture</td><td>Five Major Components, Stored Program, Instruction Cycle</td><td>What this lecture simulates is a complete von Neumann machine.</td></tr>
-<tr><td>第四模块</td><td>CPU 原理</td><td>Registers, PC, IR, pipeline, four stages</td><td>All four stages of fetch-decode-execute-writeback are simulated.</td></tr>
-<tr><td>第五模块</td><td>存储系统</td><td>Memory Hierarchy, Cache, Principle of Locality</td><td>Hard disk → memory → cache → registers, the full chain of four-level storage.</td></tr>
-<tr><td>第六模块</td><td>Bus and I/O</td><td>Address/data/control buses, polling/interrupt/DMA</td><td>DMA loads the program, the bus transfers data, cache line filling.</td></tr>
+<tr><th>Module</th><th>topic</th><th>Core Concepts</th><th>Embodiment in this lecture</th></tr>
+<tr><td>Module 1</td><td>Binary and Information Representation</td><td>0/1 encoding, base conversion, two's complement, floating-point numbers</td><td>Both instructions and data are stored in binary form in memory.</td></tr>
+<tr><td>Module 2</td><td>Logic Gates and Digital Circuits</td><td>AND/OR/NOT gates, Adders, ALU</td><td>The ALU operations in the execution stage are implemented by gate circuits.</td></tr>
+<tr><td>Module 3</td><td>Von Neumann architecture</td><td>Five Major Components, Stored Program, Instruction Cycle</td><td>What this lecture simulates is a complete von Neumann machine.</td></tr>
+<tr><td>Module 4</td><td>CPU principles</td><td>Registers, PC, IR, pipeline, four stages</td><td>All four stages of fetch-decode-execute-writeback are simulated.</td></tr>
+<tr><td>Module 5</td><td>Storage system</td><td>Memory Hierarchy, Cache, Principle of Locality</td><td>Hard disk → memory → cache → registers, the full chain of four-level storage.</td></tr>
+<tr><td>Module 6</td><td>Bus and I/O</td><td>Address/data/control buses, polling/interrupt/DMA</td><td>DMA loads the program, the bus transfers data, cache line filling.</td></tr>
 </table>
 <hr/>
 <h2>The Complete Lifecycle of an Instruction</h2>
 <p>We use a simple pseudo-instruction<code>ADD A, B</code>(add the values of register A and B, store the result back to A) as an example to trace its complete journey:</p>
 <h3>Journey Step 1: The program is stored on the hard disk</h3>
-<p>The program is initially stored on the hard disk as a file. The hard disk is<span class="tag1">持久化存储</span>, data is not lost after power-off, but the read/write speed is the slowest (millisecond level).</p>
+<p>The program is initially stored on the hard disk as a file. The hard disk is<span class="tag1">persistent storage</span>, data is not lost after power-off, but the read/write speed is the slowest (millisecond level).</p>
 <h3>Step 2 of the journey: DMA loads the program into memory.</h3>
 <p>When you double-click to run the program, the operating system, through<span class="marked">DMA</span>Move the program from the hard disk to memory. The DMA controller takes over the data movement work, and the CPU can do other things during this time.</p>
 <h3>Step 3 of the journey: the CPU fetches an instruction via the bus.</h3>
-<p>The CPU places the value of the program counter (PC) onto the<span class="marked">地址总线</span>上，在<span class="marked">控制总线</span>and issues a "read" signal. After receiving the signal, the memory places the instruction at the corresponding address onto the<span class="marked">数据总线</span>, and the CPU reads it into the instruction register (IR).</p>
+<p>The CPU places the value of the program counter (PC) onto the<span class="marked">Address bus</span>On, at<span class="marked">Control bus</span>and issues a "read" signal. After receiving the signal, the memory places the instruction at the corresponding address onto the<span class="marked">Data bus</span>, and the CPU reads it into the instruction register (IR).</p>
 <h3>Step 4 of the journey: decode — the controller parses the instruction.</h3>
 <p>The ADD A, B in the instruction register is decomposed into three parts: opcode ADD, destination operand A, source operand B. The controller decides the next operation based on the opcode.</p>
 <h3>Step 5 of the journey: execute — the ALU performs the operation.</h3>
 <p>The controller sends control signals, causing the ALU to take values from registers A and B, perform the addition operation, and temporarily store the result at the ALU output.</p>
 <h3>Journey Step 6: Write-back — the result is stored into registers via the data bus</h3>
-<p>The ALU calculation results pass through<span class="marked">数据总线</span>Write back to register A. At this point, one instruction has completed execution. The PC is automatically incremented by 1 to point to the next instruction.</p>
+<p>The ALU calculation results pass through<span class="marked">Data bus</span>Write back to register A. At this point, one instruction has completed execution. The PC is automatically incremented by 1 to point to the next instruction.</p>
 <hr/>
 <h2>Code demonstration: FullComputer complete simulation.</h2>
 <p>The FullComputer class below fully simulates the entire process described above. It contains over 300 lines of code, covering the knowledge points of all six modules in this course. Each step prints detailed logs.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>FullComputer - 完整冯·诺依曼计算机模拟器（runoob 教学演示）<br/>
-<br/>本程序实现了一台完整的（简化版）冯·诺依曼计算机，包含：<br/>- 四层存储: 硬盘 (Disk) → 内存 (Memory) → 缓存 (Cache) → 寄存器 (Register)<br/>- DMA 控制器: 自动将程序从硬盘搬运到内存<br/>- 三种总线: 地址总线、数据总线、控制总线<br/>- 四阶段执行: 取指 (Fetch) → 译码 (Decode) → 执行 (Execute) → 写回 (WriteBack)<br/>- 统计系统: 缓存命中率、指令计数、总线使用次数、执行时间<br/>
-<br/>支持指令集:<br/>LOAD reg value   - 将立即数加载到寄存器<br/>STORE reg addr   - 将寄存器值存入内存地址<br/>
+<span style="color: #a11;">"""<br/>FullComputer - Complete von Neumann Computer Simulator (runoob Teaching Demo)<br/>
+<br/>This program implements a complete (simplified) von Neumann computer, including:<br/>- Four-tier storage: Disk → Memory → Cache → Register<br/>- DMA controller: automatically moves programs from hard disk to memory<br/>- Three types of buses: address bus, data bus, control bus.<br/>- fourPhaseExecute: 取指 (Fetch) → translatecode (Decode) → Execute (Execute) → write回 (WriteBack)<br/>- Statistics system: cache hit rate, instruction count, bus usage count, execution time<br/>
+<br/>Supported instruction set:<br/>LOAD reg value   - Load immediate value into register<br/>STORE reg addr   - Store the register value into the memory address<br/>
   ADD dst src      - dst = dst + src<br/>
   SUB dst src      - dst = dst - src<br/>
-  MUL dst src      - dst = dst * src<br/>CMP a b          - 比较两个寄存器，设置标志位<br/>JMP addr         - 无条件跳转<br/>JZ addr          - 如果零标志为真则跳转<br/>
-<br/>运行方式: python fullcomputer.py<br/>
+  MUL dst src      - dst = dst * src<br/>CMP a b          - Compare two registers, set flags<br/>JMP addr         - unconditional jump<br/>JZ addr          - Jump if zero flag is true<br/>
+<br/>How to run: python fullcomputer.py<br/>
 """</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">time</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 1. 存储系统 - 四层结构</span><br/>
+<span style="color: #a50"># 1. Storage System - Four-layer Structure</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Disk:<br/>
-    <span style="color: #a11;">"""<br/>硬盘 - 最底层的持久化存储。<br/>速度最慢（毫秒级），容量最大，断电不丢失数据。<br/>
+    <span style="color: #a11;">"""<br/>Hard disk - the lowest-level persistent storage.<br/>Slowest speed (millisecond level), largest capacity, data is not lost on power outage.<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">sectors</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>          <span style="color: #a50"># 扇区存储，模拟硬盘扇区</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">read_latency</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">5</span>      <span style="color: #a50"># 读延迟（模拟时间单位）</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">write_latency</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">8</span>     <span style="color: #a50"># 写延迟</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">sectors</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>          <span style="color: #a50"># Sector storage, simulating hard disk sectors</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">read_latency</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">5</span>      <span style="color: #a50"># Read latency (simulated time unit)</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">write_latency</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">8</span>     <span style="color: #a50"># Write latency</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> load_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> program_name<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""加载存储在硬盘上的程序。返回 None 表示程序不存在。"""</span><br/>
+        <span style="color: #a11;">Load the program stored on the hard disk. Return None if the program does not exist.</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> program_name <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">sectors</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [硬盘] 找到程序 '{program_name}'，大小: {len(self.sectors[program_name])} 条指令"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [硬disk] 找toCoursesequence '{program_name}'，Size: {len(self.sectors[program_name])} 条Directive"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">sectors</span><span style="color: Olive;">[</span>program_name<span style="color: Olive;">]</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [硬盘] 程序 '{program_name}' 未找到！"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Hard disk] Program '{program_name}' not found!</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> store_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> name<span style="color: Gray;">,</span> program<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""将程序存入硬盘"""</span><br/>
+        <span style="color: #a11;">"""Store the program into the hard disk"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">sectors</span><span style="color: Olive;">[</span>name<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> program<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [硬盘] 已存储程序 '{name}' ({len(program)} 条指令) 到扇区 0x{hash(name) &amp; 0xFFFF:04X}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [硬disk] 已StorageCoursesequence '{name}' ({len(program)} 条Directive) to扇区 0x{hash(name) &amp; 0xFFFF:04X}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Memory:<br/>
-    <span style="color: #a11;">"""<br/>主内存 - 第二层存储。<br/>速度中等（纳秒级），容量较大，断电丢失数据。<br/>CPU 只能直接访问内存中的数据（不能直接访问硬盘）。<br/>
+    <span style="color: #a11;">"""<br/>Main memory - second-level storage.<br/>Medium speed (nanosecond level), large capacity, data is lost when power is off.<br/>CPU can only directly access data in memory (cannot directly access the hard disk).<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> size<span style="color: Gray;">=</span><span style="color: Maroon;">65536</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">size</span> <span style="color: Gray;">=</span> size           <span style="color: #a50"># 内存大小（字节）</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>            <span style="color: #a50"># 内存单元，键为地址，值为数据/指令</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">read_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>        <span style="color: #a50"># 读操作计数</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">write_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># 写操作计数</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">size</span> <span style="color: Gray;">=</span> size           <span style="color: #a50"># Memory size (bytes)</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>            <span style="color: #a50"># Memory unit: key is address, value is data/instruction</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">read_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>        <span style="color: #a50"># Read operation count</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">write_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># Write operation count</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> read<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> addr<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""从指定地址读取数据"""</span><br/>
+        <span style="color: #a11;">Read data from the specified address</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">read_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> addr <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    警告: 地址 {addr} 未初始化，返回 0"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    Warning: address {addr} is uninitialized, returning 0"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span><span style="color: Olive;">[</span>addr<span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> write<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> addr<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""向指定地址写入数据"""</span><br/>
+        <span style="color: #a11;">Write data to the specified address</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">write_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span><span style="color: Olive;">[</span>addr<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> data<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> load_block<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> start_addr<span style="color: Gray;">,</span> data_block<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>将一整块数据加载到内存的连续地址区域。<br/>用于 DMA 批量传输场景。<br/>
+        <span style="color: #a11;">"""<br/>Load an entire block of data into a contiguous address region of memory.<br/>For DMA batch transfer scenarios.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> item <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>data_block<span style="color: Olive;">)</span>:<br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">cells</span><span style="color: Olive;">[</span>start_addr + i<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> item<br/>
@@ -268,34 +268,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Cache:<br/>
-    <span style="color: #a11;">"""<br/>缓存 (L1 Cache 模拟) - 第三层存储。<br/>速度极快（与 CPU 同频），容量最小。<br/>
-<br/>使用简单的直接映射缓存模型:<br/>- 每个缓存行存储: (内存地址, 数据内容)<br/>- 缓存命中: 数据已在缓存中，直接返回<br/>- 缓存未命中: 需要从内存加载，替换一个缓存行<br/>
+    <span style="color: #a11;">"""<br/>Cache (L1 Cache Simulation) - Third-level storage.<br/>Extremely fast (same frequency as CPU), smallest capacity.<br/>
+<br/>Using a simple direct-mapped cache model:<br/>- Each cache line stores: (memory address, data content)<br/>- Cache hit: data already in cache, return directly<br/>Cache miss: need to load from memory, replace a cache line.<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> num_lines<span style="color: Gray;">=</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">num_lines</span> <span style="color: Gray;">=</span> num_lines<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">lines</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>            <span style="color: #a50"># 缓存行: {cache_line_index: (mem_addr, data)}</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">lines</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span>            <span style="color: #a50"># Cache line: {cache_line_index: (mem_addr, data)}</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">hit_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">miss_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> read<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> mem_addr<span style="color: Gray;">,</span> memory<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>从缓存读取。若命中则直接返回，若未命中则从内存加载。<br/>返回: (data, was_hit)<br/>
+        <span style="color: #a11;">"""<br/>Read from cache. If hit, return directly; if miss, load from memory.<br/>Return: (data, was_hit)<br/>
         """</span><br/>
-        <span style="color: #a50"># 简单映射: 缓存行索引 = 内存地址 % 缓存行数</span><br/>
+        <span style="color: #a50"># Simple mapping: cache line index = memory address % cache line count</span><br/>
         line_index <span style="color: Gray;">=</span> mem_addr % <span style="color: Teal;">self</span>.<span style="color: #05a;">num_lines</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> line_index <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">lines</span>:<br/>
             cached_addr<span style="color: Gray;">,</span> cached_data <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">lines</span><span style="color: Olive;">[</span>line_index<span style="color: Olive;">]</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> cached_addr <span style="color: Gray;">==</span> mem_addr:<br/>
-                <span style="color: #a50"># 缓存命中</span><br/>
+                <span style="color: #a50"># Cache hit</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">hit_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [缓存] 命中！行 {line_index}, 地址 {mem_addr}, 数据: {cached_data}"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [Caching] hit！line {line_index}, Address {mem_addr}, Data: {cached_data}"</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Green;font-weight:bold;">return</span> cached_data<span style="color: Gray;">,</span> <span style="color: Teal;">True</span><br/>
 <br/>
-        <span style="color: #a50"># 缓存未命中</span><br/>
+        <span style="color: #a50"># Cache Miss</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">miss_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         data <span style="color: Gray;">=</span> memory.<span style="color: #05a;">read</span><span style="color: Olive;">(</span>mem_addr<span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">lines</span><span style="color: Olive;">[</span>line_index<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>mem_addr<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [缓存] 未命中，从内存地址 {mem_addr} 加载数据 {data} → 缓存行 {line_index}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [Caching] miss, fromMemory address {mem_addr} addloadData {data} → Cachingline {line_index}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> data<span style="color: Gray;">,</span> <span style="color: Teal;">False</span><br/>
 <br/>
     <span style="color: Gray;">@</span><span style="color: Teal;">property</span><br/>
@@ -305,20 +305,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> RegisterFile:<br/>
-    <span style="color: #a11;">"""<br/>寄存器组 - 最顶层的存储。<br/>速度最快（一个时钟周期），容量最小。<br/>通用寄存器 + 特殊寄存器 (PC, IR, MAR, MDR, FLAGS)<br/>
+    <span style="color: #a11;">"""<br/>Register file - the topmost storage.<br/>Fastest (one clock cycle), smallest capacity.<br/>General-purpose registers + Special-purpose registers (PC, IR, MAR, MDR, FLAGS)<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 通用寄存器</span><br/>
+        <span style="color: #a50"># General-purpose registers</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">gpr</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'A'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'B'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'C'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'D'</span>: <span style="color: Maroon;">0</span><span style="color: Olive;">}</span><br/>
 <br/>
-        <span style="color: #a50"># 特殊寄存器</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>                <span style="color: #a50"># 程序计数器: 存放下一条指令的地址</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">IR</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>             <span style="color: #a50"># 指令寄存器: 存放当前正在执行的指令</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">MAR</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>               <span style="color: #a50"># 内存地址寄存器: 存放要访问的内存地址</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">MDR</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>               <span style="color: #a50"># 内存数据寄存器: 存放从内存读出/要写入的数据</span><br/>
+        <span style="color: #a50"># Special-purpose registers</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>                <span style="color: #a50"># Program counter: stores the address of the next instruction</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">IR</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>             <span style="color: #a50"># Instruction register: stores the currently executing instruction</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">MAR</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>               <span style="color: #a50"># Memory address register: stores the memory address to be accessed</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">MDR</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>               <span style="color: #a50"># Memory Data Register: stores data read from / to be written to memory</span><br/>
 <br/>
-        <span style="color: #a50"># 标志寄存器</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">FLAGS</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'Z'</span>: <span style="color: Teal;">False</span><span style="color: Olive;">}</span>  <span style="color: #a50"># 零标志: 上一条运算结果是否为 0</span><br/>
+        <span style="color: #a50"># Flags register</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">FLAGS</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'Z'</span>: <span style="color: Teal;">False</span><span style="color: Olive;">}</span>  <span style="color: #a50"># Zero flag: whether the previous operation result is 0</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__repr__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         gpr_str <span style="color: Gray;">=</span> <span style="color: #a11;">', '</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>f<span style="color: #a11;">'{k}={v}'</span> <span style="color: Green;font-weight:bold;">for</span> k<span style="color: Gray;">,</span> v <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">gpr</span>.<span style="color: #05a;">items</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
@@ -326,94 +326,94 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 2. 总线系统 - 三条总线</span><br/>
+<span style="color: #a50"># 2. Bus System - Three Buses</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> SystemBus:<br/>
-    <span style="color: #a11;">"""<br/>系统总线 - 包含地址总线、数据总线、控制总线。<br/>提供统一接口供 CPU、内存、DMA 使用。<br/>
+    <span style="color: #a11;">"""<br/>System bus - includes address bus, data bus, control bus.<br/>Provides a unified interface for CPU, memory, and DMA.<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># 地址总线: 当前传输的地址</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>          <span style="color: #a50"># 数据总线: 当前传输的数据</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span>  <span style="color: #a50"># 控制总线: IDLE, READ, WRITE, INTERRUPT, DMA_REQ, DMA_ACK</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># 总线传输计数</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># Address bus: address currently being transmitted</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>          <span style="color: #a50"># Data bus: data currently being transmitted</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span>  <span style="color: #a50"># Control Bus: IDLE, READ, WRITE, INTERRUPT, DMA_REQ, DMA_ACK</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># Bus Transfer Count</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> cpu_read<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> address<span style="color: Gray;">,</span> memory<span style="color: Gray;">,</span> cache<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>CPU 通过总线从内存读取数据（走缓存）。<br/>完整的总线交互过程:<br/>1. CPU 将地址放到地址总线上<br/>2. CPU 在控制总线上发出 READ 信号<br/>3. 内存（通过缓存层）返回数据到数据总线<br/>4. CPU 从数据总线读取数据<br/>5. 总线清空<br/>
+        <span style="color: #a11;">"""<br/>The CPU reads data from memory via the bus (through the cache).<br/>Complete bus interaction process:<br/>1. The CPU places the address on the address bus<br/>2. CPU issues READ signal on the control bus.<br/>3. The memory (through the cache layer) returns data to the data bus<br/>4. CPU reads data from the data bus<br/>5. Clear the bus<br/>
         """</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> address<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'READ'</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 地址总线 ← {address}, 控制总线 ← READ"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Bus] address bus ← {address}, control bus ← READ</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 内存通过缓存层响应</span><br/>
+        <span style="color: #a50"># Memory responds through the cache layer</span><br/>
         data<span style="color: Gray;">,</span> was_hit <span style="color: Gray;">=</span> cache.<span style="color: #05a;">read</span><span style="color: Olive;">(</span>address<span style="color: Gray;">,</span> memory<span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> data<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 数据总线 ← {data} {'(缓存命中)' if was_hit else '(来自内存)'}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [bus] Data bus ← {data} {'(Cache hit)' if was_hit else '(come自Memory)'}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># CPU 读取数据</span><br/>
+        <span style="color: #a50"># CPU reads data</span><br/>
         result <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span><br/>
 <br/>
-        <span style="color: #a50"># 总线清空</span><br/>
+        <span style="color: #a50"># Bus clear</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 总线清空，进入空闲状态"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Bus] Bus cleared, entering idle state</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> result<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> cpu_write<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> address<span style="color: Gray;">,</span> data<span style="color: Gray;">,</span> memory<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>CPU 通过总线向内存写入数据。<br/>
+        <span style="color: #a11;">"""<br/>CPU writes data to memory through the bus.<br/>
         """</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> address<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> data<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'WRITE'</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 地址总线 ← {address}, 数据总线 ← {data}, 控制总线 ← WRITE"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Bus] Address Bus ← {address}, Data Bus ← {data}, Control Bus ← WRITE</span><span style="color: Olive;">)</span><br/>
 <br/>
         memory.<span style="color: #05a;">write</span><span style="color: Olive;">(</span>address<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 数据 {data} 已写入内存地址 {address}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Bus] Data {data} has been written to memory address {address}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 总线清空</span><br/>
+        <span style="color: #a50"># Bus clear</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">address_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [总线] 总线清空，进入空闲状态"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Bus] Bus cleared, entering idle state</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 3. DMA 控制器</span><br/>
+<span style="color: #a50"># 3. DMA Controller</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> DMAController:<br/>
-    <span style="color: #a11;">"""<br/>DMA 控制器 - 负责在硬盘和内存之间直接传输数据。<br/>CPU 只需告诉 DMA: 源地址、目标地址、传输长度。<br/>DMA 完成传输后通过中断通知 CPU。<br/>
+    <span style="color: #a11;">"""<br/>DMA controller - responsible for directly transferring data between the hard disk and memory.<br/>The CPU only needs to tell the DMA: source address, destination address, transfer length.<br/>After DMA completes the transfer, it notifies the CPU via an interrupt.<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> bus<span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span> <span style="color: Gray;">=</span> bus<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># DMA 传输次数计数</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">total_bytes</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># 总传输字节数</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># DMA Transfer Count</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">total_bytes</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># Total Bytes Transferred</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> transfer_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> disk<span style="color: Gray;">,</span> program_name<span style="color: Gray;">,</span> memory<span style="color: Gray;">,</span> load_addr<span style="color: Gray;">=</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>通过 DMA 将程序从硬盘加载到内存。<br/>这是本课程第 20 讲「DMA 方式」的实际应用。<br/>
+        <span style="color: #a11;">"""<br/>Load the program from hard disk to memory via DMA.<br/>This is a practical application of Lecture 20 'DMA Mode' in this course.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>  {'='*50}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  DMA 传输开始: 硬盘 → 内存"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">DMA transfer starts: hard disk → memory</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'='*50}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 源: 硬盘扇区 (程序 '{program_name}')"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 目标: 内存地址 0x{load_addr:04X} 开始"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 请求总线控制权..."</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] Source: hard disk sector (program '{program_name}')</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] Target: memory address 0x{load_addr:04X} start</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] Requesting bus control...</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># DMA 占用总线</span><br/>
+        <span style="color: #a50"># DMA occupies the bus</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'DMA_REQ'</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 获得总线控制权 (控制总线 ← DMA_REQ)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] obtains bus control (control bus ← DMA_REQ)</span><span style="color: Olive;">)</span><br/>
 <br/>
         program <span style="color: Gray;">=</span> disk.<span style="color: #05a;">load_program</span><span style="color: Olive;">(</span>program_name<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> program <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 错误: 程序不存在，传输中止"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] Error: program does not exist, transfer aborted</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">0</span><br/>
 <br/>
-        <span style="color: #a50"># 逐条指令传输</span><br/>
+        <span style="color: #a50"># Instruction-by-Instruction Transfer</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> instruction <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>program<span style="color: Olive;">)</span>:<br/>
             addr <span style="color: Gray;">=</span> load_addr + i<br/>
             memory.<span style="color: #05a;">write</span><span style="color: Olive;">(</span>addr<span style="color: Gray;">,</span> instruction<span style="color: Olive;">)</span><br/>
@@ -421,149 +421,149 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">data_bus</span> <span style="color: Gray;">=</span> instruction<br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">total_bytes</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">transfer_count</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 传输 #{i}: 指令 '{instruction}' → 内存地址 {addr} (0x{addr:04X})"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] transmission #{i}: Directive '{instruction}' → Memory address {addr} (0x{addr:04X})"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># DMA 释放总线，发送完成中断</span><br/>
+        <span style="color: #a50"># DMA releases the bus and sends a completion interrupt</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'DMA_ACK'</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 传输完成！共 {len(program)} 条指令, {self.total_bytes} 次总线传输"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 释放总线控制权 (控制总线 ← IDLE)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] transmission完Cheng！common {len(program)} 条Directive, {self.total_bytes} timesbustransmission"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA] Release bus control (control bus ← IDLE)</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 中断通知 CPU</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] 发送中断信号通知 CPU: 程序加载完毕"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a50"># Interrupt notifies the CPU</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA] Send interrupt signal to notify CPU: program loading complete"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'INTERRUPT'</span><br/>
 <br/>
-        <span style="color: #a50"># CPU 收到中断后的处理</span><br/>
+        <span style="color: #a50"># Processing after CPU receives an interrupt</span><br/>
         <span style="color: #05a;">time</span>.<span style="color: #05a;">sleep</span><span style="color: Olive;">(</span><span style="color: Maroon;">0.001</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [CPU 中断响应] 收到 DMA 完成中断，程序已就绪"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[CPU Interrupt Response] DMA completion interrupt received, program is ready</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">control_bus</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'IDLE'</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>program<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> cache_prefetch<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> memory<span style="color: Gray;">,</span> cache<span style="color: Gray;">,</span> start_addr<span style="color: Gray;">,</span> count<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>DMA 预取: 将内存中即将用到的数据提前加载到缓存。<br/>模拟现代 CPU 的硬件预取机制。<br/>
+        <span style="color: #a11;">"""<br/>DMA prefetch: preload data that will be used soon from memory into the cache.<br/>Simulate the hardware prefetch mechanism of a modern CPU.<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[DMA 预取] 将内存地址 {start_addr}~{start_addr+count-1} 预加载到缓存..."</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>[DMA Prefetch] Prefetch memory addresses {start_addr}~{start_addr+count-1} into cache...</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>count<span style="color: Olive;">)</span>:<br/>
             addr <span style="color: Gray;">=</span> start_addr + i<br/>
             data <span style="color: Gray;">=</span> memory.<span style="color: #05a;">read</span><span style="color: Olive;">(</span>addr<span style="color: Olive;">)</span><br/>
             line_index <span style="color: Gray;">=</span> addr % cache.<span style="color: #05a;">num_lines</span><br/>
             cache.<span style="color: #05a;">lines</span><span style="color: Olive;">[</span>line_index<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>addr<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [DMA 预取] 完成，{count} 条指令已写入缓存"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[DMA Prefetch] Complete, {count} instructions written to cache</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 4. ALU - 算术逻辑单元</span><br/>
+<span style="color: #a50"># 4. ALU - Arithmetic Logic Unit</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> ALU:<br/>
-    <span style="color: #a11;">"""<br/>算术逻辑单元 - 执行所有算术和逻辑运算。<br/>对应课程第二模块的加法器、逻辑门等内容。<br/>
+    <span style="color: #a11;">"""<br/>Arithmetic logic unit - performs all arithmetic and logical operations.<br/>Content corresponding to the second module of the course, such as adders and logic gates.<br/>
     """</span><br/>
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> add<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [ALU] 执行加法: {a} + {b} = {a + b}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[ALU] Performing addition: {a} + {b} = {a + b}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> a + b<br/>
 <br/>
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> sub<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [ALU] 执行减法: {a} - {b} = {a - b}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[ALU] Performing subtraction: {a} - {b} = {a - b}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> a - b<br/>
 <br/>
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> mul<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [ALU] 执行乘法: {a} * {b} = {a * b}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[ALU] Performing multiplication: {a} * {b} = {a * b}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> a * b<br/>
 <br/>
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Teal;">cmp</span><span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
         result <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>a <span style="color: Gray;">==</span> b<span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [ALU] 执行比较: {a} == {b} ? {'是' if result else '否'} (Z={1 if result else 0})"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    [ALU] ExecuteCompare: {a} == {b} ? {'is' if result else 'no'} (Z={1 if result else 0})"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> result<br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 5. FullComputer - 完整计算机</span><br/>
+<span style="color: #a50"># 5. FullComputer - Complete Computer</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> FullComputer:<br/>
-    <span style="color: #a11;">"""<br/>完整冯·诺依曼计算机模拟器。<br/>
-<br/>组件:<br/>- disk: 硬盘（持久化存储）<br/>- memory: 主内存<br/>- cache: L1 缓存<br/>- registers: 寄存器组 (含 PC, IR, MAR, MDR, FLAGS)<br/>- alu: 算术逻辑单元<br/>- bus: 系统总线（地址 + 数据 + 控制）<br/>- dma: DMA 控制器<br/>
-<br/>执行流程:<br/>1. 加载: DMA 将程序从硬盘搬运到内存<br/>2. 循环取指 → 译码 → 执行 → 写回<br/>3. 生成完整执行报告<br/>
+    <span style="color: #a11;">"""<br/>Complete von Neumann computer simulator.<br/>
+<br/>Components:<br/>- disk: hard disk (persistent storage)<br/>- memory: main memory<br/>- cache: L1 cache<br/>- registers: register group (including PC, IR, MAR, MDR, FLAGS)<br/>- alu: arithmetic logic unit<br/>- bus: system bus (address + data + control)<br/>- dma: DMA controller<br/>
+<br/>Execution flow:<br/>1. Loading: DMA transfers the program from the hard disk to memory.<br/>2. Instruction cycle: fetch → decode → execute → write back.<br/>3. Generate complete execution report<br/>
     """</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"   FullComputer - 冯·诺依曼计算机初始化中..."</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">FullComputer - von Neumann computer initializing...</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 四层存储系统</span><br/>
+        <span style="color: #a50"># Four-Tier Storage System</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">disk</span> <span style="color: Gray;">=</span> Disk<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span> <span style="color: Gray;">=</span> Memory<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span> <span style="color: Gray;">=</span> Cache<span style="color: Olive;">(</span>num_lines<span style="color: Gray;">=</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span> <span style="color: Gray;">=</span> RegisterFile<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 计算单元</span><br/>
+        <span style="color: #a50"># Computing unit</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">alu</span> <span style="color: Gray;">=</span> ALU<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 总线系统</span><br/>
+        <span style="color: #a50"># Bus system</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span> <span style="color: Gray;">=</span> SystemBus<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># DMA 控制器</span><br/>
+        <span style="color: #a50"># DMA Controller</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">dma</span> <span style="color: Gray;">=</span> DMAController<span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 统计信息</span><br/>
+        <span style="color: #a50"># Statistics</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">instructions_executed</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  组件就绪: 硬盘, 内存(64KB), 缓存(8行L1), 4个通用寄存器"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  组件就绪: ALU, 系统总线, DMA控制器"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Components ready: hard disk, memory (64KB), cache (8-line L1), 4 general-purpose registers</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Components ready: ALU, system bus, DMA controller</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> store_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> name<span style="color: Gray;">,</span> program<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""将程序存入硬盘"""</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Step 0] 将程序 '{name}' 存入硬盘"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a11;">"""Store the program into the hard disk"""</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Step 0] Store the program '{name}' to the hard disk</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">disk</span>.<span style="color: #05a;">store_program</span><span style="color: Olive;">(</span>name<span style="color: Gray;">,</span> program<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> load_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> program_name<span style="color: Gray;">,</span> load_addr<span style="color: Gray;">=</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>加载程序: DMA 从硬盘搬运到内存。<br/>
+        <span style="color: #a11;">"""<br/>Load program: DMA transfers from hard disk to memory.<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Step 1] DMA 加载程序到内存"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Step 1] DMA loads program into memory</span><span style="color: Olive;">)</span><br/>
         size <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">dma</span>.<span style="color: #05a;">transfer_program</span><span style="color: Olive;">(</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">disk</span><span style="color: Gray;">,</span> program_name<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Gray;">,</span> load_addr<br/>
         <span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 预取指令到缓存</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Step 2] 缓存预热: 预取前 {min(4, size)} 条指令"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a50"># Prefetch instructions to cache</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Step 2] Cache warm-up: prefetch first {min(4, size)} instructions</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">dma</span>.<span style="color: #05a;">cache_prefetch</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span><span style="color: Gray;">,</span> load_addr<span style="color: Gray;">,</span> <span style="color: Teal;">min</span><span style="color: Olive;">(</span><span style="color: Maroon;">4</span><span style="color: Gray;">,</span> size<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 设置 PC 到程序起始地址</span><br/>
+        <span style="color: #a50"># Set PC to program start address</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">=</span> load_addr<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Step 3] 设置 PC ← {load_addr} (程序起始地址)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Step 3] Set PC ← {load_addr} (program start address)</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> fetch<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>阶段 1: 取指 (Fetch)<br/>- 将 PC 值放到 MAR<br/>- 通过地址总线发送地址<br/>- 通过控制总线发 READ 信号<br/>- 从数据总线获取指令（经缓存层）<br/>- 指令存入 IR<br/>- PC 自增<br/>
+        <span style="color: #a11;">"""<br/>Stage 1: Fetch<br/>- Put the PC value into MAR<br/>- Send the address via the address bus<br/>- Send READ signal via the control bus<br/>- Fetch instruction from the data bus (via the cache layer)<br/>- Store instruction into IR<br/>- PC increment<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- 阶段 1: 取指 (Fetch) ---"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- Stage 1: Instruction Fetch (Fetch) ---"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
         <span style="color: #a50"># MAR ← PC</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">MAR</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  MAR ← PC = {self.registers.PC}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 通过总线读取内存（走缓存）</span><br/>
+        <span style="color: #a50"># Read memory through the bus (via cache)</span><br/>
         instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">cpu_read</span><span style="color: Olive;">(</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">MAR</span><span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span><br/>
         <span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># MDR ← 数据总线, IR ← MDR</span><br/>
+        <span style="color: #a50"># MDR ← data bus, IR ← MDR</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">MDR</span> <span style="color: Gray;">=</span> instruction<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">IR</span> <span style="color: Gray;">=</span> instruction<br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  MDR ← {instruction}, IR ← MDR"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># PC 自增</span><br/>
+        <span style="color: #a50"># PC increment</span><br/>
         old_pc <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  PC ← {old_pc} + 1 = {self.registers.PC}"</span><span style="color: Olive;">)</span><br/>
@@ -571,9 +571,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: Green;font-weight:bold;">return</span> instruction<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> decode<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>阶段 2: 译码 (Decode)<br/>- 控制器解析 IR 中的指令<br/>- 分离操作码和操作数<br/>- 决定执行阶段的操作<br/>
+        <span style="color: #a11;">"""<br/>Stage 2: Decode<br/>- Controller decodes instruction in IR<br/>- Separate opcode and operand<br/>- Determine the operations of the execution stage<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- 阶段 2: 译码 (Decode) ---"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">--- Stage 2: Decode ---</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
         instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">IR</span><br/>
@@ -581,30 +581,30 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         opcode <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><br/>
         operands <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">1</span>:<span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parts<span style="color: Olive;">)</span> <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  指令: '{instruction}'"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作码: {opcode}, 操作数: {operands}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Instruction: '{instruction}'"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Opcode: {opcode}, operands: {operands}</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> opcode<span style="color: Gray;">,</span> operands<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> execute<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> opcode<span style="color: Gray;">,</span> operands<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>阶段 3: 执行 (Execute)<br/>- 根据操作码执行相应操作<br/>- ALU 参与算术/逻辑运算<br/>- 可能会修改寄存器或设置标志位<br/>
+        <span style="color: #a11;">"""<br/>Stage 3: Execute<br/>- Execute the corresponding operation based on the opcode<br/>- ALU participates in arithmetic/logic operations<br/>- May modify registers or set flag bits<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- 阶段 3: 执行 (Execute) ---"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">--- Phase 3: Execute ---</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'LOAD'</span>:<br/>
-            <span style="color: #a50"># LOAD reg value: 将立即数加载到寄存器</span><br/>
+            <span style="color: #a50"># LOAD reg value: Load the immediate value into the register</span><br/>
             reg<span style="color: Gray;">,</span> value <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> value<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 加载立即数 {value} → 寄存器 {reg}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ALU 不参与（直接加载）"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: load immediate {value} → register {reg}</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ALU does not participate (direct load)"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'STORE'</span>:<br/>
-            <span style="color: #a50"># STORE reg addr: 将寄存器值存入内存</span><br/>
+            <span style="color: #a50"># STORE reg addr: Store register value into memory</span><br/>
             reg<span style="color: Gray;">,</span> addr <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             value <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 准备将寄存器 {reg} 的值 {value} 存入内存地址 {addr}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: #a50"># 数据已准备好，写回阶段执行实际的存储操作</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: preparing to store the value {value} of register {reg} into memory address {addr}</span><span style="color: Olive;">)</span><br/>
+            <span style="color: #a50"># Data is ready; the write-back stage performs the actual store operation.</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'STORE'</span><span style="color: Gray;">,</span> reg<span style="color: Gray;">,</span> addr<span style="color: Gray;">,</span> value<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'ADD'</span>:<br/>
@@ -613,10 +613,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             old_val <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>dst<span style="color: Olive;">]</span><br/>
             result <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">alu</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>old_val<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>src<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>dst<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> result<br/>
-            <span style="color: #a50"># 设置零标志</span><br/>
+            <span style="color: #a50"># Set zero flag</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">FLAGS</span><span style="color: Olive;">[</span><span style="color: #a11;">'Z'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>result <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: {dst} ← {old_val} + {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  零标志 Z ← {self.registers.FLAGS['Z']}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Operation: {dst} ← {old_val} + {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Zero flag Z ← {self.registers.FLAGS['Z']}</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'SUB'</span>:<br/>
             <span style="color: #a50"># SUB dst src: dst = dst - src</span><br/>
@@ -625,7 +625,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             result <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">alu</span>.<span style="color: #05a;">sub</span><span style="color: Olive;">(</span>old_val<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>src<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>dst<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> result<br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">FLAGS</span><span style="color: Olive;">[</span><span style="color: #a11;">'Z'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>result <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: {dst} ← {old_val} - {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Operation: {dst} ← {old_val} - {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'MUL'</span>:<br/>
             <span style="color: #a50"># MUL dst src: dst = dst * src</span><br/>
@@ -634,10 +634,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             result <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">alu</span>.<span style="color: #05a;">mul</span><span style="color: Olive;">(</span>old_val<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>src<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>dst<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> result<br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">FLAGS</span><span style="color: Olive;">[</span><span style="color: #a11;">'Z'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>result <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: {dst} ← {old_val} * {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Operation: {dst} ← {old_val} * {self.registers.gpr.get(src, src)} = {result}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'CMP'</span>:<br/>
-            <span style="color: #a50"># CMP a b: 比较两寄存器值，设置零标志</span><br/>
+            <span style="color: #a50"># CMP a b: compare two register values, set zero flag</span><br/>
             a<span style="color: Gray;">,</span> b <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><br/>
             is_equal <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">alu</span>.<span style="color: Teal;">cmp</span><span style="color: Olive;">(</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">gpr</span><span style="color: Olive;">[</span>a<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
@@ -646,192 +646,192 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">FLAGS</span><span style="color: Olive;">[</span><span style="color: #a11;">'Z'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> is_equal<br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'JMP'</span>:<br/>
-            <span style="color: #a50"># JMP addr: 无条件跳转</span><br/>
+            <span style="color: #a50"># JMP addr: Unconditional jump</span><br/>
             target <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 无条件跳转到地址 {target}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: unconditional jump to address {target}</span><span style="color: Olive;">)</span><br/>
             old_pc <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">=</span> target<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  PC ← {old_pc} → {target} (跳转)"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">PC ← {old_pc} → {target} (jump)</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'JZ'</span>:<br/>
-            <span style="color: #a50"># JZ addr: 如果零标志为真则跳转</span><br/>
+            <span style="color: #a50"># JZ addr: jump if the zero flag is true</span><br/>
             target <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">FLAGS</span><span style="color: Olive;">[</span><span style="color: #a11;">'Z'</span><span style="color: Olive;">]</span>:<br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 零标志为真 (Z=1)，跳转到地址 {target}"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: if zero flag is true (Z=1), jump to address {target}</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">=</span> target<br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 零标志为假 (Z=0)，不跳转，顺序执行"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: zero flag is false (Z=0), no jump, sequential execution</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'HALT'</span>:<br/>
-            <span style="color: #a50"># HALT: 停机</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 停机指令，程序结束"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: #a50"># HALT: Halt</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: Halt instruction, program ends</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">'HALT'</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  未知操作码: {opcode}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Unknown opcode: {opcode}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> writeback<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>阶段 4: 写回 (WriteBack)<br/>- 如果有需要写回内存的操作（如 STORE），在此阶段完成<br/>- 通过数据总线传输数据<br/>
+        <span style="color: #a11;">"""<br/>Stage 4: WriteBack<br/>- If there are operations that need to write back to memory (such as STORE), they are completed in this stage<br/>- Transfer data via the data bus<br/>
         """</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- 阶段 4: 写回 (WriteBack) ---"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"--- Stage 4: WriteBack ---"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: #a50"># 一般指令的结果已在执行阶段写入寄存器</span><br/>
-        <span style="color: #a50"># STORE 指令需要在此阶段写内存</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  寄存器状态: {self.registers.gpr}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  标志寄存器: {self.registers.FLAGS}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: #a50"># The result of a general instruction has already been written to the register during the execution stage</span><br/>
+        <span style="color: #a50"># STORE instruction needs to write memory at this stage</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Register state: {self.registers.gpr}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Flags register: {self.registers.FLAGS}</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> writeback_store<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> addr<span style="color: Gray;">,</span> value<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""STORE 指令的写回操作——通过总线写入内存"""</span><br/>
+        <span style="color: #a11;">"""Write-back operation of the STORE instruction — write to memory through the bus"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">cpu_write</span><span style="color: Olive;">(</span>addr<span style="color: Gray;">,</span> value<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  STORE 完成: {value} → 内存地址 {addr}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">STORE complete: {value} → memory address {addr}</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> run<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>运行已加载的程序。<br/>循环执行 取指 → 译码 → 执行 → 写回 直到程序结束。<br/>
+        <span style="color: #a11;">"""<br/>Run the loaded program.<br/>Loop through fetch → decode → execute → write back until the program ends.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"        程序开始执行"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Program starts execution</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">while</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> <span style="color: Gray;">&lt;</span> <span style="color: Teal;">max</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">cells</span>.<span style="color: #05a;">keys</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span> + <span style="color: Maroon;">1</span>:<br/>
-            <span style="color: #a50"># 检查 PC 是否在有效范围</span><br/>
+            <span style="color: #a50"># Check whether PC is in valid range</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span>.<span style="color: #05a;">PC</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">cells</span>:<br/>
-                <span style="color: #a50"># PC 超出程序范围，可能因为跳转到了末尾，结束</span><br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>程序计数器 PC={self.registers.PC} 超出程序范围，执行结束"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: #a50"># PC exceeds program range, possibly due to a jump to the end, terminate</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Program counter PC={self.registers.PC} exceeds the program range, execution ends</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Green;font-weight:bold;">break</span><br/>
 <br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">instructions_executed</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'#' * 55}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"### 指令 #{self.instructions_executed} | PC = {self.registers.PC}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"### Directive #{self.instructions_executed} | PC = {self.registers.PC}"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'#' * 55}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 取指</span><br/>
+            <span style="color: #a50"># Instruction fetch</span><br/>
             instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">fetch</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 译码</span><br/>
+            <span style="color: #a50"># Decode</span><br/>
             opcode<span style="color: Gray;">,</span> operands <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">decode</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 执行</span><br/>
+            <span style="color: #a50"># Execute</span><br/>
             special <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span>opcode<span style="color: Gray;">,</span> operands<span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 处理 HALT 指令</span><br/>
+            <span style="color: #a50"># Handle the HALT instruction</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> special <span style="color: Gray;">==</span> <span style="color: #a11;">'HALT'</span>:<br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
                 <span style="color: Green;font-weight:bold;">break</span><br/>
 <br/>
-            <span style="color: #a50"># 写回</span><br/>
+            <span style="color: #a50"># Write back</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> special <span style="color: Green;font-weight:bold;">and</span> special<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">'STORE'</span>:<br/>
                 _<span style="color: Gray;">,</span> reg<span style="color: Gray;">,</span> addr<span style="color: Gray;">,</span> value <span style="color: Gray;">=</span> special<br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">writeback_store</span><span style="color: Olive;">(</span><span style="color: Teal;">int</span><span style="color: Olive;">(</span>addr<span style="color: Olive;">)</span><span style="color: Gray;">,</span> value<span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">writeback</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 安全检查: 防止无限循环</span><br/>
+            <span style="color: #a50"># Safety check: prevent infinite loops</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">instructions_executed</span> <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">1000</span>:<br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>警告: 已执行超过 1000 条指令，强制停止 (可能死循环)"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Warning: Over 1000 instructions executed, forced stop (possible infinite loop)</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Green;font-weight:bold;">break</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'=' * 60}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        程序执行完毕"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        Program execution completed"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'=' * 60}"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> report<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>生成完整的执行报告。<br/>汇总所有统计信息: 缓存命中率、指令数、时钟周期、<br/>总线传输次数、内存读写次数等。<br/>
+        <span style="color: #a11;">"""<br/>Generate a complete execution report.<br/>Summarize all statistics: cache hit rate, instruction count, clock cycles,<br/>Bus transfer count, memory read/write count, etc.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'=' * 65}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"      FullComputer 执行报告 —— RUNOOB"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">FullComputer execution report —— RUNOOB</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'=' * 65}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 基本信息</span><br/>
+        <span style="color: #a50"># Basic information</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  基本信息"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Basic Information"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  执行指令总数:        {self.instructions_executed:&gt;6d} 条"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  总时钟周期:          {self.clock_cycles:&gt;6d} 个"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total instructions executed:        {self.instructions_executed:&gt;6d}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total clock cycles:          {self.clock_cycles:&gt;6d} cycles</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">instructions_executed</span> <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">0</span>:<br/>
             cpi <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">clock_cycles</span> / <span style="color: Teal;">self</span>.<span style="color: #05a;">instructions_executed</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  平均 CPI (周期/指令):  {cpi:&gt;6.2f}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Average CPI (cycles/instruction):  {cpi:&gt;6.2f}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 缓存性能</span><br/>
+        <span style="color: #a50"># Cache performance</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  缓存性能 (L1 Cache)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Cache performance (L1 Cache)"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
         total_access <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>.<span style="color: #05a;">hit_count</span> + <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>.<span style="color: #05a;">miss_count</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  缓存命中:            {self.cache.hit_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  缓存未命中:          {self.cache.miss_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  总访问次数:          {total_access:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  命中率:              {self.cache.hit_rate:&gt;6.1f}%"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  缓存行总数:          {self.cache.num_lines:&gt;6d} 条"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Cache hits:            {self.cache.hit_count:&gt;6d} times"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Cache miss:          {self.cache.miss_count:&gt;6d} times"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total accesses:          {total_access:&gt;6d} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Hit rate:              {self.cache.hit_rate:&gt;6.1f}%</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total cache lines:         {self.cache.num_lines:&gt;6d} lines</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 内存访问</span><br/>
+        <span style="color: #a50"># Memory access</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存访问统计"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Memory access statistics"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存读操作:          {self.memory.read_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存写操作:          {self.memory.write_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存总访问:          {self.memory.read_count + self.memory.write_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存已用地址数:      {len(self.memory.cells):&gt;6d} 个"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Memory read operations:          {self.memory.read_count:&gt;6d} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Memory write operation:          {self.memory.write_count:&gt;6d} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  MemorytotalVisit:          {self.memory.read_count + self.memory.write_count:&gt;6d} times"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Number of used memory addresses:      {len(self.memory.cells):&gt;6d}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 总线统计</span><br/>
+        <span style="color: #a50"># Bus statistics</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  总线统计"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Bus Statistics"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  CPU 发起的总线传输:  {self.bus.transfer_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  DMA 发起的总线传输:  {self.dma.transfer_count:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  CPU emit起ofbustransmission:  {self.bus.transfer_count:&gt;6d} times"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  DMA emit起ofbustransmission:  {self.dma.transfer_count:&gt;6d} times"</span><span style="color: Olive;">)</span><br/>
         total_bus <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">bus</span>.<span style="color: #05a;">transfer_count</span> + <span style="color: Teal;">self</span>.<span style="color: #05a;">dma</span>.<span style="color: #05a;">transfer_count</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  总线传输总次数:      {total_bus:&gt;6d} 次"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total bus transfer count:      {total_bus:&gt;6d} times</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 寄存器最终状态</span><br/>
+        <span style="color: #a50"># Final register state</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  寄存器最终状态"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Register final state"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  通用寄存器: {self.registers.gpr}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  程序计数器 PC: {self.registers.PC}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  指令寄存器 IR: {self.registers.IR}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  标志寄存器 FLAGS: {self.registers.FLAGS}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">General-purpose registers: {self.registers.gpr}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Program counter PC: {self.registers.PC}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Instruction register IR: {self.registers.IR}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Flag register FLAGS: {self.registers.FLAGS}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 内存数据转储（仅显示有效地址的数据）</span><br/>
+        <span style="color: #a50"># Memory data dump (only shows data at valid addresses)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  内存数据转储 (仅显示程序区域)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Memory data dump (only shows program area)"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'─' * 55}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">cells</span>:<br/>
             <span style="color: Green;font-weight:bold;">for</span> addr <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">sorted</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">cells</span>.<span style="color: #05a;">keys</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
                 val <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">cells</span><span style="color: Olive;">[</span>addr<span style="color: Olive;">]</span><br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  地址 {addr:&gt;4d} (0x{addr:04X}): {val}"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Address {addr:&gt;4d} (0x{addr:04X}): {val}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  (内存为空)"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  (Memory is empty)"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'=' * 65}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  报告结束。感谢使用 RUNOOB FullComputer 模拟器！"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">End of report. Thank you for using the RUNOOB FullComputer simulator!</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'=' * 65}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================</span><br/>
-<span style="color: #a50"># 6. 主程序 - 端到端演示</span><br/>
+<span style="color: #a50"># 6. Main Program - End-to-End Demo</span><br/>
 <span style="color: #a50"># ============================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">if</span> __name__ <span style="color: Gray;">==</span> <span style="color: #a11;">"__main__"</span>:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"╔"</span> + <span style="color: #a11;">"═"</span> * <span style="color: Maroon;">58</span> + <span style="color: #a11;">"╗"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"║"</span> + <span style="color: #a11;">"  一条指令的完整旅程 —— RUNOOB FullComputer 演示  "</span>.<span style="color: #05a;">center</span><span style="color: Olive;">(</span><span style="color: Maroon;">52</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"║"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"║"</span> + <span style="color: #a11;">The complete journey of one instruction — RUNOOB FullComputer Demo</span>.<span style="color: #05a;">center</span><span style="color: Olive;">(</span><span style="color: Maroon;">52</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"║"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"╚"</span> + <span style="color: #a11;">"═"</span> * <span style="color: Maroon;">58</span> + <span style="color: #a11;">"╝"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 创建计算机</span><br/>
+    <span style="color: #a50"># Create computer</span><br/>
     computer <span style="color: Gray;">=</span> FullComputer<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 定义演示程序: 计算 (10 + 7) * 2 - 3 = ?</span><br/>
-    <span style="color: #a50"># 用 LOAD 加载初始值，用 ADD/MUL/SUB 完成计算</span><br/>
+    <span style="color: #a50"># Define demo program: calculate (10 + 7) * 2 - 3 = ?</span><br/>
+    <span style="color: #a50"># Use LOAD to load the initial value, and ADD/MUL/SUB to perform the calculation</span><br/>
     demo_program <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
         <span style="color: #a11;">"LOAD A 10"</span><span style="color: Gray;">,</span>    <span style="color: #a50"># A = 10</span><br/>
         <span style="color: #a11;">"LOAD B 7"</span><span style="color: Gray;">,</span>     <span style="color: #a50"># B = 7</span><br/>
@@ -840,42 +840,42 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: #a11;">"MUL A C"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># A = A * C = 34</span><br/>
         <span style="color: #a11;">"LOAD D 3"</span><span style="color: Gray;">,</span>     <span style="color: #a50"># D = 3</span><br/>
         <span style="color: #a11;">"SUB A D"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># A = A - D = 31</span><br/>
-        <span style="color: #a11;">"STORE A 100"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 将结果存入内存地址 100</span><br/>
-        <span style="color: #a11;">"LOAD B 31"</span><span style="color: Gray;">,</span>    <span style="color: #a50"># B = 31 (预期结果)</span><br/>
-        <span style="color: #a11;">"CMP A B"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># 比较 A 和 B -&gt; 应该相等</span><br/>
-        <span style="color: #a11;">"JZ 12"</span><span style="color: Gray;">,</span>        <span style="color: #a50"># 如果相等(Z=1)，跳转到 HALT</span><br/>
-        <span style="color: #a11;">"LOAD D 0"</span><span style="color: Gray;">,</span>     <span style="color: #a50"># (不执行) D = 0</span><br/>
-        <span style="color: #a11;">"HALT"</span><span style="color: Gray;">,</span>         <span style="color: #a50"># 停机</span><br/>
+        <span style="color: #a11;">"STORE A 100"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Store result in memory address 100</span><br/>
+        <span style="color: #a11;">"LOAD B 31"</span><span style="color: Gray;">,</span>    <span style="color: #a50"># B = 31 (expected result)</span><br/>
+        <span style="color: #a11;">"CMP A B"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># Compare A and B -&gt; should be equal</span><br/>
+        <span style="color: #a11;">"JZ 12"</span><span style="color: Gray;">,</span>        <span style="color: #a50"># If equal (Z=1), jump to HALT</span><br/>
+        <span style="color: #a11;">"LOAD D 0"</span><span style="color: Gray;">,</span>     <span style="color: #a50"># (not executed) D = 0</span><br/>
+        <span style="color: #a11;">"HALT"</span><span style="color: Gray;">,</span>         <span style="color: #a50"># Halt</span><br/>
     <span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># 步骤 1: 将程序存入硬盘</span><br/>
+    <span style="color: #a50"># Step 1: Store the program on the hard disk</span><br/>
     computer.<span style="color: #05a;">store_program</span><span style="color: Olive;">(</span><span style="color: #a11;">"RUNOOB_DEMO"</span><span style="color: Gray;">,</span> demo_program<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 步骤 2: DMA 加载到内存</span><br/>
+    <span style="color: #a50"># Step 2: DMA load into memory</span><br/>
     computer.<span style="color: #05a;">load_program</span><span style="color: Olive;">(</span><span style="color: #a11;">"RUNOOB_DEMO"</span><span style="color: Gray;">,</span> load_addr<span style="color: Gray;">=</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 步骤 3: 运行程序</span><br/>
+    <span style="color: #a50"># Step 3: Run the program</span><br/>
     computer.<span style="color: #05a;">run</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 步骤 4: 打印完整执行报告</span><br/>
+    <span style="color: #a50"># Step 4: Print full execution report</span><br/>
     computer.<span style="color: #05a;">report</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  知识回顾: 本次演示涵盖了计算机组成原理的全部六个模块:"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 1 (二进制):   指令和数据在内存中以二进制编码存储"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 2 (逻辑门):   执行阶段的 ADD/SUB/MUL 由 ALU 门电路完成"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 3 (冯诺依曼): 程序和数据共享内存, 五大组件协同工作"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 4 (CPU 原理):  PC取指→IR译码→ALU执行→写回, 完整四阶段"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 5 (存储系统):  硬盘→内存→缓存→寄存器, 四级存储层次"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  模块 6 (总线与IO):  三总线交互, DMA程序加载, 中断通知"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Review: This demo covers all six modules of Computer Organization Principles:</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 1 (Binary):   Instructions and data are stored in memory in binary encoding.</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 2 (Logic Gates): The ADD/SUB/MUL in the execution stage is completed by ALU gate circuits</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 3 (von Neumann): program and data share memory, five major components work together</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 4 (CPU Principles): PC fetch → IR decode → ALU execute → write back, complete four-stage pipeline.</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 5 (Storage System):  hard disk → memory → cache → registers, four-level storage hierarchy</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Module 6 (Bus and I/O):  Three-bus interaction, DMA program loading, interrupt notification</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Interpreting the execution report</h2>
 <p>After running the above code, FullComputer outputs a detailed execution report. Let's interpret the key metrics:</p>
-<h3>缓存命中率</h3>
-<p>The cache hit rate shown in the report reflects the program's<span class="marked">时间局部性</span>和<span class="marked">空间局部性</span>. Since our demo program is very small and the DMA prefetches the first 4 instructions, the hit rate will be relatively high. In actual large programs, the cache hit rate is usually above 90% — this is exactly the purpose of cache.</p>
+<h3>cache hit rate</h3>
+<p>The cache hit rate shown in the report reflects the program's<span class="marked">temporal locality</span>and<span class="marked">spatial locality</span>. Since our demo program is very small and the DMA prefetches the first 4 instructions, the hit rate will be relatively high. In actual large programs, the cache hit rate is usually above 90% — this is exactly the purpose of cache.</p>
 <h3>CPI (Clock cycles Per Instruction)</h3>
 <p>In our simplified simulation, each instruction takes a fixed 4 clock cycles (fetch-decode-execute-writeback), so the CPI is about 4. Modern CPUs use pipelining to reduce the CPI to close to 1 — that is, completing one instruction per clock cycle.</p>
 <h3>Number of bus transfers</h3>
@@ -884,34 +884,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>What we have learned — review of the six-week course.</h2>
 <p>Six weeks ago, we started from the simplest question: "Why do computers only understand 0 and 1?" Now, we are able to build a complete computer simulator from scratch. Let's walk through this learning path again:</p>
 <table class="reference">
-<tr><th>周次</th><th>模块</th><th>核心收获</th></tr>
-<tr><td>第 1 周</td><td><span class="marked">二进制与信息表示</span></td><td>Understood why computers use binary, how to perform base conversion, and how various information (numbers, text, images) is encoded into 0s and 1s.</td></tr>
-<tr><td>第 2 周</td><td><span class="marked">逻辑门与数字电路</span></td><td>Mastered the three basic gate circuits: AND, OR, NOT; understood how to build adders and ALUs using them.</td></tr>
-<tr><td>第 3 周</td><td><span class="marked">冯·诺依曼架构</span></td><td>Understood the division of labor among the five major components (arithmetic unit, controller, memory, input, output) and the stored-program concept.</td></tr>
-<tr><td>第 4 周</td><td><span class="marked">CPU 原理</span></td><td>Mastered the four stages of the instruction cycle: fetch-decode-execute-writeback, and how pipelining improves efficiency.</td></tr>
-<tr><td>第 5 周</td><td><span class="marked">存储系统</span></td><td>Understood the four-level storage pyramid from registers to hard disk, and how cache uses the principle of locality to speed up access.</td></tr>
-<tr><td>第 6 周</td><td><span class="marked">总线与 I/O</span></td><td>Mastered the cooperative work of the three buses (address/data/control) and the efficiency differences among the three I/O methods (polling/interrupt/DMA).</td></tr>
+<tr><th>week number</th><th>Module</th><th>Core takeaways</th></tr>
+<tr><td>Week 1</td><td><span class="marked">Binary and Information Representation</span></td><td>Understood why computers use binary, how to perform base conversion, and how various information (numbers, text, images) is encoded into 0s and 1s.</td></tr>
+<tr><td>Week 2</td><td><span class="marked">Logic Gates and Digital Circuits</span></td><td>Mastered the three basic gate circuits: AND, OR, NOT; understood how to build adders and ALUs using them.</td></tr>
+<tr><td>Week 3</td><td><span class="marked">Von Neumann architecture</span></td><td>Understood the division of labor among the five major components (arithmetic unit, controller, memory, input, output) and the stored-program concept.</td></tr>
+<tr><td>Week 4</td><td><span class="marked">CPU principles</span></td><td>Mastered the four stages of the instruction cycle: fetch-decode-execute-writeback, and how pipelining improves efficiency.</td></tr>
+<tr><td>Week 5</td><td><span class="marked">Storage system</span></td><td>Understood the four-level storage pyramid from registers to hard disk, and how cache uses the principle of locality to speed up access.</td></tr>
+<tr><td>Week 6</td><td><span class="marked">Bus and I/O</span></td><td>Mastered the cooperative work of the three buses (address/data/control) and the efficiency differences among the three I/O methods (polling/interrupt/DMA).</td></tr>
 </table>
 <hr/>
 <h2>From theory to practice: where to go next.</h2>
 <p>This course has laid a solid foundation for you in computer organization principles. If you are interested in deeper learning, here are some recommended directions:</p>
 <ul>
-<li><span class="tag1 green">操作系统</span>: Learn how operating systems manage the CPU, memory, file systems, and I/O devices. The "interrupts," "DMA," and "memory hierarchy" learned in this course are core concepts of operating systems.</li>
-<li><span class="tag1 green">汇编语言</span>: Interact directly with CPU instructions. After completing this course, assembly language is no longer a "sealed book" — you know how each assembly instruction is executed at the hardware level.</li>
+<li><span class="tag1 green">Operating system</span>: Learn how operating systems manage the CPU, memory, file systems, and I/O devices. The "interrupts," "DMA," and "memory hierarchy" learned in this course are core concepts of operating systems.</li>
+<li><span class="tag1 green">Assembly language</span>: Interact directly with CPU instructions. After completing this course, assembly language is no longer a "sealed book" — you know how each assembly instruction is executed at the hardware level.</li>
 <li><span class="tag1 green">nand2tetris</span>: A famous online course that takes you from a single NAND gate to gradually building a complete programmable computer. The content of this course is highly complementary to it.</li>
-<li><span class="tag1 green">计算机体系结构</span>: Delve into advanced CPU design techniques such as pipelining, superscalar execution, out-of-order execution, and branch prediction.</li>
-<li><span class="tag1 green">嵌入式系统</span>: Apply the knowledge from this course to microcontrollers (such as Arduino, STM32), writing programs that directly manipulate registers and peripherals.</li>
+<li><span class="tag1 green">Computer architecture</span>: Delve into advanced CPU design techniques such as pipelining, superscalar execution, out-of-order execution, and branch prediction.</li>
+<li><span class="tag1 green">embedded system</span>: Apply the knowledge from this course to microcontrollers (such as Arduino, STM32), writing programs that directly manipulate registers and peripherals.</li>
 </ul>
 <hr/>
 <h2>Summary and final verification</h2>
-<blockquote><p>One-sentence summary:<span class="marked">计算机不是魔法——它是一层一层精心设计的抽象，从晶体管开关开始，逐步搭建出逻辑门、ALU、CPU、内存系统、总线，最终组成一台能执行任意程序的通用机器。理解这些层次，你就真正理解了计算机。</span></p></blockquote>
+<blockquote><p>One-sentence summary:<span class="marked">Computemachineis not魔法——It isonelayeronelayer精心DesignofAbstraction, from晶body管openclosestart，逐步搭build出逻辑门、ALU、CPU、MemorySystem、bus，最终Compositionone台abilityExecuteAnyCoursesequenceof通usemachinedevice.UnderstandingTheseLevel，youJusttruecorrectUnderstandingalreadyComputemachine。</span></p></blockquote>
 <h3>Comprehensive course self-test questions</h3>
 <ol>
 <li>In the FullComputer simulator, during the execution of a LOAD instruction, in which steps are the address bus, data bus, and control bus used respectively?</li>
 <li>If FullComputer's cache has only 4 lines (instead of 8), what impact does it have on the program's execution efficiency? What is this phenomenon called in computer architecture?</li>
 <li>In what scenarios do modern operating systems use polling, interrupts, and DMA? Please give one example for each that you can observe when using a computer daily.</li>
 </ol>
-<p><span class="tag1">参考答案</span>: 1. Fetch stage: The address bus transmits the PC value (instruction address), the control bus sends a READ signal, and the data bus returns the instruction content. 2. More cache conflicts, lower hit rate (called cache thrashing or conflict misses). 3. Polling: progress check during firmware updates on some simple embedded devices; Interrupt: every keyboard key press triggers an interrupt; DMA: large file copying, graphics card rendering framebuffer transfer.</p>
+<p><span class="tag1">Reference answer</span>: 1. Fetch stage: The address bus transmits the PC value (instruction address), the control bus sends a READ signal, and the data bus returns the instruction content. 2. More cache conflicts, lower hit rate (called cache thrashing or conflict misses). 3. Polling: progress check during firmware updates on some simple embedded devices; Interrupt: every keyboard key press triggers an interrupt; DMA: large file copying, graphics card rendering framebuffer transfer.</p>
 <link href="https://cdn.jsdelivr.net/npm/vis-network@9.1.6/dist/vis-network.min.css" rel="stylesheet"/>
 <style>
 /* ===== 指令旅程综合可视化演示专用样式 - runoob ===== */
@@ -1541,22 +1541,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   }); /* end waitForVis */
 
 })();
-</script>
-其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/io-polling-interrupt-dma.html" rel="prev">I/O 的三种方式 — 轮询、中断、DMA</a> </div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/io-polling-interrupt-dma.html" rel="prev">Three I/O methods — polling, interrupt, DMA</a> </div>
 <div class="next-design-link"></div>
-</div>
-
-笔记列表
-<style>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -1660,16 +1655,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1677,14 +1672,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31891"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1862,7 +1857,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1953,7 +1948,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

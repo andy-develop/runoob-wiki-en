@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>模板模式 | 菜鸟教程</title>
+<title>Template Pattern | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="模板模式  在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。  介绍 意图 在父类中定义了算法的骨架，并允许子类在不改变算法结构的前提下重定义算法的某些特定步骤。 主要解决的问题  解决在多个子类中重复实现相同的方法的问题，通过将通用方法抽象到父类中来避免代码重复。  使用场景  当存在一些.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,56 +158,56 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/strategy-pattern.html" rel="prev">策略模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/visitor-pattern.html" rel="next">访问者模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/strategy-pattern.html" rel="prev">Strategy Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/visitor-pattern.html" rel="next">Visitor Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>模板模式</h1>
+<h1>Template Pattern</h1>
 <p>In the Template Pattern, an abstract class publicly defines the way/template for executing its methods. Its subclasses can override method implementations as needed, but the invocation will be performed in the manner defined in the abstract class. This type of design pattern is a behavioral pattern.</p>
-<h2 class="tutheader">介绍</h2>
-<h3>意图</h3> <p>The skeleton of an algorithm is defined in the parent class, and subclasses are allowed to redefine certain specific steps of the algorithm without changing the algorithm's structure.</p>
+<h2 class="tutheader">Introduction</h2>
+<h3>intent</h3> <p>The skeleton of an algorithm is defined in the parent class, and subclasses are allowed to redefine certain specific steps of the algorithm without changing the algorithm's structure.</p>
 <h3>Main problems solved</h3>
 <ul>
 <li>It solves the problem of repeatedly implementing the same methods in multiple subclasses by abstracting common methods into the parent class to avoid code duplication.</li>
 </ul>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>When there are common methods that can be shared among multiple subclasses.</li>
 </ul>
-<h3>实现方式</h3>
+<h3>Implementation Approach</h3>
 <ul>
 <li><strong>Define an abstract parent class</strong>: Contains the template method and some abstract or concrete methods.</li>
-<li><strong>实现子类</strong>: Inherits from the abstract parent class and implements abstract methods, without changing the algorithm structure.</li>
+<li><strong>Concrete Subclass</strong>: Inherits from the abstract parent class and implements abstract methods, without changing the algorithm structure.</li>
 </ul>
-<h3>关键代码</h3>
+<h3>Key code</h3>
 <ul>
-<li><strong>模板方法</strong>: Defined in the abstract parent class, calls abstract methods and concrete methods.</li>
-<li><strong>抽象方法</strong>: Implemented by subclasses, representing the variable parts of the algorithm.</li>
-<li><strong>具体方法</strong>: Implemented in the abstract parent class, representing the invariant parts of the algorithm.</li>
+<li><strong>Template Method</strong>: Defined in the abstract parent class, calls abstract methods and concrete methods.</li>
+<li><strong>Abstract method</strong>: Implemented by subclasses, representing the variable parts of the algorithm.</li>
+<li><strong>Concrete Method</strong>: Implemented in the abstract parent class, representing the invariant parts of the algorithm.</li>
 </ul>
-<h3>应用实例</h3>
+<h3>Application example</h3>
 <ul>
-<li><strong>建筑流程</strong>: Steps such as foundation, wiring, and plumbing are the same, while later construction steps such as adding closets and fences are different.</li>
+<li><strong>Construction Process</strong>: Steps such as foundation, wiring, and plumbing are the same, while later construction steps such as adding closets and fences are different.</li>
 <li><strong>The 81 tribulations of Journey to the West</strong>: The 81 tribulations set by the Bodhisattva represent a top-level logical skeleton.</li>
 <li><strong>Spring's support for Hibernate</strong>: Encapsulates common methods such as opening a transaction, getting a Session, and closing a Session.</li>
 </ul>
-<h3>优点</h3>
+<h3>Advantages</h3>
 <ul>
 <li><strong>Encapsulate the invariant parts</strong>: The invariant part of the algorithm is encapsulated in the parent class.</li>
 <li><strong>Extend the variable parts</strong>: Subclasses can extend or modify the variable parts of the algorithm.</li>
 <li><strong>Extract common code</strong>: Reduces code duplication and facilitates maintenance.</li>
 </ul>
-<h3>缺点</h3>
+<h3>Disadvantages</h3>
 <ul>
-<li><strong>类数目增加</strong>: Each different implementation requires a subclass, which may cause the system to become large.</li>
+<li><strong>Increase in the number of classes</strong>: Each different implementation requires a subclass, which may cause the system to become large.</li>
 </ul>
-<h3>使用建议</h3>
+<h3>Usage suggestions</h3>
 <ul>
 <li>When multiple subclasses have common methods with identical logic, consider using the Template Method pattern.</li>
 <li>For important or complex methods, you may consider defining them as template methods in the parent class.</li>
 </ul>
-<h3>注意事项</h3>
+<h3>Notes</h3>
 <ul>
 <li>To prevent malicious modification, the template method is usually declared final.<code class="inlineCode___h27aF">final</code>Keyword modification to avoid being overridden by subclasses.</li>
 </ul>
@@ -220,7 +220,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 </li>
 <li>
-<p><strong>具体子类（Concrete Classes）</strong>：</p>
+<p><strong>Concrete Classes</strong>：</p>
 <ul>
 <li>Inherits from the abstract parent class and implements abstract methods.</li>
 </ul>
@@ -238,11 +238,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 </li>
 </ul>
-<h2 class="tutheader">实现</h2>
-<p>We will create a class that defines operations<i>Game</i>Abstract class, where the template method is set to final, so it will not be overridden.<i>Cricket</i> 和 <i>Football</i>是扩展了<i>Game</i>The concrete classes, which override the methods of the abstract class.</p>
+<h2 class="tutheader">Implementation</h2>
+<p>We will create a class that defines operations<i>Game</i>Abstract class, where the template method is set to final, so it will not be overridden.<i>Cricket</i>and<i>Football</i>Extends<i>Game</i>The concrete classes, which override the methods of the abstract class.</p>
 <p><i>TemplatePatternDemo</i>, and our demonstration class uses it<i>Game</i>to demonstrate the usage of the template pattern.</p>
 <img alt="模板模式的 UML 图" decoding="async" src="../wp-content/uploads/2014/08/template_pattern_uml_diagram.jpg"/>
-<h3>步骤 1</h3>
+<h3>Step 1</h3>
 <p>Create an abstract class whose template method is set to final.</p>
 <div class="example">
 <h2 class="example">Game.java</h2>
@@ -252,20 +252,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-reserved">abstract</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">startPlay</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
    </span><span class="hl-reserved">abstract</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">endPlay</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-   </span><span class="hl-comment">//</span><span class="hl-comment">模板</span><span class="hl-comment"></span><span class="hl-code">
+   </span><span class="hl-comment">//</span><span class="hl-comment">Templates</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">final</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">play</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">初始化游戏</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Initialize game</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">initialize</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-      </span><span class="hl-comment">//</span><span class="hl-comment">开始游戏</span><span class="hl-comment"></span><span class="hl-code">
+      </span><span class="hl-comment">//</span><span class="hl-comment">Start Game</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">startPlay</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-      </span><span class="hl-comment">//</span><span class="hl-comment">结束游戏</span><span class="hl-comment"></span><span class="hl-code">
+      </span><span class="hl-comment">//</span><span class="hl-comment">End Game</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">endPlay</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 2</h3>
+<h3>Step 2</h3>
 <p>Create entity classes that extend the above class.</p>
 <div class="example">
 <h2 class="example">Cricket.java</h2>
@@ -309,8 +309,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 3</h3>
-<p>使用<i>Game</i>Use the template method play() to demonstrate how the game is defined.</p>
+<h3>Step 3</h3>
+<p>Usage<i>Game</i>Use the template method play() to demonstrate how the game is defined.</p>
 <div class="example">
 <h2 class="example">TemplatePatternDemo.java</h2>
 <div class="example_code">
@@ -324,7 +324,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 4</h3>
+<h3>Step 4</h3>
 <p>Execute the program and output the results:</p>
 <pre>
 Cricket Game Initialized! Start playing.
@@ -334,21 +334,17 @@ Cricket Game Finished!
 Football Game Initialized! Start playing.
 Football Game Started. Enjoy the game!
 Football Game Finished!
-</pre> 其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/strategy-pattern.html" rel="prev">策略模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/visitor-pattern.html" rel="next">访问者模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/strategy-pattern.html" rel="prev">Strategy Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/visitor-pattern.html" rel="next">Visitor Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -454,13 +450,13 @@ Football Game Finished!
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-plus-square" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">3  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">3 notes</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments" style="display:none;">
 <ol class="commentlist">
-<li class="comment even thread-even depth-1" id="comment-51056"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51056" id="runoobvote-id-51056"><a class="upvote"></a> <span class="count">27</span></div></div><div class="comt-main" id="div-comment-51056"><p>Python 方式：</p>
+<li class="comment even thread-even depth-1" id="comment-51056"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51056" id="runoobvote-id-51056"><a class="upvote"></a> <span class="count">27</span></div></div><div class="comt-main" id="div-comment-51056"><p>Python way:</p>
 <pre># Template Pattern code with Python
 from abc import abstractmethod,ABCMeta
 
@@ -498,8 +494,8 @@ if __name__ == '__main__':
     game1 = Cricket()
     game1.play()
     game2 = Football()
-    game2.play()</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7年前 (2020-02-28)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-56315"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   chpeagle</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  chp***le@126.com</p></div><div class="upvotejs" data-commid="56315" id="runoobvote-id-56315"><a class="upvote"></a> <span class="count">9</span></div></div><div class="comt-main" id="div-comment-56315"><p>C++ 方式：</p>
+    game2.play()</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7 years ago (2020-02-28)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-56315"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   chpeagle</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  chp***le@126.com</p></div><div class="upvotejs" data-commid="56315" id="runoobvote-id-56315"><a class="upvote"></a> <span class="count">9</span></div></div><div class="comt-main" id="div-comment-56315"><p>C++ Approach:</p>
 <p><strong>Game.h</strong></p>
 <pre>#include &lt;iostream&gt;
 class Game
@@ -567,8 +563,8 @@ int main(int argc, char* argv[]) {
     game = new Football();
     game-&gt;play();
 
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">chpeagle</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   chpeagle</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  chp***le@126.com</p></div></span>6年前 (2020-08-17)</div></div></li><!-- #comment-## -->
-<li class="comment even thread-even depth-1" id="comment-62616"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   liangfang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  lia***ang@vip.163.com</p></div><div class="upvotejs" data-commid="62616" id="runoobvote-id-62616"><a class="upvote"></a> <span class="count">2</span></div></div><div class="comt-main" id="div-comment-62616"><p>PHP 实现：</p>
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">chpeagle</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   chpeagle</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  chp***le@126.com</p></div></span>6 years ago (2020-08-17)</div></div></li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-62616"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   liangfang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  lia***ang@vip.163.com</p></div><div class="upvotejs" data-commid="62616" id="runoobvote-id-62616"><a class="upvote"></a> <span class="count">2</span></div></div><div class="comt-main" id="div-comment-62616"><p>PHP Implementation:</p>
 <pre>&lt;?php
 abstract class Game{   
     abstract function initialize();  
@@ -616,22 +612,22 @@ class TemplatePatternDemo {
     }
 }
 TemplatePatternDemo::main();
-?&gt;</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">liangfang</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   liangfang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  lia***ang@vip.163.com</p></div></span>6年前 (2021-03-30)</div></div></li><!-- #comment-## -->
+?&gt;</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">liangfang</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   liangfang</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  lia***ang@vip.163.com</p></div></span>6 years ago (2021-03-30)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -639,14 +635,14 @@ TemplatePatternDemo::main();
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="8946"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -824,7 +820,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -915,7 +911,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>小数怎么表示 — 浮点数与 IEEE 754 | 菜鸟教程</title>
+<title>How decimal numbers are represented — Floating-point numbers and IEEE 754 | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="小数怎么表示 -- 浮点数与 IEEE 754 本讲你将理解：小数如何在只有 0 和 1 的世界里表示，以及为什么浮点数会有精度误差。    生活化类比：科学计数法  你在物理课上一定见过科学计数法： 光速 = 3.0 x 108 m/s，电子质量 = 9.1 x 10-31 kg。 这种方式用很少的数字就能表示非常大或非常小的数。  计算机表示小数用的也是完全相同的思路——二进制科学计数法。 任何二进制小数都可以写成：   1.xxx.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/negative-numbers-complement.html" rel="prev">负数怎么表示 — 原码、反码、补码</a> </div>
-<div class="next-design-link"><a href="../computer-organization/character-encoding.html" rel="next">字符怎么表示 — ASCII 与 Unicode</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/negative-numbers-complement.html" rel="prev">How negative numbers are represented — sign-magnitude, one's complement, two's complement</a> </div>
+<div class="next-design-link"><a href="../computer-organization/character-encoding.html" rel="next">How are characters represented? — ASCII and Unicode</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,18 +168,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Everyday analogy: scientific notation</h2>
 <p>You have certainly seen scientific notation in physics class:</p>
-<p>光速 = 3.0 x 10<sup>8</sup>m/s, electron mass = 9.1 x 10<sup>-31</sup> kg。</p>
+<p>Speed of light = 3.0 x 10<sup>8</sup>m/s, electron mass = 9.1 x 10<sup>-31</sup> kg。</p>
 <p>This method can represent very large or very small numbers with very few digits.</p>
-<p>Computers use exactly the same idea to represent decimals--<span class="marked">二进制科学计数法</span>。</p>
+<p>Computers use exactly the same idea to represent decimals--<span class="marked">Binary Scientific Notation</span>。</p>
 <p>Any binary decimal can be written as:</p>
 <p style="text-align:center; font-size:20px; font-family:monospace; background:#f5f5f5; padding:12px; border-radius:4px;">
 1.xxxxxxxxxx x 2<sup>yyyyy</sup>
 </p>
 <p>This form only needs to store three things:</p>
 <ul>
-<li><span class="tag1 red">符号</span>: positive or negative sign?</li>
-<li><span class="tag1">尾数</span>(xxxxxxxxxx): significant digits part</li>
-<li><span class="tag1 green">指数</span>(yyyyy): position of the decimal point</li>
+<li><span class="tag1 red">symbol</span>: positive or negative sign?</li>
+<li><span class="tag1">mantissa</span>(xxxxxxxxxx): significant digits part</li>
+<li><span class="tag1 green">Exponent</span>(yyyyy): position of the decimal point</li>
 </ul>
 <p>The IEEE 754 standard packs these three things into 32 bits in a fixed format.</p>
 <hr/>
@@ -188,34 +188,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="float-bar-container">
 <div class="float-bar">
 <div class="bar-sign">
-<span class="bar-label">符号位 Sign</span>
+<span class="bar-label">Sign Bit</span>
     0
-    <span class="bar-label-num">1 位</span>
+    <span class="bar-label-num">1 bit</span>
 </div>
 <div class="bar-exponent">
-<span class="bar-label">指数位 Exponent</span>
+<span class="bar-label">Exponent</span>
     00000000
-    <span class="bar-label-num">8 位</span>
+    <span class="bar-label-num">8 bits</span>
 </div>
 <div class="bar-mantissa">
-<span class="bar-label">尾数位 Mantissa (Fraction)</span>
+<span class="bar-label">Mantissa bits Mantissa (Fraction)</span>
     00000000000000000000000
-    <span class="bar-label-num">23 位</span>
+    <span class="bar-label-num">23 bits</span>
 </div>
 </div>
 <div class="float-legend">
-<div class="leg-item"><div class="leg-color" style="background:#e53935;"></div>符号位 (1 bit)</div>
-<div class="leg-item"><div class="leg-color" style="background:#1e88e5;"></div>指数位 (8 bits)</div>
-<div class="leg-item"><div class="leg-color" style="background:#4576A6;"></div>尾数位 (23 bits)</div>
+<div class="leg-item"><div class="leg-color" style="background:#e53935;"></div>Sign bit (1 bit)</div>
+<div class="leg-item"><div class="leg-color" style="background:#1e88e5;"></div>Exponent bits (8 bits)</div>
+<div class="leg-item"><div class="leg-color" style="background:#4576A6;"></div>Mantissa bits (23 bits)</div>
 </div>
 </div>
 <h3>First part: sign bit (1 bit)</h3>
 <p>The simplest segment.</p>
-<p><code>0</code>表示正数，<code>1</code>表示负数。</p>
+<p><code>0</code>represents positive numbers,<code>1</code>represents negative numbers.</p>
 <h3>Second segment: exponent bits (8 bits)</h3>
 <p>The exponent determines the position of the decimal point (this is where the name "floating point" comes from--the decimal point can "float").</p>
 <p>But the exponent is not stored directly; instead, "actual exponent + 127" is stored.</p>
-<p>This 127 is called<span class="marked">偏移量（Bias）</span>。</p>
+<p>This 127 is called<span class="marked">Offset (Bias)</span>。</p>
 <p>Why add an offset?</p>
 <p>Because 8 bits can only represent 0~255 (unsigned), but the actual exponent needs to be negative (to represent numbers less than 1).</p>
 <p>After adding the offset 127:</p>
@@ -228,7 +228,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The mantissa stores the "xxxxx" part of "1.xxxxx", omitting the leading 1.</p>
 <p>Because in binary scientific notation, the normalized form is always 1.xxx, so the leading 1 does not need to be stored.</p>
 <p>This cleverly saves an extra 1 bit of precision.</p>
-<blockquote><p>The key to understanding the three-segment structure: floating point number = (-1)^<sup>符号</sup>x 1.尾数 x 2<sup>(指数-127)</sup>This is the entire essence of IEEE 754.</p></blockquote>
+<blockquote><p>The key to understanding the three-segment structure: floating point number = (-1)^<sup>symbol</sup>× 1.mantissa × 2<sup>(Exponent-127)</sup>This is the entire essence of IEEE 754.</p></blockquote>
 <hr/>
 <h2>Interactive demo: 32-bit floating point number dissector</h2>
 <p>Enter a floating point number and observe its three-segment structure in IEEE 754 single precision format.</p>
@@ -468,9 +468,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="demo-panel">
 <h3>IEEE 754 single precision dissector</h3>
 <div class="demo-input-row">
-<span>输入浮点数：</span>
+<span>Input floating point number:</span>
 <input class="demo-input" id="floatInput" onkeydown="if(event.key==='Enter')decomposeFloat()" type="text" value="3.14"/>
-<button class="demo-btn calc" onclick="decomposeFloat()">拆解</button>
+<button class="demo-btn calc" onclick="decomposeFloat()">decomposition</button>
 <button class="demo-btn preset" onclick="document.getElementById('floatInput').value='0.1';decomposeFloat();">0.1</button>
 <button class="demo-btn preset" onclick="document.getElementById('floatInput').value='-0.5';decomposeFloat();">-0.5</button>
 <button class="demo-btn preset" onclick="document.getElementById('floatInput').value='3.14';decomposeFloat();">3.14</button>
@@ -606,9 +606,9 @@ decomposeFloat();
 <p>This leads to a famous phenomenon in computing.</p>
 <hr/>
 <h2>Why 0.1 + 0.2 does not equal 0.3</h2>
-<p>If you run this in Python or JavaScript<code>0.1 + 0.2 == 0.3</code>，结果是<code>False</code>。</p>
+<p>If you run this in Python or JavaScript<code>0.1 + 0.2 == 0.3</code>, the result is<code>False</code>。</p>
 <p>This is not a bug, but an inevitable consequence of floating-point representation.</p>
-<p>The reason is very simple:<span class="marked">0.1 无法用二进制精确表示</span>。</p>
+<p>The reason is very simple:<span class="marked">0.1 cannot be exactly represented in binary</span>。</p>
 <p>Just like in decimal, 1/3 = 0.33333... is an infinitely repeating decimal.</p>
 <p>In binary, 0.1 (decimal) = 0.000110011001100110011... (binary), which is also an infinitely repeating fraction.</p>
 <p>IEEE 754 only has 23 bits of mantissa to store this infinitely repeating decimal.</p>
@@ -617,21 +617,21 @@ decomposeFloat();
 <p>The value actually stored for 0.2 in float32 is approximately 0.20000000298023223876953125.</p>
 <p>After adding the two and truncating, the result is not exactly 0.3.</p>
 <div class="float-explanation" style="background:#fff3e0;border-left:4px solid #ff9800;">
-<p><span class="marked">金额计算必须避免浮点数</span></p>
+<p><span class="marked">Amount calculations must avoid floating-point numbers</span></p>
 <p>In scenarios involving money, you should use integers (in units of "cents") or a dedicated Decimal type.</p>
-<p>Python 的<code>Decimal</code>、Java 的<code>BigDecimal</code>、C# 的<code>decimal</code>are all designed for this.</p>
+<p>Python's<code>Decimal</code>Java's<code>BigDecimal</code>C#'s<code>decimal</code>are all designed for this.</p>
 <p>If you store money with floating point numbers, by the time you discover that the accumulated error of 0.01 has become 0.010000000000000002, the seeds of the problem were sown long ago.</p>
 </div>
 <hr/>
 <h2>Range of floating-point numbers and special values</h2>
 <p>IEEE 754 reserves several special combinations for the exponent and mantissa:</p>
 <table class="reference">
-<tr><th>类别</th><th>符号位</th><th>Exponent (storage)</th><th>尾数</th><th>含义</th></tr>
-<tr><td>零</td><td>0 或 1</td><td>0 (全 0)</td><td>全 0</td><td>+0 或 -0</td></tr>
-<tr><td>非归一化数</td><td>0 或 1</td><td>0 (全 0)</td><td>非全 0</td><td>Values very close to 0</td></tr>
-<tr><td>归一化数</td><td>0 或 1</td><td>1 ~ 254</td><td>任意</td><td>Normal floating-point numbers</td></tr>
-<tr><td>无穷大</td><td>0 或 1</td><td>255 (全 1)</td><td>全 0</td><td>+Infinity 或 -Infinity</td></tr>
-<tr><td>NaN</td><td>任意</td><td>255 (全 1)</td><td>非全 0</td><td>Non-numeric values (e.g., 0/0)</td></tr>
+<tr><th>Category</th><th>Sign bit</th><th>Exponent (storage)</th><th>mantissa</th><th>Meaning</th></tr>
+<tr><td>zero</td><td>0 or 1</td><td>0 (all zeros)</td><td>All zeros</td><td>+0 or -0</td></tr>
+<tr><td>Subnormal number</td><td>0 or 1</td><td>0 (all zeros)</td><td>Not all zeros</td><td>Values very close to 0</td></tr>
+<tr><td>Normalized number</td><td>0 or 1</td><td>1 ~ 254</td><td>Any</td><td>Normal floating-point numbers</td></tr>
+<tr><td>Infinity</td><td>0 or 1</td><td>255 (all 1s)</td><td>All zeros</td><td>+Infinity or -Infinity</td></tr>
+<tr><td>NaN</td><td>Any</td><td>255 (all 1s)</td><td>Not all zeros</td><td>Non-numeric values (e.g., 0/0)</td></tr>
 </table>
 <p>Approximate range of single precision float (32 bits):</p>
 <ul>
@@ -654,26 +654,26 @@ decomposeFloat();
 <p>Only fractions whose denominator is a power of 2 (such as 0.5, 0.25, 0.125) can be represented exactly in binary.</p>
 <h3>Case 2: Adding a small number to a large number</h3>
 <p>The precision of floating point numbers is not uniformly distributed--the larger the value, the larger the smallest difference that can be distinguished.</p>
-<p>比如 16777216.0 + 1.0 = 16777216.0（在 float32 中结果不变）。</p>
+<p>For example, 16777216.0 + 1.0 = 16777216.0 (in float32, the result remains unchanged).</p>
 <p>Because a 32-bit floating point number can only represent about 7 significant digits exactly, and 16777216 itself already takes up 8 digits.</p>
 <p>The change produced by adding 1 falls into the precision range that the mantissa cannot represent, and is directly "swallowed".</p>
 <h3>Case 3: Subtracting two nearly equal numbers</h3>
-<p>Subtracting two very close floating point numbers can lead to<span class="marked">有效数字的灾难性丢失</span>。</p>
+<p>Subtracting two very close floating point numbers can lead to<span class="marked">Catastrophic loss of significant digits</span>。</p>
 <p>For example, 1.2345678 - 1.2345677 = 0.0000001, but the actual computation may yield 0.000000099999..., a result with a large error.</p>
 <blockquote><p>Knowing the precision limits of floating point numbers is not to make you "afraid" to use them, but to let you choose the right tool for the right scenario. Scientific computing, graphics rendering, machine learning--floating point numbers are completely sufficient in these fields. But finance, accounting, precise counting--stay away from floating point numbers.</p></blockquote>
 <hr/>
 <h2>Code demonstration: the secrets of floating point</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 浮点数精度问题完整演示（runoob 演示）</span><br/>
+<span style="color: #a50"># Complete Demo of the Floating-Point Precision Issue (Runoob Demo)</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">struct</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> float_to_ieee754_binary<span style="color: Olive;">(</span>num<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""将浮点数转换为 IEEE 754 单精度三段表示"""</span><br/>
-    <span style="color: #a50"># 使用 struct 将浮点数打包为 4 字节（大端序）</span><br/>
+    <span style="color: #a11;">Convert a floating-point number to IEEE 754 single-precision three-segment representation</span><br/>
+    <span style="color: #a50"># Use struct to pack the floating-point number into 4 bytes (big-endian)</span><br/>
     packed <span style="color: Gray;">=</span> <span style="color: #05a;">struct</span>.<span style="color: #05a;">pack</span><span style="color: Olive;">(</span><span style="color: #a11;">'&gt;f'</span><span style="color: Gray;">,</span> num<span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 转换为 32 位二进制字符串</span><br/>
+    <span style="color: #a50"># Convert to a 32-bit binary string</span><br/>
     bits <span style="color: Gray;">=</span> <span style="color: #a11;">''</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>f<span style="color: #a11;">'{b:08b}'</span> <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> packed<span style="color: Olive;">)</span><br/>
 <br/>
     sign <span style="color: Gray;">=</span> bits<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><br/>
@@ -683,7 +683,7 @@ decomposeFloat();
     exp_stored <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>exponent<span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
     exp_actual <span style="color: Gray;">=</span> exp_stored - <span style="color: Maroon;">127</span><br/>
 <br/>
-    <span style="color: #a50"># 计算尾数的小数值</span><br/>
+    <span style="color: #a50"># Calculate the decimal value of the mantissa</span><br/>
     frac <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> bit <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>mantissa<span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> bit <span style="color: Gray;">==</span> <span style="color: #a11;">'1'</span>:<br/>
@@ -703,28 +703,28 @@ decomposeFloat();
     <span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: #a50"># =============================================</span><br/>
-<span style="color: #a50"># 演示 1: 对比 0.5 和 0.1 的表示</span><br/>
+<span style="color: #a50"># Demo 1: Comparing the Representation of 0.5 and 0.1</span><br/>
 <span style="color: #a50"># =============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"演示 1: 为什么 0.5 精确而 0.1 不精确"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Demo 1: Why 0.5 is exact but 0.1 is not"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> num <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0.5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.1</span><span style="color: Olive;">]</span>:<br/>
     r <span style="color: Gray;">=</span> float_to_ieee754_binary<span style="color: Olive;">(</span>num<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>浮点数: {num}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  符号位: {r['sign']} ({'正' if r['sign'] == '0' else '负'})"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  指数位: {r['exponent']} (存储={r['exp_stored']}, 实际={r['exp_actual']})"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  尾数位: {r['mantissa']}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  实际存储值: {r['reconstructed']}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Floating-point: {num}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Sign bit: {r['sign']} ({'positive' if r['sign'] == '0' else 'negative'})</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Exponentbits: {r['exponent']} (Storage={r['exp_stored']}, real际={r['exp_actual']})"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Mantissa bits: {r['mantissa']}</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Actual stored value: {r['reconstructed']}</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># =============================================</span><br/>
-<span style="color: #a50"># 演示 2: 经典的 0.1 + 0.2 != 0.3</span><br/>
+<span style="color: #a50"># Demo 2: The classic 0.1 + 0.2 != 0.3</span><br/>
 <span style="color: #a50"># =============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"演示 2: 0.1 + 0.2 != 0.3"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Demo 2: 0.1 + 0.2 != 0.3</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 使用更高精度显示</span><br/>
+<span style="color: #a50"># Display with higher precision</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">decimal</span><br/>
 ctx <span style="color: Gray;">=</span> <span style="color: #05a;">decimal</span>.<span style="color: #05a;">getcontext</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 ctx.<span style="color: #05a;">prec</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">50</span><br/>
@@ -733,60 +733,60 @@ a <span style="color: Gray;">=</span> <span style="color: #05a;">decimal</span>.
 b <span style="color: Gray;">=</span> <span style="color: #05a;">decimal</span>.<span style="color: #05a;">Decimal</span><span style="color: Olive;">(</span><span style="color: Maroon;">0.2</span><span style="color: Olive;">)</span><br/>
 c <span style="color: Gray;">=</span> <span style="color: #05a;">decimal</span>.<span style="color: #05a;">Decimal</span><span style="color: Olive;">(</span><span style="color: Maroon;">0.3</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.1 的实际值: {a}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.2 的实际值: {b}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.3 的实际值: {c}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Actual value of 0.1: {a}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Actual value of 0.2: {b}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Actual value of 0.3: {c}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.1 + 0.2  = {a + b}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.1 + 0.2 == 0.3 ? {0.1 + 0.2 == 0.3}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># =============================================</span><br/>
-<span style="color: #a50"># 演示 3: 大数「吞」小数</span><br/>
+<span style="color: #a50"># Demo 3: Large numbers 'swallow' small numbers</span><br/>
 <span style="color: #a50"># =============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"演示 3: 大数加小数被吞没"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Demo 3: Large number plus small number is swallowed"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
 big <span style="color: Gray;">=</span> <span style="color: Maroon;">16777216.0</span><br/>
 small <span style="color: Gray;">=</span> <span style="color: Maroon;">1.0</span><br/>
 result <span style="color: Gray;">=</span> big + small<br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{big} + {small} = {result}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"结果等于原数? {result == big}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Result equals original number? {result == big}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 展示这个数达到 float32 的精度极限</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>原因: {big} 在 float32 中需要 {len(format(struct.unpack('&gt;I', struct.pack('&gt;f', big))[0], '032b')[:23])} 位尾数"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"相邻两个 float32 值的最小间隔约为 2^24 / 2^23 = 2.0"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Show that this number reaches the precision limit of float32</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Reason: {big} In float32 Mediumrequires {len(format(struct.unpack('&gt;I', struct.pack('&gt;f', big))[0], '032b')[:23])} bitsmantissa"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">The minimum interval between two adjacent float32 values is approximately 2^24 / 2^23 = 2.0</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># =============================================</span><br/>
-<span style="color: #a50"># 演示 4: 正确的大小写转换技巧</span><br/>
+<span style="color: #a50"># Demo 4: Correct case conversion techniques</span><br/>
 <span style="color: #a50"># =============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"演示 4: RUNOOB 案例 - 金额的正确处理"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Demo 4: RUNOOB example - Correct handling of amounts"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">decimal</span> <span style="color: Green;font-weight:bold;">import</span> Decimal<br/>
 <br/>
-<span style="color: #a50"># 错误做法：用浮点数</span><br/>
+<span style="color: #a50"># Wrong approach: using floating-point numbers</span><br/>
 float_total <span style="color: Gray;">=</span> <span style="color: Maroon;">0.1</span> + <span style="color: Maroon;">0.2</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"错误（浮点数）: 0.1 + 0.2 = {float_total}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Error (floating point): 0.1 + 0.2 = {float_total}</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 正确做法：用 Decimal</span><br/>
+<span style="color: #a50"># Correct approach: use Decimal</span><br/>
 decimal_total <span style="color: Gray;">=</span> Decimal<span style="color: Olive;">(</span><span style="color: #a11;">'0.1'</span><span style="color: Olive;">)</span> + Decimal<span style="color: Olive;">(</span><span style="color: #a11;">'0.2'</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"正确（Decimal）: Decimal('0.1') + Decimal('0.2') = {decimal_total}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"correctconfirm（Decimal）: Decimal('0.1') + Decimal('0.2') = {decimal_total}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 或者用整数（以分为单位）</span><br/>
-cents_total <span style="color: Gray;">=</span> <span style="color: Maroon;">10</span> + <span style="color: Maroon;">20</span>  <span style="color: #a50"># 0.1元 = 10分, 0.2元 = 20分</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"正确（整数分）: 10分 + 20分 = {cents_total}分 = {cents_total/100}元"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Or use integers (in cents)</span><br/>
+cents_total <span style="color: Gray;">=</span> <span style="color: Maroon;">10</span> + <span style="color: Maroon;">20</span>  <span style="color: #a50"># 0.1 yuan = 10 fen, 0.2 yuan = 20 fen</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"correctconfirm（IntegerDivide）: 10Divide + 20Divide = {cents_total}Divide = {cents_total/100}元"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># =============================================</span><br/>
-<span style="color: #a50"># 演示 5: 浮点数的特殊值</span><br/>
+<span style="color: #a50"># Demo 5: Special values of floating-point numbers</span><br/>
 <span style="color: #a50"># =============================================</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"演示 5: 浮点数的特殊值"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Demo 5: Special values of floating-point numbers"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">math</span><br/>
 <br/>
-<span style="color: #a50"># 无穷大</span><br/>
+<span style="color: #a50"># Infinity</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"float('inf')    = {float('inf')}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"1.0 / 0.0       = {1.0 / 0.0}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"float('inf') &gt; 1e1000000 = {float('inf') &gt; 1e1000000}"</span><span style="color: Olive;">)</span><br/>
@@ -795,36 +795,32 @@ cents_total <span style="color: Gray;">=</span> <span style="color: Maroon;">10<
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"float('nan')     = {float('nan')}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"0.0 / 0.0        = {0.0 / 0.0}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"float('nan') == float('nan') ? {float('nan') == float('nan')}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  (NaN 不等于任何值，包括它自己！)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  (NaN is not equal to any value, including itself!)"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 检查 NaN</span><br/>
+<span style="color: #a50"># Check for NaN</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"math.isnan(float('nan')) = {math.isnan(float('nan'))}"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Practical advice: when to use what</h2>
 <table class="reference">
-<tr><th>场景</th><th>推荐类型</th><th>原因</th></tr>
-<tr><td>Scientific computing, graphics rendering</td><td>float 或 double</td><td>Sufficient precision, good hardware acceleration support</td></tr>
+<tr><th>Scenarios</th><th>Recommended type</th><th>Reason</th></tr>
+<tr><td>Scientific computing, graphics rendering</td><td>float or double</td><td>Sufficient precision, good hardware acceleration support</td></tr>
 <tr><td>Financial amount calculation</td><td>Decimal / BigDecimal</td><td>Exact decimal arithmetic, no rounding errors</td></tr>
 <tr><td>Counters, indexes</td><td>int / long</td><td>Exact integers, no precision issues</td></tr>
-<tr><td>比较浮点数</td><td>用容差比较</td><td>Do not use == directly; use abs(a-b) &lt; epsilon</td></tr>
-<tr><td>货币存储/传输</td><td>Integers (in cents)</td><td>Avoid floating-point errors during serialization</td></tr>
-</table> 其他扩展
-</div>
+<tr><td>Comparing floating-point numbers</td><td>Comparing with tolerance</td><td>Do not use == directly; use abs(a-b) &lt; epsilon</td></tr>
+<tr><td>Currency storage/transfer</td><td>Integers (in cents)</td><td>Avoid floating-point errors during serialization</td></tr>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/negative-numbers-complement.html" rel="prev">负数怎么表示 — 原码、反码、补码</a> </div>
-<div class="next-design-link"><a href="../computer-organization/character-encoding.html" rel="next">字符怎么表示 — ASCII 与 Unicode</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/negative-numbers-complement.html" rel="prev">How negative numbers are represented — sign-magnitude, one's complement, two's complement</a> </div>
+<div class="next-design-link"><a href="../computer-organization/character-encoding.html" rel="next">How are characters represented? — ASCII and Unicode</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -928,16 +924,16 @@ cents_total <span style="color: Gray;">=</span> <span style="color: Maroon;">10<
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -945,14 +941,14 @@ cents_total <span style="color: Gray;">=</span> <span style="color: Maroon;">10<
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31874"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1130,7 +1126,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1221,7 +1217,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

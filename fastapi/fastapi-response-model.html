@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FastAPI 响应模型 | 菜鸟教程</title>
+<title>FastAPI Response Model | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="FastAPI 响应模型 响应模型用于声明 API 返回的数据结构。通过声明响应模型，FastAPI 会自动完成输出数据的校验、序列化和过滤，确保客户端只接收到预期的数据。   使用返回类型注解 最简单的方式是直接注解路径操作函数的返回类型：   实例  [mycode4 type='python'] from fastapi import FastAPI from pydantic import BaseModel.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-body-fields.html" rel="prev">FastAPI 请求体字段与嵌套模型</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-status-code.html" rel="next">FastAPI 响应状态码</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-body-fields.html" rel="prev">FastAPI Request Body Fields and Nested Models</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-status-code.html" rel="next">FastAPI Response Status Codes</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,7 +169,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Using return type annotations</h2>
 <p>The simplest way is to directly annotate the return type of the path operation function:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -185,28 +185,28 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/{item_id}"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>Item<span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_item<span style="color: Olive;">(</span>item_id: <span style="color: Teal;">int</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 返回的数据会自动按照 Item 模型过滤和校验</span><br/>
+    <span style="color: #a50"># The returned data will be automatically filtered and validated according to the Item model</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"name"</span>: <span style="color: #a11;">"Foo"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"description"</span>: <span style="color: #a11;">"A very nice Item"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"price"</span>: <span style="color: Maroon;">22.2</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">"secret"</span>: <span style="color: #a11;">"this should not be visible"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 不在 Item 中的字段会被过滤</span><br/>
+        <span style="color: #a11;">"secret"</span>: <span style="color: #a11;">"this should not be visible"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Fields not in Item will be filtered</span><br/>
     <span style="color: Olive;">}</span><br/>
 </div>
 </div>
 <p>FastAPI uses the response model to accomplish the following:</p>
 <table class="reference">
-<tr><th>功能</th><th>说明</th></tr>
-<tr><td>数据校验</td><td>If the returned data does not match the model, it indicates a problem with the application code.</td></tr>
-<tr><td>数据过滤</td><td>Only return the fields defined in the model, filtering out extra fields (this is important for security).</td></tr>
-<tr><td>生成文档</td><td>Display the response structure in the OpenAPI documentation.</td></tr>
-<tr><td>序列化</td><td>Use Pydantic (Rust implementation) to efficiently convert data to JSON.</td></tr>
+<tr><th>Features</th><th>Description</th></tr>
+<tr><td>Data verification</td><td>If the returned data does not match the model, it indicates a problem with the application code.</td></tr>
+<tr><td>Data filtering</td><td>Only return the fields defined in the model, filtering out extra fields (this is important for security).</td></tr>
+<tr><td>Generate documentation</td><td>Display the response structure in the OpenAPI documentation.</td></tr>
+<tr><td>serialization</td><td>Use Pydantic (Rust implementation) to efficiently convert data to JSON.</td></tr>
 </table>
 <hr/>
-<h2>response_model 参数</h2>
-<p>When the return type is inconsistent with the response model, use the decorator's<code>response_model</code>参数：</p>
+<h2>response_model parameter</h2>
+<p>When the return type is inconsistent with the response model, use the decorator's<code>response_model</code>Parameters:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<span style="color: Gray;">,</span> EmailStr<br/>
@@ -214,32 +214,32 @@ async <span style="color: Green;font-weight:bold;">def</span> read_item<span sty
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 输入模型（包含密码）</span><br/>
+<span style="color: #a50"># Input model (contains password)</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> UserIn<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     username: <span style="color: Teal;">str</span><br/>
     password: <span style="color: Teal;">str</span><br/>
     <span style="color: #05a;">email</span>: EmailStr<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 输出模型（不包含密码）</span><br/>
+<span style="color: #a50"># Output model (without password)</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> UserOut<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     username: <span style="color: Teal;">str</span><br/>
     <span style="color: #05a;">email</span>: EmailStr<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 函数接收 UserIn，但响应使用 UserOut</span><br/>
+<span style="color: #a50"># Function receives UserIn, but response uses UserOut</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>UserOut<span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span>: UserIn<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 返回的 user 包含密码，但 response_model=UserOut 会过滤掉密码</span><br/>
+    <span style="color: #a50"># The returned user contains the password, but response_model=UserOut will filter out the password.</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #05a;">user</span><br/>
 </div>
 </div>
 <blockquote><p>This is an important way to protect sensitive data. By using different input and output models, sensitive fields such as passwords never appear in API responses.</p></blockquote>
 <hr/>
 <h2>Return type and data filtering</h2>
-<p>推荐使用类继承来实现输入/输出模型的分离，这样既能让编辑器和 mypy 正确理解类型，又能让 FastAPI 过滤数据：</p>
+<p>RecommendedClassInheritancecomeImplementationInput/OutputModelofDivide离，这sample既abilityLetEditorand mypy Correct understandingType，又abilityLet FastAPI FilterData：</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<span style="color: Gray;">,</span> EmailStr<br/>
@@ -247,29 +247,29 @@ async <span style="color: Green;font-weight:bold;">def</span> create_user<span s
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 基础用户模型</span><br/>
+<span style="color: #a50"># Basic User Model</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> BaseUser<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     username: <span style="color: Teal;">str</span><br/>
     <span style="color: #05a;">email</span>: EmailStr<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 输入模型：继承基础模型，新增密码字段</span><br/>
+<span style="color: #a50"># Input model: inherits base model, adds password field</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> UserIn<span style="color: Olive;">(</span>BaseUser<span style="color: Olive;">)</span>:<br/>
     password: <span style="color: Teal;">str</span><br/>
 <br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span>: UserIn<span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> BaseUser:<br/>
-    <span style="color: #a50"># 返回类型注解为 BaseUser，FastAPI 会过滤掉 password 字段</span><br/>
-    <span style="color: #a50"># 编辑器和 mypy 也满意，因为 UserIn 是 BaseUser 的子类</span><br/>
+    <span style="color: #a50"># The return type annotation is BaseUser, and FastAPI will filter out the password field.</span><br/>
+    <span style="color: #a50"># The editor and mypy are also satisfied, because UserIn is a subclass of BaseUser</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #05a;">user</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Excluding unset default values</h2>
-<p>使用<code>response_model_exclude_unset=True</code>, only return fields that actually have values set:</p>
+<p>Usage<code>response_model_exclude_unset=True</code>, only return fields that actually have values set:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -299,22 +299,22 @@ async <span style="color: Green;font-weight:bold;">def</span> read_item<span sty
 </div>
 <p>Comparison of responses for different item_id:</p>
 <table class="reference">
-<tr><th>item_id</th><th>响应</th><th>说明</th></tr>
+<tr><th>item_id</th><th>response</th><th>Description</th></tr>
 <tr><td><code>foo</code></td><td><code>{"name": "Foo", "price": 50.2}</code></td><td>Only explicitly set fields are returned, omitting default values.</td></tr>
 <tr><td><code>bar</code></td><td><code>{"name": "Bar", "description": "...", "price": 62, "tax": 20.2}</code></td><td>All fields have actual values, so all are returned</td></tr>
 </table>
 <p>Related filter parameters:</p>
 <table class="reference">
-<tr><th>参数</th><th>说明</th></tr>
+<tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><code>response_model_exclude_unset</code></td><td>Exclude fields with unset values</td></tr>
 <tr><td><code>response_model_exclude_defaults</code></td><td>Exclude fields with default values</td></tr>
 <tr><td><code>response_model_exclude_none</code></td><td>Exclude fields with value None</td></tr>
 </table>
 <hr/>
-<h2>包含/排除特定字段</h2>
-<p>使用<code>response_model_include</code> 和 <code>response_model_exclude</code>Precisely control output fields:</p>
+<h2>Include/exclude specific fields</h2>
+<p>Usage<code>response_model_include</code>and<code>response_model_exclude</code>Precisely control output fields:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -329,43 +329,38 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
     tax: <span style="color: Teal;">float</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">10.5</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 只包含 name 和 description</span><br/>
+<span style="color: #a50"># Only contains name and description</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/{item_id}"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>Item<span style="color: Gray;">,</span> response_model_include<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"name"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"description"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_item_name<span style="color: Olive;">(</span>item_id: <span style="color: Teal;">str</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> items<span style="color: Olive;">[</span>item_id<span style="color: Olive;">]</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 排除 tax</span><br/>
+<span style="color: #a50"># Exclude Tax</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/{item_id}/no-tax"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>Item<span style="color: Gray;">,</span> response_model_exclude<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"tax"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_item_no_tax<span style="color: Olive;">(</span>item_id: <span style="color: Teal;">str</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> items<span style="color: Olive;">[</span>item_id<span style="color: Olive;">]</span><br/>
 </div>
 </div>
-<blockquote><p>虽然<code>response_model_include</code> 和 <code>response_model_exclude</code>Can quickly filter fields, but it is recommended to use multiple model classes instead, because they cannot remove the excluded fields from the OpenAPI documentation.</p></blockquote>
+<blockquote><p>Although<code>response_model_include</code>and<code>response_model_exclude</code>Can quickly filter fields, but it is recommended to use multiple model classes instead, because they cannot remove the excluded fields from the OpenAPI documentation.</p></blockquote>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <ul>
-<li>使用<code>response_model</code>Parameter or return type annotations declare the response model.</li>
+<li>Usage<code>response_model</code>Parameter or return type annotations declare the response model.</li>
 <li>The core role of the response model is data filtering, protecting sensitive data from being leaked.</li>
 <li>Use different models for input and output to ensure that fields such as passwords do not appear in the response.</li>
 <li><code>response_model_exclude_unset</code>Only return fields that are actually set</li>
 <li>It is recommended to use model inheritance + return type annotations rather than<code>response_model_include/exclude</code></li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-body-fields.html" rel="prev">FastAPI 请求体字段与嵌套模型</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-status-code.html" rel="next">FastAPI 响应状态码</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-body-fields.html" rel="prev">FastAPI Request Body Fields and Nested Models</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-status-code.html" rel="next">FastAPI Response Status Codes</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -469,16 +464,16 @@ async <span style="color: Green;font-weight:bold;">def</span> read_item_no_tax<s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -486,14 +481,14 @@ async <span style="color: Green;font-weight:bold;">def</span> read_item_no_tax<s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29897"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -671,7 +666,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -762,7 +757,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

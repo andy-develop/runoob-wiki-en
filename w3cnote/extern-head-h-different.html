@@ -31,16 +31,16 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -51,7 +51,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="用 #include 可以包含其他头文件中变量、函数的声明，为什么还要 extern 关键字？  如果我想引用一个全局变量或函数a，我只要直接在源文件中包含 #include&amp;lt;xxx.h&amp;gt; (xxx.h包含了a的声明)不就可以了么，为什么还要用 extern 呢？ 这个问题一直也是似是而非的困扰着我许久，经过实践和查找资料，有如下总结：  一、头文件  首先说下头文件，其实头文件对计算机而言没什么作用，她只是.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -72,8 +72,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-</div><!-- 导航栏 -->
-<!--  内容  -->
+</div>navigation bar
+content
 <div class="container main">
 <div class="row">
 <div class="col middle-column big-middle-column">
@@ -85,7 +85,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="article-intro">
 <!-- ad start-->
 <!-- ad end-->
-<p>用 <span class="marked">#include</span>Why do we still need the extern keyword when we can include declarations of variables and functions from other header files?</p>
+<p>use<span class="marked">#include</span>Why do we still need the extern keyword when we can include declarations of variables and functions from other header files?</p>
 <p>If I want to reference a global variable or function a, can't I just directly include #include&lt;xxx.h&gt; in the source file (xxx.h contains the declaration of a)? Why do I still need to use extern?</p>
 <p>This question, which seemed right but was actually wrong, troubled me for a long time. After practice and consulting materials, I have the following summary:</p>
 <h3>I. Header files</h3>
@@ -142,7 +142,7 @@ int fun(void)
 <p>For functions: if you want to use a function from another source file (e.g., file B) in the current source file (e.g., file A), there are two methods: (1) in file A, use extern to declare the function defined in file B (actually, extern can also be omitted; it is only necessary for the function prototype of the function defined in file B to appear in file A); (2) in file A, add the header file corresponding to file B. Of course, this header file contains the function prototype in file B. In the header file, functions don't need extern.</p></blockquote>
 <p>Another way to state the above summary:</p>
 <p>(a) For calling a global variable from another file in one file: because global variables are generally defined in the original .c file, we cannot use #include to include source files; we can only include header files. So the common method is to use extern int a to declare an external variable. Another method is: after defining a global variable int global_num in the a.c file, you can write extern int global_num in the corresponding a.h header file, so that other source files can declare it as an external variable by including a.h.</p>
-<p>(b) There are also different examples of variables and functions.<span class="marked">int fun();</span> 和 <span class="marked">extern int fun();</span>They are all declarations (definitions require an implementation body). Using...<span class="marked">extern int  fun()</span>...is just to more clearly indicate that it is a declaration. While...<span class="marked">int a;</span>...is a definition.<span class="marked">extern int a;</span>...is a declaration.</p>
+<p>(b) There are also different examples of variables and functions.<span class="marked">int fun();</span>and<span class="marked">extern int fun();</span>They are all declarations (definitions require an implementation body). Using...<span class="marked">extern int  fun()</span>...is just to more clearly indicate that it is a declaration. While...<span class="marked">int a;</span>...is a definition.<span class="marked">extern int a;</span>...is a declaration.</p>
 <p>(3) In addition, the extern modifier can be used for the specification issue of calling C functions in C++ programs.</p>
 <p>For example, to call C library functions in C++, you need to use extern "C" in the C++ program to declare the functions to be referenced. This is used by the linker, telling the linker to link according to the C function specification when linking. The main reason is that C++ and C programs have different naming rules in the object code after compilation.</p>
 <p>When compiling, in order to solve the polymorphism problem, the C++ language combines the name and parameters to generate an intermediate name, while the C language does not. Therefore, it can cause the situation where the corresponding thing cannot be found during linking. At this time, C needs to use extern "C" to specify the linking, which tells the compiler: please keep my name and do not generate an intermediate name for linking for me.</p>

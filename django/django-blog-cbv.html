@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>类视图（CBV）重构 | 菜鸟教程</title>
+<title>Class-Based Views (CBV) Refactoring | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="类视图（CBV）重构  本章你将学习 Django 的类视图（CBV），用更简洁的代码重构首页和详情页。   FBV vs CBV 到目前为止，我们所有的视图都是用函数写的（Function-Based View，FBV）。 Django 还提供了 类视图（Class-Based View，CBV），用类来封装视图逻辑。    特性FBV（函数视图）CBV（类视图） 代码量灵活，但常用逻辑需要重复写继承通用视图后只需几行代码 可读性线性.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-forms-favorites.html" rel="prev">表单与收藏功能</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-deploy.html" rel="next">打包上线 — 部署到 Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-forms-favorites.html" rel="prev">Form and Favorites Feature</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-deploy.html" rel="next">Package and Go Live — Deploy to Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,48 +168,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>FBV vs CBV</h2>
 <p>Up to now, all our views have been written using functions (Function-Based Views, FBV).</p>
-<p>Django also provides<span class="marked">类视图（Class-Based View，CBV）</span>, using classes to encapsulate view logic.</p>
+<p>Django also provides<span class="marked">Class-Based View (CBV)</span>, using classes to encapsulate view logic.</p>
 <table class="reference">
 <tbody>
-<tr><th>特性</th><th>FBV (Function-Based View)</th><th>CBV (Class-Based Views)</th></tr>
-<tr><td>代码量</td><td>Flexible, but common logic needs to be written repeatedly</td><td>After inheriting the generic view, only a few lines of code are needed</td></tr>
-<tr><td>可读性</td><td>Linear flow, clear logic</td><td>The inheritance chain requires tracking, but once familiar, it's clear at a glance.</td></tr>
-<tr><td>复用性</td><td>Encapsulated via functions</td><td>Using Mixin composition (a Django hallmark)</td></tr>
-<tr><td>适用场景</td><td>Pages with simple logic and clear flow</td><td>Patterned pages such as create, read, update, delete (CRUD)</td></tr>
-<tr><td>HTTP method dispatch</td><td>手动 if request.method == 'POST'</td><td>Automatically dispatch to get() / post() methods</td></tr>
+<tr><th>Features</th><th>FBV (Function-Based View)</th><th>CBV (Class-Based Views)</th></tr>
+<tr><td>code volume</td><td>Flexible, but common logic needs to be written repeatedly</td><td>After inheriting the generic view, only a few lines of code are needed</td></tr>
+<tr><td>Readability</td><td>Linear flow, clear logic</td><td>The inheritance chain requires tracking, but once familiar, it's clear at a glance.</td></tr>
+<tr><td>Reusability</td><td>Encapsulated via functions</td><td>Using Mixin composition (a Django hallmark)</td></tr>
+<tr><td>Applicable scenarios</td><td>Pages with simple logic and clear flow</td><td>Patterned pages such as create, read, update, delete (CRUD)</td></tr>
+<tr><td>HTTP method dispatch</td><td>Manual if request.method == 'POST'</td><td>Automatically dispatch to get() / post() methods</td></tr>
 </tbody>
 </table>
-<p>There is no absolute advantage or disadvantage between the two; Django projects usually...<span class="marked">FBV 和 CBV 混用</span>: Use FBV for complex logic, and CBV for standard CRUD.</p>
+<p>There is no absolute advantage or disadvantage between the two; Django projects usually...<span class="marked">Mixing FBV and CBV</span>: Use FBV for complex logic, and CBV for standard CRUD.</p>
 <hr/>
 <h2>ListView — refactoring the list page</h2>
-<p>The index view of the homepage is essentially:<span class="marked">查询文章列表 → 渲染模板</span>。</p>
+<p>The index view of the homepage is essentially:<span class="marked">Query article list → render template</span>。</p>
 <p>For this kind of patterned logic, Django's...<code>ListView</code>Already written for you.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/views.py</span><br/>
+<span style="color: #a50"># File path: blog/views.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">views</span>.<span style="color: #05a;">generic</span> <span style="color: Green;font-weight:bold;">import</span> ListView<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">db</span>.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Q<br/>
 <span style="color: Green;font-weight:bold;">from</span> .<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Post<span style="color: Gray;">,</span> Category<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> PostListView<span style="color: Olive;">(</span>ListView<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""博客首页：继承 ListView，展现文章列表"""</span><br/>
-    model <span style="color: Gray;">=</span> Post                           <span style="color: #a50"># 指定模型</span><br/>
-    template_name <span style="color: Gray;">=</span> <span style="color: #a11;">'blog/index.html'</span>       <span style="color: #a50"># 指定模板（默认：blog/post_list.html）</span><br/>
-    context_object_name <span style="color: Gray;">=</span> <span style="color: #a11;">'posts'</span>           <span style="color: #a50"># 模板中使用的变量名（默认：object_list）</span><br/>
-    paginate_by <span style="color: Gray;">=</span> <span style="color: Maroon;">12</span>                        <span style="color: #a50"># 每页 12 条（分页）</span><br/>
-    ordering <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">]</span>             <span style="color: #a50"># 排序</span><br/>
+    <span style="color: #a11;">"""Blog homepage: inherits ListView, displays article list"""</span><br/>
+    model <span style="color: Gray;">=</span> Post                           <span style="color: #a50"># Specify model</span><br/>
+    template_name <span style="color: Gray;">=</span> <span style="color: #a11;">'blog/index.html'</span>       <span style="color: #a50"># Specify the template (default: blog/post_list.html)</span><br/>
+    context_object_name <span style="color: Gray;">=</span> <span style="color: #a11;">'posts'</span>           <span style="color: #a50"># The variable name used in the template (default: object_list)</span><br/>
+    paginate_by <span style="color: Gray;">=</span> <span style="color: Maroon;">12</span>                        <span style="color: #a50"># 12 items per page (pagination)</span><br/>
+    ordering <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">]</span>             <span style="color: #a50"># Sort</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> get_queryset<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""重写查询方法：支持分类筛选 + 关键词搜索"""</span><br/>
+        <span style="color: #a11;">"""Override the query method: supports category filtering + keyword search"""</span><br/>
         queryset <span style="color: Gray;">=</span> <span style="color: Teal;">super</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">get_queryset</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 分类筛选</span><br/>
+        <span style="color: #a50"># Category filter</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">category_slug</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">request</span>.<span style="color: #05a;">GET</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">category_slug</span>:<br/>
             queryset <span style="color: Gray;">=</span> queryset.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>category__slug<span style="color: Gray;">=</span><span style="color: Teal;">self</span>.<span style="color: #05a;">category_slug</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 关键词搜索</span><br/>
+        <span style="color: #a50"># Keyword search</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">keyword</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">request</span>.<span style="color: #05a;">GET</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'q'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">keyword</span>:<br/>
             queryset <span style="color: Gray;">=</span> queryset.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span><br/>
@@ -220,12 +220,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: Green;font-weight:bold;">return</span> queryset<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> get_context_data<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> **kwargs<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""重写上下文方法：往模板中注入额外数据"""</span><br/>
+        <span style="color: #a11;">"""Override context method: inject additional data into the template"""</span><br/>
         context <span style="color: Gray;">=</span> <span style="color: Teal;">super</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">get_context_data</span><span style="color: Olive;">(</span>**kwargs<span style="color: Olive;">)</span><br/>
         context<span style="color: Olive;">[</span><span style="color: #a11;">'categories'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> Category.<span style="color: #05a;">objects</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         context<span style="color: Olive;">[</span><span style="color: #a11;">'category_slug'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">category_slug</span><br/>
         context<span style="color: Olive;">[</span><span style="color: #a11;">'keyword'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">keyword</span><br/>
-        context<span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'RUNOOB 博客 - 首页'</span><br/>
+        context<span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'RUNOOB Blog - Home'</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> context<br/>
 </div>
 </div>
@@ -233,23 +233,23 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>DetailView — refactoring the detail page</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/views.py 新增</span><br/>
+<span style="color: #a50"># File path: blog/views.py (newly added)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">views</span>.<span style="color: #05a;">generic</span> <span style="color: Green;font-weight:bold;">import</span> DetailView<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> PostDetailView<span style="color: Olive;">(</span>DetailView<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""文章详情页：继承 DetailView"""</span><br/>
+    <span style="color: #a11;">"""Article detail page: inherits DetailView"""</span><br/>
     model <span style="color: Gray;">=</span> Post<br/>
     template_name <span style="color: Gray;">=</span> <span style="color: #a11;">'blog/post_detail.html'</span><br/>
     context_object_name <span style="color: Gray;">=</span> <span style="color: #a11;">'post'</span><br/>
 <br/>
-    <span style="color: #a50"># pk_url_kwarg：URL 中传递主键的参数名（默认是 pk，这里显式声明一下）</span><br/>
+    <span style="color: #a50"># pk_url_kwarg: parameter name for passing the primary key in the URL (default is pk; explicitly declared here).</span><br/>
     pk_url_kwarg <span style="color: Gray;">=</span> <span style="color: #a11;">'pk'</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> get_context_data<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> **kwargs<span style="color: Olive;">)</span>:<br/>
         context <span style="color: Gray;">=</span> <span style="color: Teal;">super</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">get_context_data</span><span style="color: Olive;">(</span>**kwargs<span style="color: Olive;">)</span><br/>
-        context<span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> f<span style="color: #a11;">'{self.object.title} - RUNOOB 博客'</span><br/>
+        context<span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> f<span style="color: #a11;">'{self.object.title} - RUNOOB Blog'</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> context<br/>
 </div>
 </div>
@@ -257,19 +257,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Update route configuration</h2>
 <p>CBV routing syntax is slightly different from FBV — it requires calling...<code>.as_view()</code>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/urls.py</span><br/>
+<span style="color: #a50"># File path: blog/urls.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">urls</span> <span style="color: Green;font-weight:bold;">import</span> path<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span>.<span style="color: #05a;">auth</span> <span style="color: Green;font-weight:bold;">import</span> views <span style="color: Green;font-weight:bold;">as</span> auth_views<br/>
 <span style="color: Green;font-weight:bold;">from</span> . <span style="color: Green;font-weight:bold;">import</span> views<br/>
 <br/>
 urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a50"># CBV：类后面加 .as_view() 将其转为视图函数</span><br/>
+    <span style="color: #a50"># CBV: add .as_view() after the class to convert it into a view function</span><br/>
     path<span style="color: Olive;">(</span><span style="color: #a11;">''</span><span style="color: Gray;">,</span> views.<span style="color: #05a;">PostListView</span>.<span style="color: #05a;">as_view</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'index'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     path<span style="color: Olive;">(</span><span style="color: #a11;">'post/&lt;int:pk&gt;/'</span><span style="color: Gray;">,</span> views.<span style="color: #05a;">PostDetailView</span>.<span style="color: #05a;">as_view</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'post_detail'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
 <br/>
-    <span style="color: #a50"># 其他视图不变</span><br/>
+    <span style="color: #a50"># Other views remain unchanged</span><br/>
     path<span style="color: Olive;">(</span><span style="color: #a11;">'register/'</span><span style="color: Gray;">,</span> views.<span style="color: #05a;">register</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'register'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     path<span style="color: Olive;">(</span><span style="color: #a11;">'login/'</span><span style="color: Gray;">,</span> auth_views.<span style="color: #05a;">LoginView</span>.<span style="color: #05a;">as_view</span><span style="color: Olive;">(</span><br/>
         template_name<span style="color: Gray;">=</span><span style="color: #a11;">'blog/login.html'</span><span style="color: Gray;">,</span><br/>
@@ -285,13 +285,13 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <h2>Overview of common generic views</h2>
 <table class="reference">
 <tbody>
-<tr><th>视图</th><th>模板默认名</th><th>用途</th></tr>
+<tr><th>view</th><th>Default template name</th><th>Purpose</th></tr>
 <tr><td>ListView</td><td>modelname_list.html</td><td>Display object list</td></tr>
 <tr><td>DetailView</td><td>modelname_detail.html</td><td>Display details of a single object</td></tr>
 <tr><td>CreateView</td><td>modelname_form.html</td><td>Create a new object (with form)</td></tr>
 <tr><td>UpdateView</td><td>modelname_form.html</td><td>Update existing object</td></tr>
-<tr><td>DeleteView</td><td>模型名_confirm_delete.html</td><td>Confirm object deletion</td></tr>
-<tr><td>TemplateView</td><td>需指定</td><td>Render a static template (no data query)</td></tr>
+<tr><td>DeleteView</td><td>model_name_confirm_delete.html</td><td>Confirm object deletion</td></tr>
+<tr><td>TemplateView</td><td>need to specify</td><td>Render a static template (no data query)</td></tr>
 </tbody>
 </table>
 <p>Django's generic views cover about 80% of web development scenarios. When encountering situations that don't meet your needs, fall back to FBV.</p>
@@ -299,29 +299,29 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <h2>LoginRequiredMixin</h2>
 <p>CBV not available<code>@login_required</code>Decorators (those are for functions), switch to...<code>LoginRequiredMixin</code>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">contrib</span>.<span style="color: #05a;">auth</span>.<span style="color: #05a;">mixins</span> <span style="color: Green;font-weight:bold;">import</span> LoginRequiredMixin<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">views</span>.<span style="color: #05a;">generic</span> <span style="color: Green;font-weight:bold;">import</span> ListView<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> FavoriteListView<span style="color: Olive;">(</span>LoginRequiredMixin<span style="color: Gray;">,</span> ListView<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""收藏列表：需要登录才能访问"""</span><br/>
+    <span style="color: #a11;">"""Favorites list: login required to access"""</span><br/>
     model <span style="color: Gray;">=</span> Post<br/>
     template_name <span style="color: Gray;">=</span> <span style="color: #a11;">'blog/favorites.html'</span><br/>
     context_object_name <span style="color: Gray;">=</span> <span style="color: #a11;">'posts'</span><br/>
     ordering <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">]</span><br/>
 <br/>
-    <span style="color: #a50"># LoginRequiredMixin 未登录用户会自动跳转到 settings.LOGIN_URL</span><br/>
+    <span style="color: #a50"># LoginRequiredMixin: unauthenticated users will be automatically redirected to settings.LOGIN_URL</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> get_queryset<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 只显示当前用户收藏的文章</span><br/>
+        <span style="color: #a50"># Only display articles favorited by the current user</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">request</span>.<span style="color: #05a;">user</span>.<span style="color: #05a;">favorite_posts</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">order_by</span><span style="color: Olive;">(</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<blockquote><p>The inheritance order of Mixins is very important:<code>LoginRequiredMixin</code>必须写在<code>ListView</code>Earlier. Python's multiple inheritance resolution order is from left to right; LoginRequiredMixin first checks the login status, and only after passing does it continue executing the ListView logic.</p></blockquote>
+<blockquote><p>The inheritance order of Mixins is very important:<code>LoginRequiredMixin</code>Must Be Written In<code>ListView</code>Earlier. Python's multiple inheritance resolution order is from left to right; LoginRequiredMixin first checks the login status, and only after passing does it continue executing the ListView logic.</p></blockquote>
 <hr/>
 <h2>When to use CBV, and when to use FBV?</h2>
-<p>经验法则：</p>
+<p>Rule of thumb:</p>
 <ul>
 <li><span class="marked">FBV</span>: Views with complex logic, many conditional branches, and non-standard flows (such as toggle_favorite)</li>
 <li><span class="marked">CBV</span>: Views with standard CRUD operations and logic that can be clearly split into get/post (such as list pages, detail pages)</li>
@@ -329,24 +329,19 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <p>Operations like toggle_favorite (favorite toggle) have simple logic but a flow different from conventional CRUD; FBV is more appropriate.</p>
 <p>For standard data display pages like index and post_detail, CBV can significantly reduce boilerplate code.</p>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you learned the core usage of Django class-based views: ListView displays lists, DetailView displays details, get_queryset/get_context_data customize queries and context, as_view() enables routing, and LoginRequiredMixin replaces login_required.</p>
-<p>The refactored homepage and detail page code is shorter and has a clearer structure.</p>
-其他扩展
-</div>
+<p>The refactored homepage and detail page code is shorter and has a clearer structure.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-forms-favorites.html" rel="prev">表单与收藏功能</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-deploy.html" rel="next">打包上线 — 部署到 Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-forms-favorites.html" rel="prev">Form and Favorites Feature</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-deploy.html" rel="next">Package and Go Live — Deploy to Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -450,16 +445,16 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -467,14 +462,14 @@ urlpatterns <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31154"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -652,7 +647,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -743,7 +738,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

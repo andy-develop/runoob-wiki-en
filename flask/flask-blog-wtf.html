@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>表单处理 — Flask-WTF | 菜鸟教程</title>
+<title>Form Handling — Flask-WTF | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="表单处理 — Flask-WTF  本章你将学会用 Flask-WTF 规范化处理表单：定义表单类、自动 CSRF 保护、字段校验与错误提示。   为什么要用 Flask-WTF？ 上一章的注册和登录表单是手写的：手动从 request.form.get() 取值、手动校验、手动显示错误。 Flask-WTF 基于 WTForms 为 Flask 封装，提供：   表单类定义，字段 + 校验规则集中管理 自动 CSRF 保护 模板中渲染.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-login.html" rel="prev">Flask-Login — 用户注册、登录、登出</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-favorites-admin.html" rel="next">收藏功能与后台管理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-login.html" rel="prev">Flask-Login — User Registration, Login, Logout</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-favorites-admin.html" rel="next">Favorites and Admin Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -176,86 +176,86 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li><code>form.validate_on_submit()</code>Unified handling of GET/POST determination and validation.</li>
 </ul>
 <hr/>
-<h2>安装与配置</h2>
+<h2>Installation and Configuration</h2>
 <pre>
 (venv) $ pip install flask-wtf
 </pre>
 <p>Configure SECRET_KEY in app.py (CSRF Token depends on this key):</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
-app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SECRET_KEY'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'your-secret-key'</span>    <span style="color: #a50"># 生产环境用环境变量</span><br/>
-app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'WTF_CSRF_ENABLED'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">True</span>            <span style="color: #a50"># 默认开启，显式声明一下</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
+app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SECRET_KEY'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'your-secret-key'</span>    <span style="color: #a50"># Use environment variables for production environment</span><br/>
+app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'WTF_CSRF_ENABLED'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">True</span>            <span style="color: #a50"># Enabled by default, explicitly declare it</span><br/>
 </div>
 </div>
 <hr/>
-<h2>定义表单类</h2>
+<h2>Define form class</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app/forms.py（新建文件）</span><br/>
+<span style="color: #a50"># File path: app/forms.py (new file)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_wtf <span style="color: Green;font-weight:bold;">import</span> FlaskForm<br/>
 <span style="color: Green;font-weight:bold;">from</span> wtforms <span style="color: Green;font-weight:bold;">import</span> StringField<span style="color: Gray;">,</span> PasswordField<span style="color: Gray;">,</span> EmailField<span style="color: Gray;">,</span> BooleanField<br/>
 <span style="color: Green;font-weight:bold;">from</span> wtforms.<span style="color: #05a;">validators</span> <span style="color: Green;font-weight:bold;">import</span> DataRequired<span style="color: Gray;">,</span> Length<span style="color: Gray;">,</span> Email<span style="color: Gray;">,</span> EqualTo<span style="color: Gray;">,</span> ValidationError<br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> User<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> RegisterForm<span style="color: Olive;">(</span>FlaskForm<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""注册表单"""</span><br/>
-    username <span style="color: Gray;">=</span> StringField<span style="color: Olive;">(</span><span style="color: #a11;">'用户名'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'用户名不能为空'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        Length<span style="color: Olive;">(</span><span style="color: Teal;">min</span><span style="color: Gray;">=</span><span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Teal;">max</span><span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">'用户名长度 3-50 个字符'</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a11;">Registration Form</span><br/>
+    username <span style="color: Gray;">=</span> StringField<span style="color: Olive;">(</span><span style="color: #a11;">Username</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Username cannot be empty</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        Length<span style="color: Olive;">(</span><span style="color: Teal;">min</span><span style="color: Gray;">=</span><span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Teal;">max</span><span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">Username must be 3-50 characters</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> EmailField<span style="color: Olive;">(</span><span style="color: #a11;">'邮箱'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'邮箱不能为空'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        Email<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'请输入有效的邮箱地址'</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> EmailField<span style="color: Olive;">(</span><span style="color: #a11;">Email</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Email cannot be empty</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        Email<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Please enter a valid email address</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">'密码'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'密码不能为空'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        Length<span style="color: Olive;">(</span><span style="color: Teal;">min</span><span style="color: Gray;">=</span><span style="color: Maroon;">6</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">'密码至少 6 位'</span><span style="color: Olive;">)</span><br/>
+    password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">Password</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Password cannot be empty</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        Length<span style="color: Olive;">(</span><span style="color: Teal;">min</span><span style="color: Gray;">=</span><span style="color: Maroon;">6</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">Password must be at least 6 characters</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    confirm_password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">'确认密码'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'请再次输入密码'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-        EqualTo<span style="color: Olive;">(</span><span style="color: #a11;">'password'</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">'两次输入的密码不一致'</span><span style="color: Olive;">)</span><br/>
+    confirm_password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">Confirm password</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Please enter the password again</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
+        EqualTo<span style="color: Olive;">(</span><span style="color: #a11;">'password'</span><span style="color: Gray;">,</span> message<span style="color: Gray;">=</span><span style="color: #a11;">The two passwords do not match</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 自定义验证器：检查用户名是否已被注册</span><br/>
+    <span style="color: #a50"># Custom validator: check whether the username is already registered</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> validate_username<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> field<span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>field.<span style="color: #05a;">data</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-            <span style="color: Green;font-weight:bold;">raise</span> ValidationError<span style="color: Olive;">(</span><span style="color: #a11;">'该用户名已被使用。'</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">raise</span> ValidationError<span style="color: Olive;">(</span><span style="color: #a11;">This username is already taken.</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> validate_email<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> field<span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span><span style="color: #05a;">email</span><span style="color: Gray;">=</span>field.<span style="color: #05a;">data</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-            <span style="color: Green;font-weight:bold;">raise</span> ValidationError<span style="color: Olive;">(</span><span style="color: #a11;">'该邮箱已被注册。'</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">raise</span> ValidationError<span style="color: Olive;">(</span><span style="color: #a11;">This email is already registered.</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> LoginForm<span style="color: Olive;">(</span>FlaskForm<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""登录表单"""</span><br/>
-    username <span style="color: Gray;">=</span> StringField<span style="color: Olive;">(</span><span style="color: #a11;">'用户名'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'用户名不能为空'</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a11;">"""Login form"""</span><br/>
+    username <span style="color: Gray;">=</span> StringField<span style="color: Olive;">(</span><span style="color: #a11;">Username</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Username cannot be empty</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">'密码'</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">'密码不能为空'</span><span style="color: Olive;">)</span><br/>
+    password <span style="color: Gray;">=</span> PasswordField<span style="color: Olive;">(</span><span style="color: #a11;">Password</span><span style="color: Gray;">,</span> validators<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
+        DataRequired<span style="color: Olive;">(</span>message<span style="color: Gray;">=</span><span style="color: #a11;">Password cannot be empty</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    remember <span style="color: Gray;">=</span> BooleanField<span style="color: Olive;">(</span><span style="color: #a11;">'记住我'</span><span style="color: Olive;">)</span><br/>
+    remember <span style="color: Gray;">=</span> BooleanField<span style="color: Olive;">(</span><span style="color: #a11;">Remember me</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <h3>Common field types</h3>
 <table class="reference">
 <tbody>
-<tr><th>字段类</th><th>HTML 标签</th><th>说明</th></tr>
-<tr><td>StringField</td><td>&lt;input type="text"&gt;</td><td>单行文本</td></tr>
-<tr><td>PasswordField</td><td>&lt;input type="password"&gt;</td><td>密码输入框</td></tr>
-<tr><td>EmailField</td><td>&lt;input type="email"&gt;</td><td>邮箱输入框</td></tr>
-<tr><td>TextAreaField</td><td>&lt;textarea&gt;</td><td>多行文本</td></tr>
-<tr><td>BooleanField</td><td>&lt;input type="checkbox"&gt;</td><td>复选框</td></tr>
-<tr><td>SelectField</td><td>&lt;select&gt;</td><td>下拉选择</td></tr>
+<tr><th>Field class</th><th>HTML tag</th><th>Description</th></tr>
+<tr><td>StringField</td><td>&lt;input type="text"&gt;</td><td>Single-line text</td></tr>
+<tr><td>PasswordField</td><td>&lt;input type="password"&gt;</td><td>Password input</td></tr>
+<tr><td>EmailField</td><td>&lt;input type="email"&gt;</td><td>Email input</td></tr>
+<tr><td>TextAreaField</td><td>&lt;textarea&gt;</td><td>Multi-line text</td></tr>
+<tr><td>BooleanField</td><td>&lt;input type="checkbox"&gt;</td><td>Checkbox</td></tr>
+<tr><td>SelectField</td><td>&lt;select&gt;</td><td>Dropdown selection</td></tr>
 </tbody>
 </table>
-<h3>常用验证器</h3>
+<h3>Common validators</h3>
 <table class="reference">
 <tbody>
-<tr><th>验证器</th><th>作用</th></tr>
+<tr><th>Validator</th><th>Function</th></tr>
 <tr><td>DataRequired()</td><td>Field cannot be empty</td></tr>
 <tr><td>Length(min=, max=)</td><td>Character length limit</td></tr>
 <tr><td>Email()</td><td>Email format validation</td></tr>
@@ -266,9 +266,9 @@ app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span>
 <hr/>
 <h2>Using Forms in View Functions</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app/blueprints/auth.py（重构后的 register 和 login）</span><br/>
+<span style="color: #a50"># File path: app/blueprints/auth.py (refactored register and login)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> render_template<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<span style="color: Gray;">,</span> flash<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_login <span style="color: Green;font-weight:bold;">import</span> login_user<span style="color: Gray;">,</span> logout_user<span style="color: Gray;">,</span> login_required<span style="color: Gray;">,</span> current_user<br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">forms</span> <span style="color: Green;font-weight:bold;">import</span> RegisterForm<span style="color: Gray;">,</span> LoginForm<br/>
@@ -282,18 +282,18 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
     form <span style="color: Gray;">=</span> RegisterForm<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># form.validate_on_submit() 在 POST 请求时校验表单</span><br/>
-    <span style="color: #a50"># GET 请求或校验失败时返回 False</span><br/>
+    <span style="color: #a50"># form.validate_on_submit() validates the form on POST requests</span><br/>
+    <span style="color: #a50"># Returns False on GET requests or when validation fails</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> form.<span style="color: #05a;">validate_on_submit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>form.<span style="color: #05a;">username</span>.<span style="color: #05a;">data</span><span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span>form.<span style="color: #05a;">email</span>.<span style="color: #05a;">data</span><span style="color: Olive;">)</span><br/>
         <span style="color: #05a;">user</span>.<span style="color: #05a;">set_password</span><span style="color: Olive;">(</span>form.<span style="color: #05a;">password</span>.<span style="color: #05a;">data</span><span style="color: Olive;">)</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         login_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'注册成功，欢迎你，{user.username}！'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">Registration successful, welcome, {user.username}!</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># GET 请求或校验失败时，渲染带表单的模板</span><br/>
+    <span style="color: #a50"># On GET requests or validation failure, render the template with the form</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'register.html'</span><span style="color: Gray;">,</span> form<span style="color: Gray;">=</span>form<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
@@ -306,11 +306,11 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
     <span style="color: Green;font-weight:bold;">if</span> form.<span style="color: #05a;">validate_on_submit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>form.<span style="color: #05a;">username</span>.<span style="color: #05a;">data</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: #05a;">user</span> <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span> <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: #05a;">user</span>.<span style="color: #05a;">check_password</span><span style="color: Olive;">(</span>form.<span style="color: #05a;">password</span>.<span style="color: #05a;">data</span><span style="color: Olive;">)</span>:<br/>
-            flash<span style="color: Olive;">(</span><span style="color: #a11;">'用户名或密码错误。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
+            flash<span style="color: Olive;">(</span><span style="color: #a11;">Incorrect username or password.</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'login.html'</span><span style="color: Gray;">,</span> form<span style="color: Gray;">=</span>form<span style="color: Olive;">)</span><br/>
 <br/>
         login_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Gray;">,</span> remember<span style="color: Gray;">=</span>form.<span style="color: #05a;">remember</span>.<span style="color: #05a;">data</span><span style="color: Olive;">)</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'欢迎回来，{user.username}！'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">Welcome back, {user.username}!</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
         next_page <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'next'</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>next_page <span style="color: Green;font-weight:bold;">or</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -320,17 +320,17 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <hr/>
 <h2>Rendering forms in templates</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：app/templates/register.html --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: app/templates/register.html --&gt;</span><br/>
 {% extends 'base.html' %}<br/>
-<br/>{% block title %}注册 - RUNOOB 博客{% endblock %}<br/>
+<br/>{% block title %}Register - RUNOOB Blog{% endblock %}<br/>
 <br/>
 {% block content %}<br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"auth-form"</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span>&gt;</span>注册<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span>&gt;</span>Register<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">form</span> <span style="color: #00c;">method</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post"</span>&gt;</span><br/>
-        <span style="color: #808080; font-style: italic;">&lt;!-- form.hidden_tag() 自动生成 CSRF Token 隐藏字段 --&gt;</span><br/>
+        <span style="color: #808080; font-style: italic;">&lt;!-- form.hidden_tag() automatically generates the CSRF Token hidden field --&gt;</span><br/>
         {{ form.hidden_tag() }}<br/>
 <br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-group"</span>&gt;</span><br/>
@@ -369,7 +369,7 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <br/>
         {{ form.submit(class="btn-submit") }}<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">form</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-footer"</span>&gt;</span><br/>已有账号？<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.login') }}"</span>&gt;</span>立即登录<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-footer"</span>&gt;</span><br/>Already have an account?<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.login') }}"</span>&gt;</span>Login now<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
 {% endblock %}<br/>
@@ -377,36 +377,31 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 </div>
 <blockquote><p>Flask-WTF's CSRF protection is automatic:<code>form.hidden_tag()</code>Will generate a hidden<code>&lt;input&gt;</code>Contains a random token; the server validates this token before accepting the POST request. Any form submitted from an external site is rejected because it lacks the correct token.</p></blockquote>
 <hr/>
-<h2>手动 request.form vs Flask-WTF 对比</h2>
+<h2>Manual request.form vs Flask-WTF comparison</h2>
 <table class="reference">
 <tbody>
-<tr><th>方面</th><th>手动 request.form</th><th>Flask-WTF</th></tr>
-<tr><td>代码行数</td><td>每个字段重复取/验/报三步</td><td>Define form class once</td></tr>
-<tr><td>CSRF 保护</td><td>需手动实现</td><td>自动</td></tr>
-<tr><td>自定义验证</td><td>手动 if/else</td><td>validate_xxx 方法</td></tr>
-<tr><td>错误展示</td><td>手动拼接</td><td>form.field.errors 自动收集</td></tr>
-<tr><td>适用场景</td><td>Simple forms (e.g., search box)</td><td>Complex Forms (Registration, Login, Profile Editing)</td></tr>
+<tr><th>Aspect</th><th>Manual request.form</th><th>Flask-WTF</th></tr>
+<tr><td>Lines of code</td><td>For each field, repeat the three steps: retrieve/validate/report</td><td>Define form class once</td></tr>
+<tr><td>CSRF protection</td><td>Manual implementation required</td><td>Automatic</td></tr>
+<tr><td>Custom validation</td><td>Manual if/else</td><td>validate_xxx method</td></tr>
+<tr><td>Error display</td><td>Manual concatenation</td><td>form.field.errors auto-collection</td></tr>
+<tr><td>Applicable scenarios</td><td>Simple forms (e.g., search box)</td><td>Complex Forms (Registration, Login, Profile Editing)</td></tr>
 </tbody>
 </table>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you refactored the authentication form using Flask-WTF: FlaskForm defines fields and validators, validate_xxx custom validation, form.validate_on_submit() handles POST validation uniformly, form.hidden_tag() provides automatic CSRF protection, and error messages are rendered in templates.</p>
-<p>Form handling is now more standardized and secure.</p>
-其他扩展
-</div>
+<p>Form handling is now more standardized and secure.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-login.html" rel="prev">Flask-Login — 用户注册、登录、登出</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-favorites-admin.html" rel="next">收藏功能与后台管理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-login.html" rel="prev">Flask-Login — User Registration, Login, Logout</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-favorites-admin.html" rel="next">Favorites and Admin Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -510,16 +505,16 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -527,14 +522,14 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31164"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -712,7 +707,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -803,7 +798,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

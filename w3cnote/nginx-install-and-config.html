@@ -31,16 +31,16 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -51,7 +51,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="1. 安装nginx 1.1 选择稳定版本 我们编译安装nginx来定制自己的模块，机器CentOS 6.2 x86_64。首先安装缺少的依赖包： # yum -y install gcc gcc-c++ make libtool zlib zlib-devel openssl openssl-devel pcre pcre-devel 这些软件包如果yum上没有的话可以下载源码来编译安装，只是要注意编译时默认安装的目录，确保下面在安装.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -69,8 +69,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-</div><!-- 导航栏 -->
-<!--  内容  -->
+</div>navigation bar
+content
 <div class="container main">
 <div class="row">
 <div class="col middle-column big-middle-column">
@@ -88,7 +88,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <pre># yum -y install gcc gcc-c++ make libtool zlib zlib-devel openssl openssl-devel pcre pcre-devel</pre>
 <p>If these packages are not available in yum, you can download the source code to compile and install them. Just pay attention to the default installation directory during compilation, and make sure the dynamic library files can be found when installing Nginx below (ldconfig).</p>
 <p><img alt="nginx 服务器安装及配置文件详解" decoding="async" fetchpriority="high" height="266" src="../wp-content/uploads/2015/07/151329vtoxmfhwxhih1glz.jpg" width="700"/></p>
-<p>从 <a href="http://nginx.org/en/download.html" rel="external noopener noreferrer" target="_blank">http://nginx.org/en/download.html</a>Download the stable version nginx-1.6.3.tar.gz to /usr/local/src and extract it.</p>
+<p>from<a href="http://nginx.org/en/download.html" rel="external noopener noreferrer" target="_blank">http://nginx.org/en/download.html</a>Download the stable version nginx-1.6.3.tar.gz to /usr/local/src and extract it.</p>
 <p>For subsequent preparation, we also download 2 plugin modules:<a href="https://github.com/yaoweibin/nginx_upstream_check_module/releases" rel="external noopener noreferrer" target="_blank">nginx_upstream_check_module-0.3.0.tar.gz</a>— Check the status of backend servers,<a href="https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng/downloads" rel="external noopener noreferrer" target="_blank">nginx-goodies-nginx-sticky-module-ng-bd312d586752.tar.gz</a>(It is recommended to rename the directory to nginx-sticky-module-ng-1.2.5 after extracting it under /usr/local/src) — for the backend<span class="wp_keywordlink"><a href="http://www.codeceo.com/article/balanced-algorithm.html" rel="noopener noreferrer" target="_blank" title="负载均衡">load balancing</a></span>Solve the session sticky problem (when used with the upstream_check module, an additional patch is needed, please refer to<a href="http://seanlook.com/2015/06/02/nginx-cache-check/" rel="external noopener noreferrer" target="_blank">Nginx Load Balancing Configuration in Practice</a>）。</p>
 <p>Please note the version compatibility between plugins and Nginx. Generally, the newer the plugin, the better; Nginx does not need to chase the newest version, stability comes first. nginx-1.4.7, nginx-sticky-module-1.1, nginx_upstream_check_module-0.2.0, this combination is also fine. sticky-1.1 with nginx-1.6 versions caused compilation errors due to updates not keeping up. (You can directly use Tengine, which includes these modules by default)</p>
 <pre>
@@ -287,7 +287,7 @@ http {
 <ul>
 <li>proxy_connect_timeout 60<br/>Timeout for Nginx connecting to backend servers (proxy connection timeout)</li>
 <li>proxy_read_timeout 60<br/>After a successful connection, the timeout between two successful response operations with the backend server (proxy receive timeout)</li>
-<li>proxy_buffer_size 4k<br/>Set the buffer size for the proxy server (nginx) to read and save user<strong>头</strong>information from the backend realserver. The default is the same as the proxy_buffers size; in fact, you can set this directive value a bit smaller.</li>
+<li>proxy_buffer_size 4k<br/>Set the buffer size for the proxy server (nginx) to read and save user<strong>head</strong>information from the backend realserver. The default is the same as the proxy_buffers size; in fact, you can set this directive value a bit smaller.</li>
 <li>proxy_buffers 4 32k<br/>proxy_buffers buffer: nginx caches from the backend realserver for a single connection<strong>responses</strong>If the average web page is below 32k, configure it like this</li>
 <li>proxy_busy_buffers_size 64k<br/>Buffer size under high load (proxy_buffers*2)</li>
 <li>proxy_max_temp_file_size<br/>When proxy_buffers cannot hold the response content from the backend server, part of it will be saved to a temporary file on disk. This value sets the maximum temporary file size; the default is 1024M. It has nothing to do with proxy_cache. If larger than this value, the content will be transmitted back from the upstream server. Setting it to 0 disables it.</li>
@@ -481,11 +481,11 @@ location /images {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">The note must be an extension of the content of this article!</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit an article, click here</a></p>
-	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> You must <a href=".." class="runoob-pop">log in</a> before sharing notes!</h3>
-		<p><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<p style="font-size:14px;">The note must be an extension of the content of this article!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Submit an article, click here</a></p>
+<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i> You must <a class="runoob-pop" href="..">log in</a> before sharing notes!</h3>
+<p><a href="./runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">

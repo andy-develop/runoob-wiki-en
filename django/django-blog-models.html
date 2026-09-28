@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>模型与数据库 | 菜鸟教程</title>
+<title>Models and Databases | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="模型与数据库  本章你将学会用 Django ORM 定义数据模型，创建数据库表，并插入测试数据。   为什么需要模型？ 上一章我们硬编码了页面文字。真正的博客需要存储多篇文章，且内容随时会变。 模型（Model） 是 Django 的数据库层：用 Python 类定义数据结构，Django 自动生成对应的数据库表。 你不需要写一行 SQL——这就是 ORM（对象关系映射） 的核心价值。   定义 Post 模型 打开 blog/mod.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-project-init.html" rel="prev">Django 博客项目</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-admin.html" rel="next">Django Admin — 后台管理文章</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-project-init.html" rel="prev">Django blog project</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-admin.html" rel="next">Django Admin — Backend Article Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,90 +168,90 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Why are models needed?</h2>
 <p>In the previous chapter, we hardcoded page text. A real blog needs to store multiple articles, and the content can change at any time.</p>
-<p><span class="marked">模型（Model）</span>It is Django's database layer: use Python classes to define data structures, and Django automatically generates the corresponding database tables.</p>
-<p>You don't need to write a single line of SQL—this is<span class="marked">ORM（对象关系映射）</span>core value.</p>
+<p><span class="marked">Model</span>It is Django's database layer: use Python classes to define data structures, and Django automatically generates the corresponding database tables.</p>
+<p>You don't need to write a single line of SQL—this is<span class="marked">ORM (Object-Relational Mapping)</span>core value.</p>
 <hr/>
 <h2>Define the Post model</h2>
-<p>打开<code>blog/models.py</code>, define the article model.</p>
+<p>Open<code>blog/models.py</code>, define the article model.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/models.py</span><br/>
+<span style="color: #a50"># File path: blog/models.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">db</span> <span style="color: Green;font-weight:bold;">import</span> models<br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">utils</span> <span style="color: Green;font-weight:bold;">import</span> timezone<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Category<span style="color: Olive;">(</span>models.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""文章分类"""</span><br/>
-    name <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span><span style="color: #a11;">'分类名'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># slug 用于 URL 中的英文标识（如 /category/django/）</span><br/>
-    slug <span style="color: Gray;">=</span> models.<span style="color: #05a;">SlugField</span><span style="color: Olive;">(</span><span style="color: #a11;">'URL 标识'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a11;">"""Article category"""</span><br/>
+    name <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span><span style="color: #a11;">'category name'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># slug is used for English identifiers in URLs (e.g., /category/django/)</span><br/>
+    slug <span style="color: Gray;">=</span> models.<span style="color: #05a;">SlugField</span><span style="color: Olive;">(</span><span style="color: #a11;">'URL identifier'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">50</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">class</span> Meta:<br/>
-        verbose_name <span style="color: Gray;">=</span> <span style="color: #a11;">'分类'</span><br/>
-        verbose_name_plural <span style="color: Gray;">=</span> <span style="color: #a11;">'分类'</span><br/>
+        verbose_name <span style="color: Gray;">=</span> <span style="color: #a11;">'Categories'</span><br/>
+        verbose_name_plural <span style="color: Gray;">=</span> <span style="color: #a11;">'Categories'</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__str__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">name</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Post<span style="color: Olive;">(</span>models.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""博客文章"""</span><br/>
-    <span style="color: #a50"># 标题：CharField 用于短文本，max_length 必填</span><br/>
-    title <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span><span style="color: #a11;">'标题'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a11;">"""Blog Post"""</span><br/>
+    <span style="color: #a50"># Title: CharField is used for short text; max_length is required.</span><br/>
+    title <span style="color: Gray;">=</span> models.<span style="color: #05a;">CharField</span><span style="color: Olive;">(</span><span style="color: #a11;">'Title'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># slug：文章在 URL 中的英文标识</span><br/>
-    slug <span style="color: Gray;">=</span> models.<span style="color: #05a;">SlugField</span><span style="color: Olive;">(</span><span style="color: #a11;">'URL 标识'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># slug: Article's English identifier in the URL</span><br/>
+    slug <span style="color: Gray;">=</span> models.<span style="color: #05a;">SlugField</span><span style="color: Olive;">(</span><span style="color: #a11;">'URL identifier'</span><span style="color: Gray;">,</span> max_length<span style="color: Gray;">=</span><span style="color: Maroon;">200</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 摘要：TextField 用于长文本，blank=True 表示可选</span><br/>
-    summary <span style="color: Gray;">=</span> models.<span style="color: #05a;">TextField</span><span style="color: Olive;">(</span><span style="color: #a11;">'摘要'</span><span style="color: Gray;">,</span> blank<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Summary: TextField is used for long text, blank=True means optional</span><br/>
+    summary <span style="color: Gray;">=</span> models.<span style="color: #05a;">TextField</span><span style="color: Olive;">(</span><span style="color: #a11;">'Summary'</span><span style="color: Gray;">,</span> blank<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 正文：TextField 不限长度</span><br/>
-    content <span style="color: Gray;">=</span> models.<span style="color: #05a;">TextField</span><span style="color: Olive;">(</span><span style="color: #a11;">'正文'</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Body: TextField with no length limit</span><br/>
+    content <span style="color: Gray;">=</span> models.<span style="color: #05a;">TextField</span><span style="color: Olive;">(</span><span style="color: #a11;">'Body'</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 分类：ForeignKey 一对多关系，一篇文章属于一个分类</span><br/>
-    <span style="color: #a50"># on_delete=models.CASCADE 表示删除分类时，其下所有文章也一并删除</span><br/>
+    <span style="color: #a50"># Category: ForeignKey one-to-many relationship, an article belongs to one category</span><br/>
+    <span style="color: #a50"># on_delete=models.CASCADE means that when deleting a category, all articles under it are also deleted</span><br/>
     category <span style="color: Gray;">=</span> models.<span style="color: #05a;">ForeignKey</span><span style="color: Olive;">(</span><br/>
         Category<span style="color: Gray;">,</span><br/>
         on_delete<span style="color: Gray;">=</span>models.<span style="color: #05a;">CASCADE</span><span style="color: Gray;">,</span><br/>
-        verbose_name<span style="color: Gray;">=</span><span style="color: #a11;">'分类'</span><span style="color: Gray;">,</span><br/>
-        related_name<span style="color: Gray;">=</span><span style="color: #a11;">'posts'</span>    <span style="color: #a50"># 反向查询：category.posts.all()</span><br/>
+        verbose_name<span style="color: Gray;">=</span><span style="color: #a11;">'Categories'</span><span style="color: Gray;">,</span><br/>
+        related_name<span style="color: Gray;">=</span><span style="color: #a11;">'posts'</span>    <span style="color: #a50"># Reverse query: category.posts.all()</span><br/>
     <span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># auto_now_add：创建时自动填入当前时间</span><br/>
-    created_at <span style="color: Gray;">=</span> models.<span style="color: #05a;">DateTimeField</span><span style="color: Olive;">(</span><span style="color: #a11;">'创建时间'</span><span style="color: Gray;">,</span> auto_now_add<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># auto_now_add: automatically fill in the current time at creation</span><br/>
+    created_at <span style="color: Gray;">=</span> models.<span style="color: #05a;">DateTimeField</span><span style="color: Olive;">(</span><span style="color: #a11;">'Creation Time'</span><span style="color: Gray;">,</span> auto_now_add<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># auto_now：每次保存时自动更新为当前时间</span><br/>
-    updated_at <span style="color: Gray;">=</span> models.<span style="color: #05a;">DateTimeField</span><span style="color: Olive;">(</span><span style="color: #a11;">'更新时间'</span><span style="color: Gray;">,</span> auto_now<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># auto_now: automatically updated to the current time on every save</span><br/>
+    updated_at <span style="color: Gray;">=</span> models.<span style="color: #05a;">DateTimeField</span><span style="color: Olive;">(</span><span style="color: #a11;">'Update Time'</span><span style="color: Gray;">,</span> auto_now<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">class</span> Meta:<br/>
-        verbose_name <span style="color: Gray;">=</span> <span style="color: #a11;">'文章'</span><br/>
-        verbose_name_plural <span style="color: Gray;">=</span> <span style="color: #a11;">'文章'</span><br/>
-        <span style="color: #a50"># 默认按创建时间倒序排列</span><br/>
+        verbose_name <span style="color: Gray;">=</span> <span style="color: #a11;">'Articles'</span><br/>
+        verbose_name_plural <span style="color: Gray;">=</span> <span style="color: #a11;">'Articles'</span><br/>
+        <span style="color: #a50"># Sorted by creation time in descending order by default</span><br/>
         ordering <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__str__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 在 Admin 后台和 Shell 中显示对象时，显示标题</span><br/>
+        <span style="color: #a50"># Display the title when showing objects in the Admin backend and Shell</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">title</span><br/>
 </div>
 </div>
 <h3>Quick reference for common field types</h3>
 <table class="reference">
 <tbody>
-<tr><th>字段类型</th><th>Corresponding database types</th><th>使用场景</th></tr>
+<tr><th>Field Type</th><th>Corresponding database types</th><th>Use Case</th></tr>
 <tr><td>CharField(max_length=N)</td><td>VARCHAR(N)</td><td>Short text for titles, tags, names, etc.</td></tr>
 <tr><td>TextField()</td><td>TEXT</td><td>Article body, introduction, comments, and other content</td></tr>
 <tr><td>IntegerField()</td><td>INTEGER</td><td>Integers for counts, ages, etc.</td></tr>
 <tr><td>DateTimeField()</td><td>DATETIME</td><td>Publish time, update time</td></tr>
-<tr><td>ForeignKey()</td><td>外键约束</td><td>One-to-many relationship (article → category)</td></tr>
-<tr><td>ManyToManyField()</td><td>中间表</td><td>Many-to-many relationship (article ←→ tag)</td></tr>
+<tr><td>ForeignKey()</td><td>Foreign Key Constraint</td><td>One-to-many relationship (article → category)</td></tr>
+<tr><td>ManyToManyField()</td><td>junction table</td><td>Many-to-many relationship (article ←→ tag)</td></tr>
 <tr><td>SlugField()</td><td>VARCHAR</td><td>URL-friendly identifier</td></tr>
-<tr><td>ImageField()</td><td>VARCHAR(路径)</td><td>Cover image, avatar (requires Pillow library)</td></tr>
+<tr><td>ImageField()</td><td>VARCHAR(path)</td><td>Cover image, avatar (requires Pillow library)</td></tr>
 </tbody>
 </table>
 <blockquote><p><code>__str__</code>The method determines how the object is displayed as a string. It is called in the Admin backend's dropdown selection boxes and Shell output to display the object name. If you don't write this method, you will see<code>Post object (1)</code>such meaningless text.</p></blockquote>
 <hr/>
 <h2>Migration: Sync models to the database</h2>
-<p>After writing the model classes, you need to use<span class="marked">迁移（Migration）</span>Create database tables.</p>
+<p>After writing the model classes, you need to use<span class="marked">Migration</span>Create database tables.</p>
 <pre>
 (venv) $ python manage.py makemigrations   # 生成迁移文件（检测模型变化）
 Migrations for 'blog':
@@ -279,45 +279,45 @@ Running migrations:
 </pre>
 <p>This opens an interactive Python Shell where you can operate on the database.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 在 Django Shell 中逐行输入</span><br/>
+<span style="color: #a50"># Input line by line in the Django Shell</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> blog.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Category<span style="color: Gray;">,</span> Post<br/>
 <br/>
-<span style="color: #a50"># 1. 创建分类</span><br/>
+<span style="color: #a50"># 1. Create category</span><br/>
 cat_django <span style="color: Gray;">=</span> Category.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'Django'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'django'</span><span style="color: Olive;">)</span><br/>
 cat_python <span style="color: Gray;">=</span> Category.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'Python'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'python'</span><span style="color: Olive;">)</span><br/>
 cat_css <span style="color: Gray;">=</span> Category.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'CSS'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'css'</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 2. 创建文章</span><br/>
+<span style="color: #a50"># 2. Create article</span><br/>
 Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'Django 入门完全指南'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">'The Complete Django Beginner's Guide'</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'django-beginner-guide'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'从零开始学习 Django，涵盖模型、视图、模板等核心概念。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;为什么学 Django？&lt;/h2&gt;&lt;p&gt;Django 是 Python 最流行的 Web 框架之一...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">'Learn Django from scratch, covering core concepts such as models, views, templates, etc.'</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;is什么学 Django？&lt;/h2&gt;&lt;p&gt;Django Yes Python 最flowOf the line Web FrameworkOne of...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>cat_django<br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'Python 异步编程详解'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">'Detailed Explanation of Python Asynchronous Programming'</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'python-async'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'一文搞懂 asyncio、协程、事件循环。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;什么是协程？&lt;/h2&gt;&lt;p&gt;协程是一种比线程更轻量的并发方案...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">Understand asyncio, coroutines, and event loops in one article.</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">&lt;h2&gt;What Is a Coroutine?&lt;/h2&gt;&lt;p&gt;A coroutine is a lighter-weight concurrency solution than threads...&lt;/p&gt;</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>cat_python<br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'CSS Grid 布局实战'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">Practical CSS Grid Layout</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'css-grid-layout'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'用 CSS Grid 轻松实现复杂的响应式布局。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;Grid 入门&lt;/h2&gt;&lt;p&gt;Grid 是二维布局系统...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">Easily implement complex responsive layouts with CSS Grid.</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">&lt;h2&gt;Getting Started with Grid&lt;/h2&gt;&lt;p&gt;Grid is a two-dimensional layout system...&lt;/p&gt;</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>cat_css<br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 3. 验证查询</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>           <span style="color: #a50"># 输出所有文章</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">count</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>         <span style="color: #a50"># 文章总数</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>category<span style="color: Gray;">=</span>cat_django<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Django 分类下的文章</span><br/>
+<span style="color: #a50"># 3. Verify Queries</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>           <span style="color: #a50"># Output all articles</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">count</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>         <span style="color: #a50"># Total Articles</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>category<span style="color: Gray;">=</span>cat_django<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Articles under the Django category</span><br/>
 </div>
 </div>
 <hr/>
@@ -325,7 +325,7 @@ Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create
 <p>ORM lets you operate on the database using Python method chains, without writing SQL.</p>
 <table class="reference">
 <tbody>
-<tr><th>方法</th><th>等价 SQL</th><th>返回值</th></tr>
+<tr><th>Methods</th><th>Equivalent SQL</th><th>Return Value</th></tr>
 <tr><td><code>Post.objects.all()</code></td><td>SELECT * FROM blog_post</td><td>QuerySet (all articles)</td></tr>
 <tr><td><code>Post.objects.get(id=1)</code></td><td>SELECT ... WHERE id=1</td><td>Single object (throws an exception if not found)</td></tr>
 <tr><td><code>Post.objects.filter(category__slug='django')</code></td><td>WHERE category.slug='django'</td><td>QuerySet</td></tr>
@@ -333,30 +333,25 @@ Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create
 <tr><td><code>Post.objects.exclude(status='draft')</code></td><td>WHERE status != 'draft'</td><td>QuerySet</td></tr>
 </tbody>
 </table>
-<blockquote><p>QuerySet 是<span class="marked">惰性求值</span>This is: the query is not executed immediately; SQL is only sent when data is actually needed (such as when iterating, printing, or converting to a list). So you can chain multiple filter calls without generating multiple queries.</p></blockquote>
+<blockquote><p>QuerySet is<span class="marked">Lazy evaluation</span>This is: the query is not executed immediately; SQL is only sent when data is actually needed (such as when iterating, printing, or converting to a list). So you can chain multiple filter calls without generating multiple queries.</p></blockquote>
 <hr/>
 <h2>Hands-on: Prepare data for subsequent chapters</h2>
 <p>In the Shell, enter several more articles and categories, covering the three categories Django, Python, and CSS, with at least 2 articles per category.</p>
 <p>You could write a management command or script for batch insertion, but at this stage it is sufficient to insert them one by one using the Shell.</p>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you've mastered the core workflow of the Django ORM: defining Python classes (models) in models.py, generating migration files with makemigrations, syncing to the database with migrate, and using the Shell and ORM to query and insert data.</p>
-<p>At this point, the structure of articles and categories has been established in the database.</p>
-其他扩展
-</div>
+<p>At this point, the structure of articles and categories has been established in the database.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-project-init.html" rel="prev">Django 博客项目</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-admin.html" rel="next">Django Admin — 后台管理文章</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-project-init.html" rel="prev">Django blog project</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-admin.html" rel="next">Django Admin — Backend Article Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -460,16 +455,16 @@ Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes.</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -477,14 +472,14 @@ Post.<span style="color: #05a;">objects</span>.<span style="color: #05a;">create
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31147"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -662,7 +657,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -753,7 +748,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Deep Agents 入门教程 Deep Agents 是 LangChain 官方推出的一套开箱即用（Batteries Included）的 Agent 开发框架，专门面向复杂任务、长流程执行、多步骤规划以及多 Agent 协作场景而设计。 相比传统 Agent 需要开发者自行组合 Prompt、Tool、Memory、Workflow 等组件，Deep Agents 已经内置了任务规划、文件系统、子 Agent 调度、上下文压缩.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -202,9 +202,9 @@ Many beginners easily confuse the positioning of these three projects; they actu
 <tr><th>Framework</th><th>Level positioning</th><th>Core responsibilities</th><th>Applicable scenarios</th></tr>
 </thead>
 <tbody>
-<tr><td><span class="tag1">LangChain</span></td><td>基础组件层</td><td>Provides AI basic components such as Model, Prompt, Tool, Retriever, and Output Parser</td><td>Foundational capability for building individual Agents or AI applications</td></tr>
-<tr><td><span class="tag1 blue">LangGraph</span></td><td>运行时层</td><td>Provides state management, workflow orchestration, nodes and edges, and Checkpoint persistence capabilities</td><td>For complex scenarios that require custom graph structures and execution flows</td></tr>
-<tr><td><span class="tag1 green">Deep Agents</span></td><td>应用框架层</td><td>Encapsulates production-grade capabilities on top of LangGraph, such as planning, file system, sub-Agents, memory, and context compression</td><td>Quickly build complex multi-step Agents without designing the architecture from scratch</td></tr>
+<tr><td><span class="tag1">LangChain</span></td><td>Base component layer.</td><td>Provides AI basic components such as Model, Prompt, Tool, Retriever, and Output Parser</td><td>Foundational capability for building individual Agents or AI applications</td></tr>
+<tr><td><span class="tag1 blue">LangGraph</span></td><td>Runtime layer</td><td>Provides state management, workflow orchestration, nodes and edges, and Checkpoint persistence capabilities</td><td>For complex scenarios that require custom graph structures and execution flows</td></tr>
+<tr><td><span class="tag1 green">Deep Agents</span></td><td>Application framework layer.</td><td>Encapsulates production-grade capabilities on top of LangGraph, such as planning, file system, sub-Agents, memory, and context compression</td><td>Quickly build complex multi-step Agents without designing the architecture from scratch</td></tr>
 </tbody>
 </table>
 <p><img decoding="async" src="../wp-content/uploads/2026/06/45542e2c-e404-47ef-a87c-e23ec7f594d4.webp"/></p>
@@ -253,20 +253,20 @@ pip install deepagents langchain-openai
 <tr><th>Parameters</th><th>Type</th><th>Required</th><th>Description</th><th>Default Value</th></tr>
 </thead>
 <tbody>
-<tr><td><code>model</code></td><td>str or model instance</td><td>否</td><td>Model string, in the format<code>provider:model-name</code>, or directly pass an initialized model object</td><td><code>anthropic:claude-sonnet-4-6</code></td></tr>
-<tr><td><code>tools</code></td><td>list</td><td>否</td><td>List of custom tool functions or LangChain Tool objects</td><td>None</td></tr>
-<tr><td><code>system_prompt</code></td><td>str or SystemMessage</td><td>否</td><td>Custom system prompt, used to define the Agent's role and behavior</td><td>None</td></tr>
-<tr><td><code>backend</code></td><td>BackendProtocol</td><td>否</td><td>Virtual file system backend, determines file storage location</td><td>StateBackend</td></tr>
-<tr><td><code>subagents</code></td><td>list</td><td>否</td><td>List of sub-Agent definitions, used for task delegation</td><td>None</td></tr>
-<tr><td><code>memory</code></td><td>list</td><td>否</td><td>List of AGENTS.md file paths loaded at startup</td><td>None</td></tr>
-<tr><td><code>skills</code></td><td>list</td><td>否</td><td>List of Skills directory paths loaded on demand</td><td>None</td></tr>
-<tr><td><code>permissions</code></td><td>list</td><td>否</td><td>Access permission control rules at the file system path level</td><td>None</td></tr>
-<tr><td><code>interrupt_on</code></td><td>dict</td><td>否</td><td>Specifies which tool calls require manual approval, must be used with checkpointer</td><td>None</td></tr>
-<tr><td><code>checkpointer</code></td><td>Checkpointer</td><td>否</td><td>State persistence checkpointer, must be set for multi-turn conversations or HITL</td><td>None</td></tr>
-<tr><td><code>store</code></td><td>BaseStore</td><td>否</td><td>Cross-session long-term storage backend</td><td>None</td></tr>
-<tr><td><code>response_format</code></td><td>ResponseFormat</td><td>否</td><td>Schema definition for structured output</td><td>None</td></tr>
-<tr><td><code>middleware</code></td><td>list</td><td>否</td><td>Custom middleware appended to the end of the default middleware stack</td><td>()</td></tr>
-<tr><td><code>debug</code></td><td>bool</td><td>否</td><td>Enable debug mode, output detailed logs</td><td>False</td></tr>
+<tr><td><code>model</code></td><td>str or model instance</td><td>no</td><td>Model string, in the format<code>provider:model-name</code>, or directly pass an initialized model object</td><td><code>anthropic:claude-sonnet-4-6</code></td></tr>
+<tr><td><code>tools</code></td><td>list</td><td>no</td><td>List of custom tool functions or LangChain Tool objects</td><td>None</td></tr>
+<tr><td><code>system_prompt</code></td><td>str or SystemMessage</td><td>no</td><td>Custom system prompt, used to define the Agent's role and behavior</td><td>None</td></tr>
+<tr><td><code>backend</code></td><td>BackendProtocol</td><td>no</td><td>Virtual file system backend, determines file storage location</td><td>StateBackend</td></tr>
+<tr><td><code>subagents</code></td><td>list</td><td>no</td><td>List of sub-Agent definitions, used for task delegation</td><td>None</td></tr>
+<tr><td><code>memory</code></td><td>list</td><td>no</td><td>List of AGENTS.md file paths loaded at startup</td><td>None</td></tr>
+<tr><td><code>skills</code></td><td>list</td><td>no</td><td>List of Skills directory paths loaded on demand</td><td>None</td></tr>
+<tr><td><code>permissions</code></td><td>list</td><td>no</td><td>Access permission control rules at the file system path level</td><td>None</td></tr>
+<tr><td><code>interrupt_on</code></td><td>dict</td><td>no</td><td>Specifies which tool calls require manual approval, must be used with checkpointer</td><td>None</td></tr>
+<tr><td><code>checkpointer</code></td><td>Checkpointer</td><td>no</td><td>State persistence checkpointer, must be set for multi-turn conversations or HITL</td><td>None</td></tr>
+<tr><td><code>store</code></td><td>BaseStore</td><td>no</td><td>Cross-session long-term storage backend</td><td>None</td></tr>
+<tr><td><code>response_format</code></td><td>ResponseFormat</td><td>no</td><td>Schema definition for structured output</td><td>None</td></tr>
+<tr><td><code>middleware</code></td><td>list</td><td>no</td><td>Custom middleware appended to the end of the default middleware stack</td><td>()</td></tr>
+<tr><td><code>debug</code></td><td>bool</td><td>no</td><td>Enable debug mode, output detailed logs</td><td>False</td></tr>
 </tbody>
 </table>
 <h3>File system backend comparison</h3>
@@ -277,13 +277,13 @@ pip install deepagents langchain-openai
 </thead>
 <tbody>
 <tr><td><span class="tag1">StateBackend</span></td><td>Within LangGraph graph state</td><td>No (valid within the same thread)</td><td>Default, for local development and simple scenarios</td></tr>
-<tr><td><span class="tag1 blue">FilesystemBackend</span></td><td>Local disk</td><td>是</td><td>Requires real read/write of local files, use with caution</td></tr>
-<tr><td><span class="tag1 green">StoreBackend</span></td><td>LangGraph Store</td><td>是</td><td>Multi-turn conversation persistence, cross-Thread sharing</td></tr>
-<tr><td><span class="tag1 purple">LocalShellBackend</span></td><td>Local disk + Shell</td><td>是</td><td>Requires executing Shell commands, only in trusted environments</td></tr>
+<tr><td><span class="tag1 blue">FilesystemBackend</span></td><td>Local disk</td><td>Yes</td><td>Requires real read/write of local files, use with caution</td></tr>
+<tr><td><span class="tag1 green">StoreBackend</span></td><td>LangGraph Store</td><td>Yes</td><td>Multi-turn conversation persistence, cross-Thread sharing</td></tr>
+<tr><td><span class="tag1 purple">LocalShellBackend</span></td><td>Local disk + Shell</td><td>Yes</td><td>Requires executing Shell commands, only in trusted environments</td></tr>
 <tr><td><span class="tag1">CompositeBackend</span></td><td>Routes to multiple backends</td><td>Depends on the child backend</td><td>Fine-grained control of storage policies for different directories</td></tr>
 </tbody>
 </table>
-<blockquote><p>For beginners, simply use the default<strong>StateBackend</strong>is sufficient.<strong>FilesystemBackend</strong> 和 <strong>LocalShellBackend</strong>Will let the Agent directly operate on your local file system; strictly configure permissions before use.</p></blockquote>
+<blockquote><p>For beginners, simply use the default<strong>StateBackend</strong>is sufficient.<strong>FilesystemBackend</strong>and<strong>LocalShellBackend</strong>Will let the Agent directly operate on your local file system; strictly configure permissions before use.</p></blockquote>
 <hr/>
 <h2>Quick Start</h2>
 <p>This section demonstrates how to create a runnable Deep Agent with minimal code.</p>
@@ -615,56 +615,56 @@ URL: {item.get('url', '')}<br/>Content: {item.get('content', '')}<br/>
             lines.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{content}<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>lines<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">except</span> <span style="color: Teal;">Exception</span> <span style="color: Green;font-weight:bold;">as</span> e:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">格式化出错：{str(e)}</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">Formatting error: {str(e)}</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
-<span style="color: #a50"># 3. 定义专用子 Agent（信息整合专家）</span><br/>
-<span style="color: #a50">#    子 Agent 有独立的上下文窗口，避免主 Agent 上下文膨胀</span><br/>
+<span style="color: #a50"># 3. Define a dedicated sub-agent (information integration expert)</span><br/>
+<span style="color: #a50"># Sub-agent has an independent context window, avoiding main agent context bloat</span><br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
 report_writer_subagent <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
-    <span style="color: #a11;">"name"</span>: <span style="color: #a11;">"report-writer"</span><span style="color: Gray;">,</span>                        <span style="color: #a50"># 必填：子 Agent 唯一名称</span><br/>
-    <span style="color: #a11;">"description"</span>: <span style="color: #a11;">"专业的报告撰写助手，负责将研究资料整合为结构清晰的报告。"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 必填：主 Agent 用此描述决定何时委派任务</span><br/>
-    <span style="color: #a11;">"system_prompt"</span>: <span style="color: #a11;">"你是一位专业的报告撰写专家。接收研究资料后，请整理成包含摘要、主要内容、结论三部分的报告，语言简洁清晰。"</span><span style="color: Gray;">,</span><br/>
-    <span style="color: #a11;">"tools"</span>: <span style="color: Olive;">[</span>format_report<span style="color: Olive;">]</span><span style="color: Gray;">,</span>                       <span style="color: #a50"># 可选：子 Agent 专用工具</span><br/>
-    <span style="color: #a50"># 不指定 model 则继承主 Agent 的模型</span><br/>
+    <span style="color: #a11;">"name"</span>: <span style="color: #a11;">"report-writer"</span><span style="color: Gray;">,</span>                        <span style="color: #a50"># Required: unique name of sub-agent</span><br/>
+    <span style="color: #a11;">"description"</span>: <span style="color: #a11;">A professional report writing assistant, responsible for integrating research materials into clearly structured reports.</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Required: The main Agent uses this description to decide when to delegate tasks</span><br/>
+    <span style="color: #a11;">"system_prompt"</span>: <span style="color: #a11;">You are a professional report writing expert. After receiving the research materials, please organize them into a report consisting of three parts: summary, main content, and conclusion, with clear and concise language.</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"tools"</span>: <span style="color: Olive;">[</span>format_report<span style="color: Olive;">]</span><span style="color: Gray;">,</span>                       <span style="color: #a50"># Optional: sub-agent-specific tools</span><br/>
+    <span style="color: #a50"># If no model is specified, inherit the main Agent's model.</span><br/>
 <span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
-<span style="color: #a50"># 4. 配置并创建 Deep Agent</span><br/>
+<span style="color: #a50"># 4. Configure and Create Deep Agent</span><br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
 checkpointer <span style="color: Gray;">=</span> MemorySaver<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-research_instructions <span style="color: Gray;">=</span> <span style="color: #a11;">"""你是一位专业的研究助手，擅长深度调研和报告撰写。<br/>
-<br/>当用户提供研究主题时，你应当：<br/>1. 使用 web_search 工具搜索相关信息（至少搜索 2-3 次，涵盖不同角度）<br/>2. 将收集到的资料整理汇总<br/>3. 委派 report-writer 子 Agent 撰写最终报告<br/>4. 输出完整报告给用户<br/>
-<br/>注意：每次搜索使用不同的关键词，以获取更全面的信息。<br/>
+research_instructions <span style="color: Gray;">=</span> <span style="color: #a11;">You are a professional research assistant, skilled in in-depth research and report writing.<br/>
+<br/>When the user provides a research topic, you should:<br/>1. Use the web_search tool to search for relevant information (search at least 2-3 times, covering different angles).<br/>2. Organize and summarize the collected data<br/>3. Delegate report-writer sub-agent to write the final report<br/>4. Output the complete report to the user.<br/>
+<br/>Note: Use different keywords for each search to get more comprehensive information.<br/>
 """</span><br/>
 <br/>
 agent <span style="color: Gray;">=</span> create_deep_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>main_model<span style="color: Gray;">,</span><br/>
-    tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>web_search<span style="color: Olive;">]</span><span style="color: Gray;">,</span>                 <span style="color: #a50"># 主 Agent 可用的工具</span><br/>
+    tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>web_search<span style="color: Olive;">]</span><span style="color: Gray;">,</span>                 <span style="color: #a50"># Tools Available to the Main Agent</span><br/>
     system_prompt<span style="color: Gray;">=</span>research_instructions<span style="color: Gray;">,</span><br/>
-    subagents<span style="color: Gray;">=</span><span style="color: Olive;">[</span>report_writer_subagent<span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: #a50"># 注册子 Agent</span><br/>
+    subagents<span style="color: Gray;">=</span><span style="color: Olive;">[</span>report_writer_subagent<span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: #a50"># Register sub Agent</span><br/>
     checkpointer<span style="color: Gray;">=</span>checkpointer<span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
-<span style="color: #a50"># 5. 运行 Agent</span><br/>
+<span style="color: #a50"># 5. Run Agent</span><br/>
 <span style="color: #a50"># ──────────────────────────────────────────</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"正在研究中，请稍候...<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Researching, please wait...<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 <br/>
 result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><br/>
     <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span><span style="color: Olive;">{</span><br/>
             <span style="color: #a11;">"role"</span>: <span style="color: #a11;">"user"</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">"content"</span>: <span style="color: #a11;">"请帮我研究 LangGraph 是什么，以及它的主要应用场景。"</span><br/>
+            <span style="color: #a11;">"content"</span>: <span style="color: #a11;">Please help me research what LangGraph is and its main application scenarios.</span><br/>
         <span style="color: Olive;">}</span><span style="color: Olive;">]</span><br/>
     <span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
     config<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"runoob-research-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"研究报告"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Research Report"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>result<span style="color: Olive;">[</span><span style="color: #a11;">"messages"</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span>-<span style="color: Maroon;">1</span><span style="color: Olive;">]</span>.<span style="color: #05a;">content</span><span style="color: Olive;">)</span><br/>
 </div>
@@ -699,8 +699,8 @@ LangGraph 是构建生产级 Agent 应用的重要工具...
 <div class="example">
 <h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：hitl_agent.py</span><br/>
-<span style="color: #a50"># Human-in-the-loop：让 Agent 在执行危险操作前请求人工审批</span><br/>
+<span style="color: #a50"># File path: hitl_agent.py</span><br/>
+<span style="color: #a50"># Human-in-the-loop: Let the Agent request human approval before executing dangerous operations</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">os</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> langchain.<span style="color: #05a;">tools</span> <span style="color: Green;font-weight:bold;">import</span> tool<br/>
@@ -715,19 +715,19 @@ model <span style="color: Gray;">=</span> ChatOpenAI<span style="color: Olive;">
     base_url<span style="color: Gray;">=</span><span style="color: #a11;">"https://api.deepseek.com"</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 使用 @tool 装饰器定义工具（需要 langchain 包）</span><br/>
+<span style="color: #a50"># Use the @tool decorator to define tools (requires the langchain package)</span><br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> delete_file<span style="color: Olive;">(</span>path: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""删除指定路径的文件。"""</span><br/>
-    <span style="color: #a50"># 实际项目中这里会调用 os.remove(path)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"文件 {path} 已删除。"</span><br/>
+    <span style="color: #a11;">"""Delete the file at the specified path."""</span><br/>
+    <span style="color: #a50"># In actual projects, os.remove(path) is called here.</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"File {path} has been deleted."</span><br/>
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> read_file<span style="color: Olive;">(</span>path: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""读取指定路径的文件内容。"""</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"文件 {path} 的内容：（示例内容）"</span><br/>
+    <span style="color: #a11;">"""Read the content of the file at the specified path."""</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">Content of file {path}: (sample content)</span><br/>
 <br/>
-<span style="color: #a50"># interrupt_on 配置哪些工具需要人工审批</span><br/>
+<span style="color: #a50"># interrupt_on configures which tools require manual approval</span><br/>
 <span style="color: #a50"># True means allow: approval, editing parameters, rejection, sending custom replies</span><br/>
 <span style="color: #a50"># False means no approval required</span><br/>
 <span style="color: #a50"># dict allows fine-grained control over the allowed operation types</span><br/>
@@ -1023,11 +1023,11 @@ Notes list
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">Notes need to be an extension of the content of this article!</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> Before sharing notes, you must <a href=";.html" class="runoob-pop">log in</a>!</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<p style="font-size:14px;">Notes need to be an extension of the content of this article!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">Article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i> Before sharing notes, you must <a class="runoob-pop" href=";.html">log in</a>!</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
@@ -1225,7 +1225,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1316,7 +1316,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

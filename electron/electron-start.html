@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Electron 入门实例 | 菜鸟教程</title>
+<title>Electron Getting Started Examples | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Electron 入门实例  在上一章节我们已经学会了如何安装 Electron。 本章节我们将一步步介绍如何创建一个简单的 Electron 实例。   1、创建项目目录  打开终端，依次执行：  mkdir my-electron-app cd my-electron-app npm init -y npm install electron --save-dev   生成结构如下：  my-electron-demo/ ├─ pac.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-install.html" rel="prev">Electron 安装</a> </div>
-<div class="next-design-link"><a href="../electron/electron-ide.html" rel="next">Electron 开发工具</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-install.html" rel="prev">Electron installation</a> </div>
+<div class="next-design-link"><a href="../electron/electron-ide.html" rel="next">Electron Development Tools</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -178,7 +178,7 @@ npm install electron --save-dev</pre>
 ├─ package.json
 ├─ main.js
 └─ index.html</pre>
-<h3>2、配置 package.json</h3>
+<h3>2. Configure package.json</h3>
 <p>Open package.json and modify it to the following content:</p>
 <pre>{
   "name": "my-electron-app",
@@ -193,12 +193,12 @@ npm install electron --save-dev</pre>
   }
 }
 </pre>
-<p>说明：</p>
+<p>Description:</p>
 <table class="reference">
 <thead>
 <tr>
-<th>字段</th>
-<th>作用</th>
+<th>Fields</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
@@ -208,7 +208,7 @@ npm install electron --save-dev</pre>
 </tr>
 <tr>
 <td><code>"scripts.start"</code></td>
-<td>定义<code>npm start</code>Command execution content</td>
+<td>definition<code>npm start</code>Command execution content</td>
 </tr>
 <tr>
 <td><code>"electron ."</code></td>
@@ -223,70 +223,70 @@ npm install electron --save-dev</pre>
 <h3>3. Write the main process file main.js.</h3>
 <p>This is Electron's core control center, responsible for creating app windows and loading pages.</p>
 <p>Create the file main.js and enter the following complete code (with detailed comments):</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #006600; font-style: italic;">// main.js —— Electron 主进程文件</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #006600; font-style: italic;">// main.js — Electron main process file</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 从 electron 模块中导入 app（控制应用生命周期） 和 BrowserWindow（创建窗口）</span><br/>
+<span style="color: #006600; font-style: italic;">// Import app (controls application lifecycle) and BrowserWindow (creates windows) from the electron module.</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> app<span style="color: #339933;">,</span> BrowserWindow <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// Node.js 内置模块，用于拼接文件路径</span><br/>
+<span style="color: #006600; font-style: italic;">// Node.js built-in module for joining file paths</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> path <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'path'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 创建一个函数，用于生成主窗口</span><br/>
+<span style="color: #006600; font-style: italic;">// Create a function to generate the main window</span><br/>
 <span style="color: #000066; font-weight: bold;">function</span> createWindow<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 创建一个新窗口实例</span><br/>
+  <span style="color: #006600; font-style: italic;">// Create a new window instance</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> win <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> BrowserWindow<span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
-    width<span style="color: #339933;">:</span> <span style="color: #CC0000;">800</span><span style="color: #339933;">,</span>          <span style="color: #006600; font-style: italic;">// 窗口宽度（像素）</span><br/>
-    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">600</span><span style="color: #339933;">,</span>         <span style="color: #006600; font-style: italic;">// 窗口高度（像素）</span><br/>
-    resizable<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span>     <span style="color: #006600; font-style: italic;">// 是否允许用户拖动调整窗口大小（默认 true）</span><br/>
-    title<span style="color: #339933;">:</span> <span style="color: #3366CC;">"RUNOOB Electron 测试"</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// 窗口标题，会显示在标题栏</span><br/>
+    width<span style="color: #339933;">:</span> <span style="color: #CC0000;">800</span><span style="color: #339933;">,</span>          <span style="color: #006600; font-style: italic;">// Window width (pixels)</span><br/>
+    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">600</span><span style="color: #339933;">,</span>         <span style="color: #006600; font-style: italic;">// Window height (pixels)</span><br/>
+    resizable<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span>     <span style="color: #006600; font-style: italic;">// Whether to allow users to drag and resize the window (default true)</span><br/>
+    title<span style="color: #339933;">:</span> <span style="color: #3366CC;">"RUNOOB Electron Test"</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// Window title, shown in the title bar</span><br/>
     webPreferences<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>    <br/>
-      <span style="color: #006600; font-style: italic;">// 网页运行相关配置</span><br/>
-      contextIsolation<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// 启用上下文隔离（安全推荐）</span><br/>
-      nodeIntegration<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// 禁止直接在网页中使用 Node.js</span><br/>
+      <span style="color: #006600; font-style: italic;">// Web page runtime configuration</span><br/>
+      contextIsolation<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// Enable context isolation (recommended for security)</span><br/>
+      nodeIntegration<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// Do not use Node.js directly in web pages</span><br/>
     <span style="color: #009900;">}</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 加载本地的 index.html 文件到窗口中</span><br/>
-  <span style="color: #006600; font-style: italic;">// path.join(__dirname, 'index.html') 会返回当前目录下的 index.html 路径</span><br/>
+  <span style="color: #006600; font-style: italic;">// Load the local index.html file into the window</span><br/>
+  <span style="color: #006600; font-style: italic;">// path.join(__dirname, 'index.html') returns the path to index.html in the current directory</span><br/>
   win.<span style="color: #660066;">loadFile</span><span style="color: #009900;">(</span>path.<span style="color: #660066;">join</span><span style="color: #009900;">(</span>__dirname<span style="color: #339933;">,</span> <span style="color: #3366CC;">'index.html'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 打开开发者工具（可选，方便调试）</span><br/>
+  <span style="color: #006600; font-style: italic;">// Open developer tools (optional, convenient for debugging)</span><br/>
   <span style="color: #006600; font-style: italic;">// win.webContents.openDevTools();</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 当 Electron 初始化完成后，会触发 app 的 ready 事件</span><br/>
-<span style="color: #006600; font-style: italic;">// app.whenReady() 返回一个 Promise，执行完后调用 createWindow()</span><br/>
+<span style="color: #006600; font-style: italic;">// When Electron initialization is complete, the app's ready event is triggered.</span><br/>
+<span style="color: #006600; font-style: italic;">// app.whenReady() returns a Promise; after it resolves, call createWindow()</span><br/>
 app.<span style="color: #660066;">whenReady</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">then</span><span style="color: #009900;">(</span>createWindow<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 当所有窗口关闭时触发（仅在 macOS 外生效）</span><br/>
+<span style="color: #006600; font-style: italic;">// Triggered when all windows are closed (only applies outside macOS)</span><br/>
 app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'window-all-closed'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// process.platform 返回操作系统平台</span><br/>
-  <span style="color: #006600; font-style: italic;">// macOS 的平台值是 'darwin'，在 macOS 上一般保留程序常驻</span><br/>
+  <span style="color: #006600; font-style: italic;">// process.platform returns the operating system platform</span><br/>
+  <span style="color: #006600; font-style: italic;">// The platform value for macOS is 'darwin'; on macOS, the program is generally kept resident.</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>process.<span style="color: #660066;">platform</span> <span style="color: #339933;">!==</span> <span style="color: #3366CC;">'darwin'</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-    app.<span style="color: #660066;">quit</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// 退出应用</span><br/>
+    app.<span style="color: #660066;">quit</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// exit application</span><br/>
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// macOS 特殊逻辑：点击 Dock 图标时重新创建窗口</span><br/>
+<span style="color: #006600; font-style: italic;">// macOS special logic: recreate the window when clicking the Dock icon</span><br/>
 app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'activate'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 如果当前没有打开任何窗口，就重新创建一个</span><br/>
+  <span style="color: #006600; font-style: italic;">// If no window is currently open, create a new one</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>BrowserWindow.<span style="color: #660066;">getAllWindows</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">length</span> <span style="color: #339933;">===</span> <span style="color: #CC0000;">0</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     createWindow<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div></div>
-<p>说明：</p>
+<p>Description:</p>
 <table class="reference">
 <thead>
 <tr>
-<th>概念</th>
-<th>说明</th>
+<th>Concepts</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>主进程（main process）</strong></td>
+<td><strong>main process</strong></td>
 <td>The script that runs first after Electron starts, responsible for window creation, menu control, system APIs, etc.</td>
 </tr>
 <tr>
@@ -299,7 +299,7 @@ app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 </tr>
 <tr>
 <td><strong>win.loadFile()</strong></td>
-<td>Load a local HTML file. You can also use<code>win.loadURL('https://example.com')</code>加载网站。</td>
+<td>Load a local HTML file. You can also use<code>win.loadURL('https://example.com')</code>Load website.</td>
 </tr>
 <tr>
 <td><strong>contextIsolation</strong></td>
@@ -307,7 +307,7 @@ app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 </tr>
 <tr>
 <td><strong>nodeIntegration</strong></td>
-<td>若设为<code>true</code>, allowing you to use Node.js directly in the page (but with security risks).</td>
+<td>if set to<code>true</code>, allowing you to use Node.js directly in the page (but with security risks).</td>
 </tr>
 <tr>
 <td><strong>window-all-closed</strong></td>
@@ -317,12 +317,12 @@ app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 </table>
 <h3>4. Write the rendering page index.html</h3>
 <p>Create the index.html file and enter the following content:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #555;">&lt;!DOCTYPE html&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
   <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">meta</span> <span style="color: #00c;">charset</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"utf-8"</span>&gt;</span><br/>
-  <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>菜鸟教程(runoob.com)<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
+  <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>Runoob (runoob.com)<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
   <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">style</span>&gt;</span><br/>
     body {<br/>
       margin: 0;<br/>
@@ -353,7 +353,7 @@ app.<span style="color: #660066;">on</span><span style="color: #009900;">(</span
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
   <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"box"</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h1</span>&gt;</span>Hello, Electron!<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h1</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span>&gt;</span>RUNOOB Electron 测试。这是你创建的第一个 Electron 桌面应用<span style="color: #DDBB00;">&amp;#x1f389;</span><span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span>&gt;</span>RUNOOB Electron test. This is the first Electron desktop application you created.<span style="color: #DDBB00;">&amp;#x1f389;</span><span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
   <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
@@ -365,21 +365,17 @@ npm start</pre>
 <p>After running, you will see a desktop window displaying:</p>
 <pre>Hello, Electron!
 RUNOOB Electron 测试。这是你创建的第一个 Electron 桌面应用 &amp;#x1f389;</pre>
-<p><img decoding="async" src="../wp-content/uploads/2025/10/dfd50f71-9561-40d6-a153-e177040ef67c.png"/></p> 其他扩展
-</div>
+<p><img decoding="async" src="../wp-content/uploads/2025/10/dfd50f71-9561-40d6-a153-e177040ef67c.png"/></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-install.html" rel="prev">Electron 安装</a> </div>
-<div class="next-design-link"><a href="../electron/electron-ide.html" rel="next">Electron 开发工具</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-install.html" rel="prev">Electron installation</a> </div>
+<div class="next-design-link"><a href="../electron/electron-ide.html" rel="next">Electron Development Tools</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -483,16 +479,16 @@ RUNOOB Electron 测试。这是你创建的第一个 Electron 桌面应用 &amp;
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -500,14 +496,14 @@ RUNOOB Electron 测试。这是你创建的第一个 Electron 桌面应用 &amp;
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="28786"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -685,7 +681,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -776,7 +772,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

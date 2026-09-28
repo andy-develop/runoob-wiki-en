@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FastAPI 请求体 | 菜鸟教程</title>
+<title>FastAPI Request Body | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="FastAPI 请求体 请求体是客户端发送给 API 的数据。当你需要从客户端接收 JSON 数据时，使用请求体来传递。FastAPI 使用 Pydantic 模型来声明请求体的结构，自动完成数据校验、转换和文档生成。   请求体与查询参数的区别  数据传递方式位置适用场景HTTP 方法 路径参数URL 路径 /items/5标识资源GET、PUT、DELETE 等 查询参数URL 中 ?key=value筛选、分页等可选参数主要是 G.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-query-params.html" rel="prev">FastAPI 查询参数</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-query-params-validation.html" rel="next">FastAPI 查询参数校验</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-query-params.html" rel="prev">FastAPI query parameters</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-query-params-validation.html" rel="next">FastAPI query parameter validation</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,20 +168,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>The difference between request body and query parameters</h2>
 <table class="reference">
-<tr><th>Data Transfer Methods</th><th>位置</th><th>适用场景</th><th>HTTP 方法</th></tr>
-<tr><td>路径参数</td><td>URL 路径<code>/items/5</code></td><td>标识资源</td><td>GET、PUT、DELETE 等</td></tr>
-<tr><td>查询参数</td><td>URL 中<code>?key=value</code></td><td>Optional parameters such as filtering and pagination</td><td>Mainly GET</td></tr>
-<tr><td>请求体</td><td>The JSON data of the request</td><td>Submitting Complex Data</td><td>POST、PUT、PATCH</td></tr>
+<tr><th>Data Transfer Methods</th><th>Position</th><th>Applicable scenarios</th><th>HTTP Methods</th></tr>
+<tr><td>Path Parameter</td><td>URL Path<code>/items/5</code></td><td>Identify resource</td><td>GET, PUT, DELETE, etc.</td></tr>
+<tr><td>Query Parameter</td><td>In the URL<code>?key=value</code></td><td>Optional parameters such as filtering and pagination</td><td>Mainly GET</td></tr>
+<tr><td>request body</td><td>The JSON data of the request</td><td>Submitting Complex Data</td><td>POST、PUT、PATCH</td></tr>
 </table>
-<blockquote><p>Sending Data Should Use<code>POST</code>(most common),<code>PUT</code>、<code>DELETE</code> 或 <code>PATCH</code>Although FastAPI technically supports GET requests carrying a request body, this does not conform to HTTP specifications, and Swagger UI will not show request body documentation for GET requests.</p></blockquote>
+<blockquote><p>Sending Data Should Use<code>POST</code>(most common),<code>PUT</code>、<code>DELETE</code>or<code>PATCH</code>Although FastAPI technically supports GET requests carrying a request body, this does not conform to HTTP specifications, and Swagger UI will not show request body documentation for GET requests.</p></blockquote>
 <hr/>
 <h2>Declaring the request body with a Pydantic model</h2>
-<h3>1. 导入 BaseModel</h3>
+<h3>Import BaseModel</h3>
 <pre>from pydantic import BaseModel</pre>
 <h3>2. Create data model</h3>
 <p>Define a class inheriting<code>BaseModel</code>For the class, declare all attributes using Python standard types:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -189,12 +189,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 定义请求体数据模型</span><br/>
+<span style="color: #a50"># Define the request body data model</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> Item<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
-    name: <span style="color: Teal;">str</span>               <span style="color: #a50"># 必填：商品名称</span><br/>
-    description: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># 可选：商品描述</span><br/>
-    price: <span style="color: Teal;">float</span>            <span style="color: #a50"># 必填：商品价格</span><br/>
-    tax: <span style="color: Teal;">float</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>        <span style="color: #a50"># 可选：税费</span><br/>
+    name: <span style="color: Teal;">str</span>               <span style="color: #a50"># Required: Product name</span><br/>
+    description: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># Optional: Product description</span><br/>
+    price: <span style="color: Teal;">float</span>            <span style="color: #a50"># Required: Product price</span><br/>
+    tax: <span style="color: Teal;">float</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>        <span style="color: #a50"># Optional: tax</span><br/>
 <br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
@@ -225,18 +225,18 @@ async <span style="color: Green;font-weight:bold;">def</span> create_item<span s
 <h2>FastAPI's handling of the request body</h2>
 <p>Just by declaring Python types, FastAPI can automatically do the following:</p>
 <table class="reference">
-<tr><th>功能</th><th>说明</th></tr>
-<tr><td>读取请求体</td><td>Read the data from the request in JSON format</td></tr>
-<tr><td>类型转换</td><td>Convert the data to the declared types (e.g., string to float)</td></tr>
-<tr><td>数据校验</td><td>Validate the data, and return clear error messages when invalid</td></tr>
-<tr><td>赋值参数</td><td>Assign the validated data to the function parameters, providing editor autocompletion</td></tr>
-<tr><td>生成文档</td><td>Automatically generate a JSON Schema, which appears in the API documentation</td></tr>
+<tr><th>Features</th><th>Description</th></tr>
+<tr><td>Read request body</td><td>Read the data from the request in JSON format</td></tr>
+<tr><td>Type conversion</td><td>Convert the data to the declared types (e.g., string to float)</td></tr>
+<tr><td>Data verification</td><td>Validate the data, and return clear error messages when invalid</td></tr>
+<tr><td>Assign parameter</td><td>Assign the validated data to the function parameters, providing editor autocompletion</td></tr>
+<tr><td>Generate documentation</td><td>Automatically generate a JSON Schema, which appears in the API documentation</td></tr>
 </table>
 <hr/>
 <h2>Use model attributes</h2>
 <p>Inside the path operation function, you can access all attributes of the model just like operating on a normal Python object:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -253,21 +253,21 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> create_item<span style="color: Olive;">(</span>item: Item<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 直接访问模型属性</span><br/>
-    item_dict <span style="color: Gray;">=</span> item.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Pydantic v2 的序列化方法</span><br/>
+    <span style="color: #a50"># Directly access model attributes</span><br/>
+    item_dict <span style="color: Gray;">=</span> item.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Pydantic v2 serialization method</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> item.<span style="color: #05a;">tax</span>:<br/>
-        <span style="color: #a50"># 计算含税价格</span><br/>
+        <span style="color: #a50"># Calculate price including tax</span><br/>
         price_with_tax <span style="color: Gray;">=</span> item.<span style="color: #05a;">price</span> + item.<span style="color: #05a;">tax</span><br/>
         item_dict.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"price_with_tax"</span>: price_with_tax<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> item_dict<br/>
 </div>
 </div>
-<blockquote><p>Pydantic v2 使用<code>model_dump()</code>Replaces the v1<code>dict()</code>method to serialize model data.<code>model_dump()</code>Return a dictionary containing all fields of the model.</p></blockquote>
+<blockquote><p>Pydantic v2 Usage<code>model_dump()</code>Replaces the v1<code>dict()</code>method to serialize model data.<code>model_dump()</code>Return a dictionary containing all fields of the model.</p></blockquote>
 <hr/>
 <h2>Request body + path parameters</h2>
 <p>You can declare path parameters and a request body at the same time, and FastAPI will automatically get the data from the correct places:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -282,7 +282,7 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
     tax: <span style="color: Teal;">float</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 同时使用路径参数和请求体</span><br/>
+<span style="color: #a50"># Using Both Path Parameters and Request Body</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/{item_id}"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> update_item<span style="color: Olive;">(</span>item_id: <span style="color: Teal;">int</span><span style="color: Gray;">,</span> item: Item<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"item_id"</span>: item_id<span style="color: Gray;">,</span> <span style="color: #a11;">"item_name"</span>: item.<span style="color: #05a;">name</span><span style="color: Olive;">}</span><br/>
@@ -290,14 +290,14 @@ async <span style="color: Green;font-weight:bold;">def</span> update_item<span s
 </div>
 <p>FastAPI recognition rules:</p>
 <ul>
-<li><code>item_id</code>在路径<code>{item_id}</code>appears in -&gt; path parameter</li>
+<li><code>item_id</code>in the path<code>{item_id}</code>appears in -&gt; path parameter</li>
 <li><code>item</code>The type is a Pydantic model -&gt; request body</li>
 </ul>
 <hr/>
 <h2>Request body + path parameters + query parameters</h2>
 <p>All three can be used simultaneously:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
@@ -312,7 +312,7 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
     tax: <span style="color: Teal;">float</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 同时使用路径参数、查询参数和请求体</span><br/>
+<span style="color: #a50"># Using path parameters, query parameters, and request body at the same time</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/{item_id}"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> update_item<span style="color: Olive;">(</span>item_id: <span style="color: Teal;">int</span><span style="color: Gray;">,</span> item: Item<span style="color: Gray;">,</span> q: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><span style="color: Olive;">)</span>:<br/>
     result <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"item_id"</span>: item_id<span style="color: Gray;">,</span> **item.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">}</span><br/>
@@ -323,36 +323,31 @@ async <span style="color: Green;font-weight:bold;">def</span> update_item<span s
 </div>
 <p>FastAPI's complete parameter recognition rules:</p>
 <table class="reference">
-<tr><th>识别条件</th><th>参数来源</th></tr>
-<tr><td>Parameter names in the path<code>{}</code>中声明</td><td>路径参数</td></tr>
-<tr><td>The parameter is a single type (<code>int</code>、<code>str</code>、<code>bool</code>等）</td><td>查询参数</td></tr>
-<tr><td>If the parameter type is a Pydantic model</td><td>请求体</td></tr>
+<tr><th>Recognition condition</th><th>Parameter source</th></tr>
+<tr><td>Parameter names in the path<code>{}</code>declared in</td><td>Path Parameter</td></tr>
+<tr><td>The parameter is a single type (<code>int</code>、<code>str</code>、<code>bool</code>etc.)</td><td>Query Parameter</td></tr>
+<tr><td>If the parameter type is a Pydantic model</td><td>request body</td></tr>
 </table>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <p>Core points of the request body:</p>
 <ul>
 <li>Using Pydantic's<code>BaseModel</code>Define request body structure</li>
 <li>Fields with default values are optional; fields without default values are required.</li>
 <li>The request body can be used together with path parameters and query parameters.</li>
 <li>FastAPI automatically performs data validation, type conversion, and documentation generation.</li>
-<li>Pydantic v2 使用<code>model_dump()</code>进行序列化</li>
-</ul>
-其他扩展
-</div>
+<li>Pydantic v2 Usage<code>model_dump()</code>Perform serialization</li>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-query-params.html" rel="prev">FastAPI 查询参数</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-query-params-validation.html" rel="next">FastAPI 查询参数校验</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-query-params.html" rel="prev">FastAPI query parameters</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-query-params-validation.html" rel="next">FastAPI query parameter validation</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -456,16 +451,16 @@ async <span style="color: Green;font-weight:bold;">def</span> update_item<span s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -473,14 +468,14 @@ async <span style="color: Green;font-weight:bold;">def</span> update_item<span s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29893"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -658,7 +653,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -749,7 +744,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -31,16 +31,16 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -51,7 +51,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Spring简介 Spring框架由Rod Johnson开发，2004年发布了Spring框架的第一版。Spring是一个从实际开发中抽取出来的框架，因此它完成了大量开发中的通用步骤，留给开发者的仅仅是与特定应用相关的部分，从而大大提高了企业应用的开发效率。 Spring总结起来优点如下：  低侵入式设计，代码的污染极低。 独立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -69,8 +69,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-</div><!-- 导航栏 -->
-<!--  内容  -->
+</div>navigation bar
+content
 <div class="container main">
 <div class="row">
 <div class="col middle-column big-middle-column">
@@ -160,7 +160,7 @@ public class BeanTest{
 <p>If the Bean scope is not specified, Spring uses the singleton scope by default. Creating and destroying prototype-scoped Beans is relatively costly. In contrast, once a singleton-scoped Bean instance is created, it can be reused. Therefore, you should try to avoid setting Beans to prototype scope.</p>
 <h3 id="使用自动装配注入合作者Bean">Injecting Collaborating Beans with Autowiring</h3>
 <p>Spring can automatically wire the dependencies between Beans. That is, there is no need to explicitly specify the dependent Bean using ref. Instead, the Spring container inspects the contents of the XML configuration file and injects the depended-on Bean into the caller Bean according to certain rules.<br/>Spring autowiring can be specified via the<code>&lt;beans/&gt;</code>element's<code>default-autowire</code>attribute. This attribute applies to all Beans in the configuration file. It can also be specified via the<code>&lt;bean/&gt;</code>element's<code>autowire</code>attribute, which only affects that Bean.</p>
-<p><code>autowire</code>和<code>default-autowire</code>It can accept the following values:</p>
+<p><code>autowire</code>and<code>default-autowire</code>It can accept the following values:</p>
 <ul>
 <li><code>no</code>: Autowiring is not used. Bean dependencies must be defined through the ref element. This is the default configuration. In larger deployment environments, changing this configuration is discouraged; explicitly configuring collaborators can produce clearer dependency relationships.</li>
 <li><code>byName</code>: Autowiring based on setter method names. The Spring container searches all Beans in the container, finds a Bean whose id matches the setter method name with the "set" prefix removed and the first letter lowercased, and completes the injection. If no matching Bean instance is found, Spring will not perform any injection.</li>
@@ -199,7 +199,7 @@ public class BeanTest{
 <p>It is recommended to use the second method, method injection. To use lookup method injection, roughly the following two steps are needed:</p>
 <ol>
 <li>Define the implementation class of the caller Bean as an abstract class, and define an abstract method to obtain the depended-on Bean.</li>
-<li>在<code>&lt;bean.../&gt;</code>Add the<code>&lt;lookup-method.../&gt;</code>child element to the element, letting Spring implement the specified abstract method for the implementation class of the caller Bean.</li>
+<li>In<code>&lt;bean.../&gt;</code>Add the<code>&lt;lookup-method.../&gt;</code>child element to the element, letting Spring implement the specified abstract method for the implementation class of the caller Bean.</li>
 </ol>
 <p><strong><em>Note:</em></strong></p>
 <blockquote><p>Spring will use runtime dynamic enhancement to implement the<code>&lt;lookup-method.../&gt;</code>abstract method specified by the element. If the target abstract class has implemented an interface, Spring will use JDK dynamic proxy to implement the abstract class and implement the abstract method for it; if the target abstract class has not implemented an interface, Spring will use cglib to implement the abstract class and implement the abstract method for it. The cglib library has already been integrated into the spring-core-xxx.jar package in Spring 4.0.</p></blockquote>
@@ -225,7 +225,7 @@ Person p = (Person)beanFactory.getBean("person");
 </pre>
 <h3 id="容器后处理器">Container Post-Processor</h3>
 <p>The Bean post-processor is responsible for processing all Bean instances in the container, while the container post-processor is responsible for processing the container itself. The container post-processor must implement the<code>BeanFactoryPostProcessor</code>Interface, and implement a method of the interface.<code>postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)</code>The method body that implements this method is the processing performed on the Spring container. This processing can be a custom extension of the Spring container, or of course, it can perform no processing on the Spring container at all.</p>
-<p>类似于<code>BeanPostProcessor</code>，<code>ApplicationContext</code>Can automatically detect container post-processors in the container, and automatically register container post-processors. But if using<code>BeanFactory</code>As the Spring container, it must manually call this container post-processor for processing.<code>BeanFactory</code>容器。</p>
+<p>similar to<code>BeanPostProcessor</code>，<code>ApplicationContext</code>Can automatically detect container post-processors in the container, and automatically register container post-processors. But if using<code>BeanFactory</code>As the Spring container, it must manually call this container post-processor for processing.<code>BeanFactory</code>Container.</p>
 <h2 id="Spring的" 零配置"支持"="">Spring's "Zero Configuration" Support</h2>
 <h3 id="搜索Bean类">Searching for Bean Classes</h3>
 <p>Spring provides the following annotations to mark Spring Beans:</p>
@@ -238,10 +238,10 @@ Person p = (Person)beanFactory.getBean("person");
 <p>Make the following configuration in the Spring configuration file to specify the package to be automatically scanned:</p>
 <pre>&lt;context:component-scan base-package="edu.shu.spring.domain"/&gt;</pre>
 <h3 id="使用@Resource配置依赖">Configuring Dependencies with @Resource</h3>
-<p><code>@Resource</code>位于<code>javax.annotation</code>Located under the package, it is one from the JavaEE specification.<code>Annotation</code>, Spring directly borrowed this<code>Annotation</code>, by using this<code>Annotation</code>Specify collaborator Beans for the target Bean. Use<code>@Resource</code>与<code>&lt;property.../&gt;</code>The ref attribute of the element has the same effect.<br/>
+<p><code>@Resource</code>Located at<code>javax.annotation</code>Located under the package, it is one from the JavaEE specification.<code>Annotation</code>, Spring directly borrowed this<code>Annotation</code>, by using this<code>Annotation</code>Specify collaborator Beans for the target Bean. Use<code>@Resource</code>and<code>&lt;property.../&gt;</code>The ref attribute of the element has the same effect.<br/>
 <code>@Resource</code>can not only annotate setter methods, but also directly annotate instance variables. If using<code>@Resource</code>Annotating instance variables will be even simpler; in this case, Spring will directly use the JavaEE standard field injection, and even setter methods are not needed.</p>
 <h3 id="使用@PostConstruct和@PreDestroy定制生命周期行为">Customizing Lifecycle Behavior with @PostConstruct and @PreDestroy</h3>
-<p><code>@PostConstruct</code>和<code>@PreDestroy</code>Also located under the javax.annotation package, these are two Annotations from the JavaEE specification. Spring directly borrowed them to customize the lifecycle behavior of Beans in the Spring container. Both are used to modify methods and require no attributes. The method modified by the former is the Bean's initialization method; the method modified by the latter is the method before the Bean is destroyed.</p>
+<p><code>@PostConstruct</code>and<code>@PreDestroy</code>Also located under the javax.annotation package, these are two Annotations from the JavaEE specification. Spring directly borrowed them to customize the lifecycle behavior of Beans in the Spring container. Both are used to modify methods and require no attributes. The method modified by the former is the Bean's initialization method; the method modified by the latter is the method before the Bean is destroyed.</p>
 <h3 id="Spring4-0增强的自动装配和精确装配">Enhanced Autowiring and Precise Wiring in Spring 4.0</h3>
 <p>Spring provides<code>@Autowired</code>annotation to specify autowiring,<code>@Autowired</code>can annotate setter methods, regular methods, instance variables, constructors, and so on. When using<code>@Autowired</code>Annotating a setter method, by default the byType autowiring strategy is adopted. Under this strategy, there are often multiple candidate bean instances matching the autowiring type, which may cause exceptions. To achieve precise autowiring, Spring provides<code>@Qualifier</code>annotation, by using<code>@Qualifier</code>, allows automatic assembly to be performed based on the Bean's id.</p>
 <h2 id="Spring的AOP">Spring's AOP</h2>
@@ -281,11 +281,11 @@ Person p = (Person)beanFactory.getBean("person");
     &lt;context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/&gt;
 &lt;/context:component-scan&gt;
 </pre>
-<p>来源：http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring/</p> </div>
+<p>Source：http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring/</p> </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link">← <a href="./coreos-setup-pc.html" rel="prev">CoreOS 在 PC 上快速安装方法指南</a> </div>
-<div class="next-design-link"><a href="./restful-architecture.html" rel="next">RESTful 架构详解</a> →</div>
+<div class="previous-design-link">← <a href="./coreos-setup-pc.html" rel="prev">CoreOS Quick Installation Guide on PC</a> </div>
+<div class="next-design-link"><a href="./restful-architecture.html" rel="next">RESTful Architecture Explained</a> →</div>
 </div>
 <style>
 .wrapper {
@@ -393,28 +393,28 @@ Person p = (Person)beanFactory.getBean("person");
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">1  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">1 note</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments">
 <ol class="commentlist">
-<li class="comment even thread-even depth-1" id="comment-56525"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>哈哈哈</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  che***26.com</p></div><div class="upvotejs" data-commid="56525" id="runoobvote-id-56525"><a class="upvote"></a> <span class="count">252</span></div></div><div class="comt-main" id="div-comment-56525"><p>@Resource and @Autowired, the difference between the two: @Resource is under the javax.annotation.Resource package and is supported by JavaEE; @Autowired is under the org.springframework.beans.factory.annotation.Autowired package and is provided by Spring. This makes @Resource more extensible than @Autowired, because when exporting a project, using the @Resource annotation can be provided through the Java environment, while using the @Autowired annotation requires additionally importing the Spring package.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=".." target="_blank">哈哈哈</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>哈哈哈</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  che***26.com</p></div></span>6年前 (2020-08-25)</div></div></li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-56525"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>hahaha</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  che***26.com</p></div><div class="upvotejs" data-commid="56525" id="runoobvote-id-56525"><a class="upvote"></a> <span class="count">252</span></div></div><div class="comt-main" id="div-comment-56525"><p>@Resource and @Autowired, the difference between the two: @Resource is under the javax.annotation.Resource package and is supported by JavaEE; @Autowired is under the org.springframework.beans.factory.annotation.Autowired package and is provided by Spring. This makes @Resource more extensible than @Autowired, because when exporting a project, using the @Resource annotation can be provided through the Java environment, while using the @Autowired annotation requires additionally importing the Spring package.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=".." target="_blank">hahaha</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>hahaha</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  che***26.com</p></div></span>6 years ago (2020-08-25)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=".." class="runoob-pop">登录</a>！</h3>
-		<p><a href="./runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href="..">Log in</a>！</h3>
+<p><a href="./runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=".." id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=".." id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -422,14 +422,14 @@ Person p = (Person)beanFactory.getBean("person");
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="12768"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dart 继承与多态 | 菜鸟教程</title>
+<title>Dart Inheritance and Polymorphism | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Dart 继承与多态 继承是面向对象编程的三大特性之一，它允许一个类基于另一个类进行扩展。 本章介绍 Dart 中的 extends 单继承、方法重写、super 关键字和抽象类。   extends 单继承 Dart 只支持单继承——每个类只能有一个直接父类。 但继承链可以很长：子类继承父类，父类再继承祖父类，层层传递。   实例  [mycode4 type='dart'] // 父类（基类、超类） class .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-classes-and-objects.html" rel="prev">Dart 类与对象</a> </div>
-<div class="next-design-link"><a href="../dart/dart-interfaces-and-mixins.html" rel="next">Dart 接口与 Mixin</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-classes-and-objects.html" rel="prev">Dart Classes and Objects</a> </div>
+<div class="next-design-link"><a href="../dart/dart-interfaces-and-mixins.html" rel="next">Dart Interfaces and Mixins</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,48 +171,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Dart only supports single inheritance—each class can have only one direct parent class.</p>
 <p>But the inheritance chain can be long: a subclass inherits from a parent class, the parent class inherits from a grandparent class, and so on.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 父类（基类、超类）</span><br/>
+<span style="color: #999988; font-style: italic;">// Parent class (base class, superclass)</span><br/>
 <span style="font-weight: bold;">class</span> Animal <span style="">{</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
 <br/>
   Animal<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">name</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> eat<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 在吃东西'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name is eating'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> sleep<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 在睡觉'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name is sleeping'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 子类：使用 extends 继承 Animal</span><br/>
+<span style="color: #999988; font-style: italic;">// Subclass: uses extends to inherit Animal</span><br/>
 <span style="font-weight: bold;">class</span> Dog <span style="font-weight: bold;">extends</span> Animal <span style="">{</span><br/>
-  String breed<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 品种</span><br/>
+  String breed<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Breed</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 子类构造函数需要调用父类构造函数</span><br/>
+  <span style="color: #999988; font-style: italic;">// Subclass constructor needs to call the parent class constructor</span><br/>
   Dog<span style="">(</span>String name<span style="font-weight: bold;">,</span> <span style="font-weight: bold;">this</span>.<span style="color: #006633;">breed</span><span style="">)</span> <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">super</span><span style="">(</span>name<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 子类新增的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Methods newly added by the subclass</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> bark<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name（$breed）在汪汪叫！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name ($breed) is barking!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> dog <span style="font-weight: bold;">=</span> Dog<span style="">(</span><span style="color: #d14;">'旺财'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'金毛'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> dog <span style="font-weight: bold;">=</span> Dog<span style="">(</span><span style="color: #d14;">'Wangcai'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Golden Retriever'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 调用从父类继承的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Call a method inherited from the parent class</span><br/>
   dog.<span style="color: #006633;">eat</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   dog.<span style="color: #006633;">sleep</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 调用子类自己的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Call the subclass's own method</span><br/>
   dog.<span style="color: #006633;">bark</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 子类对象也是父类类型</span><br/>
-  Animal animal <span style="font-weight: bold;">=</span> dog<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Dog 是 Animal，可以向上转型</span><br/>
+  <span style="color: #999988; font-style: italic;">// A subclass object is also of the parent class type</span><br/>
+  Animal animal <span style="font-weight: bold;">=</span> dog<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Dog is an Animal, so it can be upcast</span><br/>
   animal.<span style="color: #006633;">eat</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -229,30 +229,30 @@ Wangcai is eating.</pre>
 <p>A subclass can override the parent class's methods to provide its own implementation.</p>
 <p>Using the @override annotation clearly expresses the intent to override, and the compiler will help you check whether the override is correct.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="font-weight: bold;">class</span> Animal <span style="">{</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
   Animal<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">name</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 父类的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Parent class method</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> makeSound<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 发出了一些声音'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name made some sounds'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   @override<br/>
   String toString<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="font-weight: bold;">return</span> <span style="color: #d14;">'动物: $name'</span><span style="font-weight: bold;">;</span><br/>
+    <span style="font-weight: bold;">return</span> <span style="color: #d14;">'Animal: $name'</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="font-weight: bold;">class</span> Cat <span style="font-weight: bold;">extends</span> Animal <span style="">{</span><br/>
   Cat<span style="">(</span>String name<span style="">)</span> <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">super</span><span style="">(</span>name<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// @override 注解：告诉编译器我是在重写父类方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// @override annotation: tells the compiler I am overriding a parent class method</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> makeSound<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 喵喵叫～'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name meows~'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -261,27 +261,27 @@ Wangcai is eating.</pre>
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> makeSound<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 嘎嘎叫！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name quacks!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> cat <span style="font-weight: bold;">=</span> Cat<span style="">(</span><span style="color: #d14;">'小花'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="font-weight: bold;">var</span> duck <span style="font-weight: bold;">=</span> Duck<span style="">(</span><span style="color: #d14;">'唐老鸭'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> cat <span style="font-weight: bold;">=</span> Cat<span style="">(</span><span style="color: #d14;">'Xiaohua'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> duck <span style="font-weight: bold;">=</span> Duck<span style="">(</span><span style="color: #d14;">'Donald Duck'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   cat.<span style="color: #006633;">makeSound</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   duck.<span style="color: #006633;">makeSound</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 多态：同一个方法，不同对象有不同表现</span><br/>
+  <span style="color: #999988; font-style: italic;">// Polymorphism: the same method behaves differently for different objects</span><br/>
   List<span style="font-weight: bold;">&lt;</span>Animal<span style="font-weight: bold;">&gt;</span> animals <span style="font-weight: bold;">=</span> <span style="">[</span><br/>
-    Cat<span style="">(</span><span style="color: #d14;">'咪咪'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
-    Duck<span style="">(</span><span style="color: #d14;">'鸭鸭'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
-    Cat<span style="">(</span><span style="color: #d14;">'球球'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+    Cat<span style="">(</span><span style="color: #d14;">'Mimi'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+    Duck<span style="">(</span><span style="color: #d14;">'Yaya'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+    Cat<span style="">(</span><span style="color: #d14;">'Qiuqiu'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
   <span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'--- RUNOOB 动物园 ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'--- RUNOOB Zoo ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> animal <span style="font-weight: bold;">in</span> animals<span style="">)</span> <span style="">{</span><br/>
-    animal.<span style="color: #006633;">makeSound</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 运行时会调用实际类型的方法</span><br/>
+    animal.<span style="color: #006633;">makeSound</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// At runtime, the method of the actual type is called</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -294,13 +294,13 @@ Wangcai is eating.</pre>
 鸭鸭 嘎嘎叫！
 球球 喵喵叫～
 </pre>
-<p>The example above demonstrates<span class="marked">多态（Polymorphism）</span>: For the same method call animal.makeSound(), the actual behavior executed depends on the real type of the object.</p>
+<p>The example above demonstrates<span class="marked">Polymorphism</span>: For the same method call animal.makeSound(), the actual behavior executed depends on the real type of the object.</p>
 <blockquote><p>Using the @override annotation has two benefits: first, it makes the code intent clearer; second, if the parent class does not have a method with the same name (e.g., a spelling mistake), the compiler will report an error. It is recommended to always add @override.</p></blockquote>
 <hr/>
 <h2>super keyword</h2>
 <p>super represents the parent class object. A subclass uses super to call the parent class's constructor, methods, and properties.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="font-weight: bold;">class</span> Vehicle <span style="">{</span><br/>
   String brand<span style="font-weight: bold;">;</span><br/>
@@ -309,11 +309,11 @@ Wangcai is eating.</pre>
   Vehicle<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">brand</span><span style="font-weight: bold;">,</span> <span style="font-weight: bold;">this</span>.<span style="color: #006633;">year</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> start<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$brand 车辆启动了'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$brand vehicle started'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> displayInfo<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'品牌: $brand, 年份: $year'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Brand: $brand, Year: $year'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -321,20 +321,20 @@ Wangcai is eating.</pre>
   <span style="color: #445588; font-weight: bold;">int</span> batteryLevel<span style="font-weight: bold;">;</span><br/>
 <br/>
   ElectricCar<span style="">(</span>String brand<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> year<span style="font-weight: bold;">,</span> <span style="font-weight: bold;">this</span>.<span style="color: #006633;">batteryLevel</span><span style="">)</span><br/>
-      <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">super</span><span style="">(</span>brand<span style="font-weight: bold;">,</span> year<span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 调用父类构造函数</span><br/>
+      <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">super</span><span style="">(</span>brand<span style="font-weight: bold;">,</span> year<span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Call the parent class constructor</span><br/>
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> start<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #999988; font-style: italic;">// 在子类方法中调用父类的方法</span><br/>
-    <span style="font-weight: bold;">super</span>.<span style="color: #006633;">start</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 先执行父类的启动逻辑</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'电池电量: $batteryLevel%'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'电动机无声启动完成'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    <span style="color: #999988; font-style: italic;">// Call a parent class method from a subclass method</span><br/>
+    <span style="font-weight: bold;">super</span>.<span style="color: #006633;">start</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Execute the parent class startup logic first</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Battery level: $batteryLevel%'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Electric motor started silently'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> displayInfo<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="font-weight: bold;">super</span>.<span style="color: #006633;">displayInfo</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 先显示父类的基础信息</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'电池电量: $batteryLevel%'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 再补充子类的特有信息</span><br/>
+    <span style="font-weight: bold;">super</span>.<span style="color: #006633;">displayInfo</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// First display the basic information of the parent class</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Battery level: $batteryLevel%'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Then supplement the subclass's specific information</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -356,7 +356,7 @@ RUNOOB EV 车辆启动了
 </pre>
 <h3>Summary of super Usage Scenarios</h3>
 <table class="reference">
-<tr><th>场景</th><th>语法</th><th>说明</th></tr>
+<tr><th>Scenarios</th><th>Syntax</th><th>Description</th></tr>
 <tr><td>Calling the Parent Class Constructor</td><td>: super(args)</td><td>Must be called in the initializer list</td></tr>
 <tr><td>Calling parent class methods</td><td>super.methodName()</td><td>Can be called in overridden methods in the subclass</td></tr>
 <tr><td>Accessing parent class properties</td><td>super.propertyName</td><td>Accessing member variables of the parent class</td></tr>
@@ -365,17 +365,17 @@ RUNOOB EV 车辆启动了
 <h2>Abstract class abstract</h2>
 <p>An abstract class is a class that cannot be directly instantiated; it only defines the interface specification, with concrete logic implemented by subclasses.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// abstract 关键字声明抽象类</span><br/>
+<span style="color: #999988; font-style: italic;">// The abstract keyword declares an abstract class</span><br/>
 <span style="font-weight: bold;">abstract</span> <span style="font-weight: bold;">class</span> Shape <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 抽象方法：没有方法体，子类必须实现</span><br/>
+  <span style="color: #999988; font-style: italic;">// Abstract method: no method body, subclasses must implement it</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> getArea<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> getPerimeter<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 抽象类中也可以有具体方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Abstract classes can also have concrete methods</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> describe<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'这是一个形状，面积: ${getArea()}, 周长: ${getPerimeter()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'This is a shape, area: ${getArea()}, perimeter: ${getPerimeter()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -405,7 +405,7 @@ RUNOOB EV 车辆启动了
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// Shape shape = Shape();  // 错误！抽象类不能实例化</span><br/>
+  <span style="color: #999988; font-style: italic;">// Shape shape = Shape();  // Error! Abstract classes cannot be instantiated</span><br/>
 <br/>
   <span style="font-weight: bold;">var</span> rect <span style="font-weight: bold;">=</span> Rectangle<span style="">(</span><span style="color: #009999;">10</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">5</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> circle <span style="font-weight: bold;">=</span> Circle<span style="">(</span><span style="color: #009999;">7</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -413,19 +413,19 @@ RUNOOB EV 车辆启动了
   rect.<span style="color: #006633;">describe</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   circle.<span style="color: #006633;">describe</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 抽象类作为类型使用</span><br/>
+  <span style="color: #999988; font-style: italic;">// Using an abstract class as a type</span><br/>
   List<span style="font-weight: bold;">&lt;</span>Shape<span style="font-weight: bold;">&gt;</span> shapes <span style="font-weight: bold;">=</span> <span style="">[</span><br/>
     Rectangle<span style="">(</span><span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">4</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
     Circle<span style="">(</span><span style="color: #009999;">5</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
     Rectangle<span style="">(</span><span style="color: #009999;">6</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
   <span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'--- RUNOOB 形状统计 ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'--- RUNOOB Shape Statistics ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> totalArea <span style="font-weight: bold;">=</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> shape <span style="font-weight: bold;">in</span> shapes<span style="">)</span> <span style="">{</span><br/>
     totalArea <span style="font-weight: bold;">+</span><span style="font-weight: bold;">=</span> shape.<span style="color: #006633;">getArea</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'总面积: ${totalArea.toStringAsFixed(2)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Total area: ${totalArea.toStringAsFixed(2)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -435,22 +435,17 @@ RUNOOB EV 车辆启动了
 --- RUNOOB 形状统计 ---
 总面积: 108.54
 </pre>
-<blockquote><p>The core value of an abstract class is "defining a contract." It tells all subclasses: you must implement these methods, otherwise compilation fails. This makes team collaboration safer—implementers won't miss methods, and callers are confident that the methods definitely exist.</p></blockquote>
-其他扩展
-</div>
+<blockquote><p>The core value of an abstract class is "defining a contract." It tells all subclasses: you must implement these methods, otherwise compilation fails. This makes team collaboration safer—implementers won't miss methods, and callers are confident that the methods definitely exist.</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-classes-and-objects.html" rel="prev">Dart 类与对象</a> </div>
-<div class="next-design-link"><a href="../dart/dart-interfaces-and-mixins.html" rel="next">Dart 接口与 Mixin</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-classes-and-objects.html" rel="prev">Dart Classes and Objects</a> </div>
+<div class="next-design-link"><a href="../dart/dart-interfaces-and-mixins.html" rel="next">Dart Interfaces and Mixins</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -554,16 +549,16 @@ RUNOOB EV 车辆启动了
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -571,14 +566,14 @@ RUNOOB EV 车辆启动了
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31418"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -756,7 +751,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -847,7 +842,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>分治算法 | 菜鸟教程</title>
+<title>Divide and Conquer Algorithm | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="分治算法 分治法（英语：Divide and conquer）是建基于多项分支递归的一种很重要的算法范型，字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。  简单来说，分治就是三个步骤：分解 -&amp;gt; 解决 -&amp;gt; 合并。  想象一下，你面前有一大堆积木需要按颜色分类。如果直接动手，可能会眼花缭乱。一个更聪明的办法是.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,55 +158,55 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-graph.html" rel="prev">图论结构</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-greedy-algorithm.html" rel="next">贪心算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-graph.html" rel="prev">Graph Theory Structure</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-greedy-algorithm.html" rel="next">Greedy Algorithm</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>分治算法</h1>
+<h1>Divide and Conquer Algorithm</h1>
 <p>Divide and conquer is a very important algorithm paradigm built on multi-branch recursion. Literally, it means "divide and rule": a complex problem is divided into two or more identical or similar subproblems until the subproblems can be solved directly and simply, and the solution to the original problem is the combination of the solutions to the subproblems.</p>
 <p>Simply put, divide and conquer consists of three steps:<strong>Divide -&gt; Conquer -&gt; Combine</strong>。</p>
 <blockquote><p>Imagine you have a large pile of building blocks in front of you that need to be sorted by color. If you tackle it directly, you may be overwhelmed. A smarter approach is: first split the pile into two smaller piles, then sort each smaller pile separately, and finally merge the two sorted smaller piles together. This<strong>Divide and conquer</strong>process is the core idea of the divide and conquer algorithm.</p></blockquote>
-<p><strong>分治算法</strong>It is like the way a smart team leader solves a big problem:</p>
+<p><strong>Divide and Conquer Algorithm</strong>It is like the way a smart team leader solves a big problem:</p>
 <ol>
-<li><strong>分解（Divide）</strong>: Break the big problem into several small problems of the same type.</li>
-<li><strong>解决（Conquer）</strong>: recursively solve these subproblems</li>
+<li><strong>Divide</strong>: Break the big problem into several small problems of the same type.</li>
+<li><strong>Conquer</strong>: recursively solve these subproblems</li>
 <li><strong>合并（Combine）</strong>: Merge the solutions to the small problems into the solution to the original problem.</li>
 </ol>
-<p><strong>现实案例：</strong></p>
+<p><strong>Real-world cases:</strong></p>
 <ul>
-<li><strong>公司管理</strong>: CEO → Department Manager → Team Leader → Regular Employee</li>
-<li><strong>军队指挥</strong>: Commander → Army Commander → Division Commander → Regiment Commander → Company Commander</li>
-<li><strong>图书整理</strong>: First classify by broad category, then by subcategory, and finally sort alphabetically.</li>
-<li><strong>寻宝游戏</strong>: Divide the large map into small blocks and search each block</li>
+<li><strong>Company management</strong>: CEO → Department Manager → Team Leader → Regular Employee</li>
+<li><strong>Military command</strong>: Commander → Army Commander → Division Commander → Regiment Commander → Company Commander</li>
+<li><strong>Book organization</strong>: First classify by broad category, then by subcategory, and finally sort alphabetically.</li>
+<li><strong>Treasure hunt game</strong>: Divide the large map into small blocks and search each block</li>
 </ul>
 <table class="reference">
 <thead>
 <tr>
-<th>问题特征</th>
-<th>其他方法</th>
-<th>分治方法</th>
+<th>Problem characteristics</th>
+<th>Other methods</th>
+<th>Divide-and-conquer approach</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>大规模数据</strong></td>
+<td><strong>Large-scale data</strong></td>
 <td>May be inefficient</td>
 <td>Decompose and process in parallel</td>
 </tr>
 <tr>
-<td><strong>复杂结构</strong></td>
+<td><strong>Complex structures</strong></td>
 <td>Difficult to solve directly</td>
-<td>简化子问题</td>
+<td>Simplify subproblems</td>
 </tr>
 <tr>
-<td><strong>可递归定义</strong></td>
+<td><strong>Can be defined recursively</strong></td>
 <td>Requires complex logic</td>
 <td>Naturally suited for recursion</td>
 </tr>
 <tr>
-<td><strong>独立子问题</strong></td>
-<td>难以并行化</td>
+<td><strong>Independent subproblems</strong></td>
+<td>Difficult to parallelize</td>
 <td>Perfectly supports parallelism</td>
 </tr>
 </tbody>
@@ -215,54 +215,54 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Core ideas and steps</h2>
 <p>Divide and conquer algorithms usually follow a clear three-step framework. We can intuitively understand it with the following flowchart:</p>
 <p><img decoding="async" src="../wp-content/uploads/2025/12/a919a147-6e3f-46fc-93ff-a690ca10496e.png"/>
-<p><strong>上图说明</strong>: The algorithm first determines whether the current problem is simple enough to solve directly. If so, it solves it directly and returns the result; if not, it decomposes the problem into several subproblems, recursively solves each subproblem, and finally merges the subproblem results to obtain the final answer.</p>
+<p><strong>The figure above illustrates</strong>: The algorithm first determines whether the current problem is simple enough to solve directly. If so, it solves it directly and returns the result; if not, it decomposes the problem into several subproblems, recursively solves each subproblem, and finally merges the subproblem results to obtain the final answer.</p>
 <p>Specifically, these three steps are:</p>
 <ol>
-<li><strong>分解</strong>: Decompose the original problem into several smaller, mutually independent subproblems that have the same form as the original problem.</li>
-<li><strong>解决</strong>: Recursively solve each subproblem. If a subproblem is small enough in scale, solve it directly.</li>
-<li><strong>合并</strong>: Merge the solutions of the subproblems to form the solution to the original problem.</li>
+<li><strong>Divide</strong>: Decompose the original problem into several smaller, mutually independent subproblems that have the same form as the original problem.</li>
+<li><strong>Conquer</strong>: Recursively solve each subproblem. If a subproblem is small enough in scale, solve it directly.</li>
+<li><strong>Merge</strong>: Merge the solutions of the subproblems to form the solution to the original problem.</li>
 </ol>
 <hr/>
 <h2>Classic applications of divide and conquer algorithms</h2>
 <p>To help you better understand how the divide and conquer algorithm works, let's look at two of the most classic examples.</p>
 <h3>Application 1: Merge Sort</h3>
 <p>Merge sort is a perfect embodiment of the divide and conquer idea. Its goal is<strong>Sort an unordered array into an ordered array.</strong>。</p>
-<p><strong>算法步骤：</strong></p>
+<p><strong>Algorithm steps:</strong></p>
 <ol>
-<li><strong>分解</strong>: Divide the current array from the middle position into left and right subarrays.</li>
-<li><strong>解决</strong>: Recursively perform merge sort on the left subarray and the right subarray.</li>
-<li><strong>合并</strong>: Merge the two already-sorted ordered subarrays into a new ordered array.</li>
+<li><strong>Divide</strong>: Divide the current array from the middle position into left and right subarrays.</li>
+<li><strong>Conquer</strong>: Recursively perform merge sort on the left subarray and the right subarray.</li>
+<li><strong>Merge</strong>: Merge the two already-sorted ordered subarrays into a new ordered array.</li>
 </ol>
-<p><strong>代码示例：</strong></p>
+<p><strong>Code example:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> merge_sort<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>归并排序主函数<br/>:param arr: 待排序的列表<br/>:return: 排序后的新列表<br/>
+    <span style="color: #a11;">"""<br/>Merge sort main function<br/>:param arr: The list to be sorted<br/>:return: The new sorted list<br/>
     """</span><br/>
-    <span style="color: #a50"># 1. 解决：如果数组长度为0或1，直接返回（基线条件）</span><br/>
+    <span style="color: #a50"># 1. Conquer: If the array length is 0 or 1, return directly (base case)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span> <span style="color: Gray;">&lt;=</span> <span style="color: Maroon;">1</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> arr<br/>
     <br/>
-    <span style="color: #a50"># 2. 分解：找到中间点，分割数组</span><br/>
+    <span style="color: #a50"># 2. Divide: Find the midpoint and split the array</span><br/>
     mid <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span> // <span style="color: Maroon;">2</span><br/>
-    left_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>:mid<span style="color: Olive;">]</span>   <span style="color: #a50"># 左子数组</span><br/>
-    right_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>mid:<span style="color: Olive;">]</span>  <span style="color: #a50"># 右子数组</span><br/>
+    left_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>:mid<span style="color: Olive;">]</span>   <span style="color: #a50"># Left subarray</span><br/>
+    right_half <span style="color: Gray;">=</span> arr<span style="color: Olive;">[</span>mid:<span style="color: Olive;">]</span>  <span style="color: #a50"># Right subarray</span><br/>
     <br/>
-    <span style="color: #a50"># 3. 解决：递归排序左右子数组</span><br/>
+    <span style="color: #a50"># 3. Conquer: Recursively sort the left and right subarrays</span><br/>
     left_sorted <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>left_half<span style="color: Olive;">)</span><br/>
     right_sorted <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>right_half<span style="color: Olive;">)</span><br/>
     <br/>
-    <span style="color: #a50"># 4. 合并：将两个有序数组合并</span><br/>
+    <span style="color: #a50"># 4. Merge: Merge the two sorted arrays</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> merge<span style="color: Olive;">(</span>left_sorted<span style="color: Gray;">,</span> right_sorted<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> merge<span style="color: Olive;">(</span>left<span style="color: Gray;">,</span> right<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>合并两个有序列表<br/>:param left: 有序列表A<br/>:param right: 有序列表B<br/>:return: 合并后的有序列表<br/>
+    <span style="color: #a11;">"""<br/>Merge two sorted lists<br/>:param left: Sorted list A<br/>:param right: Sorted list B<br/>:return: The merged sorted list<br/>
     """</span><br/>
-    merged <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># 用于存放合并结果的列表</span><br/>
-    i <span style="color: Gray;">=</span> j <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># i和j分别是指向left和right的指针</span><br/>
+    merged <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># List used to store the merge result</span><br/>
+    i <span style="color: Gray;">=</span> j <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># i and j are pointers to left and right, respectively</span><br/>
     <br/>
-    <span style="color: #a50"># 比较两个列表的头部，将较小的元素放入merged</span><br/>
+    <span style="color: #a50"># Compare the heads of the two lists and put the smaller element into merged</span><br/>
     <span style="color: Green;font-weight:bold;">while</span> i <span style="color: Gray;">&lt;</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>left<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">and</span> j <span style="color: Gray;">&lt;</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>right<span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> left<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;=</span> right<span style="color: Olive;">[</span>j<span style="color: Olive;">]</span>:<br/>
             merged.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>left<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
@@ -271,101 +271,101 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             merged.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>right<span style="color: Olive;">[</span>j<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             j +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 将剩余的元素（如果有）直接添加到merged末尾</span><br/>
-    <span style="color: #a50"># 因为left和right本身已有序，所以剩余部分也是有序的</span><br/>
+    <span style="color: #a50"># Add any remaining elements (if any) directly to the end of merged</span><br/>
+    <span style="color: #a50"># Because left and right are already sorted, the remaining part is also sorted</span><br/>
     merged.<span style="color: #05a;">extend</span><span style="color: Olive;">(</span>left<span style="color: Olive;">[</span>i:<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
     merged.<span style="color: #05a;">extend</span><span style="color: Olive;">(</span>right<span style="color: Olive;">[</span>j:<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
     <br/>
     <span style="color: Green;font-weight:bold;">return</span> merged<br/>
 <br/>
-<span style="color: #a50"># 测试数据</span><br/>
+<span style="color: #a50"># Test data</span><br/>
 test_array <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">38</span><span style="color: Gray;">,</span> <span style="color: Maroon;">27</span><span style="color: Gray;">,</span> <span style="color: Maroon;">43</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">9</span><span style="color: Gray;">,</span> <span style="color: Maroon;">82</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"原始数组:"</span><span style="color: Gray;">,</span> test_array<span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Original array:"</span><span style="color: Gray;">,</span> test_array<span style="color: Olive;">)</span><br/>
 sorted_array <span style="color: Gray;">=</span> merge_sort<span style="color: Olive;">(</span>test_array<span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"排序后数组:"</span><span style="color: Gray;">,</span> sorted_array<span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># 输出：原始数组: [38, 27, 43, 3, 9, 82, 10]</span><br/>
-<span style="color: #a50"># 输出：排序后数组: [3, 9, 10, 27, 38, 43, 82]</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Sorted array:"</span><span style="color: Gray;">,</span> sorted_array<span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Output: Original array: [38, 27, 43, 3, 9, 82, 10]</span><br/>
+<span style="color: #a50"># Output: Sorted array: [3, 9, 10, 27, 38, 43, 82]</span><br/>
 </div>
 </div>
 <h3>Application 2: Binary Search</h3>
 <p>Binary search is used in<strong>A sorted array</strong>Quickly locate the target value in it. It continuously splits the search range in half, making it a simplified version of the divide-and-conquer strategy (usually handling only one subproblem, with no need to merge).</p>
-<p><strong>算法步骤：</strong></p>
+<p><strong>Algorithm steps:</strong></p>
 <ol>
-<li><strong>分解</strong>: Find the middle element of the array.</li>
-<li><strong>解决</strong>：<ul>
+<li><strong>Divide</strong>: Find the middle element of the array.</li>
+<li><strong>Conquer</strong>：<ul>
 <li>If the middle element equals the target value, the search succeeds.</li>
 <li>If the target value is smaller than the middle element, recursively search in the left half.</li>
 <li>If the target value is greater than the middle element, recursively search in the right half.</li>
 </ul>
 </li>
-<li><strong>合并</strong>: Binary search usually does not need a merge step, because once the target value is found, its position can be returned directly.</li>
+<li><strong>Merge</strong>: Binary search usually does not need a merge step, because once the target value is found, its position can be returned directly.</li>
 </ol>
-<p><strong>代码示例：</strong></p>
+<p><strong>Code example:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> binary_search<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> target<span style="color: Gray;">,</span> low<span style="color: Gray;">,</span> high<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>二分查找（递归版本）<br/>:param arr: 已排序的列表<br/>:param target: 要查找的目标值<br/>:param low: 当前查找范围的起始索引<br/>:param high: 当前查找范围的结束索引<br/>:return: 目标值的索引，如果未找到则返回 -1<br/>
+    <span style="color: #a11;">"""<br/>Binary search (recursive version)<br/>:param arr: Sorted list<br/>:param target: The target value to search for<br/>:param low: The starting index of the current search range<br/>:param high: The ending index of the current search range<br/>:return: The index of the target value, or -1 if not found<br/>
     """</span><br/>
-    <span style="color: #a50"># 基线条件：搜索范围无效，说明未找到目标</span><br/>
+    <span style="color: #a50"># Base case: The search range is invalid, meaning the target is not found</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> low <span style="color: Gray;">&gt;</span> high:<br/>
         <span style="color: Green;font-weight:bold;">return</span> -<span style="color: Maroon;">1</span><br/>
     <br/>
-    <span style="color: #a50"># 分解：计算中间索引</span><br/>
+    <span style="color: #a50"># Divide: Calculate the middle index</span><br/>
     mid <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>low + high<span style="color: Olive;">)</span> // <span style="color: Maroon;">2</span><br/>
     <br/>
-    <span style="color: #a50"># 解决：判断并递归</span><br/>
+    <span style="color: #a50"># Conquer: Decide and recurse</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> arr<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span> <span style="color: Gray;">==</span> target:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> mid  <span style="color: #a50"># 找到目标，返回索引</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> mid  <span style="color: #a50"># Target found, return the index</span><br/>
     <span style="color: Green;font-weight:bold;">elif</span> target <span style="color: Gray;">&lt;</span> arr<span style="color: Olive;">[</span>mid<span style="color: Olive;">]</span>:<br/>
-        <span style="color: #a50"># 目标在左半部分，递归查找左半部分</span><br/>
+        <span style="color: #a50"># Target is in the left half, recursively search the left half</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> binary_search<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> target<span style="color: Gray;">,</span> low<span style="color: Gray;">,</span> mid - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: #a50"># 目标在右半部分，递归查找右半部分</span><br/>
+        <span style="color: #a50"># Target is in the right half, recursively search the right half</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> binary_search<span style="color: Olive;">(</span>arr<span style="color: Gray;">,</span> target<span style="color: Gray;">,</span> mid + <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> high<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 测试数据（必须是已排序的！）</span><br/>
+<span style="color: #a50"># Test data (must be sorted!)</span><br/>
 sorted_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">12</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Gray;">,</span> <span style="color: Maroon;">23</span><span style="color: Gray;">,</span> <span style="color: Maroon;">38</span><span style="color: Gray;">,</span> <span style="color: Maroon;">56</span><span style="color: Gray;">,</span> <span style="color: Maroon;">72</span><span style="color: Gray;">,</span> <span style="color: Maroon;">91</span><span style="color: Olive;">]</span><br/>
 target_value <span style="color: Gray;">=</span> <span style="color: Maroon;">23</span><br/>
 <br/>
 result <span style="color: Gray;">=</span> binary_search<span style="color: Olive;">(</span>sorted_list<span style="color: Gray;">,</span> target_value<span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>sorted_list<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">if</span> result <span style="color: Gray;">!=</span> -<span style="color: Maroon;">1</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"目标值 {target_value} 在数组中的索引是: {result}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"The index of target value {target_value} in the array is: {result}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">else</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"目标值 {target_value} 不在数组中。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># 输出：目标值 23 在数组中的索引是: 5</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Target value {target_value} is not in the array."</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Output: The index of target value 23 in the array is: 5</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Characteristics and complexity analysis of divide and conquer algorithms</h2>
-<h3>算法特点</h3>
+<h3>Algorithm characteristics</h3>
 <table class="reference">
 <thead>
 <tr>
-<th align="left">特点</th>
-<th align="left">说明</th>
+<th align="left">Features</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>问题可分解</strong></td>
+<td align="left"><strong>Problem can be decomposed</strong></td>
 <td align="left">The original problem must be decomposable into smaller similar subproblems.</td>
 </tr>
 <tr>
-<td align="left"><strong>子问题独立</strong></td>
+<td align="left"><strong>Subproblems are independent</strong></td>
 <td align="left">It is best for the subproblems to be independent of each other, which makes solving and merging simpler.</td>
 </tr>
 <tr>
-<td align="left"><strong>有终止条件</strong></td>
+<td align="left"><strong>Has a termination condition</strong></td>
 <td align="left">There must be a simple base condition so that when the problem scale is small enough, it can be solved directly.</td>
 </tr>
 <tr>
-<td align="left"><strong>解可合并</strong></td>
+<td align="left"><strong>Solutions can be merged</strong></td>
 <td align="left">The solutions of the subproblems must be efficiently mergeable into the solution to the original problem.</td>
 </tr>
 </tbody></table>
 <h3>Time complexity analysis</h3>
-<p>The time complexity of divide and conquer algorithms can usually be expressed with<strong>主定理</strong>To analyze, the general form of its recurrence relation is:
+<p>The time complexity of divide and conquer algorithms can usually be expressed with<strong>Master theorem</strong>To analyze, the general form of its recurrence relation is:
 $$ T(n) = aT(\frac{n}{b}) + f(n) $$
 where:</p>
 <ul>
@@ -382,40 +382,35 @@ where:</p>
 <li>According to the Master Theorem, its time complexity is<strong>O(n log n)</strong>。</li>
 </ul>
 <hr/>
-<h2>实践练习</h2>
+<h2>Practice exercises</h2>
 <p>Now, it is time to consolidate your understanding of divide and conquer algorithms. Please try to complete the following exercises:</p>
 <p><strong>Exercise 1: Implement Quick Sort</strong>Quick sort is another classic divide and conquer algorithm. Its idea is:</p>
 <ol>
-<li><strong>分解</strong>: Select a "pivot" element and rearrange the array so that all elements smaller than the pivot are placed on the left and all elements larger than the pivot are placed on the right (partition operation).</li>
-<li><strong>解决</strong>: Recursively perform quick sort on the subarrays on the left and right sides of the pivot.</li>
-<li><strong>合并</strong>: No explicit merge is needed, because after the partition operation the array is already partially ordered.</li>
+<li><strong>Divide</strong>: Select a "pivot" element and rearrange the array so that all elements smaller than the pivot are placed on the left and all elements larger than the pivot are placed on the right (partition operation).</li>
+<li><strong>Conquer</strong>: Recursively perform quick sort on the subarrays on the left and right sides of the pivot.</li>
+<li><strong>Merge</strong>: No explicit merge is needed, because after the partition operation the array is already partially ordered.</li>
 </ol>
-<p><strong>你的任务</strong>: Based on the description above, try to write Python code for Quick Sort.</p>
-<p><strong>Exercise 2: Find the maximum subarray sum in an array</strong>Problem: Given an integer array (which may contain negative numbers), find a contiguous subarray with the maximum sum. For example, for<code>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</code>, the maximum subarray is<code>[4, -1, 2, 1]</code>，其和为<code>6</code>。</p>
+<p><strong>Your task</strong>: Based on the description above, try to write Python code for Quick Sort.</p>
+<p><strong>Exercise 2: Find the maximum subarray sum in an array</strong>Problem: Given an integer array (which may contain negative numbers), find a contiguous subarray with the maximum sum. For example, for<code>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</code>, the maximum subarray is<code>[4, -1, 2, 1]</code>, and their sum is<code>6</code>。</p>
 <p><strong>Hint (divide-and-conquer approach)</strong>：</p>
 <ol>
 <li>Split the array into left and right halves from the middle.</li>
-<li>The maximum subarray sum may occur in:<strong>左半部分</strong>、<strong>右半部分</strong>、或者<strong>横跨中间点</strong>。</li>
+<li>The maximum subarray sum may occur in:<strong>Left half</strong>、<strong>Right half</strong>, or<strong>Spanning the midpoint</strong>。</li>
 <li>Recursively solve for the maximum subarray sum in the left half and the right half.</li>
 <li>Compute the maximum subarray sum that crosses the middle point (this requires accumulating to the left and to the right from the middle point separately to find the maximum).</li>
 <li>Return the maximum of the three.</li>
 </ol>
-<p>Try to solve this problem using the divide-and-conquer strategy.</p>
-其他扩展
-</p></div>
+<p>Try to solve this problem using the divide-and-conquer strategy.</p>other extensions</p></div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-graph.html" rel="prev">图论结构</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-greedy-algorithm.html" rel="next">贪心算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-graph.html" rel="prev">Graph Theory Structure</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-greedy-algorithm.html" rel="next">Greedy Algorithm</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -519,16 +514,16 @@ where:</p>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -536,14 +531,14 @@ where:</p>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29093"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -721,7 +716,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -812,7 +807,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

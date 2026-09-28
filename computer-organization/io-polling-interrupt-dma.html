@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>I/O 的三种方式 — 轮询、中断、DMA | 菜鸟教程</title>
+<title>Three ways of I/O — Polling, Interrupt, DMA | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="I/O 的三种方式 -- 轮询、中断、DMA 上一讲我们了解了 CPU 和内存之间如何通过总线通信。但计算机不只是 CPU 加内存——它还需要和键盘、鼠标、硬盘、网卡等各种外部设备（I/O 设备）交换数据。 CPU 与外部设备交换数据有三种基本方式：轮询（Polling）、中断（Interrupt）、DMA（直接存储器访问）。三者的效率天差地别——选择哪种方式，往往决定了整个系统的性能表现。 本讲用三种生活场景帮你建立直觉，再用 Pyt.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,40 +158,40 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/computer-bus-system.html" rel="prev">总线 — 计算机内部的「公路系统」</a> </div>
-<div class="next-design-link"><a href="../computer-organization/instruction-journey-summary.html" rel="next">一条指令的完整旅程</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/computer-bus-system.html" rel="prev">Bus — the 'highway system' inside a computer</a> </div>
+<div class="next-design-link"><a href="../computer-organization/instruction-journey-summary.html" rel="next">The Complete Journey of an Instruction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Three Ways of I/O -- Polling, Interrupt, DMA</h1>
 <p>In the previous lecture, we learned how the CPU and memory communicate via the bus. But a computer is not just CPU plus memory—it also needs to exchange data with various external devices (I/O devices) such as keyboards, mice, hard disks, and network cards.</p>
-<p>There are three basic ways for the CPU to exchange data with external devices:<span class="marked">轮询（Polling）</span>、<span class="marked">中断（Interrupt）</span>、<span class="marked">DMA（直接存储器访问）</span>The efficiency of the three methods differs enormously—which one you choose often determines the performance of the entire system.</p>
+<p>There are three basic ways for the CPU to exchange data with external devices:<span class="marked">Polling</span>、<span class="marked">Interrupt (Interrupt)</span>、<span class="marked">DMA (Direct Memory Access)</span>The efficiency of the three methods differs enormously—which one you choose often determines the performance of the entire system.</p>
 <p>In this lecture, we use three everyday scenarios to help you build intuition, and then use Python code to intuitively compare the efficiency differences among the three methods.</p>
 <hr/>
 <h2>Three real-life scenario analogies</h2>
 <h3>Scenario 1: Polling—Check every 5 seconds whether the water is boiling</h3>
 <p>You are boiling water in the kitchen, but the kettle has no whistle. Every 5 seconds, you run from the living room to the kitchen to check: "Is the water boiling? Is the water boiling? Is the water boiling?"</p>
-<p>During this period, you<span class="mark">完全没法安心看电视</span>Because you have to make a trip every few seconds, you spend almost all your time on "checking the status."</p>
-<p>这就是<span class="marked">轮询</span>Polling: the CPU continuously loops to check whether the device is ready, wasting time on meaningless queries.</p>
+<p>During this period, you<span class="mark">Completely Unable to Watch TV with Peace of Mind</span>Because you have to make a trip every few seconds, you spend almost all your time on "checking the status."</p>
+<p>This is<span class="marked">polling</span>Polling: the CPU continuously loops to check whether the device is ready, wasting time on meaningless queries.</p>
 <h3>Scenario 2: Interrupt—Turn off the stove when the kettle's whistle sounds</h3>
 <p>This time, the kettle has a whistle. After putting the water on the stove, you go back to the living room and watch TV in peace. The water boils, and the whistle sounds sharply. You pause watching TV, go to the kitchen to turn off the stove, and then continue watching TV.</p>
-<p>你<span class="tag1 green">绝大多数时间都在做有意义的事情</span>(watching TV), interrupted only briefly at critical moments.</p>
-<p>这就是<span class="marked">中断</span>Interrupt: the CPU executes its program normally; when the device is ready, it actively sends a signal to notify the CPU. The CPU pauses its current work, processes the device data, and then resumes its previous work.</p>
+<p>you<span class="tag1 green">The vast majority of the time is spent doing meaningful things</span>(watching TV), interrupted only briefly at critical moments.</p>
+<p>This is<span class="marked">interrupt</span>Interrupt: the CPU executes its program normally; when the device is ready, it actively sends a signal to notify the CPU. The CPU pauses its current work, processes the device data, and then resumes its previous work.</p>
 <h3>Scenario 3: DMA—Just call a moving company, you don't have to lift a finger</h3>
 <p>You are moving, with a truckload of furniture to be transported from the old house to the new house. If you carry it piece by piece yourself (the interrupt way), you have to run back and forth dozens of times.</p>
 <p>You hire a moving company (DMA controller) and tell them: "The old house address is X, the new house address is Y, and there are Z pieces of furniture in total." Then you continue with your own things. After the moving company handles everything, they call you and say "Done moving."</p>
-<p>这就是<span class="marked">DMA</span>DMA: a dedicated DMA controller directly manages data transfer between memory and peripherals, and the CPU does not need to participate at all. After the transfer completes, the DMA controller sends an interrupt notification to the CPU.</p>
+<p>This is<span class="marked">DMA</span>DMA: a dedicated DMA controller directly manages data transfer between memory and peripherals, and the CPU does not need to participate at all. After the transfer completes, the DMA controller sends an interrupt notification to the CPU.</p>
 <hr/>
 <h2>The essential differences among the three methods</h2>
 <table class="reference">
-<tr><th>特性</th><th>轮询 (Polling)</th><th>中断 (Interrupt)</th><th>DMA</th></tr>
-<tr><td><span class="marked">CPU 参与度</span></td><td>Busy all the way, constantly checking</td><td>Briefly participate during transmission</td><td>Hardly participates, only receives completion notification</td></tr>
-<tr><td><span class="marked">数据谁搬</span></td><td>CPU personally moves every byte</td><td>CPU personally moves every byte</td><td>The DMA controller does the moving; the CPU doesn't get involved</td></tr>
-<tr><td><span class="marked">CPU 空闲时间</span></td><td>几乎没有</td><td>Idle most of the time</td><td>Idle almost all the time</td></tr>
-<tr><td><span class="marked">实现复杂度</span></td><td>最简单</td><td>Requires interrupt controller hardware</td><td>Requires DMA controller hardware</td></tr>
-<tr><td><span class="marked">响应延迟</span></td><td>Depends on polling interval</td><td>微秒级</td><td>Depends on total DMA transfer duration</td></tr>
-<tr><td><span class="marked">适用数据量</span></td><td>极少量</td><td>Small to medium amounts (KB level)</td><td>Large amounts (MB/GB level)</td></tr>
-<tr><td><span class="marked">典型场景</span></td><td>Simple embedded systems, extremely short waits</td><td>Keyboard input, mouse movement, network packet arrival</td><td>Disk reads/writes, graphics card framebuffer, large network packets</td></tr>
+<tr><th>Features</th><th>Polling</th><th>Interrupt</th><th>DMA</th></tr>
+<tr><td><span class="marked">CPU involvement</span></td><td>Busy all the way, constantly checking</td><td>Briefly participate during transmission</td><td>Hardly participates, only receives completion notification</td></tr>
+<tr><td><span class="marked">Who moves the data</span></td><td>CPU personally moves every byte</td><td>CPU personally moves every byte</td><td>The DMA controller does the moving; the CPU doesn't get involved</td></tr>
+<tr><td><span class="marked">CPU Idle Time</span></td><td>Almost none</td><td>Idle most of the time</td><td>Idle almost all the time</td></tr>
+<tr><td><span class="marked">Implementation complexity</span></td><td>Simplest</td><td>Requires interrupt controller hardware</td><td>Requires DMA controller hardware</td></tr>
+<tr><td><span class="marked">Response latency</span></td><td>Depends on polling interval</td><td>Microsecond-level</td><td>Depends on total DMA transfer duration</td></tr>
+<tr><td><span class="marked">Applicable data size</span></td><td>Extremely small amount</td><td>Small to medium amounts (KB level)</td><td>Large amounts (MB/GB level)</td></tr>
+<tr><td><span class="marked">Typical scenarios</span></td><td>Simple embedded systems, extremely short waits</td><td>Keyboard input, mouse movement, network packet arrival</td><td>Disk reads/writes, graphics card framebuffer, large network packets</td></tr>
 </table>
 <blockquote><p>Each time you press a key, an interrupt is triggered; when you copy a large file, DMA is used. Modern operating systems automatically choose the best scheme among the three methods based on the data volume and the scenario.</p></blockquote>
 <hr/>
@@ -225,11 +225,11 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <h2>Code demonstration: simulate the three I/O methods in Python and print the timeline</h2>
 <p>The code below simulates the transfer of the same batch of data using polling, interrupt, and DMA respectively, calculates the proportion of CPU busy/idle time, and uses an ASCII-art timeline to intuitively show the differences.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>I/O 三种方式对比：轮询 vs 中断 vs DMA（runoob 演示）<br/>
-<br/>本程序模拟 CPU 从「外部设备」传输 10 个数据块到内存的场景，<br/>分别用轮询、中断、DMA 三种方式完成，打印时间轴直观对比 CPU 状态。<br/>
-<br/>核心指标: CPU 忙碌时间占比。占比越高，说明 CPU 被 I/O 拖累越严重。<br/>
+<span style="color: #a11;">"""<br/>Comparison of three I/O methods: polling vs interrupt vs DMA (runoob demo)<br/>
+<br/>This program simulates the scenario where the CPU transfers 10 data blocks from an 'external device' to memory,<br/>Implement using polling, interrupt, and DMA respectively, and print a timeline to visually compare CPU states.<br/>
+<br/>Core metric: CPU busy time ratio. The higher the ratio, the more severely the CPU is dragged down by I/O.<br/>
 """</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">time</span><br/>
@@ -237,48 +237,48 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> IODevice:<br/>
-    <span style="color: #a11;">"""模拟外部 I/O 设备（如硬盘、键盘等）"""</span><br/>
+    <span style="color: #a11;">"""Simulate external I/O devices (such as hard disks, keyboards, etc.)"""</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">"硬盘"</span><span style="color: Gray;">,</span> response_time<span style="color: Gray;">=</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>name: 设备名称<br/>response_time: 设备响应所需的「时间单位」数<br/>
+    <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">"Hard disk"</span><span style="color: Gray;">,</span> response_time<span style="color: Gray;">=</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span>:<br/>
+        <span style="color: #a11;">"""<br/>name: device name<br/>response_time: the number of 'time units' required for device response<br/>
         """</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">name</span> <span style="color: Gray;">=</span> name<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">response_time</span> <span style="color: Gray;">=</span> response_time  <span style="color: #a50"># 每个数据块的设备准备时间</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">data_buffer</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>               <span style="color: #a50"># 设备内部数据缓冲区</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">ready</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span>                  <span style="color: #a50"># 设备是否就绪</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">response_time</span> <span style="color: Gray;">=</span> response_time  <span style="color: #a50"># Device preparation time per data block</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">data_buffer</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>               <span style="color: #a50"># Device internal data buffer</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">ready</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span>                  <span style="color: #a50"># Is Device Ready</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> prepare_data<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> block_id<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>设备准备数据——模拟设备内部处理过程。<br/>实际硬件中这一步是硬盘寻道、网卡收包等操作。<br/>
+        <span style="color: #a11;">"""<br/>Device prepares data—simulating the device's internal processing.<br/>In actual hardware, this step involves operations such as disk seeking, network card packet reception, etc.<br/>
         """</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">ready</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span><br/>
         data <span style="color: Gray;">=</span> f<span style="color: #a11;">"DATA_BLOCK_{block_id:02d}"</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data_buffer</span>.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>data<span style="color: Olive;">)</span><br/>
-        <span style="color: #a50"># 模拟设备在不同时间单位后准备好</span><br/>
+        <span style="color: #a50"># Simulate that devices are ready after different time units</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> data<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> is_ready<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""CPU 轮询时检查此状态"""</span><br/>
+        <span style="color: #a11;">"""CPU checks this status when polling"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">ready</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> mark_ready<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""设备完成准备，发送中断信号"""</span><br/>
+        <span style="color: #a11;">"""Device finished preparing, sending interrupt signal"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">ready</span> <span style="color: Gray;">=</span> <span style="color: Teal;">True</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> get_data<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""从设备缓冲区取走一个数据块"""</span><br/>
+        <span style="color: #a11;">"""Take a data block from the device buffer"""</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">data_buffer</span>:<br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">data_buffer</span>.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Timeline:<br/>
-    <span style="color: #a11;">"""<br/>时间轴记录器——记录每个时间单位 CPU 和 DMA 的状态<br/>用于最终绘制 ASCII 时间轴<br/>
+    <span style="color: #a11;">"""<br/>Timeline logger — records the CPU and DMA state for each time unit<br/>Used for final rendering of the ASCII timeline<br/>
     """</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>     <span style="color: #a50"># 每个时间单位 CPU 的状态: 'BUSY' 或 'IDLE'</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">dma_states</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>     <span style="color: #a50"># 每个时间单位 DMA 的状态</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">events</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>         <span style="color: #a50"># 事件日志: (时间, 描述)</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>     <span style="color: #a50"># CPU state per time unit: 'BUSY' or 'IDLE'</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">dma_states</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>     <span style="color: #a50"># DMA status per time unit</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">events</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>         <span style="color: #a50"># Event log: (time, description)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> record_cpu<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> state<span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span>.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>state<span style="color: Olive;">)</span><br/>
@@ -289,50 +289,50 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
     <span style="color: Green;font-weight:bold;">def</span> log_event<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> time_unit<span style="color: Gray;">,</span> desc<span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">events</span>.<span style="color: #05a;">append</span><span style="color: Olive;">(</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> desc<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> draw<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> title<span style="color: Gray;">=</span><span style="color: #a11;">"时间轴"</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""绘制 ASCII 时间轴"""</span><br/>
+    <span style="color: Green;font-weight:bold;">def</span> draw<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> title<span style="color: Gray;">=</span><span style="color: #a11;">"Timeline"</span><span style="color: Olive;">)</span>:<br/>
+        <span style="color: #a11;">"""Draw an ASCII timeline"""</span><br/>
         total <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> total <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  (无时间数据)"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  (no time data)"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>  ╔══ {title} ══╗"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║ 总时间单位: {total}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║ Total time units: {total}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># CPU 状态行</span><br/>
+        <span style="color: #a50"># CPU Status Line</span><br/>
         cpu_line <span style="color: Gray;">=</span> <span style="color: #a11;">"CPU:  "</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> s <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span>:<br/>
-            cpu_line +<span style="color: Gray;">=</span> <span style="color: #a11;">"["</span> + <span style="color: Olive;">(</span><span style="color: #a11;">"忙"</span> <span style="color: Green;font-weight:bold;">if</span> s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"闲"</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"]"</span><br/>
+            cpu_line +<span style="color: Gray;">=</span> <span style="color: #a11;">"["</span> + <span style="color: Olive;">(</span><span style="color: #a11;">"Busy"</span> <span style="color: Green;font-weight:bold;">if</span> s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"Idle"</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"]"</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║ {cpu_line}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># DMA 状态行（如果有 DMA 活动）</span><br/>
+        <span style="color: #a50"># DMA status line (if DMA activity exists)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">any</span><span style="color: Olive;">(</span>s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span> <span style="color: Green;font-weight:bold;">for</span> s <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">dma_states</span><span style="color: Olive;">)</span>:<br/>
             dma_line <span style="color: Gray;">=</span> <span style="color: #a11;">"DMA:  "</span><br/>
             <span style="color: Green;font-weight:bold;">for</span> s <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">dma_states</span>:<br/>
-                dma_line +<span style="color: Gray;">=</span> <span style="color: #a11;">"["</span> + <span style="color: Olive;">(</span><span style="color: #a11;">"忙"</span> <span style="color: Green;font-weight:bold;">if</span> s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"闲"</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"]"</span><br/>
+                dma_line +<span style="color: Gray;">=</span> <span style="color: #a11;">"["</span> + <span style="color: Olive;">(</span><span style="color: #a11;">"Busy"</span> <span style="color: Green;font-weight:bold;">if</span> s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"Idle"</span><span style="color: Olive;">)</span> + <span style="color: #a11;">"]"</span><br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║ {dma_line}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 事件日志</span><br/>
+        <span style="color: #a50"># Event log</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">events</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ╠══ 事件日志 ══╣"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ╠══ Event Log ══╣"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">for</span> t<span style="color: Gray;">,</span> desc <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">events</span>:<br/>
                 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║  T={t}: {desc}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 统计汇总</span><br/>
+        <span style="color: #a50"># Statistical summary</span><br/>
         busy_count <span style="color: Gray;">=</span> <span style="color: Teal;">sum</span><span style="color: Olive;">(</span><span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">for</span> s <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cpu_states</span> <span style="color: Green;font-weight:bold;">if</span> s <span style="color: Gray;">==</span> <span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
         idle_count <span style="color: Gray;">=</span> total - busy_count<br/>
         busy_pct <span style="color: Gray;">=</span> busy_count / total * <span style="color: Maroon;">100</span> <span style="color: Green;font-weight:bold;">if</span> total <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
         idle_pct <span style="color: Gray;">=</span> idle_count / total * <span style="color: Maroon;">100</span> <span style="color: Green;font-weight:bold;">if</span> total <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ╠══ 统计 ══╣"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║  CPU 忙碌: {busy_count}/{total} ({busy_pct:.0f}%)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ║  CPU 空闲: {idle_count}/{total} ({idle_pct:.0f}%)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ╠══ Statistics ══╣"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">║  CPU busy: {busy_count}/{total} ({busy_pct:.0f}%)</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">║  CPU idle: {idle_count}/{total} ({idle_pct:.0f}%)</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  ╚{'═' * 20}╝"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> busy_pct<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Memory:<br/>
-    <span style="color: #a11;">"""模拟主内存"""</span><br/>
+    <span style="color: #a11;">"""Simulate main memory"""</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span><br/>
 <br/>
@@ -340,74 +340,74 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
         <span style="color: Teal;">self</span>.<span style="color: #05a;">data</span><span style="color: Olive;">[</span>addr<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> data<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__repr__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Memory({len(self.data)} 条数据)"</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">Memory({len(self.data)} data items)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Controller:<br/>
-    <span style="color: #a11;">"""CPU 控制器——执行不同 I/O 方式的模拟"""</span><br/>
+    <span style="color: #a11;">"""CPU controller — simulation of executing different I/O modes"""</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span> <span style="color: Gray;">=</span> Memory<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_transferred</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> simulate_polling<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> device<span style="color: Gray;">,</span> block_count<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>轮询方式模拟:<br/>CPU 在每个时间单位都去检查设备是否就绪。<br/>如果就绪，搬一个数据块；否则继续检查。<br/>
+        <span style="color: #a11;">"""<br/>Polling simulation:<br/>The CPU checks whether the device is ready at each time unit.<br/>If ready, move a data block; otherwise continue checking.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'#'*55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 方式一: 轮询 (Polling)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 设备: {device.name} | 数据块数: {block_count}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 策略: CPU 每个时间单位都检查设备状态"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# Method 1: Polling"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Device: {device.name} | Block count: {block_count}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# Strategy: CPU checks device status every time unit"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'#'*55}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         timeline <span style="color: Gray;">=</span> Timeline<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         time_unit <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         blocks_done <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
-        device_ready_at <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># 设备在哪个时间单位准备好下一块</span><br/>
+        device_ready_at <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># At which time unit the device is ready for the next block</span><br/>
 <br/>
-        <span style="color: #a50"># 初始化: 设备开始准备第一块数据</span><br/>
+        <span style="color: #a50"># Initialization: the device starts preparing the first block of data</span><br/>
         device.<span style="color: #05a;">prepare_data</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
         device_ready_at <span style="color: Gray;">=</span> time_unit + device.<span style="color: #05a;">response_time</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">while</span> blocks_done <span style="color: Gray;">&lt;</span> block_count:<br/>
-            <span style="color: #a50"># CPU 检查设备状态（轮询）</span><br/>
+            <span style="color: #a50"># CPU checks device status (polling)</span><br/>
             timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
             timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
 <br/>
             <span style="color: Green;font-weight:bold;">if</span> time_unit <span style="color: Gray;">&gt;=</span> device_ready_at <span style="color: Green;font-weight:bold;">and</span> device.<span style="color: #05a;">is_ready</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-                <span style="color: #a50"># 设备就绪 -&gt; CPU 搬运数据</span><br/>
+                <span style="color: #a50"># Device ready -&gt; CPU transfers data</span><br/>
                 data <span style="color: Gray;">=</span> device.<span style="color: #05a;">get_data</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span>blocks_done<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU 搬运数据块 {blocks_done}: {data}"</span><span style="color: Olive;">)</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU moved data block {blocks_done}: {data}"</span><span style="color: Olive;">)</span><br/>
                 blocks_done +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">total_transferred</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-                <span style="color: #a50"># 准备下一块数据（如果还有）</span><br/>
+                <span style="color: #a50"># Prepare next block of data (if any)</span><br/>
                 <span style="color: Green;font-weight:bold;">if</span> blocks_done <span style="color: Gray;">&lt;</span> block_count:<br/>
                     device.<span style="color: #05a;">prepare_data</span><span style="color: Olive;">(</span>blocks_done<span style="color: Olive;">)</span><br/>
                     device_ready_at <span style="color: Gray;">=</span> time_unit + device.<span style="color: #05a;">response_time</span><br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                <span style="color: #a50"># 设备未就绪 -&gt; CPU 白跑一趟</span><br/>
+                <span style="color: #a50"># Device not ready -&gt; CPU wasted a trip</span><br/>
                 timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span><br/>
-                    f<span style="color: #a11;">"CPU 检查设备... {'就绪' if device.is_ready() else '未就绪'}"</span><span style="color: Olive;">)</span><br/>
+                    f<span style="color: #a11;">CPU checking device... {'Ready' if device.is_ready() else 'Not ready'}</span><span style="color: Olive;">)</span><br/>
 <br/>
-            <span style="color: #a50"># 设备后台工作（如果是准备阶段）</span><br/>
+            <span style="color: #a50"># Device background work (if in preparation phase)</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> time_unit <span style="color: Gray;">==</span> device_ready_at:<br/>
                 device.<span style="color: #05a;">mark_ready</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"设备准备完成，数据就绪"</span><span style="color: Olive;">)</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">Device ready, data ready</span><span style="color: Olive;">)</span><br/>
 <br/>
             time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>传输完成: {self.total_transferred} 块数据"</span><span style="color: Olive;">)</span><br/>
-        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"轮询方式时间轴"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Transfer completed: {self.total_transferred} data blocks</span><span style="color: Olive;">)</span><br/>
+        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"Polling Mode Timeline"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> busy_pct<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> simulate_interrupt<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> device<span style="color: Gray;">,</span> block_count<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>中断方式模拟:<br/>CPU 大部分时间在执行其他任务（记为 IDLE），<br/>只在收到中断信号后暂停当前工作，处理数据传输，然后继续。<br/>
+        <span style="color: #a11;">"""<br/>Interrupt simulation:<br/>CPU spends most of its time executing other tasks (denoted as IDLE),<br/>Only after receiving the interrupt signal does it pause the current work, handle the data transfer, and then continue.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'#'*55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 方式二: 中断 (Interrupt)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 设备: {device.name} | 数据块数: {block_count}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 策略: CPU 正常执行任务，设备就绪时发中断通知"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Method 2: Interrupt</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Device: {device.name} | Block count: {block_count}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Strategy: The CPU executes tasks normally, and sends an interrupt notification when the device is ready</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'#'*55}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         timeline <span style="color: Gray;">=</span> Timeline<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -416,62 +416,62 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
         transferred_in_interrupt <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         device_ready_at <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
 <br/>
-        <span style="color: #a50"># 初始化</span><br/>
+        <span style="color: #a50"># Initialize</span><br/>
         device.<span style="color: #05a;">prepare_data</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
         device_ready_at <span style="color: Gray;">=</span> time_unit + device.<span style="color: #05a;">response_time</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">while</span> blocks_done <span style="color: Gray;">&lt;</span> block_count:<br/>
-            <span style="color: #a50"># 默认：CPU 在执行其他任务（空闲）</span><br/>
+            <span style="color: #a50"># Default: CPU is executing other tasks (idle)</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> time_unit <span style="color: Gray;">==</span> device_ready_at:<br/>
-                <span style="color: #a50"># 设备就绪，发中断信号</span><br/>
+                <span style="color: #a50"># Device ready, send interrupt signal</span><br/>
                 device.<span style="color: #05a;">mark_ready</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"中断触发！设备数据就绪"</span><span style="color: Olive;">)</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">Interrupt triggered! Device data ready</span><span style="color: Olive;">)</span><br/>
 <br/>
-                <span style="color: #a50"># CPU 响应中断，搬运数据（这段时间 CPU 忙碌）</span><br/>
+                <span style="color: #a50"># CPU responds to the interrupt and transfers data (during this time, CPU is busy)</span><br/>
                 data <span style="color: Gray;">=</span> device.<span style="color: #05a;">get_data</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-                <span style="color: Green;font-weight:bold;">for</span> substep <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Olive;">)</span>:  <span style="color: #a50"># 中断处理需要 2 个时间单位</span><br/>
+                <span style="color: Green;font-weight:bold;">for</span> substep <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Olive;">)</span>:  <span style="color: #a50"># Interrupt handling requires 2 time units</span><br/>
                     <span style="color: Green;font-weight:bold;">if</span> substep <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
-                        timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 保存上下文，进入中断处理</span><br/>
+                        timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Save context, enter interrupt handling</span><br/>
                         timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
-                        timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + substep<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU 进入中断处理"</span><span style="color: Olive;">)</span><br/>
+                        timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + substep<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU enters interrupt handling"</span><span style="color: Olive;">)</span><br/>
                     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                        timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 搬运数据</span><br/>
+                        timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Move data</span><br/>
                         timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
                         <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span>blocks_done<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
                         transferred_in_interrupt +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-                        timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + substep<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU 搬运数据块 {blocks_done}: {data}"</span><span style="color: Olive;">)</span><br/>
+                        timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + substep<span style="color: Gray;">,</span> f<span style="color: #a11;">"CPU moved data block {blocks_done}: {data}"</span><span style="color: Olive;">)</span><br/>
                         blocks_done +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-                <span style="color: #a50"># 中断处理完成，CPU 恢复之前的工作</span><br/>
+                <span style="color: #a50"># Interrupt handling complete, CPU resumes its previous work.</span><br/>
                 timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
                 timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">"CPU 恢复之前的工作"</span><span style="color: Olive;">)</span><br/>
-                time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">3</span>  <span style="color: #a50"># 跳过中断处理占用的时间</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: #a11;">CPU resumes previous work</span><span style="color: Olive;">)</span><br/>
+                time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">3</span>  <span style="color: #a50"># Skip the time taken by interrupt handling</span><br/>
 <br/>
-                <span style="color: #a50"># 准备下一块</span><br/>
+                <span style="color: #a50"># Prepare next block</span><br/>
                 <span style="color: Green;font-weight:bold;">if</span> blocks_done <span style="color: Gray;">&lt;</span> block_count:<br/>
                     device.<span style="color: #05a;">prepare_data</span><span style="color: Olive;">(</span>blocks_done<span style="color: Olive;">)</span><br/>
                     device_ready_at <span style="color: Gray;">=</span> time_unit + device.<span style="color: #05a;">response_time</span><br/>
                 <span style="color: Green;font-weight:bold;">continue</span><br/>
 <br/>
-            <span style="color: #a50"># 正常执行阶段——CPU 处理自己的任务</span><br/>
+            <span style="color: #a50"># Normal execution phase — CPU handles its own tasks</span><br/>
             timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
             timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
-            timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"CPU 执行其他任务 (空闲/用户程序)"</span><span style="color: Olive;">)</span><br/>
+            timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">CPU executes other tasks (idle/user program)</span><span style="color: Olive;">)</span><br/>
 <br/>
             time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>传输完成: {self.total_transferred} 块数据"</span><span style="color: Olive;">)</span><br/>
-        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"中断方式时间轴"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Transfer completed: {self.total_transferred} data blocks</span><span style="color: Olive;">)</span><br/>
+        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"Interrupt Mode Timeline"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> busy_pct<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> simulate_dma<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> device<span style="color: Gray;">,</span> block_count<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>DMA 方式模拟:<br/>CPU 仅在一开始配置 DMA 控制器，随后完全不管数据传输。<br/>DMA 控制器自主搬运所有数据块。<br/>搬运完成后，DMA 发中断通知 CPU。<br/>
+        <span style="color: #a11;">"""<br/>DMA Mode Simulation:<br/>The CPU only configures the DMA controller at the beginning, and then completely leaves the data transfer alone.<br/>DMA controller autonomously moves all data blocks.<br/>After the transfer is completed, DMA sends an interrupt to notify the CPU.<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'#'*55}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 方式三: DMA (直接存储器访问)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 设备: {device.name} | 数据块数: {block_count}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"# 策略: CPU 配置 DMA 后继续工作，DMA 控制器自动搬运数据"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Method 3: DMA (Direct Memory Access)</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Device: {device.name} | Block count: {block_count}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;"># Strategy: CPU configures DMA and continues working, DMA controller automatically transfers data</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'#'*55}"</span><span style="color: Olive;">)</span><br/>
 <br/>
         timeline <span style="color: Gray;">=</span> Timeline<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -481,33 +481,33 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
         blocks_to_transfer <span style="color: Gray;">=</span> <span style="color: Teal;">list</span><span style="color: Olive;">(</span><span style="color: Teal;">range</span><span style="color: Olive;">(</span>block_count<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
         dma_buffer <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
 <br/>
-        <span style="color: #a50"># 准备所有数据块</span><br/>
+        <span style="color: #a50"># Prepare All Data Blocks</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>block_count<span style="color: Olive;">)</span>:<br/>
             device.<span style="color: #05a;">prepare_data</span><span style="color: Olive;">(</span>i<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">while</span> blocks_to_transfer <span style="color: Green;font-weight:bold;">or</span> dma_buffer:<br/>
-            <span style="color: #a50"># 第一阶段: CPU 配置 DMA 控制器（仅一次，占用 2 个时间单位）</span><br/>
+            <span style="color: #a50"># Phase 1: CPU configures the DMA controller (only once, taking 2 time units)</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> setup_done:<br/>
                 <span style="color: Green;font-weight:bold;">for</span> substep <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Olive;">)</span>:<br/>
                     timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
                     timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
                     <span style="color: Green;font-weight:bold;">if</span> substep <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
                         timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span><br/>
-                            <span style="color: #a11;">"CPU 配置 DMA: 设置源地址、目标地址、传输字节数"</span><span style="color: Olive;">)</span><br/>
+                            <span style="color: #a11;">CPU configures DMA: set source address, destination address, and transfer byte count</span><span style="color: Olive;">)</span><br/>
                     <span style="color: Green;font-weight:bold;">else</span>:<br/>
                         timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span><br/>
-                            <span style="color: #a11;">"CPU 启动 DMA 传输，然后继续自己的工作"</span><span style="color: Olive;">)</span><br/>
+                            <span style="color: #a11;">CPU initiates DMA transfer, then continues its own work</span><span style="color: Olive;">)</span><br/>
                     time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
                 setup_done <span style="color: Gray;">=</span> <span style="color: Teal;">True</span><br/>
                 dma_busy_until <span style="color: Gray;">=</span> time_unit + block_count * device.<span style="color: #05a;">response_time</span><br/>
-                <span style="color: #a50"># 标记设备就绪</span><br/>
+                <span style="color: #a50"># Mark Device as Ready</span><br/>
                 device.<span style="color: #05a;">mark_ready</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-                <span style="color: #a50"># 预填充 DMA 缓冲区</span><br/>
+                <span style="color: #a50"># Pre-fill DMA buffer</span><br/>
                 <span style="color: Green;font-weight:bold;">while</span> device.<span style="color: #05a;">data_buffer</span>:<br/>
                     dma_buffer.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>device.<span style="color: #05a;">data_buffer</span>.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Green;font-weight:bold;">continue</span><br/>
 <br/>
-            <span style="color: #a50"># 第二阶段: DMA 控制器自主搬运数据，CPU 空闲</span><br/>
+            <span style="color: #a50"># Second phase: DMA controller transfers data autonomously, CPU is idle</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> time_unit <span style="color: Gray;">&lt;</span> dma_busy_until:<br/>
                 timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
                 timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
@@ -517,35 +517,35 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
                     mem_addr <span style="color: Gray;">=</span> block_count - <span style="color: Teal;">len</span><span style="color: Olive;">(</span>blocks_to_transfer<span style="color: Olive;">)</span> - <span style="color: Maroon;">1</span><br/>
                     <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span>mem_addr<span style="color: Gray;">,</span> data<span style="color: Olive;">)</span><br/>
                     <span style="color: Teal;">self</span>.<span style="color: #05a;">total_transferred</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-                    timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> f<span style="color: #a11;">"DMA 搬运数据块 {mem_addr}: {data}"</span><span style="color: Olive;">)</span><br/>
+                    timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> f<span style="color: #a11;">DMA transfers data block {mem_addr}: {data}</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                    timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"DMA 控制器工作中..."</span><span style="color: Olive;">)</span><br/>
+                    timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"DMA controller working..."</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                <span style="color: #a50"># 第三阶段: DMA 完成，发中断通知 CPU</span><br/>
+                <span style="color: #a50"># Stage 3: DMA complete, sends interrupt to notify the CPU</span><br/>
                 timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
                 timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"DMA 传输完成，中断通知 CPU"</span><span style="color: Olive;">)</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit<span style="color: Gray;">,</span> <span style="color: #a11;">"DMA transfer complete, interrupt notifies CPU"</span><span style="color: Olive;">)</span><br/>
                 timeline.<span style="color: #05a;">record_cpu</span><span style="color: Olive;">(</span><span style="color: #a11;">"BUSY"</span><span style="color: Olive;">)</span><br/>
                 timeline.<span style="color: #05a;">record_dma</span><span style="color: Olive;">(</span><span style="color: #a11;">"IDLE"</span><span style="color: Olive;">)</span><br/>
-                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"CPU 确认传输完成"</span><span style="color: Olive;">)</span><br/>
+                timeline.<span style="color: #05a;">log_event</span><span style="color: Olive;">(</span>time_unit + <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: #a11;">"CPU confirms transfer complete"</span><span style="color: Olive;">)</span><br/>
                 time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">2</span><br/>
                 <span style="color: Green;font-weight:bold;">break</span><br/>
 <br/>
             time_unit +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>传输完成: {self.total_transferred} 块数据"</span><span style="color: Olive;">)</span><br/>
-        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"DMA 方式时间轴"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Transfer completed: {self.total_transferred} data blocks</span><span style="color: Olive;">)</span><br/>
+        busy_pct <span style="color: Gray;">=</span> timeline.<span style="color: #05a;">draw</span><span style="color: Olive;">(</span><span style="color: #a11;">"DMA mode timeline"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> busy_pct<br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 主程序: 三种方式对比 =====</span><br/>
+<span style="color: #a50"># ===== Main program: comparison of three approaches =====</span><br/>
 <span style="color: Green;font-weight:bold;">if</span> __name__ <span style="color: Gray;">==</span> <span style="color: #a11;">"__main__"</span>:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"    I/O 三种方式效率对比 —— RUNOOB 计算机组成原理演示"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Efficiency comparison of three I/O modes — RUNOOB Computer Organization Principles demo</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"场景: 从外部设备传输 5 个数据块到内存"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"设备响应时间（每块数据准备所需时间单位）: 4"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Scenario: Transfer 5 data blocks from an external device to memory</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Device response time (time units required to prepare each block of data): 4</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     BLOCK_COUNT <span style="color: Gray;">=</span> <span style="color: Maroon;">5</span><br/>
@@ -553,41 +553,41 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <br/>
     results <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span><br/>
 <br/>
-    <span style="color: #a50"># ---- 方式一: 轮询 ----</span><br/>
-    dev1 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"硬盘"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># ---- Method 1: Polling ----</span><br/>
+    dev1 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"Hard disk"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
     ctrl1 <span style="color: Gray;">=</span> Controller<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     pct1 <span style="color: Gray;">=</span> ctrl1.<span style="color: #05a;">simulate_polling</span><span style="color: Olive;">(</span>dev1<span style="color: Gray;">,</span> BLOCK_COUNT<span style="color: Olive;">)</span><br/>
-    results<span style="color: Olive;">[</span><span style="color: #a11;">"轮询"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> pct1<br/>
+    results<span style="color: Olive;">[</span><span style="color: #a11;">"Polling"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> pct1<br/>
 <br/>
-    <span style="color: #a50"># ---- 方式二: 中断 ----</span><br/>
-    dev2 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"硬盘"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># ---- Method 2: Interrupt ----</span><br/>
+    dev2 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"Hard disk"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
     ctrl2 <span style="color: Gray;">=</span> Controller<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     pct2 <span style="color: Gray;">=</span> ctrl2.<span style="color: #05a;">simulate_interrupt</span><span style="color: Olive;">(</span>dev2<span style="color: Gray;">,</span> BLOCK_COUNT<span style="color: Olive;">)</span><br/>
-    results<span style="color: Olive;">[</span><span style="color: #a11;">"中断"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> pct2<br/>
+    results<span style="color: Olive;">[</span><span style="color: #a11;">"Interrupt"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> pct2<br/>
 <br/>
-    <span style="color: #a50"># ---- 方式三: DMA ----</span><br/>
-    dev3 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"硬盘"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># ---- Method 3: DMA ----</span><br/>
+    dev3 <span style="color: Gray;">=</span> IODevice<span style="color: Olive;">(</span><span style="color: #a11;">"Hard disk"</span><span style="color: Gray;">,</span> RESPONSE_TIME<span style="color: Olive;">)</span><br/>
     ctrl3 <span style="color: Gray;">=</span> Controller<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     pct3 <span style="color: Gray;">=</span> ctrl3.<span style="color: #05a;">simulate_dma</span><span style="color: Olive;">(</span>dev3<span style="color: Gray;">,</span> BLOCK_COUNT<span style="color: Olive;">)</span><br/>
     results<span style="color: Olive;">[</span><span style="color: #a11;">"DMA"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> pct3<br/>
 <br/>
-    <span style="color: #a50"># ---- 最终对比 ----</span><br/>
+    <span style="color: #a50"># ---- Final comparison ----</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"           三种方式 CPU 忙碌时间占比对比"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Comparison of CPU busy time ratios among three methods</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  轮询 (Polling):  CPU 忙碌 {results['轮询']:.0f}% 的时间"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  中断 (Interrupt): CPU 忙碌 {results['中断']:.0f}% 的时间"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  DMA:             CPU 忙碌 {results['DMA']:.0f}% 的时间"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Polling:  CPU is busy {results['polling']:.0f}% of the time</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Interrupt: CPU busy {results['interrupt']:.0f}% of the time</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">DMA:             CPU busy {results['DMA']:.0f}% of the time</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     best <span style="color: Gray;">=</span> <span style="color: Teal;">min</span><span style="color: Olive;">(</span>results<span style="color: Gray;">,</span> key<span style="color: Gray;">=</span>results.<span style="color: #05a;">get</span><span style="color: Olive;">)</span><br/>
     worst <span style="color: Gray;">=</span> <span style="color: Teal;">max</span><span style="color: Olive;">(</span>results<span style="color: Gray;">,</span> key<span style="color: Gray;">=</span>results.<span style="color: #05a;">get</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最优方式: {best} (CPU 占用最少)"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最差方式: {worst} (CPU 占用最多)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Best method: {best} (lowest CPU usage)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Worst method: {worst} (highest CPU usage)"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  结论: 对于大量数据传输，DMA 相比轮询的 CPU 占用降低了"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        约 {results['轮询'] - results['DMA']:.0f} 个百分点。"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        这就是为什么现代计算机传输大文件时使用 DMA。"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Conclusion: For large data transfers, DMA reduces CPU usage compared to polling.</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">approximately {results['polling'] - results['DMA']:.0f} percentage points.</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        This is why modern computers use DMA when transferring large files."</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -600,22 +600,22 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <p>You copy a 2GB movie from drive C to drive D. The disk controller uses DMA to move data directly to memory; the CPU is hardly involved throughout the entire process. You can also browse the web and write code at the same time, completely unaffected.</p>
 <p>Without DMA—the CPU would have to carry 2GB of data by itself—and during this time, the CPU basically cannot handle any other tasks.</p>
 <h3>Why hasn't polling been eliminated?</h3>
-<p>Although polling has the lowest efficiency, it is<span class="tag1">极简单的嵌入式系统</span>Still useful in:</p>
+<p>Although polling has the lowest efficiency, it is<span class="tag1">Extremely Simple Embedded System</span>Still useful in:</p>
 <ul>
 <li>Lowest hardware cost—no interrupt controller or DMA controller is needed.</li>
 <li>For scenarios where "the device is ready almost instantly," polling has overhead comparable to interrupt, but is much simpler to implement.</li>
 <li>In some real-time systems, the determinism of polling (knowing exactly when to check) has an advantage over the randomness of interrupts.</li>
 </ul>
 <hr/>
-<h2>小结与检验</h2>
-<blockquote><p>One-sentence summary:<span class="marked">轮询是 CPU 不停地问「好了没」，中断是设备主动喊「我好了」，DMA 是找个帮手替你干活——数据量越大，DMA 的优势越明显。</span></p></blockquote>
-<h3>自测题</h3>
+<h2>Summary and verification</h2>
+<blockquote><p>One-sentence summary:<span class="marked">pollingYes CPU No停groundask「OKalreadynot」，interruptYesdevicesmain动喊「IOKalready」，DMA Yes找items帮hand替you干活——Dataquantity越big，DMA ofAdvantages越明显。</span></p></blockquote>
+<h3>self-test questions</h3>
 <ol>
 <li>You are using your computer to write a document while a large file is being copied in the background. Which I/O method is used for file copying? Which one is used for your keyboard input?</li>
 <li>If a device's data preparation time is extremely short (for example, only 1 microsecond), would polling still waste CPU? Why?</li>
 <li>After the DMA controller completes the data transfer, how does it notify the CPU? What mechanism does it use?</li>
 </ol>
-<p><span class="tag1">参考答案</span>: 1. File copying uses DMA, keyboard input uses interrupts. 2. It still wastes — because during polling the CPU cannot do other things; even if each poll is fast, the occupied time slice cannot be used to execute user programs. But if the device is truly very fast, the simplicity of polling implementation may be more advantageous. 3. After DMA completes, it notifies the CPU via an interrupt — this is the only moment when DMA requires CPU involvement.</p>
+<p><span class="tag1">Reference answer</span>: 1. File copying uses DMA, keyboard input uses interrupts. 2. It still wastes — because during polling the CPU cannot do other things; even if each poll is fast, the occupied time slice cannot be used to execute user programs. But if the device is truly very fast, the simplicity of polling implementation may be more advantageous. 3. After DMA completes, it notifies the CPU via an interrupt — this is the only moment when DMA requires CPU involvement.</p>
 <style>
 /* ===== I/O 方式对比时间轴演示专用样式 - runoob ===== */
 .io-demo-wrapper {
@@ -1113,22 +1113,17 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
   resetAllTimelines();
 
 })();
-</script>
-其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/computer-bus-system.html" rel="prev">总线 — 计算机内部的「公路系统」</a> </div>
-<div class="next-design-link"><a href="../computer-organization/instruction-journey-summary.html" rel="next">一条指令的完整旅程</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/computer-bus-system.html" rel="prev">Bus — the 'highway system' inside a computer</a> </div>
+<div class="next-design-link"><a href="../computer-organization/instruction-journey-summary.html" rel="next">The Complete Journey of an Instruction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -1232,16 +1227,16 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1249,14 +1244,14 @@ DMA:         [搬][搬][搬][搬]                  ↑ DMA 完成后中断
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31890"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1434,7 +1429,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1525,7 +1520,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

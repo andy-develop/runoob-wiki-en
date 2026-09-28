@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask-SQLAlchemy — 设计数据库模型 | 菜鸟教程</title>
+<title>Flask-SQLAlchemy — Designing Database Models | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask-SQLAlchemy — 设计数据库模型  本章你将学会用 Flask-SQLAlchemy 定义数据模型，创建 SQLite 数据库表，并插入测试数据。   为什么要用 ORM？ 直接写 SQL 语句操作数据库繁琐且容易出错。 ORM（对象关系映射） 让你用 Python 类来定义表结构，用 Python 方法操作数据。 Flask-SQLAlchemy 是 SQLAlchemy 的 Flask 集成版，封装了常见操作，配.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-jinja2-templates.html" rel="prev">Jinja2 模板 — 渲染 HTML 页面</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-views-blueprint.html" rel="next">视图函数 — 渲染文章列表与详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-jinja2-templates.html" rel="prev">Jinja2 Templates — Rendering HTML Pages</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-views-blueprint.html" rel="next">View Functions — Rendering Article List and Detail Pages</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,28 +168,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Why use an ORM?</h2>
 <p>Writing SQL statements directly to operate on a database is tedious and error-prone.</p>
-<p><span class="marked">ORM（对象关系映射）</span>It lets you define table structures with Python classes and manipulate data with Python methods.</p>
+<p><span class="marked">ORM (Object-Relational Mapping)</span>It lets you define table structures with Python classes and manipulate data with Python methods.</p>
 <p>Flask-SQLAlchemy is the Flask integration of SQLAlchemy, wrapping common operations and simplifying configuration.</p>
 <hr/>
-<h2>安装与配置</h2>
+<h2>Installation and Configuration</h2>
 <pre>
 (venv) $ pip install flask-sqlalchemy
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_sqlalchemy <span style="color: Green;font-weight:bold;">import</span> SQLAlchemy<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># SQLite 数据库文件路径（位于项目根目录）</span><br/>
+<span style="color: #a50"># SQLite database file path (located in the project root directory)</span><br/>
 app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SQLALCHEMY_DATABASE_URI'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'sqlite:///blog.db'</span><br/>
-<span style="color: #a50"># 关闭修改追踪（节省内存，将来版本默认关闭）</span><br/>
+<span style="color: #a50"># Disable modification tracking (saves memory, will be disabled by default in future versions)</span><br/>
 app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span><br/>
 <br/>
-<span style="color: #a50"># 创建 db 实例，绑定到 app</span><br/>
+<span style="color: #a50"># Create a db instance and bind it to app</span><br/>
 db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -197,19 +197,19 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
 <hr/>
 <h2>Defining Models: Post and Category</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：models.py</span><br/>
+<span style="color: #a50"># File path: models.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">datetime</span> <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">datetime</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> app <span style="color: Green;font-weight:bold;">import</span> db<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Category<span style="color: Olive;">(</span>db.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""文章分类"""</span><br/>
+    <span style="color: #a11;">"""Article category"""</span><br/>
     __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">'categories'</span><br/>
     <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> autoincrement<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
     name <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">50</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
     slug <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">50</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># backref：在 Category 对象上可通过 .posts 反向获取其下所有文章</span><br/>
+    <span style="color: #a50"># backref: On the Category object, you can use .posts to retrieve all its articles in reverse.</span><br/>
     posts <span style="color: Gray;">=</span> db.<span style="color: #05a;">relationship</span><span style="color: Olive;">(</span><span style="color: #a11;">'Post'</span><span style="color: Gray;">,</span> backref<span style="color: Gray;">=</span><span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> lazy<span style="color: Gray;">=</span><span style="color: #a11;">'dynamic'</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__repr__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
@@ -217,14 +217,14 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Post<span style="color: Olive;">(</span>db.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""博客文章"""</span><br/>
+    <span style="color: #a11;">"""Blog Post"""</span><br/>
     __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">'posts'</span><br/>
     <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> autoincrement<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
     title <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">200</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
     slug <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">200</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
     summary <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Text</span><span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: #a11;">''</span><span style="color: Olive;">)</span><br/>
     content <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Text</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 外键：db.ForeignKey('表名.字段名')</span><br/>
+    <span style="color: #a50"># Foreign key: db.ForeignKey('table_name.field_name')</span><br/>
     category_id <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> db.<span style="color: #05a;">ForeignKey</span><span style="color: Olive;">(</span><span style="color: #a11;">'categories.id'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
     created_at <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">DateTime</span><span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: #05a;">datetime</span>.<span style="color: #05a;">utcnow</span><span style="color: Olive;">)</span><br/>
     updated_at <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">DateTime</span><span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: #05a;">datetime</span>.<span style="color: #05a;">utcnow</span><span style="color: Gray;">,</span> onupdate<span style="color: Gray;">=</span><span style="color: #05a;">datetime</span>.<span style="color: #05a;">utcnow</span><span style="color: Olive;">)</span><br/>
@@ -236,13 +236,13 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
 <h3>Common field types</h3>
 <table class="reference">
 <tbody>
-<tr><th>字段类型</th><th>数据库类型</th><th>常用参数</th></tr>
+<tr><th>Field Type</th><th>Database Type</th><th>Common Parameters</th></tr>
 <tr><td>db.Integer</td><td>INTEGER</td><td>primary_key, autoincrement</td></tr>
 <tr><td>db.String(N)</td><td>VARCHAR(N)</td><td>unique, nullable, default</td></tr>
 <tr><td>db.Text</td><td>TEXT</td><td>default</td></tr>
 <tr><td>db.DateTime</td><td>DATETIME</td><td>default, onupdate</td></tr>
 <tr><td>db.Boolean</td><td>BOOLEAN</td><td>default</td></tr>
-<tr><td>db.ForeignKey('表.字段')</td><td>FOREIGN KEY</td><td>—</td></tr>
+<tr><td>db.ForeignKey('table.field')</td><td>FOREIGN KEY</td><td>—</td></tr>
 </tbody>
 </table>
 <hr/>
@@ -252,93 +252,88 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
 (venv) $ flask shell                        # 进入 Flask 交互式 Shell
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 在 flask shell 中输入</span><br/>
+<span style="color: #a50"># Enter in the flask shell</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> app <span style="color: Green;font-weight:bold;">import</span> db<br/>
-db.<span style="color: #05a;">create_all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>     <span style="color: #a50"># 创建所有模型对应的数据库表</span><br/>
+db.<span style="color: #05a;">create_all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>     <span style="color: #a50"># Create database tables for all models</span><br/>
 exit<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<p>After execution, the following will be generated in the project root directory<code>blog.db</code>文件。</p>
+<p>After execution, the following will be generated in the project root directory<code>blog.db</code>File.</p>
 <blockquote><p><code>db.create_all()</code>Create the table only if it does not exist. If you modify the model structure (such as adding new fields), it will not automatically update the table. In production, you should use Flask-Migrate (Chapter 5) to manage structure changes.</p></blockquote>
 <hr/>
 <h2>Use flask shell to insert test data.</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 在 flask shell 中输入</span><br/>
+<span style="color: #a50"># Enter in the flask shell</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> app <span style="color: Green;font-weight:bold;">import</span> db<br/>
 <span style="color: Green;font-weight:bold;">from</span> models <span style="color: Green;font-weight:bold;">import</span> Category<span style="color: Gray;">,</span> Post<br/>
 <br/>
-<span style="color: #a50"># 1. 创建分类</span><br/>
+<span style="color: #a50"># 1. Create category</span><br/>
 py_cat <span style="color: Gray;">=</span> Category<span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'Python'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'python'</span><span style="color: Olive;">)</span><br/>
 css_cat <span style="color: Gray;">=</span> Category<span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'CSS'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'css'</span><span style="color: Olive;">)</span><br/>
 flask_cat <span style="color: Gray;">=</span> Category<span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">'Flask'</span><span style="color: Gray;">,</span> slug<span style="color: Gray;">=</span><span style="color: #a11;">'flask'</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add_all</span><span style="color: Olive;">(</span><span style="color: Olive;">[</span>py_cat<span style="color: Gray;">,</span> css_cat<span style="color: Gray;">,</span> flask_cat<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 2. 创建文章</span><br/>
+<span style="color: #a50"># 2. Create article</span><br/>
 post1 <span style="color: Gray;">=</span> Post<span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'Flask 入门完全指南'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">'Flask Complete Guide for Beginners'</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'flask-beginner-guide'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'从零开始学习 Flask，涵盖路由、模板、ORM 等核心概念。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;为什么学 Flask？&lt;/h2&gt;&lt;p&gt;Flask 是 Python 最灵活的 Web 微框架...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">Learn Flask from scratch, covering core concepts such as routing, templates, ORM.</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">&lt;h2&gt;Why Learn Flask?&lt;/h2&gt;&lt;p&gt;Flask is the most flexible web microframework in Python...&lt;/p&gt;</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>flask_cat<br/>
 <span style="color: Olive;">)</span><br/>
 post2 <span style="color: Gray;">=</span> Post<span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'Python 协程详解'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">Python Coroutines Explained</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'python-coroutine'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'一文搞懂 asyncio、协程、事件循环。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;什么是协程？&lt;/h2&gt;&lt;p&gt;协程是一种比线程更轻量的并发方案...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">Understand asyncio, coroutines, and event loops in one article.</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">&lt;h2&gt;What Is a Coroutine?&lt;/h2&gt;&lt;p&gt;A coroutine is a lighter-weight concurrency solution than threads...&lt;/p&gt;</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>py_cat<br/>
 <span style="color: Olive;">)</span><br/>
 post3 <span style="color: Gray;">=</span> Post<span style="color: Olive;">(</span><br/>
-    title<span style="color: Gray;">=</span><span style="color: #a11;">'CSS Grid 布局实战'</span><span style="color: Gray;">,</span><br/>
+    title<span style="color: Gray;">=</span><span style="color: #a11;">Practical CSS Grid Layout</span><span style="color: Gray;">,</span><br/>
     slug<span style="color: Gray;">=</span><span style="color: #a11;">'css-grid-layout'</span><span style="color: Gray;">,</span><br/>
-    summary<span style="color: Gray;">=</span><span style="color: #a11;">'用 CSS Grid 轻松实现复杂的响应式布局。'</span><span style="color: Gray;">,</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">'&lt;h2&gt;Grid 入门&lt;/h2&gt;&lt;p&gt;Grid 是二维布局系统...&lt;/p&gt;'</span><span style="color: Gray;">,</span><br/>
+    summary<span style="color: Gray;">=</span><span style="color: #a11;">Easily implement complex responsive layouts with CSS Grid.</span><span style="color: Gray;">,</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">&lt;h2&gt;Getting Started with Grid&lt;/h2&gt;&lt;p&gt;Grid is a two-dimensional layout system...&lt;/p&gt;</span><span style="color: Gray;">,</span><br/>
     category<span style="color: Gray;">=</span>css_cat<br/>
 <span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add_all</span><span style="color: Olive;">(</span><span style="color: Olive;">[</span>post1<span style="color: Gray;">,</span> post2<span style="color: Gray;">,</span> post3<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 3. 验证查询</span><br/>
+<span style="color: #a50"># 3. Verify Queries</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">query</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">query</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>Post.<span style="color: #05a;">category_id</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<h3>Flask-SQLAlchemy 基础查询</h3>
+<h3>Flask-SQLAlchemy Basic Queries</h3>
 <table class="reference">
 <tbody>
-<tr><th>方法</th><th>等价 SQL</th><th>返回值</th></tr>
-<tr><td>Post.query.all()</td><td>SELECT * FROM posts</td><td>列表</td></tr>
+<tr><th>Methods</th><th>Equivalent SQL</th><th>Return Value</th></tr>
+<tr><td>Post.query.all()</td><td>SELECT * FROM posts</td><td>List</td></tr>
 <tr><td>Post.query.get(1)</td><td>WHERE id = 1</td><td>A single object or None</td></tr>
 <tr><td>Post.query.get_or_404(1)</td><td>WHERE id = 1</td><td>A single object or automatically returns 404</td></tr>
-<tr><td>Post.query.filter_by(category_id=1).all()</td><td>WHERE category_id=1</td><td>列表</td></tr>
-<tr><td>Post.query.filter(Post.title.ilike('%flask%')).all()</td><td>WHERE title LIKE '%flask%'</td><td>列表</td></tr>
-<tr><td>Post.query.order_by(Post.created_at.desc()).all()</td><td>ORDER BY created_at DESC</td><td>列表</td></tr>
+<tr><td>Post.query.filter_by(category_id=1).all()</td><td>WHERE category_id=1</td><td>List</td></tr>
+<tr><td>Post.query.filter(Post.title.ilike('%flask%')).all()</td><td>WHERE title LIKE '%flask%'</td><td>List</td></tr>
+<tr><td>Post.query.order_by(Post.created_at.desc()).all()</td><td>ORDER BY created_at DESC</td><td>List</td></tr>
 </tbody>
 </table>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you mastered the complete Flask-SQLAlchemy workflow: installing and configuring SQLALCHEMY_DATABASE_URI, defining models with db.Model (field types/foreign keys/relationship), initializing tables with db.create_all(), and inserting and querying data in the flask shell.</p>
-<p>At this point, the data structures for posts and categories have been established in the SQLite database.</p>
-其他扩展
-</div>
+<p>At this point, the data structures for posts and categories have been established in the SQLite database.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-jinja2-templates.html" rel="prev">Jinja2 模板 — 渲染 HTML 页面</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-views-blueprint.html" rel="next">视图函数 — 渲染文章列表与详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-jinja2-templates.html" rel="prev">Jinja2 Templates — Rendering HTML Pages</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-views-blueprint.html" rel="next">View Functions — Rendering Article List and Detail Pages</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -442,16 +437,16 @@ db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -459,14 +454,14 @@ db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31159"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -644,7 +639,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -735,7 +730,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

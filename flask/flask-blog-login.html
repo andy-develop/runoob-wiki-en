@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask-Login — 用户注册、登录、登出 | 菜鸟教程</title>
+<title>Flask-Login — User Registration, Login, Logout | RUNOOB Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask-Login — 用户注册、登录、登出  本章你将学会用 Flask-Login 实现 Session 用户认证，这是 Flask Web 开发最重要的安全保障。   Flask-Login 是什么？ Web 应用的 HTTP 请求本质上是无状态的——服务器不会自动记住你是谁。 Flask-Login 通过 Session 机制实现用户状态的维护：登录后服务器在 Session 中存入用户 ID，后续请求自动识别当前用户。  .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,41 +158,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-search-pagination.html" rel="prev">关键词搜索与分页</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-wtf.html" rel="next">表单处理 — Flask-WTF</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-search-pagination.html" rel="prev">Keyword Search and Pagination</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-wtf.html" rel="next">Form Handling — Flask-WTF</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Flask-Login — User registration, login, logout</h1>
 <p>In this chapter, you will learn to implement session user authentication with Flask-Login, which is the most important security safeguard in Flask web development.</p>
 <hr/>
-<h2>Flask-Login 是什么？</h2>
+<h2>What is Flask-Login?</h2>
 <p>HTTP requests in web applications are stateless in nature — the server does not automatically remember who you are.</p>
-<p><span class="marked">Flask-Login</span>通过<span class="marked">Session</span>The mechanism maintains user state: after login, the server stores the user ID in the Session, and subsequent requests automatically identify the current user.</p>
+<p><span class="marked">Flask-Login</span>Through<span class="marked">Session</span>The mechanism maintains user state: after login, the server stores the user ID in the Session, and subsequent requests automatically identify the current user.</p>
 <hr/>
 <h2>Installation and Initialization</h2>
 <pre>
 (venv) $ pip install flask-login
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_sqlalchemy <span style="color: Green;font-weight:bold;">import</span> SQLAlchemy<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_login <span style="color: Green;font-weight:bold;">import</span> LoginManager<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SQLALCHEMY_DATABASE_URI'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'sqlite:///blog.db'</span><br/>
-app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SECRET_KEY'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'your-secret-key-here'</span>   <span style="color: #a50"># Session 加密密钥（生产环境用环境变量）</span><br/>
+app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">'SECRET_KEY'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'your-secret-key-here'</span>   <span style="color: #a50"># Session encryption key (use environment variable in production)</span><br/>
 <br/>
 db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 初始化 LoginManager</span><br/>
+<span style="color: #a50"># Initialize LoginManager</span><br/>
 login_manager <span style="color: Gray;">=</span> LoginManager<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 login_manager.<span style="color: #05a;">init_app</span><span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
-login_manager.<span style="color: #05a;">login_view</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'auth.login'</span>     <span style="color: #a50"># 未登录用户重定向到登录页</span><br/>
-login_manager.<span style="color: #05a;">login_message</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'请先登录后再访问。'</span><br/>
+login_manager.<span style="color: #05a;">login_view</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'auth.login'</span>     <span style="color: #a50"># Redirect unauthenticated users to login page</span><br/>
+login_manager.<span style="color: #05a;">login_message</span> <span style="color: Gray;">=</span> <span style="color: #a11;">'Please log in first before accessing.'</span><br/>
 </div>
 </div>
 <blockquote><p><code>SECRET_KEY</code>It is the cornerstone of the Flask security system — session encryption, CSRF tokens, and flash messages all depend on it. In production environments, it must be read from environment variables and must not be hard-coded.</p></blockquote>
@@ -200,14 +200,14 @@ login_manager.<span style="color: #05a;">login_message</span> <span style="color
 <h2>Define the User model</h2>
 <p>Flask-Login requires the User model to implement<span class="marked">UserMixin</span>Several methods provided.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：models.py 新增</span><br/>
+<span style="color: #a50"># File path: models.py, new additions</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_login <span style="color: Green;font-weight:bold;">import</span> UserMixin<br/>
 <span style="color: Green;font-weight:bold;">from</span> werkzeug.<span style="color: #05a;">security</span> <span style="color: Green;font-weight:bold;">import</span> generate_password_hash<span style="color: Gray;">,</span> check_password_hash<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> User<span style="color: Olive;">(</span>UserMixin<span style="color: Gray;">,</span> db.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""用户模型"""</span><br/>
+    <span style="color: #a11;">"""User model"""</span><br/>
     __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">'users'</span><br/>
     <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
     username <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">50</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
@@ -215,17 +215,17 @@ login_manager.<span style="color: #05a;">login_message</span> <span style="color
     password_hash <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">256</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> set_password<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> password<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""对密码进行哈希加密（永远不存明文密码）"""</span><br/>
+        <span style="color: #a11;">"""Hash and encrypt the password (never store plaintext passwords)"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">password_hash</span> <span style="color: Gray;">=</span> generate_password_hash<span style="color: Olive;">(</span>password<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> check_password<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> password<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""验证密码是否匹配"""</span><br/>
+        <span style="color: #a11;">"""Verify whether the password matches"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> check_password_hash<span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">password_hash</span><span style="color: Gray;">,</span> password<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__repr__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">'&lt;User {self.username}&gt;'</span><br/>
 <br/>
-<span style="color: #a50"># 定义 user_loader：Flask-Login 用此函数从 session 中恢复用户对象</span><br/>
+<span style="color: #a50"># Define user_loader: Flask-Login uses this function to restore the user object from the session</span><br/>
 <span style="color: Gray;">@</span>login_manager.<span style="color: #05a;">user_loader</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> load_user<span style="color: Olive;">(</span>user_id<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Teal;">int</span><span style="color: Olive;">(</span>user_id<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
@@ -234,7 +234,7 @@ login_manager.<span style="color: #05a;">login_message</span> <span style="color
 <p>UserMixin automatically injects the following attributes and methods into the User model:</p>
 <table class="reference">
 <tbody>
-<tr><th>属性/方法</th><th>说明</th></tr>
+<tr><th>Attributes/Methods</th><th>Description</th></tr>
 <tr><td>is_authenticated</td><td>Whether the user is logged in</td></tr>
 <tr><td>is_active</td><td>Whether the user is active</td></tr>
 <tr><td>is_anonymous</td><td>Whether it is an anonymous user (not logged in)</td></tr>
@@ -249,9 +249,9 @@ login_manager.<span style="color: #05a;">login_message</span> <span style="color
 <hr/>
 <h2>Create an authentication Blueprint</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app/blueprints/auth.py</span><br/>
+<span style="color: #a50"># File path: app/blueprints/auth.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> render_template<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> flash<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_login <span style="color: Green;font-weight:bold;">import</span> login_user<span style="color: Gray;">,</span> logout_user<span style="color: Gray;">,</span> login_required<span style="color: Gray;">,</span> current_user<br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> User<span style="color: Gray;">,</span> db<br/>
@@ -260,7 +260,7 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <br/>
 <span style="color: Gray;">@</span>auth_bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/register"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">'GET'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'POST'</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> register<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""用户注册"""</span><br/>
+    <span style="color: #a11;">"""User registration"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> current_user.<span style="color: #05a;">is_authenticated</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -269,27 +269,27 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
         <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'email'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         password <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'password'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 校验必填字段</span><br/>
+        <span style="color: #a50"># Validate required fields</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> username <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: #05a;">email</span> <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> password:<br/>
-            flash<span style="color: Olive;">(</span><span style="color: #a11;">'所有字段都必须填写。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
+            flash<span style="color: Olive;">(</span><span style="color: #a11;">'All fields must be filled in.'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'register.html'</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 检查用户名和邮箱是否已存在</span><br/>
+        <span style="color: #a50"># Check if username and email already exist</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>username<span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-            flash<span style="color: Olive;">(</span><span style="color: #a11;">'用户名已被使用。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
+            flash<span style="color: Olive;">(</span><span style="color: #a11;">'Username is already taken.'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'register.html'</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span><span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #05a;">email</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-            flash<span style="color: Olive;">(</span><span style="color: #a11;">'邮箱已被注册。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
+            flash<span style="color: Olive;">(</span><span style="color: #a11;">'Email is already registered.'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'register.html'</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 创建用户</span><br/>
+        <span style="color: #a50"># Create a user</span><br/>
         <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>username<span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #05a;">email</span><span style="color: Olive;">)</span><br/>
-        <span style="color: #05a;">user</span>.<span style="color: #05a;">set_password</span><span style="color: Olive;">(</span>password<span style="color: Olive;">)</span>    <span style="color: #a50"># 加密存储密码</span><br/>
+        <span style="color: #05a;">user</span>.<span style="color: #05a;">set_password</span><span style="color: Olive;">(</span>password<span style="color: Olive;">)</span>    <span style="color: #a50"># Hash and store the password</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        login_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span>               <span style="color: #a50"># 注册后自动登录</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'注册成功，欢迎你，{username}！'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
+        login_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span>               <span style="color: #a50"># Automatically log in after registration</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'Registration successful, welcome, {username}!'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'register.html'</span><span style="color: Olive;">)</span><br/>
@@ -297,7 +297,7 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <br/>
 <span style="color: Gray;">@</span>auth_bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">'GET'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'POST'</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""用户登录"""</span><br/>
+    <span style="color: #a11;">"""User login"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> current_user.<span style="color: #05a;">is_authenticated</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -305,18 +305,18 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
         username <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'username'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
         password <span style="color: Gray;">=</span> request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'password'</span><span style="color: Gray;">,</span> <span style="color: #a11;">''</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># user_loader 从数据库查找用户</span><br/>
+        <span style="color: #a50"># user_loader looks up the user from the database</span><br/>
         <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>username<span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 验证密码（密码本身不会被记录到日志）</span><br/>
+        <span style="color: #a50"># Verify the password (the password itself will not be recorded in logs)</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: #05a;">user</span> <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span> <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: #05a;">user</span>.<span style="color: #05a;">check_password</span><span style="color: Olive;">(</span>password<span style="color: Olive;">)</span>:<br/>
-            flash<span style="color: Olive;">(</span><span style="color: #a11;">'用户名或密码错误。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
+            flash<span style="color: Olive;">(</span><span style="color: #a11;">Incorrect username or password.</span><span style="color: Gray;">,</span> <span style="color: #a11;">'error'</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'login.html'</span><span style="color: Olive;">)</span><br/>
 <br/>
         login_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Gray;">,</span> remember<span style="color: Gray;">=</span>request.<span style="color: #05a;">form</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'remember'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'欢迎回来，{username}！'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'Welcome back, {username}!'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 登录后重定向到登录前访问的页面（URL 中 next 参数）</span><br/>
+        <span style="color: #a50"># After login, redirect to the page visited before login (the next parameter in the URL)</span><br/>
         next_page <span style="color: Gray;">=</span> request.<span style="color: #05a;">args</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">'next'</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>next_page <span style="color: Green;font-weight:bold;">or</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -324,18 +324,18 @@ auth_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <br/>
 <br/>
 <span style="color: Gray;">@</span>auth_bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/logout"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Gray;">@</span>login_required       <span style="color: #a50"># 只有登录用户才能执行登出</span><br/>
+<span style="color: Gray;">@</span>login_required       <span style="color: #a50"># Only logged-in users can log out</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> logout<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     logout_user<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    flash<span style="color: Olive;">(</span><span style="color: #a11;">'已安全登出。'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'info'</span><span style="color: Olive;">)</span><br/>
+    flash<span style="color: Olive;">(</span><span style="color: #a11;">'Logged out securely.'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'info'</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <h3>References needed in the App design</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py 中注册 auth Blueprint</span><br/>
+<span style="color: #a50"># File path: register the auth Blueprint in app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">blueprints</span>.<span style="color: #05a;">auth</span> <span style="color: Green;font-weight:bold;">import</span> auth_bp<br/>
 app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>auth_bp<span style="color: Olive;">)</span><br/>
 </div>
@@ -344,32 +344,32 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <hr/>
 <h2>Create login and registration templates</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：app/templates/login.html --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: app/templates/login.html --&gt;</span><br/>
 {% extends 'base.html' %}<br/>
-<br/>{% block title %}登录 - RUNOOB 博客{% endblock %}<br/>
+<br/>{% block title %}Login - RUNOOB Blog{% endblock %}<br/>
 <br/>
 {% block content %}<br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"auth-form"</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span>&gt;</span>登录<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span>&gt;</span>Log in<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">form</span> <span style="color: #00c;">method</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post"</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-group"</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">label</span>&gt;</span>用户名<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">label</span>&gt;</span>Username<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
             <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">input</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"text"</span> <span style="color: #00c;">name</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"username"</span> required&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-group"</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">label</span>&gt;</span>密码<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">label</span>&gt;</span>Password<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
             <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">input</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"password"</span> <span style="color: #00c;">name</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"password"</span> required&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-group"</span>&gt;</span><br/>
             <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
-                <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">input</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"checkbox"</span> <span style="color: #00c;">name</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"remember"</span>&gt;</span>记住我<br/>
+                <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">input</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"checkbox"</span> <span style="color: #00c;">name</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"remember"</span>&gt;</span>Remember me<br/>
             <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">label</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"submit"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"btn-submit"</span>&gt;</span>登录<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"submit"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"btn-submit"</span>&gt;</span>Log in<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">form</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-footer"</span>&gt;</span><br/>还没有账号？<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.register') }}"</span>&gt;</span>立即注册<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"form-footer"</span>&gt;</span><br/>No account yet?<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.register') }}"</span>&gt;</span>Register now<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
 {% endblock %}<br/>
@@ -377,41 +377,36 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 </div>
 <h3>Update navigation bar to show login status</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：app/templates/base.html 导航栏部分 --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: navigation bar section in app/templates/base.html --&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">nav</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span>&gt;</span>首页<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span>&gt;</span>Home<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
     {% if current_user.is_authenticated %}<br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">span</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"user-name"</span>&gt;</span>{{ current_user.username }}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">span</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.logout') }}"</span>&gt;</span>登出<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.logout') }}"</span>&gt;</span>Logout<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
     {% else %}<br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.login') }}"</span>&gt;</span>登录<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.register') }}"</span>&gt;</span>注册<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.login') }}"</span>&gt;</span>Log in<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('auth.register') }}"</span>&gt;</span>Register<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
     {% endif %}<br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">nav</span>&gt;</span><br/>
 </div>
 </div>
 <blockquote><p><code>current_user</code>It is a proxy object automatically injected by Flask-Login, directly usable in all templates and view functions. When logged in, it is a User object; when not logged in, it is an AnonymousUserMixin instance.</p></blockquote>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you integrated Flask-Login Session authentication: UserMixin + user_loader combined the user model, login_user/logout_user managed the Session, werkzeug hashed passwords, @login_required protected views, and current_user in templates checked the status.</p>
-<p>Now the blog has a complete user registration, login, and logout flow.</p>
-其他扩展
-</div>
+<p>Now the blog has a complete user registration, login, and logout flow.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-search-pagination.html" rel="prev">关键词搜索与分页</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-wtf.html" rel="next">表单处理 — Flask-WTF</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-search-pagination.html" rel="prev">Keyword Search and Pagination</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-wtf.html" rel="next">Form Handling — Flask-WTF</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -515,16 +510,16 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -532,14 +527,14 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31163"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -717,7 +712,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -808,7 +803,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Django ORM – 单表实例 | 菜鸟教程</title>
+<title>Django ORM – Single Table Example | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Django ORM - 单表实例 阅读本章节前你需要先阅读了 Django 模型 进行基础配置及了解常见问题的解决方案。 接下来我们重新创建一个项目 app01（如果之前已创建过，忽略以下操作）:  django-admin.py startproject app01  接下来在 settings.py 中找到 INSTALLED_APPS 这一项，如下：   INSTALLED_APPS = (     'django.c.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,12 +158,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-views.html" rel="prev">Django 视图</a> </div>
-<div class="next-design-link"><a href="../django/django-orm-2.html" rel="next">Django ORM – 多表实例</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-views.html" rel="prev">Django views</a> </div>
+<div class="next-design-link"><a href="../django/django-orm-2.html" rel="next">Django ORM – Multi-Table Example</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Django ORM - Single Table Example</h1><p>Before reading this chapter, you need to have read<a href="../django/django-model.html" rel="noopener noreferrer" target="_blank">Django 模型</a>Perform basic configuration and understand solutions to common problems.</p>
+<h1>Django ORM - Single Table Example</h1><p>Before reading this chapter, you need to have read<a href="../django/django-model.html" rel="noopener noreferrer" target="_blank">Django models</a>Perform basic configuration and understand solutions to common problems.</p>
 <p>Next, we create a new project app01 (if it has been created before, ignore the following operations):</p>
 <pre>
 django-admin.py startproject app01</pre>
@@ -180,19 +180,19 @@ INSTALLED_APPS = (
 )
 </pre>
 <p>Next, tell Django to use the pymysql module to connect to the MySQL database:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #a50"># 在与 settings.py 同级目录下的 __init__.py 中引入模块和进行配置</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #a50"># Import modules and configure in __init__.py in the same directory as settings.py</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> pymysql<br/>
 pymysql.<span style="color: #05a;">install_as_MySQLdb</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<h3>创建模型</h3><p>Add the following class in models.py in the project:</p>
+<h3>Create Model</h3><p>Add the following class in models.py in the project:</p>
 <div class="example"><h2 class="example">app01/models.py</h2> <div class="example_code">
 class Book<span style="color: #7A0874; font-weight: bold;">(</span>models.Model<span style="color: #7A0874; font-weight: bold;">)</span>: <br/>
-    <span style="color: #C20CB9; font-weight: bold;">id</span> = models.AutoField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">primary_key</span>=True<span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># id 会自动创建,可以手动写入</span><br/>
-    title = models.CharField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_length</span>=<span style="color: #000000;">32</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># 书籍名称</span><br/>
-    price = models.DecimalField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_digits</span>=<span style="color: #000000;">5</span>, <span style="color: #007800;">decimal_places</span>=<span style="color: #000000;">2</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># 书籍价格</span><br/>
-    publish = models.CharField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_length</span>=<span style="color: #000000;">32</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># 出版社名称</span><br/>
-    pub_date = models.DateField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># 出版时间</span><br/>
+    <span style="color: #C20CB9; font-weight: bold;">id</span> = models.AutoField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">primary_key</span>=True<span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># id is automatically created and can be manually written</span><br/>
+    title = models.CharField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_length</span>=<span style="color: #000000;">32</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># Book Title</span><br/>
+    price = models.DecimalField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_digits</span>=<span style="color: #000000;">5</span>, <span style="color: #007800;">decimal_places</span>=<span style="color: #000000;">2</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># Book Price</span><br/>
+    publish = models.CharField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #007800;">max_length</span>=<span style="color: #000000;">32</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># Publisher name</span><br/>
+    pub_date = models.DateField<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #666666; font-style: italic;"># Publication Time</span><br/>
 </div></div><p>Then execute the following command in the command line:</p>
 <pre>
 $ python3 manage.py migrate   # 创建表结构
@@ -223,8 +223,8 @@ app01
 |   |-- urls.py
 |   |-- views.py
 |   `-- wsgi.py</pre>
-<h3>数据库添加</h3>
-<p>规则配置：</p>
+<h3>Add to database</h3>
+<p>Rule configuration:</p>
 <div class="example">
 <h2 class="example">app01/urls.py: file code:</h2>
 <div class="example_code">
@@ -236,46 +236,46 @@ app01
 </span><span class="hl-brackets">]</span></div>
 </div>
 </div>
-<p><strong>方式一：</strong>Model class instantiated object</p>
+<p><strong>Method 1:</strong>Model class instantiated object</p>
 <p>You need to import the models.py file from the app directory:</p><pre>from app 目录 import models</pre>
-<p>And after instantiating the object, you need to execute<span class="marked">对象.save()</span>Only then can you successfully add data to the database.</p>
+<p>And after instantiating the object, you need to execute<span class="marked">object.save()</span>Only then can you successfully add data to the database.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">book</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-code">,</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟出版社</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">pub_date</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">2008-8-8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">book</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-code">,</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Rookie Press</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">pub_date</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">2008-8-8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">book</span><span class="hl-code">.</span><span class="hl-identifier">save</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;数据添加成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Data added successfully!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_1.gif"/></p>
-<p><strong>方式二：</strong>Use the create method provided by objects in the ORM to achieve this (recommended)</p>
+<p><strong>Method 2:</strong>Use the create method provided by objects in the ORM to achieve this (recommended)</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">create</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">如来神掌</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">功夫出版社</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">pub_date</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">2010-10-10</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">create</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Buddha's Palm</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Kung Fu Press</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">pub_date</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">2010-10-10</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Book object (18) </span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;数据添加成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Data added successfully!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_2.gif"/></p>
-<h3>查找</h3>
-<p>使用<strong>all()</strong>method to query all contents.</p>
+<h3>Search</h3>
+<p>Usage<strong>all()</strong>method to query all contents.</p>
 <p>The returned data is of QuerySet type, similar to a list, containing model class objects one by one. You can use index subscripts to retrieve the model class objects.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
     </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">all</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">,</span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet类型，类似于list，访问 url 时数据显示在命令行窗口中。</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">,</span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet type, similar to list. When accessing the URL, data is displayed in the command-line window.</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_3.gif"/></p>
@@ -284,7 +284,7 @@ app01
 <p>pk=3 means primary key=3, which is equivalent to id=3.</p>
 <p>Because id has a special meaning in PyCharm, it is the built-in function id() that looks at memory addresses, so use pk.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
@@ -292,14 +292,14 @@ app01
     </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-builtin">filter</span><span class="hl-brackets">(</span><span class="hl-identifier">pk</span><span class="hl-code">=</span><span class="hl-number">5</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">//////////////////////////////////////</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-builtin">filter</span><span class="hl-brackets">(</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">'</span><span class="hl-string">菜鸟出版社</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet类型，类似于list。</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-builtin">filter</span><span class="hl-brackets">(</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">'</span><span class="hl-string">Rookie Press</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet type, similar to list.</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_4.gif"/></p>
 <p><strong>exclude() </strong>The method is used to query data that does not meet the conditions.</p><p>The returned data is of QuerySet type, similar to a list, containing model class objects that do not meet the conditions. You can use index subscripts to retrieve the model class objects.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
@@ -307,156 +307,156 @@ app01
     </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">exclude</span><span class="hl-brackets">(</span><span class="hl-identifier">pk</span><span class="hl-code">=</span><span class="hl-number">5</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">//////////////////////////////////////</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">exclude</span><span class="hl-brackets">(</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">'</span><span class="hl-string">菜鸟出版社</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet类型，类似于list。</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">exclude</span><span class="hl-brackets">(</span><span class="hl-identifier">publish</span><span class="hl-code">=</span><span class="hl-quotes">'</span><span class="hl-string">Rookie Press</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">300</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># QuerySet type, similar to list.</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_5.gif"/></p>
 <p>
 <strong>get()</strong>The method is used to query objects that meet the conditions and return a model class object. There can be only one object that meets the conditions. If there is more than one object that matches the filter conditions, or if there is none, an error will be thrown.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
     </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-identifier">pk</span><span class="hl-code">=</span><span class="hl-number">5</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-identifier">pk</span><span class="hl-code">=</span><span class="hl-number">18</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 报错，没有符合条件的对象</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 报错，符合条件的对象超过一个</span><span class="hl-code">
-</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 模型类的对象</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-identifier">pk</span><span class="hl-code">=</span><span class="hl-number">18</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Error, no object matching the conditions</span><span class="hl-code">
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Error: More than one matching object found.</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-code">, </span><span class="hl-builtin">type</span><span class="hl-brackets">(</span><span class="hl-identifier">books</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Model class object</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_6.gif"/></p>
 <p>
 <strong>order_by()</strong>The method is used to sort the query results.</p><p>The returned data is of QuerySet type, similar to a list, containing sorted model class objects. You can use index subscripts to retrieve the model class objects.</p>
-<p><strong>注意：</strong></p>
+<p><strong>Note:</strong></p>
 <ul><li>a. The field names of parameters should be enclosed in quotes.</li><li>b. For descending order, add a minus sign before the field<span class="marked">-</span>。</li></ul>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">order_by</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">price</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 查询所有，按照价格升序排列</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">order_by</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">-price</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 查询所有，按照价格降序排列</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">order_by</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">price</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Query all, sorted by price ascending</span><span class="hl-code">
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">order_by</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">-price</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Query all, sorted by price descending</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_7.gif"/></p>
 <p>
 <strong>reverse()</strong>The method is used to reverse the query results.</p><p>The returned data is of QuerySet type, similar to a list, containing reversed model class objects. You can use index subscripts to retrieve the model class objects.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-comment"># 按照价格升序排列：降序再反转</span><span class="hl-code">
+    </span><span class="hl-comment"># Sort by price ascending: sort descending, then reverse.</span><span class="hl-code">
 </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">order_by</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">-price</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">reverse</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_8.gif"/></p>
 <p>
 <strong>count() </strong>The method is used to query the number of data records; the returned data is an integer.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">count</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 查询所有数据的数量</span><span class="hl-code">
-</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-builtin">filter</span><span class="hl-brackets">(</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">count</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 查询符合条件数据的数量</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">count</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Query the count of all data</span><span class="hl-code">
+</span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-builtin">filter</span><span class="hl-brackets">(</span><span class="hl-identifier">price</span><span class="hl-code">=</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">count</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Query the number of records that meet the conditions</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_9.gif"/></p>
 <p>
 <strong>first()</strong>The method returns the first record. The returned data is a model class object, and you can also use an index subscript.<span class="marked">[0]</span>。</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">first</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 返回所有数据的第一条数据</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">first</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Return the first record of all data</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_10.gif"/></p>
 <p>The last() method returns the last record. The returned data is a model class object, and you cannot use an index subscript.<span class="marked">[-1]</span>, the ORM does not have a reverse index.</p>
 <div class="example">
-<h2 class="example">app01/views.py: 文件代码：</h2>
+<h2 class="example">app01/views.py: File code:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">django</span><span class="hl-code">.</span><span class="hl-identifier">shortcuts</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">render</span><span class="hl-code">,</span><span class="hl-identifier">HttpResponse</span><span class="hl-code">
 </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">app01</span><span class="hl-code"> </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">models</span><span class="hl-code">
 </span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">add_book</span><span class="hl-brackets">(</span><span class="hl-identifier">request</span><span class="hl-brackets">)</span><span class="hl-code">:
-    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">last</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 返回所有数据的最后一条数据</span><span class="hl-code">
-</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;查找成功！&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+    </span><span class="hl-identifier">books</span><span class="hl-code"> = </span><span class="hl-identifier">models</span><span class="hl-code">.</span><span class="hl-identifier">Book</span><span class="hl-code">.</span><span class="hl-identifier">objects</span><span class="hl-code">.</span><span class="hl-identifier">last</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># Return the last record from all data</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">HttpResponse</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;p&gt;Search successful!&lt;/p&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
 </div>
 </div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_11.gif"/></p>
 <p><strong>exists()</strong>method for determining whether there is data in the QuerySet list of query results.</p>
 <p>The returned data type is boolean. If present, it is true; if absent, it is false.</p><p>
-<strong>注意：</strong>The data type for judgment can only be QuerySet type data, not integer or model class objects.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<strong>Note:</strong>The data type for judgment can only be QuerySet type data, not integer or model class objects.</p>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">exists</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <br/>
-    <span style="color: #a50"># 报错，判断的数据类型只能为QuerySet类型数据，不能为整型</span><br/>
+    <span style="color: #a50"># Error: the data type to be judged can only be QuerySet type data, not integer.</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">count</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">exists</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 报错，判断的数据类型只能为QuerySet类型数据，不能为模型类对象</span><br/>
+    <span style="color: #a50"># Error: the data type being evaluated can only be QuerySet data, not a model class object</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">exists</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;p&gt;查找成功！&lt;/p&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">&lt;p&gt;Search successful!&lt;/p&gt;</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_12.gif"/></p>
 <p><strong>values()</strong>method for querying data from partial fields.</p>
 <p>The returned data is of QuerySet type, similar to a list, containing not model class objects but an iterable sequence of dictionaries. The keys in the dictionaries are fields, and the values are data.</p>
-<p><strong>注意：</strong></p>
+<p><strong>Note:</strong></p>
 <ul><li>The field names of parameters should be enclosed in quotes</li><li>If you want field names and data to use<span class="marked">values</span></li><li>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 查询所有的id字段和price字段的数据</span><br/>
+    <span style="color: #a50"># Query data for all id and price fields</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">values</span><span style="color: Olive;">(</span><span style="color: #a11;">"pk"</span><span style="color: Gray;">,</span><span style="color: #a11;">"price"</span><span style="color: Olive;">)</span> <br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>books<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span><span style="color: #a11;">"price"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><span style="color: Teal;">type</span><span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># 得到的是第一条记录的price字段的数据</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;p&gt;查找成功！&lt;/p&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>books<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span><span style="color: #a11;">"price"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><span style="color: Teal;">type</span><span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># This gets the price field data of the first record</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">&lt;p&gt;Search successful!&lt;/p&gt;</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_13.gif"/></p>
 <p><strong>values_list()</strong>method for querying data from partial fields.</p><p>The returned data is of QuerySet type, similar to a list, containing not model class objects but tuples one by one. Each tuple contains the data corresponding to the query fields.</p>
-<p><strong>注意：</strong></p>
+<p><strong>Note:</strong></p>
 <ul><li>The field names of parameters should be enclosed in quotes</li><li>If you only want the data, use values_list.</li></ul>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 查询所有的price字段和publish字段的数据</span><br/>
+    <span style="color: #a50"># Query the data of all price and publish fields</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"price"</span><span style="color: Gray;">,</span><span style="color: #a11;">"publish"</span><span style="color: Olive;">)</span> <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>books<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><span style="color: Teal;">type</span><span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># 得到的是第一条记录的price字段的数据</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;p&gt;查找成功！&lt;/p&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>books<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><span style="color: Teal;">type</span><span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># This gets the price field data of the first record</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">&lt;p&gt;Search successful!&lt;/p&gt;</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_14.gif"/></p>
 <p><strong>distinct() </strong>method for de-duplicating data.</p>
 <p>The returned data is of QuerySet type.</p>
-<p><strong>注意：</strong></p>
+<p><strong>Note:</strong></p>
 <ul><li>Deduplicating model class objects is meaningless, because each object is a unique existence.</li><li>distinct() is generally used together with values or values_list.</li></ul>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 查询一共有多少个出版社</span><br/>
-    books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"publish"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">distinct</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <span style="color: #a50"># 对模型类的对象去重没有意义，因为每个对象都是一个不一样的存在。</span><br/>
+    <span style="color: #a50"># Query the total number of publishers</span><br/>
+    books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"publish"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">distinct</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <span style="color: #a50"># Deduplicating objects of a model class is meaningless, because each object is a distinct entity.</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">distinct</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;p&gt;查找成功！&lt;/p&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">&lt;p&gt;Search successful!&lt;/p&gt;</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_15.gif"/></p>
 <p><strong>filter()</strong>The method is based on double-underscore fuzzy queries (the same applies to exclude).</p>
-<p><strong>注意：</strong>In filter, the operator can only use the equal sign =; you cannot use the greater-than sign &gt;, the less-than sign &lt;, or other symbols.</p>
+<p><strong>Note:</strong>In filter, the operator can only use the equal sign =; you cannot use the greater-than sign &gt;, the less-than sign &lt;, or other symbols.</p>
 <p>__in is used to read a range; after the = sign is a list.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 查询价格为200或者300的数据</span><br/>
+    <span style="color: #a50"># Query data with price 200 or 300</span><br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>price__in<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: Maroon;">200</span><span style="color: Gray;">,</span><span style="color: Maroon;">300</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;p&gt;查找成功！&lt;/p&gt;"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">&lt;p&gt;Search successful!&lt;/p&gt;</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_16.gif"/></p>
 <p><strong>__gt</strong>greater than, the value after the = sign is a number.</p>
 <pre># 查询价格大于200的数据 
@@ -496,55 +496,51 @@ books=models.Book.objects.filter(price__lte=300)</pre>
 <p><strong>__day</strong>It is the day of the DateField data type; after the = sign is a number.</p>
 <pre>books=models.Book.objects.filter(pub_date__day=01)</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_28.gif"/></p>
-<h3>删除</h3>
-<p><strong>方式一：</strong>Using the model class's<span class="marked">对象.delete()</span>。</p>
-<p><strong>返回值：</strong>A tuple; the first element is the number of affected rows.</p><pre>
+<h3>Delete</h3>
+<p><strong>Method 1:</strong>Using the model class's<span class="marked">object.delete()</span>。</p>
+<p><strong>Return value:</strong>A tuple; the first element is the number of affected rows.</p><pre>
 books=models.Book.objects.filter(pk=8).first().delete()</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_29.gif"/></p>
-<p><strong>方式二</strong>：使用 QuerySet<span class="marked">类型数据.delete()</span>(推荐)</p>
-<p><strong>返回值：</strong>A tuple; the first element is the number of affected rows.</p><pre>
+<p><strong>Method 2</strong>: Using QuerySet<span class="marked">typeData.delete()</span>(Recommended)</p>
+<p><strong>Return value:</strong>A tuple; the first element is the number of affected rows.</p><pre>
 books=models.Book.objects.filter(pk__in=[1,2]).delete()</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_30.gif"/></p>
 <p>
-<strong>注意：</strong></p>
+<strong>Note:</strong></p>
 <ul><li>a. When Django deletes data, it mimics the behavior of the SQL constraint ON DELETE CASCADE, meaning that when an object is deleted, the foreign key objects associated with it are also deleted.</li><li>The delete() method is a method of the QuerySet data type, but it does not apply to the Manager itself. That is, if you want to delete all data, you cannot omit all.</li></ul>
 <pre>books=models.Book.objects.delete()　 # 报错
 books=models.Book.objects.all().delete()　　 # 删除成功</pre>
-<h3>修改</h3>
-<p><strong>方式一：</strong></p>
+<h3>modify</h3>
+<p><strong>Method 1:</strong></p>
 <pre>模型类的对象.属性 = 更改的属性值
 模型类的对象.save()</pre>
-<p><strong>返回值：</strong>The object of the model class being edited.</p>
+<p><strong>Return value:</strong>The object of the model class being edited.</p>
 <pre>
 books = models.Book.objects.filter(pk=7).first() 
 books.price = 400 
 books.save()
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_31.gif"/></p>
-<p><strong>方式二：</strong>QuerySet type data .update(field name = changed data) (recommended)</p>
-<p><strong>返回值：</strong>Integer, the number of affected rows</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<p><strong>Method 2:</strong>QuerySet type data .update(field name = changed data) (recommended)</p>
+<p><strong>Return value:</strong>Integer, the number of affected rows</p>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span>HttpResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> app01 <span style="color: Green;font-weight:bold;">import</span> models <br/>
 <span style="color: Green;font-weight:bold;">def</span> add_book<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     books <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>pk__in<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: Maroon;">7</span><span style="color: Gray;">,</span><span style="color: Maroon;">8</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span>.<span style="color: #05a;">update</span><span style="color: Olive;">(</span>price<span style="color: Gray;">=</span><span style="color: Maroon;">888</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>books<span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_32.gif"/></p> 其他扩展
-</li></ul></div>
+<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm_32.gif"/></p>other extensions</li></ul></div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-views.html" rel="prev">Django 视图</a> </div>
-<div class="next-design-link"><a href="../django/django-orm-2.html" rel="next">Django ORM – 多表实例</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-views.html" rel="prev">Django views</a> </div>
+<div class="next-design-link"><a href="../django/django-orm-2.html" rel="next">Django ORM – Multi-Table Example</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -648,16 +644,16 @@ books.save()
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -665,14 +661,14 @@ books.save()
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="22379"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -850,7 +846,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -941,7 +937,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -76,11 +76,11 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <div class="header">
 <div class="subTitle">
-<span class="moduleLabelInType">模块</span>  
+<span class="moduleLabelInType">Module</span>  
      <a href="../../module-summary.html">java.base</a>
 </div>
 <div class="subTitle">
-<span class="packageLabelInType">软件包</span>  
+<span class="packageLabelInType">Software package</span>  
      <a href="package-summary.html">java.util</a>
 </div>
 <h2 class="title" title="Class ArrayList">Class ArrayList&lt;E&gt;</h2>
@@ -106,7 +106,7 @@ loadScripts(document, 'script');</script>
 <li class="blockList">
 <dl>
 <dt>
-<span class="paramLabel">参数类型</span>
+<span class="paramLabel">Parameter Type</span>
 </dt>
 <dd>
 <code>E</code>- The element type in this list</dd>
@@ -134,28 +134,28 @@ loadScripts(document, 'script');</script>
 extends <a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;E&gt;
 implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;, <a href="RandomAccess.html" title="interface in java.util">RandomAccess</a>, <a href="../lang/Cloneable.html" title="interface in java.lang">Cloneable</a>, <a href="../io/Serializable.html" title="interface in java.io">Serializable</a></pre>
 <div class="block">
-<span><code>List</code>接口的可调整大小的阵列实现。</span>
-<span>实现所有可选列表操作，并允许所有元素，包括<code>null</code> 。</span>
-<span>除了实现<code>List</code>接口之外，此类还提供了一些方法来操作内部用于存储列表的数组的大小。</span>
-<span>（这个类大致相当于<code>Vector</code> ，除了它是不同步的。）</span>
-<p> <span>该<code>size</code> ， <code>isEmpty</code> ， <code>get</code> ， <code>set</code> ， <code>iterator</code>和<code>listIterator</code>操作在固定时间内运行。</span> <span><code>add</code>操作以<i>分摊的常量时间</i>运行，即添加n个元素需要O（n）时间。</span> <span>所有其他操作都以线性时间运行（粗略地说）。</span> <span>与<code>LinkedList</code>实施相比，常数因子较低。</span> </p>
-<p> <span>每个<code>ArrayList</code>实例都有一个<i>容量</i> 。</span> <span>容量是用于存储列表中元素的数组的大小。</span> <span>它始终至少与列表大小一样大。</span> <span>随着元素添加到ArrayList，其容量会自动增加。</span> <span>除了添加元素具有恒定的摊销时间成本这一事实之外，未指定增长策略的详细信息。</span> </p>
-<p> <span>在使用<code>ensureCapacity</code>操作添加大量元素之前，应用程序可以增加<code>ArrayList</code>实例的容量。</span> <span>这可能会减少增量重新分配的数量。</span> </p>
-<p> <span><strong>Note that this implementation is not synchronized.</strong></span> <span>如果多个线程同时访问<code>ArrayList</code>实例，并且至少有一个线程在结构上修改了列表，则<i>必须</i>在外部进行同步。</span> <span>（结构修改是添加或删除一个或多个元素的任何操作，或显式调整后备数组的大小;仅设置元素的值不是结构修改。）这通常通过同步一些自然封装的对象来实现。名单。</span> <span>如果不存在此类对象，则应使用<a href="Collections.html#synchronizedList(java.util.List)"><code>Collections.synchronizedList</code></a>方法“包装”该列表。</span> <span>这最好在创建时完成，以防止意外地不同步访问列表：</span> </p>
+<span><code>List</code>Resizable array implementation of the interface.</span>
+<span>Implements all optional list operations and permits all elements, including<code>null</code> 。</span>
+<span>except implementation<code>List</code>In addition to the interface, this class also provides some methods to manipulate the size of the array used internally to store the list.</span>
+<span>(This class is roughly equivalent to<code>Vector</code>, except that it is not synchronized.)</span>
+<p> <span>that<code>size</code> ， <code>isEmpty</code> ， <code>get</code> ， <code>set</code> ， <code>iterator</code>and<code>listIterator</code>The operation runs in constant time.</span> <span><code>add</code>operates in<i>amortized constant time</i>runs, that is, adding n elements requires O(n) time.</span> <span>All other operations run in linear time (roughly speaking).</span> <span>and<code>LinkedList</code>Compared with the implementation, the constant factor is lower.</span> </p>
+<p> <span>each<code>ArrayList</code>each instance has a<i>Capacity</i> 。</span> <span>The capacity is the size of the array used to store the elements in the list.</span> <span>It is always at least as large as the list size.</span> <span>As elements are added to an ArrayList, its capacity automatically increases.</span> <span>Other than the fact that adding elements has constant amortized time cost, the details of the growth strategy are not specified.</span> </p>
+<p> <span>When using<code>ensureCapacity</code>Before an operation adds a large number of elements, the application can increase<code>ArrayList</code>the capacity of the instance.</span> <span>This may reduce the number of incremental reallocations.</span> </p>
+<p> <span><strong>Note that this implementation is not synchronized.</strong></span> <span>If multiple threads access simultaneously<code>ArrayList</code>instance, and at least one thread has structurally modified the list, then<i>Required</i>Synchronize externally.</span> <span>（StructuremodifyYesaddorDeleteaor multipleelement'sanyOperation, or显formula调整BackuparrayofSize;onlySettingselement'sThe value is notStructuremodify。）这通常Throughsame步one些自butEncapsulationobject ofto implement.name单。</span> <span>If such an object does not exist, you should use<a href="Collections.html#synchronizedList(java.util.List)"><code>Collections.synchronizedList</code></a>The method “wraps” the list.</span> <span>This is best done at creation time, to prevent accidental unsynchronized access to the list:</span> </p>
 <pre>  <span>List list = Collections.synchronizedList(new ArrayList(...));</span> </pre>
-<p id="fail-fast"> <span>此类的<a href="#iterator()"><code>iterator</code></a>和<a href="#listIterator(int)"><code>listIterator</code></a>方法返回的迭代器是<em>快速失败的</em> ：如果在创建迭代器之后的任何时候对列表进行结构修改，除了通过迭代器自己的<a href="ListIterator.html#remove()"><code>remove</code></a>或<a href="ListIterator.html#add(E)"><code>add</code></a>方法之外，迭代器将抛出<a href="ConcurrentModificationException.html" title="java.util中的类"><code>ConcurrentModificationException</code></a> 。</span> <span>因此，在并发修改的情况下，迭代器快速而干净地失败，而不是在未来的未确定时间冒任意，非确定性行为的风险。</span> </p>
-<p> <span>请注意，迭代器的快速失败行为无法得到保证，因为一般来说，在存在不同步的并发修改时，不可能做出任何硬性保证。</span> <span>失败快速迭代器以尽力而为的方式抛出<code>ConcurrentModificationException</code> 。</span> <span>因此，编写依赖于此异常的程序以确保其正确性是错误的： <i>迭代器的快速失败行为应该仅用于检测错误。</i></span> </p>
-<p> <span>此课程是<a href="../../../java.base/java/util/package-summary.html#CollectionsFramework">Java Collections Framework</a>的成员。</span> </p>
+<p id="fail-fast"> <span>This type of<a href="#iterator()"><code>iterator</code></a>and<a href="#listIterator(int)"><code>listIterator</code></a>The iterator returned by the method is<em>fail-fast</em>: if the list is structurally modified at any time after the iterator is created, except through the iterator's own<a href="ListIterator.html#remove()"><code>remove</code></a>or<a href="ListIterator.html#add(E)"><code>add</code></a>Except through the method, the iterator will throw<a href="ConcurrentModificationException.html" title="java.util中的类"><code>ConcurrentModificationException</code></a> 。</span> <span>Therefore, in the case of concurrent modification, the iterator fails fast and cleanly, rather than risking arbitrary, non-deterministic behavior at an unspecified time in the future.</span> </p>
+<p> <span>Please note that the fail-fast behavior of iterators cannot be guaranteed, because in general, it is impossible to make any hard guarantees in the presence of unsynchronized concurrent modification.</span> <span>Fail-fast iterators throw on a best-effort basis<code>ConcurrentModificationException</code> 。</span> <span>Therefore, it is incorrect to write programs that depend on this exception to ensure their correctness:<i>The fail-fast behavior of an iterator should be used only to detect bugs.</i></span> </p>
+<p> <span>this course is<a href="../../../java.base/java/util/package-summary.html#CollectionsFramework">Java Collections Framework</a>the member.</span> </p>
 </div>
 <dl>
 <dt>
-<span class="simpleTagLabel">从以下版本开始：</span>
+<span class="simpleTagLabel">Starting from the following version:</span>
 </dt>
 <dd>
           1.2 
         </dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <span><a href="Collection.html" title="java.util中的接口"><code>Collection</code></a> ， <a href="List.html" title="java.util中的接口"><code>List</code></a> ， <a href="LinkedList.html" title="java.util中的类"><code>LinkedList</code></a> ， <a href="Vector.html" title="java.util中的类"><code>Vector</code></a> ， <a href="../../../serialized-form.html#java.util.ArrayList">Serialized Form</a></span>
@@ -170,7 +170,7 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <section role="region">
 <ul class="blockList">
 <li class="blockList"><a id="field.summary">
-<!-- --> </a> <h3>字段汇总</h3>
+<!-- --> </a> <h3>field summary</h3>
 <ul class="blockList">
 <li class="blockList"><a id="fields.inherited.from.class.java.util.AbstractList">
 <!-- --> </a> <h3>Declared fields in class java.util.<a href="AbstractList.html" title="class in java.util">AbstractList</a></h3> <code><a href="AbstractList.html#modCount">modCount</a></code></li>
@@ -184,34 +184,28 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a> <h3>Constructor Summary</h3>
 <table class="memberSummary">
 <caption>
-<span>构造方法</span>
+<span>Constructor</span>
 <span class="tabEnd"> </span>
 </caption>
 <tbody>
 <tr>
-<th class="colFirst" scope="col">构造器</th>
-<th class="colLast" scope="col">描述</th>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">ArrayList</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                构造一个初始容量为10的空列表。 
-              </div> </td>
+<div class="block">Constructs an empty list with an initial capacity of ten.</div> </td>
 </tr>
 <tr class="rowColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">ArrayList</a></span>​(int initialCapacity)</code></th>
 <td class="colLast">
-<div class="block">
-                构造具有指定初始容量的空列表。 
-              </div> </td>
+<div class="block">Constructs an empty list with the specified initial capacity.</div> </td>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.Collection)">ArrayList</a></span>​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</code></th>
 <td class="colLast">
-<div class="block">
-                按照集合的迭代器返回的顺序构造一个包含指定集合元素的列表。 
-              </div> </td>
+<div class="block">Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.</div> </td>
 </tr>
 </tbody>
 </table> </li>
@@ -221,262 +215,199 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <section role="region">
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
-<!-- --> </a> <h3>方法摘要</h3>
+<!-- --> </a> <h3>method summary</h3>
 <table class="memberSummary">
 <caption>
-<span class="activeTableTab" id="t0"><span>所有方法</span><span class="tabEnd"> </span>
+<span class="activeTableTab" id="t0"><span>All methods</span><span class="tabEnd"> </span>
 <span class="tableTab" id="t2"><span><a href="javascript:show(2);">Instance Methods</a> </span></span>
 <span class="tableTab" id="t4"><span><a href="javascript:show(8);">Specific Methods</a></span><span class="tabEnd"> </span></span>
 </span></caption>
 <tbody>
 <tr>
-<th class="colFirst" scope="col">变量和类型</th>
-<th class="colSecond" scope="col">方法</th>
-<th class="colLast" scope="col">描述</th>
+<th class="colFirst" scope="col">Variables and types</th>
+<th class="colSecond" scope="col">Methods</th>
+<th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor" id="i0">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(int,E)">add</a></span>​(int index, <a href="ArrayList.html" title="type parameter in ArrayList">E</a> element)</code></th>
 <td class="colLast">
-<div class="block">
-                将指定元素插入此列表中的指定位置。 
-              </div> </td>
+<div class="block">Inserts the specified element at the specified position in this list.</div> </td>
 </tr>
 <tr class="rowColor" id="i1">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(E)">add</a></span>​(<a href="ArrayList.html" title="type parameter in ArrayList">E</a> e)</code></th>
 <td class="colLast">
-<div class="block">
-                将指定的元素追加到此列表的末尾。 
-              </div> </td>
+<div class="block">Appends the specified element to the end of this list.</div> </td>
 </tr>
 <tr class="altColor" id="i2">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addAll(int,java.util.Collection)">addAll</a></span>​(int index, <a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</code></th>
 <td class="colLast">
-<div class="block">
-                从指定位置开始，将指定集合中的所有元素插入此列表。 
-              </div> </td>
+<div class="block">Inserts all elements from the specified collection into this list, starting at the specified position.</div> </td>
 </tr>
 <tr class="rowColor" id="i3">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addAll(java.util.Collection)">addAll</a></span>​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</code></th>
 <td class="colLast">
-<div class="block">
-                将指定集合中的所有元素按指定集合的Iterator返回的顺序附加到此列表的末尾。 
-              </div> </td>
+<div class="block">Appends all elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</div> </td>
 </tr>
 <tr class="altColor" id="i4">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                从此列表中删除所有元素。 
-              </div> </td>
+<div class="block">Remove all elements from this list.</div> </td>
 </tr>
 <tr class="rowColor" id="i5">
 <td class="colFirst"><code><a href="../lang/Object.html" title="class in java.lang">Object</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clone()">clone</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                返回此 
-               <code>ArrayList</code>实例的浅表副本。 
-              </div> </td>
+<div class="block">Return this<code>ArrayList</code>A shallow copy of the instance.</div> </td>
 </tr>
 <tr class="altColor" id="i6">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#contains(java.lang.Object)">contains</a></span>​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</code></th>
 <td class="colLast">
-<div class="block">
-                如果此列表包含指定的元素，则返回 
-               <code>true</code> 。 
+<div class="block">If this list contains the specified element, then returns.<code>true</code> 。 
               </div> </td>
 </tr>
 <tr class="rowColor" id="i7">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureCapacity(int)">ensureCapacity</a></span>​(int minCapacity)</code></th>
 <td class="colLast">
-<div class="block">
-                如有必要，增加此 
-               <code>ArrayList</code>实例的容量，以确保它至少可以容纳由minimum capacity参数指定的元素数。 
-              </div> </td>
+<div class="block">If necessary, increase this<code>ArrayList</code>the capacity of the instance, to ensure that it can hold at least the number of elements specified by the minimum capacity parameter.</div> </td>
 </tr>
 <tr class="altColor" id="i8">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forEach(java.util.function.Consumer)">forEach</a></span>​(<a href="function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;? super <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; action)</code></th>
 <td class="colLast">
-<div class="block">
-                对 
-               <code>Iterable</code>每个元素执行给定操作，直到处理 
-               <code>Iterable</code>所有元素或操作引发异常。 
-              </div> </td>
+<div class="block">Pair<code>Iterable</code>Performs the given operation on each element until processed.<code>Iterable</code>All elements or operations throw an exception.</div> </td>
 </tr>
 <tr class="rowColor" id="i9">
 <td class="colFirst"><code><a href="ArrayList.html" title="type parameter in ArrayList">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(int)">get</a></span>​(int index)</code></th>
 <td class="colLast">
-<div class="block">
-                返回此列表中指定位置的元素。 
-              </div> </td>
+<div class="block">Returns the element at the specified position in this list.</div> </td>
 </tr>
 <tr class="altColor" id="i10">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#indexOf(java.lang.Object)">indexOf</a></span>​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</code></th>
 <td class="colLast">
-<div class="block">
-                返回此列表中第一次出现的指定元素的索引，如果此列表不包含该元素，则返回-1。 
-              </div> </td>
+<div class="block">Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.</div> </td>
 </tr>
 <tr class="rowColor" id="i11">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                如果此列表不包含任何元素，则返回 
-               <code>true</code> 。 
+<div class="block">If this list contains no elements, returns<code>true</code> 。 
               </div> </td>
 </tr>
 <tr class="altColor" id="i12">
 <td class="colFirst"><code><a href="Iterator.html" title="interface in java.util">Iterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator()">iterator</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                以适当的顺序返回此列表中元素的迭代器。 
-              </div> </td>
+<div class="block">Returns an iterator over the elements in this list in proper sequence.</div> </td>
 </tr>
 <tr class="rowColor" id="i13">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lastIndexOf(java.lang.Object)">lastIndexOf</a></span>​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</code></th>
 <td class="colLast">
-<div class="block">
-                返回此列表中指定元素最后一次出现的索引，如果此列表不包含该元素，则返回-1。 
-              </div> </td>
+<div class="block">Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.</div> </td>
 </tr>
 <tr class="altColor" id="i14">
 <td class="colFirst"><code><a href="ListIterator.html" title="interface in java.util">ListIterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#listIterator()">listIterator</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                返回此列表中元素的列表迭代器（按适当顺序）。 
-              </div> </td>
+<div class="block">Returns a list iterator over the elements in this list (in proper sequence).</div> </td>
 </tr>
 <tr class="rowColor" id="i15">
 <td class="colFirst"><code><a href="ListIterator.html" title="interface in java.util">ListIterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#listIterator(int)">listIterator</a></span>​(int index)</code></th>
 <td class="colLast">
-<div class="block">
-                从列表中的指定位置开始，返回列表中元素的列表迭代器（按正确顺序）。 
-              </div> </td>
+<div class="block">Returns a list iterator over the elements in this list, starting at the specified position in the list (in the correct order).</div> </td>
 </tr>
 <tr class="altColor" id="i16">
 <td class="colFirst"><code><a href="ArrayList.html" title="type parameter in ArrayList">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(int)">remove</a></span>​(int index)</code></th>
 <td class="colLast">
-<div class="block">
-                删除此列表中指定位置的元素。 
-              </div> </td>
+<div class="block">Removes the element at the specified position in this list.</div> </td>
 </tr>
 <tr class="rowColor" id="i17">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(java.lang.Object)">remove</a></span>​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</code></th>
 <td class="colLast">
-<div class="block">
-                从该列表中删除指定元素的第一个匹配项（如果存在）。 
-              </div> </td>
+<div class="block">Removes the first occurrence of the specified element from this list, if it is present.</div> </td>
 </tr>
 <tr class="altColor" id="i18">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeAll(java.util.Collection)">removeAll</a></span>​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;?&gt; c)</code></th>
 <td class="colLast">
-<div class="block">
-                从此列表中删除指定集合中包含的所有元素。 
-              </div> </td>
+<div class="block">Removes from this list all elements contained in the specified collection.</div> </td>
 </tr>
 <tr class="rowColor" id="i19">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeIf(java.util.function.Predicate)">removeIf</a></span>​(<a href="function/Predicate.html" title="interface in java.util.function">Predicate</a>&lt;? super <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; filter)</code></th>
 <td class="colLast">
-<div class="block">
-                删除此集合中满足给定谓词的所有元素。 
-              </div> </td>
+<div class="block">Removes all elements in this collection that satisfy the given predicate.</div> </td>
 </tr>
 <tr class="altColor" id="i20">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeRange(int,int)">removeRange</a></span>​(int fromIndex, int toIndex)</code></th>
 <td class="colLast">
-<div class="block">
-                从此列表中删除索引介于 
-               <code>fromIndex</code> （含）和 
-               <code>toIndex</code> （独占）之间的所有元素。 
-              </div> </td>
+<div class="block">Removes from this list all elements whose index is between<code>fromIndex</code>(inclusive) and<code>toIndex</code>All elements between (exclusive).</div> </td>
 </tr>
 <tr class="rowColor" id="i21">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#retainAll(java.util.Collection)">retainAll</a></span>​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;?&gt; c)</code></th>
 <td class="colLast">
-<div class="block">
-                仅保留此列表中包含在指定集合中的元素。 
-              </div> </td>
+<div class="block">Retains only the elements in this list that are contained in the specified collection.</div> </td>
 </tr>
 <tr class="altColor" id="i22">
 <td class="colFirst"><code><a href="ArrayList.html" title="type parameter in ArrayList">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(int,E)">set</a></span>​(int index, <a href="ArrayList.html" title="type parameter in ArrayList">E</a> element)</code></th>
 <td class="colLast">
-<div class="block">
-                用指定的元素替换此列表中指定位置的元素。 
-              </div> </td>
+<div class="block">Replaces the element at the specified position in this list with the specified element.</div> </td>
 </tr>
 <tr class="rowColor" id="i23">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                返回此列表中的元素数。 
-              </div> </td>
+<div class="block">Returns the number of elements in this list.</div> </td>
 </tr>
 <tr class="altColor" id="i24">
 <td class="colFirst"><code><a href="Spliterator.html" title="interface in java.util">Spliterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spliterator()">spliterator</a></span>()</code></th>
 <td class="colLast">
 <div class="block">
-<span>在此列表中的元素上创建<em><a href="Spliterator.html#binding">late-binding</a></em>和<em>故障快速</em> <a href="Spliterator.html" title="java.util中的接口"><code>Spliterator</code></a> 。</span>
+<span>Created over the elements in this list<em><a href="Spliterator.html#binding">late-binding</a></em>and<em>Fail-fast</em> <a href="Spliterator.html" title="java.util中的接口"><code>Spliterator</code></a> 。</span>
 </div> </td>
 </tr>
 <tr class="rowColor" id="i25">
 <td class="colFirst"><code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#subList(int,int)">subList</a></span>​(int fromIndex, int toIndex)</code></th>
 <td class="colLast">
-<div class="block">
-                返回指定的 
-               <code>fromIndex</code> （包含）和 
-               <code>toIndex</code> （不包括）之间的此列表部分的视图。 
-              </div> </td>
+<div class="block">Returns the specified<code>fromIndex</code>(inclusive) and<code>toIndex</code>View of this portion of the list between (exclusive).</div> </td>
 </tr>
 <tr class="altColor" id="i26">
 <td class="colFirst"><code><a href="../lang/Object.html" title="class in java.lang">Object</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toArray()">toArray</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                以适当的顺序（从第一个元素到最后一个元素）返回包含此列表中所有元素的数组。 
-              </div> </td>
+<div class="block">Returns an array containing all elements in this list in proper order (from the first element to the last element).</div> </td>
 </tr>
 <tr class="rowColor" id="i27">
 <td class="colFirst"><code>&lt;T&gt; T[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toArray(T%5B%5D)">toArray</a></span>​(T[] a)</code></th>
 <td class="colLast">
 <div class="block">
-<span>以适当的顺序返回包含此列表中所有元素的数组（从第一个元素到最后一个元素）;</span>
-<span>返回数组的运行时类型是指定数组的运行时类型。</span>
+<span>Returns an array containing all elements in this list in proper order (from the first element to the last element);</span>
+<span>The runtime type of the returned array is the runtime type of the specified array.</span>
 </div> </td>
 </tr>
 <tr class="altColor" id="i28">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#trimToSize()">trimToSize</a></span>()</code></th>
 <td class="colLast">
-<div class="block">
-                将此 
-               <code>ArrayList</code>实例的容量调整为列表的当前大小。 
-              </div> </td>
+<div class="block">Put this<code>ArrayList</code>The capacity of the instance is adjusted to the current size of the list.</div> </td>
 </tr>
 </tbody>
 </table>
@@ -515,17 +446,15 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>ArrayList</h4> <pre>public ArrayList​(int initialCapacity)</pre>
-<div class="block">
-              构造具有指定初始容量的空列表。 
-            </div>
+<div class="block">Constructs an empty list with the specified initial capacity.</div>
 <dl>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>initialCapacity</code>- The initial capacity of the list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IllegalArgumentException.html" title="class in java.lang">IllegalArgumentException</a></code>- If the specified initial capacity is negative</dd>
@@ -534,25 +463,21 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>ArrayList</h4> <pre>public ArrayList()</pre>
-<div class="block">
-              构造一个初始容量为10的空列表。 
-            </div> </li>
+<div class="block">Constructs an empty list with an initial capacity of ten.</div> </li>
 </ul> <a id="&lt;init&gt;(java.util.Collection)">
 <!-- --> </a>
 <ul class="blockListLast">
 <li class="blockList"> <h4>ArrayList</h4> <pre>public ArrayList​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</pre>
-<div class="block">
-              按照集合的迭代器返回的顺序构造一个包含指定集合元素的列表。 
-            </div>
+<div class="block">Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.</div>
 <dl>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>c</code> - 
               <code>c</code>The collection whose elements are to be placed into this list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- If the specified collection is null</dd>
@@ -569,20 +494,17 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>trimToSize</h4> <pre class="methodSignature">public void trimToSize()</pre>
 <div class="block">
-<span>将此<code>ArrayList</code>实例的容量调整为列表的当前大小。</span>
-<span>应用程序可以使用此操作来最小化<code>ArrayList</code>实例的存储。</span>
+<span>Put this<code>ArrayList</code>The capacity of the instance is adjusted to the current size of the list.</span>
+<span>An application can use this operation to minimize<code>ArrayList</code>the storage of the instance.</span>
 </div> </li>
 </ul> <a id="ensureCapacity(int)">
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>ensureCapacity</h4> <pre class="methodSignature">public void ensureCapacity​(int minCapacity)</pre>
-<div class="block">
-              如有必要，增加此 
-             <code>ArrayList</code>实例的容量，以确保它至少可以容纳由minimum capacity参数指定的元素数。 
-            </div>
+<div class="block">If necessary, increase this<code>ArrayList</code>the capacity of the instance, to ensure that it can hold at least the number of elements specified by the minimum capacity parameter.</div>
 <dl>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>minCapacity</code>- The minimum required capacity</dd>
@@ -591,26 +513,22 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>size</h4> <pre class="methodSignature">public int size()</pre>
-<div class="block">
-              返回此列表中的元素数。 
-            </div>
+<div class="block">Returns the number of elements in this list.</div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#size()">size</a></code> ，界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#size()">size</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#size()">size</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#size()">size</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>The number of elements in this list</dd>
 </dl> </li>
@@ -618,34 +536,29 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>isEmpty</h4> <pre class="methodSignature">public boolean isEmpty()</pre>
-<div class="block">
-              如果此列表不包含任何元素，则返回 
-             <code>true</code> 。 
+<div class="block">If this list contains no elements, returns<code>true</code> 。 
             </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#isEmpty()">isEmpty</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#isEmpty()">isEmpty</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#isEmpty()">isEmpty</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#isEmpty()">isEmpty</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#isEmpty()">isEmpty</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#isEmpty()">isEmpty</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list contains no elements</dd>
@@ -655,38 +568,35 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>contains</h4> <pre class="methodSignature">public boolean contains​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</pre>
 <div class="block">
-<span>如果此列表包含指定的元素，则返回<code>true</code> 。</span>
-<span>更正式地，返回<code>true</code>当且仅当此列表包含至少一个元素<code>e</code> <code>Objects.equals(o, e)</code> 。</span>
+<span>If this list contains the specified element, then returns.<code>true</code> 。</span>
+<span>More formally, returns<code>true</code>If and only if this list contains at least one element<code>e</code> <code>Objects.equals(o, e)</code> 。</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#contains(java.lang.Object)">contains</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#contains(java.lang.Object)">contains</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#contains(java.lang.Object)">contains</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#contains(java.lang.Object)">contains</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#contains(java.lang.Object)">contains</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#contains(java.lang.Object)">contains</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>o</code>- the element whose presence in this list is to be tested</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list contains the specified element</dd>
@@ -696,31 +606,29 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>indexOf</h4> <pre class="methodSignature">public int indexOf​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</pre>
 <div class="block">
-<span>返回此列表中第一次出现的指定元素的索引，如果此列表不包含该元素，则返回-1。</span>
-<span>更正式的是，返回最低指数<code>i</code>如<code>Objects.equals(o, get(i))</code> ，如果没有这样的指数则返回-1。</span>
+<span>Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.</span>
+<span>More formally, returns the lowest index<code>i</code>For example<code>Objects.equals(o, get(i))</code>, or -1 if there is no such index.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#indexOf(java.lang.Object)">indexOf</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#indexOf(java.lang.Object)">indexOf</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#indexOf(java.lang.Object)">indexOf</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#indexOf(java.lang.Object)">indexOf</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>o</code>- the element to search for</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element</dd>
 </dl> </li>
@@ -729,31 +637,29 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>lastIndexOf</h4> <pre class="methodSignature">public int lastIndexOf​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</pre>
 <div class="block">
-<span>返回此列表中指定元素最后一次出现的索引，如果此列表不包含该元素，则返回-1。</span>
-<span>更正式的是，返回最高指数<code>i</code>如<code>Objects.equals(o, get(i))</code> ，如果没有这样的指数则返回-1。</span>
+<span>Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.</span>
+<span>More formally, returns the highest index.<code>i</code>For example<code>Objects.equals(o, get(i))</code>, or -1 if there is no such index.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#lastIndexOf(java.lang.Object)">lastIndexOf</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#lastIndexOf(java.lang.Object)">lastIndexOf</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#lastIndexOf(java.lang.Object)">lastIndexOf</a></code>在课堂上 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#lastIndexOf(java.lang.Object)">lastIndexOf</a></code>in class.<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>o</code>- the element to search for</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element</dd>
 </dl> </li>
@@ -762,26 +668,22 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>clone</h4> <pre class="methodSignature">public <a href="../lang/Object.html" title="class in java.lang">Object</a> clone()</pre>
 <div class="block">
-<span>返回此<code>ArrayList</code>实例的浅表副本。</span>
-<span>（元素本身不会被复制。）</span>
+<span>Return this<code>ArrayList</code>A shallow copy of the instance.</span>
+<span>(The elements themselves are not copied.)</span>
 </div>
 <dl>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="../lang/Object.html#clone()">clone</a></code>在课程 
-              <code><a href="../lang/Object.html" title="class in java.lang">Object</a></code>
+<code><a href="../lang/Object.html#clone()">clone</a></code>in the course<code><a href="../lang/Object.html" title="class in java.lang">Object</a></code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
-<dd>
-               此 
-              <code>ArrayList</code>实例的克隆 
-             </dd>
+<dd>this<code>ArrayList</code>clone of the instance</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <span><a href="../lang/Cloneable.html" title="java.lang中的接口"><code>Cloneable</code></a></span>
@@ -792,38 +694,35 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>toArray</h4> <pre class="methodSignature">public <a href="../lang/Object.html" title="class in java.lang">Object</a>[] toArray()</pre>
 <div class="block">
-<span>以适当的顺序（从第一个元素到最后一个元素）返回包含此列表中所有元素的数组。</span>
-<p> <span>返回的数组将是“安全的”，因为此列表不会保留对它的引用。</span> <span>（换句话说，此方法必须分配一个新数组）。</span> <span>因此调用者可以自由修改返回的数组。</span> </p>
-<p> <span>此方法充当基于阵列和基于集合的API之间的桥梁。</span> </p>
+<span>Returns an array containing all elements in this list in proper order (from the first element to the last element).</span>
+<p> <span>The returned array will be "safe" because this list does not retain references to it.</span> <span>(In other words, this method must allocate a new array).</span> <span>Thus the caller is free to modify the returned array.</span> </p>
+<p> <span>This method acts as a bridge between array-based and collection-based APIs.</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#toArray()">toArray</a></code> ，界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#toArray()">toArray</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#toArray()">toArray</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#toArray()">toArray</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#toArray()">toArray</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#toArray()">toArray</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>an array containing all of the elements in this list in proper order</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <a href="Arrays.html#asList(T...)"><code>Arrays.asList(Object[])</code></a>
@@ -835,52 +734,49 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>toArray</h4> <pre class="methodSignature">public &lt;T&gt; T[] toArray​(T[] a)</pre>
 <div class="block">
-<span>以适当的顺序返回包含此列表中所有元素的数组（从第一个元素到最后一个元素）;</span>
-<span>返回数组的运行时类型是指定数组的运行时类型。</span>
-<span>如果列表适合指定的数组，则返回其中。</span>
-<span>否则，将为新数组分配指定数组的运行时类型和此列表的大小。</span>
-<p> <span>如果列表适合指定的数组，并且有空余空间（即，数组的元素多于列表），紧接集合结尾的数组中的元素将设置为<code>null</code> 。</span> <span>（ <i>仅</i>当调用者知道列表不包含任何null元素时，这在确定列表长度时很有用。）</span> </p>
+<span>Returns an array containing all elements in this list in proper order (from the first element to the last element);</span>
+<span>The runtime type of the returned array is the runtime type of the specified array.</span>
+<span>If the list fits in the specified array, it is returned therein.</span>
+<span>Otherwise, a new array is allocated with the runtime type of the specified array and the size of this list.</span>
+<p> <span>If the list fits in the specified array with room to spare (i.e., the array has more elements than the list), the element in the array immediately following the end of the collection is set to<code>null</code> 。</span> <span>（ <i>only</i>When the caller knows that the list does not contain any null elements, this is useful in determining the length of the list.)</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#toArray(T%5B%5D)">toArray</a></code> ，界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#toArray(T%5B%5D)">toArray</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#toArray(T%5B%5D)">toArray</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#toArray(T%5B%5D)">toArray</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#toArray(T%5B%5D)">toArray</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#toArray(T%5B%5D)">toArray</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数类型</span>
+<span class="paramLabel">Parameter Type</span>
 </dt>
 <dd>
 <code>T</code>- the component type of the array to contain the collection</dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
-<span><code>a</code> - 要存储列表元素的数组，如果它足够大;</span>
-<span>否则，为此目的分配相同运行时类型的新数组。</span>
+<span><code>a</code>- the array to store the list elements, if it is large enough;</span>
+<span>Otherwise, a new array of the same runtime type is allocated for this purpose.</span>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>An array containing the elements of the list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/ArrayStoreException.html" title="class in java.lang">ArrayStoreException</a></code>- If the runtime type of the specified array is not a supertype of the runtime type of every element in this list</dd>
@@ -891,35 +787,31 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>get</h4> <pre class="methodSignature">public <a href="ArrayList.html" title="type parameter in ArrayList">E</a> get​(int index)</pre>
-<div class="block">
-              返回此列表中指定位置的元素。 
-            </div>
+<div class="block">Returns the element at the specified position in this list.</div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#get(int)">get</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#get(int)">get</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#get(int)">get</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#get(int)">get</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- The index of the element to return</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>The element at the specified position in this list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt;= size()</code> ） 
@@ -931,37 +823,33 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>set</h4> <pre class="methodSignature">public <a href="ArrayList.html" title="type parameter in ArrayList">E</a> set​(int index,
              <a href="ArrayList.html" title="type parameter in ArrayList">E</a> element)</pre>
-<div class="block">
-              用指定的元素替换此列表中指定位置的元素。 
-            </div>
+<div class="block">Replaces the element at the specified position in this list with the specified element.</div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#set(int,E)">set</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#set(int,E)">set</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#set(int,E)">set</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#set(int,E)">set</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- The index of the element to replace</dd>
 <dd>
 <code>element</code>- The element to be stored at the specified position</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>The element previously at the specified position</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt;= size()</code> ） 
@@ -972,43 +860,36 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>add</h4> <pre class="methodSignature">public boolean add​(<a href="ArrayList.html" title="type parameter in ArrayList">E</a> e)</pre>
-<div class="block">
-              将指定的元素追加到此列表的末尾。 
-            </div>
+<div class="block">Appends the specified element to the end of this list.</div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#add(E)">add</a></code> ，界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#add(E)">add</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#add(E)">add</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#add(E)">add</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#add(E)">add</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#add(E)">add</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>e</code>- The element to be appended to this list</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
-<code>true</code> （由 
-              <a href="Collection.html#add(E)"><code>Collection.add(E)</code></a>指定） 
-             </dd>
+<code>true</code>(by<a href="Collection.html#add(E)"><code>Collection.add(E)</code></a>specified)</dd>
 </dl> </li>
 </ul> <a id="add(int,java.lang.Object)">
 <!-- --> </a><a id="add(int,E)">
@@ -1017,33 +898,31 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <li class="blockList"> <h4>add</h4> <pre class="methodSignature">public void add​(int index,
                 <a href="ArrayList.html" title="type parameter in ArrayList">E</a> element)</pre>
 <div class="block">
-<span>将指定元素插入此列表中的指定位置。</span>
-<span>将当前位置的元素（如果有）和任何后续元素向右移动（将其添加到索引中）。</span>
+<span>Inserts the specified element at the specified position in this list.</span>
+<span>Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#add(int,E)">add</a></code> in界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#add(int,E)">add</a></code>in interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#add(int,E)">add</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#add(int,E)">add</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- The index at which the specified element is to be inserted</dd>
 <dd>
 <code>element</code>- The element to be inserted</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt; size()</code> ） 
@@ -1054,35 +933,33 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>remove</h4> <pre class="methodSignature">public <a href="ArrayList.html" title="type parameter in ArrayList">E</a> remove​(int index)</pre>
 <div class="block">
-<span>删除此列表中指定位置的元素。</span>
-<span>将任何后续元素向左移位（从索引中减去一个元素）。</span>
+<span>Removes the element at the specified position in this list.</span>
+<span>Shifts any subsequent elements to the left (subtracts one from their indices).</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#remove(int)">remove</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#remove(int)">remove</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#remove(int)">remove</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#remove(int)">remove</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- The index of the element to be removed</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>The element that was removed from the list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt;= size()</code> ） 
@@ -1093,40 +970,37 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>remove</h4> <pre class="methodSignature">public boolean remove​(<a href="../lang/Object.html" title="class in java.lang">Object</a> o)</pre>
 <div class="block">
-<span>从该列表中删除指定元素的第一个匹配项（如果存在）。</span>
-<span>如果列表不包含该元素，则不会更改。</span>
-<span>更正式地，删除具有最低索引<code>i</code>的元素，使得<code>Objects.equals(o, get(i))</code> （如果存在这样的元素）。</span>
-<span>如果此列表包含指定的元素，则返回<code>true</code> （或等效地，如果此列表因调用而更改）。</span>
+<span>Removes the first occurrence of the specified element from this list, if it is present.</span>
+<span>If the list does not contain the element, it is unchanged.</span>
+<span>More formally, removes the element with the lowest index<code>i</code>the elements of, such that<code>Objects.equals(o, get(i))</code>(if such elements exist).</span>
+<span>If this list contains the specified element, then returns.<code>true</code>(or equivalently, if this list is changed by the call).</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#remove(java.lang.Object)">remove</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#remove(java.lang.Object)">remove</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#remove(java.lang.Object)">remove</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#remove(java.lang.Object)">remove</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#remove(java.lang.Object)">remove</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#remove(java.lang.Object)">remove</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>o</code>- the element to be removed from this list, if present</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list contains the specified element</dd>
@@ -1136,30 +1010,27 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>clear</h4> <pre class="methodSignature">public void clear()</pre>
 <div class="block">
-<span>从此列表中删除所有元素。</span>
-<span>此调用返回后，列表将为空。</span>
+<span>Remove all elements from this list.</span>
+<span>After this call returns, the list will be empty.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#clear()">clear</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#clear()">clear</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#clear()">clear</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#clear()">clear</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#clear()">clear</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#clear()">clear</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 </dl> </li>
 </ul> <a id="addAll(java.util.Collection)">
@@ -1167,49 +1038,46 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>addAll</h4> <pre class="methodSignature">public boolean addAll​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</pre>
 <div class="block">
-<span>将指定集合中的所有元素按指定集合的Iterator返回的顺序附加到此列表的末尾。</span>
-<span>如果在操作正在进行时修改了指定的集合，则此操作的行为是不确定的。</span>
-<span>（这意味着如果指定的集合是此列表，则此调用的行为是未定义的，并且此列表是非空的。）</span>
+<span>Appends all elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.</span>
+<span>If the specified collection is modified while the operation is in progress, the behavior of this operation is undefined.</span>
+<span>(This means that if the specified collection is this list, the behavior of this call is undefined, and this list is non-empty.)</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#addAll(java.util.Collection)">addAll</a></code> ，界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#addAll(java.util.Collection)">addAll</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#addAll(java.util.Collection)">addAll</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#addAll(java.util.Collection)">addAll</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#addAll(java.util.Collection)">addAll</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#addAll(java.util.Collection)">addAll</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>c</code>- the collection containing elements to be added to this list</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list changed as a result of the call</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- If the specified collection is null</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <a href="AbstractCollection.html#add(E)"><code>AbstractCollection.add(Object)</code></a>
@@ -1221,39 +1089,37 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <li class="blockList"> <h4>addAll</h4> <pre class="methodSignature">public boolean addAll​(int index,
                       <a href="Collection.html" title="interface in java.util">Collection</a>&lt;? extends <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; c)</pre>
 <div class="block">
-<span>从指定位置开始，将指定集合中的所有元素插入此列表。</span>
-<span>将当前位置的元素（如果有）和任何后续元素向右移动（增加其索引）。</span>
-<span>新元素将按照指定集合的迭代器返回的顺序出现在列表中。</span>
+<span>Inserts all elements from the specified collection into this list, starting at the specified position.</span>
+<span>Shifts the element at the current position (if any) and any subsequent elements to the right (increasing their indices).</span>
+<span>The new elements will appear in the list in the order returned by the specified collection's iterator.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#addAll(int,java.util.Collection)">addAll</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#addAll(int,java.util.Collection)">addAll</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#addAll(int,java.util.Collection)">addAll</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#addAll(int,java.util.Collection)">addAll</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- the index at which to insert the first element from the specified collection</dd>
 <dd>
 <code>c</code>- the collection containing elements to be added to this list</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list changed as a result of the call</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt; size()</code> ） 
@@ -1267,77 +1133,68 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <li class="blockList"> <h4>removeRange</h4> <pre class="methodSignature">protected void removeRange​(int fromIndex,
                            int toIndex)</pre>
 <div class="block">
-<span>从此列表中删除索引介于<code>fromIndex</code> （含）和<code>toIndex</code> （独占）之间的所有元素。</span>
-<span>将任何后续元素向左移动（降低其索引）。</span>
-<span>此调用通过<code>(toIndex - fromIndex)</code>元素缩短列表。</span>
-<span>（如果<code>toIndex==fromIndex</code> ，此操作无效。）</span>
+<span>Removes from this list all elements whose index is between<code>fromIndex</code>(inclusive) and<code>toIndex</code>All elements between (exclusive).</span>
+<span>Shifts any subsequent elements to the left (decreases their index).</span>
+<span>this call is made through<code>(toIndex - fromIndex)</code>a list of shortened elements.</span>
+<span>(if<code>toIndex==fromIndex</code>, this operation is invalid.)</span>
 </div>
 <dl>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#removeRange(int,int)">removeRange</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#removeRange(int,int)">removeRange</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>fromIndex</code>- The index of the first element to be removed</dd>
 <dd>
 <code>toIndex</code>- the index after the last element to be removed</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
-<code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code> - 如果 
-              <code>fromIndex</code>或 
-              <code>toIndex</code>超出范围（ 
-              <code>fromIndex &lt; 0 || toIndex &gt; size() || toIndex &lt; fromIndex</code> ） 
+<code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- if<code>fromIndex</code>or<code>toIndex</code>out of range (<code>fromIndex &lt; 0 || toIndex &gt; size() || toIndex &lt; fromIndex</code> ） 
              </dd>
 </dl> </li>
 </ul> <a id="removeAll(java.util.Collection)">
 <!-- --> </a>
 <ul class="blockList">
 <li class="blockList"> <h4>removeAll</h4> <pre class="methodSignature">public boolean removeAll​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;?&gt; c)</pre>
-<div class="block">
-              从此列表中删除指定集合中包含的所有元素。 
-            </div>
+<div class="block">Removes from this list all elements contained in the specified collection.</div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#removeAll(java.util.Collection)">removeAll</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#removeAll(java.util.Collection)">removeAll</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#removeAll(java.util.Collection)">removeAll</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#removeAll(java.util.Collection)">removeAll</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#removeAll(java.util.Collection)">removeAll</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#removeAll(java.util.Collection)">removeAll</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>c</code>- the collection containing elements to be removed from this list</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list changed as a result of the call</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/ClassCastException.html" title="class in java.lang">ClassCastException</a></code>- if the class of an element of this list is incompatible with the specified collection (<a href="Collection.html#optional-restrictions">optional</a> ） 
@@ -1345,7 +1202,7 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- if this list contains a null element and the specified collection does not permit null elements (<a href="Collection.html#optional-restrictions">optional</a>), or the specified collection is null</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <a href="Collection.html#contains(java.lang.Object)"><code>Collection.contains(Object)</code></a>
@@ -1356,43 +1213,40 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>retainAll</h4> <pre class="methodSignature">public boolean retainAll​(<a href="Collection.html" title="interface in java.util">Collection</a>&lt;?&gt; c)</pre>
 <div class="block">
-<span>仅保留此列表中包含在指定集合中的元素。</span>
-<span>换句话说，从该列表中删除未包含在指定集合中的所有元素。</span>
+<span>Retains only the elements in this list that are contained in the specified collection.</span>
+<span>In other words, remove all elements from this list that are not contained in the specified collection.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#retainAll(java.util.Collection)">retainAll</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#retainAll(java.util.Collection)">retainAll</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#retainAll(java.util.Collection)">retainAll</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#retainAll(java.util.Collection)">retainAll</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractCollection.html#retainAll(java.util.Collection)">retainAll</a></code>在课程 
-              <code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractCollection.html#retainAll(java.util.Collection)">retainAll</a></code>in the course<code><a href="AbstractCollection.html" title="class in java.util">AbstractCollection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>c</code>- the collection containing elements to be retained in this list</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>If this list changed as a result of the call</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/ClassCastException.html" title="class in java.lang">ClassCastException</a></code>- if the class of an element of this list is incompatible with the specified collection (<a href="Collection.html#optional-restrictions">optional</a> ） 
@@ -1400,7 +1254,7 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- if this list contains a null element and the specified collection does not permit null elements (<a href="Collection.html#optional-restrictions">optional</a>), or the specified collection is null</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <a href="Collection.html#contains(java.lang.Object)"><code>Collection.contains(Object)</code></a>
@@ -1411,38 +1265,36 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>listIterator</h4> <pre class="methodSignature">public <a href="ListIterator.html" title="interface in java.util">ListIterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; listIterator​(int index)</pre>
 <div class="block">
-<span>从列表中的指定位置开始，返回列表中元素的列表迭代器（按正确顺序）。</span>
-<span>指定的索引指示初始调用<a href="ListIterator.html#next()"><code>next</code></a>将返回的第一个元素。</span>
-<span>对<a href="ListIterator.html#previous()"><code>previous</code></a>的初始调用将返回指定索引减去1的元素。</span>
-<p> <span>返回的列表迭代器是<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
+<span>Returns a list iterator over the elements in this list, starting at the specified position in the list (in the correct order).</span>
+<span>The specified index indicates the initial call<a href="ListIterator.html#next()"><code>next</code></a>The first element will be returned.</span>
+<span>Pair<a href="ListIterator.html#previous()"><code>previous</code></a>The initial call will return the element at the specified index minus 1.</span>
+<p> <span>The returned list iterator is<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#listIterator(int)">listIterator</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#listIterator(int)">listIterator</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#listIterator(int)">listIterator</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#listIterator(int)">listIterator</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>index</code>- the index of the first element to be returned from the list iterator (by calling<a href="ListIterator.html#next()"><code>next</code></a> ） 
              </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>a list iterator over the elements in this list (in proper order), starting at the specified position in the list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the index is out of range (<code>index &lt; 0 || index &gt; size()</code> ） 
@@ -1453,30 +1305,28 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>listIterator</h4> <pre class="methodSignature">public <a href="ListIterator.html" title="interface in java.util">ListIterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; listIterator()</pre>
 <div class="block">
-<span>返回此列表中元素的列表迭代器（按适当顺序）。</span>
-<p> <span>返回的列表迭代器是<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
+<span>Returns a list iterator over the elements in this list (in proper sequence).</span>
+<p> <span>The returned list iterator is<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#listIterator()">listIterator</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#listIterator()">listIterator</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#listIterator()">listIterator</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#listIterator()">listIterator</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>a list iterator over the elements in this list (in proper order)</dd>
 <dt>
-<span class="seeLabel">另请参见：</span>
+<span class="seeLabel">See also:</span>
 </dt>
 <dd>
 <a href="#listIterator(int)"><code>listIterator(int)</code></a>
@@ -1487,40 +1337,36 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>iterator</h4> <pre class="methodSignature">public <a href="Iterator.html" title="interface in java.util">Iterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; iterator()</pre>
 <div class="block">
-<span>以适当的顺序返回此列表中元素的迭代器。</span>
-<p> <span>返回的迭代器是<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
+<span>Returns an iterator over the elements in this list in proper sequence.</span>
+<p> <span>The returned iterator is<a href="#fail-fast"><i>fail-fast</i></a> 。</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#iterator()">iterator</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#iterator()">iterator</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="../lang/Iterable.html#iterator()">iterator</a></code>在界面 
-              <code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="../lang/Iterable.html#iterator()">iterator</a></code>In the interface<code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#iterator()">iterator</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#iterator()">iterator</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#iterator()">iterator</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#iterator()">iterator</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>an iterator over the elements in this list in proper order</dd>
 </dl> </li>
@@ -1530,31 +1376,29 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <li class="blockList"> <h4>subList</h4> <pre class="methodSignature">public <a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; subList​(int fromIndex,
                        int toIndex)</pre>
 <div class="block">
-<span>返回指定的<code>fromIndex</code> （包含）和<code>toIndex</code> （独占）之间的此列表部分的视图。</span>
-<span>（如果<code>fromIndex</code>和<code>toIndex</code>相等，则返回的列表为空。）返回的列表由此列表支持，因此返回列表中的非结构更改将反映在此列表中，反之亦然。</span>
-<span>返回的列表支持所有可选的列表操作。</span>
-<p> <span>此方法消除了对显式范围操作的需要（对于数组通常存在的排序）。</span> <span>任何需要列表的操作都可以通过传递subList视图而不是整个列表来用作范围操作。</span> <span>例如，以下习语从列表中删除了一系列元素：</span> </p>
+<span>Returns the specified<code>fromIndex</code>(inclusive) and<code>toIndex</code>A view of the portion of this list between (exclusive).</span>
+<span>(if<code>fromIndex</code>and<code>toIndex</code>If equal, the returned list is empty.) The returned list is backed by this list, so non-structural changes in the returned list are reflected in this list, and vice versa.</span>
+<span>The returned list supports all optional list operations.</span>
+<p> <span>This method eliminates the need for explicit range operations (of the sort that commonly exist for arrays).</span> <span>Any operation that expects a list can be used as a range operation by passing a subList view instead of a whole list.</span> <span>For example, the following idiom removes a range of elements from a list:</span> </p>
 <pre>  <span>list.subList(from, to).clear();</span> </pre>
-<span>可以为<a href="#indexOf(java.lang.Object)"><code>indexOf(Object)</code></a>和<a href="#lastIndexOf(java.lang.Object)"><code>lastIndexOf(Object)</code></a>构造类似的习语，并且可以将<a href="Collections.html" title="java.util中的类"><code>Collections</code></a>类中的所有算法应用于子列表。</span>
-<p> <span>如果支持列表（即此列表）在<i>结构上</i>以除返回列表之外的任何方式进行<i>变量</i> ，则此方法返回的列表的语义将变为未定义。</span> <span>（结构修改是那些改变了这个列表的大小，或以其他方式扰乱它的方式，正在进行的迭代可能会产生不正确的结果。）</span> </p>
+<span>can be<a href="#indexOf(java.lang.Object)"><code>indexOf(Object)</code></a>and<a href="#lastIndexOf(java.lang.Object)"><code>lastIndexOf(Object)</code></a>Constructs a similar idiom, and can<a href="Collections.html" title="java.util中的类"><code>Collections</code></a>All algorithms in the class apply to sublists.</span>
+<p> <span>If the backing list (i.e., this list) is in<i>structurally</i>in any way other than through the returned list<i>Variable</i>then the semantics of the list returned by this method become undefined.</span> <span>(Structural modifications are those that change the size of this list, or otherwise disturb it in ways that an ongoing iteration may produce incorrect results.)</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#subList(int,int)">subList</a></code> ，界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#subList(int,int)">subList</a></code>, interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="overrideSpecifyLabel">重写：</span>
+<span class="overrideSpecifyLabel">Override:</span>
 </dt>
 <dd>
-<code><a href="AbstractList.html#subList(int,int)">subList</a></code>在课程 
-              <code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="AbstractList.html#subList(int,int)">subList</a></code>in the course<code><a href="AbstractList.html" title="class in java.util">AbstractList</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>fromIndex</code> - 
@@ -1563,11 +1407,11 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <code>toIndex</code> - 
               <code>toIndex</code>The high endpoint (exclusive)</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>A view of the specified range within this list</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/IndexOutOfBoundsException.html" title="class in java.lang">IndexOutOfBoundsException</a></code>- If the endpoint index values are out of range<code>(fromIndex &lt; 0 || toIndex &gt; size)</code>
@@ -1581,29 +1425,28 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>forEach</h4> <pre class="methodSignature">public void forEach​(<a href="function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;? super <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; action)</pre>
 <div class="block">
-<span class="descfrmTypeLabel">从界面复制的说明： <code><a href="../lang/Iterable.html#forEach(java.util.function.Consumer)">Iterable</a></code></span>
+<span class="descfrmTypeLabel">Instructions copied from the interface:<code><a href="../lang/Iterable.html#forEach(java.util.function.Consumer)">Iterable</a></code></span>
 </div>
 <div class="block">
-<span>对<code>Iterable</code>每个元素执行给定操作，直到处理<code>Iterable</code>所有元素或操作引发异常。</span>
-<span>如果指定了该顺序，则按迭代顺序执行操作。</span>
-<span>操作抛出的异常将转发给调用者。</span>
-<p> <span>如果操作执行修改元素的基础源的副作用，则此方法的行为未指定，除非重写类已指定并发修改策略。</span> </p>
+<span>Pair<code>Iterable</code>Performs the given operation on each element until processed.<code>Iterable</code>All elements or operations throw an exception.</span>
+<span>If the order is specified, the operations are performed in iteration order.</span>
+<span>Exceptions thrown by the operation are forwarded to the caller.</span>
+<p> <span>The behavior of this method is unspecified if the operation performs side effects that modify the underlying source of elements, unless the overriding class has specified a concurrent modification policy.</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="../lang/Iterable.html#forEach(java.util.function.Consumer)">forEach</a></code>在界面 
-              <code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="../lang/Iterable.html#forEach(java.util.function.Consumer)">forEach</a></code>In the interface<code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
 <code>action</code>- The operation to be performed for each element</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- If the specified operation is null</dd>
@@ -1613,38 +1456,35 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockList">
 <li class="blockList"> <h4>spliterator</h4> <pre class="methodSignature">public <a href="Spliterator.html" title="interface in java.util">Spliterator</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; spliterator()</pre>
 <div class="block">
-<span>在此列表中的元素上创建<em><a href="Spliterator.html#binding">late-binding</a></em>和<em>故障快速</em> <a href="Spliterator.html" title="java.util中的接口"><code>Spliterator</code></a> 。</span>
-<p> <span>该<code>Spliterator</code>报告<a href="Spliterator.html#SIZED"><code>Spliterator.SIZED</code></a> ， <a href="Spliterator.html#SUBSIZED"><code>Spliterator.SUBSIZED</code></a>和<a href="Spliterator.html#ORDERED"><code>Spliterator.ORDERED</code></a> 。</span> <span>覆盖实现应记录其他特征值的报告。</span> </p>
+<span>Created over the elements in this list<em><a href="Spliterator.html#binding">late-binding</a></em>and<em>Fail-fast</em> <a href="Spliterator.html" title="java.util中的接口"><code>Spliterator</code></a> 。</span>
+<p> <span>that<code>Spliterator</code>Report<a href="Spliterator.html#SIZED"><code>Spliterator.SIZED</code></a> ， <a href="Spliterator.html#SUBSIZED"><code>Spliterator.SUBSIZED</code></a>and<a href="Spliterator.html#ORDERED"><code>Spliterator.ORDERED</code></a> 。</span> <span>Overriding implementations should record reports of other characteristic values.</span> </p>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#spliterator()">spliterator</a></code>在界面 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#spliterator()">spliterator</a></code>In the interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="../lang/Iterable.html#spliterator()">spliterator</a></code>在界面 
-              <code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="../lang/Iterable.html#spliterator()">spliterator</a></code>In the interface<code><a href="../lang/Iterable.html" title="interface in java.lang">Iterable</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="List.html#spliterator()">spliterator</a></code>在界面 
-              <code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="List.html#spliterator()">spliterator</a></code>In the interface<code><a href="List.html" title="interface in java.util">List</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>Performed on the elements in this list<code>Spliterator</code>
 </dd>
 <dt>
-<span class="simpleTagLabel">从以下版本开始：</span>
+<span class="simpleTagLabel">Starting from the following version:</span>
 </dt>
 <dd>
                1.8 
@@ -1655,33 +1495,31 @@ implements <a href="List.html" title="interface in java.util">List</a>&lt;E&gt;,
 <ul class="blockListLast">
 <li class="blockList"> <h4>removeIf</h4> <pre class="methodSignature">public boolean removeIf​(<a href="function/Predicate.html" title="interface in java.util.function">Predicate</a>&lt;? super <a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt; filter)</pre>
 <div class="block">
-<span class="descfrmTypeLabel">从界面复制的说明： <code><a href="Collection.html#removeIf(java.util.function.Predicate)">Collection</a></code></span>
+<span class="descfrmTypeLabel">Instructions copied from the interface:<code><a href="Collection.html#removeIf(java.util.function.Predicate)">Collection</a></code></span>
 </div>
 <div class="block">
-<span>删除此集合中满足给定谓词的所有元素。</span>
-<span>在迭代期间或通过谓词抛出的错误或运行时异常被中继到调用者。</span>
+<span>Removes all elements in this collection that satisfy the given predicate.</span>
+<span>Errors or runtime exceptions thrown during iteration or by a predicate are relayed to the caller.</span>
 </div>
 <dl>
 <dt>
 <span class="overrideSpecifyLabel">Specified by:</span>
 </dt>
 <dd>
-<code><a href="Collection.html#removeIf(java.util.function.Predicate)">removeIf</a></code> ，接口 
-              <code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
+<code><a href="Collection.html#removeIf(java.util.function.Predicate)">removeIf</a></code>, interface<code><a href="Collection.html" title="interface in java.util">Collection</a>&lt;<a href="ArrayList.html" title="type parameter in ArrayList">E</a>&gt;</code>
 </dd>
 <dt>
-<span class="paramLabel">参数</span>
+<span class="paramLabel">Parameter</span>
 </dt>
 <dd>
-<code>filter</code>- Returns true for elements to be removed<code>true</code>的谓词 
-             </dd>
+<code>filter</code>- Returns true for elements to be removed<code>true</code>predicate of</dd>
 <dt>
-<span class="returnLabel">结果</span>
+<span class="returnLabel">Result</span>
 </dt>
 <dd>
 <code>true</code>Whether any elements were removed</dd>
 <dt>
-<span class="throwsLabel">异常</span>
+<span class="throwsLabel">Exception</span>
 </dt>
 <dd>
 <code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code>- if the specified filter is null</dd>

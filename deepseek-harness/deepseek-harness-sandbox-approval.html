@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控 | 菜鸟教程</title>
+<title>DeepSeek Harness Sandbox and Approval: Making Agent Dangerous Actions Controllable | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 沙箱与审批：让 Agent 危险动作可控   上一章节讲了工具执行流水线，其中两个环节最让人关心：沙箱怎么约束命令，审批怎么决定「能不能做」。 本章节将深入 ctx.sandbox 与 ctx.approval 两个服务，讲清它们各自的分工与故障关闭原则。   一句话：沙箱管「命令跑在什么边界里」，审批管「这个具体操作是否被允许」，两者都默认失败关闭。     先看整体：沙箱决策 + 审批流程 下面的图.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,14 +158,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-tool-pipeline.html" rel="prev">DeepSeek Harness 工具执行流水线与权限门禁</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="next">DeepSeek Harness 会话日志与轮次生命周期</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-tool-pipeline.html" rel="prev">DeepSeek Harness Tool Execution Pipeline and Permission Gate</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="next">DeepSeek Harness Session Logs and Turn Lifecycle</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>DeepSeek Harness Sandbox and Approval: Making Agent Dangerous Actions Controllable</h1>
 <p>The previous chapter covered the tool execution pipeline, with two stages of greatest concern: how the sandbox constrains commands, and how approval decides "whether it can be done."</p>
-<p>This section will delve into<span class="marked">ctx.sandbox</span> 与 <span class="marked">ctx.approval</span>Two services—clarify their respective responsibilities and fail-closed principles.</p>
+<p>This section will delve into<span class="marked">ctx.sandbox</span>and<span class="marked">ctx.approval</span>Two services—clarify their respective responsibilities and fail-closed principles.</p>
 <blockquote>
 <p>In one sentence: the sandbox governs "what boundary the command runs within," and approval governs "whether this specific operation is permitted"; both fail closed by default.</p>
 </blockquote>
@@ -177,9 +177,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The sandbox fences in "which files the process can touch," and approval delegates "whether to allow this operation" to the responder's decision.</p>
 <hr/>
 <h2>ctx.sandbox: wrap argv according to policy</h2>
-<p>The process sandbox model is: the consumer hands over<span class="marked">确切的 argv</span>, the backend wraps it according to the file-effects policy.</p>
+<p>The process sandbox model is: the consumer hands over<span class="marked">Exact argv</span>, the backend wraps it according to the file-effects policy.</p>
 <p>The key point is the "exact argv" rather than a shell string—a shell-shaped consumer needs to pass<code>['bash', '-c', command]</code>。</p>
-<p><code>ctx.sandbox.confine(argv, policy)</code>返回一个<span class="marked">ConfinedArgv</span>, i.e., "the substituted argv plus the backend's enforcement facts."</p>
+<p><code>ctx.sandbox.confine(argv, policy)</code>returns a<span class="marked">ConfinedArgv</span>, i.e., "the substituted argv plus the backend's enforcement facts."</p>
 <blockquote>
 <p><strong>SandboxMode</strong>(Sandbox mode) only governs file-system effects; it does not cover network or process visibility.</p>
 <p><strong>read-only</strong>: only allows the necessary data receivers (e.g.<code>/dev/null</code>), deny write.</p>
@@ -197,28 +197,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Policy resolution has a well-defined fallback order; the official docs summarize it as three layers:</p>
 <table class="reference">
 <thead>
-<tr><th>优先级</th><th>来源</th><th>说明</th></tr>
+<tr><th>Precedence</th><th>Source</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>最高</td><td>Approved explicit mode</td><td>The one passed in during a one-time privilege-escalation retry<code>mode</code>, outweighing session policies</td></tr>
-<tr><td>其次</td><td>The last session<code>sandbox/mode</code>事件</td><td>Persisted with session logs, replayable for reconstruction</td></tr>
-<tr><td>回退</td><td>Deployment default mode</td><td>Agent-less calls and sessions without a cwd use the configured root directory</td></tr>
+<tr><td>Highest</td><td>Approved explicit mode</td><td>The one passed in during a one-time privilege-escalation retry<code>mode</code>, outweighing session policies</td></tr>
+<tr><td>Secondly</td><td>The last session<code>sandbox/mode</code>Events</td><td>Persisted with session logs, replayable for reconstruction</td></tr>
+<tr><td>Fallback</td><td>Deployment default mode</td><td>Agent-less calls and sessions without a cwd use the configured root directory</td></tr>
 </tbody>
 </table>
 <p>Ordinary tool invocations derive from the calling session's immutable cwd<code>workspaceRoot</code>。</p>
 <p>root first normalizes by file-system semantics, then by lexical rules, so it includes<code>symlink/..</code>'s cwd indicates the directory in which the process actually runs.</p>
 <blockquote>
-<p>Fail closed: when no backend is available,<code>ctx.sandbox.confine</code>会抛出<code>SandboxUnavailableError</code>，错误码<code>SANDBOX_UNAVAILABLE</code>。</p>
+<p>Fail closed: when no backend is available,<code>ctx.sandbox.confine</code>will throw<code>SandboxUnavailableError</code>, error code<code>SANDBOX_UNAVAILABLE</code>。</p>
 <p>Under a restricted policy, silent unisolated pass-through is never legal.</p>
 </blockquote>
 <hr/>
 <h2>Hands-on example: run a bash under restricted mode</h2>
 <p>Let's wire up the call path for "sandboxed bash" in code.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：my-plugins/sandbox-demo/src/index.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 演示沙箱化消费方：先解析策略，再让 ctx.sandbox 包装 argv。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: my-plugins/sandbox-demo/src/index.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Demonstrate sandboxed consumer: first parse the policy, then let ctx.sandbox wrap argv.</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> defineTool <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-tools'</span><br/>
 <br/>
@@ -234,23 +234,23 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     output<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> schema<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'string'</span> <span style="color: #009900;">}</span> <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     async execute<span style="color: #009900;">(</span>args<span style="color: #339933;">,</span> exec<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 1. 解析本次调用的完整策略：会话 cwd 就是工作区边界。</span><br/>
+      <span style="color: #006600; font-style: italic;">// 1. Parse the full policy for this invocation: session cwd is the workspace boundary.</span><br/>
       <span style="color: #000066; font-weight: bold;">const</span> policy <span style="color: #339933;">=</span> ctx.<span style="color: #660066;">sandboxPolicy</span>.<span style="color: #660066;">resolve</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> session<span style="color: #339933;">:</span> exec.<span style="color: #660066;">agent</span><span style="color: #339933;">?</span>.<span style="color: #660066;">session</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
-      <span style="color: #006600; font-style: italic;">// 2. 消费方交出确切 argv（程序加参数），不是 shell 字符串。</span><br/>
+      <span style="color: #006600; font-style: italic;">// 2. The consumer hands over the exact argv (program plus arguments), not a shell string.</span><br/>
       <span style="color: #000066; font-weight: bold;">const</span> argv <span style="color: #339933;">=</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'bash'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'-c'</span><span style="color: #339933;">,</span> `echo $<span style="color: #009900;">{</span>JSON.<span style="color: #660066;">stringify</span><span style="color: #009900;">(</span>args.<span style="color: #660066;">text</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span>`<span style="color: #009900;">]</span><br/>
 <br/>
-      <span style="color: #006600; font-style: italic;">// 3. danger-full-access 直接 spawn；其余交给沙箱包装。</span><br/>
+      <span style="color: #006600; font-style: italic;">// 3. danger-full-access is spawned directly; the rest are wrapped by the sandbox.</span><br/>
       <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>policy.<span style="color: #660066;">mode</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'danger-full-access'</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> spawn <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> await <span style="color: #FF0000;">import</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'node:child_process'</span><span style="color: #009900;">)</span><br/>
-        <span style="color: #006600; font-style: italic;">// ... spawn(argv) 并收集输出</span><br/>
-        <span style="color: #000066; font-weight: bold;">return</span> `echo $<span style="color: #009900;">{</span>args.<span style="color: #660066;">text</span><span style="color: #009900;">}</span>` <span style="color: #006600; font-style: italic;">// 演示：正常返回</span><br/>
+        <span style="color: #006600; font-style: italic;">// ... spawn(argv) and collect output</span><br/>
+        <span style="color: #000066; font-weight: bold;">return</span> `echo $<span style="color: #009900;">{</span>args.<span style="color: #660066;">text</span><span style="color: #009900;">}</span>` <span style="color: #006600; font-style: italic;">// Demo: Normal return</span><br/>
       <span style="color: #009900;">}</span><br/>
 <br/>
-      <span style="color: #006600; font-style: italic;">// 4. 受限模式：confine 返回替换后的 argv，无后端则抛 SANDBOX_UNAVAILABLE。</span><br/>
+      <span style="color: #006600; font-style: italic;">// 4. Restricted mode: confine returns the replaced argv, and throws SANDBOX_UNAVAILABLE if there is no backend.</span><br/>
       <span style="color: #000066; font-weight: bold;">const</span> confined <span style="color: #339933;">=</span> ctx.<span style="color: #660066;">sandbox</span>.<span style="color: #660066;">confine</span><span style="color: #009900;">(</span>argv<span style="color: #339933;">,</span> <span style="color: #009900;">{</span> mode<span style="color: #339933;">:</span> policy.<span style="color: #660066;">mode</span><span style="color: #339933;">,</span> workspaceRoot<span style="color: #339933;">:</span> policy.<span style="color: #660066;">workspaceRoot</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
-      <span style="color: #006600; font-style: italic;">// 5. 消费方再 spawn confined.argv，并按 confined.enforcement 决定是否要求 full。</span><br/>
+      <span style="color: #006600; font-style: italic;">// 5. eliminate费方再 spawn confined.argv, andpress confined.enforcement determinewhetherRequirement full。</span><br/>
       <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>confined.<span style="color: #660066;">enforcement</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'partial'</span> <span style="color: #339933;">&amp;&amp;</span> policy.<span style="color: #660066;">mode</span> <span style="color: #339933;">!==</span> <span style="color: #3366CC;">'read-only'</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">{</span> isError<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span> error<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> message<span style="color: #339933;">:</span> <span style="color: #3366CC;">'partial enforcement is not acceptable for runoob demo'</span> <span style="color: #009900;">}</span> <span style="color: #009900;">}</span><br/>
       <span style="color: #009900;">}</span><br/>
@@ -271,49 +271,49 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Consumers should report runner failures as sandbox infrastructure failures first, rather than ordinary task failures.</p>
 <hr/>
 <h2>ctx.approval: one-shot permission decision</h2>
-<p>The approval service answers a very narrow question:<span class="marked">这个具体操作是否可以继续？</span></p>
-<p>它通过<code>approval/request</code>waterfall distributes questions to the answerer.</p>
+<p>The approval service answers a very narrow question:<span class="marked">Can this specific operation proceed?</span></p>
+<p>It passes through<code>approval/request</code>waterfall distributes questions to the answerer.</p>
 <p>The responder returns the result when handling the request, otherwise calls<code>next()</code>Delegation; the first responder occupies the sole decision slot.</p>
-<p>结果类型<span class="marked">ApprovalOutcome</span>是闭合的：</p>
+<p>Result type<span class="marked">ApprovalOutcome</span>is closed:</p>
 <table class="reference">
 <thead>
-<tr><th>结果</th><th>含义</th><th>The caller's behavior</th></tr>
+<tr><th>Result</th><th>Meaning</th><th>The caller's behavior</th></tr>
 </thead>
 <tbody>
-<tr><td><code>allowed-once</code></td><td>一次性放行</td><td>The only release result, authorizing only the one operation that was asked about</td></tr>
-<tr><td><code>rejected</code></td><td>明确拒绝</td><td>拒绝</td></tr>
-<tr><td><code>cancelled</code></td><td>Request is withdrawn (e.g., signal abort)</td><td>拒绝</td></tr>
+<tr><td><code>allowed-once</code></td><td>One-time pass</td><td>The only release result, authorizing only the one operation that was asked about</td></tr>
+<tr><td><code>rejected</code></td><td>Explicitly reject</td><td>Reject</td></tr>
+<tr><td><code>cancelled</code></td><td>Request is withdrawn (e.g., signal abort)</td><td>Reject</td></tr>
 <tr><td><code>unavailable</code></td><td>No responder, the responder throws an exception, or the return value is noncompliant</td><td>Fail closed, reject everything</td></tr>
 </tbody>
 </table>
 <p>Key security property: a missing responder, one that does not handle the request, throws, or is noncompliant all produce<code>unavailable</code>, rather than allowing it.</p>
-<p>调用方对<code>rejected</code>、<code>cancelled</code> 和 <code>unavailable</code>Always enforce denial.</p>
+<p>For the caller<code>rejected</code>、<code>cancelled</code>and<code>unavailable</code>Always enforce denial.</p>
 <hr/>
 <h2>Per-session approval policies: ask and never</h2>
 <p><span class="marked">ApprovalPolicy</span>Determines what happens before the interactive responder runs.</p>
 <table class="reference">
 <thead>
-<tr><th>策略</th><th>行为</th><th>典型场景</th></tr>
+<tr><th>Policy</th><th>Behavior</th><th>Typical scenarios</th></tr>
 </thead>
 <tbody>
-<tr><td><code>ask</code>（默认）</td><td>Delegate to the composed responder chain; when no responder exists, fall back to<code>unavailable</code></td><td>Interactive UI, requiring human decisions</td></tr>
-<tr><td><code>never</code></td><td>确定性返回<code>rejected</code>, does not dispatch any responders</td><td>CI, strict headless posture for unattended runs</td></tr>
+<tr><td><code>ask</code>(Default)</td><td>Delegate to the composed responder chain; when no responder exists, fall back to<code>unavailable</code></td><td>Interactive UI, requiring human decisions</td></tr>
+<tr><td><code>never</code></td><td>Deterministic return<code>rejected</code>, does not dispatch any responders</td><td>CI, strict headless posture for unattended runs</td></tr>
 </tbody>
 </table>
 <p>The effective value is the last entry in the session log<code>approval/policy</code>event, falling back to service configuration.</p>
 <p><code>setApprovalPolicy(session, policy)</code>is the only write path, so replay can reconstruct override values.</p>
 <p><code>never</code>enforced inside the service, before waterfall dispatch, so even if later using<code>prepend</code>Registered responders cannot bypass it either.</p>
 <blockquote>
-<p>The difference between audit and model visibility: the approval audit events pair (<code>approval/asked</code> 与 <code>approval/decided</code>) only write logs; they do not enter the model transcript.</p>
+<p>The difference between audit and model visibility: the approval audit events pair (<code>approval/asked</code>and<code>approval/decided</code>) only write logs; they do not enter the model transcript.</p>
 <p>The model-visible behavior is the tool results derived by the caller and a snapshot of the current runtime context.</p>
 </blockquote>
 <hr/>
 <h2>Permission presets: two knobs bundled into named presets</h2>
-<p>沙箱模式（<code>sandbox/mode</code>) and approval policies (<code>approval/policy</code>) are two mutually independent knobs.</p>
-<p>权限预设层<span class="marked">ctx.permissionPresets</span>Bundle them into named presets, for clients to expose as a single "permission" selector.</p>
+<p>Sandbox mode (<code>sandbox/mode</code>) and approval policies (<code>approval/policy</code>) are two mutually independent knobs.</p>
+<p>Permission preset layer<span class="marked">ctx.permissionPresets</span>Bundle them into named presets, for clients to expose as a single "permission" selector.</p>
 <table class="reference">
 <thead>
-<tr><th>预设</th><th>沙箱模式</th><th>审批策略</th><th>含义</th></tr>
+<tr><th>Preset</th><th>Sandbox mode</th><th>Approval policies</th><th>Meaning</th></tr>
 </thead>
 <tbody>
 <tr><td><code>workspace-write</code></td><td>workspace-write</td><td>ask</td><td>Writable workspace, ask the user for sensitive operations</td></tr>
@@ -322,41 +322,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>The preset table is configuration-driven; the default table ships with the above two; the name<code>custom</code>is reserved for "derived non-preset state."</p>
 <p><code>current(events)</code>Fold the actually-effective preset from the two knobs, rather than only looking at the preset's own events.</p>
-<p>When two presets share the same knob combination,<code>permission/preset</code>事件让<code>current()</code>it can still preserve which one the user actually selected.</p>
+<p>When two presets share the same knob combination,<code>permission/preset</code>Events make<code>current()</code>it can still preserve which one the user actually selected.</p>
 <blockquote>
 <p>Important: a permission preset only describes the capabilities it actually governs.</p>
 <p>Official incident review 0002 warned: filesystem access at composition time cannot safely follow the runtime bash-only preset.</p>
 <p>In the runoob production environment,<code>danger-full-access</code>should only be configured for one-shot, disposable sandbox environments.</p>
 </blockquote>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>Sandbox and approval separate "capability boundaries" from "decision authorization": the sandbox wraps argv with a file-effects policy, and approval uses a waterfall of responders to grant one-shot clearance.</p>
-<p>自测题：</p>
+<p>Self-test questions:</p>
 <table class="reference">
 <thead>
-<tr><th>问题</th><th>参考</th></tr>
+<tr><th>Problem</th><th>Reference</th></tr>
 </thead>
 <tbody>
-<tr><td>消费方想跑<code>danger-full-access</code>mode, will it call ctx.sandbox?</td><td>No—it directly spawns the raw argv, without entering the sandbox</td></tr>
+<tr><td>The consumer wants to run<code>danger-full-access</code>mode, will it call ctx.sandbox?</td><td>No—it directly spawns the raw argv, without entering the sandbox</td></tr>
 <tr><td>The approval chain has no responders—what is the result?</td><td><code>unavailable</code>, fail closed, the caller rejects.</td></tr>
 <tr><td>In CI, if you want "never prompt and deterministically reject all approvals," which policy should you use?</td><td><code>approval/policy: never</code></td></tr>
 </tbody>
-</table>
-其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-tool-pipeline.html" rel="prev">DeepSeek Harness 工具执行流水线与权限门禁</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="next">DeepSeek Harness 会话日志与轮次生命周期</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-tool-pipeline.html" rel="prev">DeepSeek Harness Tool Execution Pipeline and Permission Gate</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="next">DeepSeek Harness Session Logs and Turn Lifecycle</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -460,16 +455,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -477,14 +472,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31989"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -662,7 +657,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -753,7 +748,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

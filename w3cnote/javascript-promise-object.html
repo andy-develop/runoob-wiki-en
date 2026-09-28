@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JavaScript Promise 对象 | 菜鸟教程</title>
+<title>JavaScript Promise Object | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,16 +31,16 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -51,7 +51,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="ECMAscript 6  原生提供了 Promise 对象。 Promise 对象代表了未来将要发生的事件，用来传递异步操作的消息。 Promise 对象有以下两个特点: 1、对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：  pending: 初始状态，不是成功或失败状态。 fulfilled: 意味着操作成功完成。 rejected: 意味着操作失败。  只有异步操作的结果，可以决定当前是哪一种状态，任何.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -69,14 +69,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-</div><!-- 导航栏 -->
-<!--  内容  -->
+</div>navigation bar
+content
 <div class="container main">
 <div class="row">
 <div class="col middle-column big-middle-column">
 <div class="article">
 <div class="article-heading">
-<h2>JavaScript Promise 对象</h2> <h3><em>分类</em> <a href="../w3cnote_genre/code.html" title="编程技术">编程技术</a> </h3>
+<h2>JavaScript Promise Object</h2> <h3><em>Category</em> <a href="../w3cnote_genre/code.html" title="编程技术">Programming Technology</a> </h3>
 </div>
 <div class="article-body note-body">
 <div class="article-intro">
@@ -92,36 +92,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Pros and Cons of Promise</h3>
 <p>With Promise objects, asynchronous operations can be expressed in the flow of synchronous operations, avoiding deeply nested callback functions. In addition, Promise objects provide a unified interface, making it easier to control asynchronous operations.</p>
 <p>Promise also has some disadvantages. First, a Promise cannot be cancelled. Once created, it executes immediately and cannot be cancelled midway. Second, if no callback function is set, errors thrown inside the Promise will not be reflected externally. Third, when in the Pending state, there is no way to know which stage the current progress is at (just started or about to complete).</p>
-<h3>Promise 创建</h3>
+<h3>Promise creation</h3>
 <p>To create a promise object, you can use new to call the Promise constructor to instantiate it.</p>
 <p>Below are the steps for creating a promise:</p>
 <div class="example">
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">promise</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Promise</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">resolve</span><span class="hl-code">, </span><span class="hl-identifier">reject</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">异步处理</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">处理结束后、调用resolve 或 reject</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Asynchronous Processing</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">After processing ends, call resolve or reject</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
 <p>The Promise constructor contains one parameter and a callback with two parameters: resolve (resolution) and reject (rejection). Perform some operation (for example, asynchronous) in the callback. If everything is normal, call resolve; otherwise, call reject.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myFirstPromise</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Promise</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">resolve</span><span class="hl-code">, </span><span class="hl-identifier">reject</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">当异步代码执行成功时，我们才会调用resolve(...), 当异步代码失败时就会调用reject(...)</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">在本例中，我们使用setTimeout(...)来模拟异步代码，实际编码时可能是XHR请求或是HTML5的一些API方法.</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">When the asynchronous code executes successfully, we call resolve(...); when it fails, we call reject(...).</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">In this example, we use setTimeout(...) to simulate asynchronous code; in actual coding, it might be XHR requests or some HTML5 API methods.</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">setTimeout</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-identifier">resolve</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">成功!</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment">代码正常执行！</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">resolve</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Success!</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment">Code executed normally!</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-number">250</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-identifier">myFirstPromise</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">successMessage</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">successMessage的值是上面调用resolve(...)方法传入的值.</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">successMessage参数不一定非要是字符串类型，这里只是举个例子</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">The value of successMessage is the value passed to the resolve(...) method call above.</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">The successMessage parameter does not necessarily have to be a string type; this is just an example.</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Yay! </span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">successMessage</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div><br/>
-<a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Rmlyc3RQcm9taXNlID0gbmV3IFByb21pc2UoZnVuY3Rpb24ocmVzb2x2ZSwgcmVqZWN0KXsKICAgIC8v5b2T5byC5q2l5Luj56CB5omn6KGM5oiQ5Yqf5pe277yM5oiR5Lus5omN5Lya6LCD55SocmVzb2x2ZSguLi4pLCDlvZPlvILmraXku6PnoIHlpLHotKXml7blsLHkvJrosIPnlKhyZWplY3QoLi4uKQogICAgLy/lnKjmnKzkvovkuK3vvIzmiJHku6zkvb/nlKhzZXRUaW1lb3V0KC4uLinmnaXmqKHmi5/lvILmraXku6PnoIHvvIzlrp7pmYXnvJbnoIHml7blj6/og73mmK9YSFLor7fmsYLmiJbmmK9IVE1MNeeahOS4gOS6m0FQSeaWueazlS4KICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKXsKICAgICAgICByZXNvbHZlKCLmiJDlip8hIik7IC8v5Luj56CB5q2j5bi45omn6KGM77yBCiAgICB9LCAyNTApOwp9KTsKIApteUZpcnN0UHJvbWlzZS50aGVuKGZ1bmN0aW9uKHN1Y2Nlc3NNZXNzYWdlKXsKICAgIC8vc3VjY2Vzc01lc3NhZ2XnmoTlgLzmmK/kuIrpnaLosIPnlKhyZXNvbHZlKC4uLinmlrnms5XkvKDlhaXnmoTlgLwuCiAgICAvL3N1Y2Nlc3NNZXNzYWdl5Y+C5pWw5LiN5LiA5a6a6Z2e6KaB5piv5a2X56ym5Liy57G75Z6L77yM6L+Z6YeM5Y+q5piv5Li+5Liq5L6L5a2QCiAgICBkb2N1bWVudC53cml0ZSgiWWF5ISAiICsgc3VjY2Vzc01lc3NhZ2UpOwp9KTs=');localStorage.setItem('tryit_lang','html');">尝试一下 »</a>
+<a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Rmlyc3RQcm9taXNlID0gbmV3IFByb21pc2UoZnVuY3Rpb24ocmVzb2x2ZSwgcmVqZWN0KXsKICAgIC8v5b2T5byC5q2l5Luj56CB5omn6KGM5oiQ5Yqf5pe277yM5oiR5Lus5omN5Lya6LCD55SocmVzb2x2ZSguLi4pLCDlvZPlvILmraXku6PnoIHlpLHotKXml7blsLHkvJrosIPnlKhyZWplY3QoLi4uKQogICAgLy/lnKjmnKzkvovkuK3vvIzmiJHku6zkvb/nlKhzZXRUaW1lb3V0KC4uLinmnaXmqKHmi5/lvILmraXku6PnoIHvvIzlrp7pmYXnvJbnoIHml7blj6/og73mmK9YSFLor7fmsYLmiJbmmK9IVE1MNeeahOS4gOS6m0FQSeaWueazlS4KICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKXsKICAgICAgICByZXNvbHZlKCLmiJDlip8hIik7IC8v5Luj56CB5q2j5bi45omn6KGM77yBCiAgICB9LCAyNTApOwp9KTsKIApteUZpcnN0UHJvbWlzZS50aGVuKGZ1bmN0aW9uKHN1Y2Nlc3NNZXNzYWdlKXsKICAgIC8vc3VjY2Vzc01lc3NhZ2XnmoTlgLzmmK/kuIrpnaLosIPnlKhyZXNvbHZlKC4uLinmlrnms5XkvKDlhaXnmoTlgLwuCiAgICAvL3N1Y2Nlc3NNZXNzYWdl5Y+C5pWw5LiN5LiA5a6a6Z2e6KaB5piv5a2X56ym5Liy57G75Z6L77yM6L+Z6YeM5Y+q5piv5Li+5Liq5L6L5a2QCiAgICBkb2N1bWVudC53cml0ZSgiWWF5ISAiICsgc3VjY2Vzc01lc3NhZ2UpOwp9KTs=');localStorage.setItem('tryit_lang','html');">Try it Yourself »</a>
 </div>
 <p>For an already instantiated promise object, you can call the promise.then() method, passing resolve and reject methods as callbacks.</p>
 <p>promise.then() is the most commonly used method of promise.</p>
@@ -136,7 +136,7 @@ promise.then(onFulfilled).catch(onRejected)
 <h2>Promise Ajax</h2>
 <p>Below is an example of an Ajax operation implemented with a Promise object.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">ajax</span><span class="hl-brackets">(</span><span class="hl-identifier">URL</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Promise</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">resolve</span><span class="hl-code">, </span><span class="hl-identifier">reject</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -157,12 +157,12 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">URL</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/testpromise.php</span><span class="hl-quotes">"</span><span class="hl-code">; 
 </span><span class="hl-identifier">ajax</span><span class="hl-brackets">(</span><span class="hl-identifier">URL</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">onFulfilled</span><span class="hl-brackets">(</span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">内容是：</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">; 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Content:</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">; 
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-reserved">catch</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">onRejected</span><span class="hl-brackets">(</span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">错误：</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code">; 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Error:</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code">; 
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div><br/>
-<a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','ZnVuY3Rpb24gYWpheChVUkwpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZShmdW5jdGlvbiAocmVzb2x2ZSwgcmVqZWN0KSB7CiAgICAgICAgdmFyIHJlcSA9IG5ldyBYTUxIdHRwUmVxdWVzdCgpOyAKICAgICAgICByZXEub3BlbignR0VUJywgVVJMLCB0cnVlKTsKICAgICAgICByZXEub25sb2FkID0gZnVuY3Rpb24gKCkgewogICAgICAgIGlmIChyZXEuc3RhdHVzID09PSAyMDApIHsgCiAgICAgICAgICAgICAgICByZXNvbHZlKHJlcS5yZXNwb25zZVRleHQpOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgcmVqZWN0KG5ldyBFcnJvcihyZXEuc3RhdHVzVGV4dCkpOwogICAgICAgICAgICB9IAogICAgICAgIH07CiAgICAgICAgcmVxLm9uZXJyb3IgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgICAgIHJlamVjdChuZXcgRXJyb3IocmVxLnN0YXR1c1RleHQpKTsKICAgICAgICB9OwogICAgICAgIHJlcS5zZW5kKCk7IAogICAgfSk7Cn0KdmFyIFVSTCA9ICIvdHJ5L2FqYXgvdGVzdHByb21pc2UucGhwIjsgCmFqYXgoVVJMKS50aGVuKGZ1bmN0aW9uIG9uRnVsZmlsbGVkKHZhbHVlKXsKICAgIGRvY3VtZW50LndyaXRlKCflhoXlrrnmmK/vvJonICsgdmFsdWUpOyAKfSkuY2F0Y2goZnVuY3Rpb24gb25SZWplY3RlZChlcnJvcil7CiAgICBkb2N1bWVudC53cml0ZSgn6ZSZ6K+v77yaJyArIGVycm9yKTsgCn0pOw==');localStorage.setItem('tryit_lang','html');">尝试一下 »</a>
+<a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','ZnVuY3Rpb24gYWpheChVUkwpIHsKICAgIHJldHVybiBuZXcgUHJvbWlzZShmdW5jdGlvbiAocmVzb2x2ZSwgcmVqZWN0KSB7CiAgICAgICAgdmFyIHJlcSA9IG5ldyBYTUxIdHRwUmVxdWVzdCgpOyAKICAgICAgICByZXEub3BlbignR0VUJywgVVJMLCB0cnVlKTsKICAgICAgICByZXEub25sb2FkID0gZnVuY3Rpb24gKCkgewogICAgICAgIGlmIChyZXEuc3RhdHVzID09PSAyMDApIHsgCiAgICAgICAgICAgICAgICByZXNvbHZlKHJlcS5yZXNwb25zZVRleHQpOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgcmVqZWN0KG5ldyBFcnJvcihyZXEuc3RhdHVzVGV4dCkpOwogICAgICAgICAgICB9IAogICAgICAgIH07CiAgICAgICAgcmVxLm9uZXJyb3IgPSBmdW5jdGlvbiAoKSB7CiAgICAgICAgICAgIHJlamVjdChuZXcgRXJyb3IocmVxLnN0YXR1c1RleHQpKTsKICAgICAgICB9OwogICAgICAgIHJlcS5zZW5kKCk7IAogICAgfSk7Cn0KdmFyIFVSTCA9ICIvdHJ5L2FqYXgvdGVzdHByb21pc2UucGhwIjsgCmFqYXgoVVJMKS50aGVuKGZ1bmN0aW9uIG9uRnVsZmlsbGVkKHZhbHVlKXsKICAgIGRvY3VtZW50LndyaXRlKCflhoXlrrnmmK/vvJonICsgdmFsdWUpOyAKfSkuY2F0Y2goZnVuY3Rpb24gb25SZWplY3RlZChlcnJvcil7CiAgICBkb2N1bWVudC53cml0ZSgn6ZSZ6K+v77yaJyArIGVycm9yKTsgCn0pOw==');localStorage.setItem('tryit_lang','html');">Try it Yourself »</a>
 </div>
 <p>In the code above, the resolve method and the reject method are both called with arguments. Their arguments will be passed to the callback functions. The argument of the reject method is usually an instance of the Error object, while the argument of the resolve method, in addition to a normal value, may also be another Promise instance, as shown below.</p>
 <div class="example">
@@ -197,7 +197,7 @@ promise.then(onFulfilled).catch(onRejected)
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/post/1.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">post</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-identifier">post</span><span class="hl-code">.</span><span class="hl-identifier">commentURL</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">comments</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">对comments进行处理</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Process comments</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
@@ -209,8 +209,8 @@ promise.then(onFulfilled).catch(onRejected)
 <div class="hl-main"><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/posts.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">posts</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-comment">//</span><span class="hl-comment"> some code</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-reserved">catch</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">处理前一个回调函数运行时发生的错误</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-identifier">console</span><span class="hl-code">.</span><span class="hl-identifier">log</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">发生错误！</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment">Handle errors that occur during the previous callback function's execution</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">console</span><span class="hl-code">.</span><span class="hl-identifier">log</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">An error occurred!</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
@@ -222,11 +222,11 @@ promise.then(onFulfilled).catch(onRejected)
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">then</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">comments</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-comment">//</span><span class="hl-comment"> some code</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-reserved">catch</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">error</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">处理前两个回调函数的错误</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Handle the errors of the first two callback functions</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
 </div>
 </div>
-<hr/><h2>Promise.all方法，Promise.race方法</h2>
+<hr/><h2>Promise.all method, Promise.race method</h2>
 <p>The Promise.all method is used to wrap multiple Promise instances into a new Promise instance.</p>
 <pre>var p = Promise.all([p1,p2,p3]);</pre>
 <p>In the code above, the Promise.all method accepts an array as its argument, and p1, p2, and p3 are all instances of Promise objects. (The argument of the Promise.all method does not have to be an array, but it must have an iterator interface, and each member it returns must be a Promise instance.)</p>
@@ -235,7 +235,7 @@ promise.then(onFulfilled).catch(onRejected)
 <p>The following is a concrete example.</p>
 <div class="example">
 <div class="example_code">
-<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">生成一个Promise对象的数组</span><span class="hl-comment"></span><span class="hl-code">
+<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">Generate an array of Promise objects</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">promises</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">3</span><span class="hl-code">, </span><span class="hl-number">5</span><span class="hl-code">, </span><span class="hl-number">7</span><span class="hl-code">, </span><span class="hl-number">11</span><span class="hl-code">, </span><span class="hl-number">13</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">map</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">id</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/post/</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">id</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">.json</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
@@ -252,7 +252,7 @@ promise.then(onFulfilled).catch(onRejected)
 var p = Promise.race([p1,p2,p3]);</pre>
 <p>In the code above, as long as one of p1, p2, and p3 is the first to change state, p's state changes accordingly. The return value of the Promise instance that first changes state is passed to p's return value.</p>
 <p>If the arguments of the Promise.all method and the Promise.race method are not Promise instances, the Promise.resolve method described below will be called first to convert the arguments into Promise instances, and then further processing will be done.</p><hr/>
-<h2>Promise.resolve 方法，Promise.reject 方法</h2>
+<h2>Promise.resolve method, Promise.reject method</h2>
 <p>Sometimes existing objects need to be converted into Promise objects, and the Promise.resolve method serves this purpose.</p>
 <pre>var jsPromise = Promise.resolve($.ajax('/whatever.json'));</pre>
 <p>The code above converts the deferred object generated by jQuery into a new ES6 Promise object.</p>

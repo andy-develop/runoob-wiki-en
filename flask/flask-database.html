@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 数据库集成 | 菜鸟教程</title>
+<title>Flask Database Integration | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask 数据库集成 大多数 Web 应用都需要持久化存储数据。 本章使用 Python 内置的 SQLite 数据库，展示如何在 Flask 中集成数据库，无需安装额外依赖。   SQLite 快速入门 SQLite 是一个轻量级数据库，数据存储在一个文件中，Python 标准库自带支持。 它是学习和原型开发的最佳选择——无需安装数据库服务器，无需配置。   实例  [mycode4 type='python'].." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-config.html" rel="prev">Flask 配置管理</a> </div>
-<div class="next-design-link"><a href="../flask/flask-testing.html" rel="next">Flask 测试</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-config.html" rel="prev">Flask Configuration Management</a> </div>
+<div class="next-design-link"><a href="../flask/flask-testing.html" rel="next">Flask Testing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,26 +171,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>SQLite is a lightweight database that stores data in a single file, and is supported by the Python standard library.</p>
 <p>It is the best choice for learning and prototyping—no need to install a database server or configure anything.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 一个简单的 SQLite 示例（不使用 Flask）</span><br/>
+<span style="color: #a50"># A simple SQLite example (without using Flask)</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> sqlite3<br/>
 <br/>
-<span style="color: #a50"># 连接数据库（如果 runoob.db 不存在则自动创建）</span><br/>
+<span style="color: #a50"># Connect to the database (runoob.db is automatically created if it does not exist)</span><br/>
 conn <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">connect</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># row_factory 让查询结果像字典一样可用字段名访问</span><br/>
+<span style="color: #a50"># row_factory makes query results accessible by field names like a dictionary</span><br/>
 conn.<span style="color: #05a;">row_factory</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">Row</span><br/>
 <br/>
-<span style="color: #a50"># 创建表</span><br/>
+<span style="color: #a50"># Create table</span><br/>
 conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT)"</span><span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># 插入数据</span><br/>
+<span style="color: #a50"># Insert data</span><br/>
 conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"INSERT INTO user (username, password) VALUES (?, ?)"</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"pass123"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 conn.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 查询数据</span><br/>
+<span style="color: #a50"># Query data</span><br/>
 rows <span style="color: Gray;">=</span> conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"SELECT * FROM user"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">fetchall</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> row <span style="color: Green;font-weight:bold;">in</span> rows:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: {'id': 1, 'username': 'runoob', 'password': 'pass123'}</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: {'id': 1, 'username': 'runoob', 'password': 'pass123'}</span><br/>
 <br/>
 conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
@@ -200,29 +200,29 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
 <p><span class="marked">g</span>It is a special object whose lifecycle is a single request.</p>
 <p>Store the database connection<span class="marked">g</span>It ensures that multiple database operations within the same request share the same connection, which is automatically cleaned up after the request ends.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：db.py（数据库管理模块）</span><br/>
+<span style="color: #a50"># File path: db.py (database management module)</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> sqlite3<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> g<span style="color: Gray;">,</span> current_app<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取数据库连接，同一请求内复用"""</span><br/>
+    <span style="color: #a11;">"""Get a database connection, reused within the same request"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"db"</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> g:<br/>
-        <span style="color: #a50"># 从配置中读取数据库路径</span><br/>
+        <span style="color: #a50"># Read database path from configuration</span><br/>
         db_path <span style="color: Gray;">=</span> current_app.<span style="color: #05a;">config</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"DATABASE"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
         g.<span style="color: #05a;">db</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">connect</span><span style="color: Olive;">(</span>db_path<span style="color: Olive;">)</span><br/>
-        g.<span style="color: #05a;">db</span>.<span style="color: #05a;">row_factory</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">Row</span>  <span style="color: #a50"># 让结果支持字段名访问</span><br/>
+        g.<span style="color: #05a;">db</span>.<span style="color: #05a;">row_factory</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">Row</span>  <span style="color: #a50"># Allow results to be accessed by field name</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> g.<span style="color: #05a;">db</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> close_db<span style="color: Olive;">(</span>error<span style="color: Gray;">=</span><span style="color: Teal;">None</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""关闭数据库连接（请求结束时自动调用）"""</span><br/>
+    <span style="color: #a11;">"""Close the database connection (automatically called at the end of the request)"""</span><br/>
     db <span style="color: Gray;">=</span> g.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span><span style="color: #a11;">"db"</span><span style="color: Gray;">,</span> <span style="color: Teal;">None</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db <span style="color: Green;font-weight:bold;">is</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Teal;">None</span>:<br/>
         db.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> init_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""初始化数据库表结构"""</span><br/>
+    <span style="color: #a11;">"""Initialize database table structure"""</span><br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"""<br/>
         CREATE TABLE IF NOT EXISTS user (<br/>
@@ -245,10 +245,10 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> init_app<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""在 Flask 应用中注册数据库相关功能"""</span><br/>
-    <span style="color: #a50"># 请求结束时自动关闭数据库连接</span><br/>
+    <span style="color: #a11;">"""Register database-related functions in the Flask application"""</span><br/>
+    <span style="color: #a50"># Automatically close the database connection at the end of the request</span><br/>
     app.<span style="color: #05a;">teardown_appcontext</span><span style="color: Olive;">(</span>close_db<span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 注册 CLI 命令：flask init-db</span><br/>
+    <span style="color: #a50"># Register CLI command: flask init-db</span><br/>
     app.<span style="color: #05a;">cli</span>.<span style="color: #05a;">command</span><span style="color: Olive;">(</span><span style="color: #a11;">"init-db"</span><span style="color: Olive;">)</span><span style="color: Olive;">(</span>init_db<span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -256,27 +256,27 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
 <h2>Factory pattern integration</h2>
 <p>Use the factory pattern to integrate the database with other modules:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> create_app<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
     app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"dev-secret-key"</span><br/>
 <br/>
-    <span style="color: #a50"># 配置数据库路径（存储在 instance 文件夹中）</span><br/>
+    <span style="color: #a50"># Configure database path (stored in the instance folder)</span><br/>
     <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">os</span><br/>
     app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"DATABASE"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #05a;">os</span>.<span style="color: #05a;">path</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>app.<span style="color: #05a;">instance_path</span><span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 确保 instance 文件夹存在</span><br/>
+    <span style="color: #a50"># Ensure the instance folder exists</span><br/>
     <span style="color: #05a;">os</span>.<span style="color: #05a;">makedirs</span><span style="color: Olive;">(</span>app.<span style="color: #05a;">instance_path</span><span style="color: Gray;">,</span> exist_ok<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 初始化数据库</span><br/>
+    <span style="color: #a50"># Initialize the database</span><br/>
     <span style="color: Green;font-weight:bold;">from</span> db <span style="color: Green;font-weight:bold;">import</span> init_app <span style="color: Green;font-weight:bold;">as</span> init_db<br/>
     init_db<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 注册蓝图</span><br/>
+    <span style="color: #a50"># Register blueprint</span><br/>
     <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> auth_bp<br/>
     <span style="color: Green;font-weight:bold;">from</span> blog <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> blog_bp<br/>
     app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>auth_bp<span style="color: Gray;">,</span> url_prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/auth"</span><span style="color: Olive;">)</span><br/>
@@ -289,9 +289,9 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
 <h2>Write a complete blog API</h2>
 <p>Combine the database to implement CRUD (Create, Read, Update, Delete) operations for articles:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog.py</span><br/>
+<span style="color: #a50"># File path: blog.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> jsonify<span style="color: Gray;">,</span> abort<span style="color: Gray;">,</span> g<br/>
 <span style="color: Green;font-weight:bold;">from</span> db <span style="color: Green;font-weight:bold;">import</span> get_db<br/>
 <br/>
@@ -299,19 +299,19 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> list_posts<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取所有文章列表"""</span><br/>
+    <span style="color: #a11;">"""Get the list of all articles"""</span><br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     posts <span style="color: Gray;">=</span> db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
         <span style="color: #a11;">"SELECT p.id, p.title, p.body, p.created_at, u.username"</span><br/>
         <span style="color: #a11;">" FROM post p JOIN user u ON p.author_id = u.id"</span><br/>
         <span style="color: #a11;">" ORDER BY p.created_at DESC"</span><br/>
     <span style="color: Olive;">)</span>.<span style="color: #05a;">fetchall</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 将 Row 对象列表转为 dict 列表</span><br/>
+    <span style="color: #a50"># Convert a list of Row objects to a list of dicts</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">[</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>post<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> post <span style="color: Green;font-weight:bold;">in</span> posts<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取单篇文章详情"""</span><br/>
+    <span style="color: #a11;">"""Get the details of a single article"""</span><br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     post <span style="color: Gray;">=</span> db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
         <span style="color: #a11;">"SELECT id, title, body, created_at FROM post WHERE id = ?"</span><span style="color: Gray;">,</span><br/>
@@ -319,20 +319,20 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
     <span style="color: Olive;">)</span>.<span style="color: #05a;">fetchone</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> post <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-        abort<span style="color: Olive;">(</span><span style="color: Maroon;">404</span><span style="color: Gray;">,</span> description<span style="color: Gray;">=</span>f<span style="color: #a11;">"文章 {post_id} 不存在"</span><span style="color: Olive;">)</span><br/>
+        abort<span style="color: Olive;">(</span><span style="color: Maroon;">404</span><span style="color: Gray;">,</span> description<span style="color: Gray;">=</span>f<span style="color: #a11;">"Article {post_id} does not exist"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>post<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_post<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""创建新文章"""</span><br/>
+    <span style="color: #a11;">"""Create a new article"""</span><br/>
     data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span><br/>
     title <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"title"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     body <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"body"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    author_id <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"author_id"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 默认作者 ID</span><br/>
+    author_id <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"author_id"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Default author ID</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> title:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"error"</span>: <span style="color: #a11;">"标题不能为空"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"error"</span>: <span style="color: #a11;">"Title cannot be empty"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     cursor <span style="color: Gray;">=</span> db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
@@ -341,17 +341,17 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
     <span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: cursor.<span style="color: #05a;">lastrowid</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: title<span style="color: Gray;">,</span> <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"文章创建成功"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">201</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: cursor.<span style="color: #05a;">lastrowid</span><span style="color: Gray;">,</span> <span style="color: #a11;">"title"</span>: title<span style="color: Gray;">,</span> <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"Article created successfully"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">201</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> update_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""更新文章"""</span><br/>
+    <span style="color: #a11;">"""Update an article"""</span><br/>
     data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span><br/>
     title <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"title"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     body <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"body"</span><span style="color: Gray;">,</span> <span style="color: #a11;">""</span><span style="color: Olive;">)</span>.<span style="color: #05a;">strip</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> title:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"error"</span>: <span style="color: #a11;">"标题不能为空"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"error"</span>: <span style="color: #a11;">"Title cannot be empty"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
@@ -360,18 +360,18 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
     <span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: post_id<span style="color: Gray;">,</span> <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"文章更新成功"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"id"</span>: post_id<span style="color: Gray;">,</span> <span style="color: #a11;">"message"</span>: <span style="color: #a11;">"Article updated successfully"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">delete</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts/&lt;int:post_id&gt;"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> delete_post<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""删除文章"""</span><br/>
+    <span style="color: #a11;">"""Delete an article"""</span><br/>
     db <span style="color: Gray;">=</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"DELETE FROM post WHERE id = ?"</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span>post_id<span style="color: Gray;">,</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"message"</span>: <span style="color: #a11;">"文章已删除"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> jsonify<span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"message"</span>: <span style="color: #a11;">"Article deleted"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<p>测试 API：</p>
+<p>Test API:</p>
 <pre>
 # 获取文章列表
 $ curl http://127.0.0.1:5000/api/posts
@@ -389,7 +389,7 @@ $ curl -X PUT http://127.0.0.1:5000/api/posts/1 \
 # 删除文章
 $ curl -X DELETE http://127.0.0.1:5000/api/posts/1
 </pre>
-<blockquote><p><span class="tag1">最佳实践</span>: When the API returns JSON data, use the correct HTTP status code—for creation use<span class="marked">201</span>，成功用<span class="marked">200</span>Use for client errors<span class="marked">400</span>Use for non-existent resources<span class="marked">404</span>This makes it easier for frontend code to determine the request result.</p></blockquote>
+<blockquote><p><span class="tag1">Best Practices</span>: When the API returns JSON data, use the correct HTTP status code—for creation use<span class="marked">201</span>, use<span class="marked">200</span>Use for client errors<span class="marked">400</span>Use for non-existent resources<span class="marked">404</span>This makes it easier for frontend code to determine the request result.</p></blockquote>
 <hr/>
 <h2>Database initialization command</h2>
 <p>Through the Flask CLI, you can create custom commands to initialize the database:</p>
@@ -405,15 +405,15 @@ post  user
 <h2>SQL injection protection</h2>
 <p>Use parameterized queries (<span class="marked">?</span>Placeholders) are key to preventing SQL injection:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 正确做法：使用 ? 占位符（参数化查询）</span><br/>
-<span style="color: #a50"># SQLite 驱动会自动转义参数，防止恶意输入被当作 SQL 执行</span><br/>
+<span style="color: #a50"># Correct approach: Use ? placeholders (parameterized queries)</span><br/>
+<span style="color: #a50"># The SQLite driver automatically escapes parameters to prevent malicious input from being executed as SQL</span><br/>
 db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"SELECT * FROM user WHERE username = ?"</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span>username<span style="color: Gray;">,</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 错误做法：用 f-string 拼接 SQL（极其危险！）</span><br/>
+<span style="color: #a50"># Wrong approach: Use f-string to concatenate SQL (extremely dangerous!)</span><br/>
 <span style="color: #a50"># db.execute(f"SELECT * FROM user WHERE username = '{username}'")</span><br/>
-<span style="color: #a50"># 恶意输入 '; DROP TABLE user; -- 会删除整个表！</span><br/>
+<span style="color: #a50"># Malicious input '; DROP TABLE user; -- would delete the entire table!</span><br/>
 </div>
 </div>
 <hr/>
@@ -421,9 +421,9 @@ db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span>
 <p>For large projects, manually writing SQL gradually becomes tedious.</p>
 <p><span class="marked">Flask-SQLAlchemy</span>It is a widely popular extension that provides ORM (Object-Relational Mapping) capability:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 安装：pip install flask-sqlalchemy</span><br/>
+<span style="color: #a50"># Install: pip install flask-sqlalchemy</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_sqlalchemy <span style="color: Green;font-weight:bold;">import</span> SQLAlchemy<br/>
 <br/>
@@ -431,7 +431,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"SQLALCHEMY_DATABASE_URI"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"sqlite:///runoob.db"</span><br/>
 db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 定义数据模型（表结构用 Python 类表示）</span><br/>
+<span style="color: #a50"># Define data model (table structure represented by a Python class)</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> User<span style="color: Olive;">(</span>db.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
     username <span style="color: Gray;">=</span> db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span>db.<span style="color: #05a;">String</span><span style="color: Olive;">(</span><span style="color: Maroon;">80</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
@@ -440,35 +440,31 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__repr__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;User {self.username}&gt;"</span><br/>
 <br/>
-<span style="color: #a50"># 创建表</span><br/>
+<span style="color: #a50"># Create table</span><br/>
 <span style="color: Green;font-weight:bold;">with</span> app.<span style="color: #05a;">app_context</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     db.<span style="color: #05a;">create_all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 创建用户</span><br/>
+<span style="color: #a50"># Create a user</span><br/>
 <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #a11;">"test@runoob.com"</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 查询用户</span><br/>
+<span style="color: #a50"># Query a user</span><br/>
 users <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 runoob_user <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<blockquote><p>This chapter uses native SQLite to avoid introducing additional dependencies, making it suitable for learning and small projects. For real production projects, we recommend using SQLAlchemy or a similar ORM, which can significantly reduce repetitive code and improve security.</p></blockquote> 其他扩展
-</div>
+<blockquote><p>This chapter uses native SQLite to avoid introducing additional dependencies, making it suitable for learning and small projects. For real production projects, we recommend using SQLAlchemy or a similar ORM, which can significantly reduce repetitive code and improve security.</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-config.html" rel="prev">Flask 配置管理</a> </div>
-<div class="next-design-link"><a href="../flask/flask-testing.html" rel="next">Flask 测试</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-config.html" rel="prev">Flask Configuration Management</a> </div>
+<div class="next-design-link"><a href="../flask/flask-testing.html" rel="next">Flask Testing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -572,16 +568,16 @@ runoob_user <span style="color: Gray;">=</span> User.<span style="color: #05a;">
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -589,14 +585,14 @@ runoob_user <span style="color: Gray;">=</span> User.<span style="color: #05a;">
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="30999"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -774,7 +770,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -865,7 +861,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

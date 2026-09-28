@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ECharts 事件处理 | 菜鸟教程</title>
+<title>ECharts Event Handling | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="ECharts 事件处理 ECharts 中我们可以通过监听用户的操作行为来回调对应的函数。 ECharts 通过 on 方法来监听用户的行为，例如监控用户的点击行为。   ECharts 中事件分为两种类型: 用户鼠标操作点击，如 'click'、'dblclick'、'mousedown'、'mousemove'、'mouseup'、.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,16 +158,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-visualmap.html" rel="prev">ECharts 数据的视觉映射</a> </div>
-<div class="next-design-link"><a href="../echarts/echarts-sunburst.html" rel="next">ECharts 旭日图</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-visualmap.html" rel="prev">ECharts data visual mapping</a> </div>
+<div class="next-design-link"><a href="../echarts/echarts-sunburst.html" rel="next">ECharts sunburst chart</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>ECharts Event Handling</h1>
 <p>In ECharts, we can trigger corresponding callback functions by listening to user interaction behaviors.</p>
-<p>ECharts 通过<span class="marked">on</span>Use a method to listen to user behaviors, for example, monitoring user click actions.</p>
+<p>ECharts via<span class="marked">on</span>Use a method to listen to user behaviors, for example, monitoring user click actions.</p>
 <p>Events in ECharts are divided into two types:</p>
-<p>User mouse operation clicks, such as<strong>'click'、'dblclick'、'mousedown'、'mousemove'、'mouseup'、'mouseover'、'mouseout'、'globalout'、'contextmenu'</strong>事件。</p>
+<p>User mouse operation clicks, such as<strong>'click'、'dblclick'、'mousedown'、'mousemove'、'mouseup'、'mouseover'、'mouseout'、'globalout'、'contextmenu'</strong>Event.</p>
 <p>The other type is behavioral events triggered after users interact with interactive components, such as the 'legendselectchanged' event triggered when toggling the legend switch, the 'datazoom' event triggered when scaling the data area, and so on.</p>
 <pre>
 myChart.on('click', function (params) {
@@ -188,34 +188,34 @@ chart.on('mouseover', {seriesIndex: 1, name: 'xx'}, function (params) {
 });
 </pre>
 <hr/>
-<h2>鼠标事件</h2>
-<p>ECharts 支持的鼠标事件类型，包括 'click'、'dblclick'、'mousedown'、'mousemove'、'mouseup'、'mouseover'、'mouseout'、'globalout'、'contextmenu' 事件。</p>
+<h2>Mouse Event</h2>
+<p>ECharts SupportedofMouse EventType, including 'click'、'dblclick'、'mousedown'、'mousemove'、'mouseup'、'mouseover'、'mouseout'、'globalout'、'contextmenu' Event.</p>
 <p>The following example pops up a dialog box when clicking on a bar chart:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 基于准备好的dom，初始化ECharts实例</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #006600; font-style: italic;">// Initialize an ECharts instance based on the prepared DOM</span><br/>
 <span style="color: #000066; font-weight: bold;">var</span> myChart <span style="color: #339933;">=</span> echarts.<span style="color: #660066;">init</span><span style="color: #009900;">(</span>document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'main'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 指定图表的配置项和数据</span><br/>
+<span style="color: #006600; font-style: italic;">// Specify the chart's configuration options and data</span><br/>
 <span style="color: #000066; font-weight: bold;">var</span> option <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><br/>
     xAxis<span style="color: #339933;">:</span> <span style="color: #009900;">{</span><br/>
-        data<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">"衬衫"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"羊毛衫"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"雪纺衫"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"裤子"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"高跟鞋"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"袜子"</span><span style="color: #009900;">]</span><br/>
+        data<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">"Shirt"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">Wool sweater</span><span style="color: #339933;">,</span><span style="color: #3366CC;">Chiffon blouse</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"Pants"</span><span style="color: #339933;">,</span><span style="color: #3366CC;">High heels</span><span style="color: #339933;">,</span><span style="color: #3366CC;">"Socks"</span><span style="color: #009900;">]</span><br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     yAxis<span style="color: #339933;">:</span> <span style="color: #009900;">{</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     series<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #009900;">{</span><br/>
-        name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'销量'</span><span style="color: #339933;">,</span><br/>
+        name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Sales'</span><span style="color: #339933;">,</span><br/>
         type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'bar'</span><span style="color: #339933;">,</span><br/>
         data<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #CC0000;">5</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">20</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">36</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">10</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">10</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">20</span><span style="color: #009900;">]</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">]</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 使用刚指定的配置项和数据显示图表。</span><br/>
+<span style="color: #006600; font-style: italic;">// Use the configuration items and data just specified to display the chart.</span><br/>
 myChart.<span style="color: #660066;">setOption</span><span style="color: #009900;">(</span>option<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-<span style="color: #006600; font-style: italic;">// 处理点击事件并且弹出数据名称</span><br/>
+<span style="color: #006600; font-style: italic;">// Handle click event and pop up data name</span><br/>
 myChart.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'click'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>params<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     alert<span style="color: #009900;">(</span>params.<span style="color: #660066;">name</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div><br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','Ly8g5Z+65LqO5YeG5aSH5aW955qEZG9t77yM5Yid5aeL5YyWRUNoYXJ0c+WunuS+iwoKdmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgoKCi8vIOaMh+WumuWbvuihqOeahOmFjee9rumhueWSjOaVsOaNrgoKdmFyIG9wdGlvbiA9IHsKCsKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCBkYXRhOiBbIuihrOihqyIsIue+iuavm+ihqyIsIumbque6uuihqyIsIuijpOWtkCIsIumrmOi3n+meiyIsIuiinOWtkCJdCgrCoCDCoCB9LAoKwqAgwqAgeUF4aXM6IHt9LAoKwqAgwqAgc2VyaWVzOiBbewoKwqAgwqAgwqAgwqAgbmFtZTogJ+mUgOmHjycsCgrCoCDCoCDCoCDCoCB0eXBlOiAnYmFyJywKCsKgIMKgIMKgIMKgIGRhdGE6IFs1LCAyMCwgMzYsIDEwLCAxMCwgMjBdCgrCoCDCoCB9XQoKfTsKCgoKLy8g5L2/55So5Yia5oyH5a6a55qE6YWN572u6aG55ZKM5pWw5o2u5pi+56S65Zu+6KGo44CCCgpteUNoYXJ0LnNldE9wdGlvbihvcHRpb24pOwoKLy8g5aSE55CG54K55Ye75LqL5Lu25bm25LiU5by55Ye65pWw5o2u5ZCN56ewCgpteUNoYXJ0Lm9uKCdjbGljaycsIGZ1bmN0aW9uIChwYXJhbXMpIHsKCsKgIMKgIGFsZXJ0KHBhcmFtcy5uYW1lKTsKCn0pOw==');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','Ly8g5Z+65LqO5YeG5aSH5aW955qEZG9t77yM5Yid5aeL5YyWRUNoYXJ0c+WunuS+iwoKdmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgoKCi8vIOaMh+WumuWbvuihqOeahOmFjee9rumhueWSjOaVsOaNrgoKdmFyIG9wdGlvbiA9IHsKCsKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCBkYXRhOiBbIuihrOihqyIsIue+iuavm+ihqyIsIumbque6uuihqyIsIuijpOWtkCIsIumrmOi3n+meiyIsIuiinOWtkCJdCgrCoCDCoCB9LAoKwqAgwqAgeUF4aXM6IHt9LAoKwqAgwqAgc2VyaWVzOiBbewoKwqAgwqAgwqAgwqAgbmFtZTogJ+mUgOmHjycsCgrCoCDCoCDCoCDCoCB0eXBlOiAnYmFyJywKCsKgIMKgIMKgIMKgIGRhdGE6IFs1LCAyMCwgMzYsIDEwLCAxMCwgMjBdCgrCoCDCoCB9XQoKfTsKCgoKLy8g5L2/55So5Yia5oyH5a6a55qE6YWN572u6aG55ZKM5pWw5o2u5pi+56S65Zu+6KGo44CCCgpteUNoYXJ0LnNldE9wdGlvbihvcHRpb24pOwoKLy8g5aSE55CG54K55Ye75LqL5Lu25bm25LiU5by55Ye65pWw5o2u5ZCN56ewCgpteUNoYXJ0Lm9uKCdjbGljaycsIGZ1bmN0aW9uIChwYXJhbXMpIHsKCsKgIMKgIGFsZXJ0KHBhcmFtcy5uYW1lKTsKCn0pOw==');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a>
 </div>
 <p>All mouse events include the parameter params, which is an object containing data information about the clicked graphic, with the following format:</p>
 <pre>{
@@ -264,7 +264,7 @@ myChart.<span style="color: #660066;">on</span><span style="color: #009900;">(</
 });</pre>
 <p>Use query to trigger callbacks only for graphic elements of the specified component:</p>
 <pre>chart.on(eventName, query, handler);</pre>
-<p>query 可为 string 或者 Object。</p>
+<p>query can be a string or an Object.</p>
 <p>If it is a string, it indicates the component type. The format can be 'mainType' or 'mainType.subType'. For example:</p>
 <pre>
 chart.on('click', 'series', function () {...});
@@ -281,7 +281,7 @@ chart.on('click', 'xAxis.category', function () {...});</pre>
     dataType: string // 数据项 type，如关系图中的 'node', 'edge'
     element: string // 自定义系列中的 el 的 name
 }</pre>
-<p>例如：</p>
+<p>For example:</p>
 <pre>chart.setOption({
     // ...
     series: [{
@@ -292,7 +292,7 @@ chart.on('click', 'xAxis.category', function () {...});</pre>
 chart.on('mouseover', {seriesName: 'uuu'}, function () {
     // series name 为 'uuu' 的系列中的图形元素被 'mouseover' 时，此方法被回调。
 });</pre>
-<p>例如：</p>
+<p>For example:</p>
 <pre>
 chart.setOption({
     // ...
@@ -309,7 +309,7 @@ chart.setOption({
 chart.on('mouseover', {seriesIndex: 1, name: 'xx'}, function () {
     // series index 1 的系列中的 name 为 'xx' 的元素被 'mouseover' 时，此方法被回调。
 });</pre>
-<p>例如：</p>
+<p>For example:</p>
 <pre>
 chart.setOption({
     // ...
@@ -325,7 +325,7 @@ chart.on('click', {dataType: 'node'}, function () {
 chart.on('click', {dataType: 'edge'}, function () {
     // 关系图的边被点击时此方法被回调。
 });</pre>
-<p>例如：</p>
+<p>For example:</p>
 <pre>chart.setOption({
     // ...
     series: {
@@ -350,13 +350,13 @@ chart.on('mouseup', {element: 'my_el'}, function () {
     // name 为 'my_el' 的元素被 'mouseup' 时，此方法被回调。
 });</pre>
 <p>You can obtain the data name and series name in this object from the callback function, then index other information in your own data repository to update the chart, display overlays, and so on, as shown in the following example code:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 myChart.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'click'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>parmas<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     $.<span style="color: #000066; font-weight: bold;">get</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'detail?q='</span> <span style="color: #339933;">+</span> params.<span style="color: #660066;">name</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>detail<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         myChart.<span style="color: #660066;">setOption</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
             series<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #009900;">{</span><br/>
                 name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'pie'</span><span style="color: #339933;">,</span><br/>
-                <span style="color: #006600; font-style: italic;">// 通过饼图表现单个柱子中的数据分布</span><br/>
+                <span style="color: #006600; font-style: italic;">// Display the data distribution in a single bar through a pie chart</span><br/>
                 data<span style="color: #339933;">:</span> <span style="color: #009900;">[</span>detail.<span style="color: #660066;">data</span><span style="color: #009900;">]</span><br/>
             <span style="color: #009900;">}</span><span style="color: #009900;">]</span><br/>
         <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -367,41 +367,41 @@ myChart.<span style="color: #660066;">on</span><span style="color: #009900;">(</
 <h2>Behavioral events of component interaction</h2>
 <p>In ECharts, basically all component interaction behaviors trigger corresponding events. Commonly used events and their corresponding parameters are listed in the events documentation.</p>
 <p>The following is an example of listening to a legend switch:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 图例开关的行为只会触发 legendselectchanged 事件</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #006600; font-style: italic;">// The behavior of the legend toggle only triggers the legendselectchanged event</span><br/>
 myChart.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'legendselectchanged'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>params<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 获取点击图例的选中状态</span><br/>
+    <span style="color: #006600; font-style: italic;">// Get the selected state of the clicked legend</span><br/>
     <span style="color: #000066; font-weight: bold;">var</span> isSelected <span style="color: #339933;">=</span> params.<span style="color: #660066;">selected</span><span style="color: #009900;">[</span>params.<span style="color: #660066;">name</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
-    <span style="color: #006600; font-style: italic;">// 在控制台中打印</span><br/>
-    console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>isSelected <span style="color: #339933;">?</span> <span style="color: #3366CC;">'选中了'</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">'取消选中了'</span><span style="color: #009900;">)</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">'图例'</span> <span style="color: #339933;">+</span> params.<span style="color: #660066;">name</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-    <span style="color: #006600; font-style: italic;">// 打印所有图例的状态</span><br/>
+    <span style="color: #006600; font-style: italic;">// Print to the console</span><br/>
+    console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>isSelected <span style="color: #339933;">?</span> <span style="color: #3366CC;">'Selected'</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">'Deselected'</span><span style="color: #009900;">)</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">'Legend'</span> <span style="color: #339933;">+</span> params.<span style="color: #660066;">name</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+    <span style="color: #006600; font-style: italic;">// Print the state of all legends</span><br/>
     console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>params.<span style="color: #660066;">selected</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 <br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','Ly8g5Zu+5L6L5byA5YWz55qE6KGM5Li65Y+q5Lya6Kem5Y+RIGxlZ2VuZHNlbGVjdGNoYW5nZWQg5LqL5Lu2CgpteUNoYXJ0Lm9uKCdsZWdlbmRzZWxlY3RjaGFuZ2VkJywgZnVuY3Rpb24gKHBhcmFtcykgewoKwqAgwqAgLy8g6I635Y+W54K55Ye75Zu+5L6L55qE6YCJ5Lit54q25oCBCgrCoCDCoCB2YXIgaXNTZWxlY3RlZCA9IHBhcmFtcy5zZWxlY3RlZFtwYXJhbXMubmFtZV07CgrCoCDCoCAvLyDlnKjmjqfliLblj7DkuK3miZPljbAKCsKgIMKgIGNvbnNvbGUubG9nKChpc1NlbGVjdGVkID8gJ+mAieS4reS6hicgOiAn5Y+W5raI6YCJ5Lit5LqGJykgKyAn5Zu+5L6LJyArIHBhcmFtcy5uYW1lKTsKCsKgIMKgIC8vIOaJk+WNsOaJgOacieWbvuS+i+eahOeKtuaAgQoKwqAgwqAgY29uc29sZS5sb2cocGFyYW1zLnNlbGVjdGVkKTsKCn0pOw==');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a></div>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','Ly8g5Zu+5L6L5byA5YWz55qE6KGM5Li65Y+q5Lya6Kem5Y+RIGxlZ2VuZHNlbGVjdGNoYW5nZWQg5LqL5Lu2CgpteUNoYXJ0Lm9uKCdsZWdlbmRzZWxlY3RjaGFuZ2VkJywgZnVuY3Rpb24gKHBhcmFtcykgewoKwqAgwqAgLy8g6I635Y+W54K55Ye75Zu+5L6L55qE6YCJ5Lit54q25oCBCgrCoCDCoCB2YXIgaXNTZWxlY3RlZCA9IHBhcmFtcy5zZWxlY3RlZFtwYXJhbXMubmFtZV07CgrCoCDCoCAvLyDlnKjmjqfliLblj7DkuK3miZPljbAKCsKgIMKgIGNvbnNvbGUubG9nKChpc1NlbGVjdGVkID8gJ+mAieS4reS6hicgOiAn5Y+W5raI6YCJ5Lit5LqGJykgKyAn5Zu+5L6LJyArIHBhcmFtcy5uYW1lKTsKCsKgIMKgIC8vIOaJk+WNsOaJgOacieWbvuS+i+eahOeKtuaAgQoKwqAgwqAgY29uc29sZS5sb2cocGFyYW1zLnNlbGVjdGVkKTsKCn0pOw==');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a></div>
 <hr/>
 <h2>Trigger component behaviors in ECharts with code</h2>
 <p>Above we only described user interactions, but sometimes we also need to call methods in the program to trigger chart behaviors, such as showing tooltip.</p>
 <p>ECharts triggers chart behaviors through dispatchAction({ type: '' }), centrally managing all actions, and can also record user behavior paths as needed.</p>
 <p>The above example is used for the tooltip in the carousel pie chart:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 setInterval<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">var</span> dataLen <span style="color: #339933;">=</span> option.<span style="color: #660066;">series</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">length</span><span style="color: #339933;">;</span><br/>
-    <span style="color: #006600; font-style: italic;">// 取消之前高亮的图形</span><br/>
+    <span style="color: #006600; font-style: italic;">// Unhighlight previously highlighted graphics</span><br/>
     myChart.<span style="color: #660066;">dispatchAction</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
         type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'downplay'</span><span style="color: #339933;">,</span><br/>
         seriesIndex<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span><br/>
         dataIndex<span style="color: #339933;">:</span> app.<span style="color: #660066;">currentIndex</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     app.<span style="color: #660066;">currentIndex</span> <span style="color: #339933;">=</span> <span style="color: #009900;">(</span>app.<span style="color: #660066;">currentIndex</span> <span style="color: #339933;">+</span> <span style="color: #CC0000;">1</span><span style="color: #009900;">)</span> <span style="color: #339933;">%</span> dataLen<span style="color: #339933;">;</span><br/>
-    <span style="color: #006600; font-style: italic;">// 高亮当前图形</span><br/>
+    <span style="color: #006600; font-style: italic;">// Highlight the current graphic</span><br/>
     myChart.<span style="color: #660066;">dispatchAction</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
         type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'highlight'</span><span style="color: #339933;">,</span><br/>
         seriesIndex<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span><br/>
         dataIndex<span style="color: #339933;">:</span> app.<span style="color: #660066;">currentIndex</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-    <span style="color: #006600; font-style: italic;">// 显示 tooltip</span><br/>
+    <span style="color: #006600; font-style: italic;">// Show tooltip</span><br/>
     myChart.<span style="color: #660066;">dispatchAction</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
         type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'showTip'</span><span style="color: #339933;">,</span><br/>
         seriesIndex<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span><br/>
@@ -409,21 +409,17 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div><br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','c2V0SW50ZXJ2YWwoZnVuY3Rpb24gKCkgewoKwqAgwqAgdmFyIGRhdGFMZW4gPSBvcHRpb24uc2VyaWVzWzBdLmRhdGEubGVuZ3RoOwoKwqAgwqAgLy8g5Y+W5raI5LmL5YmN6auY5Lqu55qE5Zu+5b2iCgrCoCDCoCBteUNoYXJ0LmRpc3BhdGNoQWN0aW9uKHsKCsKgIMKgIMKgIMKgIHR5cGU6ICdkb3ducGxheScsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7CgrCoCDCoCBhcHAuY3VycmVudEluZGV4ID0gKGFwcC5jdXJyZW50SW5kZXggKyAxKSAlIGRhdGFMZW47CgrCoCDCoCAvLyDpq5jkuq7lvZPliY3lm77lvaIKCsKgIMKgIG15Q2hhcnQuZGlzcGF0Y2hBY3Rpb24oewoKwqAgwqAgwqAgwqAgdHlwZTogJ2hpZ2hsaWdodCcsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7CgrCoCDCoCAvLyDmmL7npLogdG9vbHRpcAoKwqAgwqAgbXlDaGFydC5kaXNwYXRjaEFjdGlvbih7CgrCoCDCoCDCoCDCoCB0eXBlOiAnc2hvd1RpcCcsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7Cgp9LCAxMDAwKTs=');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a></div> 其他扩展
-</div>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','c2V0SW50ZXJ2YWwoZnVuY3Rpb24gKCkgewoKwqAgwqAgdmFyIGRhdGFMZW4gPSBvcHRpb24uc2VyaWVzWzBdLmRhdGEubGVuZ3RoOwoKwqAgwqAgLy8g5Y+W5raI5LmL5YmN6auY5Lqu55qE5Zu+5b2iCgrCoCDCoCBteUNoYXJ0LmRpc3BhdGNoQWN0aW9uKHsKCsKgIMKgIMKgIMKgIHR5cGU6ICdkb3ducGxheScsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7CgrCoCDCoCBhcHAuY3VycmVudEluZGV4ID0gKGFwcC5jdXJyZW50SW5kZXggKyAxKSAlIGRhdGFMZW47CgrCoCDCoCAvLyDpq5jkuq7lvZPliY3lm77lvaIKCsKgIMKgIG15Q2hhcnQuZGlzcGF0Y2hBY3Rpb24oewoKwqAgwqAgwqAgwqAgdHlwZTogJ2hpZ2hsaWdodCcsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7CgrCoCDCoCAvLyDmmL7npLogdG9vbHRpcAoKwqAgwqAgbXlDaGFydC5kaXNwYXRjaEFjdGlvbih7CgrCoCDCoCDCoCDCoCB0eXBlOiAnc2hvd1RpcCcsCgrCoCDCoCDCoCDCoCBzZXJpZXNJbmRleDogMCwKCsKgIMKgIMKgIMKgIGRhdGFJbmRleDogYXBwLmN1cnJlbnRJbmRleAoKwqAgwqAgfSk7Cgp9LCAxMDAwKTs=');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a></div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-visualmap.html" rel="prev">ECharts 数据的视觉映射</a> </div>
-<div class="next-design-link"><a href="../echarts/echarts-sunburst.html" rel="next">ECharts 旭日图</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-visualmap.html" rel="prev">ECharts data visual mapping</a> </div>
+<div class="next-design-link"><a href="../echarts/echarts-sunburst.html" rel="next">ECharts sunburst chart</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -527,16 +523,16 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -544,14 +540,14 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="22181"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -729,7 +725,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -820,7 +816,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

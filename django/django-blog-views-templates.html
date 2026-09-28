@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>视图与模板 — 渲染文章列表 | 菜鸟教程</title>
+<title>Views and Templates — Rendering Article List | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="视图与模板 — 渲染文章列表  本章你将学会用 Django 视图从数据库取数据，配合模板渲染出博客首页的文章卡片列表。   视图（View）的作用 视图是 Django 的核心逻辑层，负责：  接收用户请求（request 参数） 从数据库查询需要的数据 将数据传给模板渲染 HTML，返回给用户   Django 视图有两种写法：函数视图（FBV） 和类视图（CBV）。 前八章我们优先使用 FBV——它更直观，适合初学者理解请求处理流.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-admin.html" rel="prev">Django Admin — 后台管理文章</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-url-routing.html" rel="next">URL 路由与文章详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-admin.html" rel="prev">Django Admin — Backend Article Management</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-url-routing.html" rel="next">URL routing and article detail page</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,34 +169,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>The role of views (View)</h2>
 <p>Views are Django's core logic layer, responsible for:</p>
 <ul>
-<li>Receive user requests (<code>request</code>参数）</li>
+<li>Receive user requests (<code>request</code>parameter)</li>
 <li>Querying the required data from the database</li>
 <li>Passing data to templates to render HTML and returning it to the user.</li>
 </ul>
-<p>Django views can be written in two ways:<span class="marked">函数视图（FBV）</span>and class-based views (CBV).</p>
+<p>Django views can be written in two ways:<span class="marked">Function view (FBV)</span>and class-based views (CBV).</p>
 <p>In the first eight chapters, we prioritize FBV (Function-Based Views)—it is more intuitive and suitable for beginners to understand the request-handling process.</p>
 <hr/>
 <h2>Function View Basics</h2>
-<p>A Django view function receives<code>request</code>参数，返回<code>HttpResponse</code>对象。</p>
+<p>A Django view function receives<code>request</code>Parameters and return values<code>HttpResponse</code>Object.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog/views.py</span><br/>
+<span style="color: #a50"># File path: blog/views.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<br/>
 <span style="color: Green;font-weight:bold;">from</span> .<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Post<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""博客首页：展示所有文章"""</span><br/>
-    <span style="color: #a50"># 从数据库查询所有文章（按时间倒序）</span><br/>
+    <span style="color: #a11;">"""Blog home page: displays all articles"""</span><br/>
+    <span style="color: #a50"># Query all articles from the database (in reverse chronological order)</span><br/>
     posts <span style="color: Gray;">=</span> Post.<span style="color: #05a;">objects</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">order_by</span><span style="color: Olive;">(</span><span style="color: #a11;">'-created_at'</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># render 的三个参数：</span><br/>
-    <span style="color: #a50"># 1. request — 请求对象</span><br/>
-    <span style="color: #a50"># 2. 模板路径 — blog/index.html</span><br/>
-    <span style="color: #a50"># 3. context 字典 — 传给模板的数据</span><br/>
+    <span style="color: #a50"># The three parameters of render:</span><br/>
+    <span style="color: #a50"># 1. request — request object</span><br/>
+    <span style="color: #a50"># 2. Template path — blog/index.html</span><br/>
+    <span style="color: #a50"># 3. context dictionary — data passed to the template</span><br/>
     context <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">'posts'</span>: posts<span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">'title'</span>: <span style="color: #a11;">'RUNOOB 博客 - 首页'</span><br/>
+        <span style="color: #a11;">'title'</span>: <span style="color: #a11;">'RUNOOB Blog - Home'</span><br/>
     <span style="color: Olive;">}</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span> <span style="color: #a11;">'blog/index.html'</span><span style="color: Gray;">,</span> context<span style="color: Olive;">)</span><br/>
 </div>
@@ -207,30 +207,30 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Django template syntax is very similar to Vue3 template syntax, but there are some key differences.</p>
 <table class="reference">
 <tbody>
-<tr><th>用途</th><th>Django 模板</th><th>Vue3 模板</th></tr>
-<tr><td>输出变量</td><td><code>{{ variable }}</code></td><td><code>{{ variable }}</code></td></tr>
-<tr><td>循环</td><td><code>{% for item in list %}...{% endfor %}</code></td><td><code>v-for="item in list"</code></td></tr>
-<tr><td>条件</td><td><code>{% if cond %}...{% endif %}</code></td><td><code>v-if="cond"</code></td></tr>
-<tr><td>URL 生成</td><td><code>{% url 'name' %}</code></td><td><code>router-link to="name"</code></td></tr>
-<tr><td>继承布局</td><td><code>{% extends 'base.html' %}</code></td><td>组件嵌套</td></tr>
+<tr><th>Purpose</th><th>Django templates</th><th>Vue3 template</th></tr>
+<tr><td>Output variables</td><td><code>{{ variable }}</code></td><td><code>{{ variable }}</code></td></tr>
+<tr><td>Loops</td><td><code>{% for item in list %}...{% endfor %}</code></td><td><code>v-for="item in list"</code></td></tr>
+<tr><td>Conditions</td><td><code>{% if cond %}...{% endif %}</code></td><td><code>v-if="cond"</code></td></tr>
+<tr><td>URL Generation</td><td><code>{% url 'name' %}</code></td><td><code>router-link to="name"</code></td></tr>
+<tr><td>Inherit Layout</td><td><code>{% extends 'base.html' %}</code></td><td>Component Nesting</td></tr>
 </tbody>
 </table>
-<blockquote><p>Key difference: Django templates use<code>{% %}</code>Wrapping control tags; Vue3 uses<code>v-</code>directives. In Django templates,<span class="marked">服务器端</span>rendering—HTML is generated and then sent to the browser; Vue3 performs<span class="marked">浏览器端</span>rendering—the browser receives JS and then assembles the HTML.</p></blockquote>
+<blockquote><p>Key difference: Django templates use<code>{% %}</code>Wrapping control tags; Vue3 uses<code>v-</code>directives. In Django templates,<span class="marked">Server-side</span>rendering—HTML is generated and then sent to the browser; Vue3 performs<span class="marked">Browser-side</span>rendering—the browser receives JS and then assembles the HTML.</p></blockquote>
 <hr/>
 <h2>Template inheritance: base.html</h2>
-<p>When multiple pages share the same navigation bar and footer, use<span class="marked">模板继承</span>避免重复。</p>
+<p>When multiple pages share the same navigation bar and footer, use<span class="marked">Template inheritance</span>Avoid duplication.</p>
 <p>The parent template defines blocks, and child templates fill in specific content.</p>
 <h3>Create the base.html parent template</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：blog/templates/blog/base.html --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: blog/templates/blog/base.html --&gt;</span><br/>
 <span style="color: #555;">&lt;!DOCTYPE html&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">html</span> <span style="color: #00c;">lang</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"zh-CN"</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">meta</span> <span style="color: #00c;">charset</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"UTF-8"</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">meta</span> <span style="color: #00c;">name</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"viewport"</span> <span style="color: #00c;">content</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"width=device-width, initial-scale=1.0"</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>{% block title %}RUNOOB 博客{% endblock %}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>{% block title %}RUNOOB Blog{% endblock %}<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">style</span>&gt;</span><br/>
         * { margin: 0; padding: 0; box-sizing: border-box; }<br/>
         body {<br/>
@@ -252,24 +252,24 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     {% block extra_head %}{% endblock %}<br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
-    <span style="color: #808080; font-style: italic;">&lt;!-- 导航栏 --&gt;</span><br/>
+    <span style="color: #808080; font-style: italic;">&lt;!-- Navigation bar --&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">header</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"navbar"</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"logo"</span>&gt;</span>RUNOOB 博客<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"logo"</span>&gt;</span>RUNOOB Blog<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">nav</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span>&gt;</span>首页<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"#"</span>&gt;</span>关于<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"/"</span>&gt;</span>Home<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">a</span> <span style="color: #00c;">href</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"#"</span>&gt;</span>About<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">a</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">nav</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">header</span>&gt;</span><br/>
 <br/>
-    <span style="color: #808080; font-style: italic;">&lt;!-- 主内容区（子模板填充） --&gt;</span><br/>
+    <span style="color: #808080; font-style: italic;">&lt;!-- Main content area (populated by child template) --&gt;</span><br/>
     <span style="color: #170;">&lt;main <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"container"</span>&gt;</span><br/>
         {% block content %}<br/>
         {% endblock %}<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span>main&gt;</span><br/>
 <br/>
-    <span style="color: #808080; font-style: italic;">&lt;!-- 页脚 --&gt;</span><br/>
+    <span style="color: #808080; font-style: italic;">&lt;!-- Footer --&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">footer</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"footer"</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span>&gt;</span>© 2024 RUNOOB 博客. Powered by Django.<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span>&gt;</span>© 2024 RUNOOB Blog. Powered by Django.<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">footer</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
@@ -277,16 +277,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 <h3>Create the index.html child template</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 文件路径：blog/templates/blog/index.html --&gt;</span><br/>
-<span style="color: #808080; font-style: italic;">&lt;!-- extends 必须在最开头 --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- File path: blog/templates/blog/index.html --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- extends must be at the very beginning --&gt;</span><br/>
 {% extends 'blog/base.html' %}<br/>
 <br/>
 {% block title %}{{ title }}{% endblock %}<br/>
 <br/>
 {% block content %}<br/>
-<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"section-title"</span>&gt;</span>最新文章<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
+<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h2</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"section-title"</span>&gt;</span>Latest Articles<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h2</span>&gt;</span><br/>
 <br/>
 {% if posts %}<br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"article-grid"</span>&gt;</span><br/>
@@ -302,7 +302,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         {% endfor %}<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
 {% else %}<br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"empty-tip"</span>&gt;</span>还没有文章，敬请期待。<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">p</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"empty-tip"</span>&gt;</span>No articles yet, please stay tuned.<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">p</span>&gt;</span><br/>
 {% endif %}<br/>
 {% endblock %}<br/>
 </div>
@@ -310,7 +310,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Several knowledge points used in templates:</p>
 <table class="reference">
 <tbody>
-<tr><th>语法</th><th>含义</th></tr>
+<tr><th>Syntax</th><th>Meaning</th></tr>
 <tr><td><code>{% extends 'blog/base.html' %}</code></td><td>Inheriting the parent template must be written on the first line</td></tr>
 <tr><td><code>{% block content %}...{% endblock %}</code></td><td>Fill the content block defined in the parent template.</td></tr>
 <tr><td><code>{{ post.category.name }}</code></td><td>Accessing the properties of related objects through foreign keys</td></tr>
@@ -318,14 +318,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <tr><td><code>{{ post.created_at|date:"Y-m-d" }}</code></td><td>Filter: format the date</td></tr>
 </tbody>
 </table>
-<blockquote><p>In Django templates,<span class="marked">过滤器</span>用管道符<code>|</code>Indicates, placed after a variable, used for formatted output. Common filters:<code>date</code>、<code>truncatechars</code>、<code>length</code>、<code>default</code>。</p></blockquote>
+<blockquote><p>In Django templates,<span class="marked">Filter</span>Use Pipe Symbol<code>|</code>Indicates, placed after a variable, used for formatted output. Common filters:<code>date</code>、<code>truncatechars</code>、<code>length</code>、<code>default</code>。</p></blockquote>
 <hr/>
 <h2>Adding styles to the article list</h2>
 <p>Append the following CSS to the style tag in base.html:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">/* 文章卡片网格布局 */</span><br/>
+<span style="color: #808080; font-style: italic;">/* Article card grid layout */</span><br/>
 <span style="color: #6666FF;">.article-grid</span> <span style="color: #00AA00;">{</span><br/>
     <span style="color: #000000; font-weight: bold;">display</span><span style="color: #00AA00;">:</span> grid<span style="color: #00AA00;">;</span><br/>
     grid-template-columns<span style="color: #00AA00;">:</span> <span style="color: #993333;">repeat</span><span style="color: #00AA00;">(</span>auto-fill<span style="color: #00AA00;">,</span> minmax<span style="color: #00AA00;">(</span><span style="color: #933;">280px</span><span style="color: #00AA00;">,</span> 1fr<span style="color: #00AA00;">)</span><span style="color: #00AA00;">)</span><span style="color: #00AA00;">;</span><br/>
@@ -396,24 +396,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 <p>Start the server and visit the homepage. You should see the article card list dynamically rendered from database data.</p>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you have mastered the core coordination of Django views and templates: views.py queries data from the database and passes it into context, render() renders templates, base.html parent template defines layout + blocks, child templates extend and fill in content, Django template syntax ({{ }}, {% %}, filters).</p>
-<p>The blog homepage is now database-driven, no longer hard-coded.</p>
-其他扩展
-</div>
+<p>The blog homepage is now database-driven, no longer hard-coded.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-admin.html" rel="prev">Django Admin — 后台管理文章</a> </div>
-<div class="next-design-link"><a href="../django/django-blog-url-routing.html" rel="next">URL 路由与文章详情页</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-blog-admin.html" rel="prev">Django Admin — Backend Article Management</a> </div>
+<div class="next-design-link"><a href="../django/django-blog-url-routing.html" rel="next">URL routing and article detail page</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -517,16 +512,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -534,14 +529,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31149"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -719,7 +714,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -810,7 +805,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

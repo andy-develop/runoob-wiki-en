@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Go 语言 Map(集合) | 菜鸟教程</title>
+<title>Go Language Map (Collection) | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Go 语言Map(集合)  Map 是一种无序的键值对的集合。Map 最重要的一点是通过 key 来快速检索数据，key 类似于索引，指向数据的值。  Map 是一种集合，所以我们可以像迭代数组和切片那样迭代它。不过，Map 是无序的，遍历 Map 时返回的键值对的顺序是不确定的。  在获取 Map 的值时，如果键不存在，返回该类型的零值，例如 int 类型的零值是 0，string 类型的零值是 ''。 Map 是.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-range.html" rel="prev">Go 语言范围(Range)</a> </div>
-<div class="next-design-link"><a href="../go/go-recursion.html" rel="next">Go 语言递归函数</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-range.html" rel="prev">Go Language Range (Range)</a> </div>
+<div class="next-design-link"><a href="../go/go-recursion.html" rel="next">Go Language Recursive Functions</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,16 +168,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>A Map is a collection, so we can iterate over it just like we iterate over arrays and slices. However, a Map is unordered, and the order of the key-value pairs returned when traversing the Map is not deterministic.</p>
 <p>When retrieving a value from a Map, if the key does not exist, the zero value of that type is returned. For example, the zero value for the int type is 0, and the zero value for the string type is "".</p>
 <p>Map is a reference type. If a Map is passed to a function or assigned to another variable, they all point to the same underlying data structure, so modifications to the Map will affect all variables that reference it.</p>
-<h3>定义 Map</h3>
+<h3>Define Map</h3>
 <p>You can use the built-in function make or the map keyword to define a Map:</p>
 <pre>/* 使用 make 函数 */
 map_variable := make(map[KeyType]ValueType, initialCapacity)</pre>
 <p>Here, KeyType is the type of the key, ValueType is the type of the value, and initialCapacity is an optional parameter used to specify the initial capacity of the Map. The capacity of a Map refers to the number of key-value pairs it can store. When the number of key-value pairs in the Map reaches the capacity, the Map automatically expands. If initialCapacity is not specified, the Go language will choose an appropriate value based on the actual situation.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #666666; font-style: italic;">// 创建一个空的 Map</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #666666; font-style: italic;">// Create an empty Map</span><br/>
 m <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">int</span><span style="color: #339933;">)</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;">// 创建一个初始容量为 10 的 Map</span><br/>
+<span style="color: #666666; font-style: italic;">// Create a Map with an initial capacity of 10</span><br/>
 m <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">int</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">10</span><span style="color: #339933;">)</span><br/>
 </div></div>
 <p>You can also create a Map using a literal:</p>
@@ -189,52 +189,52 @@ m := map[string]int{
     "orange": 3,
 }
 </pre>
-<p>获取元素：</p>
+<p>Get element:</p>
 <pre>// 获取键值对
 v1 := m["apple"]
-v2, ok := m["pear"]  // 如果键不存在，ok 的值为 false，v2 的值为该类型的零值</pre><p>修改元素：</p>
+v2, ok := m["pear"]  // 如果键不存在，ok 的值为 false，v2 的值为该类型的零值</pre><p>Modify element:</p>
 <pre>// 修改键值对
 m["apple"] = 5</pre>
 <p>Get the length of a Map:</p>
 <pre>// 获取 Map 的长度
 len := len(m)</pre>
-<p>遍历 Map：</p>
+<p>Iterate over Map:</p>
 <pre>// 遍历 Map
 for k, v := range m {
     fmt.Printf("key=%s, value=%d\n", k, v)
-}</pre><p>删除元素：</p>
+}</pre><p>Delete element:</p>
 <pre>// 删除键值对
 delete(m, "banana")</pre>
-<h3>实例</h3>
+<h3>Example</h3>
 <p>The following example demonstrates creating and using a map:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
 <span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-    <span style="color: #B1B100; font-weight: bold;">var</span> siteMap <span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">string</span> <span style="color: #666666; font-style: italic;">/*创建集合 */</span><br/>
+    <span style="color: #B1B100; font-weight: bold;">var</span> siteMap <span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">string</span> <span style="color: #666666; font-style: italic;">/* Create a collection */</span><br/>
     siteMap <span style="color: #339933;">=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">/* map 插入 key - value 对,各个国家对应的首都 */</span><br/>
-    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Google"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"谷歌"</span><br/>
-    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Runoob"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"菜鸟教程"</span><br/>
-    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Baidu"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"百度"</span><br/>
-    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Wiki"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"维基百科"</span><br/>
+    <span style="color: #666666; font-style: italic;">/* map inserts key-value pairs, the capital corresponding to each country */</span><br/>
+    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Google"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"Google"</span><br/>
+    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Runoob"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"Runoob"</span><br/>
+    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Baidu"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"Baidu"</span><br/>
+    siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Wiki"</span> <span style="color: #339933;">]</span> <span style="color: #339933;">=</span> <span style="color: #CC66CC;">"Wikipedia"</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">/*使用键输出地图值 */</span> <br/>
+    <span style="color: #666666; font-style: italic;">/* Output the map value using the key */</span> <br/>
     <span style="color: #B1B100; font-weight: bold;">for</span> site <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> siteMap <span style="color: #339933;">{</span><br/>
-        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>site<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"首都是"</span><span style="color: #339933;">,</span> siteMap <span style="color: #339933;">[</span>site<span style="color: #339933;">])</span><br/>
+        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>site<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"The capital is"</span><span style="color: #339933;">,</span> siteMap <span style="color: #339933;">[</span>site<span style="color: #339933;">])</span><br/>
     <span style="color: #339933;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">/*查看元素在集合中是否存在 */</span><br/>
-    name<span style="color: #339933;">,</span> ok <span style="color: #339933;">:=</span> siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Facebook"</span> <span style="color: #339933;">]</span> <span style="color: #666666; font-style: italic;">/*如果确定是真实的,则存在,否则不存在 */</span><br/>
+    <span style="color: #666666; font-style: italic;">/* Check whether the element exists in the collection */</span><br/>
+    name<span style="color: #339933;">,</span> ok <span style="color: #339933;">:=</span> siteMap <span style="color: #339933;">[</span> <span style="color: #CC66CC;">"Facebook"</span> <span style="color: #339933;">]</span> <span style="color: #666666; font-style: italic;">/* If it is true, it exists; otherwise it does not exist */</span><br/>
     <span style="color: #666666; font-style: italic;">/*fmt.Println(capital) */</span><br/>
     <span style="color: #666666; font-style: italic;">/*fmt.Println(ok) */</span><br/>
     <span style="color: #B1B100; font-weight: bold;">if</span> <span style="color: #339933;">(</span>ok<span style="color: #339933;">)</span> <span style="color: #339933;">{</span><br/>
-        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Facebook 的 站点是"</span><span style="color: #339933;">,</span> name<span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Facebook's site is"</span><span style="color: #339933;">,</span> name<span style="color: #339933;">)</span><br/>
     <span style="color: #339933;">}</span> <span style="color: #B1B100; font-weight: bold;">else</span> <span style="color: #339933;">{</span><br/>
-        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Facebook 站点不存在"</span><span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span><span style="color: #CC66CC;">"Facebook site does not exist"</span><span style="color: #339933;">)</span><br/>
     <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
@@ -246,32 +246,32 @@ Runoob 首都是 菜鸟教程
 Baidu 首都是 百度
 Facebook 站点不存在
 </pre><hr/>
-<h2>delete() 函数</h2>
+<h2>delete() function</h2>
 <p>The delete() function is used to delete elements from a collection. Its parameters are the map and its corresponding key. Example:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
 <span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">/* 创建map */</span><br/>
+        <span style="color: #666666; font-style: italic;">/* Create map */</span><br/>
         countryCapitalMap <span style="color: #339933;">:=</span> <span style="color: #993333;">map</span><span style="color: #339933;">[</span><span style="color: #993333;">string</span><span style="color: #339933;">]</span><span style="color: #993333;">string</span><span style="color: #339933;">{</span><span style="color: #CC66CC;">"France"</span><span style="color: #339933;">:</span> <span style="color: #CC66CC;">"Paris"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Italy"</span><span style="color: #339933;">:</span> <span style="color: #CC66CC;">"Rome"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">"Japan"</span><span style="color: #339933;">:</span> <span style="color: #CC66CC;">"Tokyo"</span><span style="color: #339933;">,</span> <span style="color: #CC66CC;">"India"</span><span style="color: #339933;">:</span> <span style="color: #CC66CC;">"New delhi"</span><span style="color: #339933;">}</span><br/>
 <br/>
-        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"原始地图"</span><span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Original map"</span><span style="color: #339933;">)</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">/* 打印地图 */</span><br/>
+        <span style="color: #666666; font-style: italic;">/* Print map */</span><br/>
         <span style="color: #B1B100; font-weight: bold;">for</span> country <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> countryCapitalMap <span style="color: #339933;">{</span><br/>
-                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>country<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"首都是"</span><span style="color: #339933;">,</span> countryCapitalMap <span style="color: #339933;">[</span> country <span style="color: #339933;">])</span><br/>
+                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>country<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"The capital is"</span><span style="color: #339933;">,</span> countryCapitalMap <span style="color: #339933;">[</span> country <span style="color: #339933;">])</span><br/>
         <span style="color: #339933;">}</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">/*删除元素*/</span> delete<span style="color: #339933;">(</span>countryCapitalMap<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"France"</span><span style="color: #339933;">)</span><br/>
-        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"法国条目被删除"</span><span style="color: #339933;">)</span><br/>
+        <span style="color: #666666; font-style: italic;">/* Delete element */</span> delete<span style="color: #339933;">(</span>countryCapitalMap<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"France"</span><span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"The France entry is deleted"</span><span style="color: #339933;">)</span><br/>
 <br/>
-        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"删除元素后地图"</span><span style="color: #339933;">)</span><br/>
+        fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"Map after deleting element"</span><span style="color: #339933;">)</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">/*打印地图*/</span><br/>
+        <span style="color: #666666; font-style: italic;">/* Print map */</span><br/>
         <span style="color: #B1B100; font-weight: bold;">for</span> country <span style="color: #339933;">:=</span> <span style="color: #B1B100; font-weight: bold;">range</span> countryCapitalMap <span style="color: #339933;">{</span><br/>
-                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>country<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"首都是"</span><span style="color: #339933;">,</span> countryCapitalMap <span style="color: #339933;">[</span> country <span style="color: #339933;">])</span><br/>
+                fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>country<span style="color: #339933;">,</span> <span style="color: #CC66CC;">"The capital is"</span><span style="color: #339933;">,</span> countryCapitalMap <span style="color: #339933;">[</span> country <span style="color: #339933;">])</span><br/>
         <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
@@ -287,21 +287,17 @@ Japan 首都是 Tokyo
 Italy 首都是 Rome
 Japan 首都是 Tokyo
 India 首都是 New delhi
-</pre> 其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-range.html" rel="prev">Go 语言范围(Range)</a> </div>
-<div class="next-design-link"><a href="../go/go-recursion.html" rel="next">Go 语言递归函数</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-range.html" rel="prev">Go Language Range (Range)</a> </div>
+<div class="next-design-link"><a href="../go/go-recursion.html" rel="next">Go Language Recursive Functions</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -407,8 +403,8 @@ India 首都是 New delhi
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">1  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">1 note</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments">
@@ -531,22 +527,22 @@ func main() {
     fmt.Println(get("b"))
     put("p","p_put")
     fmt.Println(get("p"))
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">archer</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   archer</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  tag***en199@163.com</p></div></span>7年前 (2019-05-18)</div></div></li><!-- #comment-## -->
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">archer</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   archer</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  tag***en199@163.com</p></div></span>7 years ago (2019-05-18)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -554,14 +550,14 @@ func main() {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="12444"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -739,7 +735,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -830,7 +826,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

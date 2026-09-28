@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>C 库函数 – snprintf() | 菜鸟教程</title>
+<title>C Library Function – snprintf() | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="C 库函数 - snprintf()   C 标准库 - &amp;lt;stdio.h&amp;gt;  描述 snprintf() 是一个 C 语言标准库函数，用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。   与 sprintf() 函数不同的是，snprintf() 函数提供了一个参数 size，可以防止缓冲区溢出。如果格式化后的字符.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,46 +158,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cprogramming/c-exercise-example101.html" rel="prev">猴子吃桃问题</a> </div>
-<div class="next-design-link"><a href="../cprogramming/c-examples-five-fish-html.html" rel="next">C 语言实例 – 五人分鱼</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cprogramming/c-exercise-example101.html" rel="prev">Monkey Eating Peaches Problem</a> </div>
+<div class="next-design-link"><a href="../cprogramming/c-examples-five-fish-html.html" rel="next">C Language Example – Five People Dividing Fish</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>C library functions -<span class="color_h1">snprintf()</span></h1>
-<p><a href="../cprogramming/c-standard-library-stdio-h.html">C 标准库 - &lt;stdio.h&gt;</a></p>
-<h2>描述</h2>
+<p><a href="../cprogramming/c-standard-library-stdio-h.html">C Standard Library - &lt;stdio.h&gt;</a></p>
+<h2>Description</h2>
 <p>snprintf() is a C language standard library function used to format and output a string, and write the result to a specified buffer. Unlike sprintf(), snprintf() limits the number of characters output to avoid buffer overflow.</p>
-<p>与 <a href="../cprogramming/c-function-sprintf.html" rel="noopener" target="_blank">sprintf()</a>函数不同的是，snprintf() 函数提供了一个参数 size，可以防止缓冲区溢出。如果格式化后的字符串长度超过了 size-1，则 snprintf() 只会写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。  
-The difference is that the snprintf() function provides a parameter, size, which can prevent buffer overflow. If the length of the formatted string exceeds size-1, snprintf() will only write size-1 characters and add a null character (\0) at the end of the string to mark its termination.</p>
-<h2>声明</h2>
-<p>下面是 snprintf() 函数的声明。  
-Below is the declaration of the snprintf() function.</p>
+<p>and<a href="../cprogramming/c-function-sprintf.html" rel="noopener" target="_blank">sprintf()</a>The difference is that the snprintf() function provides a parameter, size, which can prevent buffer overflow. If the length of the formatted string exceeds size-1, snprintf() will only write size-1 characters and add a null character (\0) at the end of the string to mark its termination.</p>
+<h2>Declaration</h2>
+<p>Below is the declaration of the snprintf() function.</p>
 <pre>
 int snprintf ( char * str, size_t size, const char * format, ... );
 </pre>
-<p><b>int snprintf(char *str, size_t size, const char *format, ...)</b>Let the variable arguments be set<strong>(...)</strong>按照<strong>format</strong>Formats into a string and copies the string to<strong>str</strong>中，<strong>size</strong>为要写入的字符的最大数目，超过  
-The maximum number of characters to be written; if it exceeds<strong>size</strong>会被截断，最多写入 size-1 个字符。  
-it will be truncated, and at most size-1 characters will be written.</p>
-<h2>参数</h2>
+<p><b>int snprintf(char *str, size_t size, const char *format, ...)</b>Let the variable arguments be set<strong>(...)</strong>according to<strong>format</strong>Formats into a string and copies the string to<strong>str</strong>Among them,<strong>size</strong>The maximum number of characters to be written; if it exceeds<strong>size</strong>it will be truncated, and at most size-1 characters will be written.</p>
+<h2>Parameter</h2>
 <ul class="list">
-<li><b>str</b>-- 目标字符串，用于存储格式化后的字符串的字符数组的指针。  
--- The destination string, a pointer to a character array used to store the formatted string.</li>
+<li><b>str</b>-- The destination string, a pointer to a character array used to store the formatted string.</li>
 <li><b>size</b>-- the size of the character array.</li>
 <li><b>format</b>-- the format string.</li>
-<li><b>...</b>-- 可变参数，可变数量的参数根据 format 中的格式化指令进行格式化。  
--- Variable arguments, a variable number of arguments formatted according to the formatting directives in format.</li>
+<li><b>...</b>-- Variable arguments, a variable number of arguments formatted according to the formatting directives in format.</li>
 </ul>
-<h2>返回值</h2> <p>
+<h2>Return Value</h2> <p>
 <strong>The return value is an integer:</strong></p>
 <ul>
 <li>
-<p>如果成功，返回将要写入的字符数（不包括结尾的空字符），即使这个值大于 size。  
-If successful, returns the number of characters that would have been written (excluding the terminating null character), even if this value is greater than size.</p></li>
+<p>If successful, returns the number of characters that would have been written (excluding the terminating null character), even if this value is greater than size.</p></li>
 <li>
 <p>If an encoding error occurs, a negative value is returned.</p></li></ul>
-<h2>实例</h2>
+<h2>Example</h2>
 <p>The following example demonstrates the usage of the snprintf() function.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;stdio.h&gt; </span><br/>
   <br/>
 <span style="color: #05a;">int</span> main<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <br/>
@@ -205,10 +198,10 @@ If successful, returns the number of characters that would have been written (ex
     <span style="color: #05a;">char</span> buffer<span style="color: #008000;">[</span><span style="color: #0000DD;">50</span><span style="color: #008000;">]</span><span style="color: #008080;">;</span> <br/>
     <span style="color: #05a;">char</span><span style="color: #000040;">*</span> s <span style="color: #000080;">=</span> <span style="color: #a11;">"runoobcom"</span><span style="color: #008080;">;</span> <br/>
   <br/>
-    <span style="color: #666666;">// 读取字符串并存储在 buffer 中</span><br/>
+    <span style="color: #666666;">// Read the string and store it in buffer.</span><br/>
     <span style="color: #05a;">int</span> j <span style="color: #000080;">=</span> <span style="color: #05a;">snprintf</span><span style="color: #008000;">(</span>buffer, <span style="color: #0000DD;">6</span>, <span style="color: #a11;">"%s<span style="color: #000099; font-weight: bold;">\n</span>"</span>, s<span style="color: #008000;">)</span><span style="color: #008080;">;</span> <br/>
   <br/>
-    <span style="color: #666666;">// 输出 buffer及字符数</span><br/>
+    <span style="color: #666666;">// Output buffer and character count.</span><br/>
     <span style="color: #05a;">printf</span><span style="color: #008000;">(</span><span style="color: #a11;">"string:<span style="color: #000099; font-weight: bold;">\n</span>%s<span style="color: #000099; font-weight: bold;">\n</span>character count = %d<span style="color: #000099; font-weight: bold;">\n</span>"</span>, buffer, j<span style="color: #008000;">)</span><span style="color: #008080;">;</span> <br/>
   <br/>
     <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> <br/>
@@ -218,9 +211,8 @@ If successful, returns the number of characters that would have been written (ex
 <pre>string:
 runoo
 character count = 10</pre>
-<p>Here is an example demonstrating how to use<span class="marked">%f</span>格式说明符在 snprintf() 中输出单精度浮点数：  
-The format specifier for outputting a single-precision floating-point number in snprintf():</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<p>Here is an example demonstrating how to use<span class="marked">%f</span>The format specifier for outputting a single-precision floating-point number in snprintf():</p>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #085;">#include &lt;stdio.h&gt;</span><br/>
 <br/>
 <span style="color: #993333;">int</span> main<span style="color: #000;">(</span><span style="color: #000;">)</span> <span style="color: #000;">{</span><br/>
@@ -238,27 +230,21 @@ x = 3.141593
 Written characters: 12
 </pre>
 <p>In the above example, snprintf() writes the string "x = 3.141593" into the buffer and returns the length of the string, which is 12. Since the size of the buffer is 50, there will be a null character at the end of the string. Finally, the program outputs the string in the buffer and the number of characters returned by snprintf().</p>
-<p>注意事项：</p>
+<p>Notes:</p>
 <ul>
-<li><p><strong>缓冲区大小</strong>：<code>snprintf()</code>函数会限制输出的字符数，但是需要确保传入的缓冲区大小足够，以便容纳格式化后的字符串。否则，字符串可能会截断，导致信息丢失。  
-The function limits the number of characters output, but you need to ensure that the size of the passed-in buffer is large enough to accommodate the formatted string. Otherwise, the string may be truncated, leading to information loss.</p></li><li><p><strong>String terminator</strong>：<code>snprintf()</code>The function adds a null character at the end of the buffer as the string terminator, but this character is not counted in the return value. Therefore, when using<code>snprintf()</code>输出字符串时，需要确保缓冲区的大小足够，以便容纳字符串的所有字符以及结尾的空字符。  
-to output a string, you need to ensure that the buffer size is sufficient to hold all the characters of the string as well as the trailing null character.</p></li><li><p><strong>Format string</strong>：在使用<code>snprintf()</code>When formatting a string, you need to ensure that the format specifiers in the format string match the types of the variable arguments. Otherwise, the output result may contain errors.</p></li><li><p><strong>返回值</strong>：<code>snprintf()</code>The return value of the function is the number of characters written to the buffer, excluding the null character at the end of the string. If the return value equals the size of the buffer, it indicates that the output result has been truncated.</p></li><li><p><strong>可变参数</strong>：<code>snprintf()</code>The variable arguments of the function are passed via<code>...</code>This means that variable arguments need to be passed using types that match the format specifiers. When using variable arguments, you should avoid using uninitialized variables; otherwise, unpredictable results may occur.</p></li>
+<li><p><strong>buffer size</strong>：<code>snprintf()</code>The function limits the number of characters output, but you need to ensure that the size of the passed-in buffer is large enough to accommodate the formatted string. Otherwise, the string may be truncated, leading to information loss.</p></li><li><p><strong>String terminator</strong>：<code>snprintf()</code>The function adds a null character at the end of the buffer as the string terminator, but this character is not counted in the return value. Therefore, when using<code>snprintf()</code>When outputting a string, you need to ensure that the buffer size is sufficient to hold all the characters of the string as well as the trailing null character.</p></li><li><p><strong>Format string</strong>: When using<code>snprintf()</code>When formatting a string, you need to ensure that the format specifiers in the format string match the types of the variable arguments. Otherwise, the output result may contain errors.</p></li><li><p><strong>Return Value</strong>：<code>snprintf()</code>The return value of the function is the number of characters written to the buffer, excluding the null character at the end of the string. If the return value equals the size of the buffer, it indicates that the output result has been truncated.</p></li><li><p><strong>Variable arguments</strong>：<code>snprintf()</code>The variable arguments of the function are passed via<code>...</code>This means that variable arguments need to be passed using types that match the format specifiers. When using variable arguments, you should avoid using uninitialized variables; otherwise, unpredictable results may occur.</p></li>
 </ul><p>In summary, when using the snprintf() function, you need to pay attention to issues such as buffer size, string terminator, format string, return value, and variable arguments, to ensure the output result is correct.</p>
-<p><a href="../cprogramming/c-standard-library-stdio-h.html">C 标准库 - &lt;stdio.h&gt;</a></p> 其他扩展
-</div>
+<p><a href="../cprogramming/c-standard-library-stdio-h.html">C Standard Library - &lt;stdio.h&gt;</a></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cprogramming/c-exercise-example101.html" rel="prev">猴子吃桃问题</a> </div>
-<div class="next-design-link"><a href="../cprogramming/c-examples-five-fish-html.html" rel="next">C 语言实例 – 五人分鱼</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cprogramming/c-exercise-example101.html" rel="prev">Monkey Eating Peaches Problem</a> </div>
+<div class="next-design-link"><a href="../cprogramming/c-examples-five-fish-html.html" rel="next">C Language Example – Five People Dividing Fish</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -362,16 +348,16 @@ to output a string, you need to ensure that the buffer size is sufficient to hol
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -379,14 +365,14 @@ to output a string, you need to ensure that the buffer size is sufficient to hol
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="21921"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -564,7 +550,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -655,7 +641,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

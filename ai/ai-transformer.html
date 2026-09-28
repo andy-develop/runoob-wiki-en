@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Transformer 深度解析   2017 年，Google 发表论文《Attention Is All You Need》，提出了 Transformer 架构。谁也没想到，这篇论文会彻底改变 AI 领域。  今天的 GPT、Claude、Gemini、Llama……几乎所有主流大语言模型，本质上都是 Transformer 的变体。  理解了 Transformer，就理解了现代 LLM 的 90%。  这篇文章我们会深入 Tr.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -281,7 +281,7 @@ hidden_states <span style="color: Gray;">=</span> rnn.<span style="color: #05a;"
 <tr><td>Computation method</td><td>Serial, step by step</td><td>Parallel, compute all at once</td></tr>
 <tr><td>Long-range dependencies</td><td>Weak, gradient vanishing</td><td>Strong, direct connection at any distance</td></tr>
 <tr><td>Positional information</td><td>Naturally sequential</td><td>Requires positional encoding</td></tr>
-<tr><td>Training speed</td><td>慢</td><td>Fast (parallelizable)</td></tr>
+<tr><td>Training speed</td><td>Slow</td><td>Fast (parallelizable)</td></tr>
 </table>
 <hr/>
 <h2>Self-Attention Mechanism</h2>
@@ -348,19 +348,19 @@ Attention(Q, K, V) = softmax( Q·Kᵀ / √dₖ ) · V
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> SelfAttention:<br/>
-    <span style="color: #a11;">"""纯 Python 实现的自注意力层"""</span><br/>
+    <span style="color: #a11;">"""Pure Python implementation of self-attention layer"""</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> d_model: <span style="color: Teal;">int</span><span style="color: Gray;">,</span> d_k: <span style="color: Teal;">int</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>初始化自注意力层<br/>d_model: 输入/输出维度<br/>d_k: Q/K 的维度（通常 d_k = d_model / num_heads）<br/>
+        <span style="color: #a11;">"""<br/>Initialize self-attention layer<br/>d_model: input/output dimension<br/>d_k: dimension of Q/K (usually d_k = d_model / num_heads)<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">random</span><br/>
-        <span style="color: #05a;">random</span>.<span style="color: #05a;">seed</span><span style="color: Olive;">(</span><span style="color: Maroon;">42</span><span style="color: Olive;">)</span>  <span style="color: #a50"># runoob：固定随机种子</span><br/>
+        <span style="color: #05a;">random</span>.<span style="color: #05a;">seed</span><span style="color: Olive;">(</span><span style="color: Maroon;">42</span><span style="color: Olive;">)</span>  <span style="color: #a50"># runoob: fixed random seed</span><br/>
 <br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">d_model</span> <span style="color: Gray;">=</span> d_model<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">d_k</span> <span style="color: Gray;">=</span> d_k<br/>
 <br/>
-        <span style="color: #a50"># 初始化 Q, K, V 的投影矩阵</span><br/>
-        <span style="color: #a50"># 实际中这些是训练出来的</span><br/>
+        <span style="color: #a50"># Initialize the projection matrices for Q, K, V</span><br/>
+        <span style="color: #a50"># In practice, these are trained</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">Wq</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span><span style="color: #05a;">random</span>.<span style="color: #05a;">normalvariate</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.1</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>d_k<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
                    <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>d_model<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">Wk</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span><span style="color: #05a;">random</span>.<span style="color: #05a;">normalvariate</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.1</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>d_k<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
@@ -369,84 +369,84 @@ Attention(Q, K, V) = softmax( Q·Kᵀ / √dₖ ) · V
                    <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>d_model<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> forward<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> X: <span style="color: Teal;">list</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">list</span>:<br/>
-        <span style="color: #a11;">"""<br/>自注意力前向传播<br/>X: 输入序列，形状 [seq_len, d_model]<br/>返回: 输出序列，形状 [seq_len, d_k]<br/>
+        <span style="color: #a11;">"""<br/>Self-attention forward propagation<br/>X: input sequence, shape [seq_len, d_model]<br/>Returns: output sequence, shape [seq_len, d_k]<br/>
         """</span><br/>
         seq_len <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>X<span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 步骤 1：计算 Q, K, V</span><br/>
+        <span style="color: #a50"># Step 1: Compute Q, K, V</span><br/>
         <span style="color: #a50"># Q = X·Wq, K = X·Wk, V = X·Wv</span><br/>
         Q <span style="color: Gray;">=</span> matrix_multiply<span style="color: Olive;">(</span>X<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">Wq</span><span style="color: Olive;">)</span><br/>
         K <span style="color: Gray;">=</span> matrix_multiply<span style="color: Olive;">(</span>X<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">Wk</span><span style="color: Olive;">)</span><br/>
         V <span style="color: Gray;">=</span> matrix_multiply<span style="color: Olive;">(</span>X<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">Wv</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Q 的形状:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>Q<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>Q<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  K 的形状:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>K<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>K<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  V 的形状:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>V<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>V<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Q's shape:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>Q<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>Q<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  K's shape:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>K<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>K<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  V's shape:"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>V<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"×"</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>V<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 步骤 2：计算注意力分数 Q·Kᵀ</span><br/>
+        <span style="color: #a50"># Step 2: Compute Attention Scores Q·Kᵀ</span><br/>
         K_transposed <span style="color: Gray;">=</span> transpose<span style="color: Olive;">(</span>K<span style="color: Olive;">)</span><br/>
         scores <span style="color: Gray;">=</span> matrix_multiply<span style="color: Olive;">(</span>Q<span style="color: Gray;">,</span> K_transposed<span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>原始注意力分数:"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Raw attention scores:"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> row <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>scores<span style="color: Olive;">)</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    第 {i} 行: {[f'{v:.4f}' for v in row]}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Row {i}: {[f'{v:.4f}' for v in row]}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 步骤 3：缩放：除以 √d_k</span><br/>
-        <span style="color: #a50"># 这是为了防止 Softmax 进入梯度饱和区</span><br/>
+        <span style="color: #a50"># Step 3: Scaling: divide by √d_k</span><br/>
+        <span style="color: #a50"># This is to prevent Softmax from entering the gradient saturation region.</span><br/>
         scale_factor <span style="color: Gray;">=</span> <span style="color: #05a;">math</span>.<span style="color: #05a;">sqrt</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">d_k</span><span style="color: Olive;">)</span><br/>
         scores_scaled <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span>v / scale_factor <span style="color: Green;font-weight:bold;">for</span> v <span style="color: Green;font-weight:bold;">in</span> row<span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">for</span> row <span style="color: Green;font-weight:bold;">in</span> scores<span style="color: Olive;">]</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>缩放后的注意力分数:"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Scaled attention scores:</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> row <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>scores_scaled<span style="color: Olive;">)</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    第 {i} 行: {[f'{v:.4f}' for v in row]}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Row {i}: {[f'{v:.4f}' for v in row]}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 步骤 4：Softmax 归一化</span><br/>
+        <span style="color: #a50"># Step 4: Softmax normalization</span><br/>
         attention_weights <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> row <span style="color: Green;font-weight:bold;">in</span> scores_scaled:<br/>
             attention_weights.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>softmax<span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>注意力权重（Softmax 后）:"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Attention weights (after Softmax): "</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> row <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>attention_weights<span style="color: Olive;">)</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    第 {i} 行: {[f'{v:.4f}' for v in row]}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Row {i}: {[f'{v:.4f}' for v in row]}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 步骤 5：加权求和 V</span><br/>
+        <span style="color: #a50"># Step 5: Weighted sum V</span><br/>
         output <span style="color: Gray;">=</span> matrix_multiply<span style="color: Olive;">(</span>attention_weights<span style="color: Gray;">,</span> V<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> output<span style="color: Gray;">,</span> attention_weights<br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 演示：用一个简单例子运行自注意力</span><br/>
+<span style="color: #a50"># Demo: run self-attention with a simple example</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
-<span style="color: #a50"># 假设我们有一个 4 词的句子，每个词用 8 维向量表示</span><br/>
-<span style="color: #a50"># 为了演示，我们用 one-hot + 小随机噪声</span><br/>
+<span style="color: #a50"># Suppose we have a 4-word sentence, each word represented by an 8-dimensional vector</span><br/>
+<span style="color: #a50"># For demonstration, we use one-hot + small random noise</span><br/>
 d_model <span style="color: Gray;">=</span> <span style="color: Maroon;">8</span><br/>
 d_k <span style="color: Gray;">=</span> <span style="color: Maroon;">6</span><br/>
 <br/>
-<span style="color: #a50"># 输入序列：4 个词，每个 8 维</span><br/>
+<span style="color: #a50"># Input sequence: 4 words, each 8-dimensional</span><br/>
 X <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: Olive;">[</span><span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 词 0</span><br/>
-    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 词 1</span><br/>
-    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 词 2</span><br/>
-    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># 词 3</span><br/>
+    <span style="color: Olive;">[</span><span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Word 0</span><br/>
+    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Word 1</span><br/>
+    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Word 2</span><br/>
+    <span style="color: Olive;">[</span><span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0.0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Word 3</span><br/>
 <span style="color: Olive;">]</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Runoob 自注意力演示"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Runoob Self-Attention Demo"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"输入序列长度: {len(X)}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"输入维度: {len(X</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Input sequence length: {len(X)}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Input dimension: {len(X</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 attn <span style="color: Gray;">=</span> SelfAttention<span style="color: Olive;">(</span>d_model<span style="color: Gray;">=</span>d_model<span style="color: Gray;">,</span> d_k<span style="color: Gray;">=</span>d_k<span style="color: Olive;">)</span><br/>
 output<span style="color: Gray;">,</span> attention_weights <span style="color: Gray;">=</span> attn.<span style="color: #05a;">forward</span><span style="color: Olive;">(</span>X<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"自注意力输出:"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Self-attention output:"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> row <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>output<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"词 {i} 的输出: {[f'{v:.4f}' for v in row]}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Output of word {i}: {[f'{v:.4f}' for v in row]}"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p>Run this code and you will see the complete computation process: Q/K/V generation, attention score calculation, scaling, Softmax, and finally the weighted output.</p>
@@ -466,7 +466,7 @@ output<span style="color: Gray;">,</span> attention_weights <span style="color: 
 <li>Another head to attend to "rabbit" (object of action)</li>
 <li>The third head focuses on "chasing" (action).</li>
 </ul>
-<p><span class="marked">多头注意力就是把 Q/K/V 拆分成多个"头"，每个头学不同的注意力模式，最后拼起来。</span></p>
+<p><span class="marked">Multi-head attention splits Q/K/V into multiple "heads", each learning a different attention pattern, and finally concatenates them.</span></p>
 <h3>Steps to Compute Multi-Head Attention</h3>
 <ol>
 <li>Split Q/K/V into h parts along the last dimension (h is the number of heads).</li>
@@ -474,7 +474,7 @@ output<span style="color: Gray;">,</span> attention_weights <span style="color: 
 <li>Concatenate the outputs of all heads</li>
 <li>Pass through a linear projection layer to get the final output</li>
 </ol>
-<p>公式是：</p>
+<p>The formula is:</p>
 <pre>
 MultiHead(Q, K, V) = Concat(head₁, head₂, ..., headₕ) · Wₒ
   其中 headᵢ = Attention(Q·Wqᵢ, K·Wkᵢ, V·Wvᵢ)
@@ -483,16 +483,16 @@ MultiHead(Q, K, V) = Concat(head₁, head₂, ..., headₕ) · Wₒ
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 纯 Python 实现多头注意力（Multi-Head Attention）</span><br/>
+<span style="color: #a50"># Pure Python implementation of Multi-Head Attention</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">math</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">random</span><br/>
-<span style="color: #05a;">random</span>.<span style="color: #05a;">seed</span><span style="color: Olive;">(</span><span style="color: Maroon;">42</span><span style="color: Olive;">)</span>  <span style="color: #a50"># runoob：固定随机种子</span><br/>
+<span style="color: #05a;">random</span>.<span style="color: #05a;">seed</span><span style="color: Olive;">(</span><span style="color: Maroon;">42</span><span style="color: Olive;">)</span>  <span style="color: #a50"># runoob: fixed random seed</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> softmax<span style="color: Olive;">(</span>x: <span style="color: Teal;">list</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">list</span>:<br/>
-    <span style="color: #a11;">"""计算 Softmax"""</span><br/>
+    <span style="color: #a11;">"""Compute Softmax"""</span><br/>
     max_val <span style="color: Gray;">=</span> <span style="color: Teal;">max</span><span style="color: Olive;">(</span>x<span style="color: Olive;">)</span><br/>
     exp_x <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #05a;">math</span>.<span style="color: #05a;">exp</span><span style="color: Olive;">(</span>v - max_val<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> v <span style="color: Green;font-weight:bold;">in</span> x<span style="color: Olive;">]</span><br/>
     sum_exp <span style="color: Gray;">=</span> <span style="color: Teal;">sum</span><span style="color: Olive;">(</span>exp_x<span style="color: Olive;">)</span><br/>
@@ -500,7 +500,7 @@ MultiHead(Q, K, V) = Concat(head₁, head₂, ..., headₕ) · Wₒ
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> matrix_multiply<span style="color: Olive;">(</span>A: <span style="color: Teal;">list</span><span style="color: Gray;">,</span> B: <span style="color: Teal;">list</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">list</span>:<br/>
-    <span style="color: #a11;">"""矩阵乘法"""</span><br/>
+    <span style="color: #a11;">"""Matrix multiplication"""</span><br/>
     m <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>A<span style="color: Olive;">)</span><br/>
     n <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>B<span style="color: Olive;">)</span><br/>
     p <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>B<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
@@ -513,7 +513,7 @@ MultiHead(Q, K, V) = Concat(head₁, head₂, ..., headₕ) · Wₒ
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> transpose<span style="color: Olive;">(</span>matrix: <span style="color: Teal;">list</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">list</span>:<br/>
-    <span style="color: #a11;">"""矩阵转置"""</span><br/>
+    <span style="color: #a11;">"""Matrix transpose"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">list</span><span style="color: Olive;">(</span><span style="color: Teal;">map</span><span style="color: Olive;">(</span><span style="color: Teal;">list</span><span style="color: Gray;">,</span> <span style="color: Teal;">zip</span><span style="color: Olive;">(</span>*matrix<span style="color: Olive;">)</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
@@ -1327,11 +1327,11 @@ Note list
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to Share Notes</h3>
-<p style="font-size:14px;">The note must be an extension of the content of this article!</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> You must <a href=";.html" class="runoob-pop">log in</a> before sharing notes!</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<p style="font-size:14px;">The note must be an extension of the content of this article!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">To submit an article, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i> You must <a class="runoob-pop" href=";.html">log in</a> before sharing notes!</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to get a registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
@@ -1529,7 +1529,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1620,7 +1620,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

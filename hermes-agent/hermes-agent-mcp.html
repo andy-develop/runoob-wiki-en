@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hermes Agent MCP 集成 | 菜鸟教程</title>
+<title>Hermes Agent MCP Integration | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Hermes Agent MCP 集成 MCP（Model Context Protocol）是 Anthropic 提出的开放协议，用于标准化 LLM 与外部工具的交互。 Hermes 原生支持 MCP，无需修改核心代码就能接入 GitHub、数据库、文件系统、浏览器堆栈、内部 API 等任何 MCP 兼容服务。 本章将深入 MCP 的两种接入方式、工具过滤策略、安全隔离机制以及常见问题排查。   什么是 MCP  MCP 解决了一个.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,12 +158,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-tools.html" rel="prev">Hermes Agent 工具集</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-model-setup.html" rel="next">Hermes Agent 模型配置</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-tools.html" rel="prev">Hermes Agent Toolkit</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-model-setup.html" rel="next">Hermes Agent Model Configuration</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Hermes Agent MCP 集成</h1>
+<h1>Hermes Agent MCP integration</h1>
 <p>MCP (Model Context Protocol) is an open protocol proposed by Anthropic for standardizing interactions between LLMs and external tools.</p>
 <p>Hermes natively supports MCP, allowing integration with any MCP-compatible service such as GitHub, databases, file systems, browser stacks, and internal APIs without modifying core code.</p>
 <p>This chapter will dive into MCP's two integration methods, tool filtering strategies, security isolation mechanisms, and common troubleshooting.</p>
@@ -184,36 +184,36 @@ Hermes Agent（MCP 客户端）
     └── HTTP ───→ MCP 服务器 C（远程 OAuth）
                        └── 暴露工具：search_docs, create_page...
 </pre>
-<p><span class="tag1">标准安装已包含 MCP 支持</span>, no additional steps required. All MCP servers in<code>~/.hermes/config.yaml</code>centralized configuration in.</p>
+<p><span class="tag1">Standard installation includes MCP support</span>, no additional steps required. All MCP servers in<code>~/.hermes/config.yaml</code>centralized configuration in.</p>
 <blockquote><p>MCP is not a proprietary protocol of Hermes—it is open. Servers written for other MCP-supporting tools (such as Claude Code's MCP servers) can be used directly in Hermes, and vice versa.</p></blockquote>
 <hr/>
 <h2>Two types of MCP servers</h2>
 <h3>Local stdio server</h3>
-<p>以子进程形式在本地运行，通过标准输入/输出（stdin/stdout）与 Hermes 通信。</p>
+<p>Runs locally as a subprocess, communicating with Hermes via standard input/output (stdin/stdout).</p>
 <p>Communication uses the JSON-RPC protocol, with each message separated by a newline character.</p>
 <p>Applicable scenarios: tools are installed locally, requiring low-latency access to local resources (file systems, Git repositories, local databases).</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># MCP stdio 服务器配置</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># MCP stdio Server Configuration</span><span style="color: #007F45;"><br/>
 mcp_servers</span><span style="font-weight: bold; color: brown;">:<br/>
-</span>  <span style="color: blue;"># GitHub 服务器：通过 npx 启动</span><span style="color: #007F45;"><br/>
+</span>  <span style="color: blue;"># GitHub server: start via npx</span><span style="color: #007F45;"><br/>
   github</span>:<span style="color: green;"><br/>
     command</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"npx"</span><span style="color: green;"><br/>
     args</span><span style="font-weight: bold; color: brown;">: </span><span class="br0">[</span><span style="color: #CF00CF;">"-y"</span>, <span style="color: #CF00CF;">"@modelcontextprotocol/server-github"</span><span class="br0">]</span><span style="color: #007F45;"><br/>
     env</span>:<span style="color: green;"><br/>
       GITHUB_PERSONAL_ACCESS_TOKEN</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"ghp_..."</span><br/>
 <br/>
-  <span style="color: blue;"># 文件系统服务器：限制 Agent 的访问范围</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Filesystem server: restrict the Agent's access scope</span><span style="color: #007F45;"><br/>
   filesystem</span>:<span style="color: green;"><br/>
     command</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"npx"</span><span style="color: #007F45;"><br/>
     args</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>      - <span style="color: #CF00CF;">"-y"</span><br/>
       - <span style="color: #CF00CF;">"@modelcontextprotocol/server-filesystem"</span><br/>
-      - <span style="color: #CF00CF;">"/home/user/projects"</span>     <span style="color: blue;"># 只允许访问此目录</span><br/>
+      - <span style="color: #CF00CF;">"/home/user/projects"</span>     <span style="color: blue;"># Only allow access to this directory</span><br/>
 <br/>
-  <span style="color: blue;"># Git 服务器：通过 uvx 启动</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Git server: start via uvx</span><span style="color: #007F45;"><br/>
   git</span>:<span style="color: green;"><br/>
     command</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"uvx"</span><span style="color: #007F45;"><br/>
     args</span><span style="font-weight: bold; color: brown;">:<br/>
@@ -224,7 +224,7 @@ mcp_servers</span><span style="font-weight: bold; color: brown;">:<br/>
 </div>
 <p>The lifecycle of stdio servers is managed by Hermes:</p>
 <ul>
-<li>会话启动或<code>/reload-mcp</code>When Hermes starts a child process</li>
+<li>Session start or<code>/reload-mcp</code>When Hermes starts a child process</li>
 <li>When a session ends or a server is disabled, Hermes terminates the child process.</li>
 <li>A crashed child process automatically restarts (with up to 3 retries).</li>
 </ul>
@@ -232,48 +232,48 @@ mcp_servers</span><span style="font-weight: bold; color: brown;">:<br/>
 <p>Directly connects to remote MCP endpoints via HTTP requests, supporting multiple authentication methods.</p>
 <p>Applicable scenarios: tools are hosted remotely, or your organization already has MCP interfaces.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># MCP HTTP 服务器配置</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># MCP HTTP server configuration</span><span style="color: #007F45;"><br/>
 mcp_servers</span><span style="font-weight: bold; color: brown;">:<br/>
-</span>  <span style="color: blue;"># 方式一：静态 Bearer Token 认证</span><span style="color: #007F45;"><br/>
+</span>  <span style="color: blue;"># Method 1: Static Bearer Token authentication</span><span style="color: #007F45;"><br/>
   internal_api</span>:<span style="color: green;"><br/>
     url</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"https://mcp.internal.example.com/mcp"</span><span style="color: #007F45;"><br/>
     headers</span>:<span style="color: green;"><br/>
-      Authorization</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"Bearer ${MY_TOKEN}"</span>    <span style="color: blue;"># 支持环境变量</span><br/>
+      Authorization</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"Bearer ${MY_TOKEN}"</span>    <span style="color: blue;"># Support Environment Variables</span><br/>
 <br/>
-  <span style="color: blue;"># 方式二：OAuth 2.1 认证（Linear、Sentry、Figma、Stripe 等）</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Method 2:OAuth 2.1 authentication（Linear、Sentry、Figma、Stripe etc.)</span><span style="color: #007F45;"><br/>
   linear</span>:<span style="color: green;"><br/>
     url</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"https://mcp.linear.app/mcp"</span><span style="color: green;"><br/>
     auth</span><span style="font-weight: bold; color: brown;">: </span>oauth<br/>
 <br/>
-  <span style="color: blue;"># 方式三：需要预注册 OAuth 客户端的提供商</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Method 3: Providers requiring pre-registered OAuth clients</span><span style="color: #007F45;"><br/>
   googledrive</span>:<span style="color: green;"><br/>
     url</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"https://drivemcp.googleapis.com/mcp/v1"</span><span style="color: green;"><br/>
     auth</span><span style="font-weight: bold; color: brown;">: </span>oauth<span style="color: #007F45;"><br/>
     oauth</span>:<span style="color: green;"><br/>
-      client_id</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"&lt;your-oauth-client-id&gt;"</span>       <span style="color: blue;"># 预注册获取</span><span style="color: green;"><br/>
+      client_id</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"&lt;your-oauth-client-id&gt;"</span>       <span style="color: blue;"># Pre-registration fetch</span><span style="color: green;"><br/>
       client_secret</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"&lt;your-oauth-client-secret&gt;"</span><br/>
 </div>
 </div>
 <h3>Comparison of two types</h3>
 <table class="reference">
-<tr><th>维度</th><th>stdio server</th><th>HTTP server</th></tr>
-<tr><td>运行位置</td><td>Local (child process)</td><td>Remote (standalone service)</td></tr>
-<tr><td>通信方式</td><td>stdin/stdout + JSON-RPC</td><td>HTTP 请求</td></tr>
-<tr><td>生命周期</td><td>Hermes manages start/stop</td><td>Independent of Hermes</td></tr>
-<tr><td>延迟</td><td>Extremely low (in-process communication)</td><td>Depends on network latency</td></tr>
-<tr><td>认证</td><td>Environment variable passing</td><td>Bearer Token / OAuth 2.1</td></tr>
-<tr><td>典型场景</td><td>Local Git, file systems, databases</td><td>GitHub API、Linear、Sentry</td></tr>
-<tr><td>配置复杂度</td><td>Low (one-line command)</td><td>in (requires URL + authentication configuration)</td></tr>
+<tr><th>Dimension</th><th>stdio server</th><th>HTTP server</th></tr>
+<tr><td>Run location</td><td>Local (child process)</td><td>Remote (standalone service)</td></tr>
+<tr><td>Communication method</td><td>stdin/stdout + JSON-RPC</td><td>HTTP request</td></tr>
+<tr><td>Lifecycle</td><td>Hermes manages start/stop</td><td>Independent of Hermes</td></tr>
+<tr><td>Latency</td><td>Extremely low (in-process communication)</td><td>Depends on network latency</td></tr>
+<tr><td>authentication</td><td>Environment variable passing</td><td>Bearer Token / OAuth 2.1</td></tr>
+<tr><td>Typical scenarios</td><td>Local Git, file systems, databases</td><td>GitHub API、Linear、Sentry</td></tr>
+<tr><td>Configuration complexity</td><td>Low (one-line command)</td><td>in (requires URL + authentication configuration)</td></tr>
 </table>
 <hr/>
 <h2>Nous curated MCP directory</h2>
 <p>Hermes comes with a Nous Research-vetted MCP directory, offering a one-click installation experience.</p>
-<h3>浏览与安装</h3><p>Open the interactive selector (TUI) to browse all directory entries:</p>
+<h3>Browse and install</h3><p>Open the interactive selector (TUI) to browse all directory entries:</p>
 <pre>hermes mcp</pre>
-<p>其他命令：</p>
+<p>Other commands:</p>
 <pre>
 # 纯文本列表（适合脚本化）
 hermes mcp catalog
@@ -291,9 +291,9 @@ filesystem   installed (enabled)    安全的文件系统操作
 postgres     available               PostgreSQL 数据库查询
 slack        available               Slack 消息和频道管理
 </pre>
-<p>状态说明：</p>
+<p>Status description:</p>
 <table class="reference">
-<tr><th>状态</th><th>含义</th></tr>
+<tr><th>State</th><th>Meaning</th></tr>
 <tr><td>available</td><td>Installable, not yet installed</td></tr>
 <tr><td>installed (enabled)</td><td>Installed and enabled, available for the Agent to use.</td></tr>
 <tr><td>installed (disabled)</td><td>Installed but disabled, not available for the Agent.</td></tr>
@@ -306,9 +306,9 @@ slack        available               Slack 消息和频道管理
 <h3>What happens during installation</h3>
 <p>One-click installation automatically completes three steps:</p>
 <ol>
-<li><span class="tag1">配置引导</span>: prompts you to enter the API Key or guides the OAuth browser authorization flow.</li>
-<li><span class="tag1">工具探测</span>: connects to the server and retrieves the complete list of tools it exposes.</li>
-<li><span class="tag1">工具选择</span>: displays the tool list for you to check the tools you want to enable (all selected by default).</li>
+<li><span class="tag1">Configuration guide</span>: prompts you to enter the API Key or guides the OAuth browser authorization flow.</li>
+<li><span class="tag1">Tool detection</span>: connects to the server and retrieves the complete list of tools it exposes.</li>
+<li><span class="tag1">Tool selection</span>: displays the tool list for you to check the tools you want to enable (all selected by default).</li>
 </ol>
 <blockquote><p>The third step (tool selection) is an important security checkpoint—you don't need every tool. For example, if the GitHub server exposes delete_repo and you don't need it, you can uncheck it.</p></blockquote>
 <hr/>
@@ -317,10 +317,10 @@ slack        available               Slack 消息和频道管理
 <h3>include mode (whitelist)</h3>
 <p>Only register tools in the list; exclude all others:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># include 白名单模式——最安全的选择</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># include whitelist mode — the safest choice.</span><span style="color: #007F45;"><br/>
 mcp_servers</span>:<span style="color: #007F45;"><br/>
   github</span>:<span style="color: green;"><br/>
     command</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"npx"</span><span style="color: green;"><br/>
@@ -333,16 +333,16 @@ mcp_servers</span>:<span style="color: #007F45;"><br/>
         - create_issue<br/>
         - update_issue<br/>
         - search_code<br/>
-      <span style="color: blue;"># 这 4 个之外的任何工具都不会注册</span><br/>
+      <span style="color: blue;"># Any tools other than these 4 will not be registered</span><br/>
 </div>
 </div>
 <h3>exclude mode (blacklist)</h3>
 <p>Exclude tools in the list; register all others:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># exclude 黑名单模式——排除高风险操作</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Exclude blacklist mode — exclude high-risk operations</span><span style="color: #007F45;"><br/>
 mcp_servers</span>:<span style="color: #007F45;"><br/>
   stripe</span>:<span style="color: green;"><br/>
     url</span><span style="font-weight: bold; color: brown;">: </span><span style="color: #CF00CF;">"https://mcp.stripe.com"</span><span style="color: #007F45;"><br/>
@@ -353,39 +353,39 @@ mcp_servers</span>:<span style="color: #007F45;"><br/>
 </span>        - delete_customer<br/>
         - refund_payment<br/>
         - create_live_key<br/>
-      <span style="color: blue;"># 这 3 个之外的任何工具都会注册</span><br/>
+      <span style="color: blue;"># Any tool other than these 3 will be registered</span><br/>
 </div>
 </div>
 <h3>Filter rule priority</h3>
 <table class="reference">
-<tr><th>配置</th><th>行为</th><th>适用场景</th></tr>
-<tr><td>仅 include</td><td>Only register tools in the include list</td><td>Security first, principle of least privilege</td></tr>
-<tr><td>仅 exclude</td><td>Register all tools, exclude the exclude list</td><td>Convenience first, exclude a few high-risk operations</td></tr>
-<tr><td>两者都设置</td><td>include takes priority, exclude is ignored</td><td>—</td></tr>
+<tr><th>Configuration</th><th>Behavior</th><th>Applicable scenarios</th></tr>
+<tr><td>Only include</td><td>Only register tools in the include list</td><td>Security first, principle of least privilege</td></tr>
+<tr><td>Only exclude</td><td>Register all tools, exclude the exclude list</td><td>Convenience first, exclude a few high-risk operations</td></tr>
+<tr><td>Set both</td><td>include takes priority, exclude is ignored</td><td>—</td></tr>
 <tr><td>Neither is set</td><td>Register all tools exposed by the server</td><td>Fully trust this MCP server</td></tr>
 </table>
 <h3>Disable resources and prompts</h3>
 <p>In addition to tools, MCP servers may also expose resources and prompts. If you don't need them, you can turn them off:</p>
 <div class="example">
-<h2 class="example">实例</h2>
-<div class="example_code"># 文件路径：~/.hermes/config.yaml<br/># 在平台配置中引用 MCP 工具集<br/>
+<h2 class="example">Example</h2>
+<div class="example_code"># File path: ~/.hermes/config.yaml<br/># Reference MCP toolset in platform configuration<br/>
 platform_toolsets:<br/>
   cli:<br/>
     - hermes-cli<br/>
     - file<br/>
-    - terminal<br/>- mcp-github          # GitHub MCP 工具<br/>- mcp-linear          # Linear MCP 工具<br/>
+    - terminal<br/>- mcp-github          # GitHub MCP tool<br/>mcp-linear          # Linear MCP tool<br/>
 <br/>
   telegram:<br/>
-    - hermes-gateway<br/>- mcp-github          # Telegram 上也启用 GitHub 工具<br/>
+    - hermes-gateway<br/>- mcp-github          # Also enable GitHub tools on Telegram<br/>
 <br/>
   discord:<br/>
-    - hermes-gateway<br/># Discord 上不启用 GitHub 工具（安全策略）<br/>
+    - hermes-gateway<br/># GitHub tools not enabled on Discord (security policy)<br/>
 </div>
 </div>
 <hr/>
 <h2>MCP environment variable isolation</h2>
 <p>This is the most easily overlooked yet most important design in Hermes' MCP security mechanisms.</p>
-<p>The MCP stdio child process receives an<span class="tag1">经过过滤的环境</span>By default, only passes the following variables:</p>
+<p>The MCP stdio child process receives an<span class="tag1">Filtered environment</span>By default, only passes the following variables:</p>
 <pre>
 PATH, HOME, USER, LANG, LC_ALL, TERM, SHELL, TMPDIR
 以及所有 XDG_* 变量
@@ -393,10 +393,10 @@ PATH, HOME, USER, LANG, LC_ALL, TERM, SHELL, TMPDIR
 <p>All other environment variables (API Key, Token, password) are blocked.</p>
 <p>Only environment variables explicitly declared in the MCP server configuration<code>env:</code>Only variables explicitly declared in the block are passed into the child process:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 
-    env:<br/>GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."   # 只有这一个变量传入<br/># 即使你在 Shell 中 export 了 GITHUB_TOKEN，<br/># 没有在这里声明就不会传入 MCP 子进程<br/>
+    env:<br/>GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."   # Only这aVariable传入<br/># Even if you exported GITHUB_TOKEN in the Shell,<br/># If not declared here, it will not be passed to the MCP subprocess<br/>
 </div>
 </div>
 <blockquote><p>Why is it designed this way? Suppose you have 10 API Keys stored in .env (OpenAI, Anthropic, SerpAPI, Telegram Bot Token...). If an MCP server could read all environment variables, a malicious MCP server tool could steal all credentials. Environment variable isolation ensures it can only see the explicitly declared one.</p></blockquote>
@@ -407,22 +407,22 @@ PATH, HOME, USER, LANG, LC_ALL, TERM, SHELL, TMPDIR
 <h2>Manually add an MCP server</h2>
 <p>Besides one-click installation from the Nous directory, you can also manually add any MCP-compatible server.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 手动添加 stdio 服务器</span><br/>
+<span style="color: #666666; font-style: italic;"># Manually add stdio server</span><br/>
 hermes mcp add my-git-server \<br/>
   <span style="color: #660033;">--command</span> <span style="color: #a10;">"uvx"</span> \<br/>
   <span style="color: #660033;">--args</span> <span style="color: #a10;">"mcp-server-git,--repository,/home/user/project"</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 手动添加 HTTP 服务器</span><br/>
+<span style="color: #666666; font-style: italic;"># Manually add HTTP server</span><br/>
 hermes mcp add internal-db \<br/>
   <span style="color: #660033;">--url</span> <span style="color: #a10;">"https://mcp.internal.example.com/db"</span> \<br/>
   <span style="color: #660033;">--header</span> <span style="color: #a10;">"Authorization: Bearer <span style="color: #007800;">${DB_TOKEN}</span>"</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 测试连接是否正常</span><br/>
+<span style="color: #666666; font-style: italic;"># Test whether the connection is normal</span><br/>
 hermes mcp <span style="color: #7A0874; font-weight: bold;">test</span> my-git-server<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 配置工具过滤</span><br/>
+<span style="color: #666666; font-style: italic;"># Configure Tool Filtering</span><br/>
 hermes mcp configure my-git-server<br/>
 </div>
 </div>
@@ -431,39 +431,34 @@ hermes mcp configure my-git-server<br/>
 <h2>Reload MCP configuration</h2>
 <p>After modifying the MCP configuration in config.yaml, there's no need to restart the entire Agent:</p>
 <div class="example">
-<h2 class="example">实例</h2>
-<div class="example_code"># ─── 浏览与安装 ─────────────────────────────────────────────<br/>hermes mcp                            # 交互式目录选择器（TUI）<br/>hermes mcp catalog                    # 纯文本目录列表<br/>hermes mcp install &lt;name&gt;             # 从目录一键安装<br/>
-<br/># ─── 手动管理 ───────────────────────────────────────────────<br/>hermes mcp add &lt;name&gt; --command &lt;cmd&gt; --args &lt;...&gt;  # 添加 stdio 服务器<br/>hermes mcp add &lt;name&gt; --url &lt;url&gt;                   # 添加 HTTP 服务器<br/>hermes mcp remove &lt;name&gt;              # 移除服务器配置<br/>hermes mcp list                       # 列出所有已配置服务器<br/>hermes mcp test &lt;name&gt;                # 测试服务器连接<br/>hermes mcp configure &lt;name&gt;           # 重新选择启用的工具<br/>
-<br/># ─── OAuth 认证 ─────────────────────────────────────────────<br/>hermes mcp login &lt;server&gt;             # 启动 OAuth 授权（最长等 5 分钟）<br/>
-<br/># ─── 运行时操作 ─────────────────────────────────────────────<br/>/reload-mcp                           # 会话内重新加载 MCP 配置<br/>hermes mcp reload                     # 命令行重新加载<br/>
+<h2 class="example">Example</h2>
+<div class="example_code"># ─── Browsing and Installation ─────────────────────────────────────────────<br/>hermes mcp                            # 交互formulaDirectorySelectors（TUI）<br/>hermes mcp catalog                   # plain text catalog listing<br/>hermes mcp install &lt;name&gt;             # One-click install from directory<br/>
+<br/># ─── hand动管manage ───────────────────────────────────────────────<br/>hermes mcp add &lt;name&gt; --command &lt;cmd&gt; --args &lt;...&gt;  # add stdio Server<br/>hermes mcp add &lt;name&gt; --url &lt;url&gt;                   # add HTTP Server<br/>hermes mcp remove &lt;name&gt;              # Remove server configuration<br/>hermes mcp list                       # List all configured servers<br/>hermes mcp test &lt;name&gt;                # Test server connection<br/>hermes mcp configure &lt;name&gt;           # reselect enabled tools<br/>
+<br/># ─── OAuth authentication ─────────────────────────────────────────────<br/>hermes mcp login &lt;server&gt;             # Start OAuth authorization（最longwait 5 Divide钟）<br/>
+<br/># ─── Runtime Operations ─────────────────────────────────────────────<br/>/reload-mcp                           # SessioninsideAgainaddload MCP Configuration<br/>hermes mcp reload                     # Reload from command line<br/>
 </div>
 </div>
 <hr/>
 <h2>Common troubleshooting</h2>
 <table class="reference">
-<tr><th>问题</th><th>可能原因</th><th>解决方案</th></tr>
+<tr><th>Problem</th><th>Possible causes</th><th>Solution</th></tr>
 <tr><td>MCP tools don't appear</td><td>Server not enabled or connection failed</td><td>Run hermes mcp list to check status, hermes mcp test to test connection</td></tr>
 <tr><td>Tool filtering not taking effect</td><td>Used the tool name registered by Hermes</td><td>Use the original MCP tool name (with hyphens, e.g., list-issues instead of list_issues)</td></tr>
 <tr><td>stdio server crashes frequently</td><td>Missing dependencies or insufficient permissions</td><td>Check whether command is in PATH, manually run a test</td></tr>
-<tr><td>OAuth authorization timeout</td><td>The 30 seconds for /reload-mcp is not enough</td><td>先 hermes mcp login，完成后再 /reload-mcp</td></tr>
+<tr><td>OAuth authorization timeout</td><td>The 30 seconds for /reload-mcp is not enough</td><td>First hermes mcp login, then /reload-mcp after completion</td></tr>
 <tr><td>Environment variables not taking effect</td><td>Not explicitly declared in the env: block</td><td>Declare in mcp_servers.&lt;name&gt;.env, do not rely on Shell environment variables</td></tr>
 <tr><td>HTTP server connection refused</td><td>URL unreachable or authentication failed</td><td>Check the URL and Authorization header to confirm network connectivity.</td></tr>
-</table>
-其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-tools.html" rel="prev">Hermes Agent 工具集</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-model-setup.html" rel="next">Hermes Agent 模型配置</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-tools.html" rel="prev">Hermes Agent Toolkit</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-model-setup.html" rel="next">Hermes Agent Model Configuration</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -567,16 +562,16 @@ hermes mcp configure my-git-server<br/>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -584,14 +579,14 @@ hermes mcp configure my-git-server<br/>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29879"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -769,7 +764,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -860,7 +855,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

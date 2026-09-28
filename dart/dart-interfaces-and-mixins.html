@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dart 接口与 Mixin | 菜鸟教程</title>
+<title>Dart Interfaces and Mixin | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Dart 接口与 Mixin 虽然 Dart 只支持单继承，但通过接口和 Mixin 可以灵活地实现多重代码复用。 本章介绍如何使用 implements 实现接口、mixin 的代码复用以及 with 关键字。   implements 实现接口 在 Dart 中，每个类都隐式定义了一个接口。 使用 implements 关键字可以让一个类实现另一个类的接口，且可以实现多个。   实例  [mycode4 type='dar.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-inheritance.html" rel="prev">Dart 继承与多态</a> </div>
-<div class="next-design-link"><a href="../dart/dart-generics.html" rel="next">Dart 泛型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-inheritance.html" rel="prev">Dart Inheritance and Polymorphism</a> </div>
+<div class="next-design-link"><a href="../dart/dart-generics.html" rel="next">Dart Generics</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,48 +171,48 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In Dart, every class implicitly defines an interface.</p>
 <p>Using the implements keyword allows a class to implement another class's interface, and it can implement multiple interfaces.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 定义一个"可打印"的接口</span><br/>
+<span style="color: #999988; font-style: italic;">// Define a "printable" interface</span><br/>
 <span style="font-weight: bold;">class</span> Printable <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 接口中的方法没有默认实现</span><br/>
-  <span style="color: #999988; font-style: italic;">// 实现者必须重写所有成员</span><br/>
+  <span style="color: #999988; font-style: italic;">// Methods in an interface have no default implementation</span><br/>
+  <span style="color: #999988; font-style: italic;">// Implementers must override all members</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> printContent<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #999988; font-style: italic;">// 这个方法体在 implements 时会被忽略</span><br/>
+    <span style="color: #999988; font-style: italic;">// This method body is ignored when implements is used</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 定义一个"可保存"的接口</span><br/>
+<span style="color: #999988; font-style: italic;">// Define a "savable" interface</span><br/>
 <span style="font-weight: bold;">class</span> Savable <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> save<span style="">(</span><span style="">)</span> <span style="">{</span><span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 使用 implements 实现多个接口</span><br/>
+<span style="color: #999988; font-style: italic;">// Use implements to implement multiple interfaces</span><br/>
 <span style="font-weight: bold;">class</span> Document <span style="font-weight: bold;">implements</span> Printable<span style="font-weight: bold;">,</span> Savable <span style="">{</span><br/>
   String title<span style="font-weight: bold;">;</span><br/>
   String content<span style="font-weight: bold;">;</span><br/>
 <br/>
   Document<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">title</span><span style="font-weight: bold;">,</span> <span style="font-weight: bold;">this</span>.<span style="color: #006633;">content</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 必须实现 Printable 接口要求的所有方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Must implement all methods required by the Printable interface</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> printContent<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'--- 文档: $title ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'--- Document: $title ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     print<span style="">(</span>content<span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'--- RUNOOB 打印结束 ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'--- RUNOOB printing finished ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 必须实现 Savable 接口要求的所有方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Must implement all methods required by the Savable interface</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> save<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'文档 "$title" 已保存到磁盘'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Document "$title" has been saved to disk'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> doc <span style="font-weight: bold;">=</span> Document<span style="">(</span><span style="color: #d14;">'Dart 教程'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'这是一份 Dart 入门指南'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> doc <span style="font-weight: bold;">=</span> Document<span style="">(</span><span style="color: #d14;">Dart Tutorial</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'This is a Dart introductory guide'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 多态：Document 既是 Printable 也是 Savable</span><br/>
+  <span style="color: #999988; font-style: italic;">// Polymorphism: Document is both Printable and Savable</span><br/>
   Printable printable <span style="font-weight: bold;">=</span> doc<span style="font-weight: bold;">;</span><br/>
   printable.<span style="color: #006633;">printContent</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -228,21 +228,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 文档 "Dart 教程" 已保存到磁盘
 </pre>
 <blockquote><p>Key difference between implements and extends: extends inherits all implementations (method bodies) from the parent class, while implements only inherits the interface signature, requiring you to reimplement all methods. Additionally, extends can only inherit one class, while implements can implement multiple interfaces.</p></blockquote>
-<h3>extends vs implements 对比</h3>
+<h3>extends vs implements comparison</h3>
 <table class="reference">
-<tr><th>特性</th><th>extends</th><th>implements</th></tr>
-<tr><td>数量限制</td><td>Can only inherit one</td><td>Can implement multiple</td></tr>
-<tr><td>方法实现</td><td>Inherits the parent class's implementation</td><td>Must implement all methods yourself</td></tr>
-<tr><td>构造函数</td><td>Can call super()</td><td>Does not inherit constructors</td></tr>
-<tr><td>使用场景</td><td>An "is-a" relationship</td><td>A contract of "what it can do"</td></tr>
+<tr><th>Features</th><th>extends</th><th>implements</th></tr>
+<tr><td>Quantity limit</td><td>Can only inherit one</td><td>Can implement multiple</td></tr>
+<tr><td>Method implementation</td><td>Inherits the parent class's implementation</td><td>Must implement all methods yourself</td></tr>
+<tr><td>Constructor</td><td>Can call super()</td><td>Does not inherit constructors</td></tr>
+<tr><td>Use Case</td><td>An "is-a" relationship</td><td>A contract of "what it can do"</td></tr>
 </table>
 <hr/>
-<h2>多接口实现</h2>
+<h2>Multiple interface implementation</h2>
 <p>Dart can implement multiple interfaces, which is the main way to break through the limitation of single inheritance.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 定义多个行为接口</span><br/>
+<span style="color: #999988; font-style: italic;">// Define multiple behavior interfaces</span><br/>
 <span style="font-weight: bold;">class</span> Flyable <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> fly<span style="">(</span><span style="">)</span> <span style="">{</span><span style="">}</span><br/>
 <span style="">}</span><br/>
@@ -255,7 +255,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <span style="color: #445588; font-weight: bold;">void</span> walk<span style="">(</span><span style="">)</span> <span style="">{</span><span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 一只鸭子可以飞、游、走</span><br/>
+<span style="color: #999988; font-style: italic;">// A duck can fly, swim, and walk</span><br/>
 <span style="font-weight: bold;">class</span> Duck <span style="font-weight: bold;">implements</span> Flyable<span style="font-weight: bold;">,</span> Swimmable<span style="font-weight: bold;">,</span> Walkable <span style="">{</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -263,42 +263,42 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> fly<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 在天空中飞翔'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name flies in the sky'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> swim<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 在水面上游泳'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name swims on the water'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> walk<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 在陆地上摇摇晃晃地走'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name waddles on land'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 一条鱼只能游</span><br/>
+<span style="color: #999988; font-style: italic;">// A fish can only swim</span><br/>
 <span style="font-weight: bold;">class</span> Fish <span style="font-weight: bold;">implements</span> Swimmable <span style="">{</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> swim<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'鱼儿在水中游动'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'The fish swims in the water'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> duck <span style="font-weight: bold;">=</span> Duck<span style="">(</span><span style="color: #d14;">'RUNOOB 鸭'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> duck <span style="font-weight: bold;">=</span> Duck<span style="">(</span><span style="color: #d14;">'RUNOOB Duck'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 鸭子可以扮演多种角色</span><br/>
+  <span style="color: #999988; font-style: italic;">// A duck can play multiple roles</span><br/>
   <span style="">(</span>duck <span style="font-weight: bold;">as</span> Flyable<span style="">)</span>.<span style="color: #006633;">fly</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">(</span>duck <span style="font-weight: bold;">as</span> Swimmable<span style="">)</span>.<span style="color: #006633;">swim</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">(</span>duck <span style="font-weight: bold;">as</span> Walkable<span style="">)</span>.<span style="color: #006633;">walk</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 类型检查</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'鸭子能飞吗? ${duck is Flyable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'鸭子能游吗? ${duck is Swimmable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Type check</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Can the duck fly? ${duck is Flyable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Can the duck swim? ${duck is Swimmable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">var</span> fish <span style="font-weight: bold;">=</span> Fish<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'鱼能飞吗? ${fish is Flyable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Can a fish fly? ${fish is Flyable}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -315,11 +315,11 @@ RUNOOB 鸭 在陆地上摇摇晃晃地走
 <p>Mixin is a mechanism for reusing code among multiple classes, solving the problem where "multiple classes need to share the same methods but are not suitable for inheritance."</p>
 <p>Use the mixin keyword to define a Mixin, and use the with keyword to mix it into a class.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 使用 mixin 关键字定义</span><br/>
+<span style="color: #999988; font-style: italic;">// Using the mixin keyword to define</span><br/>
 mixin Logger <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// Mixin 中的方法可以被多个类复用</span><br/>
+  <span style="color: #999988; font-style: italic;">// Methods in a Mixin can be reused by multiple classes</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> log<span style="">(</span>String message<span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'[${DateTime.now()}] $message'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
@@ -336,22 +336,22 @@ mixin TimestampFormatter <span style="">{</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 使用 with 关键字混入 Mixin</span><br/>
+<span style="color: #999988; font-style: italic;">// Use the with keyword to mix in a Mixin</span><br/>
 <span style="font-weight: bold;">class</span> UserService <span style="font-weight: bold;">with</span> Logger<span style="font-weight: bold;">,</span> TimestampFormatter <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> createUser<span style="">(</span>String name<span style="">)</span> <span style="">{</span><br/>
-    log<span style="">(</span><span style="color: #d14;">'创建用户: $name'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    log<span style="">(</span><span style="color: #d14;">'Creating user: $name'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">var</span> now <span style="font-weight: bold;">=</span> DateTime.<span style="color: #006633;">now</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'创建时间: ${formatTimestamp(now)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Creation time: ${formatTimestamp(now)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="font-weight: bold;">class</span> OrderService <span style="font-weight: bold;">with</span> Logger <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> createOrder<span style="">(</span>String orderId<span style="">)</span> <span style="">{</span><br/>
-    log<span style="">(</span><span style="color: #d14;">'创建订单: $orderId'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    log<span style="">(</span><span style="color: #d14;">'Creating order: $orderId'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> cancelOrder<span style="">(</span>String orderId<span style="">)</span> <span style="">{</span><br/>
-    logError<span style="">(</span><span style="color: #d14;">'取消订单失败: $orderId'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    logError<span style="">(</span><span style="color: #d14;">'Failed to cancel order: $orderId'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -377,35 +377,35 @@ mixin TimestampFormatter <span style="">{</span><br/>
 <h3>Mixin constraints</h3>
 <p>Mixin can use the on keyword to restrict it to be used only by specific types of classes.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 基础类</span><br/>
+<span style="color: #999988; font-style: italic;">// Base class</span><br/>
 <span style="font-weight: bold;">class</span> Animal <span style="">{</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
   Animal<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">name</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 这个 Mixin 只能混入到 Animal 及其子类中</span><br/>
+<span style="color: #999988; font-style: italic;">// This Mixin can only be mixed into Animal and its subclasses</span><br/>
 mixin FlyableMixin on Animal <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> fly<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'$name 飞起来了！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'$name is flying!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// Bird 是 Animal，可以用 FlyableMixin</span><br/>
+<span style="color: #999988; font-style: italic;">// Bird is an Animal, so it can use FlyableMixin</span><br/>
 <span style="font-weight: bold;">class</span> Bird <span style="font-weight: bold;">extends</span> Animal <span style="font-weight: bold;">with</span> FlyableMixin <span style="">{</span><br/>
   Bird<span style="">(</span>String name<span style="">)</span> <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">super</span><span style="">(</span>name<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 下面这行会报错：Car 不是 Animal，不能用 FlyableMixin</span><br/>
-<span style="color: #999988; font-style: italic;">// class Car with FlyableMixin {}  // 错误！</span><br/>
+<span style="color: #999988; font-style: italic;">// The following line will error: Car is not an Animal, so it cannot use FlyableMixin</span><br/>
+<span style="color: #999988; font-style: italic;">// class Car with FlyableMixin {}  // Error!</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> bird <span style="font-weight: bold;">=</span> Bird<span style="">(</span><span style="color: #d14;">'RUNOOB 小鸟'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> bird <span style="font-weight: bold;">=</span> Bird<span style="">(</span><span style="color: #d14;">'RUNOOB Little Bird'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   bird.<span style="color: #006633;">fly</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// FlyableMixin 中的方法可以访问 Animal 的属性 name</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'小鸟的名字: ${bird.name}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Methods in FlyableMixin can access the Animal's property name</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Little bird's name: ${bird.name}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -413,25 +413,25 @@ mixin FlyableMixin on Animal <span style="">{</span><br/>
 RUNOOB 小鸟 飞起来了！
 小鸟的名字: RUNOOB 小鸟
 </pre>
-<h3>class、Mixin、extends、implements 的完整组合</h3>
+<h3>Complete combination of class, Mixin, extends, and implements</h3>
 <p>In Dart, a class can use extends, with, and implements at the same time:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 
 mixin Jumpable <span style="">{</span><br/>
-  <span style="color: #445588; font-weight: bold;">void</span> jump<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'跳起来！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #445588; font-weight: bold;">void</span> jump<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'Jump up!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 mixin Runnable <span style="">{</span><br/>
-  <span style="color: #445588; font-weight: bold;">void</span> run<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'跑步前进！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #445588; font-weight: bold;">void</span> run<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'Run forward!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="font-weight: bold;">class</span> Animal <span style="">{</span><br/>
-  <span style="color: #445588; font-weight: bold;">void</span> breathe<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'呼吸...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #445588; font-weight: bold;">void</span> breathe<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'Breathing...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 继承 Animal，混入 Jumpable 和 Runnable，实现 Comparable</span><br/>
+<span style="color: #999988; font-style: italic;">// Inherits Animal, mixes in Jumpable and Runnable, implements Comparable</span><br/>
 <span style="font-weight: bold;">class</span> Athlete <span style="font-weight: bold;">extends</span> Animal<br/>
     <span style="font-weight: bold;">with</span> Jumpable<span style="font-weight: bold;">,</span> Runnable<br/>
     <span style="font-weight: bold;">implements</span> Comparable<span style="font-weight: bold;">&lt;</span>Athlete<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
@@ -451,11 +451,11 @@ mixin Runnable <span style="">{</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> a1 <span style="font-weight: bold;">=</span> Athlete<span style="">(</span><span style="color: #d14;">'RUNOOB 选手A'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">95</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="font-weight: bold;">var</span> a2 <span style="font-weight: bold;">=</span> Athlete<span style="">(</span><span style="color: #d14;">'选手B'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">88</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> a1 <span style="font-weight: bold;">=</span> Athlete<span style="">(</span><span style="color: #d14;">'RUNOOB Player A'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">95</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> a2 <span style="font-weight: bold;">=</span> Athlete<span style="">(</span><span style="color: #d14;">'Player B'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">88</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   a1.<span style="color: #006633;">showSkills</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'${a1.name} vs ${a2.name}: ${a1.compareTo(a2) &gt; 0 ? "A 胜" : "B 胜"}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'${a1.name} vs ${a2.name}: ${a1.compareTo(a2) &gt; 0 ? "A wins" : "B wins"}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -465,22 +465,17 @@ mixin Runnable <span style="">{</span><br/>
 跳起来！
 RUNOOB 选手A vs 选手B: A 胜
 </pre>
-<p>Complete declaration order:<span class="marked">class 子类 extends 父类 with Mixin1, Mixin2 implements 接口1, 接口2</span></p>
-其他扩展
-</div>
+<p>Complete declaration order:<span class="marked">class Subclass extends Superclass with Mixin1, Mixin2 implements Interface1, Interface2</span></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-inheritance.html" rel="prev">Dart 继承与多态</a> </div>
-<div class="next-design-link"><a href="../dart/dart-generics.html" rel="next">Dart 泛型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-inheritance.html" rel="prev">Dart Inheritance and Polymorphism</a> </div>
+<div class="next-design-link"><a href="../dart/dart-generics.html" rel="next">Dart Generics</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -584,16 +579,16 @@ RUNOOB 选手A vs 选手B: A 胜
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -601,14 +596,14 @@ RUNOOB 选手A vs 选手B: A 胜
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31419"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -786,7 +781,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -877,7 +872,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

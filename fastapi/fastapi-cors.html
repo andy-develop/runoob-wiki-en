@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FastAPI CORS 跨域 | 菜鸟教程</title>
+<title>FastAPI CORS Cross-Origin | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="FastAPI CORS 跨域 CORS（Cross-Origin Resource Sharing，跨域资源共享）是一种安全机制，允许或限制网页从不同域名请求资源。当前后端分离开发时，前端页面通常运行在不同的域名或端口上，需要配置 CORS 才能正常访问后端 API。   什么是跨域问题 浏览器的同源策略限制了网页向不同域名发送请求。例如：  前端地址后端 API 地址是否跨域 http://localhost:3000http://.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,45 +158,45 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-middleware.html" rel="prev">FastAPI 中间件</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-static-files.html" rel="next">FastAPI 静态文件</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-middleware.html" rel="prev">FastAPI middleware</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-static-files.html" rel="next">FastAPI Static Files</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>FastAPI CORS 跨域</h1>
+<h1>FastAPI CORS Cross-Origin</h1>
 <p>CORS (Cross-Origin Resource Sharing) is a security mechanism that allows or restricts web pages from requesting resources from different domains. When frontend and backend are developed separately, the frontend page usually runs on a different domain or port, so CORS must be configured to access backend APIs normally.</p>
 <hr/>
 <h2>What is the cross-origin problem</h2>
 <p>The browser's same-origin policy restricts web pages from sending requests to different domains. For example:</p>
 <table class="reference">
-<tr><th>前端地址</th><th>Backend API address</th><th>是否跨域</th></tr>
+<tr><th>Frontend address</th><th>Backend API address</th><th>Whether cross-domain</th></tr>
 <tr><td><code>http://localhost:3000</code></td><td><code>http://localhost:8000</code></td><td>Cross-origin (different port)</td></tr>
 <tr><td><code>http://example.com</code></td><td><code>http://api.example.com</code></td><td>Cross-origin (different domain)</td></tr>
 <tr><td><code>https://example.com</code></td><td><code>http://example.com</code></td><td>Cross-origin (different protocol)</td></tr>
 <tr><td><code>http://example.com</code></td><td><code>http://example.com/api</code></td><td>Same-origin (same domain, port, protocol)</td></tr>
 </table>
-<p>Three elements of same-origin:<strong>协议</strong>、<strong>域名</strong>、<strong>端口</strong>, if any one differs, it is cross-origin.</p>
+<p>Three elements of same-origin:<strong>Protocol</strong>、<strong>domain name</strong>、<strong>port</strong>, if any one differs, it is cross-origin.</p>
 <hr/>
-<h2>配置 CORS</h2>
-<p>FastAPI 使用 Starlette 的<code>CORSMiddleware</code>To handle cross-origin:</p>
+<h2>Configure CORS</h2>
+<p>FastAPI uses Starlette's<code>CORSMiddleware</code>To handle cross-origin:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">middleware</span>.<span style="color: #05a;">cors</span> <span style="color: Green;font-weight:bold;">import</span> CORSMiddleware<br/>
 <br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 配置 CORS 中间件</span><br/>
+<span style="color: #a50"># Configure CORS middleware</span><br/>
 app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">(</span><br/>
     CORSMiddleware<span style="color: Gray;">,</span><br/>
-    allow_origins<span style="color: Gray;">=</span><span style="color: Olive;">[</span>               <span style="color: #a50"># 允许的源（域名列表）</span><br/>
-        <span style="color: #a11;">"http://localhost:3000"</span><span style="color: Gray;">,</span>   <span style="color: #a50"># 前端开发服务器</span><br/>
+    allow_origins<span style="color: Gray;">=</span><span style="color: Olive;">[</span>               <span style="color: #a50"># Allowed origins (domain list)</span><br/>
+        <span style="color: #a11;">"http://localhost:3000"</span><span style="color: Gray;">,</span>   <span style="color: #a50"># Frontend development server</span><br/>
         <span style="color: #a11;">"http://localhost:8080"</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
-    allow_credentials<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span>       <span style="color: #a50"># 允许携带 Cookie</span><br/>
-    allow_methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>          <span style="color: #a50"># 允许的 HTTP 方法</span><br/>
-    allow_headers<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>          <span style="color: #a50"># 允许的请求头</span><br/>
+    allow_credentials<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span>       <span style="color: #a50"># Allow cookies</span><br/>
+    allow_methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>          <span style="color: #a50"># Allowed HTTP Methods</span><br/>
+    allow_headers<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>          <span style="color: #a50"># Allowed Request Headers</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
@@ -207,58 +207,58 @@ async <span style="color: Green;font-weight:bold;">def</span> root<span style="c
 <hr/>
 <h2>CORS configuration parameters explained</h2>
 <table class="reference">
-<tr><th>参数</th><th>类型</th><th>说明</th><th>推荐值</th></tr>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>recommended value</th></tr>
 <tr><td><code>allow_origins</code></td><td><code>list[str]</code></td><td>List of allowed cross-origin sources</td><td>Use specific domains in production environment</td></tr>
 <tr><td><code>allow_methods</code></td><td><code>list[str]</code></td><td>Allowed HTTP methods</td><td><code>["GET", "POST", "PUT", "DELETE"]</code></td></tr>
-<tr><td><code>allow_headers</code></td><td><code>list[str]</code></td><td>Allowed request headers</td><td>按需配置</td></tr>
+<tr><td><code>allow_headers</code></td><td><code>list[str]</code></td><td>Allowed request headers</td><td>On-demand configuration</td></tr>
 <tr><td><code>allow_credentials</code></td><td><code>bool</code></td><td>Whether to allow carrying cookies and authentication information</td><td>Set to when authentication is required<code>True</code></td></tr>
-<tr><td><code>expose_headers</code></td><td><code>list[str]</code></td><td>Response headers that the frontend can access</td><td>按需配置</td></tr>
+<tr><td><code>expose_headers</code></td><td><code>list[str]</code></td><td>Response headers that the frontend can access</td><td>On-demand configuration</td></tr>
 <tr><td><code>max_age</code></td><td><code>int</code></td><td>Cache duration of preflight requests (seconds)</td><td><code>600</code></td></tr>
 </table>
-<blockquote><p><code>allow_origins</code>使用<code>["*"]</code>Indicates allowing all origins, but this is<code>allow_credentials=True</code>Incompatible. If you need to carry cookies, you must specify a specific origin.</p></blockquote>
+<blockquote><p><code>allow_origins</code>Usage<code>["*"]</code>Indicates allowing all origins, but this is<code>allow_credentials=True</code>Incompatible. If you need to carry cookies, you must specify a specific origin.</p></blockquote>
 <hr/>
 <h2>Development environment vs production environment</h2>
-<h3>开发环境</h3>
+<h3>Development environment</h3>
 <p>For convenience during development, you can allow all origins:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">middleware</span>.<span style="color: #05a;">cors</span> <span style="color: Green;font-weight:bold;">import</span> CORSMiddleware<br/>
 <br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 开发环境：允许所有源（仅用于开发！）</span><br/>
+<span style="color: #a50"># Development environment: allow all origins (for development only!)</span><br/>
 app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">(</span><br/>
     CORSMiddleware<span style="color: Gray;">,</span><br/>
-    allow_origins<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># 允许所有源</span><br/>
+    allow_origins<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># Allow all origins</span><br/>
     allow_credentials<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span><br/>
-    allow_methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># 允许所有方法</span><br/>
-    allow_headers<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># 允许所有请求头</span><br/>
+    allow_methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># Allow All Methods</span><br/>
+    allow_headers<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"*"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span>         <span style="color: #a50"># Allow all request headers</span><br/>
 <span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<h3>生产环境</h3>
+<h3>Production Environment</h3>
 <p>Production environment must specify specific sources:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> FastAPI<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">middleware</span>.<span style="color: #05a;">cors</span> <span style="color: Green;font-weight:bold;">import</span> CORSMiddleware<br/>
 <br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 生产环境：只允许特定域名</span><br/>
+<span style="color: #a50"># Production environment: only allow specific domains</span><br/>
 app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">(</span><br/>
     CORSMiddleware<span style="color: Gray;">,</span><br/>
     allow_origins<span style="color: Gray;">=</span><span style="color: Olive;">[</span><br/>
-        <span style="color: #a11;">"https://example.com"</span><span style="color: Gray;">,</span>           <span style="color: #a50"># 生产前端域名</span><br/>
-        <span style="color: #a11;">"https://www.example.com"</span><span style="color: Gray;">,</span>       <span style="color: #a50"># 带 www 的域名</span><br/>
+        <span style="color: #a11;">"https://example.com"</span><span style="color: Gray;">,</span>           <span style="color: #a50"># Production Frontend Domain</span><br/>
+        <span style="color: #a11;">"https://www.example.com"</span><span style="color: Gray;">,</span>       <span style="color: #a50"># Domain with www</span><br/>
     <span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     allow_credentials<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span><br/>
     allow_methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"PUT"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"DELETE"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     allow_headers<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"Authorization"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Content-Type"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
-    max_age<span style="color: Gray;">=</span><span style="color: Maroon;">600</span><span style="color: Gray;">,</span>                  <span style="color: #a50"># 预检请求缓存 10 分钟</span><br/>
+    max_age<span style="color: Gray;">=</span><span style="color: Maroon;">600</span><span style="color: Gray;">,</span>                  <span style="color: #a50"># Preflight request cache for 10 minutes</span><br/>
 <span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -268,35 +268,30 @@ app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">
 <p>Before sending certain cross-origin requests, the browser first sends a<strong>OPTIONS</strong>Preflight request, asking the server whether the actual request is allowed. The CORS middleware automatically handles preflight requests.</p>
 <p>Conditions for requests requiring preflight:</p>
 <ul>
-<li>使用了<code>PUT</code>、<code>DELETE</code>Non-simple methods such as</li>
+<li>uses<code>PUT</code>、<code>DELETE</code>Non-simple methods such as</li>
 <li>The request header contains custom fields (such as<code>Authorization</code>）</li>
-<li><code>Content-Type</code>不是<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code> 或 <code>text/plain</code></li>
+<li><code>Content-Type</code>is not<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>or<code>text/plain</code></li>
 </ul>
-<blockquote><p>设置了<code>max_age</code>After that, the browser caches the preflight result and will not resend the preflight request within the specified time, reducing network overhead.</p></blockquote>
+<blockquote><p>set<code>max_age</code>After that, the browser caches the preflight result and will not resend the preflight request within the specified time, reducing network overhead.</p></blockquote>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <ul>
 <li>CORS is a browser security mechanism that must be configured in frontend-backend separated development.</li>
-<li>使用<code>CORSMiddleware</code>Handling cross-origin requests</li>
-<li>In production environment, be sure to specify the specific<code>allow_origins</code>，不要使用<code>["*"]</code></li>
-<li><code>allow_credentials=True</code> 与 <code>allow_origins=["*"]</code>不兼容</li>
+<li>Usage<code>CORSMiddleware</code>Handling cross-origin requests</li>
+<li>In production environment, be sure to specify the specific<code>allow_origins</code>, do not use<code>["*"]</code></li>
+<li><code>allow_credentials=True</code>and<code>allow_origins=["*"]</code>incompatible</li>
 <li>The CORS middleware automatically handles the browser's OPTIONS preflight requests.</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-middleware.html" rel="prev">FastAPI 中间件</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-static-files.html" rel="next">FastAPI 静态文件</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-middleware.html" rel="prev">FastAPI middleware</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-static-files.html" rel="next">FastAPI Static Files</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -400,16 +395,16 @@ app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -417,14 +412,14 @@ app.<span style="color: #05a;">add_middleware</span><span style="color: Olive;">
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29904"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -602,7 +597,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -693,7 +688,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hermes Agent 子 Agent 委托与批量处理 | 菜鸟教程</title>
+<title>Hermes Agent Sub-agent Delegation and Batch Processing | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Hermes Agent 子 Agent 委托与批量处理 本章介绍 Hermes 的两种并行处理能力：子 Agent 委托让一个主 Agent 将任务分发给多个子 Agent 并行执行，批量处理系统则能在数百个 Prompt 上并行运行 Agent 并生成结构化训练数据。   子 Agent 委托与并行 Hermes 支持从主 Agent 中委托任务给子 Agent，实现并行工作流。 子 Agent 通过 delegation 工具集实.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-checkpoint.html" rel="prev">Hermes Agent 检查点、定时任务与持久目标</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-plugins.html" rel="next">Hermes Agent 插件开发与生产实践</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-checkpoint.html" rel="prev">Hermes Agent checkpoints, scheduled tasks, and persistent goals</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-plugins.html" rel="next">Hermes Agent Plugin Development and Production Practices</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -170,69 +170,69 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Hermes supports delegating tasks from the main Agent to sub-Agents, enabling parallel workflows.</p>
 <p>Sub-agents via<code>delegation</code>Toolset implementation:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 确保 delegation 工具集已启用</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Ensure the delegation toolset is enabled</span><span style="color: #007F45;"><br/>
 toolsets</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>  - delegation<br/>
 </div>
 </div>
-<p>Main agent uses<code>spawn_agent</code> 或 <code>spawn_parallel</code>Tool-derived Agent.</p>
+<p>Main agent uses<code>spawn_agent</code>or<code>spawn_parallel</code>Tool-derived Agent.</p>
 <p>The following pseudocode illustrates the mechanism of parallel delegation:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># Agent 在会话中的并行委托机制（伪代码，说明原理）</span><br/>
-<span style="color: #a50"># spawn_parallel 同时派发多个子 Agent，各自独立执行</span><br/>
+<span style="color: #a50"># The parallel delegation mechanism of Agent in sessions (pseudocode, explaining the principle)</span><br/>
+<span style="color: #a50"># spawn_parallel dispatches multiple sub-agents simultaneously, each executing independently.</span><br/>
 <br/>
 spawn_parallel<span style="color: Olive;">(</span><span style="color: Olive;">[</span><br/>
-  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"分析第一季度销售数据，生成趋势报告"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
-  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"分析第二季度销售数据，生成趋势报告"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
-  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"分析第三季度销售数据，生成趋势报告"</span><span style="color: Olive;">}</span><br/>
+  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"Analyze Q1 sales data and generate trend report"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"Analyze Q2 sales data and generate trend report"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+  <span style="color: Olive;">{</span><span style="color: #a11;">"prompt"</span>: <span style="color: #a11;">"Analyze Q3 sales data and generate trend report"</span><span style="color: Olive;">}</span><br/>
 <span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># 三个子 Agent 并行工作，结果汇总后返回主 Agent</span><br/>
+<span style="color: #a50"># Three sub-Agents work in parallel, with results aggregated and returned to the main Agent</span><br/>
 </div>
 </div>
-<h3>后台任务</h3>
+<h3>Background task</h3>
 <p>Start background tasks directly in the session:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 在会话中启动后台任务</span><br/>
-<span style="color: #000000; font-weight: bold;">/</span>background 检查所有服务器并报告宕机情况<br/>
+<span style="color: #666666; font-style: italic;"># Start Background Task in Session</span><br/>
+<span style="color: #000000; font-weight: bold;">/</span>background check all servers and report downtime<br/>
 </div>
 </div>
-<h3>Kanban 多 Agent 协作</h3>
+<h3>Kanban Multi-Agent Collaboration</h3>
 <p>The Kanban toolset provides more structured multi-Agent collaboration — an orchestrator Agent distributes tasks to the board, and multiple worker Agents claim and execute them:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 开启 kanban 工具集（需显式启用，all/* 也不会自动开启）</span><br/>
+<span style="color: #666666; font-style: italic;"># Enable kanban toolset (requires explicit enabling; all/* will not automatically enable it)</span><br/>
 hermes tools <span style="color: #7A0874; font-weight: bold;">enable</span> kanban<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 为 Profile 添加角色描述，让编排者知道各 Agent 的能力</span><br/>
+<span style="color: #666666; font-style: italic;"># Add role descriptions to Profile so the orchestrator knows each Agent's capabilities.</span><br/>
 hermes profile create researcher \<br/>
-  <span style="color: #660033;">--description</span> <span style="color: #a10;">"擅长阅读源代码和外部文档，输出调研报告"</span><br/>
+  <span style="color: #660033;">--description</span> <span style="color: #a10;">"Skilled at reading source code and external documentation, producing research reports"</span><br/>
 hermes profile create coder \<br/>
-  <span style="color: #660033;">--description</span> <span style="color: #a10;">"擅长实现功能、修复 Bug、编写测试"</span><br/>
+  <span style="color: #660033;">--description</span> <span style="color: #a10;">"Skilled at implementing features, fixing bugs, and writing tests"</span><br/>
 </div>
 </div>
 <blockquote><p>The Kanban toolset must be explicitly enabled — even all or * will not automatically turn it on. This is intentional design, because multi-Agent collaboration consumes more tokens.</p></blockquote>
 <hr/>
 <h2>Batch Processing and RL Training Data Generation</h2>
 <p>Batch processing lets you run agents in parallel on hundreds or thousands of prompts, generating structured trajectory data—mainly used for model fine-tuning training data generation and evaluation.</p>
-<h3>快速上手</h3>
+<h3>Quick start</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 准备 JSONL 格式的 Prompt 数据集</span><br/>
+<span style="color: #666666; font-style: italic;"># Prepare a Prompt dataset in JSONL format</span><br/>
 <span style="color: #C20CB9; font-weight: bold;">cat</span> data<span style="color: #000000; font-weight: bold;">/</span>prompts.jsonl<br/>
-<span style="color: #666666; font-style: italic;"># {"prompt": "写一个找最长回文子串的 Python 函数"}</span><br/>
-<span style="color: #666666; font-style: italic;"># {"prompt": "用 Flask 创建用户认证 REST API 端点"}</span><br/>
-<span style="color: #666666; font-style: italic;"># {"prompt": "调试这个错误：TypeError: cannot unpack non-iterable"}</span><br/>
+<span style="color: #666666; font-style: italic;"># {"prompt": "Write a Python function to find the longest palindromic substring"}</span><br/>
+<span style="color: #666666; font-style: italic;"># {"prompt": "Create user authentication REST API endpoints with Flask"}</span><br/>
+<span style="color: #666666; font-style: italic;"># {"prompt": "DebugThisError:TypeError: cannot unpack non-iterable"}</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 运行批量处理</span><br/>
+<span style="color: #666666; font-style: italic;"># Run Batch Processing</span><br/>
 python batch_runner.py \<br/>
     --dataset_file=data<span style="color: #000000; font-weight: bold;">/</span>prompts.jsonl \<br/>
     --batch_size=<span style="color: #000000;">10</span> \<br/>
@@ -240,7 +240,7 @@ python batch_runner.py \<br/>
     <span style="color: #660033;">--model</span>=anthropic<span style="color: #000000; font-weight: bold;">/</span>claude-sonnet-<span style="color: #000000;">4</span>-<span style="color: #000000;">6</span> \<br/>
     --num_workers=<span style="color: #000000;">4</span><br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 从检查点续传中断的任务</span><br/>
+<span style="color: #666666; font-style: italic;"># Resume interrupted task from checkpoint</span><br/>
 python batch_runner.py \<br/>
     --dataset_file=data<span style="color: #000000; font-weight: bold;">/</span>prompts.jsonl \<br/>
     --batch_size=<span style="color: #000000;">10</span> \<br/>
@@ -248,27 +248,27 @@ python batch_runner.py \<br/>
     <span style="color: #660033;">--resume</span><br/>
 </div>
 </div>
-<h3>数据集格式</h3>
+<h3>Dataset format</h3>
 <p>Each line is a JSON object, must contain<code>prompt</code>Field, optionally contains additional context:</p>
 <div class="example">
-<h2 class="example">实例</h2>
-<div class="example_code">{"prompt": "写一个查找回文的 Python 函数"}<br/>{"prompt": "调试这个错误", "cwd": "/home/user/project", "docker_image": "python:3.12"}<br/>
+<h2 class="example">Example</h2>
+<div class="example_code">{"prompt": "Write a Python function to find palindromes"}<br/>{"prompt": "DebugThisError", "cwd": "/home/user/project", "docker_image": "python:3.12"}<br/>
 </div>
 </div>
-<h3>主要参数</h3>
+<h3>Main parameters</h3>
 <table class="reference">
-<tr><th>参数</th><th>默认值</th><th>说明</th></tr>
-<tr><td>--dataset_file</td><td>必填</td><td>JSONL dataset path</td></tr>
-<tr><td>--batch_size</td><td>必填</td><td>Number of prompts per batch</td></tr>
-<tr><td>--run_name</td><td>必填</td><td>Run name (used for output directory and checkpoint resumption)</td></tr>
-<tr><td>--model</td><td>claude-sonnet-4.6</td><td>使用的模型</td></tr>
+<tr><th>Parameter</th><th>Default value</th><th>Description</th></tr>
+<tr><td>--dataset_file</td><td>Required</td><td>JSONL dataset path</td></tr>
+<tr><td>--batch_size</td><td>Required</td><td>Number of prompts per batch</td></tr>
+<tr><td>--run_name</td><td>Required</td><td>Run name (used for output directory and checkpoint resumption)</td></tr>
+<tr><td>--model</td><td>claude-sonnet-4.6</td><td>Models used</td></tr>
 <tr><td>--num_workers</td><td>4</td><td>Number of parallel worker processes</td></tr>
 <tr><td>--max_turns</td><td>10</td><td>Maximum tool call rounds per prompt</td></tr>
 <tr><td>--distribution</td><td>"default"</td><td>Toolset distribution (randomly sampling different tool combinations)</td></tr>
-<tr><td>--reasoning_effort</td><td>—</td><td>推理努力程度：none/minimal/low/medium/high/xhigh</td></tr>
+<tr><td>--reasoning_effort</td><td>—</td><td>Reasoning effort: none/minimal/low/medium/high/xhigh</td></tr>
 <tr><td>--resume</td><td>false</td><td>Resume from checkpoint</td></tr>
 </table>
-<h3>输出结构</h3>
+<h3>Output structure</h3>
 <p>Batch processing generates the following directory structure:</p>
 <pre>
 data/my_first_run/
@@ -280,13 +280,13 @@ data/my_first_run/
 </pre>
 <p>Each trajectory is output in ShareGPT format, including full conversation history, tool invocation records, and reasoning coverage statistics:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 
 {<br/>
   "prompt_index": 42,<br/>
-  "conversations": [<br/>{"from": "human", "value": "写一个查找回文的函数..."},<br/>{"from": "gpt", "value": "我来创建这个函数...",<br/>
-     "tool_calls": [{"name": "terminal", "arguments": {...}}]},<br/>{"from": "tool", "value": "...执行结果..."},<br/>{"from": "gpt", "value": "这是完成的函数..."}<br/>
+  "conversations": [<br/>{"from": "human", "value": "Write a function to find palindromes..."},<br/>{"from": "gpt", "value": "I'll create this function...",}<br/>
+     "tool_calls": [{"name": "terminal", "arguments": {...}}]},<br/>{"from": "tool", "value": "...execution result..."},<br/>{"from": "gpt", "value": "This is the completed function..."}<br/>
   ],<br/>
   "completed": true,<br/>
   "toolsets_used": ["terminal", "file"],<br/>
@@ -296,20 +296,20 @@ data/my_first_run/
 }<br/>
 </div>
 </div>
-<h3>质量过滤</h3>
+<h3>Quality filtering</h3>
 <p>After the batch run ends, two filters are automatically applied:</p>
 <table class="reference">
-<tr><th>过滤项</th><th>规则</th><th>目的</th></tr>
-<tr><td>零推理过滤</td><td>Samples without any trace of reasoning were discarded.</td><td>Ensure the output contains the thinking process to improve training data quality</td></tr>
+<tr><th>filter item</th><th>Rules</th><th>Purpose</th></tr>
+<tr><td>Zero inference filtering</td><td>Samples without any trace of reasoning were discarded.</td><td>Ensure the output contains the thinking process to improve training data quality</td></tr>
 <tr><td>Hallucinated tool name filtering</td><td>Entries containing tool calls that are not in the valid tool list are filtered out</td><td>Exclude invalid tool calls produced by model hallucination</td></tr>
 </table>
 <blockquote><p>Reasoning traces refer to &lt;REASONING_SCRATCHPAD&gt; markers or native thinking tokens. The filtered data is more suitable for model fine-tuning.</p></blockquote>
 <h3>Integration with the Atropos RL environment</h3>
 <p>Batch processing can directly generate Atropos-compatible training data:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 生成 Atropos 兼容的训练数据</span><br/>
+<span style="color: #666666; font-style: italic;"># Generate Atropos-compatible training data</span><br/>
 python batch_runner.py \<br/>
     --dataset_file=data<span style="color: #000000; font-weight: bold;">/</span>coding_tasks.jsonl \<br/>
     --run_name=atropos_run \<br/>
@@ -317,24 +317,19 @@ python batch_runner.py \<br/>
     --num_workers=<span style="color: #000000;">8</span> \<br/>
     --reasoning_effort=high<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 输出的 trajectories.jsonl 可直接作为 Atropos 的训练输入</span><br/>
+<span style="color: #666666; font-style: italic;"># The output trajectories.jsonl can be directly used as Atropos training input</span><br/>
 </div>
-</div>
-其他扩展
-</div>
+</div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-checkpoint.html" rel="prev">Hermes Agent 检查点、定时任务与持久目标</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-plugins.html" rel="next">Hermes Agent 插件开发与生产实践</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-checkpoint.html" rel="prev">Hermes Agent checkpoints, scheduled tasks, and persistent goals</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-plugins.html" rel="next">Hermes Agent Plugin Development and Production Practices</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -438,16 +433,16 @@ python batch_runner.py \<br/>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -455,14 +450,14 @@ python batch_runner.py \<br/>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31594"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -640,7 +635,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -731,7 +726,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

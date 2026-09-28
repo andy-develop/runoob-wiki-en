@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>缓存命中与缓存未命中 | 菜鸟教程</title>
+<title>Cache Hit and Cache Miss | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="缓存命中与缓存未命中   /* ========== runoob 缓存模拟器演示专用样式 ========== */  /* 演示主容器 */ .cache-sim-wrap {   background: #1a1a2e;   border-radius: 14px;   padding: 28px 24px;   margin: 28px 0;   color: #e0e0e0; }  .cache-sim-wrap .cache.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/memory-hierarchy.html" rel="prev">存储金字塔 — 为什么要分这么多层</a> </div>
-<div class="next-design-link"><a href="../computer-organization/memory-addressing.html" rel="next">内存地址与寻址</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/memory-hierarchy.html" rel="prev">Memory Hierarchy — Why So Many Layers</a> </div>
+<div class="next-design-link"><a href="../computer-organization/memory-addressing.html" rel="next">Memory Address and Addressing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -496,58 +496,58 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 <p>When the CPU needs data, it first looks in the cache. If found, all is well—but what if it's not found?</p>
-<p>This lecture helps you understand the core mechanics of how caches work, and the key principle that makes caches effective—<span class="marked">局部性原理</span>。</p>
+<p>This lecture helps you understand the core mechanics of how caches work, and the key principle that makes caches effective—<span class="marked">Principle of locality</span>。</p>
 <hr/>
 <h2>Everyday analogy: the desk in a library</h2>
-<p>You're writing a paper in the library. At most 4 books can fit on your desk—this is your<span class="marked">「缓存」</span>, its capacity is small but within arm's reach.</p>
+<p>You're writing a paper in the library. At most 4 books can fit on your desk—this is your<span class="marked">Cache</span>, its capacity is small but within arm's reach.</p>
 <p>When you need a book, first check whether it's on the desk:</p>
 <ul>
-<li><span class="tag1 green">在桌上（缓存命中）</span>: just open and use it, zero waiting.</li>
-<li><span class="tag1">不在桌上（缓存未命中）</span>: get up and look on the bookshelf, bring it back and put it on the desk. If the desk is full, you have to put the book that hasn't been touched for the longest time back on the shelf.</li>
+<li><span class="tag1 green">On the table (cache hit)</span>: just open and use it, zero waiting.</li>
+<li><span class="tag1">Not on the table (cache miss)</span>: get up and look on the bookshelf, bring it back and put it on the desk. If the desk is full, you have to put the book that hasn't been touched for the longest time back on the shelf.</li>
 </ul>
-<p>This simple rule is exactly the essence of a computer cache system—<span class="marked">「最近用过的留着，不常用的淘汰掉」</span>。</p>
-<p>Going further, you will find: when writing a paper, you don't randomly flip through unrelated books. Over a certain period of time, you repeatedly consult the same set of reference materials. Of the books on those thousands of shelves in the library, the ones you actually touched may only be twenty or thirty. This is<span class="marked">局部性原理</span>在起作用。</p>
+<p>This simple rule is exactly the essence of a computer cache system—<span class="marked">"Keep the recently used, evict the rarely used"</span>。</p>
+<p>Going further, you will find: when writing a paper, you don't randomly flip through unrelated books. Over a certain period of time, you repeatedly consult the same set of reference materials. Of the books on those thousands of shelves in the library, the ones you actually touched may only be twenty or thirty. This is<span class="marked">Principle of locality</span>At work.</p>
 <hr/>
 <h2>Core concept: cache hit and miss</h2>
-<h3>基本术语</h3>
+<h3>Basic Terms</h3>
 <table class="reference">
-<tr><th>术语</th><th>英文</th><th>含义</th></tr>
-<tr><td>缓存命中</td><td>Cache Hit</td><td>The data requested by the CPU is found right in the cache and used directly</td></tr>
-<tr><td>缓存未命中</td><td>Cache Miss</td><td>The data requested by the CPU is not in the cache and must be loaded from the next (slower) level of storage</td></tr>
-<tr><td>命中率</td><td>Hit Rate</td><td>Number of hits / total accesses, the higher the better (ideally close to 100%)</td></tr>
-<tr><td>未命中惩罚</td><td>Miss Penalty</td><td>The extra time spent loading data from the next level after a miss</td></tr>
-<tr><td>命中时间</td><td>Hit Time</td><td>Time required to read data when the cache hits</td></tr>
+<tr><th>Term</th><th>English</th><th>Meaning</th></tr>
+<tr><td>Cache hit</td><td>Cache Hit</td><td>The data requested by the CPU is found right in the cache and used directly</td></tr>
+<tr><td>Cache miss</td><td>Cache Miss</td><td>The data requested by the CPU is not in the cache and must be loaded from the next (slower) level of storage</td></tr>
+<tr><td>hit rate</td><td>Hit Rate</td><td>Number of hits / total accesses, the higher the better (ideally close to 100%)</td></tr>
+<tr><td>Miss penalty</td><td>Miss Penalty</td><td>The extra time spent loading data from the next level after a miss</td></tr>
+<tr><td>Hit time</td><td>Hit Time</td><td>Time required to read data when the cache hits</td></tr>
 </table>
 <h3>A simple example</h3>
 <p>, arr</p>
 <table class="reference">
-<tr><th>步骤</th><th>访问地址</th><th>Cache state (before access)</th><th>结果</th><th>原因</th></tr>
-<tr><td>1</td><td>10</td><td>[]</td><td>未命中</td><td>Cache is empty, address 10 is not in it</td></tr>
-<tr><td>2</td><td>20</td><td>[10]</td><td>未命中</td><td>Address 20 is not in the cache</td></tr>
-<tr><td>3</td><td>10</td><td>[10, 20]</td><td>命中</td><td>Address 10 is in the cache! (temporal locality)</td></tr>
-<tr><td>4</td><td>30</td><td>[10, 20]</td><td>未命中</td><td>Address 30 is not in the cache</td></tr>
-<tr><td>5</td><td>10</td><td>[10, 20, 30]</td><td>命中</td><td>Address 10 hits again</td></tr>
+<tr><th>Steps</th><th>Access address</th><th>Cache state (before access)</th><th>Result</th><th>Reason</th></tr>
+<tr><td>1</td><td>10</td><td>[]</td><td>miss</td><td>Cache is empty, address 10 is not in it</td></tr>
+<tr><td>2</td><td>20</td><td>[10]</td><td>miss</td><td>Address 20 is not in the cache</td></tr>
+<tr><td>3</td><td>10</td><td>[10, 20]</td><td>hit</td><td>Address 10 is in the cache! (temporal locality)</td></tr>
+<tr><td>4</td><td>30</td><td>[10, 20]</td><td>miss</td><td>Address 30 is not in the cache</td></tr>
+<tr><td>5</td><td>10</td><td>[10, 20, 30]</td><td>hit</td><td>Address 10 hits again</td></tr>
 </table>
 <p>2 hits out of 5 accesses, hit rate = 40%. Not high, but it already demonstrates the principle of caching.</p>
 <hr/>
 <h2>Why caches work: the principle of locality</h2>
 <p>If a program accesses memory completely randomly, the cache is almost useless—data is loaded in only to be of no use right away.</p>
-<p>But real programs don't behave randomly. They exhibit strong<span class="marked">局部性（Locality）</span>, and this is precisely the fundamental reason why caches are effective.</p>
+<p>But real programs don't behave randomly. They exhibit strong<span class="marked">Locality</span>, and this is precisely the fundamental reason why caches are effective.</p>
 <h3>... They are contiguous in memory.</h3>
-<p><span class="marked">如果一个数据被访问了，它在不久的将来很可能再次被访问。</span></p>
+<p><span class="marked">If a piece of data is accessed, it is likely to be accessed again in the near future.</span></p>
 <p>Typical scenario:</p>
 <ul>
-<li><span class="tag1">循环中的变量</span>：<code>for i in range(1000000): total += i</code>——变量<code>i</code> 和 <code>total</code>Accessed 1 million times within a short period.</li>
-<li><span class="tag1">函数的热点代码</span>: 20% of a program's code accounts for 80% of its execution time; those instructions get frequently re-accessed.</li>
-<li><span class="tag1">频繁调用的函数参数</span>: Local variables in a recursive function pile up on the stack with each call.</li>
+<li><span class="tag1">Variables in a Loop</span>：<code>for i in range(1000000): total += i</code>— Variable<code>i</code>and<code>total</code>Accessed 1 million times within a short period.</li>
+<li><span class="tag1">Function Hot Code</span>: 20% of a program's code accounts for 80% of its execution time; those instructions get frequently re-accessed.</li>
+<li><span class="tag1">Frequently called function parameters</span>: Local variables in a recursive function pile up on the stack with each call.</li>
 </ul>
 <h3>Spatial Locality</h3>
-<p><span class="marked">如果一个数据被访问了，它附近的数据也很可能被访问。</span></p>
+<p><span class="marked">If a data item is accessed, nearby data is also likely to be accessed.</span></p>
 <p>Typical scenario:</p>
 <ul>
-<li><span class="tag1">数组的连续遍历</span>：<code>for i in range(len(arr)): sum += arr[i]</code>—arr</li>
-<li><span class="tag1">结构体/对象的字段</span>：访问<code>student.name</code>After [that], it is very likely that the next access will be...<code>student.age</code>, they are adjacent in memory.</li>
-<li><span class="tag1">顺序执行的指令</span>: After the CPU executes the instruction at address 100, the next instruction is likely at address 104.</li>
+<li><span class="tag1">Sequential Array Traversal</span>：<code>for i in range(len(arr)): sum += arr[i]</code>—arr</li>
+<li><span class="tag1">Struct/object fields</span>: access<code>student.name</code>After [that], it is very likely that the next access will be...<code>student.age</code>, they are adjacent in memory.</li>
+<li><span class="tag1">Sequentially Executed Instructions</span>: After the CPU executes the instruction at address 100, the next instruction is likely at address 104.</li>
 </ul>
 <h3>Visualization of the two types of locality</h3>
 <pre>
@@ -566,13 +566,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <blockquote><p>Modern CPUs exploit spatial locality to improve performance: when loading data from address 100 in memory, they also load addresses 100~164 (a full cache line, usually 64 bytes) into the cache. This way, when accessing address 104, it's already in the cache.</p></blockquote>
 <hr/>
 <h2>Cache replacement policy: what to do when it's full</h2>
-<p>Cache slots are limited; when the cache is full and new data needs to come in, it must<span class="marked">淘汰一个旧数据</span>. The decision of "who gets evicted" is the cache replacement policy.</p>
+<p>Cache slots are limited; when the cache is full and new data needs to come in, it must<span class="marked">Evict an Old Data Item</span>. The decision of "who gets evicted" is the cache replacement policy.</p>
 <table class="reference">
-<tr><th>策略</th><th>英文</th><th>规则</th><th>评价</th></tr>
+<tr><th>Policy</th><th>English</th><th>Rules</th><th>evaluation</th></tr>
 <tr><td>Least Recently Used</td><td>LRU (Least Recently Used)</td><td>Evict the data that has not been accessed for the longest time</td><td>Most commonly used, works very well</td></tr>
-<tr><td>先进先出</td><td>FIFO (First In First Out)</td><td>Evict the data that entered the cache earliest</td><td>Simple but average effectiveness</td></tr>
+<tr><td>first-in, first-out</td><td>FIFO (First In First Out)</td><td>Evict the data that entered the cache earliest</td><td>Simple but average effectiveness</td></tr>
 <tr><td>Least Frequently Used</td><td>LFU (Least Frequently Used)</td><td>Evict the data with the fewest accesses</td><td>Friendly to hot data, but old data may "refuse to leave"</td></tr>
-<tr><td>随机替换</td><td>Random</td><td>Randomly pick one to evict</td><td>Simplest to implement, works well</td></tr>
+<tr><td>Random replacement</td><td>Random</td><td>Randomly pick one to evict</td><td>Simplest to implement, works well</td></tr>
 </table>
 <p>LRU performs best in practice because it directly exploits temporal locality—"If it hasn't been used recently, it probably won't be used for a while."</p>
 <p>Real CPU caches usually use approximate variants of LRU (such as pseudo-LRU) to reduce hardware implementation complexity.</p>
@@ -580,75 +580,75 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Interactive demo: LRU cache simulator</h2>
 <p>The following Python program fully simulates the working process of an LRU cache. You can modify the access sequence and cache capacity to observe changes in the hit rate.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>LRU 缓存模拟器 (runoob 演示)<br/>功能：<br/>1. 模拟 CPU 对内存地址的访问序列<br/>2. 使用 LRU 策略管理缓存<br/>3. 实时标注每次访问是「命中」还是「未命中」<br/>4. 统计和显示命中率<br/>
+<span style="color: #a11;">"""<br/>LRU Cache Simulator (runoob demo)<br/>Function:<br/>1. Simulate the CPU's access sequence to memory addresses<br/>2. Use LRU strategy to manage cache<br/>3. Real-time label each access as 'hit' or 'miss'<br/>4. Calculate and display hit rate<br/>
 """</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">collections</span> <span style="color: Green;font-weight:bold;">import</span> OrderedDict<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> LRUCache:<br/>
-    <span style="color: #a11;">"""<br/>LRU（最近最少使用）缓存模拟器<br/>使用 OrderedDict 维护访问顺序，越靠近末尾表示越新被访问<br/>
+    <span style="color: #a11;">"""<br/>LRU (Least Recently Used) Cache Simulator<br/>Use OrderedDict to maintain access order; items closer to the end are more recently accessed.<br/>
     """</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> capacity<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>初始化缓存<br/>:param capacity: 缓存容量（可存放的条目数）<br/>
+        <span style="color: #a11;">"""<br/>Initialize cache<br/>:param capacity: cache capacity (number of entries that can be stored)<br/>
         """</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">capacity</span> <span style="color: Gray;">=</span> capacity<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span> <span style="color: Gray;">=</span> OrderedDict<span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 有序字典：key=地址, value=数据</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">hits</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># 命中计数</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">misses</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>     <span style="color: #a50"># 未命中计数</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">evictions</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># 淘汰计数</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span> <span style="color: Gray;">=</span> OrderedDict<span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Ordered dictionary: key=address, value=data</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">hits</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>       <span style="color: #a50"># Hit Count</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">misses</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>     <span style="color: #a50"># Miss Count</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">evictions</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># Eviction Count</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> access<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> address<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>模拟一次内存访问<br/>:param address: 要访问的内存地址<br/>
+        <span style="color: #a11;">"""<br/>Simulate a memory access<br/>:param address: the memory address to access<br/>
         :return: (result_str, is_hit)<br/>
         """</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> address <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>:<br/>
-            <span style="color: #a50"># 缓存命中！</span><br/>
+            <span style="color: #a50"># Cache Hit!</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">hits</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
-            <span style="color: #a50"># LRU 策略：将命中的条目移到末尾（标记为最近使用）</span><br/>
+            <span style="color: #a50"># LRU policy: move the hit entry to the end (marked as most recently used)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>.<span style="color: #05a;">move_to_end</span><span style="color: Olive;">(</span>address<span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"HIT"</span><span style="color: Gray;">,</span> <span style="color: Teal;">True</span><br/>
         <span style="color: Green;font-weight:bold;">else</span>:<br/>
-            <span style="color: #a50"># 缓存未命中</span><br/>
+            <span style="color: #a50"># Cache Miss</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">misses</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
             evicted <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
 <br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span><span style="color: Olive;">)</span> <span style="color: Gray;">&gt;=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">capacity</span>:<br/>
-                <span style="color: #a50"># 缓存已满，需要淘汰最久未使用的（OrderedDict 的第一个）</span><br/>
+                <span style="color: #a50"># Cache is full, need to evict the least recently used (the first element of OrderedDict)</span><br/>
                 evicted_addr<span style="color: Gray;">,</span> _ <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>.<span style="color: #05a;">popitem</span><span style="color: Olive;">(</span>last<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">evictions</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
                 evicted <span style="color: Gray;">=</span> evicted_addr<br/>
 <br/>
-            <span style="color: #a50"># 从「下一级存储」（模拟为直接获取数据）加载新数据</span><br/>
+            <span style="color: #a50"># Load new data from the 'next-level storage' (simulated as directly fetching data)</span><br/>
             data <span style="color: Gray;">=</span> f<span style="color: #a11;">"DATA_AT_{address}"</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span><span style="color: Olive;">[</span>address<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> data<br/>
 <br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"MISS"</span><span style="color: Gray;">,</span> <span style="color: Teal;">False</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> hit_rate<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""计算当前的缓存命中率（百分比）"""</span><br/>
+        <span style="color: #a11;">"""Calculate the current cache hit rate (percentage)"""</span><br/>
         total <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">hits</span> + <span style="color: Teal;">self</span>.<span style="color: #05a;">misses</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> total <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span>:<br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">0.0</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">hits</span> / total<span style="color: Olive;">)</span> * <span style="color: Maroon;">100</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> current_state<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""返回当前缓存内容（从最旧到最新）"""</span><br/>
+        <span style="color: #a11;">"""Returns current cached content (from oldest to newest)"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">list</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">cache</span>.<span style="color: #05a;">keys</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> run_simulation<span style="color: Olive;">(</span>access_sequence<span style="color: Gray;">,</span> cache_capacity<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>运行一次完整的缓存模拟<br/>:param access_sequence: 要模拟的内存访问序列（list of ints）<br/>:param cache_capacity: 缓存容量<br/>
+    <span style="color: #a11;">"""<br/>Run a complete cache simulation<br/>:param access_sequence: The memory access sequence to simulate (list of ints)<br/>:param cache_capacity: cache capacity<br/>
     """</span><br/>
     cache <span style="color: Gray;">=</span> LRUCache<span style="color: Olive;">(</span>cache_capacity<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"RUNOOB LRU 缓存模拟器"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"缓存容量: {cache_capacity} 个槽位"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"访问序列: {access_sequence}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"RUNOOB LRU Cache Simulator"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Cache capacity: {cache_capacity} slots</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Access sequence: {access_sequence}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'步骤':&lt;6} {'地址':&lt;8} {'结果':&lt;8} {'缓存状态（旧→新）':&lt;40}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'step':&lt;6} {'address':&lt;8} {'result':&lt;8} {'cache status (old→new)':&lt;40}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> addr <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>access_sequence<span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
@@ -657,39 +657,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         hit_mark <span style="color: Gray;">=</span> <span style="color: #a11;">"HIT [OK]"</span> <span style="color: Green;font-weight:bold;">if</span> is_hit <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"MISS X"</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{i:&lt;6} {addr:&lt;8} {hit_mark:&lt;8} {str(state):&lt;40}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 输出统计</span><br/>
+    <span style="color: #a50"># Output Statistics</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>统计结果："</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  命中次数 (Hits)   : {cache.hits}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  未命中次数 (Misses): {cache.misses}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  淘汰次数 (Evictions): {cache.evictions}"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  命中率 (Hit Rate)  : {cache.hit_rate():.1f}%"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Statistics results:"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Hit count (Hits)   : {cache.hits}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Miss Count (Misses): {cache.misses}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Eviction count (Evictions): {cache.evictions}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Hit Rate  : {cache.hit_rate():.1f}%"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> cache<br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: #a50"># 演示 1：基本 LRU 行为</span><br/>
+<span style="color: #a50"># Demo 1: Basic LRU behavior</span><br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; 演示 1：基本 LRU 缓存行为"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"访问序列展示了时间局部性——地址 10 被反复访问<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; Demo 1: Basic LRU Cache Behavior"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">The access sequence shows temporal locality—address 10 is repeatedly accessed<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 run_simulation<span style="color: Olive;">(</span><br/>
     access_sequence<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">20</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">30</span><span style="color: Gray;">,</span> <span style="color: Maroon;">40</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">20</span><span style="color: Gray;">,</span> <span style="color: Maroon;">50</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">20</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     cache_capacity<span style="color: Gray;">=</span><span style="color: Maroon;">4</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: #a50"># 演示 2：不同缓存容量对命中率的影响</span><br/>
+<span style="color: #a50"># Demo 2: Impact of Different Cache Capacities on Hit Rate</span><br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; 演示 2：缓存容量对命中率的影响"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"同样的访问序列，不同缓存容量下的表现<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; Demo 2: Effect of Cache Capacity on Hit Rate"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"The performance of the same access sequence under different cache capacities<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 <br/>
 test_sequence <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span><br/>
                  <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">6</span><span style="color: Gray;">,</span> <span style="color: Maroon;">7</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">6</span><span style="color: Gray;">,</span> <span style="color: Maroon;">7</span><span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"访问序列长度: {len(test_sequence)}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'容量':&lt;8} {'命中':&lt;8} {'未命中':&lt;8} {'命中率':&lt;10}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Access sequence length: {len(test_sequence)}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'capacity':&lt;8} {'hits':&lt;8} {'misses':&lt;8} {'hit rate':&lt;10}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">35</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> cap <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Olive;">]</span>:<br/>
@@ -699,71 +699,51 @@ test_sequence <span style="color: Gray;">=</span> <span style="color: Olive;">[<
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{cap:&lt;8} {c.hits:&lt;8} {c.misses:&lt;8} {c.hit_rate():&lt;8.1f}%"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: #a50"># 演示 3：对比「随机访问」vs「局部性访问」</span><br/>
+<span style="color: #a50"># Demo 3: Compare 'random access' vs 'locality access'</span><br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; 演示 3：局部性访问 vs 随机访问"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"同样的缓存容量(8)，不同访问模式下的命中率差异<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>&gt;&gt;&gt; Demo 3: Locality access vs random access</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Same cache capacity (8), hit rate differences under different access patterns<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">random</span><br/>
 <span style="color: #05a;">random</span>.<span style="color: #05a;">seed</span><span style="color: Olive;">(</span><span style="color: Maroon;">42</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 模式 A：有局部性的访问（模拟循环遍历数组）</span><br/>
+<span style="color: #a50"># Pattern A: Access with locality (simulating loop traversal of an array)</span><br/>
 local_access <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">20</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 每次循环中在 0-15 范围内连续访问，再跳转</span><br/>
+    <span style="color: #a50"># Each loop, access consecutively in the 0-15 range, then jump</span><br/>
     base <span style="color: Gray;">=</span> <span style="color: #05a;">random</span>.<span style="color: #05a;">randint</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> offset <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">5</span><span style="color: Olive;">)</span>:<br/>
         local_access.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>base + offset<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 模式 B：完全随机访问</span><br/>
+<span style="color: #a50"># Mode B: completely random access</span><br/>
 random_access <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #05a;">random</span>.<span style="color: #05a;">randint</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">100</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">100</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">for</span> label<span style="color: Gray;">,</span> seq <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Olive;">(</span><span style="color: #a11;">"局部性访问"</span><span style="color: Gray;">,</span> local_access<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: #a11;">"随机访问"</span><span style="color: Gray;">,</span> random_access<span style="color: Olive;">)</span><span style="color: Olive;">]</span>:<br/>
+<span style="color: Green;font-weight:bold;">for</span> label<span style="color: Gray;">,</span> seq <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Olive;">(</span><span style="color: #a11;">"Locality Access"</span><span style="color: Gray;">,</span> local_access<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: #a11;">"Random access"</span><span style="color: Gray;">,</span> random_access<span style="color: Olive;">)</span><span style="color: Olive;">]</span>:<br/>
     c <span style="color: Gray;">=</span> LRUCache<span style="color: Olive;">(</span><span style="color: Maroon;">8</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> addr <span style="color: Green;font-weight:bold;">in</span> seq:<br/>
         c.<span style="color: #05a;">access</span><span style="color: Olive;">(</span>addr<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {label}: 命中率 = {c.hit_rate():.1f}%  (总访问 {len(seq)} 次)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {label}: hit rate = {c.hit_rate():.1f}%  (totalVisit {len(seq)} times)"</span><span style="color: Olive;">)</span><br/>
 </div>
-</div>
-runoob 缓存命中/未命中实时模拟器 — 动画演示 + Chart.js 命中率曲线
-<div class="cache-sim-wrap">
+</div>runoob cache hit/miss real-time simulator — animated demo + Chart.js hit rate curve<div class="cache-sim-wrap">
 <h3>Interactive demo: real-time simulation of cache hit/miss</h3>
 <p class="sim-subtitle">Randomly generate a memory access sequence with locality (30 accesses), animate each cache lookup process, track hit rate in real time and plot the change curve</p>
-<div class="cache-sim-layout">
-左侧：模拟区
-<div class="cache-sim-left">
-访问序列预览圆点
-<div class="sequence-preview" id="seqPreview"></div>
-当前访问地址
-<div class="access-display">当前访问地址：<span class="addr-badge" id="currentAddr">--</span>
+<div class="cache-sim-layout">Left: simulation area<div class="cache-sim-left">Access sequence preview dots<div class="sequence-preview" id="seqPreview"></div>Current access address<div class="access-display">Current access address:<span class="addr-badge" id="currentAddr">--</span>
+</div>Hit/Miss Result Indicator<div class="result-indicator" id="resultIndicator">Ready</div>4 cache slot grid<div class="cache-slot-grid" id="cacheGrid">
+<div class="cache-slot" data-slot="0"><span class="slot-label">Slot 1</span><span class="slot-addr">Empty</span></div>
+<div class="cache-slot" data-slot="1"><span class="slot-label">Slot 2</span><span class="slot-addr">Empty</span></div>
+<div class="cache-slot" data-slot="2"><span class="slot-label">Slot 3</span><span class="slot-addr">Empty</span></div>
+<div class="cache-slot" data-slot="3"><span class="slot-label">Slot 4</span><span class="slot-addr">Empty</span></div>
+</div>Control button<div class="sim-controls">
+<button class="btn-start" id="btnAuto" onclick="runoobCacheSim.toggleAuto()">Auto demo</button>
+<button class="btn-step" id="btnStep" onclick="runoobCacheSim.step()">Single-step execution</button>
+<button class="btn-reset" id="btnReset" onclick="runoobCacheSim.reset()">reset</button>
+<label>Speed:<input id="speedSlider" max="2000" min="200" oninput="runoobCacheSim.setSpeed(this.value)" type="range" value="800"/></label>
 </div>
-命中/未命中结果指示
-<div class="result-indicator" id="resultIndicator">准备就绪</div>
-4 个缓存槽位网格
-<div class="cache-slot-grid" id="cacheGrid">
-<div class="cache-slot" data-slot="0"><span class="slot-label">槽位 1</span><span class="slot-addr">空</span></div>
-<div class="cache-slot" data-slot="1"><span class="slot-label">槽位 2</span><span class="slot-addr">空</span></div>
-<div class="cache-slot" data-slot="2"><span class="slot-label">槽位 3</span><span class="slot-addr">空</span></div>
-<div class="cache-slot" data-slot="3"><span class="slot-label">槽位 4</span><span class="slot-addr">空</span></div>
-</div>
-控制按钮
-<div class="sim-controls">
-<button class="btn-start" id="btnAuto" onclick="runoobCacheSim.toggleAuto()">自动演示</button>
-<button class="btn-step" id="btnStep" onclick="runoobCacheSim.step()">单步执行</button>
-<button class="btn-reset" id="btnReset" onclick="runoobCacheSim.reset()">重置</button>
-<label>速度:<input id="speedSlider" max="2000" min="200" oninput="runoobCacheSim.setSpeed(this.value)" type="range" value="800"/></label>
-</div>
-</div>
-右侧：统计 + 图表
-<div class="cache-sim-right">
-命中/未命中/命中率统计
-<div class="stats-panel">
-<div class="stat-item">命中次数<span class="stat-hit" id="hitCount">0</span></div>
-<div class="stat-item">未命中次数<span class="stat-miss" id="missCount">0</span></div>
-<div class="stat-item">命中率<span class="stat-rate" id="hitRateDisplay">--</span></div>
-</div>
-Chart.js 命中率变化曲线
-<div class="chart-mini">
+</div>Right side: Statistics + Charts<div class="cache-sim-right">Hit/Miss/Hit Rate Statistics<div class="stats-panel">
+<div class="stat-item">Hit count<span class="stat-hit" id="hitCount">0</span></div>
+<div class="stat-item">Number of misses<span class="stat-miss" id="missCount">0</span></div>
+<div class="stat-item">hit rate<span class="stat-rate" id="hitRateDisplay">--</span></div>
+</div>Chart.js hit rate variation curve<div class="chart-mini">
 <canvas height="220" id="hitRateChart" width="300"></canvas>
 </div>
 </div>
@@ -1158,40 +1138,40 @@ if (document.readyState === 'loading') {
 <p>Run this code and you will find:</p>
 <ul>
 <li>The larger the cache capacity, the higher the hit rate—but the improvement diminishes gradually (marginal effect)</li>
-<li><span class="tag1 green">有局部性的访问模式命中率远高于随机访问</span>—this is why caches are effective</li>
+<li><span class="tag1 green">Access patterns with locality have much higher hit rates than random access</span>—this is why caches are effective</li>
 <li>Under the LRU policy, repeatedly accessed addresses stay in the cache and are almost never evicted</li>
 </ul>
 <hr/>
 <h2>Three types of cache misses</h2>
 <p>Not all "cache misses" are the same. Hardware engineers classify them into three types:</p>
 <table class="reference">
-<tr><th>类型</th><th>英文</th><th>发生时机</th><th>能否避免</th></tr>
-<tr><td>强制未命中</td><td>Compulsory Miss (Cold Miss)</td><td>When a piece of data is accessed for the first time, it's not yet in the cache</td><td>Unavoidable (first access is always cold)</td></tr>
-<tr><td>容量未命中</td><td>Capacity Miss</td><td>The working set (data actively used by the program) is larger than the cache capacity</td><td>Increase the cache size or reduce the working set</td></tr>
-<tr><td>冲突未命中</td><td>Conflict Miss</td><td>Different addresses are mapped to the same location in the cache (common in directly mapped caches)</td><td>Use set-associative or fully associative mapping</td></tr>
+<tr><th>Type</th><th>English</th><th>When it occurs</th><th>Can it be avoided?</th></tr>
+<tr><td>Compulsory miss</td><td>Compulsory Miss (Cold Miss)</td><td>When a piece of data is accessed for the first time, it's not yet in the cache</td><td>Unavoidable (first access is always cold)</td></tr>
+<tr><td>Capacity miss</td><td>Capacity Miss</td><td>The working set (data actively used by the program) is larger than the cache capacity</td><td>Increase the cache size or reduce the working set</td></tr>
+<tr><td>Conflict miss</td><td>Conflict Miss</td><td>Different addresses are mapped to the same location in the cache (common in directly mapped caches)</td><td>Use set-associative or fully associative mapping</td></tr>
 </table>
 <p>For ordinary programmers, dealing with the first two types is more common:</p>
 <ul>
-<li><span class="tag1">强制未命中</span>: unavoidable, but the longer your program runs, the smaller its impact.</li>
-<li><span class="tag1">容量未命中</span>: Can be mitigated by optimizing data structure size and access patterns. For example, use more compact data types, process large arrays in blocks.</li>
+<li><span class="tag1">Compulsory miss</span>: unavoidable, but the longer your program runs, the smaller its impact.</li>
+<li><span class="tag1">Capacity miss</span>: Can be mitigated by optimizing data structure size and access patterns. For example, use more compact data types, process large arrays in blocks.</li>
 </ul>
 <blockquote><p>Understanding cache misses is key to writing high-performance code. A simple rule of thumb: make your data access patterns cache-friendly—traverse arrays in memory layout order, avoid jumpy access, and keep data that's often used together close in memory.</p></blockquote>
 <hr/>
 <h2>Programming practice: cache-friendly code</h2>
 <p>Here's a classic example: when traversing a 2D array, row-major vs column-major traversal makes a world of difference in performance.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>缓存友好 vs 缓存不友好的数组遍历 (runoob 演示)<br/>演示同一数据的不同访问方式如何影响缓存性能<br/>
+<span style="color: #a11;">"""<br/>Cache-friendly vs cache-unfriendly array traversal (Runoob demo)<br/>Demonstrate how different access patterns to the same data affect cache performance<br/>
 """</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">time</span><br/>
 <br/>
-<span style="color: #a50"># Python 中列表存储方式：二维数组 = 列表的列表</span><br/>
-<span style="color: #a50"># arr[i][j] 中 arr[i] 是一个整行，内存中是连续的</span><br/>
-<span style="color: #a50"># 所以按行遍历 = 缓存友好，按列遍历 = 缓存不友好</span><br/>
+<span style="color: #a50"># Python list storage: two-dimensional array = list of lists</span><br/>
+<span style="color: #a50"># In arr[i][j], arr[i] is an entire row, contiguous in memory.</span><br/>
+<span style="color: #a50"># So row-wise traversal = cache-friendly, column-wise traversal = cache-unfriendly</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> traverse_row_major<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>按行遍历：先固定行号 i，再遍历列 j<br/>访问模式：arr[0][0], arr[0][1], arr[0][2]...<br/>内存布局：这些元素在内存中是连续的 -- 空间局部性好！<br/>
+    <span style="color: #a11;">"""<br/>Row-wise traversal: first fix row index i, then traverse columns j<br/>Access pattern: arr[0][0], arr[0][1], arr[0][2]...<br/>Memory layout: these elements are contiguous in memory -- good spatial locality!<br/>
     """</span><br/>
     total <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     rows <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span><br/>
@@ -1203,7 +1183,7 @@ if (document.readyState === 'loading') {
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> traverse_column_major<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>按列遍历：先固定列号 j，再遍历行 i<br/>访问模式：arr[0][0], arr[1][0], arr[2][0]...<br/>内存布局：这些元素在内存中跳来跳去 -- 空间局部性差！<br/>
+    <span style="color: #a11;">"""<br/>Column-wise traversal: first fix column index j, then traverse rows i<br/>Access pattern: arr[0][0], arr[1][0], arr[2][0]...<br/>Memory layout: these elements jump around in memory -- poor spatial locality!<br/>
     """</span><br/>
     total <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     rows <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span><br/>
@@ -1214,21 +1194,21 @@ if (document.readyState === 'loading') {
     <span style="color: Green;font-weight:bold;">return</span> total<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 创建一个大数组（1000 x 1000）</span><br/>
+<span style="color: #a50"># Create a large array (1000 x 1000)</span><br/>
 SIZE <span style="color: Gray;">=</span> <span style="color: Maroon;">1000</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"创建 {SIZE}x{SIZE} 的二维数组..."</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Creating a {SIZE}x{SIZE} 2D array..."</span><span style="color: Olive;">)</span><br/>
 arr <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span>i * SIZE + j <span style="color: Green;font-weight:bold;">for</span> j <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>SIZE<span style="color: Olive;">)</span><span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>SIZE<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: #a50"># 先预热，避免冷启动偏差</span><br/>
+<span style="color: #a50"># Pre-warm first to avoid cold start bias</span><br/>
 traverse_row_major<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span><br/>
 traverse_column_major<span style="color: Olive;">(</span>arr<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 正式测试</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>开始性能对比（运行 3 次取平均）："</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Formal test</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Start performance comparison (run 3 times, take average):"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">50</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> benchmark<span style="color: Olive;">(</span>func<span style="color: Gray;">,</span> arr<span style="color: Gray;">,</span> trials<span style="color: Gray;">=</span><span style="color: Maroon;">3</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""多次运行取平均时间"""</span><br/>
+    <span style="color: #a11;">Average time over multiple runs</span><br/>
     times <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>trials<span style="color: Olive;">)</span>:<br/>
         start <span style="color: Gray;">=</span> <span style="color: #05a;">time</span>.<span style="color: #05a;">perf_counter</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -1240,42 +1220,37 @@ traverse_column_major<span style="color: Olive;">(</span>arr<span style="color: 
 row_time <span style="color: Gray;">=</span> benchmark<span style="color: Olive;">(</span>traverse_row_major<span style="color: Gray;">,</span> arr<span style="color: Olive;">)</span><br/>
 col_time <span style="color: Gray;">=</span> benchmark<span style="color: Olive;">(</span>traverse_column_major<span style="color: Gray;">,</span> arr<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"按行遍历（缓存友好）:   {row_time:.4f} 秒"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"按列遍历（缓存不友好）: {col_time:.4f} 秒"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"按列比按行慢:           {col_time / row_time:.1f} 倍"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Row-wise traversal (cache-friendly):   {row_time:.4f} seconds"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Column-wise traversal (cache-unfriendly): {col_time:.4f} seconds</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Column-wise is slower than row-wise:           {col_time / row_time:.1f} times</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"原因分析："</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  按行遍历时，arr[i][0], arr[i][1], arr[i][2]... 在内存中连续存放"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  第一次访问 arr[i][0] 时，CPU 会将后续几个元素一并加载到缓存"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  后续访问 arr[i][1], arr[i][2] 就能直接命中缓存"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Cause analysis:"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">When traversing by row, arr[i][0], arr[i][1], arr[i][2]... are stored contiguously in memory</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">When accessing arr[i][0] for the first time, the CPU loads several subsequent elements into the cache together</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Subsequent access to arr[i][1], arr[i][2] will directly hit the cache"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  按列遍历时，arr[0][j], arr[1][j], arr[2][j]... 在内存中各间隔了一整行"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  每次访问几乎都需要从内存加载，缓存命中率极低"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  When traversing by column, arr[0][j], arr[1][j], arr[2][j]... are each separated by an entire row in memory."</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Almost every access requires loading from memory, leading to an extremely low cache hit rate</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 补充：简单测试 - 用 Python 的 id() 检查内存地址</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>内存布局验证（小型数组演示）："</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Supplement: Simple test - use Python's id() to check memory address</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>Memory layout verification (small array demo):"</span><span style="color: Olive;">)</span><br/>
 small <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: Olive;">[</span><span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">6</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> <span style="color: Olive;">[</span><span style="color: Maroon;">7</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">9</span><span style="color: Olive;">]</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"arr[0][0] 的 id: {id(small[0][0])}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"arr[0][1] 的 id: {id(small[0][1])}  (差值: {id(small[0][1]) - id(small[0][0])})"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"arr[0][2] 的 id: {id(small[0][2])}  (与 [0][0] 连续)"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"arr[1][0] 的 id: {id(small[1][0])}  (与 [0][2] 不连续，因为跨行了)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">id of arr[0][0]: {id(small[0][0])}</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"arr[0][1] of id: {id(small[0][1])}  (PoorValue: {id(small[0][1]) - id(small[0][0])})"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">id of arr[0][2]: {id(small[0][2])} (contiguous with [0][0])</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"The id of arr[1][0]: {id(small[1][0])}  (not contiguous with [0][2], because it spans a row)"</span><span style="color: Olive;">)</span><br/>
 </div>
-</div>
-其他扩展
-</div>
+</div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/memory-hierarchy.html" rel="prev">存储金字塔 — 为什么要分这么多层</a> </div>
-<div class="next-design-link"><a href="../computer-organization/memory-addressing.html" rel="next">内存地址与寻址</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/memory-hierarchy.html" rel="prev">Memory Hierarchy — Why So Many Layers</a> </div>
+<div class="next-design-link"><a href="../computer-organization/memory-addressing.html" rel="next">Memory Address and Addressing</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -1379,16 +1354,16 @@ small <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1396,14 +1371,14 @@ small <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31887"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1581,7 +1556,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1672,7 +1647,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

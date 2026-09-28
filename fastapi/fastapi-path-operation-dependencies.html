@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FastAPI 依赖注入 | 菜鸟教程</title>
+<title>FastAPI Dependency Injection | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="FastAPI 依赖注入 FastAPI 提供了一个强大而简洁的依赖注入系统。依赖注入是一种设计模式，让你可以将通用的逻辑（如数据库连接、身份验证、参数校验等）提取为可复用的组件，然后在路由中按需使用。    什么是依赖注入 简单来说，依赖就是一个函数，它可以使用与路径操作函数相同的参数（查询参数、路径参数、请求体等），FastAPI 会在执行路由函数之前自动调用依赖函数，并将其返回值传递给路由函数。   实例  [mycode4 ty.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-request-response.html" rel="prev">FastAPI 请求和响应</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-form.html" rel="next">FastAPI 表单数据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-request-response.html" rel="prev">FastAPI Requests and Responses</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-form.html" rel="next">FastAPI Form Data</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,9 +168,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p><img decoding="async" src="../wp-content/uploads/2023/12/84bf7465-af7c-4cb6-8689-3e5a118479a_runoob.png"/></p>
 <hr/>
 <h2>What is dependency injection</h2>
-<p>简单来说，<strong>依赖</strong>It is essentially a function that can use the same parameters as path operation functions (query parameters, path parameters, request body, etc.). FastAPI will automatically call the dependency function before executing the route function, and pass its return value to the route function.</p>
+<p>Simply put,<strong>Dependency</strong>It is essentially a function that can use the same parameters as path operation functions (query parameters, path parameters, request body, etc.). FastAPI will automatically call the dependency function before executing the route function, and pass its return value to the route function.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Annotated<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<br/>
@@ -178,29 +178,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 1. 定义依赖函数</span><br/>
+<span style="color: #a50"># 1. Define the dependency function</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> common_parameters<span style="color: Olive;">(</span>q: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><span style="color: Gray;">,</span> skip: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> limit: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">100</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"q"</span>: q<span style="color: Gray;">,</span> <span style="color: #a11;">"skip"</span>: skip<span style="color: Gray;">,</span> <span style="color: #a11;">"limit"</span>: limit<span style="color: Olive;">}</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 2. 在路由中使用依赖</span><br/>
+<span style="color: #a50"># 2. Use dependencies in routes</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_items<span style="color: Olive;">(</span>commons: <span style="color: Teal;">dict</span> <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>common_parameters<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># commons 接收依赖函数的返回值</span><br/>
+    <span style="color: #a50"># commons receives the return value of the dependency function</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> commons<br/>
 <br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_users<span style="color: Olive;">(</span>commons: <span style="color: Teal;">dict</span> <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>common_parameters<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 多个路由可以复用同一个依赖</span><br/>
+    <span style="color: #a50"># Multiple routes can reuse the same dependency</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> commons<br/>
 </div>
 </div>
-<p>代码说明：</p>
+<p>Code explanation:</p>
 <table class="reference">
-<tr><th>部分</th><th>说明</th></tr>
+<tr><th>Part</th><th>Description</th></tr>
 <tr><td><code>common_parameters</code></td><td>Dependency functions, handling common query parameters</td></tr>
-<tr><td><code>Depends(common_parameters)</code></td><td>声明参数<code>commons</code>The value comes from the dependency function</td></tr>
+<tr><td><code>Depends(common_parameters)</code></td><td>Declare parameters<code>commons</code>The value comes from the dependency function</td></tr>
 <tr><td><code>commons: dict</code></td><td>Receives the dictionary returned by the dependency function</td></tr>
 </table>
 <blockquote><p>Dependency functions and path operation functions use the same parameter declaration style, and FastAPI will automatically resolve the parameters of the dependency function. This means dependency functions can also use query parameters, path parameters, request body, etc.</p></blockquote>
@@ -214,10 +214,10 @@ async <span style="color: Green;font-weight:bold;">def</span> read_users<span st
 <li>Execute route function</li>
 </ol>
 <hr/>
-<h2>类作为依赖</h2>
+<h2>Class as a dependency</h2>
 <p>Besides functions, you can also use classes as dependencies:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Annotated<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<br/>
@@ -225,7 +225,7 @@ async <span style="color: Green;font-weight:bold;">def</span> read_users<span st
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 用类声明依赖</span><br/>
+<span style="color: #a50"># Declaring Dependencies with Classes</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> CommonQueryParams:<br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> q: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><span style="color: Gray;">,</span> skip: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> limit: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">100</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> q<br/>
@@ -233,18 +233,18 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
         <span style="color: Teal;">self</span>.<span style="color: #05a;">limit</span> <span style="color: Gray;">=</span> limit<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 使用类作为依赖</span><br/>
+<span style="color: #a50"># Use a class as a dependency</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_items<span style="color: Olive;">(</span>commons: Annotated<span style="color: Olive;">[</span>CommonQueryParams<span style="color: Gray;">,</span> Depends<span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"q"</span>: commons.<span style="color: #05a;">q</span><span style="color: Gray;">,</span> <span style="color: #a11;">"skip"</span>: commons.<span style="color: #05a;">skip</span><span style="color: Gray;">,</span> <span style="color: #a11;">"limit"</span>: commons.<span style="color: #05a;">limit</span><span style="color: Olive;">}</span><br/>
 </div>
 </div>
-<p>当 <code>Depends()</code>When no parameter is passed, FastAPI automatically uses the type annotation of the parameter (<code>CommonQueryParams</code>) as a dependency.</p>
+<p>When<code>Depends()</code>When no parameter is passed, FastAPI automatically uses the type annotation of the parameter (<code>CommonQueryParams</code>) as a dependency.</p>
 <hr/>
-<h2>子依赖</h2>
+<h2>sub-dependency</h2>
 <p>Dependencies can have their own dependencies, forming a dependency chain:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Annotated<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<br/>
@@ -252,60 +252,60 @@ async <span style="color: Green;font-weight:bold;">def</span> read_items<span st
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 依赖函数</span><br/>
+<span style="color: #a50"># Dependency Functions</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> query_extractor<span style="color: Olive;">(</span>q: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> q<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 子依赖：依赖 query_extractor</span><br/>
+<span style="color: #a50"># Sub-dependency: depends on query_extractor.</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> query_checker<span style="color: Olive;">(</span>q: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>query_extractor<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">if</span> q <span style="color: Gray;">==</span> <span style="color: #a11;">"admin"</span>:<br/>
-        <span style="color: #a50"># 子依赖可以进行校验</span><br/>
+        <span style="color: #a50"># Sub-dependencies can be validated</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> q + <span style="color: #a11;">" (checked)"</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> q<br/>
 <br/>
 <br/>
-<span style="color: #a50"># 路由使用子依赖</span><br/>
+<span style="color: #a50"># Routes use sub-dependencies</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_items<span style="color: Olive;">(</span>q: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>query_checker<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"q"</span>: q<span style="color: Olive;">}</span><br/>
 </div>
 </div>
-<p>执行流程：<code>query_extractor</code> -&gt; <code>query_checker</code>-&gt; route function</p>
+<p>Execution flow:<code>query_extractor</code> -&gt; <code>query_checker</code>-&gt; route function</p>
 <hr/>
 <h2>Using dependencies in decorators</h2>
 <p>Sometimes you only need the side effects of the dependency (such as permission checks), not its return value. In the decorator's<code>dependencies</code>Declared in parameters:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<span style="color: Gray;">,</span> Header<span style="color: Gray;">,</span> HTTPException<br/>
 <br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 依赖：校验 API Key</span><br/>
+<span style="color: #a50"># Dependency: validate API Key</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> verify_api_key<span style="color: Olive;">(</span>x_api_key: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> Header<span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">if</span> x_api_key <span style="color: Gray;">!=</span> <span style="color: #a11;">"secret-key"</span>:<br/>
         <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"X-API-Key invalid"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 在装饰器中使用依赖，不需要返回值</span><br/>
+<span style="color: #a50"># Using dependency in decorator, no return value required</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Gray;">,</span> dependencies<span style="color: Gray;">=</span><span style="color: Olive;">[</span>Depends<span style="color: Olive;">(</span>verify_api_key<span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_items<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"item"</span>: <span style="color: #a11;">"Foo"</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 对整个路由组使用依赖</span><br/>
+<span style="color: #a50"># Apply dependency to the entire route group</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/"</span><span style="color: Gray;">,</span> dependencies<span style="color: Gray;">=</span><span style="color: Olive;">[</span>Depends<span style="color: Olive;">(</span>verify_api_key<span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 async <span style="color: Green;font-weight:bold;">def</span> read_users<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"user"</span>: <span style="color: #a11;">"Bar"</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><br/>
 </div>
 </div>
 <hr/>
-<h2>全局依赖</h2>
-<p>可以在<code>FastAPI</code>Declare global dependencies on the instance, effective for all routes:</p>
+<h2>Global dependencies</h2>
+<p>You can<code>FastAPI</code>Declare global dependencies on the instance, effective for all routes:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<span style="color: Gray;">,</span> Header<span style="color: Gray;">,</span> HTTPException<br/>
 <br/>
@@ -314,7 +314,7 @@ async <span style="color: Green;font-weight:bold;">def</span> verify_token<span 
         <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"X-Token header invalid"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 全局依赖：所有路由都需要通过 token 校验</span><br/>
+<span style="color: #a50"># Global dependency: all routes need to pass token validation</span><br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span>dependencies<span style="color: Gray;">=</span><span style="color: Olive;">[</span>Depends<span style="color: Olive;">(</span>verify_token<span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
@@ -332,7 +332,7 @@ async <span style="color: Green;font-weight:bold;">def</span> read_users<span st
 <h2>Dependencies using yield</h2>
 <p>When a dependency needs to perform cleanup operations (such as closing database connections), use<code>yield</code>：</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Annotated<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> FastAPI<br/>
@@ -340,13 +340,13 @@ async <span style="color: Green;font-weight:bold;">def</span> read_users<span st
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 使用 yield 的依赖：请求前创建连接，请求后关闭连接</span><br/>
+<span style="color: #a50"># Dependencies that use yield: create a connection before the request, and close it after the request.</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    db <span style="color: Gray;">=</span> <span style="color: #a11;">"database_connection"</span>  <span style="color: #a50"># 模拟创建数据库连接</span><br/>
+    db <span style="color: Gray;">=</span> <span style="color: #a11;">"database_connection"</span>  <span style="color: #a50"># Simulate creating a database connection</span><br/>
     <span style="color: Green;font-weight:bold;">try</span>:<br/>
-        <span style="color: Green;font-weight:bold;">yield</span> db  <span style="color: #a50"># 请求处理期间提供数据库连接</span><br/>
+        <span style="color: Green;font-weight:bold;">yield</span> db  <span style="color: #a50"># Provide a database connection during request handling</span><br/>
     <span style="color: Green;font-weight:bold;">finally</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"关闭数据库连接"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 请求完成后清理资源</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Close database connection"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Clean up resources after request completes</span><br/>
 <br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/items/"</span><span style="color: Olive;">)</span><br/>
@@ -354,7 +354,7 @@ async <span style="color: Green;font-weight:bold;">def</span> read_items<span st
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"db"</span>: db<span style="color: Olive;">}</span><br/>
 </div>
 </div>
-<p>执行流程：</p>
+<p>Execution flow:</p>
 <ol>
 <li>When the request arrives, execute<code>yield</code>The code before, creating a database connection</li>
 <li><code>yield</code>Pass the connection to the route function</li>
@@ -362,30 +362,25 @@ async <span style="color: Green;font-weight:bold;">def</span> read_items<span st
 </ol>
 <blockquote><p><code>yield</code>Dependencies are ideal for managing resources that require cleanup, such as database connections and file handles. The cleanup code will execute regardless of whether the route function throws an exception.</p></blockquote>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <ul>
 <li>Dependency injection extracts common logic into reusable functions or classes.</li>
-<li>使用<code>Depends()</code>Declare dependencies in route function parameters</li>
+<li>Usage<code>Depends()</code>Declare dependencies in route function parameters</li>
 <li>Dependencies can be nested, forming dependency chains</li>
-<li>装饰器的<code>dependencies</code>Parameters used for dependencies that don't need return values</li>
-<li>使用<code>yield</code>Dependencies support resource cleanup</li>
+<li>decorator's<code>dependencies</code>Parameters used for dependencies that don't need return values</li>
+<li>Usage<code>yield</code>Dependencies support resource cleanup</li>
 <li>Global dependencies apply to all routes</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-request-response.html" rel="prev">FastAPI 请求和响应</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-form.html" rel="next">FastAPI 表单数据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-request-response.html" rel="prev">FastAPI Requests and Responses</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-form.html" rel="next">FastAPI Form Data</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -489,16 +484,16 @@ async <span style="color: Green;font-weight:bold;">def</span> read_items<span st
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -506,14 +501,14 @@ async <span style="color: Green;font-weight:bold;">def</span> read_items<span st
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="25088"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -691,7 +686,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -782,7 +777,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>收藏功能与后台管理 | 菜鸟教程</title>
+<title>Favorites Feature and Admin Panel | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="收藏功能与后台管理  本章你将学会用多对多关系实现收藏功能，并用 Flask-Admin 快速搭建后台管理。   多对多关系设计 收藏功能的需求：一个用户可以收藏多篇文章，一篇文章可以被多个用户收藏。 在 SQLAlchemy 中，多对多关系通过关联表（Association Table）实现。   实例  [mycode4 type='python'] # 文件路径：models.py 新增关联表和修改 Post .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-wtf.html" rel="prev">表单处理 — Flask-WTF</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-deploy.html" rel="next">打包上线 — 部署到 Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-wtf.html" rel="prev">Form Handling — Flask-WTF</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-deploy.html" rel="next">Package and Go Live — Deploy to Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -167,15 +167,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In this chapter, you will learn to implement a bookmark feature using many-to-many relationships and quickly build a backend admin with Flask-Admin.</p>
 <hr/>
 <h2>Many-to-many relationship design</h2>
-<p>Requirements for the favorites function:<span class="marked">一个用户可以收藏多篇文章，一篇文章可以被多个用户收藏</span>。</p>
-<p>In SQLAlchemy, many-to-many relationships are handled through<span class="marked">关联表（Association Table）</span>实现。</p>
+<p>Requirements for the favorites function:<span class="marked">A user can favorite multiple posts, and a post can be favorited by multiple users.</span>。</p>
+<p>In SQLAlchemy, many-to-many relationships are handled through<span class="marked">Association Table</span>Implementation.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：models.py 新增关联表和修改 Post 模型</span><br/>
+<span style="color: #a50"># File path: models.py - add association table and modify Post model</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">datetime</span> <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">datetime</span><br/>
 <br/>
-<span style="color: #a50"># 关联表：不需要定义为模型类，用 db.Table 直接创建</span><br/>
+<span style="color: #a50"># Association table: no need to define it as a model class, create it directly with db.Table</span><br/>
 favorites <span style="color: Gray;">=</span> db.<span style="color: #05a;">Table</span><span style="color: Olive;">(</span><span style="color: #a11;">'favorites'</span><span style="color: Gray;">,</span><br/>
     db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span><span style="color: #a11;">'user_id'</span><span style="color: Gray;">,</span> db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> db.<span style="color: #05a;">ForeignKey</span><span style="color: Olive;">(</span><span style="color: #a11;">'users.id'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     db.<span style="color: #05a;">Column</span><span style="color: Olive;">(</span><span style="color: #a11;">'post_id'</span><span style="color: Gray;">,</span> db.<span style="color: #05a;">Integer</span><span style="color: Gray;">,</span> db.<span style="color: #05a;">ForeignKey</span><span style="color: Olive;">(</span><span style="color: #a11;">'posts.id'</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
@@ -184,7 +184,7 @@ favorites <span style="color: Gray;">=</span> db.<span style="color: #05a;">Tabl
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Post<span style="color: Olive;">(</span>db.<span style="color: #05a;">Model</span><span style="color: Olive;">)</span>:<br/>
     __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">'posts'</span><br/>
-    <span style="color: #a50"># ... 已有字段不变 ...</span><br/>
+    <span style="color: #a50"># ... existing fields remain unchanged ...</span><br/>
 </div>
 </div>
 <p>Then run the migration:</p>
@@ -195,9 +195,9 @@ favorites <span style="color: Gray;">=</span> db.<span style="color: #05a;">Tabl
 <hr/>
 <h2>Favorite and Unfavorite Views</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app/blueprints/user.py（新建文件）</span><br/>
+<span style="color: #a50"># File path: app/blueprints/user.py (new file)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> render_template<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> flash<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_login <span style="color: Green;font-weight:bold;">import</span> login_required<span style="color: Gray;">,</span> current_user<br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Post<span style="color: Gray;">,</span> db<span style="color: Gray;">,</span> favorites<br/>
@@ -207,17 +207,17 @@ user_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <span style="color: Gray;">@</span>user_bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/favorite/&lt;int:post_id&gt;"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">'POST'</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Gray;">@</span>login_required<br/>
 <span style="color: Green;font-weight:bold;">def</span> toggle_favorite<span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""切换收藏状态"""</span><br/>
+    <span style="color: #a11;">"""Toggle favorite status"""</span><br/>
     post <span style="color: Gray;">=</span> Post.<span style="color: #05a;">query</span>.<span style="color: #05a;">get_or_404</span><span style="color: Olive;">(</span>post_id<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 检查是否已收藏：查询关联表中是否有此用户-文章组合</span><br/>
+    <span style="color: #a50"># Check whether already favorited: query the association table for this user-post combination</span><br/>
     is_faved <span style="color: Gray;">=</span> db.<span style="color: #05a;">session</span>.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>favorites<span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span><br/>
         favorites.<span style="color: #05a;">c</span>.<span style="color: #05a;">user_id</span> <span style="color: Gray;">==</span> current_user.<span style="color: Teal;">id</span><span style="color: Gray;">,</span><br/>
         favorites.<span style="color: #05a;">c</span>.<span style="color: #05a;">post_id</span> <span style="color: Gray;">==</span> post.<span style="color: Teal;">id</span><br/>
     <span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">is</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Teal;">None</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> is_faved:<br/>
-        <span style="color: #a50"># 取消收藏</span><br/>
+        <span style="color: #a50"># Unfavorite</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
             favorites.<span style="color: #05a;">delete</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">where</span><span style="color: Olive;">(</span><br/>
                 <span style="color: Olive;">(</span>favorites.<span style="color: #05a;">c</span>.<span style="color: #05a;">user_id</span> <span style="color: Gray;">==</span> current_user.<span style="color: Teal;">id</span><span style="color: Olive;">)</span> &amp;<br/>
@@ -225,14 +225,14 @@ user_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
             <span style="color: Olive;">)</span><br/>
         <span style="color: Olive;">)</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'已取消收藏「{post.title}」'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'info'</span><span style="color: Olive;">)</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'Unfavorited "{post.title}"'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'info'</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: #a50"># 添加收藏</span><br/>
+        <span style="color: #a50"># Add favorite</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><br/>
             favorites.<span style="color: #05a;">insert</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values</span><span style="color: Olive;">(</span>user_id<span style="color: Gray;">=</span>current_user.<span style="color: Teal;">id</span><span style="color: Gray;">,</span> post_id<span style="color: Gray;">=</span>post.<span style="color: Teal;">id</span><span style="color: Olive;">)</span><br/>
         <span style="color: Olive;">)</span><br/>
         db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'已收藏「{post.title}」'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
+        flash<span style="color: Olive;">(</span>f<span style="color: #a11;">'Favorited "{post.title}"'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'success'</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>request.<span style="color: #05a;">referrer</span> <span style="color: Green;font-weight:bold;">or</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">'main.index'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -240,8 +240,8 @@ user_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
 <span style="color: Gray;">@</span>user_bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/favorites"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Gray;">@</span>login_required<br/>
 <span style="color: Green;font-weight:bold;">def</span> favorites_list<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""当前用户的收藏列表"""</span><br/>
-    <span style="color: #a50"># 通过关联表查询用户收藏的文章</span><br/>
+    <span style="color: #a11;">"""Current user's favorites list"""</span><br/>
+    <span style="color: #a50"># Query articles favorited by users through the association table</span><br/>
     faved_posts <span style="color: Gray;">=</span> Post.<span style="color: #05a;">query</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span><br/>
         favorites<span style="color: Gray;">,</span> <span style="color: Olive;">(</span>favorites.<span style="color: #05a;">c</span>.<span style="color: #05a;">post_id</span> <span style="color: Gray;">==</span> Post.<span style="color: Teal;">id</span><span style="color: Olive;">)</span><br/>
     <span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span><br/>
@@ -251,9 +251,9 @@ user_bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;"
     <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">'favorites.html'</span><span style="color: Gray;">,</span> posts<span style="color: Gray;">=</span>faved_posts<span style="color: Olive;">)</span><br/>
 </div>
 </div>
-<h3>在 app.py 中注册 Blueprint</h3>
+<h3>Register Blueprint in app.py</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">blueprints</span>.<span style="color: #05a;">user</span> <span style="color: Green;font-weight:bold;">import</span> user_bp<br/>
 app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>user_bp<span style="color: Olive;">)</span><br/>
@@ -262,13 +262,13 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <hr/>
 <h2>Add favorite buttons on the detail page and list page</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- 在 post_detail.html 和 index.html 的文章操作区加入 --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- Add in the article operations area of post_detail.html and index.html --&gt;</span><br/>
 {% if current_user.is_authenticated %}<br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">form</span> <span style="color: #00c;">method</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"post"</span> <span style="color: #00c;">action</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"{{ url_for('user.toggle_favorite', post_id=post.id) }}"</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">type</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"submit"</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"fav-btn"</span>&gt;</span><br/>
-        {% set is_faved = false %}<br/>{# 检查当前用户是否在文章的收藏者列表中 #}<br/>♡ 收藏<br/>
+        {% set is_faved = false %}<br/>{# Check whether the current user is in the list of users who favorited the article #}<br/>♡ Favorite<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">form</span>&gt;</span><br/>
 {% endif %}<br/>
@@ -283,14 +283,14 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 (venv) $ pip install flask-admin
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py 或新建 admin_setup.py</span><br/>
+<span style="color: #a50"># File path: app.py or create a new admin_setup.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_admin <span style="color: Green;font-weight:bold;">import</span> Admin<br/>
 <span style="color: Green;font-weight:bold;">from</span> flask_admin.<span style="color: #05a;">contrib</span>.<span style="color: #05a;">sqla</span> <span style="color: Green;font-weight:bold;">import</span> ModelView<br/>
 <span style="color: Green;font-weight:bold;">from</span> app.<span style="color: #05a;">models</span> <span style="color: Green;font-weight:bold;">import</span> Post<span style="color: Gray;">,</span> Category<span style="color: Gray;">,</span> User<br/>
 <br/>
-<span style="color: #a50"># 自定义 ModelView：控制后台显示哪些字段</span><br/>
+<span style="color: #a50"># Custom ModelView: control which fields are displayed in the admin backend</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> PostAdmin<span style="color: Olive;">(</span>ModelView<span style="color: Olive;">)</span>:<br/>
     column_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'category'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'created_at'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'updated_at'</span><span style="color: Olive;">]</span><br/>
     column_searchable_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'title'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'summary'</span><span style="color: Olive;">]</span><br/>
@@ -301,46 +301,41 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
     column_list <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'name'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'slug'</span><span style="color: Olive;">]</span><br/>
     form_columns <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">'name'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'slug'</span><span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: #a50"># 创建 Admin 实例</span><br/>
-admin <span style="color: Gray;">=</span> Admin<span style="color: Olive;">(</span>app<span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'RUNOOB 博客后台'</span><span style="color: Gray;">,</span> template_mode<span style="color: Gray;">=</span><span style="color: #a11;">'bootstrap4'</span><span style="color: Olive;">)</span><br/>
-admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>PostAdmin<span style="color: Olive;">(</span>Post<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'文章'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>CategoryAdmin<span style="color: Olive;">(</span>Category<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'分类'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>ModelView<span style="color: Olive;">(</span>User<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'用户'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Create Admin instance</span><br/>
+admin <span style="color: Gray;">=</span> Admin<span style="color: Olive;">(</span>app<span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'RUNOOB Blog Admin'</span><span style="color: Gray;">,</span> template_mode<span style="color: Gray;">=</span><span style="color: #a11;">'bootstrap4'</span><span style="color: Olive;">)</span><br/>
+admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>PostAdmin<span style="color: Olive;">(</span>Post<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'Articles'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>CategoryAdmin<span style="color: Olive;">(</span>Category<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'Categories'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</span>ModelView<span style="color: Olive;">(</span>User<span style="color: Gray;">,</span> db.<span style="color: #05a;">session</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">'Users'</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p>Start the server and visit<code>/admin</code>, and you can enter the admin interface.</p>
 <h3>Flask-Admin vs Django Admin</h3>
 <table class="reference">
 <tbody>
-<tr><th>特性</th><th>Flask-Admin</th><th>Django Admin</th></tr>
-<tr><td>集成方式</td><td>Third-party extension, requires pip install</td><td>内置在 django.contrib.admin</td></tr>
-<tr><td>注册模型</td><td>admin.add_view(ModelView(Model, session))</td><td>admin.site.register(Model)</td></tr>
-<tr><td>列表字段</td><td>column_list</td><td>list_display</td></tr>
-<tr><td>搜索</td><td>column_searchable_list</td><td>search_fields</td></tr>
-<tr><td>过滤</td><td>column_filters</td><td>list_filter</td></tr>
-<tr><td>需要认证</td><td>Not built-in (requires manually adding @login_required)</td><td>Built-in administrator permissions</td></tr>
+<tr><th>Features</th><th>Flask-Admin</th><th>Django Admin</th></tr>
+<tr><td>Integration method</td><td>Third-party extension, requires pip install</td><td>Built into django.contrib.admin</td></tr>
+<tr><td>Register models</td><td>admin.add_view(ModelView(Model, session))</td><td>admin.site.register(Model)</td></tr>
+<tr><td>List fields</td><td>column_list</td><td>list_display</td></tr>
+<tr><td>Search</td><td>column_searchable_list</td><td>search_fields</td></tr>
+<tr><td>Filter</td><td>column_filters</td><td>list_filter</td></tr>
+<tr><td>Authentication required</td><td>Not built-in (requires manually adding @login_required)</td><td>Built-in administrator permissions</td></tr>
 </tbody>
 </table>
 <blockquote><p>Flask-Admin does not require login to access by default; it needs to be combined with Flask-Login for permission control. A simple way is to add<code>@login_required</code>, or override ModelView's<code>is_accessible</code>a method to check administrator permissions.</p></blockquote>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you implemented two important features: using the db.Table association table + db.session.execute operations to implement the many-to-many relationship for bookmarks; and using Flask-Admin to quickly build a backend management system.</p>
-<p>Now the blog's interactive features (users, bookmarks) and management features (backend) are all complete.</p>
-其他扩展
-</div>
+<p>Now the blog's interactive features (users, bookmarks) and management features (backend) are all complete.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-wtf.html" rel="prev">表单处理 — Flask-WTF</a> </div>
-<div class="next-design-link"><a href="../flask/flask-blog-deploy.html" rel="next">打包上线 — 部署到 Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-blog-wtf.html" rel="prev">Form Handling — Flask-WTF</a> </div>
+<div class="next-design-link"><a href="../flask/flask-blog-deploy.html" rel="next">Package and Go Live — Deploy to Railway</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -444,16 +439,16 @@ admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</s
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -461,14 +456,14 @@ admin.<span style="color: #05a;">add_view</span><span style="color: Olive;">(</s
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31165"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -646,7 +641,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -737,7 +732,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

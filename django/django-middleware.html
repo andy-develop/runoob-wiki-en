@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Django 中间件 | 菜鸟教程</title>
+<title>Django Middleware | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Django 中间件 Django 中间件是修改 Django request 或者 response 对象的钩子，可以理解为是介于 HttpRequest 与 HttpResponse 处理之间的一道处理过程。 浏览器从请求到响应的过程中，Django 需要通过很多中间件来处理，可以看如下图所示：   Django 中间件作用：  修改请求，即传送到 view 中的 HttpRequest 对象。 修改响应，即 view 返回的 Ht.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-cookie-session.html" rel="prev">Django cookie 与 session</a> </div>
-<div class="next-design-link"><a href="../django/django-views-fbv-cbv.html" rel="next">Django 视图 – FBV 与 CBV</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-cookie-session.html" rel="prev">Django cookie and session</a> </div>
+<div class="next-design-link"><a href="../django/django-views-fbv-cbv.html" rel="next">Django Views – FBV and CBV</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,7 +168,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p><img decoding="async" src="../wp-content/uploads/2020/05/1_t9TAX89Y3rZUXth2Le07Xg.png"/></p>
 <p>Django middleware purpose:</p>
 <ul><li>Modify the request, i.e., the HttpRequest object passed to the view.</li><li>Modifying the response, i.e., the HttpResponse object returned by the view.</li></ul>
-<p>Middleware components are configured in the MIDDLEWARE option list in the settings.py file.</p>配置中的每个字符串选项都是一个类，也就是一个中间件。<p>Django's default middleware configuration:</p>
+<p>Middleware components are configured in the MIDDLEWARE option list in the settings.py file.</p>Each string option in the configuration is a class, that is, a middleware.<p>Django's default middleware configuration:</p>
 <div class="example"> <div class="example_code">
 MIDDLEWARE <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
     <span style="color: #a11;">'django.middleware.security.SecurityMiddleware'</span><span style="color: Gray;">,</span><br/>
@@ -193,7 +193,7 @@ process_response<span style="color: Olive;">(</span><span style="color: Teal;">s
 <p>A custom middleware class must inherit the parent class MiddlewareMixin:</p>
 <pre>class MD1(MiddlewareMixin): 
     pass
-</pre>在 settings.py 中的 MIDDLEWARE 里注册自定义的中间件类:<div class="example"> <div class="example_code">
+</pre>Register the custom middleware class in MIDDLEWARE in settings.py:<div class="example"> <div class="example_code">
 MIDDLEWARE <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
     <span style="color: #a11;">'django.middleware.security.SecurityMiddleware'</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">'django.contrib.sessions.middleware.SessionMiddleware'</span><span style="color: Gray;">,</span><br/>
@@ -209,105 +209,100 @@ MIDDLEWARE <span style="color: Gray;">=</span> <span style="color: Olive;">[</sp
 <hr/>
 <h2>Methods of custom middleware classes</h2><p>The methods of a custom middleware class include: process_request and process_response.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_5.png"/></p>
-<h3>process_request 方法</h3><p>The process_request method has one parameter, request, which is the same as the request in the view function.</p>
+<h3>process_request method</h3><p>The process_request method has one parameter, request, which is the same as the request in the view function.</p>
 <p>The return value of the process_request method can be either None or an HttpResponse object.</p>
 <ul><li>If the return value is None, continue with the normal flow and pass it to the next middleware for processing.</li><li>If the return value is an HttpResponse object, Django will not execute the methods before the subsequent view function or the view function itself. Instead, starting from this middleware, it will execute the middleware in reverse order, and only execute the methods that run after the view function.</li></ul>
 <p>The process_request method is executed before the view function.</p>
 <p>When multiple middleware are configured, they execute in order according to the registration order in MIDDLEWARE, i.e., the list index value.</p>
 <p>The request parameter passed between different middleware components is the same request object.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">utils</span>.<span style="color: #05a;">deprecation</span> <span style="color: Green;font-weight:bold;">import</span> MiddlewareMixin<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">from</span> django.<span style="color: #05a;">shortcuts</span> <span style="color: Green;font-weight:bold;">import</span> render<span style="color: Gray;">,</span> HttpResponse<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> MD1<span style="color: Olive;">(</span>MiddlewareMixin<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">def</span> process_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Olive;">)</span>:<br/>
-       <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request 方法。"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行</span><br/>
+       <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request method."</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_1.gif"/></p>
 <h3>process_response</h3><p>The process_response method has two parameters: one is request, and the other is response. request is the request object, and response is the HttpResponse object returned by the view function. This method must have a return value, and it must be response.</p>
 <p>The process_response method is executed after the view function.</p>
 <p>When multiple middleware are configured, they execute in reverse order according to the registration order in MIDDLEWARE, i.e., the list index value.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> MD1<span style="color: Olive;">(</span>MiddlewareMixin<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">def</span> process_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request 方法。"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request method."</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view</span><br/>
 <br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50">#基于请求响应</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_response 方法！"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之后</span><br/>
+    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50"># Based on request/response</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1 process_response method!"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># After the View</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> response<br/>
-</div></div><p>From the figure below, under normal circumstances execution follows the green route. Suppose<strong>中间件1</strong>If there is a return value, it follows the red route, directly executes the process_response method of this class and returns; the subsequent other middleware will not be executed.</p>
+</div></div><p>From the figure below, under normal circumstances execution follows the green route. Suppose<strong>Middleware 1</strong>If there is a return value, it follows the red route, directly executes the process_response method of this class and returns; the subsequent other middleware will not be executed.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/md-sssss-1.png"/></p>
 <h3>process_view</h3><p><p>The format of the process_view method is as follows:</p><pre>
 process_view(request, view_func, view_args, view_kwargs)</pre>The process_view method has four parameters:</p>
-<ul><li>request 是 HttpRequest 对象。</li><li>view_func is the view function that Django is about to use.</li><li>view_args is the list of positional arguments to be passed to the view.</li><li>view_kwargs is the dictionary of keyword arguments to be passed to the view.</li></ul><p>view_args and view_kwargs do not include the first view parameter (request).</p>
+<ul><li>request is an HttpRequest object.</li><li>view_func is the view function that Django is about to use.</li><li>view_args is the list of positional arguments to be passed to the view.</li><li>view_kwargs is the dictionary of keyword arguments to be passed to the view.</li></ul><p>view_args and view_kwargs do not include the first view parameter (request).</p>
 <p>The process_view method is executed before the view function and after the process_request method.</p>
-<p>返回值可以是 None、view_func(request) 或 HttpResponse 对象。</p>
+<p>The return value can be None, view_func(request), or an HttpResponse object.</p>
 <ul><li>If the return value is None, continue with the normal flow and pass it to the next middleware for processing.</li><li>If the return value is an HttpResponse object, Django will not execute the methods before the subsequent view function or the view function itself. Instead, starting from this middleware, it will execute the middleware in reverse order, and only execute the methods that run after the view function.</li><li>c. If the return value is view_func(request), Django will not execute the methods before subsequent view functions, but will execute the view function in advance, and then execute the methods after the view function in reverse order.</li><li>
 <p>After the process_request of the last middleware reaches the route mapping, it returns to the process_view of the first middleware, and then proceeds downward in sequence to reach the view function.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> MD1<span style="color: Olive;">(</span>MiddlewareMixin<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">def</span> process_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request 方法。"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request method."</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view</span><br/>
 <br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50">#基于请求响应</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_response 方法！"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之后</span><br/>
+    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50"># Based on request/response</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1 process_response method!"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># After the View</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> response<br/>
 <br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> process_view<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> view_func<span style="color: Gray;">,</span> view_args<span style="color: Gray;">,</span> view_kwargs<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_view 方法！"</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行 顺序执行</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">md1 process_view method!</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view; execute sequentially</span><br/>
         <span style="color: #a50">#return view_func(request)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_2.gif"/></p>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/md-32rdf.png"/></p>
 <h3>
-process_exception</h3><p>process_exception 方法如下：</p><pre>
+process_exception</h3><p>process_exception method is as follows:</p><pre>
 process_exception(request, exception)</pre>
-<p>参数说明：</p>
-<ul><li>request 是 HttpRequest 对象。</li><li>exception is the Exception object generated by an exception in the view function.</li></ul>
+<p>Parameter description:</p>
+<ul><li>request is an HttpRequest object.</li><li>exception is the Exception object generated by an exception in the view function.</li></ul>
 <p>The process_exception method is executed only when an exception occurs in the view function, and it executes in reverse order of the registration in settings.</p><p>Executed after the view function and before the process_response method.</p>
 <p>The return value of the process_exception method can be either None or an HttpResponse object.</p>
 <p>If the return value is None, the page will report a 500 status code error, and the view function will not be executed.</p><p>The process_exception method executes in reverse order, and then the process_response method executes in reverse order.</p>
 <p>If the return value is an HttpResponse object, the page will not report an error, and the return status code will be 200.</p><p>The view function is not executed, and the subsequent process_exception methods of this middleware are also not executed. Execution starts directly from the process_response method of the last middleware in reverse order.</p>
 <p>If the process_view method returns the view function and the view function is executed in advance, and the view function reports an error, then regardless of the return value of the process_exception method, the page will report an error,
 and neither the view function nor the process_exception method will be executed.</p><p>Start executing directly in reverse order from the process_response method of the last middleware:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> MD1<span style="color: Olive;">(</span>MiddlewareMixin<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">def</span> process_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request 方法。"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request method."</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50">#基于请求响应</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_response 方法！"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之后</span><br/>
+    <span style="color: Green;font-weight:bold;">def</span> process_response<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span>: :<span style="color: #a50"># Based on request/response</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1 process_response method!"</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># After the View</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> response<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> process_view<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span>request<span style="color: Gray;">,</span> view_func<span style="color: Gray;">,</span> view_args<span style="color: Gray;">,</span> view_kwargs<span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_view 方法！"</span><span style="color: Olive;">)</span> <span style="color: #a50">#在视图之前执行 顺序执行</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">md1 process_view method!</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view; execute sequentially</span><br/>
         <span style="color: #a50">#return view_func(request)</span><br/>
 <br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">def</span> process_exception<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> exception<span style="color: Olive;">)</span>:<span style="color: #a50">#引发错误 才会触发这个方法</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_exception 方法！"</span><span style="color: Olive;">)</span> <br/>
-        <span style="color: #a50"># return HttpResponse(exception) #返回错误信息</span><br/>
+    <span style="color: Green;font-weight:bold;">def</span> process_exception<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> exception<span style="color: Olive;">)</span>:<span style="color: #a50"># This method is triggered only when an error is raised</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">md1  process_exception  method!</span><span style="color: Olive;">)</span> <br/>
+        <span style="color: #a50"># return HttpResponse(exception) # Return error message</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_3.gif"/></p>
-其他扩展
-</li></ul></div>
+<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_3.gif"/></p>other extensions</li></ul></div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-cookie-session.html" rel="prev">Django cookie 与 session</a> </div>
-<div class="next-design-link"><a href="../django/django-views-fbv-cbv.html" rel="next">Django 视图 – FBV 与 CBV</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../django/django-cookie-session.html" rel="prev">Django cookie and session</a> </div>
+<div class="next-design-link"><a href="../django/django-views-fbv-cbv.html" rel="next">Django Views – FBV and CBV</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -411,16 +406,16 @@ and neither the view function nor the process_exception method will be executed.
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -428,14 +423,14 @@ and neither the view function nor the process_exception method will be executed.
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="22491"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -613,7 +608,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -704,7 +699,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

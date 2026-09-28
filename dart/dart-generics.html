@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dart 泛型 | 菜鸟教程</title>
+<title>Dart Generics | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Dart 泛型 泛型（Generics）让你在编写代码时不指定具体类型，而是用类型参数占位，在使用时再确定类型。 泛型的核心价值是类型安全和代码复用——一份代码适配多种类型，同时编译器帮你检查类型错误。   为什么需要泛型 先看一个没有泛型时的痛点。   实例 没有泛型的写法：  [mycode4 type='dart'] // 没有泛型：只能存放 Object，取出时需要手动转型 class IntBox {   .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,22 +158,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-interfaces-and-mixins.html" rel="prev">Dart 接口与 Mixin</a> </div>
-<div class="next-design-link"><a href="../dart/dart-exception-handling.html" rel="next">Dart 异常处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-interfaces-and-mixins.html" rel="prev">Dart Interfaces and Mixins</a> </div>
+<div class="next-design-link"><a href="../dart/dart-exception-handling.html" rel="next">Dart Exception Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Dart 泛型</h1>
+<h1>Dart Generics</h1>
 <p>Generics let you avoid specifying concrete types when writing code, instead using type parameters as placeholders, and determining the actual types at the point of use.</p>
-<p>The core value of generics is<span class="marked">类型安全</span>和<span class="marked">代码复用</span>—One piece of code adapts to multiple types, while the compiler checks type errors for you.</p>
+<p>The core value of generics is<span class="marked">Type Safety</span>and<span class="marked">Code Reuse</span>—One piece of code adapts to multiple types, while the compiler checks type errors for you.</p>
 <hr/>
 <h2>Why Generics Are Needed</h2>
 <p>First, let's look at a pain point without generics.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Writing without generics:</p>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 没有泛型：只能存放 Object，取出时需要手动转型</span><br/>
+<span style="color: #999988; font-style: italic;">// Without generics: can only store Object, and needs manual casting when retrieving</span><br/>
 <span style="font-weight: bold;">class</span> IntBox <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">int</span> value<span style="font-weight: bold;">;</span><br/>
   IntBox<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">value</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -184,27 +184,27 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   StringBox<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">value</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 每新增一种类型就要写一个新的 Box 类，代码大量重复</span><br/>
+<span style="color: #999988; font-style: italic;">// Every time a new type is added, a new Box class must be written, resulting in a lot of duplicate code</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">var</span> intBox <span style="font-weight: bold;">=</span> IntBox<span style="">(</span><span style="color: #009999;">42</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> stringBox <span style="font-weight: bold;">=</span> StringBox<span style="">(</span><span style="color: #d14;">'RUNOOB'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'整数: ${intBox.value}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'字符串: ${stringBox.value}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Integer: ${intBox.value}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'String: ${stringBox.value}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
 <p>Is there a way to write a Box class that can hold both int and String, while still guaranteeing type safety at compile time?</p>
 <p>This is the problem generics aim to solve.</p>
 <hr/>
-<h2>泛型类</h2>
+<h2>Generic class</h2>
 <p>A generic class declares type parameters after the class name using angle brackets &lt;&gt;, and uses that type parameter inside the class.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// &lt;T&gt; 是类型参数，T 是一个占位符，代表"某种类型"</span><br/>
-<span style="color: #999988; font-style: italic;">// 约定俗成的命名：T（Type）、E（Element）、K（Key）、V（Value）</span><br/>
+<span style="color: #999988; font-style: italic;">// &lt;T&gt; is a type parameter; T is a placeholder representing "some type"</span><br/>
+<span style="color: #999988; font-style: italic;">// Conventional naming: T (Type), E (Element), K (Key), V (Value)</span><br/>
 <span style="font-weight: bold;">class</span> Box<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   T value<span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -219,26 +219,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <span style="">}</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> printValue<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'Box 中的值: $value (类型: ${value.runtimeType})'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Value in Box: $value (Type: ${value.runtimeType})'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 使用泛型类时指定具体类型</span><br/>
+  <span style="color: #999988; font-style: italic;">// Specify a concrete type when using a generic class</span><br/>
   <span style="font-weight: bold;">var</span> intBox <span style="font-weight: bold;">=</span> Box<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color: #009999;">42</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="font-weight: bold;">var</span> stringBox <span style="font-weight: bold;">=</span> Box<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color: #d14;">'RUNOOB Dart 教程'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> stringBox <span style="font-weight: bold;">=</span> Box<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color: #d14;">'RUNOOB Dart Tutorial'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> doubleBox <span style="font-weight: bold;">=</span> Box<span style="font-weight: bold;">&lt;</span>double<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color:#800080;">3.14</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   intBox.<span style="color: #006633;">printValue</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   stringBox.<span style="color: #006633;">printValue</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   doubleBox.<span style="color: #006633;">printValue</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 类型安全：下面的代码会在编译时报错</span><br/>
-  <span style="color: #999988; font-style: italic;">// intBox.setValue('hello');  // 错误：String 不能赋值给 int</span><br/>
+  <span style="color: #999988; font-style: italic;">// Type safety: the following code will cause a compile-time error</span><br/>
+  <span style="color: #999988; font-style: italic;">// intBox.setValue('hello');  // Error: String cannot be assigned to int</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 类型推断：Dart 可以根据构造函数参数推断类型</span><br/>
-  <span style="font-weight: bold;">var</span> autoBox <span style="font-weight: bold;">=</span> Box<span style="">(</span><span style="color: #d14;">'自动推断为 String'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'推断类型: ${autoBox.value.runtimeType}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Type inference: Dart can infer types from constructor arguments</span><br/>
+  <span style="font-weight: bold;">var</span> autoBox <span style="font-weight: bold;">=</span> Box<span style="">(</span><span style="color: #d14;">'Automatically inferred as String'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Inferred type: ${autoBox.value.runtimeType}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -251,9 +251,9 @@ Box 中的值: 3.14 (类型: double)
 <h3>Multiple Type Parameters</h3>
 <p>A generic class can have multiple type parameters.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// K 表示键的类型，V 表示值的类型</span><br/>
+<span style="color: #999988; font-style: italic;">// K represents the type of keys, V represents the type of values</span><br/>
 <span style="font-weight: bold;">class</span> Pair<span style="font-weight: bold;">&lt;</span>K<span style="font-weight: bold;">,</span> V<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   K key<span style="font-weight: bold;">;</span><br/>
   V value<span style="font-weight: bold;">;</span><br/>
@@ -266,7 +266,7 @@ Box 中的值: 3.14 (类型: double)
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">var</span> pair1 <span style="font-weight: bold;">=</span> Pair<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> int<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">10</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="font-weight: bold;">var</span> pair2 <span style="font-weight: bold;">=</span> Pair<span style="">(</span><span style="color: #d14;">'score'</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">95.5</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 类型推断</span><br/>
+  <span style="font-weight: bold;">var</span> pair2 <span style="font-weight: bold;">=</span> Pair<span style="">(</span><span style="color: #d14;">'score'</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">95.5</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Type inference</span><br/>
 <br/>
   print<span style="">(</span>pair1<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   print<span style="">(</span>pair2<span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -278,21 +278,21 @@ Pair(runoob: 10)
 Pair(score: 95.5)
 </pre>
 <hr/>
-<h2>泛型方法</h2>
+<h2>Generic methods</h2>
 <p>In addition to generic classes, functions and methods can also use generics.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 泛型函数：返回类型和参数类型一致</span><br/>
-<span style="color: #999988; font-style: italic;">// 在返回值类型前声明 &lt;T&gt;</span><br/>
+<span style="color: #999988; font-style: italic;">// Generic function: return type and parameter type match</span><br/>
+<span style="color: #999988; font-style: italic;">// Declare &lt;T&gt; before the return type</span><br/>
 T firstElement<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span><span style="">(</span>List<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span> list<span style="">)</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">if</span> <span style="">(</span>list.<span style="color: #006633;">isEmpty</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="font-weight: bold;">throw</span> ArgumentError<span style="">(</span><span style="color: #d14;">'列表不能为空'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    <span style="font-weight: bold;">throw</span> ArgumentError<span style="">(</span><span style="color: #d14;">'The list cannot be empty'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
   <span style="font-weight: bold;">return</span> list<span style="">[</span><span style="color: #009999;">0</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 泛型函数：交换两个值</span><br/>
+<span style="color: #999988; font-style: italic;">// Generic function: swap two values</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> swap<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span><span style="">(</span>List<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span> list<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> i<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> j<span style="">)</span> <span style="">{</span><br/>
   T temp <span style="font-weight: bold;">=</span> list<span style="">[</span>i<span style="">]</span><span style="font-weight: bold;">;</span><br/>
   list<span style="">[</span>i<span style="">]</span> <span style="font-weight: bold;">=</span> list<span style="">[</span>j<span style="">]</span><span style="font-weight: bold;">;</span><br/>
@@ -300,18 +300,18 @@ T firstElement<span style="font-weight: bold;">&lt;</span>T<span style="font-wei
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 调用时 Dart 会自动推断类型</span><br/>
+  <span style="color: #999988; font-style: italic;">// Dart automatically infers the type when called</span><br/>
   <span style="font-weight: bold;">var</span> names <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Dart'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Flutter'</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'第一个名字: ${firstElement(names)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'First name: ${firstElement(names)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">var</span> scores <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #009999;">95</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">88</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">72</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'第一个分数: ${firstElement(scores)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'First score: ${firstElement(scores)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 交换元素</span><br/>
+  <span style="color: #999988; font-style: italic;">// Swap elements</span><br/>
   <span style="font-weight: bold;">var</span> items <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #d14;">'A'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'B'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'C'</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'交换前: $items'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Before swap: $items'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   swap<span style="">(</span>items<span style="font-weight: bold;">,</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'交换后: $items'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'After swap: $items'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -326,28 +326,28 @@ T firstElement<span style="font-weight: bold;">&lt;</span>T<span style="font-wei
 <p>Sometimes you want a type parameter to be restricted to subtypes of certain types.</p>
 <p>Using the extends keyword, you can impose constraints on generic parameters.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 定义一个数值计算器</span><br/>
-<span style="color: #999988; font-style: italic;">// &lt;T extends num&gt; 约束 T 必须是 num 或其子类（int、double）</span><br/>
+<span style="color: #999988; font-style: italic;">// Define a numeric calculator</span><br/>
+<span style="color: #999988; font-style: italic;">// &lt;T extends num&gt; constrains T to be num or its subclasses (int, double)</span><br/>
 <span style="font-weight: bold;">class</span> Calculator<span style="font-weight: bold;">&lt;</span>T <span style="font-weight: bold;">extends</span> num<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   T a<span style="font-weight: bold;">;</span><br/>
   T b<span style="font-weight: bold;">;</span><br/>
 <br/>
   Calculator<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">a</span><span style="font-weight: bold;">,</span> <span style="font-weight: bold;">this</span>.<span style="color: #006633;">b</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 因为约束了 T extends num，所以可以安全地使用 num 的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Because T is constrained to extend num, num's methods can be used safely.</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> add<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="">(</span>a <span style="font-weight: bold;">+</span> b<span style="">)</span>.<span style="color: #006633;">toDouble</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> subtract<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="">(</span>a <span style="font-weight: bold;">-</span> b<span style="">)</span>.<span style="color: #006633;">toDouble</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> multiply<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="">(</span>a <span style="font-weight: bold;">*</span> b<span style="">)</span>.<span style="color: #006633;">toDouble</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">double</span> divide<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> a <span style="font-weight: bold;">/</span> b<span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> printOperations<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'RUNOOB 计算器: $a 和 $b'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'  加: ${add()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'  减: ${subtract()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'  乘: ${multiply()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'  除: ${divide().toStringAsFixed(2)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'RUNOOB calculator: $a and $b'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'  Add: ${add()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'  Subtract: ${subtract()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'  Multiply: ${multiply()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'  Divide: ${divide().toStringAsFixed(2)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
@@ -358,8 +358,8 @@ T firstElement<span style="font-weight: bold;">&lt;</span>T<span style="font-wei
   <span style="font-weight: bold;">var</span> doubleCalc <span style="font-weight: bold;">=</span> Calculator<span style="font-weight: bold;">&lt;</span>double<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color:#800080;">3.5</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">1.5</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   doubleCalc.<span style="color: #006633;">printOperations</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 下面这行会报错：String 不是 num 的子类</span><br/>
-  <span style="color: #999988; font-style: italic;">// var strCalc = Calculator&lt;String&gt;('a', 'b');  // 错误！</span><br/>
+  <span style="color: #999988; font-style: italic;">// The following line will report an error: String is not a subclass of num.</span><br/>
+  <span style="color: #999988; font-style: italic;">// var strCalc = Calculator&lt;String&gt;('a', 'b');  // Error!</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -381,36 +381,36 @@ RUNOOB 计算器: 3.5 和 1.5
 <p>Dart's core collection classes (List, Set, Map) are all generic.</p>
 <p>Using generic collections provides compile-time type checking.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 指定元素类型为 String</span><br/>
+  <span style="color: #999988; font-style: italic;">// Specify the element type as String</span><br/>
   List<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span> names <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Dart'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Flutter'</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// names.add(42);  // 错误：int 不能添加到 List&lt;String&gt;</span><br/>
+  <span style="color: #999988; font-style: italic;">// names.add(42);  // Error: int cannot be added to List&lt;String&gt;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 指定键值类型</span><br/>
+  <span style="color: #999988; font-style: italic;">// Specify the key-value types</span><br/>
   Map<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">,</span> int<span style="font-weight: bold;">&gt;</span> scores <span style="font-weight: bold;">=</span> <span style="">{</span><br/>
     <span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">95</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'Alice'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">87</span><span style="font-weight: bold;">,</span><br/>
   <span style="">}</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// scores['Bob'] = '优秀';  // 错误：String 不能赋值给 int</span><br/>
+  <span style="color: #999988; font-style: italic;">// scores['Bob'] = 'Excellent';  // Error: String cannot be assigned to int</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 指定 Set 元素类型</span><br/>
+  <span style="color: #999988; font-style: italic;">// Specify the Set element type</span><br/>
   Set<span style="font-weight: bold;">&lt;</span>double<span style="font-weight: bold;">&gt;</span> prices <span style="font-weight: bold;">=</span> <span style="">{</span><span style="color:#800080;">9.99</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">19.99</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">29.99</span><span style="">}</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 泛型集合的函数式操作</span><br/>
+  <span style="color: #999988; font-style: italic;">// Functional operations on generic collections</span><br/>
   List<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> numbers <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">4</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">5</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">6</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 类型安全的过滤和映射</span><br/>
+  <span style="color: #999988; font-style: italic;">// Type-safe filtering and mapping</span><br/>
   List<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> evenNumbers <span style="font-weight: bold;">=</span> numbers.<span style="color: #006633;">where</span><span style="">(</span><span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> n <span style="font-weight: bold;">%</span> <span style="color: #009999;">2</span> <span style="font-weight: bold;">==</span> <span style="color: #009999;">0</span><span style="">)</span>.<span style="color: #006633;">toList</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   List<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span> labels <span style="font-weight: bold;">=</span> numbers.<span style="color: #006633;">map</span><span style="">(</span><span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="color: #d14;">'RUNOOB-$n'</span><span style="">)</span>.<span style="color: #006633;">toList</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'偶数: $evenNumbers'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'标签: $labels'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Even numbers: $evenNumbers</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Labels: $labels</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 使用 fold 进行类型安全的累积计算</span><br/>
+  <span style="color: #999988; font-style: italic;">// Use fold for type-safe accumulation</span><br/>
   <span style="color: #445588; font-weight: bold;">int</span> sum <span style="font-weight: bold;">=</span> numbers.<span style="color: #006633;">fold</span><span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="color: #009999;">0</span><span style="font-weight: bold;">,</span> <span style="">(</span>prev<span style="font-weight: bold;">,</span> n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> prev <span style="font-weight: bold;">+</span> n<span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'总和: $sum'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Sum: $sum</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -423,9 +423,9 @@ RUNOOB 计算器: 3.5 和 1.5
 <h2>Practical application: Generic Repository Pattern</h2>
 <p>One of the most classic applications of generics in real-world development is the "Repository Pattern."</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 定义一个通用仓库接口</span><br/>
+<span style="color: #999988; font-style: italic;">// Define a generic repository interface</span><br/>
 <span style="font-weight: bold;">abstract</span> <span style="font-weight: bold;">class</span> Repository<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> add<span style="">(</span>T item<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> remove<span style="">(</span>T item<span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -433,7 +433,7 @@ RUNOOB 计算器: 3.5 和 1.5
   List<span style="font-weight: bold;">&lt;</span>T<span style="font-weight: bold;">&gt;</span> getAll<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 用户模型</span><br/>
+<span style="color: #999988; font-style: italic;">// User model</span><br/>
 <span style="font-weight: bold;">class</span> User <span style="">{</span><br/>
   String id<span style="font-weight: bold;">;</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
@@ -444,7 +444,7 @@ RUNOOB 计算器: 3.5 和 1.5
   String toString<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="color: #d14;">'User($id, $name)'</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 商品模型</span><br/>
+<span style="color: #999988; font-style: italic;">// Product model</span><br/>
 <span style="font-weight: bold;">class</span> Product <span style="">{</span><br/>
   String id<span style="font-weight: bold;">;</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
@@ -456,7 +456,7 @@ RUNOOB 计算器: 3.5 和 1.5
   String toString<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="color: #d14;">'Product($name, ¥$price)'</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 具体实现：用户仓库</span><br/>
+<span style="color: #999988; font-style: italic;">// Concrete implementation: User repository</span><br/>
 <span style="font-weight: bold;">class</span> UserRepository <span style="font-weight: bold;">implements</span> Repository<span style="font-weight: bold;">&lt;</span>User<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> List<span style="font-weight: bold;">&lt;</span>User<span style="font-weight: bold;">&gt;</span> _users <span style="font-weight: bold;">=</span> <span style="">[</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -479,7 +479,7 @@ RUNOOB 计算器: 3.5 和 1.5
   List<span style="font-weight: bold;">&lt;</span>User<span style="font-weight: bold;">&gt;</span> getAll<span style="">(</span><span style="">)</span> <span style="font-weight: bold;">=&gt;</span> List.<span style="color: #006633;">unmodifiable</span><span style="">(</span>_users<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 具体实现：商品仓库（同样的接口，不同的类型）</span><br/>
+<span style="color: #999988; font-style: italic;">// Concrete implementation: Product repository (same interface, different types)</span><br/>
 <span style="font-weight: bold;">class</span> ProductRepository <span style="font-weight: bold;">implements</span> Repository<span style="font-weight: bold;">&lt;</span>Product<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> List<span style="font-weight: bold;">&lt;</span>Product<span style="font-weight: bold;">&gt;</span> _products <span style="font-weight: bold;">=</span> <span style="">[</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -508,13 +508,13 @@ RUNOOB 计算器: 3.5 和 1.5
   userRepo.<span style="color: #006633;">add</span><span style="">(</span>User<span style="">(</span><span style="color: #d14;">'u2'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Alice'</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">var</span> productRepo <span style="font-weight: bold;">=</span> ProductRepository<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  productRepo.<span style="color: #006633;">add</span><span style="">(</span>Product<span style="">(</span><span style="color: #d14;">'p1'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Dart 教程'</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">29.99</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  productRepo.<span style="color: #006633;">add</span><span style="">(</span>Product<span style="">(</span><span style="color: #d14;">'p2'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Flutter 教程'</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">49.99</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  productRepo.<span style="color: #006633;">add</span><span style="">(</span>Product<span style="">(</span><span style="color: #d14;">'p1'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">Dart Tutorial</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">29.99</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  productRepo.<span style="color: #006633;">add</span><span style="">(</span>Product<span style="">(</span><span style="color: #d14;">'p2'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">Flutter Tutorial</span><span style="font-weight: bold;">,</span> <span style="color:#800080;">49.99</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'用户列表: ${userRepo.getAll()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'商品列表: ${productRepo.getAll()}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'查找用户 u1: ${userRepo.findById('</span>u1<span style="color: #d14;">')}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'查找商品 p2: ${productRepo.findById('</span>p2<span style="color: #d14;">')}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">User list: ${userRepo.getAll()}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Product list: ${productRepo.getAll()}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Find user u1: ${userRepo.findById(</span>u1<span style="color: #d14;">')}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">Find product p2: ${productRepo.findById(</span>p2<span style="color: #d14;">')}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -524,22 +524,17 @@ RUNOOB 计算器: 3.5 和 1.5
 查找用户 u1: User(u1, runoob)
 查找商品 p2: Product(Flutter 教程, ¥49.99)
 </pre>
-<p>The generic repository pattern lets you handle different types of data with a unified interface, ensuring type safety while avoiding duplicate code.</p>
-其他扩展
-</div>
+<p>The generic repository pattern lets you handle different types of data with a unified interface, ensuring type safety while avoiding duplicate code.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-interfaces-and-mixins.html" rel="prev">Dart 接口与 Mixin</a> </div>
-<div class="next-design-link"><a href="../dart/dart-exception-handling.html" rel="next">Dart 异常处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-interfaces-and-mixins.html" rel="prev">Dart Interfaces and Mixins</a> </div>
+<div class="next-design-link"><a href="../dart/dart-exception-handling.html" rel="next">Dart Exception Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -643,16 +638,16 @@ RUNOOB 计算器: 3.5 和 1.5
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -660,14 +655,14 @@ RUNOOB 计算器: 3.5 和 1.5
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31420"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -845,7 +840,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -936,7 +931,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

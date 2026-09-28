@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>双路快速排序 | 菜鸟教程</title>
+<title>Two-Way Quick Sort | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="双路快速排序  双路快速排序算法是随机化快速排序的改进版本，partition 过程使用两个索引值（i、j）用来遍历数组，将 &amp;lt;v 的元素放在索引i所指向位置的左边，而将 &amp;gt;v 的元素放在索引j所指向位置的右边，v 代表标定值。 适用说明 时间和空间复杂度同随机化快速排序。 对于有大量重复元素的数组，如果使用上一节随机化快速排序效率是非常低的，导致 partition 后大于基点或者小于基点数据的子数组长度会.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,30 +158,30 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/random-quick-sort.html" rel="prev">随机化快速排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/3way-qiuck-sort.html" rel="next">三路排序算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/random-quick-sort.html" rel="prev">Randomized Quick Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/3way-qiuck-sort.html" rel="next">Three-Way Sorting Algorithm</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Two-way quicksort</h1>
 <p>The two-way quicksort algorithm is an improved version of randomized quicksort. The partition process uses two index values (i, j) to traverse the array, placing<strong>&lt;v</strong>elements to the left of the position pointed to by index i, and placing<strong>&gt;v</strong>elements to the right of the position pointed to by index j,<strong>v</strong>Represents the calibration value.</p>
-<h3>适用说明</h3>
+<h3>Applicability</h3>
 <p>The time and space complexity are the same as randomized quicksort. For arrays with many duplicate elements, using the randomized quicksort from the previous section is very inefficient, because the subarray lengths after partition for data greater than or less than the pivot become extremely unbalanced, and it may even degenerate into an algorithm with<span class="marked">O(n*2)</span>time complexity. For this situation, the two-way quicksort algorithm can be used.</p>
-<h3>过程图示</h3>
+<h3>Process Diagram</h3>
 <p>Use two index values (i, j) to traverse our sequence, placing<strong>&lt;=v</strong>elements to the left of the position pointed to by index i, and placing<strong>&gt;=v</strong>elements to the right of the position pointed to by index j, balancing the left and right subarrays.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/2WayQuickSort-01.png"/></p>
 <h3>Java example code</h3>
 <p><strong>Source code package download:</strong><a class="download" download="" href="../wp-content/uploads/2020/09/runoob-algorithm-QuickSort2Ways.zip">Download</a></p>
-<div class="example"><h2 class="example">QuickSort2Ways.java 文件代码：</h2> <div class="example_code">
+<div class="example"><h2 class="example">QuickSort2Ways.java file code:</h2> <div class="example_code">
 <span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">runoob</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #008000; font-style: italic; font-weight: bold;">/**<br/>* 双路快速排序<br/>
+<span style="color: #008000; font-style: italic; font-weight: bold;">/**<br/>* Two-Way Quick Sort<br/>
  */</span><br/>
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> QuickSort2Ways <span style="color: #009900;">{</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">//核心代码---开始</span><br/>
+    <span style="color: #666666; font-style: italic;">// Core code --- start</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">int</span> partition<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> l, <span style="color: #000066; font-weight: bold;">int</span> r<span style="color: #009900;">)</span><span style="color: #009900;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">// 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot</span><br/>
+        <span style="color: #666666; font-style: italic;">// Randomly select a value as the pivot in the range arr[l...r]</span><br/>
         swap<span style="color: #009900;">(</span> arr, l , <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span><span style="color: #003399;">Math</span>.<span style="color: #006633;">random</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">*</span><span style="color: #009900;">(</span>r<span style="color: #339933;">-</span>l<span style="color: #339933;">+</span><span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">+</span>l <span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Comparable</span> v <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>l<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
         <span style="color: #666666; font-style: italic;">// arr[l+1...i) &lt;= v; arr(j...r] &gt;= v</span><br/>
@@ -200,9 +200,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         swap<span style="color: #009900;">(</span>arr, l, j<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #000000; font-weight: bold;">return</span> j<span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
-    <span style="color: #666666; font-style: italic;">//核心代码---结束</span><br/>
+    <span style="color: #666666; font-style: italic;">// Core code --- end</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 递归使用快速排序,对arr[l...r]的范围进行排序</span><br/>
+    <span style="color: #666666; font-style: italic;">// Recursively use quicksort to sort the range arr[l...r]</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> sort<span style="color: #009900;">(</span><span style="color: #003399;">Comparable</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> l, <span style="color: #000066; font-weight: bold;">int</span> r<span style="color: #009900;">)</span><span style="color: #009900;">{</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>l <span style="color: #339933;">&gt;=</span> r<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
             <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span><br/>
@@ -224,14 +224,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         arr<span style="color: #009900;">[</span>j<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> t<span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 测试 QuickSort</span><br/>
+    <span style="color: #666666; font-style: italic;">// Test QuickSort</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">// 双路快速排序算法也是一个O(nlogn)复杂度的算法</span><br/>
-        <span style="color: #666666; font-style: italic;">// 可以在1秒之内轻松处理100万数量级的数据</span><br/>
+        <span style="color: #666666; font-style: italic;">// The Two-Way Quick Sort algorithm is also an O(nlogn) complexity algorithm</span><br/>
+        <span style="color: #666666; font-style: italic;">// Can easily handle data on the order of 1 million within 1 second</span><br/>
 <br/>
-        <span style="color: #666666; font-style: italic;">// Quick Sort也是一个O(nlogn)复杂度的算法</span><br/>
-        <span style="color: #666666; font-style: italic;">// 可以在1秒之内轻松处理100万数量级的数据</span><br/>
+        <span style="color: #666666; font-style: italic;">// Quick Sort is also an algorithm with O(n log n) complexity</span><br/>
+        <span style="color: #666666; font-style: italic;">// Can easily handle data on the order of 1 million within 1 second</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> N <span style="color: #339933;">=</span> <span style="color: #CC66CC;">1000000</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Integer</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr <span style="color: #339933;">=</span> SortTestHelper.<span style="color: #006633;">generateRandomArray</span><span style="color: #009900;">(</span>N, <span style="color: #CC66CC;">0</span>, <span style="color: #CC66CC;">100000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         sort<span style="color: #009900;">(</span>arr<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -244,56 +244,56 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Detailed explanation of the algorithm principle</h2>
 <p>The core of two-way quicksort lies in its<strong>Two-pointer partitioning method</strong>Unlike one-way quicksort (which scans from only one end), it uses two pointers that scan from the head and tail of the subarray to be sorted toward the middle, ensuring that equal elements are not all pushed to one side.</p>
 <h3>Core: the two-way partitioning process</h3>
-<p>Suppose we want to sort the array<code>arr</code>中索引从<code>left</code> 到 <code>right</code>portion.</p>
-<p><strong>选择基准值</strong>：从<code>arr[left...right]</code>Randomly select an element from it as the pivot value<code>pivot</code>Randomization is used to avoid the worst case on sorted arrays.</p>
-<p><strong>初始化指针</strong>：</p><ul>
-<li><code>i = left + 1</code>A pointer scanning from left to right, looking for the first<strong>大于等于</strong> <code>pivot</code>的元素。</li>
-<li><code>j = right</code>A pointer scanning from right to left, looking for the first<strong>小于等于</strong> <code>pivot</code>的元素。</li>
+<p>Suppose we want to sort the array<code>arr</code>middle index from<code>left</code>to<code>right</code>portion.</p>
+<p><strong>Select pivot value</strong>: from<code>arr[left...right]</code>Randomly select an element from it as the pivot value<code>pivot</code>Randomization is used to avoid the worst case on sorted arrays.</p>
+<p><strong>Initialize pointers</strong>：</p><ul>
+<li><code>i = left + 1</code>A pointer scanning from left to right, looking for the first<strong>greater than or equal to</strong> <code>pivot</code>elements.</li>
+<li><code>j = right</code>A pointer scanning from right to left, looking for the first<strong>less than or equal to</strong> <code>pivot</code>elements.</li>
 </ul>
 <p><strong>Scanning and swapping loop</strong>：</p><ul>
 <li><code>while</code>The loop, with the condition being<code>i &lt;= j</code>。</li>
-<li>内层<code>while</code>循环：让<code>i</code>Keep moving right until<code>arr[i] &gt;= pivot</code>。</li>
-<li>内层<code>while</code>循环：让<code>j</code>Keep moving left until<code>arr[j] &lt;= pivot</code>。</li>
-<li>此时，<code>arr[i]</code>is a "large" element that should not be in the left half,<code>arr[j]</code>is a "small" element that should not be in the right half.</li>
-<li>如果此时<code>i &lt;= j</code>，则交换<code>arr[i]</code> 和 <code>arr[j]</code>，然后<code>i++</code>, <code>j--</code>then continue the outer loop.</li>
+<li>inner<code>while</code>loop: let<code>i</code>Keep moving right until<code>arr[i] &gt;= pivot</code>。</li>
+<li>inner<code>while</code>loop: let<code>j</code>Keep moving left until<code>arr[j] &lt;= pivot</code>。</li>
+<li>At this point,<code>arr[i]</code>is a "large" element that should not be in the left half,<code>arr[j]</code>is a "small" element that should not be in the right half.</li>
+<li>If at this point<code>i &lt;= j</code>, then swap<code>arr[i]</code>and<code>arr[j]</code>, then<code>i++</code>, <code>j--</code>then continue the outer loop.</li>
 </ul>
 <p><strong>Place the pivot value and return the partition point</strong>：</p><ul>
-<li>After the loop ends,<code>i</code> 和 <code>j</code>已经交错（<code>j &lt; i</code>）。此时<code>arr[left]</code>(i.e., the pivot) needs to be placed in the correct position.</li>
-<li>将 <code>arr[left]</code> 与 <code>arr[j]</code>交换。因为<code>j</code>The position where it finally stops, and the element it points to is<strong>the last element less than or equal to the pivot value</strong>的元素。</li>
-<li>返回<code>j</code>as the new partition point. At this point,<code>arr[left...j-1] &lt;= pivot</code>，<code>arr[j+1...right] &gt;= pivot</code>，且<code>arr[j] == pivot</code>。</li>
+<li>After the loop ends,<code>i</code>and<code>j</code>already crossed (<code>j &lt; i</code>). At this point<code>arr[left]</code>(i.e., the pivot) needs to be placed in the correct position.</li>
+<li>will<code>arr[left]</code>and<code>arr[j]</code>swap. Because<code>j</code>The position where it finally stops, and the element it points to is<strong>the last element less than or equal to the pivot value</strong>elements.</li>
+<li>return<code>j</code>as the new partition point. At this point,<code>arr[left...j-1] &lt;= pivot</code>，<code>arr[j+1...right] &gt;= pivot</code>, and<code>arr[j] == pivot</code>。</li>
 </ul>
-<h3>递归排序</h3>
-<p>得到分区点<code>p</code>After that, for the left subarray<code>arr[left...p-1]</code>和右子数组<code>arr[p+1...right]</code>Repeat the above process recursively until the subarray length is 1.</p>
+<h3>recursively sort</h3>
+<p>get the partition point<code>p</code>After that, for the left subarray<code>arr[left...p-1]</code>and the right subarray<code>arr[p+1...right]</code>Repeat the above process recursively until the subarray length is 1.</p>
 <hr/>
-<h2>代码实现</h2>
+<h2>Code implementation</h2>
 <p>Let us understand two-way quicksort concretely through a complete Java implementation.</p>
 <h3>1. Main sorting function</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> TwoWayQuickSort <span style="color: #009900;">{</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 公共排序接口</span><br/>
+    <span style="color: #666666; font-style: italic;">// Public sorting interface</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> sort<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>arr <span style="color: #339933;">==</span> <span style="color: #000066; font-weight: bold;">null</span> <span style="color: #339933;">||</span> arr.<span style="color: #006633;">length</span> <span style="color: #339933;">&lt;</span> <span style="color: #CC66CC;">2</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-            <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// 边界条件处理：数组为空或只有一个元素，无需排序</span><br/>
+            <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Handle boundary condition: array is empty or has only one element, no need to sort</span><br/>
         <span style="color: #009900;">}</span><br/>
-        quickSort<span style="color: #009900;">(</span>arr, <span style="color: #CC66CC;">0</span>, arr.<span style="color: #006633;">length</span> <span style="color: #339933;">-</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// 调用递归的快速排序函数</span><br/>
+        quickSort<span style="color: #009900;">(</span>arr, <span style="color: #CC66CC;">0</span>, arr.<span style="color: #006633;">length</span> <span style="color: #339933;">-</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Call the recursive quick sort function</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 递归的快速排序函数</span><br/>
+    <span style="color: #666666; font-style: italic;">// Recursive quick sort function</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> quickSort<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> left, <span style="color: #000066; font-weight: bold;">int</span> right<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">// 递归终止条件：当左边界大于等于右边界时，子数组已有序或为空</span><br/>
+        <span style="color: #666666; font-style: italic;">// Recursion termination condition: when left &gt;= right, the subarray is already sorted or empty</span><br/>
         <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>left <span style="color: #339933;">&gt;=</span> right<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
             <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span><br/>
         <span style="color: #009900;">}</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 关键步骤：进行双路分区，并返回分区点的索引</span><br/>
+        <span style="color: #666666; font-style: italic;">// Key step: perform two-way partitioning and return the partition index</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> p <span style="color: #339933;">=</span> partition<span style="color: #009900;">(</span>arr, left, right<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 递归排序左半部分 (left, p-1)</span><br/>
+        <span style="color: #666666; font-style: italic;">// Recursively sort the left half (left, p-1)</span><br/>
         quickSort<span style="color: #009900;">(</span>arr, left, p <span style="color: #339933;">-</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #666666; font-style: italic;">// 递归排序右半部分 (p+1, right)</span><br/>
+        <span style="color: #666666; font-style: italic;">// Recursively sort the right half (p+1, right)</span><br/>
         quickSort<span style="color: #009900;">(</span>arr, p <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span>, right<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -302,57 +302,57 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>2. Core: two-way partitioning function</h3>
 <p>This is the core of the algorithm. Please understand it carefully together with the above flowchart and comments.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-    <span style="color: #666666; font-style: italic;">// 双路分区函数</span><br/>
+    <span style="color: #666666; font-style: italic;">// Two-way partition function</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">int</span> partition<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> left, <span style="color: #000066; font-weight: bold;">int</span> right<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">// 1. 随机选择基准值，并将其交换到 left 位置，避免有序数组下的最坏情况</span><br/>
+        <span style="color: #666666; font-style: italic;">// 1. Randomly select a pivot and swap it to the left position, avoiding the worst case on sorted arrays</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> randomIndex <span style="color: #339933;">=</span> left <span style="color: #339933;">+</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span><span style="color: #003399;">Math</span>.<span style="color: #006633;">random</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">*</span> <span style="color: #009900;">(</span>right <span style="color: #339933;">-</span> left <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         swap<span style="color: #009900;">(</span>arr, left, randomIndex<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #000066; font-weight: bold;">int</span> pivot <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>left<span style="color: #009900;">]</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// 基准值</span><br/>
+        <span style="color: #000066; font-weight: bold;">int</span> pivot <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>left<span style="color: #009900;">]</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Pivot value</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 2. 初始化双指针</span><br/>
-        <span style="color: #666666; font-style: italic;">// i: 从左向右扫描，寻找 &gt;= pivot 的元素</span><br/>
-        <span style="color: #666666; font-style: italic;">// j: 从右向左扫描，寻找 &lt;= pivot 的元素</span><br/>
+        <span style="color: #666666; font-style: italic;">// 2. Initialize the two pointers</span><br/>
+        <span style="color: #666666; font-style: italic;">// i: scan from left to right, looking for elements &gt;= pivot</span><br/>
+        <span style="color: #666666; font-style: italic;">// j: scan from right to left, looking for elements &lt;= pivot</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">=</span> left <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span><span style="color: #339933;">;</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> j <span style="color: #339933;">=</span> right<span style="color: #339933;">;</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 3. 主循环：当 i 和 j 还未交错时</span><br/>
+        <span style="color: #666666; font-style: italic;">// 3. Main loop: while i and j haven't crossed</span><br/>
         <span style="color: #000000; font-weight: bold;">while</span> <span style="color: #009900;">(</span>i <span style="color: #339933;">&lt;=</span> j<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-            <span style="color: #666666; font-style: italic;">// 3.1 移动左指针 i：找到第一个 &gt;= pivot 的元素</span><br/>
-            <span style="color: #666666; font-style: italic;">// 注意边界 i &lt;= right，防止数组越界</span><br/>
+            <span style="color: #666666; font-style: italic;">// 3.1 Move left pointer i: find the first element &gt;= pivot</span><br/>
+            <span style="color: #666666; font-style: italic;">// Note boundary i &lt;= right to prevent array out-of-bounds</span><br/>
             <span style="color: #000000; font-weight: bold;">while</span> <span style="color: #009900;">(</span>i <span style="color: #339933;">&lt;=</span> right <span style="color: #339933;">&amp;&amp;</span> arr<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span> <span style="color: #339933;">&lt;</span> pivot<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
                 i<span style="color: #339933;">++;</span><br/>
             <span style="color: #009900;">}</span><br/>
-            <span style="color: #666666; font-style: italic;">// 3.2 移动右指针 j：找到第一个 &lt;= pivot 的元素</span><br/>
-            <span style="color: #666666; font-style: italic;">// 注意边界 j &gt;= left+1，因为 left 位置是 pivot 本身</span><br/>
+            <span style="color: #666666; font-style: italic;">// 3.2 Move right pointer j: find the first element &lt;= pivot</span><br/>
+            <span style="color: #666666; font-style: italic;">// Note boundary j &gt;= left+1, because the left position is the pivot itself</span><br/>
             <span style="color: #000000; font-weight: bold;">while</span> <span style="color: #009900;">(</span>j <span style="color: #339933;">&gt;=</span> left <span style="color: #339933;">+</span> <span style="color: #CC66CC;">1</span> <span style="color: #339933;">&amp;&amp;</span> arr<span style="color: #009900;">[</span>j<span style="color: #009900;">]</span> <span style="color: #339933;">&gt;</span> pivot<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
                 j<span style="color: #339933;">--;</span><br/>
             <span style="color: #009900;">}</span><br/>
             <br/>
-            <span style="color: #666666; font-style: italic;">// 3.3 检查指针状态</span><br/>
-            <span style="color: #666666; font-style: italic;">// 如果 i &gt; j，说明扫描已经完成，左右分区已就绪，无需交换</span><br/>
+            <span style="color: #666666; font-style: italic;">// 3.3 Check pointer status</span><br/>
+            <span style="color: #666666; font-style: italic;">// If i &gt; j, scanning is complete, left and right partitions are ready, no need to swap</span><br/>
             <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>i <span style="color: #339933;">&gt;</span> j<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
                 <span style="color: #000000; font-weight: bold;">break</span><span style="color: #339933;">;</span><br/>
             <span style="color: #009900;">}</span><br/>
             <br/>
-            <span style="color: #666666; font-style: italic;">// 3.4 交换 arr[i] 和 arr[j]</span><br/>
-            <span style="color: #666666; font-style: italic;">// 此时 arr[i] &gt;= pivot, arr[j] &lt;= pivot，交换它们使得大小元素各归其位</span><br/>
+            <span style="color: #666666; font-style: italic;">// 3.4 Swap arr[i] and arr[j]</span><br/>
+            <span style="color: #666666; font-style: italic;">// Now arr[i] &gt;= pivot, arr[j] &lt;= pivot, swap them so elements on both sides are in place</span><br/>
             swap<span style="color: #009900;">(</span>arr, i, j<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-            <span style="color: #666666; font-style: italic;">// 交换后，移动指针继续扫描</span><br/>
+            <span style="color: #666666; font-style: italic;">// After swapping, move pointers to continue scanning</span><br/>
             i<span style="color: #339933;">++;</span><br/>
             j<span style="color: #339933;">--;</span><br/>
         <span style="color: #009900;">}</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 4. 将基准值 pivot 放到最终的正确位置 j 上</span><br/>
-        <span style="color: #666666; font-style: italic;">// 循环结束后，j 指向最后一个 &lt;= pivot 的元素</span><br/>
+        <span style="color: #666666; font-style: italic;">// 4. Place the pivot at its final correct position j</span><br/>
+        <span style="color: #666666; font-style: italic;">// After the loop ends, j points to the last element &lt;= pivot</span><br/>
         swap<span style="color: #009900;">(</span>arr, left, j<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 5. 返回分区点的索引 j</span><br/>
+        <span style="color: #666666; font-style: italic;">// 5. Return the index j of the partition point</span><br/>
         <span style="color: #000000; font-weight: bold;">return</span> j<span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
     <br/>
-    <span style="color: #666666; font-style: italic;">// 辅助函数：交换数组中两个元素的位置</span><br/>
+    <span style="color: #666666; font-style: italic;">// Helper function: swap the positions of two elements in an array</span><br/>
     <span style="color: #000000; font-weight: bold;">private</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> swap<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr, <span style="color: #000066; font-weight: bold;">int</span> i, <span style="color: #000066; font-weight: bold;">int</span> j<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span> temp <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
         arr<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> arr<span style="color: #009900;">[</span>j<span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
@@ -364,34 +364,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>3. Testing and verification</h3>
 <p>Let us test our implementation with an array containing duplicate elements.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Main <span style="color: #009900;">{</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">// 测试用例1：包含大量重复元素的数组</span><br/>
+        <span style="color: #666666; font-style: italic;">// Test case 1: array containing many duplicate elements</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr1 <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><span style="color: #CC66CC;">4</span>, <span style="color: #CC66CC;">2</span>, <span style="color: #CC66CC;">2</span>, <span style="color: #CC66CC;">8</span>, <span style="color: #CC66CC;">3</span>, <span style="color: #CC66CC;">3</span>, <span style="color: #CC66CC;">1</span>, <span style="color: #CC66CC;">5</span>, <span style="color: #CC66CC;">3</span>, <span style="color: #CC66CC;">2</span><span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"排序前: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr1<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"Before sorting: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr1<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         TwoWayQuickSort.<span style="color: #006633;">sort</span><span style="color: #009900;">(</span>arr1<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"排序后: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr1<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"After sorting: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr1<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 测试用例2：随机生成的大数组</span><br/>
+        <span style="color: #666666; font-style: italic;">// Test case 2: large randomly generated array</span><br/>
         <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> arr2 <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">[</span><span style="color: #CC66CC;">20</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
         <span style="color: #003399;">Random</span> rand <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #003399;">Random</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">=</span> <span style="color: #CC66CC;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> arr2.<span style="color: #006633;">length</span><span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-            arr2<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> rand.<span style="color: #006633;">nextInt</span><span style="color: #009900;">(</span><span style="color: #CC66CC;">50</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// 生成 0-49 的随机数，很可能有重复</span><br/>
+            arr2<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> rand.<span style="color: #006633;">nextInt</span><span style="color: #009900;">(</span><span style="color: #CC66CC;">50</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Generate random numbers from 0-49, duplicates likely</span><br/>
         <span style="color: #009900;">}</span><br/>
-        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"<span style="color: #000099; font-weight: bold;">\n</span>随机数组排序前: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr2<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"<span style="color: #000099; font-weight: bold;">\n</span>"Before sorting random array: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr2<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         TwoWayQuickSort.<span style="color: #006633;">sort</span><span style="color: #009900;">(</span>arr2<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"随机数组排序后: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr2<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"After sorting random array: "</span> <span style="color: #339933;">+</span> <span style="color: #003399;">Arrays</span>.<span style="color: #006633;">toString</span><span style="color: #009900;">(</span>arr2<span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
         <br/>
-        <span style="color: #666666; font-style: italic;">// 验证排序结果是否正确</span><br/>
+        <span style="color: #666666; font-style: italic;">// Verify whether the sorting result is correct</span><br/>
         <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">=</span> <span style="color: #CC66CC;">1</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> arr2.<span style="color: #006633;">length</span><span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
             <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #009900;">(</span>arr2<span style="color: #009900;">[</span>i<span style="color: #009900;">]</span> <span style="color: #339933;">&lt;</span> arr2<span style="color: #009900;">[</span>i<span style="color: #339933;">-</span><span style="color: #CC66CC;">1</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-                <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"排序错误！"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+                <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"Sorting error!"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
                 <span style="color: #000000; font-weight: bold;">return</span><span style="color: #339933;">;</span><br/>
             <span style="color: #009900;">}</span><br/>
         <span style="color: #009900;">}</span><br/>
-        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"排序结果验证通过！"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"Sorting result verification passed!"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
@@ -406,35 +406,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </pre>
 <hr/>
 <h2>Algorithm analysis and comparison</h2>
-<h3>时间复杂度</h3>
+<h3>Time complexity</h3>
 <ul>
-<li><strong>平均情况</strong>:$O(n \log n)$. Two-way quicksort keeps the recursion tree relatively balanced by evenly distributing duplicate elements.</li>
-<li><strong>最坏情况</strong>:$O(n^2)$. Although randomized pivot selection greatly reduces the probability, the worst case can still occur when every partition is extremely unbalanced (for example, when the pivot is always the current minimum or maximum value).</li>
-<li><strong>最好情况</strong>:$O(n \log n)$. Each partition divides the array evenly.</li>
+<li><strong>Average case</strong>:$O(n \log n)$. Two-way quicksort keeps the recursion tree relatively balanced by evenly distributing duplicate elements.</li>
+<li><strong>Worst case</strong>:$O(n^2)$. Although randomized pivot selection greatly reduces the probability, the worst case can still occur when every partition is extremely unbalanced (for example, when the pivot is always the current minimum or maximum value).</li>
+<li><strong>Best case</strong>:$O(n \log n)$. Each partition divides the array evenly.</li>
 </ul>
-<h3>空间复杂度</h3>
+<h3>Space complexity</h3>
 <ul>
 <li>It is mainly the space occupied by the recursive call stack.</li>
 <li>The average depth is $O(\log n)$, and the worst-case depth is $O(n)$.</li>
-<li>因此，<strong>The average space complexity is $O(\log n)$, and the worst case is $O(n)$.</strong>。</li>
+<li>Therefore,<strong>The average space complexity is $O(\log n)$, and the worst case is $O(n)$.</strong>。</li>
 </ul>
-<h3>稳定性</h3>
+<h3>Stability</h3>
 <p>Quicksort (including two-way quicksort) is not a stable sorting algorithm, because during partitioning, swaps of non-adjacent elements can disrupt the original relative order of equal elements.</p>
 <h3>Comparison of one-way, two-way, and three-way quicksort</h3>
 <table class="reference">
 <thead>
 <tr>
-<th align="left">特性</th>
+<th align="left">Features</th>
 <th align="left">One-way quicksort (Lomuto)</th>
-<th align="left">双路快排</th>
-<th align="left">三路快排</th>
+<th align="left">Two-way quicksort</th>
+<th align="left">Three-way quicksort</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>分区方式</strong></td>
+<td align="left"><strong>Partition method</strong></td>
 <td align="left">Single pointer scans from left to right</td>
 <td align="left"><strong>Two pointers scan from both ends toward the middle</strong></td>
-<td align="left">Three pointers, dividing the array into<code>&lt;pivot</code>, <code>=pivot</code>, <code>&gt;pivot</code>三部分</td>
+<td align="left">Three pointers, dividing the array into<code>&lt;pivot</code>, <code>=pivot</code>, <code>&gt;pivot</code>Three parts</td>
 </tr>
 <tr>
 <td align="left"><strong>Handling duplicate elements</strong></td>
@@ -443,14 +443,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <td align="left">Optimal, can handle all elements equal to the pivot at once</td>
 </tr>
 <tr>
-<td align="left"><strong>代码复杂度</strong></td>
-<td align="left">简单</td>
-<td align="left">中等</td>
-<td align="left">稍复杂</td>
+<td align="left"><strong>Code complexity</strong></td>
+<td align="left">Simple</td>
+<td align="left">Medium</td>
+<td align="left">Slightly complex</td>
 </tr>
 <tr>
-<td align="left"><strong>适用场景</strong></td>
-<td align="left">教学、无/少重复元素</td>
+<td align="left"><strong>Applicable scenarios</strong></td>
+<td align="left">Teaching, no/few duplicate elements</td>
 <td align="left"><strong>General-purpose, especially suitable for scenarios where duplicate elements may exist</strong></td>
 <td align="left">Scenarios with a large number of duplicate elements</td>
 </tr>
@@ -788,21 +788,17 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
         }
     }
 });
-</script> 其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/random-quick-sort.html" rel="prev">随机化快速排序</a> </div>
-<div class="next-design-link"><a href="../data-structures/3way-qiuck-sort.html" rel="next">三路排序算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/random-quick-sort.html" rel="prev">Randomized Quick Sort</a> </div>
+<div class="next-design-link"><a href="../data-structures/3way-qiuck-sort.html" rel="next">Three-Way Sorting Algorithm</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ECECEC;
@@ -906,16 +902,16 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -923,14 +919,14 @@ func partition<T: Comparable>(_ arr: inout [T], _ l: Int, _ r: Int) -> Int {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="23052"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1108,7 +1104,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1199,7 +1195,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

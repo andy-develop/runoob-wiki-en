@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness StreamChunk 协议与错误处理 | 菜鸟教程</title>
+<title>DeepSeek Harness StreamChunk Protocol and Error Handling | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness StreamChunk 协议与错误处理   适配器的 stream() 到底往外出什么样的数据？ 答案是 StreamChunk，一种有严格顺序的分片协议。 这篇讲分片序列、关键规则，以及传输出错时怎么处理。    StreamChunk 协议 StreamChunk 是 Harness 与适配器之间的流式协议。 一个内容块先用 block-start 开始，中间用 delta 增量传输，最后用 blo.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,25 +158,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-llm-adapter.html" rel="prev">DeepSeek Harness LLM 适配器：接入任意模型</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-bundle-profile.html" rel="next">DeepSeek Harness 组合包 bundle 与 profile：两个 manifest</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-llm-adapter.html" rel="prev">DeepSeek Harness LLM Adapter: Integrate Any Model</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-bundle-profile.html" rel="next">DeepSeek Harness combination bundle and profile: two manifests</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>DeepSeek Harness StreamChunk 协议与错误处理</h1>
+<h1>DeepSeek Harness StreamChunk Protocol and Error Handling</h1>
 <p>What kind of data does the adapter's stream() actually output?</p>
 <p>The answer is StreamChunk, a strictly ordered chunking protocol.</p>
 <p>This covers chunk sequences, key rules, and how to handle transmission errors.</p>
 <hr/>
-<h2>StreamChunk 协议</h2>
+<h2>StreamChunk Protocol</h2>
 <p>StreamChunk is the streaming protocol between the Harness and the adapter.</p>
 <p>A content block starts with block-start, uses delta for incremental transmission in the middle, and ends with block-end.</p>
 <p>Text and tool calls are two different types of content blocks, each going through start / delta / end.</p>
 <p>When all chunks are winding down, first send usage to report token usage, then send finish to declare the end reason.</p>
 <p><img alt="StreamChunk 分片序列图" decoding="async" src="../wp-content/uploads/2026/08/20-stream-chunk-sequence.svg" style="width:100%;max-width:820px;"/></p>
 <p>The diagram above, top to bottom, shows a complete chunk sequence.</p>
-<p>先是一个文本块：block-start → text-delta × 2 → block-end。</p>
-<p>再是一个工具调用块：block-start → tool-call-delta → block-end。</p>
+<p>First a text block: block-start → text-delta × 2 → block-end.</p>
+<p>Then a tool call block: block-start → tool-call-delta → block-end.</p>
 <p>Finally, usage and finish.</p>
 <p>A finish reason of stop indicates normal completion, while tool-calls indicates a request to execute tools.</p>
 <hr/>
@@ -185,33 +185,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>text-delta can be split into multiple chunks, incrementally concatenated into the full text.</p>
 <p>tool-call-delta's argumentsDelta is the incremental delta of the raw JSON text.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：示例代码，演示一次完整的 chunk 序列</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: example code, demonstrating a complete chunk sequence</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> CallId<span style="color: #339933;">,</span> type StreamChunk <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-llm'</span><br/>
 <br/>
 async <span style="color: #000066; font-weight: bold;">function</span><span style="color: #339933;">*</span> exampleChunks<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">:</span> AsyncIterable<span style="color: #339933;">&lt;</span>StreamChunk<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #006600; font-style: italic;">// 1. Start each content block with block-start.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 开启一个文本块，index 为 0</span><br/>
+  <span style="color: #006600; font-style: italic;">// Start a text block, index is 0</span><br/>
   yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'block-start'</span><span style="color: #339933;">,</span> index<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> blockType<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text'</span> <span style="color: #009900;">}</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// 2. Stream text through text-delta.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 文本增量，可拆成多个分片</span><br/>
+  <span style="color: #006600; font-style: italic;">// Text delta, can be split into multiple fragments</span><br/>
   yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text-delta'</span><span style="color: #339933;">,</span> index<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob'</span> <span style="color: #009900;">}</span><br/>
-  yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text-delta'</span><span style="color: #339933;">,</span> index<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> <span style="color: #3366CC;">' 教程'</span> <span style="color: #009900;">}</span><br/>
+  yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text-delta'</span><span style="color: #339933;">,</span> index<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> <span style="color: #3366CC;">' tutorial'</span> <span style="color: #009900;">}</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// 3. End each content block with block-end and the complete block.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 用完整块结束，index 与 block-start 一致</span><br/>
+  <span style="color: #006600; font-style: italic;">// End with a complete block, index matches block-start</span><br/>
   yield <span style="color: #009900;">{</span><br/>
     type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'block-end'</span><span style="color: #339933;">,</span><br/>
     index<span style="color: #339933;">:</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span><br/>
-    block<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text'</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob 教程'</span> <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
+    block<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'text'</span><span style="color: #339933;">,</span> text<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob tutorial'</span> <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
   <span style="color: #009900;">}</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// 4. Tool-call block.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 开启一个工具调用块，index 为 1</span><br/>
+  <span style="color: #006600; font-style: italic;">// Start a tool call block, index is 1</span><br/>
   yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'block-start'</span><span style="color: #339933;">,</span> index<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span> blockType<span style="color: #339933;">:</span> <span style="color: #3366CC;">'tool-call'</span> <span style="color: #009900;">}</span><br/>
-  <span style="color: #006600; font-style: italic;">// 工具名与参数增量，id 用 CallId 工厂生成</span><br/>
+  <span style="color: #006600; font-style: italic;">// Tool name and argument delta, id generated by CallId factory</span><br/>
   yield <span style="color: #009900;">{</span><br/>
     type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'tool-call-delta'</span><span style="color: #339933;">,</span><br/>
     index<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span><br/>
@@ -219,7 +219,7 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
     name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'bash'</span><span style="color: #339933;">,</span><br/>
     argumentsDelta<span style="color: #339933;">:</span> <span style="color: #3366CC;">'{"command":"echo runoob"}'</span><span style="color: #339933;">,</span><br/>
   <span style="color: #009900;">}</span><br/>
-  <span style="color: #006600; font-style: italic;">// 用完整块结束，arguments 是拼好的 JSON 文本</span><br/>
+  <span style="color: #006600; font-style: italic;">// End with a complete block, arguments is assembled JSON text</span><br/>
   yield <span style="color: #009900;">{</span><br/>
     type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'block-end'</span><span style="color: #339933;">,</span><br/>
     index<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span><br/>
@@ -232,11 +232,11 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
   <span style="color: #009900;">}</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// 5. Token usage.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 报告 token 用量，必须在 finish 之前</span><br/>
+  <span style="color: #006600; font-style: italic;">// Report token usage, must be before finish.</span><br/>
   yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'usage'</span><span style="color: #339933;">,</span> usage<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> inputTokens<span style="color: #339933;">:</span> <span style="color: #CC0000;">100</span><span style="color: #339933;">,</span> outputTokens<span style="color: #339933;">:</span> <span style="color: #CC0000;">50</span> <span style="color: #009900;">}</span> <span style="color: #009900;">}</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// 6. Finish reason.</span><br/>
-  <span style="color: #006600; font-style: italic;">// 最后一个分片，声明结束原因</span><br/>
+  <span style="color: #006600; font-style: italic;">// Last chunk, declare the reason for ending.</span><br/>
   yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'finish'</span><span style="color: #339933;">,</span> reason<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> kind<span style="color: #339933;">:</span> <span style="color: #3366CC;">'stop'</span> <span style="color: #009900;">}</span> <span style="color: #009900;">}</span><br/>
   <span style="color: #006600; font-style: italic;">// Alternatively, { kind: 'tool-calls' } requests tool execution.</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -245,16 +245,16 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <p>CallId is a factory function built into the protocol, used to generate tool call ids.</p>
 <p>argumentsDelta can be fully generated in a single chunk, or incrementally generated across multiple chunks.</p>
 <hr/>
-<h2>关键规则</h2>
+<h2>Key rules</h2>
 <p>The protocol has five hard rules; violating any one of them will cause the consumer to fail parsing.</p>
 <table class="reference">
 <thead>
-<tr><th>规则</th><th>说明</th></tr>
+<tr><th>Rules</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>block-start 与 block-end 成对</strong></td><td>Every block-start must have a corresponding block-end.</td></tr>
+<tr><td><strong>block-start and block-end are paired.</strong></td><td>Every block-start must have a corresponding block-end.</td></tr>
 <tr><td><strong>The index increments from 0.</strong></td><td>Used to identify the order of content blocks.</td></tr>
-<tr><td><strong>argumentsDelta 是原始 JSON 增量</strong></td><td>Can be fully generated in one chunk, or generated across multiple chunks</td></tr>
+<tr><td><strong>argumentsDelta is the raw JSON delta.</strong></td><td>Can be fully generated in one chunk, or generated across multiple chunks</td></tr>
 <tr><td><strong>finish must be the last chunk</strong></td><td>No further shards are allowed after this.</td></tr>
 <tr><td><strong>usage must come before finish.</strong></td><td>Report token usage first, then declare the end</td></tr>
 </tbody>
@@ -271,9 +271,9 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <p>Every provider HTTP request must also merge attributionHeaders().</p>
 <p>Also pass options.signal to fetch so that cancellation and resource release come to a full stop.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：示例代码，一个带错误处理的 HttpAdapter 骨架</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: example code, an HttpAdapter skeleton with error handling</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span><br/>
   attributionHeaders<span style="color: #339933;">,</span><br/>
   LlmAdapter<span style="color: #339933;">,</span><br/>
@@ -283,13 +283,13 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-llm'</span><br/>
 <br/>
 <span style="color: #FF0000;">class</span> HttpAdapter <span style="color: #FF0000;">extends</span> LlmAdapter <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 构造函数注入端点地址</span><br/>
+  <span style="color: #006600; font-style: italic;">// Constructor injects endpoint address</span><br/>
   constructor<span style="color: #009900;">(</span>private readonly endpoint<span style="color: #339933;">:</span> string<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #FF0000;">super</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
   <span style="color: #009900;">}</span><br/>
 <br/>
   async <span style="color: #339933;">*</span>stream<span style="color: #009900;">(</span>options<span style="color: #339933;">:</span> GenerateOptions<span style="color: #009900;">)</span><span style="color: #339933;">:</span> AsyncIterable<span style="color: #339933;">&lt;</span>StreamChunk<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 发起 HTTP 请求，合并归属头，传递中止信号</span><br/>
+    <span style="color: #006600; font-style: italic;">// Initiate HTTP request, merge attribution headers, pass abort signal.</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> response <span style="color: #339933;">=</span> await fetch<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">endpoint</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span><br/>
       method<span style="color: #339933;">:</span> <span style="color: #3366CC;">'POST'</span><span style="color: #339933;">,</span><br/>
       headers<span style="color: #339933;">:</span> <span style="color: #009900;">{</span><br/>
@@ -297,15 +297,15 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
         ...<span style="color: #660066;">attributionHeaders</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
       <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
       body<span style="color: #339933;">:</span> JSON.<span style="color: #660066;">stringify</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> model<span style="color: #339933;">:</span> options.<span style="color: #660066;">model</span><span style="color: #339933;">,</span> messages<span style="color: #339933;">:</span> options.<span style="color: #660066;">messages</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
-      <span style="color: #006600; font-style: italic;">// 调用方要求取消时，fetch 会立刻中止</span><br/>
+      <span style="color: #006600; font-style: italic;">// When the caller requests cancellation, fetch will immediately abort</span><br/>
       ...<span style="color: #660066;">options</span>.<span style="color: #660066;">signal</span> <span style="color: #339933;">?</span> <span style="color: #009900;">{</span> signal<span style="color: #339933;">:</span> options.<span style="color: #660066;">signal</span> <span style="color: #009900;">}</span> <span style="color: #339933;">:</span> <span style="color: #009900;">{</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
     <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span><span style="color: #339933;">!</span>response.<span style="color: #660066;">ok</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 用带稳定 code 的 LlmError 表达传输失败</span><br/>
+      <span style="color: #006600; font-style: italic;">// Use LlmError with a stable code to express transport failure</span><br/>
       <span style="color: #000066; font-weight: bold;">throw</span> <span style="color: #000066; font-weight: bold;">new</span> LlmError<span style="color: #009900;">(</span>`Provider API error<span style="color: #339933;">:</span> $<span style="color: #009900;">{</span>response.<span style="color: #660066;">status</span><span style="color: #009900;">}</span>`<span style="color: #339933;">,</span> <span style="color: #3366CC;">'PROVIDER_HTTP_ERROR'</span><span style="color: #009900;">)</span><br/>
     <span style="color: #009900;">}</span><br/>
     <span style="color: #006600; font-style: italic;">// A real adapter parses the response and emits the complete chunk sequence.</span><br/>
-    <span style="color: #006600; font-style: italic;">// 真实适配器在这里解析响应体，产出完整的分片序列</span><br/>
+    <span style="color: #006600; font-style: italic;">// The real adapter parses the response body here, producing the complete chunk sequence.</span><br/>
     yield <span style="color: #009900;">{</span> type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'finish'</span><span style="color: #339933;">,</span> reason<span style="color: #339933;">:</span> <span style="color: #009900;">{</span> kind<span style="color: #339933;">:</span> <span style="color: #3366CC;">'stop'</span> <span style="color: #009900;">}</span> <span style="color: #009900;">}</span><br/>
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -313,7 +313,7 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 </div>
 <p>attributionHeaders() merges attribution information into the request headers.</p>
 <p>When options.signal exists, pass it as the signal to fetch, and stop immediately when the request is canceled.</p>
-<p>response.ok 为 false 时抛出 LlmError，code 是 PROVIDER_HTTP_ERROR。</p>
+<p>When response.ok is false, throw LlmError with code PROVIDER_HTTP_ERROR.</p>
 <p>The skeleton only yields a finish; a real adapter would parse the response body here.</p>
 <blockquote>
 <p>The first argument of LlmError is the message, and the second argument is the stable code.</p>
@@ -328,26 +328,21 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <p>The service will validate the aggregated result and reject explicitly specified but unsupported reasoning strengths before calling stream().</p>
 <p>Omitting reasoning means the model has no optional reasoning intensity capability.</p>
 <hr/>
-<h2>小结与自测</h2>
+<h2>Summary and self-test</h2>
 <p>One-sentence summary: The StreamChunk protocol uses paired blocks to describe content, wraps up with usage and finish; on failure, it expresses with LlmError carrying a stable code.</p>
 <p>Self-test question 1: What is the minimum set of chunks a text block needs?</p>
 <p>Self-test question 2: What is the order of usage and finish?</p>
-<p>Self-test question 3: When a request fails, why use LlmError with a code instead of a plain Error?</p>
-其他扩展
-</div>
+<p>Self-test question 3: When a request fails, why use LlmError with a code instead of a plain Error?</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-llm-adapter.html" rel="prev">DeepSeek Harness LLM 适配器：接入任意模型</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-bundle-profile.html" rel="next">DeepSeek Harness 组合包 bundle 与 profile：两个 manifest</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-llm-adapter.html" rel="prev">DeepSeek Harness LLM Adapter: Integrate Any Model</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-bundle-profile.html" rel="next">DeepSeek Harness combination bundle and profile: two manifests</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -451,16 +446,16 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -468,14 +463,14 @@ async <span style="color: #000066; font-weight: bold;">function</span><span styl
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31984"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -653,7 +648,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -744,7 +739,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>数据访问对象模式 | 菜鸟教程</title>
+<title>Data Access Object Pattern | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="数据访问对象模式  数据访问对象模式（Data Access Object Pattern）或 DAO 模式用于把低级的数据访问 API 或操作从高级的业务服务中分离出来。以下是数据访问对象模式的参与者。  数据访问对象接口（Data Access Object Interface） - 该接口定义了在一个模型对象上要执行的标准操作。 数据访问对象实体类（Data Access Object concrete class） - 该类实现.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,73 +158,73 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/composite-entity-pattern.html" rel="prev">组合实体模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/front-controller-pattern.html" rel="next">前端控制器模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/composite-entity-pattern.html" rel="prev">Composite Entity Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/front-controller-pattern.html" rel="next">Front Controller Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Data Access Object Pattern</h1>
 <p>The Data Access Object Pattern or DAO pattern is used to separate low-level data access APIs or operations from high-level business services. The following are the participants of the Data Access Object Pattern.</p>
 <ul class="list">
-<li><b>数据访问对象接口（Data Access Object Interface）</b>- This interface defines the standard operations to be performed on a model object.</li>
-<li><b>数据访问对象实体类（Data Access Object concrete class）</b>- This class implements the interface mentioned above. This class is responsible for retrieving data from a data source, which can be a database, XML, or other storage mechanisms.</li>
-<li><b>模型对象/数值对象（Model Object/Value Object）</b>- This object is a simple POJO, containing get/set methods to store data retrieved by using the DAO class.</li>
+<li><b>Data Access Object Interface</b>- This interface defines the standard operations to be performed on a model object.</li>
+<li><b>Data Access Object concrete class</b>- This class implements the interface mentioned above. This class is responsible for retrieving data from a data source, which can be a database, XML, or other storage mechanisms.</li>
+<li><b>Model Object/Value Object</b>- This object is a simple POJO, containing get/set methods to store data retrieved by using the DAO class.</li>
 </ul>
 <hr/>
-<h2>概要</h2>
-<h3>意图</h3>
+<h2>summary</h2>
+<h3>intent</h3>
 <p>Separate data access logic from business logic, and encapsulate data access operations in a dedicated class.</p>
 <h3>Main issues solved</h3>
 <ul>
 <li>Solve the problem of tight coupling between business logic and data access logic, improving code maintainability and reusability.</li>
 </ul>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>When the application's data access logic needs to be centrally managed in order to simplify business logic and facilitate data operations.</li>
 </ul>
-<h3>实现方式</h3>
+<h3>Implementation Approach</h3>
 <ul>
 <li><strong>Define DAO interface</strong>: Declares methods for data access operations.</li>
 <li><strong>Implement DAO class</strong>: Implement the DAO interface, encapsulating all access logic to the data source (such as a database).</li>
 <li><strong>Data Transfer Object (DTO)</strong>: Optional, used to encapsulate data retrieved from the data source.</li>
 </ul>
-<h3>关键代码</h3>
+<h3>Key code</h3>
 <ul>
-<li><strong>DAO接口</strong>: Declares methods for data access and operations.</li>
-<li><strong>DAO实现</strong>: Provides a concrete implementation of the DAO interface, containing database access code.</li>
+<li><strong>DAO Interface</strong>: Declares methods for data access and operations.</li>
+<li><strong>DAO Implementation</strong>: Provides a concrete implementation of the DAO interface, containing database access code.</li>
 </ul>
-<h3>应用实例</h3>
+<h3>Application example</h3>
 <ul>
 <li><strong>User management application</strong>: The user DAO class is responsible for interacting with the database, managing CRUD operations for user data.</li>
 </ul>
-<h3>优点</h3>
+<h3>Advantages</h3>
 <ol>
-<li><strong>分离关注点</strong>: Separate data access logic from business logic, reducing system coupling.</li>
-<li><strong>易于维护</strong>: Centralizes data access logic for easy maintenance and updates.</li>
-<li><strong>可扩展性</strong>: When changing the data source or modifying data access logic, the business logic layer is not affected.</li>
+<li><strong>Separation of Concerns</strong>: Separate data access logic from business logic, reducing system coupling.</li>
+<li><strong>Easy to maintain</strong>: Centralizes data access logic for easy maintenance and updates.</li>
+<li><strong>Extensibility</strong>: When changing the data source or modifying data access logic, the business logic layer is not affected.</li>
 </ol>
-<h3>缺点</h3>
+<h3>Disadvantages</h3>
 <ul>
 <li><strong>May increase complexity</strong>: For simple applications, introducing the DAO pattern may add an extra layer of abstraction.</li>
 </ul>
-<h3>使用建议</h3>
+<h3>Usage suggestions</h3>
 <ul>
 <li>When the application needs to interact with multiple data sources, or the data access logic is relatively complex, use the DAO pattern.</li>
 </ul>
-<h3>注意事项</h3>
+<h3>Notes</h3>
 <ul>
 <li>DAO classes should be as simple as possible, containing only data access logic and no business logic.</li>
 </ul>
 <h3>Several main roles included</h3>
 <ol>
 <li>
-<p><strong>DAO接口（DAO Interface）</strong>：</p>
+<p><strong>DAO interface (DAO Interface)</strong>：</p>
 <ul>
 <li>Declares methods for data access and operations.</li>
 </ul>
 </li>
 <li>
-<p><strong>DAO实现（DAO Implementation）</strong>：</p>
+<p><strong>DAO Implementation</strong>：</p>
 <ul>
 <li>Implement the DAO interface, encapsulating all access logic to the data source.</li>
 </ul>
@@ -236,13 +236,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ul>
 </li>
 <li>
-<p><strong>业务逻辑层（Business Logic Layer）</strong>：</p>
+<p><strong>Business Logic Layer (Business Logic Layer)</strong>：</p>
 <ul>
 <li>Use the DAO interface to interact with the data source, without directly depending on the specific implementation of data access.</li>
 </ul>
 </li>
 <li>
-<p><strong>数据源（Data Source）</strong>：</p>
+<p><strong>Data Source</strong>：</p>
 <ul>
 <li>Database or other persistent storage, with which DAO implementations interact to access and store data.</li>
 </ul>
@@ -250,10 +250,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </ol>
 <p>The Data Access Object Pattern helps keep an application clean and manageable by providing a clear data access layer.</p>
 <hr/>
-<h2>实现</h2>
-<p>We will create an object that serves as a model object or value object,<i>Student</i>对象。<i>StudentDao</i>Is the Data Access Object interface.<i>StudentDaoImpl</i>which is an entity class that implements the Data Access Object interface.<i>DaoPatternDemo</i>, our demo class uses<i>StudentDao</i>to demonstrate the usage of the Data Access Object Pattern.</p>
+<h2>Implementation</h2>
+<p>We will create an object that serves as a model object or value object,<i>Student</i>Object.<i>StudentDao</i>Is the Data Access Object interface.<i>StudentDaoImpl</i>which is an entity class that implements the Data Access Object interface.<i>DaoPatternDemo</i>, our demo class uses<i>StudentDao</i>to demonstrate the usage of the Data Access Object Pattern.</p>
 <img alt="数据访问对象模式的 UML 图" decoding="async" src="../wp-content/uploads/2014/08/dao_pattern_uml_diagram.jpg"/>
-<h2>步骤 1</h2>
+<h2>Step 1</h2>
 <p>Create value object.</p>
 <div class="example">
 <h2 class="example">Student.java</h2>
@@ -280,7 +280,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h2>步骤 2</h2>
+<h2>Step 2</h2>
 <p>Creates the Data Access Object interface.</p>
 <div class="example">
 <h2 class="example">StudentDao.java</h2>
@@ -294,7 +294,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">deleteStudent</span><span class="hl-brackets">(</span><span class="hl-identifier">Student</span><span class="hl-code"> </span><span class="hl-identifier">student</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h2>步骤 3</h2>
+<h2>Step 3</h2>
 <p>Creates entity classes that implement the above interface.</p>
 <div class="example">
 <h2 class="example">StudentDaoImpl.java</h2>
@@ -303,7 +303,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </span><span class="hl-reserved">import</span><span class="hl-code"> </span><span class="hl-identifier">java</span><span class="hl-code">.</span><span class="hl-identifier">util</span><span class="hl-code">.</span><span class="hl-identifier">List</span><span class="hl-code">;
  
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code"> </span><span class="hl-identifier">StudentDaoImpl</span><span class="hl-code"> </span><span class="hl-reserved">implements</span><span class="hl-code"> </span><span class="hl-identifier">StudentDao</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">列表是当作一个数据库</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Lists are treated as a database</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">List</span><span class="hl-code">&lt;</span><span class="hl-identifier">Student</span><span class="hl-code">&gt; </span><span class="hl-identifier">students</span><span class="hl-code">;
  
    </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-identifier">StudentDaoImpl</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
@@ -319,7 +319,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       </span><span class="hl-identifier">System</span><span class="hl-code">.</span><span class="hl-identifier">out</span><span class="hl-code">.</span><span class="hl-identifier">println</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Student: Roll No </span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">getRollNo</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> 
          +</span><span class="hl-quotes">"</span><span class="hl-string">, deleted from database</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
    </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">从数据库中检索学生名单</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Retrieve Student List from Database</span><span class="hl-comment"></span><span class="hl-code">
    @</span><span class="hl-identifier">Override</span><span class="hl-code">
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-identifier">List</span><span class="hl-code">&lt;</span><span class="hl-identifier">Student</span><span class="hl-code">&gt; </span><span class="hl-identifier">getAllStudents</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">students</span><span class="hl-code">;
@@ -338,8 +338,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h2>步骤 4</h2>
-<p>使用<i>StudentDao</i>to demonstrate the usage of the Data Access Object Pattern.</p>
+<h2>Step 4</h2>
+<p>Usage<i>StudentDao</i>to demonstrate the usage of the Data Access Object Pattern.</p>
 <div class="example">
 <h2 class="example">DaoPatternDemo.java</h2>
 <div class="example_code">
@@ -347,45 +347,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-types">static</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-brackets">(</span><span class="hl-identifier">String</span><span class="hl-brackets">[</span><span class="hl-brackets">]</span><span class="hl-code"> </span><span class="hl-identifier">args</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">StudentDao</span><span class="hl-code"> </span><span class="hl-identifier">studentDao</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">StudentDaoImpl</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-      </span><span class="hl-comment">//</span><span class="hl-comment">输出所有的学生</span><span class="hl-comment"></span><span class="hl-code">
+      </span><span class="hl-comment">//</span><span class="hl-comment">Output all students</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">Student</span><span class="hl-code"> </span><span class="hl-identifier">student</span><span class="hl-code"> : </span><span class="hl-identifier">studentDao</span><span class="hl-code">.</span><span class="hl-identifier">getAllStudents</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">System</span><span class="hl-code">.</span><span class="hl-identifier">out</span><span class="hl-code">.</span><span class="hl-identifier">println</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Student: [RollNo : </span><span class="hl-quotes">"</span><span class="hl-code">
             +</span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">getRollNo</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">, Name : </span><span class="hl-quotes">"</span><span class="hl-code">+</span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">getName</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string"> ]</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-comment">//</span><span class="hl-comment">更新学生</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">Update Student</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">Student</span><span class="hl-code"> </span><span class="hl-identifier">student</span><span class="hl-code"> =</span><span class="hl-identifier">studentDao</span><span class="hl-code">.</span><span class="hl-identifier">getAllStudents</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">get</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">setName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Michael</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">studentDao</span><span class="hl-code">.</span><span class="hl-identifier">updateStudent</span><span class="hl-brackets">(</span><span class="hl-identifier">student</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-      </span><span class="hl-comment">//</span><span class="hl-comment">获取学生</span><span class="hl-comment"></span><span class="hl-code">
+      </span><span class="hl-comment">//</span><span class="hl-comment">Get Student</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">studentDao</span><span class="hl-code">.</span><span class="hl-identifier">getStudent</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">System</span><span class="hl-code">.</span><span class="hl-identifier">out</span><span class="hl-code">.</span><span class="hl-identifier">println</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Student: [RollNo : </span><span class="hl-quotes">"</span><span class="hl-code">
          +</span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">getRollNo</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">, Name : </span><span class="hl-quotes">"</span><span class="hl-code">+</span><span class="hl-identifier">student</span><span class="hl-code">.</span><span class="hl-identifier">getName</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string"> ]</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;      
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h2>步骤 5</h2>
+<h2>Step 5</h2>
 <p>Execute the program and output the result:</p>
 <pre>
 Student: [RollNo : 0, Name : Robert ]
 Student: [RollNo : 1, Name : John ]
 Student: Roll No 0, updated in the database
 Student: [RollNo : 0, Name : Michael ]
-</pre> 其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/composite-entity-pattern.html" rel="prev">组合实体模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/front-controller-pattern.html" rel="next">前端控制器模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/composite-entity-pattern.html" rel="prev">Composite Entity Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/front-controller-pattern.html" rel="next">Front Controller Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -489,16 +485,16 @@ Student: [RollNo : 0, Name : Michael ]
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -506,14 +502,14 @@ Student: [RollNo : 0, Name : Michael ]
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="8951"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -691,7 +687,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -782,7 +778,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

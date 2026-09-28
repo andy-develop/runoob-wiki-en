@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Go 语言 select 语句 | 菜鸟教程</title>
+<title>Go Language select statement | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Go 语言 select 语句  Go 语言条件语句  select 是 Go 中的一个控制结构，类似于 switch 语句。  select 语句只能用于通道操作，每个 case 必须是一个通道操作，要么是发送要么是接收。 select 语句会监听所有指定的通道上的操作，一旦其中一个通道准备好就会执行相应的代码块。如果多个通道都准备好，那么 select 语句会随机选择一个通道执行。如果所有通道都没有准备好，那么执行 default .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,41 +158,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-switch-statement.html" rel="prev">Go 语言 switch 语句</a> </div>
-<div class="next-design-link"><a href="../go/go-loops.html" rel="next">Go 语言循环语句</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-switch-statement.html" rel="prev">Go Language switch statement</a> </div>
+<div class="next-design-link"><a href="../go/go-loops.html" rel="next">Go language loop statements</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Go language select statement</h1>
-<p><a href="go-decision-making.html">Go 语言条件语句</a></p>
+<p><a href="go-decision-making.html">Go language conditional statement</a></p>
 <p>select is a control structure in Go, similar to the switch statement.</p>
 <p>The select statement can only be used for channel operations; each case must be a channel operation, either a send or a receive.</p>
 <p>The select statement listens for operations on all specified channels; once one of the channels is ready, the corresponding code block is executed.</p><p>If multiple channels are ready, the select statement randomly chooses one to execute. If none of the channels are ready, the code in the default block is executed.</p>
-<h3>语法</h3>
+<h3>Syntax</h3>
 <p>The syntax of the select statement in the Go programming language is as follows:</p>
 <div class="example"><div class="example_code">
 <br/>
 <span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
   <span style="color: #B1B100; font-weight: bold;">case</span> &lt;<span style="color: #339933;">-</span> channel1<span style="color: #339933;">:</span><br/>
-    <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
+    <span style="color: #666666; font-style: italic;">// Code to execute</span><br/>
   <span style="color: #B1B100; font-weight: bold;">case</span> value <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span> channel2<span style="color: #339933;">:</span><br/>
-    <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
+    <span style="color: #666666; font-style: italic;">// Code to execute</span><br/>
   <span style="color: #B1B100; font-weight: bold;">case</span> channel3 &lt;<span style="color: #339933;">-</span> value<span style="color: #339933;">:</span><br/>
-    <span style="color: #666666; font-style: italic;">// 执行的代码</span><br/>
+    <span style="color: #666666; font-style: italic;">// Code to execute</span><br/>
 <br/>
-    <span style="color: #666666; font-style: italic;">// 你可以定义任意数量的 case</span><br/>
+    <span style="color: #666666; font-style: italic;">// You can define any number of cases</span><br/>
 <br/>
   <span style="color: #B1B100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
-    <span style="color: #666666; font-style: italic;">// 所有通道都没有准备好，执行的代码</span><br/>
+    <span style="color: #666666; font-style: italic;">// Code executed when none of the channels are ready</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
 <p>The following describes the syntax of the select statement:</p>
 <ul>
-<li>Each case must be a channel.</li><li>All channel expressions are evaluated.</li><li>All expressions being sent will be evaluated</li><li>If any one of the channels can proceed, it is executed; the others are ignored.</li><li>If multiple cases can run, select will randomly and fairly choose one to execute, and the others will not execute.<br/>否则：<ol><li>If there is a default clause, it is executed.</li><li>If there is no default clause, select will block until some channel can run; Go will not re-evaluate channels or values.</li></ol></li>
+<li>Each case must be a channel.</li><li>All channel expressions are evaluated.</li><li>All expressions being sent will be evaluated</li><li>If any one of the channels can proceed, it is executed; the others are ignored.</li><li>If multiple cases can run, select will randomly and fairly choose one to execute, and the others will not execute.<br/>Otherwise:<ol><li>If there is a default clause, it is executed.</li><li>If there is no default clause, select will block until some channel can run; Go will not re-evaluate channels or values.</li></ol></li>
 </ul>
-<h3>实例</h3>
+<h3>Example</h3>
 <p>select statement application demonstration:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
 <span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #339933;">(</span><br/>
@@ -232,17 +232,17 @@ received two
 <p>In the above example, we created two channels, c1 and c2.</p><p>The select statement waits for data from two channels. If data is received on c1, it prints "received one"; if data is received on c2, it prints "received two".</p>
 <p>In the following example, we define two channels and start two goroutines to receive data from these channels. In the main function, we use a select statement to make a non-blocking selection between the two channels. If neither channel has available data, the statement in the default clause is executed.</p>
 <p>After the following example is executed, it will continuously receive data from the two channels. When neither channel has available data, it will output "no message received".</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #B1B100; font-weight: bold;">package</span> main<br/>
 <br/>
 <span style="color: #B1B100; font-weight: bold;">import</span> <span style="color: #CC66CC;">"fmt"</span><br/>
 <br/>
 <span style="color: #993333;">func</span> main<span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
-  <span style="color: #666666; font-style: italic;">// 定义两个通道</span><br/>
+  <span style="color: #666666; font-style: italic;">// Define two channels</span><br/>
   ch1 <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
   ch2 <span style="color: #339933;">:=</span> <span style="color: #000066;">make</span><span style="color: #339933;">(</span><span style="color: #993333;">chan</span> <span style="color: #993333;">string</span><span style="color: #339933;">)</span><br/>
 <br/>
-  <span style="color: #666666; font-style: italic;">// 启动两个 goroutine，分别从两个通道中获取数据</span><br/>
+  <span style="color: #666666; font-style: italic;">// Start two goroutines, each receiving data from one of the channels</span><br/>
   <span style="color: #B1B100; font-weight: bold;">go</span> <span style="color: #993333;">func</span><span style="color: #339933;">()</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
       ch1 &lt;<span style="color: #339933;">-</span> <span style="color: #CC66CC;">"from 1"</span><br/>
@@ -254,7 +254,7 @@ received two
     <span style="color: #339933;">}</span><br/>
   <span style="color: #339933;">}()</span><br/>
 <br/>
-  <span style="color: #666666; font-style: italic;">// 使用 select 语句非阻塞地从两个通道中获取数据</span><br/>
+  <span style="color: #666666; font-style: italic;">// Use a select statement to receive data from the two channels in a non-blocking manner</span><br/>
   <span style="color: #B1B100; font-weight: bold;">for</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">select</span> <span style="color: #339933;">{</span><br/>
     <span style="color: #B1B100; font-weight: bold;">case</span> msg1 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch1<span style="color: #339933;">:</span><br/>
@@ -262,28 +262,23 @@ received two
     <span style="color: #B1B100; font-weight: bold;">case</span> msg2 <span style="color: #339933;">:=</span> &lt;<span style="color: #339933;">-</span>ch2<span style="color: #339933;">:</span><br/>
       fmt<span style="color: #339933;">.</span>Println<span style="color: #339933;">(</span>msg2<span style="color: #339933;">)</span><br/>
     <span style="color: #B1B100; font-weight: bold;">default</span><span style="color: #339933;">:</span><br/>
-      <span style="color: #666666; font-style: italic;">// 如果两个通道都没有可用的数据，则执行这里的语句</span><br/>
+      <span style="color: #666666; font-style: italic;">// If neither channel has available data, execute the statements here</span><br/>
       fmt<span style="color: #339933;">.</span><span style="">Println</span><span style="color: #339933;">(</span><span style="color: #CC66CC;">"no message received"</span><span style="color: #339933;">)</span><br/>
     <span style="color: #339933;">}</span><br/>
   <span style="color: #339933;">}</span><br/>
 <span style="color: #339933;">}</span><br/>
 </div></div>
-<p><a href="go-decision-making.html">Go 语言条件语句</a></p>
-其他扩展
-</div>
+<p><a href="go-decision-making.html">Go language conditional statement</a></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-switch-statement.html" rel="prev">Go 语言 switch 语句</a> </div>
-<div class="next-design-link"><a href="../go/go-loops.html" rel="next">Go 语言循环语句</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../go/go-switch-statement.html" rel="prev">Go Language switch statement</a> </div>
+<div class="next-design-link"><a href="../go/go-loops.html" rel="next">Go language loop statements</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -389,13 +384,13 @@ received two
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">2  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">2 notes</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments">
 <ol class="commentlist">
-<li class="comment even thread-even depth-1" id="comment-43829"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>西门吹雪</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  xim***huixue@gmail.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow" target="_blank">参考地址</a></p></div><div class="upvotejs" data-commid="43829" id="runoobvote-id-43829"><a class="upvote"></a> <span class="count">91</span></div></div><div class="comt-main" id="div-comment-43829"><p>select loops to check conditions; if one is satisfied, it executes and exits; otherwise, it keeps looping and checking.</p><p>示例代码：<a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow ugc">https://play.golang.org/p/abKvSe-Nn30</a></p>
+<li class="comment even thread-even depth-1" id="comment-43829"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>Ximen Chuixue</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  xim***huixue@gmail.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow" target="_blank">Reference address</a></p></div><div class="upvotejs" data-commid="43829" id="runoobvote-id-43829"><a class="upvote"></a> <span class="count">91</span></div></div><div class="comt-main" id="div-comment-43829"><p>select loops to check conditions; if one is satisfied, it executes and exits; otherwise, it keeps looping and checking.</p><p>Example code:<a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow ugc">https://play.golang.org/p/abKvSe-Nn30</a></p>
 <pre>package main
 
 import (
@@ -434,7 +429,7 @@ func main() {
     }
 end:
 }</pre>
-<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">西门吹雪</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>西门吹雪</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  xim***huixue@gmail.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow" target="_blank">参考地址</a></p></div></span>7年前 (2019-06-21)</div></div></li><!-- #comment-## -->
+<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Ximen Chuixue</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>Ximen Chuixue</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  xim***huixue@gmail.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://play.golang.org/p/abKvSe-Nn30" rel="nofollow" target="_blank">Reference address</a></p></div></span>7 years ago (2019-06-21)</div></div></li><!-- #comment-## -->
 <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-68317"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Marmot</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  654***905@qq.com</p></div><div class="upvotejs" data-commid="68317" id="runoobvote-id-68317"><a class="upvote"></a> <span class="count">144</span></div></div><div class="comt-main" id="div-comment-68317"><p>Hey bro above, select executes randomly, not by loop checking; it's to avoid the starvation problem. I've fixed it for you:</p>
 <pre>package main
 
@@ -466,22 +461,22 @@ func main() {
       }
    }
 end:
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Marmot</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Marmot</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  654***905@qq.com</p></div></span>5年前 (2021-11-19)</div></div></li><!-- #comment-## -->
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Marmot</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Marmot</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  654***905@qq.com</p></div></span>5 years ago (2021-11-19)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -489,14 +484,14 @@ end:
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="12152"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -674,7 +669,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -765,7 +760,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

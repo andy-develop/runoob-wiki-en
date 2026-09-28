@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>流水线 — 如何让 CPU 更快 | 菜鸟教程</title>
+<title>Pipeline — How to Make CPU Faster | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="流水线 -- 如何让 CPU 更快 在不提高时钟频率的情况下，CPU 还能变快吗？答案是肯定的。流水线（Pipeline）技术就是其中最重要的一种方法。本讲用 Python 代码和甘特图风格的可视化输出，展示流水线如何让指令执行效率大幅提升。   生活中的类比：洗车流水线  想象你开了一家洗车店。有两种经营方式：  方式一：单人包干（无流水线） 一个工人从头到尾负责一辆车的全部清洗工序——冲水、打泡沫、刷洗、擦干。做完一辆，才能开始下一.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/clock-frequency.html" rel="prev">时钟频率是什么意思</a> </div>
-<div class="next-design-link"><a href="../computer-organization/multi-core-processors.html" rel="next">多核心是怎么回事</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/clock-frequency.html" rel="prev">What does clock frequency mean?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/multi-core-processors.html" rel="next">What Is Multi-Core All About?</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,17 +168,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Analogy from daily life: car wash assembly line</h2>
 <p>Imagine you run a car wash. There are two ways to operate:</p>
-<p><span class="marked">方式一：单人包干（无流水线）</span></p>
+<p><span class="marked">Method 1: Single-person all-in-one (no pipeline)</span></p>
 <p>One worker handles all washing steps for one car from start to finish—rinse, foam, scrub, dry. Only after finishing one car can they start the next. Each car takes 40 minutes, so only 1.5 cars can be washed per hour.</p>
-<p><span class="marked">方式二：流水线分工作业（有流水线）</span></p>
+<p><span class="marked">Method 2: Pipeline division of labor (with pipeline)</span></p>
 <p>Four workers each handle one step—rinse, foam, scrub, dry. After the first car enters the rinse stage, the rinser can start rinsing the second car, while the foamer is foaming the first car. All four people are busy at the same time, and a car is completed every 10 minutes.</p>
 <p>The second method does not make any single step faster (rinsing still takes 10 minutes), but by overlapping the steps of different cars, the overall output rate is greatly improved.</p>
-<p><span class="marked">这就是 CPU 流水线的核心思想：让不同指令的不同阶段重叠执行。</span></p>
+<p><span class="marked">This is the core idea of the CPU pipeline: overlapping the execution of different stages of different instructions.</span></p>
 <hr/>
 <h2>Serial execution vs. pipelined execution</h2>
 <h3>The problem of serial execution</h3>
 <p>Reviewing Lecture 12, each instruction goes through four stages: Fetch (IF), Decode (ID), Execute (EX), Write-back (WB).</p>
-<p>在<span class="marked">串行执行（无流水线）</span>In this mode, the CPU must fully execute all four stages of the current instruction before it can start fetching the next instruction.</p>
+<p>In<span class="marked">Serial execution (no pipeline)</span>In this mode, the CPU must fully execute all four stages of the current instruction before it can start fetching the next instruction.</p>
 <pre>
 周期:  1    2    3    4    5    6    7    8    9    10   11   12
 I1:   [IF] [ID] [EX] [WB]
@@ -188,7 +188,7 @@ I3:                                          [IF] [ID] [EX] [WB]
 3 条指令 = 12 个周期
 </pre>
 <h3>Advantages of pipelined execution</h3>
-<p>在<span class="marked">流水线执行</span>In this mode, once instruction I1 completes the fetch stage (IF), the CPU's fetch unit becomes idle. Rather than letting it sit idle, you can immediately start fetching the next instruction I2.</p>
+<p>In<span class="marked">Pipeline execution</span>In this mode, once instruction I1 completes the fetch stage (IF), the CPU's fetch unit becomes idle. Rather than letting it sit idle, you can immediately start fetching the next instruction I2.</p>
 <p>Similarly, when I1 completes decode (ID) and enters the execute stage, the decode unit begins processing I2, while the fetch unit begins processing I3.</p>
 <pre>
 周期:  1    2    3    4    5    6    7
@@ -209,40 +209,40 @@ I3:             [IF] [ID] [EX] [WB]
 <h2>Pipeline "hazard" problem</h2>
 <p>Pipelining is good, but it does not come without cost. There are three typical "hazards" that can stall the pipeline:</p>
 <table class="reference">
-<tr><th>冒险类型</th><th>英文</th><th>问题描述</th><th>生活类比</th></tr>
-<tr><td>结构冒险</td><td>Structural Hazard</td><td>Two stages contend for the same hardware resource (e.g., both need to access memory)</td><td>In the car wash, there is only one high-pressure water gun, and both the initial rinse and final rinse need to use it, so they have to queue.</td></tr>
-<tr><td>数据冒险</td><td>Data Hazard</td><td>The next instruction depends on the result of the previous instruction, but the result hasn't been written back yet</td><td>To make braised pork, you must first cut the meat before putting it in the pot. If the meat cutter has not finished, the cook can only wait.</td></tr>
-<tr><td>控制冒险</td><td>Control Hazard</td><td>When encountering a branch instruction, you do not know which instruction to fetch next.</td><td>The menu says, "If the guest orders spicy food, switch to another recipe." Before the guest decides, the kitchen does not know what to prepare.</td></tr>
+<tr><th>Hazard types</th><th>English</th><th>Problem description</th><th>life analogy</th></tr>
+<tr><td>Structural hazard</td><td>Structural Hazard</td><td>Two stages contend for the same hardware resource (e.g., both need to access memory)</td><td>In the car wash, there is only one high-pressure water gun, and both the initial rinse and final rinse need to use it, so they have to queue.</td></tr>
+<tr><td>Data hazard</td><td>Data Hazard</td><td>The next instruction depends on the result of the previous instruction, but the result hasn't been written back yet</td><td>To make braised pork, you must first cut the meat before putting it in the pot. If the meat cutter has not finished, the cook can only wait.</td></tr>
+<tr><td>Control hazard</td><td>Control Hazard</td><td>When encountering a branch instruction, you do not know which instruction to fetch next.</td><td>The menu says, "If the guest orders spicy food, switch to another recipe." Before the guest decides, the kitchen does not know what to prepare.</td></tr>
 </table>
 <p>Modern CPUs use various techniques to mitigate these hazards:</p>
 <ul>
-<li><span class="tag1 green">数据旁路（Data Forwarding）</span>: Without waiting for the result to be written back to the register, directly "steal" the data from the ALU output for the next instruction to use</li>
-<li><span class="tag1 green">分支预测（Branch Prediction）</span>Branch prediction: guess the branch direction and fetch ahead. If guessed correctly, you gain; if incorrectly, flush the pipeline and start over.</li>
-<li><span class="tag1 green">乱序执行（Out-of-Order Execution）</span>Out-of-order execution: do not follow program order; instead, "execute whichever instruction's data is ready first."</li>
+<li><span class="tag1 green">Data Bypass (Data Forwarding)</span>: Without waiting for the result to be written back to the register, directly "steal" the data from the ALU output for the next instruction to use</li>
+<li><span class="tag1 green">Branch Prediction</span>Branch prediction: guess the branch direction and fetch ahead. If guessed correctly, you gain; if incorrectly, flush the pipeline and start over.</li>
+<li><span class="tag1 green">Out-of-Order Execution</span>Out-of-order execution: do not follow program order; instead, "execute whichever instruction's data is ready first."</li>
 </ul>
 <hr/>
 <h2>Interactive demo: Pipeline Simulator (Gantt chart style)</h2>
 <p>The Python code below simulates instruction execution in both pipelined and non-pipelined modes, and prints output in Gantt chart style, allowing you to intuitively compare the differences between the two approaches.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>CPU 流水线模拟器 (runoob 演示)<br/>对比：无流水线（串行）vs 有流水线（并行重叠）<br/>以甘特图风格打印每条指令各阶段的执行时间线<br/>
+<span style="color: #a11;">"""<br/>CPU Pipeline Simulator (runoob demo)<br/>Comparison: Non-pipelined (Serial) vs. Pipelined (Parallel Overlap)<br/>Print the execution timeline of each instruction's stages in Gantt chart style<br/>
 """</span><br/>
 <br/>
-<span style="color: #a50"># 定义指令序列和各阶段的简称</span><br/>
+<span style="color: #a50"># Define instruction sequence and abbreviations for each stage</span><br/>
 INSTRUCTIONS <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"I1"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I2"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I3"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I4"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I5"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I6"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I7"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"I8"</span><span style="color: Olive;">]</span><br/>
-STAGES <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"IF"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"ID"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EX"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"WB"</span><span style="color: Olive;">]</span>  <span style="color: #a50"># 取指、译码、执行、写回</span><br/>
-STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"IF"</span>: <span style="color: #a11;">"取指"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"ID"</span>: <span style="color: #a11;">"译码"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EX"</span>: <span style="color: #a11;">"执行"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"WB"</span>: <span style="color: #a11;">"写回"</span><span style="color: Olive;">}</span><br/>
+STAGES <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"IF"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"ID"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EX"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"WB"</span><span style="color: Olive;">]</span>  <span style="color: #a50"># Fetch, decode, execute, writeback</span><br/>
+STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"IF"</span>: <span style="color: #a11;">"Fetch"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"ID"</span>: <span style="color: #a11;">"Decode"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EX"</span>: <span style="color: #a11;">"Execute"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"WB"</span>: <span style="color: #a11;">"Writeback"</span><span style="color: Olive;">}</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> simulate_serial<span style="color: Olive;">(</span>instructions<span style="color: Gray;">,</span> stages<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>无流水线模式：每条指令完整执行完 4 个阶段后，才开始下一条<br/>返回: (总周期数, 时间线二维数组)<br/>时间线格式: time_grid[周期][阶段列] = 当前正在执行的指令名 或 None<br/>
+    <span style="color: #a11;">"""<br/>No-pipeline mode: after each instruction has fully executed its 4 stages, the next one starts.<br/>Return: (total cycles, 2D timeline array)<br/>Timeline format: time_grid[cycle][stage_slot] = name of the currently executing instruction or None<br/>
     """</span><br/>
     num_instr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span><br/>
     num_stages <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>stages<span style="color: Olive;">)</span><br/>
-    total_cycles <span style="color: Gray;">=</span> num_instr * num_stages  <span style="color: #a50"># n 条指令 × 4 阶段</span><br/>
+    total_cycles <span style="color: Gray;">=</span> num_instr * num_stages  <span style="color: #a50"># n instructions × 4 stages</span><br/>
 <br/>
-    <span style="color: #a50"># time_grid[cycle][stage_slot] → 哪个指令在此周期的此阶段</span><br/>
+    <span style="color: #a50"># time_grid[cycle][stage_slot] → which instruction is in this stage at this cycle</span><br/>
     time_grid <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span><span style="color: Teal;">None</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>num_instr<span style="color: Olive;">)</span><span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>total_cycles<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> instr <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span>:<br/>
@@ -255,17 +255,17 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> simulate_pipeline<span style="color: Olive;">(</span>instructions<span style="color: Gray;">,</span> stages<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>有流水线模式：不同指令的不同阶段可以重叠执行<br/>返回: (总周期数, 时间线二维数组)<br/>
+    <span style="color: #a11;">"""<br/>Pipeline mode: different stages of different instructions can overlap in execution.<br/>Return: (total cycles, 2D timeline array)<br/>
     """</span><br/>
     num_instr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span><br/>
     num_stages <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>stages<span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 流水线总周期数 = 级数 + (指令数 - 1)</span><br/>
+    <span style="color: #a50"># Total pipeline cycles = number of stages + (number of instructions - 1)</span><br/>
     total_cycles <span style="color: Gray;">=</span> num_stages + <span style="color: Olive;">(</span>num_instr - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
 <br/>
     time_grid <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">[</span><span style="color: Teal;">None</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>num_instr<span style="color: Olive;">)</span><span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>total_cycles<span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> instr <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 指令 i 的阶段 s 在周期 (i + s) 执行</span><br/>
+        <span style="color: #a50"># Stage s of instruction i executes in cycle (i + s)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> s_idx<span style="color: Gray;">,</span> stage <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>stages<span style="color: Olive;">)</span>:<br/>
             cycle <span style="color: Gray;">=</span> i + s_idx<br/>
             <span style="color: Green;font-weight:bold;">if</span> cycle <span style="color: Gray;">&lt;</span> total_cycles:<br/>
@@ -275,11 +275,11 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> print_gantt<span style="color: Olive;">(</span>instructions<span style="color: Gray;">,</span> stages<span style="color: Gray;">,</span> time_grid<span style="color: Gray;">,</span> total_cycles<span style="color: Gray;">,</span> mode_name<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""以甘特图风格打印时间线"""</span><br/>
+    <span style="color: #a11;">"""Print timeline in Gantt chart style"""</span><br/>
     num_instr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 表头</span><br/>
-    header <span style="color: Gray;">=</span> f<span style="color: #a11;">"{'周期':&gt;4}  "</span><br/>
+    <span style="color: #a50"># Table header</span><br/>
+    header <span style="color: Gray;">=</span> f<span style="color: #a11;">{'cycle':&gt;4}</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> instr <span style="color: Green;font-weight:bold;">in</span> instructions:<br/>
         header +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  {instr:^10}"</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>header<span style="color: Olive;">)</span><br/>
@@ -290,34 +290,34 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>num_instr<span style="color: Olive;">)</span>:<br/>
             cell <span style="color: Gray;">=</span> time_grid<span style="color: Olive;">[</span>cycle<span style="color: Olive;">]</span><span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> cell:<br/>
-                <span style="color: #a50"># 给不同阶段配上不同标识</span><br/>
+                <span style="color: #a50"># Assign different labels to different stages</span><br/>
                 <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"(IF)"</span> <span style="color: Green;font-weight:bold;">in</span> cell:<br/>
-                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[94mIF<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># 蓝色</span><br/>
+                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[94mIF<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># Blue</span><br/>
                 <span style="color: Green;font-weight:bold;">elif</span> <span style="color: #a11;">"(ID)"</span> <span style="color: Green;font-weight:bold;">in</span> cell:<br/>
-                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[93mID<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># 黄色</span><br/>
+                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[93mID<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># Yellow</span><br/>
                 <span style="color: Green;font-weight:bold;">elif</span> <span style="color: #a11;">"(EX)"</span> <span style="color: Green;font-weight:bold;">in</span> cell:<br/>
-                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[92mEX<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># 绿色</span><br/>
+                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[92mEX<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># Green</span><br/>
                 <span style="color: Green;font-weight:bold;">elif</span> <span style="color: #a11;">"(WB)"</span> <span style="color: Green;font-weight:bold;">in</span> cell:<br/>
-                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[91mWB<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># 红色</span><br/>
+                    row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [<span style="color: #000099; font-weight: bold;">\0</span>33[91mWB<span style="color: #000099; font-weight: bold;">\0</span>33[0m]     "</span>  <span style="color: #a50"># Red</span><br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
                 row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  {'':10}"</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">6</span> + <span style="color: Maroon;">12</span> * num_instr<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"总周期数: {total_cycles}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total cycles: {total_cycles}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> total_cycles<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> print_simple_gantt<span style="color: Olive;">(</span>instructions<span style="color: Gray;">,</span> stages<span style="color: Gray;">,</span> time_grid<span style="color: Gray;">,</span> total_cycles<span style="color: Gray;">,</span> mode_name<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""简易版甘特图（不使用 ANSI 颜色，兼容所有终端）"""</span><br/>
+    <span style="color: #a11;">Simple Gantt chart (no ANSI colors, compatible with all terminals)</span><br/>
     num_instr <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>instructions<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'='*70}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {mode_name}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'='*70}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 表头</span><br/>
-    header <span style="color: Gray;">=</span> f<span style="color: #a11;">"{'周期':&gt;5} |"</span><br/>
+    <span style="color: #a50"># Table header</span><br/>
+    header <span style="color: Gray;">=</span> f<span style="color: #a11;">{'cycle':&gt;5} |</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> instr <span style="color: Green;font-weight:bold;">in</span> instructions:<br/>
         header +<span style="color: Gray;">=</span> f<span style="color: #a11;">" {instr:^9} |"</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>header<span style="color: Olive;">)</span><br/>
@@ -328,7 +328,7 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span>num_instr<span style="color: Olive;">)</span>:<br/>
             cell <span style="color: Gray;">=</span> time_grid<span style="color: Olive;">[</span>cycle<span style="color: Olive;">]</span><span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> cell:<br/>
-                <span style="color: #a50"># 提取阶段标识</span><br/>
+                <span style="color: #a50"># Extract stage identifiers</span><br/>
                 <span style="color: Green;font-weight:bold;">for</span> stage <span style="color: Green;font-weight:bold;">in</span> stages:<br/>
                     <span style="color: Green;font-weight:bold;">if</span> f<span style="color: #a11;">"({stage})"</span> <span style="color: Green;font-weight:bold;">in</span> cell:<br/>
                         row +<span style="color: Gray;">=</span> f<span style="color: #a11;">"  [{stage}]   |"</span><br/>
@@ -338,21 +338,21 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Olive;">(</span><span style="color: Maroon;">7</span> + <span style="color: Maroon;">11</span> * num_instr<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 总周期数: {total_cycles}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total cycles: {total_cycles}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> total_cycles<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> calculate_metrics<span style="color: Olive;">(</span>serial_cycles<span style="color: Gray;">,</span> pipeline_cycles<span style="color: Gray;">,</span> num_instr<span style="color: Gray;">,</span> num_stages<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""计算性能指标"""</span><br/>
+    <span style="color: #a11;">"""Compute performance metrics"""</span><br/>
     speedup <span style="color: Gray;">=</span> serial_cycles / pipeline_cycles<br/>
-    ideal_speedup <span style="color: Gray;">=</span> num_stages  <span style="color: #a50"># 理想加速比 = 流水线级数</span><br/>
+    ideal_speedup <span style="color: Gray;">=</span> num_stages  <span style="color: #a50"># Ideal speedup = number of pipeline stages</span><br/>
 <br/>
-    <span style="color: #a50"># 吞吐率：每周期完成的指令数</span><br/>
+    <span style="color: #a50"># Throughput: number of instructions completed per cycle</span><br/>
     serial_throughput <span style="color: Gray;">=</span> num_instr / serial_cycles<br/>
     pipeline_throughput <span style="color: Gray;">=</span> num_instr / pipeline_cycles<br/>
 <br/>
-    <span style="color: #a50"># 流水线效率</span><br/>
-    <span style="color: #a50"># 所有指令占用槽位总数</span><br/>
+    <span style="color: #a50"># Pipeline efficiency</span><br/>
+    <span style="color: #a50"># Total slots occupied by all instructions</span><br/>
     used_slots <span style="color: Gray;">=</span> num_instr * num_stages<br/>
     total_slots <span style="color: Gray;">=</span> num_instr * pipeline_cycles<br/>
     efficiency <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>used_slots / total_slots<span style="color: Olive;">)</span> * <span style="color: Maroon;">100</span> <span style="color: Green;font-weight:bold;">if</span> total_slots <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
@@ -368,57 +368,57 @@ STAGE_NAMES <span style="color: Gray;">=</span> <span style="color: Olive;">{</s
     <span style="color: Olive;">}</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 主程序 =====</span><br/>
+<span style="color: #a50"># ===== Main program =====</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  CPU 流水线模拟器 — 甘特图风格对比 (runoob 演示)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">CPU Pipeline Simulator — Gantt Chart Style Comparison (runoob demo)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">70</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 指令序列: {', '.join(INSTRUCTIONS[:8])}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 流水线级数: 4 (IF=取指, ID=译码, EX=执行, WB=写回)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Instruction sequence: {', '.join(INSTRUCTIONS[:8])}</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Pipeline stages: 4 (IF=Instruction Fetch, ID=Instruction Decode, EX=Execute, WB=Write Back)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 1. 无流水线（串行）</span><br/>
+<span style="color: #a50">No pipeline (serial)</span><br/>
 serial_cycles<span style="color: Gray;">,</span> serial_grid <span style="color: Gray;">=</span> simulate_serial<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Olive;">)</span><br/>
-print_simple_gantt<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Gray;">,</span> serial_grid<span style="color: Gray;">,</span> serial_cycles<span style="color: Gray;">,</span> <span style="color: #a11;">"模式 A: 无流水线（串行执行）"</span><span style="color: Olive;">)</span><br/>
+print_simple_gantt<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Gray;">,</span> serial_grid<span style="color: Gray;">,</span> serial_cycles<span style="color: Gray;">,</span> <span style="color: #a11;">"Mode A: Non-pipelined (serial execution)"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 2. 有流水线</span><br/>
+<span style="color: #a50"># 2. With Pipelining</span><br/>
 pipeline_cycles<span style="color: Gray;">,</span> pipeline_grid <span style="color: Gray;">=</span> simulate_pipeline<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Olive;">)</span><br/>
-print_simple_gantt<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Gray;">,</span> pipeline_grid<span style="color: Gray;">,</span> pipeline_cycles<span style="color: Gray;">,</span> <span style="color: #a11;">"模式 B: 有流水线（4级流水线）"</span><span style="color: Olive;">)</span><br/>
+print_simple_gantt<span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Gray;">,</span> STAGES<span style="color: Gray;">,</span> pipeline_grid<span style="color: Gray;">,</span> pipeline_cycles<span style="color: Gray;">,</span> <span style="color: #a11;">"Mode B: With pipeline (4-stage pipeline)"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 3. 性能对比</span><br/>
+<span style="color: #a50"># 3. Performance Comparison</span><br/>
 metrics <span style="color: Gray;">=</span> calculate_metrics<span style="color: Olive;">(</span>serial_cycles<span style="color: Gray;">,</span> pipeline_cycles<span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>INSTRUCTIONS<span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>STAGES<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'='*70}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 性能对比分析"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Performance Comparison Analysis"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'='*70}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  指令数量:       {len(INSTRUCTIONS)} 条"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  流水线级数:     {len(STAGES)} 级"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Instruction count:       {len(INSTRUCTIONS)}</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Pipeline stages:     {len(STAGES)}</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  无流水线总周期: {metrics['serial_cycles']} 周期"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  有流水线总周期: {metrics['pipeline_cycles']} 周期"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total cycles without pipeline: {metrics['serial_cycles']} cycles</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Pipelined total cycles: {metrics['pipeline_cycles']} cycles</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  实际加速比:     {metrics['speedup']:.2f}x"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  理想加速比:     {metrics['ideal_speedup']}x (等于流水线级数)"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Actual speedup:     {metrics['speedup']:.2f}x</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Ideal speedup:     {metrics['ideal_speedup']}x (equals the number of pipeline stages)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  串行吞吐率:     {metrics['serial_throughput']:.3f} 指令/周期"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  流水线吞吐率:   {metrics['pipeline_throughput']:.3f} 指令/周期"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  流水线效率:     {metrics['efficiency']:.1f}%"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  stringlineThroughput:     {metrics['serial_throughput']:.3f} Directive/weekperiod"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Pipeline throughput:   {metrics['pipeline_throughput']:.3f} instructions/cycle"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Pipeline efficiency:     {metrics['efficiency']:.1f}%</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  结论: 使用 {len(STAGES)} 级流水线后，同样的 8 条指令"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        从 {metrics['serial_cycles']} 周期缩短到 {metrics['pipeline_cycles']} 周期"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        加速了 {metrics['speedup']:.1f} 倍！"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Conclusion: After using a {len(STAGES)}-stage pipeline, the same 8 instructions</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        from {metrics['serial_cycles']} weekperiod缩短to {metrics['pipeline_cycles']} weekperiod"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Sped up {metrics['speedup']:.1f} times!</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">""</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  注意: 流水线有「填充」和「排空」的开销。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        前 {len(STAGES)-1} 个周期流水线未满（填充期），"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        最后 {len(STAGES)-1} 个周期流水线逐渐排空。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        指令数量越多，填充/排空的相对开销越小，"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"        加速比越接近理想值 {len(STAGES)}x。"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Note: The pipeline has 'fill' and 'drain' overhead.</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">In the first {len(STAGES)-1} cycles, the pipeline is not full (filling period),</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">In the last {len(STAGES)-1} cycles, the pipeline gradually drains.</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">The more instructions, the smaller the relative overhead of filling/draining,</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">The closer the speedup ratio is to the ideal value {len(STAGES)}x.</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 4. 扩展演示：不同指令数量下的加速比趋势</span><br/>
+<span style="color: #a50"># 4. Extended Demonstration: Speedup Ratio Trend under Different Instruction Counts</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'='*70}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 扩展分析：不同指令数量下的加速比"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Extended analysis: speedup ratio for different instruction counts"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'='*70}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'指令数':&gt;6} | {'串行周期':&gt;8} | {'流水线周期':&gt;10} | {'加速比':&gt;8} | {'加速比/理想值':&gt;14}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'Directivenumber':&gt;6} | {'stringlineweekperiod':&gt;8} | {'Pipelineweekperiod':&gt;10} | {'Speedup':&gt;8} | {'Speedup/manage想Value':&gt;14}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {'-'*6}-+-{'-'*8}-+-{'-'*10}-+-{'-'*8}-+-{'-'*14}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> n <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">4</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">16</span><span style="color: Gray;">,</span> <span style="color: Maroon;">32</span><span style="color: Gray;">,</span> <span style="color: Maroon;">64</span><span style="color: Gray;">,</span> <span style="color: Maroon;">128</span><span style="color: Gray;">,</span> <span style="color: Maroon;">256</span><span style="color: Olive;">]</span>:<br/>
@@ -431,19 +431,19 @@ metrics <span style="color: Gray;">=</span> calculate_metrics<span style="color:
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" {n:&gt;6} | {s_cycles:&gt;8} | {p_cycles:&gt;10} | {sp:&gt;7.2f}x | {ratio:&gt;13.1f}%"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" 结论: 指令越多，加速比越接近理想值 {len(STAGES)}x（即流水线级数）。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"       当只有 1 条指令时，流水线完全没有加速效果。"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"       但现代程序通常包含数百万条指令，流水线效率接近 100%。"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Conclusion: The more instructions, the closer the speedup approaches the ideal value {len(STAGES)}x (i.e., the number of pipeline stages).</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">When there is only 1 instruction, the pipeline has no speedup effect at all.</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">But modern programs usually contain millions of instructions, making pipeline efficiency close to 100%.</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <p>Run the code above, and you will see:</p>
 <ul>
-<li><span class="tag1 green">甘特图对比</span>Observation: In non-pipelined mode, each instruction occupies 4 consecutive cycles, with large idle gaps between instructions. In pipelined mode, the stages are tightly arranged with almost no idle cycles.</li>
-<li><span class="tag1 green">加速比趋势</span>Observation: The more instructions there are, the closer the speedup approaches the pipeline depth (here, 4). But with only 1 instruction, pipelining provides no speedup at all, because the fill and drain overhead accounts for 100%.</li>
-<li><span class="tag1 green">吞吐率</span>Observation: After the pipeline is "filled" (starting from the 4th cycle), one instruction is completed every cycle. This is the core value of pipelining.</li>
+<li><span class="tag1 green">Gantt chart comparison</span>Observation: In non-pipelined mode, each instruction occupies 4 consecutive cycles, with large idle gaps between instructions. In pipelined mode, the stages are tightly arranged with almost no idle cycles.</li>
+<li><span class="tag1 green">Speedup trend</span>Observation: The more instructions there are, the closer the speedup approaches the pipeline depth (here, 4). But with only 1 instruction, pipelining provides no speedup at all, because the fill and drain overhead accounts for 100%.</li>
+<li><span class="tag1 green">Throughput</span>Observation: After the pipeline is "filled" (starting from the 4th cycle), one instruction is completed every cycle. This is the core value of pipelining.</li>
 </ul>
 <h2>Interactive demo: pipeline Gantt chart comparison</h2>
-<p>Below, we use a Chart.js horizontal stacked bar chart to draw Gantt charts, directly comparing<strong>Without pipeline (serial)</strong>和<strong>With pipeline (4-stage)</strong>the time distribution of each stage for 4 instructions under the two modes. Each color block represents a stage (IF=Fetch, ID=Decode, EX=Execute, WB=Write-back), and the x-axis is clock cycles.</p>
+<p>Below, we use a Chart.js horizontal stacked bar chart to draw Gantt charts, directly comparing<strong>Without pipeline (serial)</strong>and<strong>With pipeline (4-stage)</strong>the time distribution of each stage for 4 instructions under the two modes. Each color block represents a stage (IF=Fetch, ID=Decode, EX=Execute, WB=Write-back), and the x-axis is clock cycles.</p>
 <script src="../static.jyshare.com/assets/libs/chart.js-4.5.0/chart.umd.min.js"></script>
 <style>
 /* 流水线甘特图演示样式 (runoob) */
@@ -535,13 +535,13 @@ metrics <span style="color: Gray;">=</span> calculate_metrics<span style="color:
 <h3>Pipeline Gantt chart comparison (runoob demo)</h3>
 <div class="pipeline-legend">
 <div class="pipeline-legend-item">
-<div class="pipeline-legend-color" style="background:#58a6ff;"></div>IF 取指</div>
+<div class="pipeline-legend-color" style="background:#58a6ff;"></div>IF fetch</div>
 <div class="pipeline-legend-item">
-<div class="pipeline-legend-color" style="background:#e3b341;"></div>ID 译码</div>
+<div class="pipeline-legend-color" style="background:#e3b341;"></div>ID decode</div>
 <div class="pipeline-legend-item">
-<div class="pipeline-legend-color" style="background:#3F7CB9;"></div>EX 执行</div>
+<div class="pipeline-legend-color" style="background:#3F7CB9;"></div>EX execute</div>
 <div class="pipeline-legend-item">
-<div class="pipeline-legend-color" style="background:#f78166;"></div>WB 写回</div>
+<div class="pipeline-legend-color" style="background:#f78166;"></div>WB write back</div>
 </div>
 <div class="pipeline-charts-row">
 <div class="pipeline-chart-wrap">
@@ -555,24 +555,24 @@ metrics <span style="color: Gray;">=</span> calculate_metrics<span style="color:
 </div>
 <div class="pipeline-metrics">
 <div class="pipeline-metric-card">
-<div class="pipeline-metric-label">无流水线总周期</div>
+<div class="pipeline-metric-label">Total cycles without pipeline</div>
 <div class="pipeline-metric-value warn">16</div>
 </div>
 <div class="pipeline-metric-card">
-<div class="pipeline-metric-label">有流水线总周期</div>
+<div class="pipeline-metric-label">Total cycles with pipeline</div>
 <div class="pipeline-metric-value">7</div>
 </div>
 <div class="pipeline-metric-card">
-<div class="pipeline-metric-label">加速比</div>
+<div class="pipeline-metric-label">Speedup</div>
 <div class="pipeline-metric-value">2.29x</div>
 </div>
 <div class="pipeline-metric-card">
-<div class="pipeline-metric-label">吞吐率提升</div>
+<div class="pipeline-metric-label">Throughput improvement</div>
 <div class="pipeline-metric-value">129%</div>
 </div>
 </div>
 <div class="pipeline-info-text">
-<strong>关键观察：</strong><br/>无流水线模式：每条指令独占 4 个连续周期，指令间完全串行，4 条指令耗时 16 周期。<br/>有流水线模式：不同指令的不同阶段重叠执行，4 条指令仅需 7 周期（= 4 + (4-1)）。<br/>流水线「填满」后（周期 4 起），每个周期都有一条指令完成——这就是吞吐率大幅提升的原因。</div>
+<strong>Key observation:</strong><br/>Non-pipelined mode: each instruction exclusively occupies 4 consecutive cycles, instructions are completely serial, and 4 instructions take 16 cycles.<br/>With pipeline mode: overlapping execution of different stages of different instructions, 4 instructions only need 7 cycles (= 4 + (4-1)).<br/>After the pipeline is "filled" (starting from cycle 4), one instruction completes each cycle — this is why throughput greatly improves.</div>
 </div>
 <script>
 /*
@@ -675,29 +675,24 @@ new Chart(ctxPipeline, {
 <h2>Comparison of pipeline stage depths</h2>
 <p>The "depth" of the pipeline determines the theoretical upper limit of speedup, but the deeper the pipeline, the more severe the hazard problems:</p>
 <table class="reference">
-<tr><th>CPU 型号</th><th>流水线级数</th><th>特点</th></tr>
-<tr><td>Classic RISC (e.g., MIPS)</td><td>5 级</td><td>Simple and efficient, suitable for teaching. Classic 5-stage pipeline: IF, ID, EX, MEM, WB</td></tr>
-<tr><td>Intel Pentium 4（NetBurst）</td><td>20~31 级</td><td>Ultra-deep pipeline, pursuing high frequency. But branch prediction failures are costly, and it was eventually abandoned.</td></tr>
-<tr><td>Intel Core 系列（自 2006 起）</td><td>14~19 级</td><td>Shorter pipeline + high IPC, balancing frequency and efficiency.</td></tr>
+<tr><th>CPU model</th><th>Number of pipeline stages</th><th>Features</th></tr>
+<tr><td>Classic RISC (e.g., MIPS)</td><td>5 levels</td><td>Simple and efficient, suitable for teaching. Classic 5-stage pipeline: IF, ID, EX, MEM, WB</td></tr>
+<tr><td>Intel Pentium 4（NetBurst）</td><td>20~31 stages</td><td>Ultra-deep pipeline, pursuing high frequency. But branch prediction failures are costly, and it was eventually abandoned.</td></tr>
+<tr><td>Intel Core series (since 2006)</td><td>14~19 stages</td><td>Shorter pipeline + high IPC, balancing frequency and efficiency.</td></tr>
 <tr><td>Apple M1（2020）</td><td>8-stage (decode)</td><td>Ultra-wide architecture (8-wide issue), low frequency, high IPC, excellent power efficiency.</td></tr>
 </table>
 <p>It can be seen that pipeline depth is a trade-off: too many stages make the cost of a single branch misprediction too high; too few stages prevent frequency from going high enough.</p>
-<p>The mainstream trend in modern CPU design is<span class="marked">「宽而浅」</span>— moderate pipeline depth + ultra-wide issue width (able to start executing multiple instructions per cycle), rather than blindly pursuing more stages.</p>
-其他扩展
-</div>
+<p>The mainstream trend in modern CPU design is<span class="marked">“wide and shallow”</span>— moderate pipeline depth + ultra-wide issue width (able to start executing multiple instructions per cycle), rather than blindly pursuing more stages.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/clock-frequency.html" rel="prev">时钟频率是什么意思</a> </div>
-<div class="next-design-link"><a href="../computer-organization/multi-core-processors.html" rel="next">多核心是怎么回事</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/clock-frequency.html" rel="prev">What does clock frequency mean?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/multi-core-processors.html" rel="next">What Is Multi-Core All About?</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -801,16 +796,16 @@ new Chart(ctxPipeline, {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -818,14 +813,14 @@ new Chart(ctxPipeline, {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31884"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1003,7 +998,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1094,7 +1089,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

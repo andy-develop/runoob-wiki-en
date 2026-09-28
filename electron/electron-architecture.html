@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Electron 架构 | 菜鸟教程</title>
+<title>Electron Architecture | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Electron 架构 可以把 Electron 看成是：      一个多进程的应用容器，内置了一个浏览器引擎 (Chromium) 和一个 Node.js 运行时，通过进程间通信（IPC）协同运行，实现“网页 + 系统能力”的桌面应用。  它的核心组成是：                            角色             说明             类比                              .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,12 +158,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-intro.html" rel="prev">Electron 简介</a> </div>
-<div class="next-design-link"><a href="../electron/electron-install.html" rel="next">Electron 安装</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-intro.html" rel="prev">Electron Introduction</a> </div>
+<div class="next-design-link"><a href="../electron/electron-install.html" rel="next">Electron installation</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Electron 架构</h1>
+<h1>Electron architecture</h1>
 <p>You can think of Electron as:</p>
 <blockquote>
 <p><strong>A multi-process application container with a built-in browser engine (Chromium) and a Node.js runtime</strong>，<br/>Desktop applications that combine "web pages + system capabilities" by coordinating through inter-process communication (IPC).</p>
@@ -172,19 +172,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <table class="reference">
 <thead>
 <tr>
-<th>角色</th>
-<th>说明</th>
-<th>类比</th>
+<th>Role</th>
+<th>Description</th>
+<th>Analogy</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Main Process（主进程）</strong></td>
+<td><strong>Main Process (main process)</strong></td>
 <td>Electron's brain, controlling the application lifecycle, creating windows, and calling system APIs</td>
 <td>OS Process Manager</td>
 </tr>
 <tr>
-<td><strong>Renderer Process（渲染进程）</strong></td>
+<td><strong>Renderer Process</strong></td>
 <td>The web page environment (HTML, CSS, JS) run by each window</td>
 <td>Browser Tab</td>
 </tr>
@@ -196,22 +196,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <tr>
 <td><strong>IPC (inter-process communication)</strong></td>
 <td>Communication channel between the main process and renderer processes</td>
-<td>电话线</td>
+<td>telephone line</td>
 </tr>
 <tr>
-<td><strong>BrowserWindow 对象</strong></td>
+<td><strong>BrowserWindow object</strong></td>
 <td>The "window container" created by the main process, which loads web pages inside</td>
-<td>浏览器窗口</td>
+<td>Browser window</td>
 </tr>
 <tr>
-<td><strong>App 模块</strong></td>
+<td><strong>App Module</strong></td>
 <td>Controls the application lifecycle (startup, exit)</td>
-<td>总控</td>
+<td>Master control</td>
 </tr>
 </tbody>
 </table>
 <img decoding="async" src="../wp-content/uploads/2025/10/1_o7q9jBwN0IIokjOCKfzAKA.png"/>
-<h3>主进程 (Main Process)</h3>
+<h3>Main Process</h3>
 <p>The main process is the "brain" of an Electron application; every Electron app has exactly one main process. It is responsible for:</p>
 <ul>
 <li><strong>Create and manage application windows</strong>(Renderer Process)</li>
@@ -220,13 +220,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li><strong>Manage system-level components such as menus and dialogs</strong></li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// main.js - 主进程示例</span><br/>
+<span style="color: #006600; font-style: italic;">// main.js - main process example</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> app<span style="color: #339933;">,</span> BrowserWindow <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #000066; font-weight: bold;">function</span> createWindow<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 创建浏览器窗口</span><br/>
+  <span style="color: #006600; font-style: italic;">// Create the browser window</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> mainWindow <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> BrowserWindow<span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
     width<span style="color: #339933;">:</span> <span style="color: #CC0000;">800</span><span style="color: #339933;">,</span><br/>
     height<span style="color: #339933;">:</span> <span style="color: #CC0000;">600</span><span style="color: #339933;">,</span><br/>
@@ -236,15 +236,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #009900;">}</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 加载应用的 index.html</span><br/>
+  <span style="color: #006600; font-style: italic;">// Load the app's index.html</span><br/>
   mainWindow.<span style="color: #660066;">loadFile</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'index.html'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 当 Electron 完成初始化时调用</span><br/>
+<span style="color: #006600; font-style: italic;">// Called when Electron completes initialization</span><br/>
 app.<span style="color: #660066;">whenReady</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">then</span><span style="color: #009900;">(</span>createWindow<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
-<h3>渲染进程 (Renderer Process)</h3>
+<h3>Renderer Process</h3>
 <p>The renderer process is responsible for displaying the user interface; each Electron window is an independent renderer process:</p>
 <ul>
 <li><strong>Runs in the Chromium browser environment</strong></li>
@@ -253,20 +253,20 @@ app.<span style="color: #660066;">whenReady</span><span style="color: #009900;">
 <li><strong>Communicates with the main process via IPC</strong></li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #808080; font-style: italic;">&lt;!-- index.html - 渲染进程示例 --&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- index.html - renderer process example --&gt;</span><br/>
 <span style="color: #555;">&lt;!DOCTYPE html&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>我的 Electron 应用<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>My Electron App<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h1</span>&gt;</span>Hello Electron!<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h1</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"btn"</span>&gt;</span>点击我<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"btn"</span>&gt;</span>Click me<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
     <br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>// 渲染进程中的 JavaScript<br/>
-        document.getElementById('btn').addEventListener('click', () =&gt; {<br/>alert('按钮被点击了！');<br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>// JavaScript in the renderer process<br/>
+        document.getElementById('btn').addEventListener('click', () =&gt; {<br/>alert('The button was clicked!');<br/>
         });<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
@@ -281,12 +281,12 @@ app.<span style="color: #660066;">whenReady</span><span style="color: #009900;">
 <li><strong>Safely expose APIs to the renderer process via contextBridge</strong></li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// preload.js - 预加载脚本示例</span><br/>
+<span style="color: #006600; font-style: italic;">// preload.js - preload script example</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> contextBridge<span style="color: #339933;">,</span> ipcRenderer <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 向渲染进程暴露安全的 API</span><br/>
+<span style="color: #006600; font-style: italic;">// Expose a safe API to the renderer process</span><br/>
 contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'electronAPI'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span><br/>
   showDialog<span style="color: #339933;">:</span> <span style="color: #009900;">(</span>message<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> ipcRenderer.<span style="color: #660066;">invoke</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'show-dialog'</span><span style="color: #339933;">,</span> message<span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -297,12 +297,12 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <h3>IPC communication patterns</h3>
 <p><strong>IPC（Inter-Process Communication）</strong>Is the communication core of Electron.</p><p>Since the main process and the renderer process are independent, data must be passed through IPC.</p>
 <p><img decoding="async" src="../wp-content/uploads/2025/10/8d169f84-c644-40c9-9815-ef49c543581.png"/></p>
-<h3><a name="通信方向"></a><span></span>通信方向</h3>
+<h3><a name="通信方向"></a><span></span>Communication Direction</h3>
 <table class="reference">
 <thead>
 <tr>
-<th>类型</th>
-<th>主进程监听</th>
+<th>Type</th>
+<th>Main process listening</th>
 <th>Sent by the renderer process</th>
 </tr>
 </thead>
@@ -322,16 +322,16 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <h3>Basic Communication Example</h3>
 <p><strong>Main Process Code:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> ipcMain<span style="color: #339933;">,</span> dialog <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 监听来自渲染进程的消息</span><br/>
+<span style="color: #006600; font-style: italic;">// Listen for messages from the renderer process</span><br/>
 ipcMain.<span style="color: #660066;">handle</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'show-dialog'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span>event<span style="color: #339933;">,</span> message<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> result <span style="color: #339933;">=</span> await dialog.<span style="color: #660066;">showMessageBox</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
     type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'info'</span><span style="color: #339933;">,</span><br/>
     message<span style="color: #339933;">:</span> message<span style="color: #339933;">,</span><br/>
-    buttons<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'确定'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'取消'</span><span style="color: #009900;">]</span><br/>
+    buttons<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'OK'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'Cancel'</span><span style="color: #009900;">]</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
   <span style="color: #000066; font-weight: bold;">return</span> result<span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -339,53 +339,53 @@ ipcMain.<span style="color: #660066;">handle</span><span style="color: #009900;"
 </div>
 <p><strong>Renderer Process Code:</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 通过预加载脚本暴露的 API 进行通信</span><br/>
+<span style="color: #006600; font-style: italic;">// Communicate via the API exposed by the preload script</span><br/>
 document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'btn'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'click'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #000066; font-weight: bold;">const</span> result <span style="color: #339933;">=</span> await window.<span style="color: #660066;">electronAPI</span>.<span style="color: #660066;">showDialog</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'你好，Electron！'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'用户点击了:'</span><span style="color: #339933;">,</span> result.<span style="color: #660066;">response</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  <span style="color: #000066; font-weight: bold;">const</span> result <span style="color: #339933;">=</span> await window.<span style="color: #660066;">electronAPI</span>.<span style="color: #660066;">showDialog</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Hello, Electron!'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'User clicked:'</span><span style="color: #339933;">,</span> result.<span style="color: #660066;">response</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Architecture Advantages &amp; Features</h2>
-<h3>优势对比</h3>
+<h3>Advantage Comparison</h3>
 <table class="reference">
 <thead>
 <tr>
-<th>特性</th>
+<th>Features</th>
 <th>Electron</th>
 <th>Traditional Desktop Development</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>开发技术</td>
-<td>Web 技术 (HTML/CSS/JS)</td>
+<td>Development Technology</td>
+<td>Web Technologies (HTML/CSS/JS)</td>
 <td>Native languages (C++/C#/Java)</td>
 </tr>
 <tr>
-<td>跨平台支持</td>
+<td>Cross-platform support</td>
 <td>Develop Once, Run on Multiple Platforms</td>
 <td>Requires separate development for each platform</td>
 </tr>
 <tr>
-<td>开发效率</td>
+<td>Development Efficiency</td>
 <td>High, leverages existing web ecosystem</td>
 <td>Lower, requires learning platform-specific technologies</td>
 </tr>
 <tr>
-<td>性能</td>
+<td>Performance</td>
 <td>Relatively low, consumes more resources</td>
 <td>High, Native Performance</td>
 </tr>
 <tr>
-<td>安装包大小</td>
+<td>Installer size</td>
 <td>Large (includes Chromium)</td>
-<td>较小</td>
+<td>the smaller</td>
 </tr>
 </tbody></table>
-<h3>核心特点</h3>
+<h3>Core Features</h3>
 <ol>
 <li><strong>Cross-Platform Consistency</strong>: The application looks and behaves consistently on all operating systems</li>
 <li><strong>Leveraging the web ecosystem</strong>: Can directly use npm packages and Web frameworks</li>
@@ -397,7 +397,7 @@ document.<span style="color: #660066;">getElementById</span><span style="color: 
 <p>Let's create a simple file manager application to demonstrate the Electron architecture:</p>
 <p><strong>Main Process (main.js):</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> app<span style="color: #339933;">,</span> BrowserWindow<span style="color: #339933;">,</span> ipcMain<span style="color: #339933;">,</span> dialog <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> fs <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'fs'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">promises</span><span style="color: #339933;">;</span><br/>
@@ -418,7 +418,7 @@ let mainWindow<span style="color: #339933;">;</span><br/>
   mainWindow.<span style="color: #660066;">loadFile</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'index.html'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 处理文件读取</span><br/>
+<span style="color: #006600; font-style: italic;">// Handle file reading</span><br/>
 ipcMain.<span style="color: #660066;">handle</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'read-file'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span>event<span style="color: #339933;">,</span> filePath<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> content <span style="color: #339933;">=</span> await fs.<span style="color: #660066;">readFile</span><span style="color: #009900;">(</span>filePath<span style="color: #339933;">,</span> <span style="color: #3366CC;">'utf-8'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -428,12 +428,12 @@ ipcMain.<span style="color: #660066;">handle</span><span style="color: #009900;"
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 处理文件选择</span><br/>
+<span style="color: #006600; font-style: italic;">// Handle file selection</span><br/>
 ipcMain.<span style="color: #660066;">handle</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'select-file'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> result <span style="color: #339933;">=</span> await dialog.<span style="color: #660066;">showOpenDialog</span><span style="color: #009900;">(</span>mainWindow<span style="color: #339933;">,</span> <span style="color: #009900;">{</span><br/>
     properties<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'openFile'</span><span style="color: #009900;">]</span><span style="color: #339933;">,</span><br/>
     filters<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
-      <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'文本文件'</span><span style="color: #339933;">,</span> extensions<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'txt'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'md'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'js'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'html'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'css'</span><span style="color: #009900;">]</span> <span style="color: #009900;">}</span><br/>
+      <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Text File'</span><span style="color: #339933;">,</span> extensions<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'txt'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'md'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'js'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'html'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'css'</span><span style="color: #009900;">]</span> <span style="color: #009900;">}</span><br/>
     <span style="color: #009900;">]</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
   <br/>
@@ -445,7 +445,7 @@ app.<span style="color: #660066;">whenReady</span><span style="color: #009900;">
 </div>
 <p><strong>Preload script (preload.js):</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">{</span> contextBridge<span style="color: #339933;">,</span> ipcRenderer <span style="color: #009900;">}</span> <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'electron'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
@@ -457,12 +457,12 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 </div>
 <p><strong>Renderer process (index.html):</strong></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #555;">&lt;!DOCTYPE html&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
-    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>简单文件管理器<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
+    <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>Simple file manager<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">style</span>&gt;</span><br/>
         body { font-family: Arial, sans-serif; margin: 20px; }<br/>
         .container { max-width: 800px; margin: 0 auto; }<br/>
@@ -473,13 +473,13 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">class</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"container"</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h1</span>&gt;</span>简单文件管理器<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h1</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"selectBtn"</span>&gt;</span>选择文件<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
-        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"clearBtn"</span>&gt;</span>清空内容<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h1</span>&gt;</span>Simple file manager<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h1</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"selectBtn"</span>&gt;</span>Select File<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
+        <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">button</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"clearBtn"</span>&gt;</span>Clear Content<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">button</span>&gt;</span><br/>
         <br/>
         <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h3</span>&gt;</span>文件内容：<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h3</span>&gt;</span><br/>
-            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"content"</span>&gt;</span>请选择一个文件...<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">h3</span>&gt;</span>File contents:<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">h3</span>&gt;</span><br/>
+            <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">div</span> <span style="color: #00c;">id</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"content"</span>&gt;</span>Please select a file...<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
         <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">div</span>&gt;</span><br/>
 <br/>
@@ -495,13 +495,13 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <span style="color: #DDBB00;">                const filePath = result.filePaths[0];</span><br/>
                 const fileResult = await window.fileAPI.readFile(filePath);<br/>
                 <br/>
-                if (fileResult.success) {<br/>contentDiv.textContent = `文件路径: ${filePath}\n\n${fileResult.content}`;<br/>
-                } else {<br/>contentDiv.textContent = `读取文件失败: ${fileResult.error}`;<br/>
+                if (fileResult.success) {<br/>contentDiv.textContent = `File path: ${filePath}\n\n${fileResult.content}`;<br/>
+                } else {<br/>contentDiv.textContent = `Failed to read file: ${fileResult.error}`;<br/>
                 }<br/>
             }<br/>
         });<br/>
 <br/>
-        clearBtn.addEventListener('click', () =&gt; {<br/>contentDiv.textContent = '请选择一个文件...';<br/>
+        clearBtn.addEventListener('click', () =&gt; {<br/>contentDiv.textContent = 'Please select a file...';<br/>
         });<br/>
     <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">body</span>&gt;</span><br/>
@@ -513,8 +513,8 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <table class="reference">
 <thead>
 <tr>
-<th>模块名</th>
-<th>作用</th>
+<th>module name</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
@@ -532,11 +532,11 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 </tr>
 <tr>
 <td><code>Notification</code></td>
-<td>系统通知</td>
+<td>System Notification</td>
 </tr>
 <tr>
 <td><code>dialog</code></td>
-<td>打开文件/保存对话框</td>
+<td>Open File/Save Dialog</td>
 </tr>
 <tr>
 <td><code>shell</code></td>
@@ -566,17 +566,17 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <table class="reference">
 <thead>
 <tr>
-<th>策略</th>
-<th>描述</th>
+<th>Policy</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>关闭 NodeIntegration</strong></td>
-<td>默认<code>false</code>, avoiding web pages from directly calling system APIs.</td>
+<td><strong>Disable NodeIntegration</strong></td>
+<td>Default<code>false</code>, avoiding web pages from directly calling system APIs.</td>
 </tr>
 <tr>
-<td><strong>启用 ContextIsolation</strong></td>
+<td><strong>Enable ContextIsolation</strong></td>
 <td>Make page scripts and Preload APIs run in an isolated context.</td>
 </tr>
 <tr>
@@ -588,7 +588,7 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <td>Restrict script sources to prevent XSS.</td>
 </tr>
 <tr>
-<td><strong>sandbox 模式</strong></td>
+<td><strong>sandbox mode</strong></td>
 <td>Sandboxing can be enabled to completely isolate the renderer process.</td>
 </tr>
 <tr>
@@ -621,11 +621,11 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <hr/>
 <h2>Main-subordinate multi-window model (multi-process parallel)</h2>
 <ul>
-<li>An Electron application always has only<strong>一个主进程</strong>；</li>
-<li>但可以有<strong>Multiple renderer processes (each window is independent)</strong>；</li>
+<li>An Electron application always has only<strong>A main process</strong>；</li>
+<li>But can have<strong>Multiple renderer processes (each window is independent)</strong>；</li>
 <li>Communication between them must go through the main process relay or use<code>ipcMain.handle</code>Perform asynchronous bridging.</li>
 </ul>
-<p>示意：</p>
+<p>Schematic:</p>
 <pre>
 主进程 (Main)
  ├── 窗口1 → 渲染进程A (index.html)
@@ -637,46 +637,42 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <table class="reference">
 <thead>
 <tr>
-<th>层级</th>
-<th>技术</th>
+<th>Tier</th>
+<th>Technology</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>界面渲染层</td>
+<td>UI rendering layer</td>
 <td>Chromium（Blink + V8）</td>
 </tr>
 <tr>
-<td>系统接口层</td>
+<td>System interface layer</td>
 <td>Node.js（libuv + C++ bindings）</td>
 </tr>
 <tr>
-<td>进程管理层</td>
-<td>Electron 内核（C++ + JavaScript）</td>
+<td>Process management layer</td>
+<td>Electron Core (C++ + JavaScript)</td>
 </tr>
 <tr>
-<td>应用逻辑层</td>
-<td>你的 JS / TS 代码（Main + Renderer）</td>
+<td>Application logic layer</td>
+<td>Your JS/TS code (Main + Renderer)</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <p>Your JS code runs in the Node environment encapsulated by Electron, while the rendering interface runs in the Chromium WebView.</p>
-</blockquote> 其他扩展
-</div>
+</blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-intro.html" rel="prev">Electron 简介</a> </div>
-<div class="next-design-link"><a href="../electron/electron-install.html" rel="next">Electron 安装</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-intro.html" rel="prev">Electron Introduction</a> </div>
+<div class="next-design-link"><a href="../electron/electron-install.html" rel="next">Electron installation</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -780,16 +776,16 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -797,14 +793,14 @@ contextBridge.<span style="color: #660066;">exposeInMainWorld</span><span style=
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="28780"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -982,7 +978,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1073,7 +1069,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

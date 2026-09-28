@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>从逻辑门到加法器 | 菜鸟教程</title>
+<title>From Logic Gates to Adders | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="从逻辑门到加法器  计算机不会「算数」——它只会用逻辑门一层层搭积木。这一讲我们亲手用 XOR、AND、OR 门搭建出一个能算加法的电路，从半加器到全加器再到 4 位加法器，逐级构建。    生活中的加法——列竖式的启示  回想你在纸上做加法的过程。计算 37 + 58：  先算个位：7 + 8 = 15，写 5，进 1。 再算十位：3 + 5 + 进位1 = 9，写 9，结果是 95。  这个过程揭示了三个关键点：  1. 逐位计算：.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/building-logic-circuits.html" rel="prev">逻辑门电路搭建</a> </div>
-<div class="next-design-link"><a href="../computer-organization/flip-flops-and-registers.html" rel="next">触发器与寄存器 — 计算机如何「记住」数据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/building-logic-circuits.html" rel="prev">Logic Gate Circuit Construction</a> </div>
+<div class="next-design-link"><a href="../computer-organization/flip-flops-and-registers.html" rel="next">Flip-flops and Registers — How Computers 'Remember' Data</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,19 +168,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Addition in Daily Life—Inspired by Column Addition</h2>
 <p>Recall the process of doing addition on paper. Compute<span class="marked">37 + 58</span>：</p>
-<p>先算个位：<span class="marked">7 + 8 = 15</span>，写<span class="marked">5</span>，<span class="tag1 green">进 1</span>。</p>
-<p>再算十位：<span class="marked">3 + 5 + 进位1 = 9</span>，写<span class="marked">9</span>，结果是<span class="marked">95</span>。</p>
+<p>First calculate the ones digit:<span class="marked">7 + 8 = 15</span>, write<span class="marked">5</span>，<span class="tag1 green">increment by 1</span>。</p>
+<p>Then calculate the tens digit:<span class="marked">3 + 5 + carry 1 = 9</span>, write<span class="marked">9</span>, the result is<span class="marked">95</span>。</p>
 <p>This process reveals three key points:</p>
-<p><span class="marked">1. 逐位计算</span>: Each bit only cares about its two addends and the carry from the lower bit.</p>
-<p><span class="marked">2. 进位传播</span>: After the lower bit is computed, a carry may be generated, and this carry must be passed to the higher bit.</p>
-<p><span class="marked">3. 最低位特殊</span>: The lowest bit has no carry from a lower bit; it only needs to process the two addends.</p>
+<p><span class="marked">1. Bit-by-bit calculation</span>: Each bit only cares about its two addends and the carry from the lower bit.</p>
+<p><span class="marked">2. Carry propagation</span>: After the lower bit is computed, a carry may be generated, and this carry must be passed to the higher bit.</p>
+<p><span class="marked">3. Least significant bit special</span>: The lowest bit has no carry from a lower bit; it only needs to process the two addends.</p>
 <blockquote><p>Computers do addition with the same idea: break a big problem (multi-bit addition) into many small problems (1-bit addition), then solve them one by one.</p></blockquote>
 <h2>Half adder — 1-bit addition for the lowest bit</h2>
-<p>The lowest bit has no carry input; it only needs to add two 1-bit binary numbers. A circuit that can handle this situation is called a<span class="marked">半加器（Half Adder）</span>。</p>
-<p>A half adder has two inputs A and B, and two outputs:<span class="tag1 green">和位 Sum</span> 和 <span class="marked">进位 Carry</span>。</p>
+<p>The lowest bit has no carry input; it only needs to add two 1-bit binary numbers. A circuit that can handle this situation is called a<span class="marked">Half Adder</span>。</p>
+<p>A half adder has two inputs A and B, and two outputs:<span class="tag1 green">Sum bit</span>and<span class="marked">Carry</span>。</p>
 <p>Half adder truth table:</p>
 <table class="reference">
-<tr><th>A</th><th>B</th><th>Sum（和）</th><th>Carry（进位）</th></tr>
+<tr><th>A</th><th>B</th><th>Sum (sum)</th><th>Carry</th></tr>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
 <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
@@ -189,10 +189,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Looking at the truth table, a surprising coincidence appears:</p>
 <p><span class="marked">Sum = A XOR B</span>. When A and B are different, Sum=1; when same, Sum=0 — this is exactly the truth table of an XOR gate.</p>
 <p><span class="marked">Carry = A AND B</span>. A carry is generated only when both inputs are 1 — this is exactly the truth table of an AND gate.</p>
-<p>Half adder only requires<span class="tag1 green">1 个 XOR 门 + 1 个 AND 门</span>That can be implemented. George Boole probably never imagined that the algebraic system he invented would one day become the mathematical foundation of adders.</p>
+<p>Half adder only requires<span class="tag1 green">1 XOR gate + 1 AND gate</span>That can be implemented. George Boole probably never imagined that the algebraic system he invented would one day become the mathematical foundation of adders.</p>
 <h2>Full Adder—Complete Addition with Carry Handling</h2>
-<p>The half adder has a fatal flaw:<span class="marked">它不能接收来自低位的进位</span>. Except for the lowest bit, each bit must process three numbers: A, B, and the carry-in Cin from the lower bit.</p>
-<p>A circuit that can handle two addends and one carry input at the same time is called a<span class="marked">全加器（Full Adder）</span>。</p>
+<p>The half adder has a fatal flaw:<span class="marked">It cannot receive a carry from the lower bit.</span>. Except for the lowest bit, each bit must process three numbers: A, B, and the carry-in Cin from the lower bit.</p>
+<p>A circuit that can handle two addends and one carry input at the same time is called a<span class="marked">Full Adder</span>。</p>
 <p>Full adder truth table:</p>
 <table class="reference">
 <tr><th>A</th><th>B</th><th>Cin</th><th>Sum</th><th>Cout</th></tr>
@@ -205,110 +205,110 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
 <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
 </table>
-<p>A clever design:<span class="marked">用两个半加器就能搭出全加器</span>。</p>
+<p>A clever design:<span class="marked">You can build a full adder with two half adders</span>。</p>
 <p>Step 1: Half adder 1 processes A and B, producing intermediate sum S1 and carry C1.</p>
 <p>Step 2: Half adder 2 processes S1 and Cin, producing final sum Sum and carry C2.</p>
 <p>Step 3: Final Carry<span class="marked">Cout = C1 OR C2</span>(If either half adder generates a carry, the final output is a carry.)</p>
-<p>The circuit structure of a full adder:<span class="tag1 green">2 个半加器 + 1 个 OR 门</span>. Layered on top of each other, each half adder internally is XOR + AND. This hierarchical construction idea runs through the entire computer architecture.</p>
+<p>The circuit structure of a full adder:<span class="tag1 green">2 half adders + 1 OR gate</span>. Layered on top of each other, each half adder internally is XOR + AND. This hierarchical construction idea runs through the entire computer architecture.</p>
 <h2>Cascading full adders — 4-bit ripple carry adder</h2>
-<p>With full adders, multi-bit addition becomes simple:<span class="marked">把多个全加器串起来，低位的进位输出连到高位的进位输入</span>。</p>
+<p>With full adders, multi-bit addition becomes simple:<span class="marked">Connect multiple full adders in series, with the carry output of the lower bit connected to the carry input of the higher bit</span>。</p>
 <p>The cascade structure of a 4-bit adder:</p>
 <p>Bit 0 (lowest bit): full adder processes A0, B0, carry-in = 0, producing sum S0 and carry C0.</p>
 <p>Bit 1: full adder processes A1, B1, carry-in = C0, producing sum S1 and carry C1.</p>
 <p>Bit 2: full adder processes A2, B2, carry-in = C1, producing sum S2 and carry C2.</p>
 <p>Bit 3 (highest bit): full adder processes A3, B3, carry-in = C2, producing sum S3 and carry C3 (final carry).</p>
-<p>The carry ripples like water waves from the low bit to the high bit level by level, so this structure is called a<span class="marked">行波进位加法器（Ripple Carry Adder）</span>。</p>
+<p>The carry ripples like water waves from the low bit to the high bit level by level, so this structure is called a<span class="marked">Ripple Carry Adder (Ripple Carry Adder)</span>。</p>
 <blockquote><p>The ripple carry adder is simple and intuitive, but has a performance bottleneck: in the worst case, the carry must propagate from bit 0 all the way to the highest bit, passing through N stages of full adder delays. Modern CPUs use techniques like carry lookahead to optimize, but understanding ripple carry is a prerequisite for understanding all adder optimizations.</p></blockquote>
 <h2>Python Code Demo</h2>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 第8讲：从逻辑门到加法器 - Python 演示</span><br/>
-<span style="color: #a50"># runoob 教程系列</span><br/>
+<span style="color: #a50"># Lecture 8: From Logic Gates to Adders - Python Demo</span><br/>
+<span style="color: #a50"># runoob tutorial series</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> half_adder<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>半加器：两个 1 位二进制数相加，不考虑进位输入。<br/>
-<br/>参数:<br/>a, b: 各为 0 或 1<br/>
-<br/>返回:<br/>(sum_bit, carry_out): 和位与进位<br/>
-<br/>电路实现:<br/>sum_bit = a XOR b   （异或门）<br/>carry_out = a AND b （与门）<br/>
+    <span style="color: #a11;">"""<br/>Half adder: adds two 1-bit binary numbers, ignoring carry input.<br/>
+<br/>Parameters:<br/>a, b: each is 0 or 1<br/>
+<br/>Returns:<br/>(sum_bit, carry_out): sum bit and carry out<br/>
+<br/>Circuit implementation:<br/>sum_bit = a XOR b   (XOR gate)<br/>carry_out = a AND b (AND gate)<br/>
     """</span><br/>
-    sum_bit <span style="color: Gray;">=</span> a ^ b      <span style="color: #a50"># XOR：相同为 0，不同为 1</span><br/>
-    carry_out <span style="color: Gray;">=</span> a &amp; b    <span style="color: #a50"># AND：两者都为 1 时才进位</span><br/>
+    sum_bit <span style="color: Gray;">=</span> a ^ b      <span style="color: #a50"># XOR: same is 0, different is 1</span><br/>
+    carry_out <span style="color: Gray;">=</span> a &amp; b    <span style="color: #a50"># AND: carry only when both are 1</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> sum_bit<span style="color: Gray;">,</span> carry_out<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> full_adder<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Gray;">,</span> carry_in<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>全加器：两个 1 位二进制数相加，考虑进位输入。<br/>
-<br/>参数:<br/>a, b, carry_in: 各为 0 或 1<br/>
-<br/>返回:<br/>(sum_bit, carry_out): 和位与进位<br/>
-<br/>实现技巧——用两个半加器级联：<br/>第一步：half_adder(a, b) → (s1, c1)<br/>第二步：half_adder(s1, carry_in) → (sum_bit, c2)<br/>最终进位：carry_out = c1 OR c2<br/>
+    <span style="color: #a11;">"""<br/>Full adder: add two 1-bit binary numbers, considering carry input.<br/>
+<br/>Parameters:<br/>a, b, carry_in: each is 0 or 1<br/>
+<br/>Returns:<br/>(sum_bit, carry_out): sum bit and carry out<br/>
+<br/>Implementation tip—cascade two half adders:<br/>Step 1: half_adder(a, b) → (s1, c1)<br/>Step 2: half_adder(s1, carry_in) → (sum_bit, c2)<br/>Final carry: carry_out = c1 OR c2<br/>
     """</span><br/>
     s1<span style="color: Gray;">,</span> c1 <span style="color: Gray;">=</span> half_adder<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><br/>
     sum_bit<span style="color: Gray;">,</span> c2 <span style="color: Gray;">=</span> half_adder<span style="color: Olive;">(</span>s1<span style="color: Gray;">,</span> carry_in<span style="color: Olive;">)</span><br/>
-    carry_out <span style="color: Gray;">=</span> c1 | c2   <span style="color: #a50"># OR 门：任意一个有进位，最终就有进位</span><br/>
+    carry_out <span style="color: Gray;">=</span> c1 | c2   <span style="color: #a50"># OR gate: if either one has a carry, the final carry is set</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> sum_bit<span style="color: Gray;">,</span> carry_out<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> adder_4bit<span style="color: Olive;">(</span>a_bits<span style="color: Gray;">,</span> b_bits<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>4 位行波进位加法器：4 个全加器级联。<br/>
-<br/>参数:<br/>a_bits: 4 位二进制列表，a_bits[0] 为最低位（LSB）<br/>b_bits: 4 位二进制列表，b_bits[0] 为最低位（LSB）<br/>
-<br/>返回:<br/>(sum_bits, final_carry): 4 位和（低位在前）与最终进位<br/>
-<br/>打印进位传播的完整过程，展示行波进位的工作方式。<br/>
+    <span style="color: #a11;">"""<br/>4-bit ripple-carry adder: 4 full adders cascaded.<br/>
+<br/>Parameters:<br/>a_bits: 4-bit binary list, a_bits[0] is the least significant bit (LSB)<br/>b_bits: 4-bit binary list, b_bits[0] is the least significant bit (LSB)<br/>
+<br/>Returns:<br/>(sum_bits, final_carry): 4-bit sum (least significant bit first) and final carry<br/>
+<br/>Print the complete process of carry propagation, demonstrating how ripple carry works.<br/>
     """</span><br/>
     carry_in <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
     sum_bits <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  4 位行波进位加法器 —— 进位传播过程"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">4-bit ripple carry adder — carry propagation process</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 高位在前显示，方便人阅读</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  加数 A: {list(reversed(a_bits))}  (高位在前)"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  加数 B: {list(reversed(b_bits))}  (高位在前)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: #a50"># Display high-order bits first, for easy reading</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Addend A: {list(reversed(a_bits))}  (high bits first)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Addend B: {list(reversed(b_bits))}  (high bits first)"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span>:<br/>
         s<span style="color: Gray;">,</span> carry_out <span style="color: Gray;">=</span> full_adder<span style="color: Olive;">(</span>a_bits<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Gray;">,</span> b_bits<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Gray;">,</span> carry_in<span style="color: Olive;">)</span><br/>
         sum_bits.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>s<span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [第 {i} 位] (最低位为第 0 位)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    输入: A[{i}]={a_bits[i]}, B[{i}]={b_bits[i]}, 进位入={carry_in}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    输出: 和位={s}, 进位出={carry_out}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  [bit {i}] (the least significant bit is bit 0)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    Input: A[{i}]={a_bits[i]}, B[{i}]={b_bits[i]}, enterbits入={carry_in}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Output: sum bit={s}, carry out={carry_out}</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> carry_out:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    &gt;&gt; 产生进位！Carry={carry_out} 将传递给第 {i+1} 位"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">&gt;&gt; Carry generated! Carry={carry_out} will be passed to bit {i+1}</span><span style="color: Olive;">)</span><br/>
 <br/>
-        carry_in <span style="color: Gray;">=</span> carry_out  <span style="color: #a50"># 当前进位成为下一位的进位入</span><br/>
+        carry_in <span style="color: Gray;">=</span> carry_out  <span style="color: #a50"># The current carry becomes the carry input of the next bit</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  计算结果: {list(reversed(sum_bits))}  (高位在前)"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最终进位: {carry_in}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Calculation result: {list(reversed(sum_bits))}  (high-order bits first)</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Final carry: {carry_in}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> sum_bits<span style="color: Gray;">,</span> carry_in<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> decimal_to_4bit<span style="color: Olive;">(</span>n<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""将 0-15 的十进制数转为 4 位二进制列表（低位在前）"""</span><br/>
+    <span style="color: #a11;">"""Convert decimal numbers 0-15 to 4-bit binary lists (least significant bit first)"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: Olive;">(</span>n <span style="color: Gray;">&gt;&gt;</span> i<span style="color: Olive;">)</span> &amp; <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> bits_to_decimal<span style="color: Olive;">(</span>bits<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""将二进制位列表（低位在前）转为十进制整数"""</span><br/>
+    <span style="color: #a11;">"""Convert a list of binary bits (least significant bit first) to a decimal integer"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">sum</span><span style="color: Olive;">(</span>bit * <span style="color: Olive;">(</span><span style="color: Maroon;">2</span> ** i<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> bit <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>bits<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================================</span><br/>
-<span style="color: #a50"># 测试用例</span><br/>
+<span style="color: #a50"># Test case</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"&gt;&gt;&gt; runoob 半加器测试 &lt;&lt;&lt;"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">&gt;&gt;&gt; runoob half adder test &lt;&lt;&lt;</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
         s<span style="color: Gray;">,</span> c <span style="color: Gray;">=</span> half_adder<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  half_adder({a}, {b}) =&gt; sum={s}, carry={c}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"&gt;&gt;&gt; runoob 全加器测试 &lt;&lt;&lt;"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">&gt;&gt;&gt; runoob full adder test &lt;&lt;&lt;</span><span style="color: Olive;">)</span><br/>
 test_cases <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
     <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
@@ -318,31 +318,31 @@ test_cases <span style="color: Gray;">=</span> <span style="color: Olive;">[</sp
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  full_adder({a}, {b}, carry_in={cin}) =&gt; sum={s}, carry={c}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"&gt;&gt;&gt; runoob 4 位加法器测试: 7 + 5 &lt;&lt;&lt;"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">&gt;&gt;&gt; runoob 4-bit adder test: 7 + 5 &lt;&lt;&lt;</span><span style="color: Olive;">)</span><br/>
 a_dec<span style="color: Gray;">,</span> b_dec <span style="color: Gray;">=</span> <span style="color: Maroon;">7</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><br/>
 a_bits <span style="color: Gray;">=</span> decimal_to_4bit<span style="color: Olive;">(</span>a_dec<span style="color: Olive;">)</span><br/>
 b_bits <span style="color: Gray;">=</span> decimal_to_4bit<span style="color: Olive;">(</span>b_dec<span style="color: Olive;">)</span><br/>
 result_bits<span style="color: Gray;">,</span> final_carry <span style="color: Gray;">=</span> adder_4bit<span style="color: Olive;">(</span>a_bits<span style="color: Gray;">,</span> b_bits<span style="color: Olive;">)</span><br/>
 result_dec <span style="color: Gray;">=</span> bits_to_decimal<span style="color: Olive;">(</span>result_bits<span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  期望: {a_dec} + {b_dec} = {a_dec + b_dec}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  结果: {result_dec} (进位={final_carry})"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  runoob 验证: {'通过!' if result_dec == a_dec + b_dec else '失败!'}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Expected: {a_dec} + {b_dec} = {a_dec + b_dec}</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Result: {result_dec} (carry={final_carry})</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  runoob verify: {'Through!' if result_dec == a_dec + b_dec else 'failure!'}"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"&gt;&gt;&gt; runoob 额外测试: 10 + 6 (可能溢出) &lt;&lt;&lt;"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">&gt;&gt;&gt; runoob extra test: 10 + 6 (possible overflow) &lt;&lt;&lt;</span><span style="color: Olive;">)</span><br/>
 a_bits2 <span style="color: Gray;">=</span> decimal_to_4bit<span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Olive;">)</span><br/>
 b_bits2 <span style="color: Gray;">=</span> decimal_to_4bit<span style="color: Olive;">(</span><span style="color: Maroon;">6</span><span style="color: Olive;">)</span><br/>
 result_bits2<span style="color: Gray;">,</span> carry2 <span style="color: Gray;">=</span> adder_4bit<span style="color: Olive;">(</span>a_bits2<span style="color: Gray;">,</span> b_bits2<span style="color: Olive;">)</span><br/>
 result_dec2 <span style="color: Gray;">=</span> bits_to_decimal<span style="color: Olive;">(</span>result_bits2<span style="color: Olive;">)</span><br/>
 full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color: Olive;">(</span>carry2 * <span style="color: Maroon;">16</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  期望: 10 + 6 = 16"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  4 位结果: {result_dec2}, 进位: {carry2}, 完整 5 位值: {full_result}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  runoob 验证: {'通过!' if full_result == 16 else '失败!'}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Expected: 10 + 6 = 16"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  4 bitsResult: {result_dec2}, enterbits: {carry2}, Complete 5 bitsValue: {full_result}"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">runoob verification: {'Pass!' if full_result == 16 else 'Fail!'}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p>Run the code and observe how the carry propagates between each bit—the least significant bit is computed first, and after a carry is generated, it is passed to the next bit; the next bit is then computed, and if a carry is generated, it is passed further along. This is the origin of the name "ripple carry."</p>
 <hr/>
 <h2>Interactive demo: 4-bit adder cascade animation (runoob carry propagation demo)</h2>
-<p>Below, a 4-bit ripple carry adder is simulated with pure div+SVG.<span class="marked">点击按钮逐步演示进位如何从第 0 位（最低位）传到第 3 位（最高位）</span>, or you can use "Auto Demo" to watch the full process.</p>
+<p>Below, a 4-bit ripple carry adder is simulated with pure div+SVG.<span class="marked">Click the button to step through how the carry propagates from bit 0 (least significant bit) to bit 3 (most significant bit).</span>, or you can use "Auto Demo" to watch the full process.</p>
 <style>
 /* === runoob 演示专用样式：加法器级联动画 === */
 #adder-demo {
@@ -517,11 +517,9 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
 .adder-result .result-value { color: #4C7EAF; font-weight: bold; font-size: 18px; }
 </style>
 <div id="adder-demo">
-<h3>4-bit ripple carry adder — carry propagation animation</h3>
-输入 A（高位在前）
-<div class="adder-inputs">
+<h3>4-bit ripple carry adder — carry propagation animation</h3>Input A (most significant first)<div class="adder-inputs">
 <div class="adder-input-group">
-<div class="adder-label">加数 A（高位在前）</div>
+<div class="adder-label">Addend A (most significant first)</div>
 <div class="adder-input-bits" id="bitsA">
 <button class="adder-bit-btn" data-bit="3" onclick="toggleAdderBit('A',3)">0<span class="bit-index">bit3</span></button>
 <button class="adder-bit-btn" data-bit="2" onclick="toggleAdderBit('A',2)">0<span class="bit-index">bit2</span></button>
@@ -530,7 +528,7 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
 </div>
 </div>
 <div class="adder-input-group">
-<div class="adder-label">加数 B（高位在前）</div>
+<div class="adder-label">Addend B (most significant first)</div>
 <div class="adder-input-bits" id="bitsB">
 <button class="adder-bit-btn" data-bit="3" onclick="toggleAdderBit('B',3)">0<span class="bit-index">bit3</span></button>
 <button class="adder-bit-btn" data-bit="2" onclick="toggleAdderBit('B',2)">1<span class="bit-index">bit2</span></button>
@@ -538,52 +536,48 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
 <button class="adder-bit-btn active" data-bit="0" onclick="toggleAdderBit('B',0)">1<span class="bit-index">bit0</span></button>
 </div>
 </div>
-</div>
-4 个全加器级联（从高到低排列：FA3 ← FA2 ← FA1 ← FA0）
-<div class="adder-cascade" id="adderCascade">
+</div>4 full adders cascaded (ordered from high to low: FA3 ← FA2 ← FA1 ← FA0)<div class="adder-cascade" id="adderCascade">
 <div class="fa-block" id="fa3">
-<div class="fa-title">全加器 #3（最高位）</div>
+<div class="fa-title">Full Adder #3 (most significant bit)</div>
 <div class="fa-io">A=<span class="io-A io-val0" id="fa3_A">0</span> B=<span class="io-B io-val0" id="fa3_B">0</span></div>
-<div class="fa-io">进位入 Cin=<span class="io-Ci io-val0" id="fa3_Ci">0</span></div>
-<div class="fa-io">和 Sum=<span class="io-S io-val0" id="fa3_S">?</span></div>
-<div class="fa-io">进位出 Cout=<span class="io-Co io-val0" id="fa3_Co">?</span></div>
+<div class="fa-io">Carry in Cin=<span class="io-Ci io-val0" id="fa3_Ci">0</span></div>
+<div class="fa-io">Sum =<span class="io-S io-val0" id="fa3_S">?</span></div>
+<div class="fa-io">Carry out Cout=<span class="io-Co io-val0" id="fa3_Co">?</span></div>
 </div>
 <div class="carry-arrow" id="arrow23">←</div>
 <div class="fa-block" id="fa2">
-<div class="fa-title">全加器 #2</div>
+<div class="fa-title">Full adder #2</div>
 <div class="fa-io">A=<span class="io-A io-val0" id="fa2_A">0</span> B=<span class="io-B io-val0" id="fa2_B">0</span></div>
-<div class="fa-io">进位入 Cin=<span class="io-Ci io-val0" id="fa2_Ci">0</span></div>
-<div class="fa-io">和 Sum=<span class="io-S io-val0" id="fa2_S">?</span></div>
-<div class="fa-io">进位出 Cout=<span class="io-Co io-val0" id="fa2_Co">?</span></div>
+<div class="fa-io">Carry in Cin=<span class="io-Ci io-val0" id="fa2_Ci">0</span></div>
+<div class="fa-io">Sum =<span class="io-S io-val0" id="fa2_S">?</span></div>
+<div class="fa-io">Carry out Cout=<span class="io-Co io-val0" id="fa2_Co">?</span></div>
 </div>
 <div class="carry-arrow" id="arrow12">←</div>
 <div class="fa-block" id="fa1">
-<div class="fa-title">全加器 #1</div>
+<div class="fa-title">Full adder #1</div>
 <div class="fa-io">A=<span class="io-A io-val0" id="fa1_A">0</span> B=<span class="io-B io-val0" id="fa1_B">0</span></div>
-<div class="fa-io">进位入 Cin=<span class="io-Ci io-val0" id="fa1_Ci">0</span></div>
-<div class="fa-io">和 Sum=<span class="io-S io-val0" id="fa1_S">?</span></div>
-<div class="fa-io">进位出 Cout=<span class="io-Co io-val0" id="fa1_Co">?</span></div>
+<div class="fa-io">Carry in Cin=<span class="io-Ci io-val0" id="fa1_Ci">0</span></div>
+<div class="fa-io">Sum =<span class="io-S io-val0" id="fa1_S">?</span></div>
+<div class="fa-io">Carry out Cout=<span class="io-Co io-val0" id="fa1_Co">?</span></div>
 </div>
 <div class="carry-arrow" id="arrow01">←</div>
 <div class="fa-block" id="fa0">
-<div class="fa-title">全加器 #0（最低位）</div>
+<div class="fa-title">Full Adder #0 (least significant bit)</div>
 <div class="fa-io">A=<span class="io-A io-val0" id="fa0_A">0</span> B=<span class="io-B io-val0" id="fa0_B">0</span></div>
-<div class="fa-io">进位入 Cin=<span class="io-Ci io-val0" id="fa0_Ci">0</span></div>
-<div class="fa-io">和 Sum=<span class="io-S io-val0" id="fa0_S">?</span></div>
-<div class="fa-io">进位出 Cout=<span class="io-Co io-val0" id="fa0_Co">?</span></div>
+<div class="fa-io">Carry in Cin=<span class="io-Ci io-val0" id="fa0_Ci">0</span></div>
+<div class="fa-io">Sum =<span class="io-S io-val0" id="fa0_S">?</span></div>
+<div class="fa-io">Carry out Cout=<span class="io-Co io-val0" id="fa0_Co">?</span></div>
 </div>
-</div>
-控制按钮
-<div class="adder-controls">
-<button class="adder-ctrl-btn" id="btnStep" onclick="adderStep()">下一步</button>
-<button class="adder-ctrl-btn" id="btnAuto" onclick="adderAutoPlay()">自动演示</button>
-<button class="adder-ctrl-btn" id="btnReset" onclick="adderReset()">重置</button>
+</div>Control button<div class="adder-controls">
+<button class="adder-ctrl-btn" id="btnStep" onclick="adderStep()">next step</button>
+<button class="adder-ctrl-btn" id="btnAuto" onclick="adderAutoPlay()">Auto demo</button>
+<button class="adder-ctrl-btn" id="btnReset" onclick="adderReset()">reset</button>
 </div>
 <div class="adder-result">
-<span class="result-label">计算结果：</span>
+<span class="result-label">Calculation result:</span>
 <span class="result-value" id="adderFinalResult">-</span>
 </div>
-<div id="adderStageInfo" style="text-align:center;color:#888;font-size:12px;margin-top:6px;">点击「下一步」开始演示进位传播</div>
+<div id="adderStageInfo" style="text-align:center;color:#888;font-size:12px;margin-top:6px;">Click 'Next' to start the carry propagation demo</div>
 </div>
 <script>
 /* ================================================================
@@ -776,22 +770,17 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
   /* 初始化 */
   refreshBitButtons();
 })();
-</script>
-其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/building-logic-circuits.html" rel="prev">逻辑门电路搭建</a> </div>
-<div class="next-design-link"><a href="../computer-organization/flip-flops-and-registers.html" rel="next">触发器与寄存器 — 计算机如何「记住」数据</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/building-logic-circuits.html" rel="prev">Logic Gate Circuit Construction</a> </div>
+<div class="next-design-link"><a href="../computer-organization/flip-flops-and-registers.html" rel="next">Flip-flops and Registers — How Computers 'Remember' Data</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -895,16 +884,16 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -912,14 +901,14 @@ full_result <span style="color: Gray;">=</span> result_dec2 + <span style="color
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31878"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1097,7 +1086,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1188,7 +1177,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

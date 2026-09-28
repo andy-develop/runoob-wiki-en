@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>动态规划 | 菜鸟教程</title>
+<title>Dynamic Programming | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="动态规划 动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。   想象一下，你正在爬一个 n 级的楼梯。每次你可以爬 1 级或 2 级台阶。那么，爬到楼顶总共有多少种不同的方法呢？ 如果你从最顶层的目标（第 n 级）开始想，可能会觉得复杂。但如果我们换个思路：要到达第 n 级台阶，你只能从第 n-.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,132 +158,132 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-greedy-algorithm.html" rel="prev">贪心算法</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-advanced-tree.html" rel="next">高级树结构</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-greedy-algorithm.html" rel="prev">Greedy Algorithm</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-advanced-tree.html" rel="next">Advanced Tree Structures</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>动态规划</h1>
+<h1>Dynamic programming</h1>
 <p>Dynamic programming (English: Dynamic programming, abbreviated as DP) is a method used in mathematics, management science, computer science, economics, and bioinformatics that solves complex problems by decomposing the original problem into relatively simple subproblems.</p>
-<blockquote><p>Imagine you are climbing a<code>n</code>staircase with n steps. Each time you can climb<code>1</code>级或<code>2</code>级台阶。</p><p>So, how many different ways are there to climb to the top of the building?</p>
-<p>If you start from the topmost goal (the<code>n</code>nth step), it may seem complicated.</p><p>But if we change our perspective:<strong>要到达第<code>n</code>n. To reach step n, you can only<code>n-1</code>take one step up from step n-1, or from the<code>n-2</code>level by taking two steps up.</strong>. So, to reach the<code>n</code>The number of ways to reach step n equals the number of ways to reach step<code>n-1</code>n-1 plus the number of ways to reach step<code>n-2</code>level, the number of ways.</p></blockquote>
-<p>这种<strong>Decompose a large problem into several overlapping subproblems, and avoid repeated computation by storing the solutions of subproblems, thereby solving the original problem efficiently.</strong>The method is Dynamic Programming (DP for short).</p>
-<h3>核心思想</h3>
+<blockquote><p>Imagine you are climbing a<code>n</code>staircase with n steps. Each time you can climb<code>1</code>step or<code>2</code>steps.</p><p>So, how many different ways are there to climb to the top of the building?</p>
+<p>If you start from the topmost goal (the<code>n</code>nth step), it may seem complicated.</p><p>But if we change our perspective:<strong>To reach the<code>n</code>n. To reach step n, you can only<code>n-1</code>take one step up from step n-1, or from the<code>n-2</code>level by taking two steps up.</strong>. So, to reach the<code>n</code>The number of ways to reach step n equals the number of ways to reach step<code>n-1</code>n-1 plus the number of ways to reach step<code>n-2</code>level, the number of ways.</p></blockquote>
+<p>This kind of<strong>Decompose a large problem into several overlapping subproblems, and avoid repeated computation by storing the solutions of subproblems, thereby solving the original problem efficiently.</strong>The method is Dynamic Programming (DP for short).</p>
+<h3>Core idea</h3>
 <p>The core of dynamic programming is<strong>remember the solutions already computed.</strong> 。</p><p>Dynamic programming is usually used to solve problems with the following properties:</p>
 <ol>
-<li><strong>重叠子问题</strong>: During the recursive solution process, the same subproblem may be computed multiple times.</li>
-<li><strong>最优子结构</strong>: The optimal solution to a problem contains the optimal solutions to its subproblems.</li>
+<li><strong>overlapping subproblems</strong>: During the recursive solution process, the same subproblem may be computed multiple times.</li>
+<li><strong>Optimal substructure</strong>: The optimal solution to a problem contains the optimal solutions to its subproblems.</li>
 </ol>
 <p>We can use a simple flowchart to understand the problem-solving approach of dynamic programming:</p>
 <p><a href="../wp-content/uploads/2025/12/0c933768-2609-4d8a-95b1-adab861d8b9f.png" target="_blank"><img decoding="async" src="../wp-content/uploads/2025/12/0c933768-2609-4d8a-95b1-adab861d8b9f.png"/></a></p>
 <p>The figure above shows the typical steps for solving a dynamic programming problem: start by defining the problem, find the subproblem structure through analysis, then formalize it with states and state transition equations, and finally obtain the answer through clear initial conditions and computation order.</p>
 <hr/>
 <h2>From recursion to dynamic programming: the climbing stairs problem</h2>
-<p>let's use the classic<strong>"爬楼梯"</strong>problems to experience the optimization process from recursion to dynamic programming.</p>
-<h3>问题描述</h3>
-<p>Suppose you are climbing stairs. You need<code>n</code>steps before you can reach the top. Each time you can climb<code>1</code> 或 <code>2</code>steps. How many different ways can you climb to the top?</p>
+<p>let's use the classic<strong>"Climbing Stairs"</strong>problems to experience the optimization process from recursion to dynamic programming.</p>
+<h3>Problem description</h3>
+<p>Suppose you are climbing stairs. You need<code>n</code>steps before you can reach the top. Each time you can climb<code>1</code>or<code>2</code>steps. How many different ways can you climb to the top?</p>
 <h3>Method 1: brute-force recursion (inefficient)</h3>
-<p>Based on the analysis at the beginning, we can directly write the recursive formula:<code>f(n) = f(n-1) + f(n-2)</code>其中，<code>f(1) = 1</code>, <code>f(2) = 2</code>。</p>
+<p>Based on the analysis at the beginning, we can directly write the recursive formula:<code>f(n) = f(n-1) + f(n-2)</code>where,<code>f(1) = 1</code>, <code>f(2) = 2</code>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> climb_stairs_recursive<span style="color: Olive;">(</span>n: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""递归解法"""</span><br/>
+    <span style="color: #a11;">"""Recursive solution"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">==</span> <span style="color: Maroon;">2</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">2</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> climb_stairs_recursive<span style="color: Olive;">(</span>n - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> + climb_stairs_recursive<span style="color: Olive;">(</span>n - <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 测试</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"爬到第 5 级台阶的方法数（递归）: {climb_stairs_recursive(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 8</span><br/>
+<span style="color: #a50"># Test</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Number of ways to climb to the 5th step (recursion): {climb_stairs_recursive(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 8</span><br/>
 </div>
 </div>
-<p><strong>缺点分析</strong>: This recursion involves a large amount of repeated computation. For example, computing<code>f(5)</code>需要<code>f(4)</code> 和 <code>f(3)</code>，计算<code>f(4)</code>又需要<code>f(3)</code> 和 <code>f(2)</code>，这里的<code>f(3)</code>It is computed twice. When<code>n</code>n is large, the time complexity is exponential.<code>O(2^n)</code>, which is extremely inefficient.</p>
+<p><strong>Disadvantages Analysis</strong>: This recursion involves a large amount of repeated computation. For example, computing<code>f(5)</code>requires<code>f(4)</code>and<code>f(3)</code>, computing<code>f(4)</code>in turn requires<code>f(3)</code>and<code>f(2)</code>, here<code>f(3)</code>It is computed twice. When<code>n</code>n is large, the time complexity is exponential.<code>O(2^n)</code>, which is extremely inefficient.</p>
 <h3>Method 2: Recursion with memoization (top-down)</h3>
 <p>We can use an array (a "memo") to store already computed results and avoid repeated calculations.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> climb_stairs_memo<span style="color: Olive;">(</span>n: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""带备忘录的递归（自顶向下）"""</span><br/>
-    <span style="color: #a50"># 初始化备忘录，-1 表示未计算</span><br/>
+    <span style="color: #a11;">"""Recursion with memoization (top-down)"""</span><br/>
+    <span style="color: #a50"># Initialize the memoization table; -1 means not computed</span><br/>
     memo <span style="color: Gray;">=</span> <span style="color: Olive;">[</span>-<span style="color: Maroon;">1</span><span style="color: Olive;">]</span> * <span style="color: Olive;">(</span>n + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
     <br/>
     <span style="color: Green;font-weight:bold;">def</span> helper<span style="color: Olive;">(</span>x: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-        <span style="color: #a50"># 基础情况</span><br/>
+        <span style="color: #a50"># Base case</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> x <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> x <span style="color: Gray;">==</span> <span style="color: Maroon;">2</span>:<br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">2</span><br/>
-        <span style="color: #a50"># 如果已经计算过，直接返回结果</span><br/>
+        <span style="color: #a50"># If already computed, return the result directly</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> memo<span style="color: Olive;">[</span>x<span style="color: Olive;">]</span> <span style="color: Gray;">!=</span> -<span style="color: Maroon;">1</span>:<br/>
             <span style="color: Green;font-weight:bold;">return</span> memo<span style="color: Olive;">[</span>x<span style="color: Olive;">]</span><br/>
-        <span style="color: #a50"># 否则，计算并存入备忘录</span><br/>
+        <span style="color: #a50"># Otherwise, compute and store it in the memoization table</span><br/>
         memo<span style="color: Olive;">[</span>x<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> helper<span style="color: Olive;">(</span>x - <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> + helper<span style="color: Olive;">(</span>x - <span style="color: Maroon;">2</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> memo<span style="color: Olive;">[</span>x<span style="color: Olive;">]</span><br/>
     <br/>
     <span style="color: Green;font-weight:bold;">return</span> helper<span style="color: Olive;">(</span>n<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"爬到第 5 级台阶的方法数（备忘录）: {climb_stairs_memo(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 8</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Number of ways to climb to the 5th step (memoization): {climb_stairs_memo(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 8</span><br/>
 </div>
 </div>
-<p>The time complexity of this method is reduced to<code>O(n)</code>, because each subproblem is computed only once. The space complexity is<code>O(n)</code>. This is already a dynamic programming approach, called<strong>"top-down"</strong> 或 <strong>"memoized search"</strong>。</p>
+<p>The time complexity of this method is reduced to<code>O(n)</code>, because each subproblem is computed only once. The space complexity is<code>O(n)</code>. This is already a dynamic programming approach, called<strong>"top-down"</strong>or<strong>"memoized search"</strong>。</p>
 <h3>Method 3: Iterative array (bottom-up, standard DP)</h3>
 <p>We start directly from the smallest subproblem and iterate step by step to the original problem. Usually an array is used<code>dp</code>to store states.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> climb_stairs_dp<span style="color: Olive;">(</span>n: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""动态规划（自底向上）"""</span><br/>
+    <span style="color: #a11;">"""Dynamic programming (bottom-up)"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">&lt;=</span> <span style="color: Maroon;">2</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> n<br/>
-    <span style="color: #a50"># 1. 定义状态数组：dp[i] 表示爬到第 i 级台阶的方法数</span><br/>
+    <span style="color: #a50"># 1. Define the state array: dp[i] represents the number of ways to climb to the i-th step</span><br/>
     dp <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span> * <span style="color: Olive;">(</span>n + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 2. 确定初始条件</span><br/>
+    <span style="color: #a50"># 2. Determine the initial conditions</span><br/>
     dp<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
     dp<span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">2</span><br/>
-    <span style="color: #a50"># 3. 状态转移：根据状态转移方程递推</span><br/>
+    <span style="color: #a50"># 3. State transition: derive recursively according to the state transition equation</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">3</span><span style="color: Gray;">,</span> n + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
         dp<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> dp<span style="color: Olive;">[</span>i - <span style="color: Maroon;">1</span><span style="color: Olive;">]</span> + dp<span style="color: Olive;">[</span>i - <span style="color: Maroon;">2</span><span style="color: Olive;">]</span><br/>
-    <span style="color: #a50"># 4. 返回最终结果</span><br/>
+    <span style="color: #a50"># 4. Return the final result</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> dp<span style="color: Olive;">[</span>n<span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"爬到第 5 级台阶的方法数（DP）: {climb_stairs_dp(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 8</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Number of ways to climb to the 5th step (DP): {climb_stairs_dp(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 8</span><br/>
 </div>
 </div>
 <h3>Method 4: space optimization (rolling array)</h3>
 <p>Observe the state transition equation<code>dp[i] = dp[i-1] + dp[i-2]</code>, we find that the current state only depends on the previous two states. Therefore, we don't need to store the entire<code>dp</code>array; just use two variables to update in a rolling fashion.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> climb_stairs_optimized<span style="color: Olive;">(</span>n: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""动态规划（空间优化版）"""</span><br/>
+    <span style="color: #a11;">"""Dynamic programming (space-optimized version)"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">&lt;=</span> <span style="color: Maroon;">2</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> n<br/>
-    <span style="color: #a50"># 只用两个变量代表 dp[i-1] 和 dp[i-2]</span><br/>
-    prev<span style="color: Gray;">,</span> curr <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span>  <span style="color: #a50"># 对应 dp[1], dp[2]</span><br/>
+    <span style="color: #a50"># Use only two variables to represent dp[i-1] and dp[i-2]</span><br/>
+    prev<span style="color: Gray;">,</span> curr <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span>  <span style="color: #a50"># Correspond to dp[1], dp[2]</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">3</span><span style="color: Gray;">,</span> n + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 计算新的当前值</span><br/>
+        <span style="color: #a50"># Compute the new current value</span><br/>
         new_curr <span style="color: Gray;">=</span> prev + curr<br/>
-        <span style="color: #a50"># 滚动更新变量，为下一轮循环做准备</span><br/>
+        <span style="color: #a50"># Rolling update variables, preparing for the next loop iteration</span><br/>
         prev<span style="color: Gray;">,</span> curr <span style="color: Gray;">=</span> curr<span style="color: Gray;">,</span> new_curr<br/>
     <span style="color: Green;font-weight:bold;">return</span> curr<br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"爬到第 5 级台阶的方法数（优化DP）: {climb_stairs_optimized(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 8</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Number of ways to climb to the 5th step (optimized DP): {climb_stairs_optimized(5)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 8</span><br/>
 </div>
 </div>
-<p>After optimization, the space complexity goes from<code>O(n)</code>降到了<code>O(1)</code>。</p>
+<p>After optimization, the space complexity goes from<code>O(n)</code>dropped to<code>O(1)</code>。</p>
 <hr/>
 <h2>Dynamic programming problem-solving framework</h2>
 <p>Through the climbing stairs problem, we can summarize a universal four-step process for solving dynamic programming problems:</p>
 <h3>Step 1: Define the state</h3>
-<p>Use one or more arrays (usually called<code>dp</code>) to represent the solutions to subproblems. The key is to clearly figure out<code>dp[i]</code>或者<code>dp[i][j]</code>What does it represent?</p>
+<p>Use one or more arrays (usually called<code>dp</code>) to represent the solutions to subproblems. The key is to clearly figure out<code>dp[i]</code>or<code>dp[i][j]</code>What does it represent?</p>
 <blockquote>
-<p>In the climbing stairs problem, we define<code>dp[i]</code>为"爬到第<code>i</code>the total number of ways to reach step n.</p>
+<p>In the climbing stairs problem, we define<code>dp[i]</code>as "climb to the<code>i</code>the total number of ways to reach step n.</p>
 </blockquote>
 <h3>Step 2: Determine the state transition equation</h3>
-<p>找出<code>dp[i]</code>with the previous state (such as<code>dp[i-1]</code>, <code>dp[i-2]</code>the relationship between them. This is the core and difficulty of dynamic programming.</p>
+<p>find<code>dp[i]</code>with the previous state (such as<code>dp[i-1]</code>, <code>dp[i-2]</code>the relationship between them. This is the core and difficulty of dynamic programming.</p>
 <blockquote>
 <p>In the climbing stairs problem, the state transition equation is:<code>dp[i] = dp[i-1] + dp[i-2]</code>。</p>
 </blockquote>
@@ -295,116 +295,111 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Step 4: Determine the computation order and compute</h3>
 <p>Determine whether it is "top-down" (memoized recursion) or "bottom-up" (iterative recurrence), and ensure that when computing<code>dp[i]</code>, all the subproblems on which it depends have already been computed.</p>
 <blockquote>
-<p>In the climbing stairs problem, we adopt a bottom-up approach, starting from<code>i=3</code>循环到<code>i=n</code>。</p>
+<p>In the climbing stairs problem, we adopt a bottom-up approach, starting from<code>i=3</code>loop to<code>i=n</code>。</p>
 </blockquote>
 <hr/>
 <h2>Classic example: Fibonacci sequence</h2>
 <p>The Fibonacci sequence is the most direct example of dynamic programming; its definition itself is the state transition equation.</p>
-<p><strong>问题</strong>: find the nth Fibonacci number<code>n</code>项。<code>F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2) (n&gt;=2)</code></p>
+<p><strong>Problem</strong>: find the nth Fibonacci number<code>n</code>term.<code>F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2) (n&gt;=2)</code></p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> fibonacci<span style="color: Olive;">(</span>n: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""动态规划求斐波那契数"""</span><br/>
+    <span style="color: #a11;">"""Compute Fibonacci numbers using dynamic programming"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> n <span style="color: Gray;">&lt;</span> <span style="color: Maroon;">2</span>:<br/>
         <span style="color: Green;font-weight:bold;">return</span> n<br/>
-    <span style="color: #a50"># 空间优化写法</span><br/>
+    <span style="color: #a50"># Space-optimized implementation</span><br/>
     prev<span style="color: Gray;">,</span> curr <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span>  <span style="color: #a50"># F(0), F(1)</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> _ <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">2</span><span style="color: Gray;">,</span> n + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
         prev<span style="color: Gray;">,</span> curr <span style="color: Gray;">=</span> curr<span style="color: Gray;">,</span> prev + curr<br/>
     <span style="color: Green;font-weight:bold;">return</span> curr<br/>
 <br/>
-<span style="color: #a50"># 测试数据</span><br/>
+<span style="color: #a50"># Test data</span><br/>
 test_n <span style="color: Gray;">=</span> <span style="color: Maroon;">10</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"斐波那契数列第 {test_n} 项是: {fibonacci(test_n)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 55</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"The {test_n}th term of the Fibonacci sequence is: {fibonacci(test_n)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 55</span><br/>
 </div>
 </div>
 <hr/>
 <h2>Advanced example: coin change</h2>
 <p>This is a more typical problem that demonstrates optimal substructure.</p>
-<p><strong>问题描述</strong>: given an integer array<code>coins</code>, representing coins of different denominations, and an integer<code>amount</code>, representing the total amount. Calculate and return the minimum number of coins needed to make up the total amount. If no combination of coins can make up the total amount, return<code>-1</code>. You may assume that the quantity of each coin is unlimited.</p>
+<p><strong>Problem description</strong>: given an integer array<code>coins</code>, representing coins of different denominations, and an integer<code>amount</code>, representing the total amount. Calculate and return the minimum number of coins needed to make up the total amount. If no combination of coins can make up the total amount, return<code>-1</code>. You may assume that the quantity of each coin is unlimited.</p>
 <h3>Problem analysis and DP design</h3>
 <ol>
-<li><strong>定义状态</strong>：<code>dp[i]</code>represents making up the total amount<code>i</code>the minimum number of coins needed.</li>
-<li><strong>state transition equation</strong>：对于金额<code>i</code>, we can iterate over each denomination of coin<code>coin</code>。如果<code>coin &lt;= i</code>, then making up the amount<code>i</code>One possible way is: first make up the amount<code>i - coin</code>, then add one coin<code>coin</code>denomination of coin. What we need to find is the minimum among all possibilities.
-Therefore, the equation can be written as:<code>dp[i] = min(dp[i], dp[i - coin] + 1)</code>, for all that satisfy<code>coin &lt;= i</code> 的 <code>coin</code>。</li>
-<li><strong>初始条件</strong>：<code>dp[0] = 0</code>, making up amount 0 requires 0 coins. Others<code>dp[i]</code>initialized to a very large number (e.g.<code>amount + 1</code> 或 <code>float('inf')</code>), meaning it cannot be made up for now.</li>
-<li><strong>计算顺序</strong>: bottom-up, from<code>i=1</code>计算到<code>i=amount</code>。</li>
+<li><strong>Define state</strong>：<code>dp[i]</code>represents making up the total amount<code>i</code>the minimum number of coins needed.</li>
+<li><strong>state transition equation</strong>: For the amount<code>i</code>, we can iterate over each denomination of coin<code>coin</code>. If<code>coin &lt;= i</code>, then making up the amount<code>i</code>One possible way is: first make up the amount<code>i - coin</code>, then add one coin<code>coin</code>denomination of coin. What we need to find is the minimum among all possibilities.
+Therefore, the equation can be written as:<code>dp[i] = min(dp[i], dp[i - coin] + 1)</code>, for all that satisfy<code>coin &lt;= i</code>of<code>coin</code>。</li>
+<li><strong>Initial conditions</strong>：<code>dp[0] = 0</code>, making up amount 0 requires 0 coins. Others<code>dp[i]</code>initialized to a very large number (e.g.<code>amount + 1</code>or<code>float('inf')</code>), meaning it cannot be made up for now.</li>
+<li><strong>Computation order</strong>: bottom-up, from<code>i=1</code>Compute up to<code>i=amount</code>。</li>
 </ol>
-<h3>代码实现</h3>
+<h3>Code implementation</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">def</span> coin_change<span style="color: Olive;">(</span>coins: <span style="color: Teal;">list</span><span style="color: Gray;">,</span> amount: <span style="color: Teal;">int</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">int</span>:<br/>
-    <span style="color: #a11;">"""零钱兑换 - 动态规划"""</span><br/>
-    <span style="color: #a50"># 初始化 dp 数组，dp[i] 表示金额为 i 时的最小硬币数</span><br/>
-    <span style="color: #a50"># 设置一个不可能达到的初始值 amount + 1</span><br/>
+    <span style="color: #a11;">"""Coin Change - Dynamic Programming"""</span><br/>
+    <span style="color: #a50"># Initialize the dp array, where dp[i] represents the minimum number of coins for amount i</span><br/>
+    <span style="color: #a50"># Set an unreachable initial value amount + 1</span><br/>
     dp <span style="color: Gray;">=</span> <span style="color: Olive;">[</span>amount + <span style="color: Maroon;">1</span><span style="color: Olive;">]</span> * <span style="color: Olive;">(</span>amount + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
-    dp<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># 金额为 0 时需要 0 个硬币</span><br/>
+    dp<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>  <span style="color: #a50"># When the amount is 0, 0 coins are needed</span><br/>
     <br/>
-    <span style="color: #a50"># 外层循环：遍历所有金额状态</span><br/>
+    <span style="color: #a50"># Outer loop: iterate through all amount states</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> amount + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 内层循环：遍历所有硬币选择</span><br/>
+        <span style="color: #a50"># Inner loop: iterate through all coin choices</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> coin <span style="color: Green;font-weight:bold;">in</span> coins:<br/>
-            <span style="color: #a50"># 如果当前硬币面值小于等于当前金额，则可以考虑使用这枚硬币</span><br/>
+            <span style="color: #a50"># If the current coin denomination is less than or equal to the current amount, consider using this coin</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> coin <span style="color: Gray;">&lt;=</span> i:<br/>
-                <span style="color: #a50"># 状态转移：dp[i] 为不使用当前硬币的解法 与</span><br/>
-                <span style="color: #a50"># 使用当前硬币（即 dp[i-coin] + 1）的解法中的较小值</span><br/>
+                <span style="color: #a50"># State transition: dp[i] is the solution without using the current coin and</span><br/>
+                <span style="color: #a50"># the smaller value among the solutions using the current coin (i.e., dp[i-coin] + 1)</span><br/>
                 dp<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Teal;">min</span><span style="color: Olive;">(</span>dp<span style="color: Olive;">[</span>i<span style="color: Olive;">]</span><span style="color: Gray;">,</span> dp<span style="color: Olive;">[</span>i - coin<span style="color: Olive;">]</span> + <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
     <br/>
-    <span style="color: #a50"># 如果 dp[amount] 没有被更新（还是初始值），说明无法凑出</span><br/>
+    <span style="color: #a50"># If dp[amount] has not been updated (still the initial value), it means the amount cannot be made up</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> dp<span style="color: Olive;">[</span>amount<span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">if</span> dp<span style="color: Olive;">[</span>amount<span style="color: Olive;">]</span> <span style="color: Gray;">&lt;=</span> amount <span style="color: Green;font-weight:bold;">else</span> -<span style="color: Maroon;">1</span><br/>
 <br/>
-<span style="color: #a50"># 测试数据</span><br/>
+<span style="color: #a50"># Test data</span><br/>
 coins <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Gray;">,</span> <span style="color: Maroon;">5</span><span style="color: Olive;">]</span><br/>
 amount <span style="color: Gray;">=</span> <span style="color: Maroon;">11</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"凑成总金额 {amount} 所需的最少硬币数是: {coin_change(coins, amount)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 输出: 3 (5+5+1)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"The minimum number of coins required to make up the total amount {amount} is: {coin_change(coins, amount)}"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: 3 (5+5+1)</span><br/>
 </div>
 </div>
 <hr/>
-<h2>实践练习</h2>
+<h2>Practice exercises</h2>
 <p>Please try to solve the following problems independently to consolidate your understanding of dynamic programming:</p>
 <h3>Exercise 1: Maximum subarray sum</h3>
 <p>Given an integer array<code>nums</code>, please find a contiguous subarray with the maximum sum, and return its maximum sum.</p>
-<p><strong>示例</strong>：</p>
+<p><strong>Example</strong>：</p>
 <pre>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
 输出：6
 解释：连续子数组 [4,-1,2,1] 的和最大，为 6。
 </pre>
-<p><strong>提示</strong>：</p>
+<p><strong>Hint</strong>：</p>
 <ul>
-<li>定义<code>dp[i]</code>为"以第<code>i</code>the maximum sum of a contiguous subarray ending with the element".</li>
+<li>definition<code>dp[i]</code>as "with the<code>i</code>the maximum sum of a contiguous subarray ending with the element".</li>
 <li>state transition equation:<code>dp[i] = max(nums[i], dp[i-1] + nums[i])</code>。</li>
 <li>The final answer is all<code>dp[i]</code>the maximum among them.</li>
 </ul>
 <h3>Exercise 2: Longest increasing subsequence</h3>
 <p>Given an integer array<code>nums</code>, find the length of the longest strictly increasing subsequence.</p>
-<p><strong>示例</strong>：</p>
+<p><strong>Example</strong>：</p>
 <pre>输入：nums = [10,9,2,5,3,7,101,18]
 输出：4
 解释：最长递增子序列是 [2,3,7,101]，因此长度为 4。
 </pre>
-<p><strong>提示</strong>：</p>
+<p><strong>Hint</strong>：</p>
 <ul>
-<li>定义<code>dp[i]</code>为"以第<code>i</code>the length of the longest increasing subsequence ending with the number".</li>
-<li>对于每个<code>i</code>，需要遍历<code>j</code> 从 <code>0</code> 到 <code>i-1</code>，如果<code>nums[i] &gt; nums[j]</code>，则<code>dp[i] = max(dp[i], dp[j] + 1)</code>。</li>
+<li>definition<code>dp[i]</code>as "with the<code>i</code>the length of the longest increasing subsequence ending with the number".</li>
+<li>For each<code>i</code>, need to traverse<code>j</code>from<code>0</code>to<code>i-1</code>, if<code>nums[i] &gt; nums[j]</code>, then<code>dp[i] = max(dp[i], dp[j] + 1)</code>。</li>
 <li>Initially, each<code>dp[i]</code>at least 1 (containing only itself).</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-greedy-algorithm.html" rel="prev">贪心算法</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-advanced-tree.html" rel="next">高级树结构</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-greedy-algorithm.html" rel="prev">Greedy Algorithm</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-advanced-tree.html" rel="next">Advanced Tree Structures</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -508,16 +503,16 @@ amount <span style="color: Gray;">=</span> <span style="color: Maroon;">11</span
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes.</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -525,14 +520,14 @@ amount <span style="color: Gray;">=</span> <span style="color: Maroon;">11</span
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29097"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -710,7 +705,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -801,7 +796,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

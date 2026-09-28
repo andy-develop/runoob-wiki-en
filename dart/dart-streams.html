@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dart Stream 流 | 菜鸟教程</title>
+<title>Dart Stream | RUNOOB</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Dart Stream 流 Stream（流）是 Dart 中处理连续异步事件序列的机制。 如果说 Future 是一次性的异步结果，那么 Stream 就是多次的、持续不断的异步数据流。 本章介绍 Stream 的概念、await for 监听、StreamController 创建以及单订阅与广播流的区别。   Stream 与事件序列 Stream 就像一条传送带，数据会随着时间推移一个个到来。 你不需要一次性等待所有数据，而是来.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,12 +158,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-async.html" rel="prev">Dart 异步编程</a> </div>
-<div class="next-design-link"><a href="../dart/dart-isolates.html" rel="next">Dart 并发与 Isolate</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-async.html" rel="prev">Dart Asynchronous Programming</a> </div>
+<div class="next-design-link"><a href="../dart/dart-isolates.html" rel="next">Dart Concurrency and Isolate</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Dart Stream 流</h1>
+<h1>Dart Stream</h1>
 <p>Stream is the mechanism in Dart for handling sequences of continuous asynchronous events.</p>
 <p>If Future is a one-time asynchronous result, then Stream is a repeated, continuous asynchronous data flow.</p>
 <p>This chapter introduces the concept of Stream, await for listening, StreamController creation, and the differences between single-subscription and broadcast streams.</p>
@@ -173,46 +173,46 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>You don't need to wait for all the data at once; instead, you process each piece as it arrives.</p>
 <p>Typical use cases for Streams:</p>
 <table class="reference">
-<tr><th>场景</th><th>示例</th></tr>
+<tr><th>Scenarios</th><th>Example</th></tr>
 <tr><td>User input events</td><td>Button clicks, mouse movement, keyboard input</td></tr>
-<tr><td>文件读取</td><td>Read large files line by line</td></tr>
-<tr><td>网络数据</td><td>WebSocket messages, real-time APIs</td></tr>
-<tr><td>定时器</td><td>Timer events that fire once per second</td></tr>
-<tr><td>状态变化</td><td>State management streams in Flutter.</td></tr>
+<tr><td>File reading</td><td>Read large files line by line</td></tr>
+<tr><td>Network data</td><td>WebSocket messages, real-time APIs</td></tr>
+<tr><td>Timer</td><td>Timer events that fire once per second</td></tr>
+<tr><td>State changes</td><td>State management streams in Flutter.</td></tr>
 </table>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Basic usage of Stream — listening with listen:</p>
 <div class="example_code">
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 创建一个 Stream：每隔 1 秒发射一个数字</span><br/>
+  <span style="color: #999988; font-style: italic;">// Create a Stream: emit a number every 1 second</span><br/>
   <span style="font-weight: bold;">var</span> stream <span style="font-weight: bold;">=</span> Stream<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span>.<span style="color: #006633;">periodic</span><span style="">(</span><br/>
     Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
-    <span style="">(</span>count<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> count <span style="font-weight: bold;">+</span> <span style="color: #009999;">1</span><span style="font-weight: bold;">,</span>  <span style="color: #999988; font-style: italic;">// count 从 0 开始</span><br/>
+    <span style="">(</span>count<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> count <span style="font-weight: bold;">+</span> <span style="color: #009999;">1</span><span style="font-weight: bold;">,</span>  <span style="color: #999988; font-style: italic;">// count starts from 0</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'开始监听 Stream...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Start listening to Stream...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// listen 订阅 Stream</span><br/>
+  <span style="color: #999988; font-style: italic;">// listen subscribes to the Stream</span><br/>
   <span style="font-weight: bold;">var</span> subscription <span style="font-weight: bold;">=</span> stream.<span style="color: #006633;">listen</span><span style="">(</span><br/>
     <span style="">(</span>data<span style="">)</span> <span style="">{</span><br/>
-      <span style="color: #999988; font-style: italic;">// 每当有新数据到达时调用</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'RUNOOB 收到数据: $data'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      <span style="color: #999988; font-style: italic;">// Called whenever new data arrives</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'RUNOOB received data: $data'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
     onError<span style="font-weight: bold;">:</span> <span style="">(</span>error<span style="">)</span> <span style="">{</span><br/>
-      <span style="color: #999988; font-style: italic;">// Stream 发生错误时调用</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'错误: $error'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      <span style="color: #999988; font-style: italic;">// Called when Stream encounters an error</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'Error: $error'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
     onDone<span style="font-weight: bold;">:</span> <span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-      <span style="color: #999988; font-style: italic;">// Stream 关闭时调用</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'Stream 已关闭'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      <span style="color: #999988; font-style: italic;">// Called when Stream is closed</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'Stream closed'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 5 秒后取消订阅</span><br/>
+  <span style="color: #999988; font-style: italic;">// Cancel subscription after 5 seconds</span><br/>
   Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">5</span><span style="">)</span><span style="font-weight: bold;">,</span> <span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     subscription.<span style="color: #006633;">cancel</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'已取消订阅'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'Subscription cancelled'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -228,36 +228,36 @@ RUNOOB 收到数据: 5
 </pre>
 <p>listen() returns a StreamSubscription object, which you can use to control the subscription:</p>
 <table class="reference">
-<tr><th>方法</th><th>作用</th></tr>
+<tr><th>Methods</th><th>Function</th></tr>
 <tr><td>subscription.pause()</td><td>Pause receiving data</td></tr>
 <tr><td>subscription.resume()</td><td>Resume receiving data</td></tr>
-<tr><td>subscription.cancel()</td><td>取消订阅</td></tr>
+<tr><td>subscription.cancel()</td><td>Cancel subscription</td></tr>
 <tr><td>subscription.isPaused</td><td>Whether it is in a paused state</td></tr>
 </table>
 <hr/>
-<h2>await for 监听</h2>
+<h2>await for listening</h2>
 <p>Besides the listen() callback approach, you can also use an await for loop to consume a Stream.</p>
 <p>await for makes the logic of processing a Stream as clear as an ordinary for loop.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 生成一个有限的数据流</span><br/>
+<span style="color: #999988; font-style: italic;">// Generate a finite data stream</span><br/>
 Stream<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> countStream<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> max<span style="">)</span> async<span style="font-weight: bold;">*</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">for</span> <span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> i <span style="font-weight: bold;">=</span> <span style="color: #009999;">1</span><span style="font-weight: bold;">;</span> i <span style="font-weight: bold;">&lt;=</span> max<span style="font-weight: bold;">;</span> i<span style="font-weight: bold;">++</span><span style="">)</span> <span style="">{</span><br/>
     await Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>milliseconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">300</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    yield i<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// yield 发射数据到 Stream</span><br/>
+    yield i<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// yield emits data to the Stream</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'开始用 await for 消费 Stream...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Start consuming Stream with await for...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// await for：等待每个数据到达，逐个处理</span><br/>
+  <span style="color: #999988; font-style: italic;">// await for: wait for each data item to arrive and process them one by one</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> value <span style="font-weight: bold;">in</span> countStream<span style="">(</span><span style="color: #009999;">5</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'RUNOOB 计数: $value'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'RUNOOB count: $value'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'Stream 消费完毕'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Stream consumption complete'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -279,51 +279,51 @@ Stream 消费完毕
 </ul>
 <blockquote><p>await for is suitable for scenarios where you need to process all data sequentially, such as reading all lines from a file. listen() is suitable for scenarios where you need to respond to events continuously, such as button clicks. The two can replace each other, but each has its own strengths.</p></blockquote>
 <hr/>
-<h2>StreamController 创建 Stream</h2>
+<h2>StreamController creates Stream</h2>
 <p>StreamController is a tool for manually creating and controlling Streams.</p>
 <p>You can add data, errors, or close it at any time.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:async'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 使用 StreamController 实现一个简单的倒计时器</span><br/>
+<span style="color: #999988; font-style: italic;">// Use StreamController to implement a simple countdown timer</span><br/>
 <span style="font-weight: bold;">class</span> CountdownTimer <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> StreamController<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> _controller <span style="font-weight: bold;">=</span> StreamController<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   Timer<span style="font-weight: bold;">?</span> _timer<span style="font-weight: bold;">;</span><br/>
   <span style="color: #445588; font-weight: bold;">int</span> _remaining <span style="font-weight: bold;">=</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 暴露 Stream 给外部订阅</span><br/>
+  <span style="color: #999988; font-style: italic;">// Expose Stream for external subscription</span><br/>
   Stream<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> <span style="font-weight: bold;">get</span> tickStream <span style="font-weight: bold;">=&gt;</span> _controller.<span style="color: #006633;">stream</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 开始倒计时</span><br/>
+  <span style="color: #999988; font-style: italic;">// Start countdown</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> start<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> seconds<span style="">)</span> <span style="">{</span><br/>
     _remaining <span style="font-weight: bold;">=</span> seconds<span style="font-weight: bold;">;</span><br/>
 <br/>
-    <span style="color: #999988; font-style: italic;">// 立即发送初始值</span><br/>
+    <span style="color: #999988; font-style: italic;">// Immediately send the initial value</span><br/>
     _controller.<span style="color: #006633;">add</span><span style="">(</span>_remaining<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
     _timer <span style="font-weight: bold;">=</span> Timer.<span style="color: #006633;">periodic</span><span style="">(</span>Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">,</span> <span style="">(</span>timer<span style="">)</span> <span style="">{</span><br/>
       _remaining<span style="font-weight: bold;">--</span><span style="font-weight: bold;">;</span><br/>
 <br/>
       <span style="font-weight: bold;">if</span> <span style="">(</span>_remaining <span style="font-weight: bold;">&gt;</span> <span style="color: #009999;">0</span><span style="">)</span> <span style="">{</span><br/>
-        _controller.<span style="color: #006633;">add</span><span style="">(</span>_remaining<span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 发送数据</span><br/>
+        _controller.<span style="color: #006633;">add</span><span style="">(</span>_remaining<span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Send data</span><br/>
       <span style="">}</span> <span style="font-weight: bold;">else</span> <span style="">{</span><br/>
-        _controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">0</span><span style="">)</span><span style="font-weight: bold;">;</span>           <span style="color: #999988; font-style: italic;">// 发送最后的 0</span><br/>
-        _controller.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>          <span style="color: #999988; font-style: italic;">// 关闭 Stream</span><br/>
+        _controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">0</span><span style="">)</span><span style="font-weight: bold;">;</span>           <span style="color: #999988; font-style: italic;">// Send the final 0</span><br/>
+        _controller.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span>          <span style="color: #999988; font-style: italic;">// Close Stream</span><br/>
         timer.<span style="color: #006633;">cancel</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
       <span style="">}</span><br/>
     <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 取消倒计时</span><br/>
+  <span style="color: #999988; font-style: italic;">// Cancel the countdown</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> cancel<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     _timer<span style="font-weight: bold;">?</span>.<span style="color: #006633;">cancel</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    _controller.<span style="color: #006633;">addError</span><span style="">(</span><span style="color: #d14;">'倒计时被取消'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 发送错误</span><br/>
+    _controller.<span style="color: #006633;">addError</span><span style="">(</span><span style="color: #d14;">'Countdown canceled'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Send error</span><br/>
     _controller.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 释放资源</span><br/>
+  <span style="color: #999988; font-style: italic;">// Release resources</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> dispose<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     _controller.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
@@ -332,22 +332,22 @@ Stream 消费完毕
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">var</span> timer <span style="font-weight: bold;">=</span> CountdownTimer<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 订阅倒计时事件</span><br/>
+  <span style="color: #999988; font-style: italic;">// Subscribe to the countdown event</span><br/>
   timer.<span style="color: #006633;">tickStream</span>.<span style="color: #006633;">listen</span><span style="">(</span><br/>
     <span style="">(</span>remaining<span style="">)</span> <span style="">{</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'RUNOOB 倒计时: $remaining 秒'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'RUNOOB countdown: $remaining seconds'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
     onError<span style="font-weight: bold;">:</span> <span style="">(</span>error<span style="">)</span> <span style="">{</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'错误: $error'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'Error: $error'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
     onDone<span style="font-weight: bold;">:</span> <span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'倒计时结束！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'Countdown finished!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="font-weight: bold;">,</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   timer.<span style="color: #006633;">start</span><span style="">(</span><span style="color: #009999;">5</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 等待倒计时完成</span><br/>
+  <span style="color: #999988; font-style: italic;">// Wait for the countdown to complete</span><br/>
   await Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">6</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   timer.<span style="color: #006633;">dispose</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
@@ -365,45 +365,45 @@ RUNOOB 倒计时: 0 秒
 <h3>async* generator functions</h3>
 <p>If you only need to simply generate a sequence of data, async* is more convenient than StreamController.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// async* 标记这是一个异步生成器函数</span><br/>
-<span style="color: #999988; font-style: italic;">// 返回类型必须是 Stream</span><br/>
+<span style="color: #999988; font-style: italic;">// async* marks this as an async generator function</span><br/>
+<span style="color: #999988; font-style: italic;">// The return type must be Stream</span><br/>
 Stream<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span> readLinesAsync<span style="">(</span><span style="">)</span> async<span style="font-weight: bold;">*</span> <span style="">{</span><br/>
-  <span style="font-weight: bold;">var</span> lines <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #d14;">'第一行'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'第二行'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'第三行'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'RUNOOB'</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">var</span> lines <span style="font-weight: bold;">=</span> <span style="">[</span><span style="color: #d14;">'First line'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Second line'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Third line'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'RUNOOB'</span><span style="">]</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> line <span style="font-weight: bold;">in</span> lines<span style="">)</span> <span style="">{</span><br/>
     await Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>milliseconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">500</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    yield line<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// yield 发射数据到 Stream</span><br/>
+    yield line<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// yield emits data to the Stream</span><br/>
   <span style="">}</span><br/>
-  <span style="color: #999988; font-style: italic;">// 函数结束时 Stream 自动关闭</span><br/>
+  <span style="color: #999988; font-style: italic;">// Stream automatically closes when the function ends</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 带错误处理的异步生成器</span><br/>
+<span style="color: #999988; font-style: italic;">// Async generator with error handling</span><br/>
 Stream<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span> generateNumbersWithError<span style="">(</span><span style="">)</span> async<span style="font-weight: bold;">*</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">for</span> <span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> i <span style="font-weight: bold;">=</span> <span style="color: #009999;">1</span><span style="font-weight: bold;">;</span> i <span style="font-weight: bold;">&lt;=</span> <span style="color: #009999;">5</span><span style="font-weight: bold;">;</span> i<span style="font-weight: bold;">++</span><span style="">)</span> <span style="">{</span><br/>
     await Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>milliseconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">300</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
     <span style="font-weight: bold;">if</span> <span style="">(</span>i <span style="font-weight: bold;">==</span> <span style="color: #009999;">3</span><span style="">)</span> <span style="">{</span><br/>
-      <span style="font-weight: bold;">throw</span> Exception<span style="">(</span><span style="color: #d14;">'数字 3 出错了！'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      <span style="font-weight: bold;">throw</span> Exception<span style="">(</span><span style="color: #d14;">'Number 3 had an error!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><br/>
     yield i<span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 <br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'逐行读取：'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Reading line by line:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> line <span style="font-weight: bold;">in</span> readLinesAsync<span style="">(</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  $line'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'<span style="color: #000099; font-weight: bold;">\n</span>带错误的生成器：'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'<span style="color: #000099; font-weight: bold;">\n</span>'Generator with errors:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">try</span> <span style="">{</span><br/>
     await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> <span style="color: #445588; font-weight: bold;">num</span> <span style="font-weight: bold;">in</span> generateNumbersWithError<span style="">(</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
-      print<span style="">(</span><span style="color: #d14;">'  数字: $num'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+      print<span style="">(</span><span style="color: #d14;">'  Number: $num'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><br/>
   <span style="">}</span> <span style="font-weight: bold;">catch</span> <span style="">(</span>e<span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'  捕获错误: $e'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'  Caught error: $e'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -423,53 +423,53 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 <hr/>
 <h2>Single-subscription vs. broadcast streams</h2>
 <p>Dart Streams are divided into two types: single-subscription streams and broadcast streams.</p>
-<h3>单订阅流（Single-subscription Stream）</h3>
+<h3>Single-subscription Stream</h3>
 <p>This is the default Stream type.</p>
 <p>It can only be subscribed to by one listener, suitable for scenarios where you consume it once from start to finish.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 单订阅流（默认）</span><br/>
+  <span style="color: #999988; font-style: italic;">// Single-subscription stream (default)</span><br/>
   <span style="font-weight: bold;">var</span> stream <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">fromIterable</span><span style="">(</span><span style="">[</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 第一个订阅：OK</span><br/>
-  stream.<span style="color: #006633;">listen</span><span style="">(</span><span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'订阅者1: $data'</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// First subscription: OK</span><br/>
+  stream.<span style="color: #006633;">listen</span><span style="">(</span><span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'Subscriber 1: $data'</span><span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 第二个订阅：错误！单订阅流不能被多次订阅</span><br/>
-  <span style="color: #999988; font-style: italic;">// stream.listen((data) =&gt; print('订阅者2: $data'));  // 运行时错误</span><br/>
+  <span style="color: #999988; font-style: italic;">// Second subscription: Error! A single-subscription stream cannot be subscribed to multiple times</span><br/>
+  <span style="color: #999988; font-style: italic;">// stream.listen((data) =&gt; print('Subscriber 2: $data'));  // runtime error</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
-<h3>广播流（Broadcast Stream）</h3>
+<h3>Broadcast Stream</h3>
 <p>Broadcast streams allow multiple listeners to subscribe simultaneously, suitable for event broadcast scenarios.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:async'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 创建一个广播流</span><br/>
+  <span style="color: #999988; font-style: italic;">// Create a broadcast stream</span><br/>
   <span style="font-weight: bold;">var</span> controller <span style="font-weight: bold;">=</span> StreamController<span style="font-weight: bold;">&lt;</span>int<span style="font-weight: bold;">&gt;</span>.<span style="color: #006633;">broadcast</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 多个订阅者可以同时监听</span><br/>
+  <span style="color: #999988; font-style: italic;">// Multiple subscribers can listen at the same time</span><br/>
   controller.<span style="color: #006633;">stream</span>.<span style="color: #006633;">listen</span><span style="">(</span><br/>
-    <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB 订阅者A: 收到 $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+    <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB Subscriber A: received $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   controller.<span style="color: #006633;">stream</span>.<span style="color: #006633;">listen</span><span style="">(</span><br/>
-    <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB 订阅者B: 收到 $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+    <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB Subscriber B: received $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 发送数据，两个订阅者都会收到</span><br/>
+  <span style="color: #999988; font-style: italic;">// Send data, both subscribers will receive it</span><br/>
   controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">2</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">3</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 延迟订阅也能收到后续数据（但不会收到之前的数据）</span><br/>
+  <span style="color: #999988; font-style: italic;">// A late subscription can still receive subsequent data (but not previous data)</span><br/>
   Future.<span style="color: #006633;">delayed</span><span style="">(</span>Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">,</span> <span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     controller.<span style="color: #006633;">stream</span>.<span style="color: #006633;">listen</span><span style="">(</span><br/>
-      <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB 迟到的订阅者C: 收到 $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+      <span style="">(</span>data<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> print<span style="">(</span><span style="color: #d14;">'RUNOOB Late Subscriber C: received $data'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
     controller.<span style="color: #006633;">add</span><span style="">(</span><span style="color: #009999;">4</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     controller.<span style="color: #006633;">close</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -490,57 +490,57 @@ RUNOOB 迟到的订阅者C: 收到 4
 </pre>
 <p>Comparison of the two types of Streams:</p>
 <table class="reference">
-<tr><th>特性</th><th>单订阅流</th><th>广播流</th></tr>
-<tr><td>订阅者数量</td><td>只能一个</td><td>可以多个</td></tr>
-<tr><td>数据重放</td><td>Consume from the beginning</td><td>Only receives data after subscribing</td></tr>
-<tr><td>典型场景</td><td>File reading, HTTP responses</td><td>Button clicks, status notifications</td></tr>
-<tr><td>创建方式</td><td>StreamController()</td><td>StreamController.broadcast()</td></tr>
+<tr><th>Features</th><th>Single-Subscription Stream</th><th>Broadcast Stream</th></tr>
+<tr><td>Number of subscribers</td><td>Only one</td><td>Multiple</td></tr>
+<tr><td>Data replay</td><td>Consume from the beginning</td><td>Only receives data after subscribing</td></tr>
+<tr><td>Typical scenarios</td><td>File reading, HTTP responses</td><td>Button clicks, status notifications</td></tr>
+<tr><td>Creation Method</td><td>StreamController()</td><td>StreamController.broadcast()</td></tr>
 </table>
 <blockquote><p>A "late subscriber" to a broadcast stream can only receive events after subscribing; previous events have already been missed. This is the most important behavioral difference between broadcast streams and single-subscription streams.</p></blockquote>
 <hr/>
 <h2>Common Stream transformation methods</h2>
 <p>Stream provides a series of methods for transforming and processing data, similar to the functional methods of List.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">var</span> numbers <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">fromIterable</span><span style="">(</span><span style="">[</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">4</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">5</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">6</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// map：转换每个数据</span><br/>
+  <span style="color: #999988; font-style: italic;">// map: transform each data item</span><br/>
   <span style="font-weight: bold;">var</span> doubled <span style="font-weight: bold;">=</span> numbers.<span style="color: #006633;">map</span><span style="">(</span><span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> n <span style="font-weight: bold;">*</span> <span style="color: #009999;">2</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'翻倍:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Doubled:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> n <span style="font-weight: bold;">in</span> doubled<span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  $n'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// where：过滤数据</span><br/>
+  <span style="color: #999988; font-style: italic;">// where: filter data</span><br/>
   <span style="font-weight: bold;">var</span> source <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">fromIterable</span><span style="">(</span><span style="">[</span><span style="color: #009999;">10</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">15</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">20</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">25</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">30</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> even <span style="font-weight: bold;">=</span> source.<span style="color: #006633;">where</span><span style="">(</span><span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> n <span style="font-weight: bold;">%</span> <span style="color: #009999;">2</span> <span style="font-weight: bold;">==</span> <span style="color: #009999;">0</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'偶数:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Even:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> n <span style="font-weight: bold;">in</span> even<span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  $n'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// take：只取前 N 个</span><br/>
+  <span style="color: #999988; font-style: italic;">// take: take only the first N items</span><br/>
   <span style="font-weight: bold;">var</span> infinite <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">periodic</span><span style="">(</span><br/>
     Duration<span style="">(</span>milliseconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">100</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
     <span style="">(</span>i<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> i <span style="font-weight: bold;">+</span> <span style="color: #009999;">1</span><span style="font-weight: bold;">,</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'只取前 3 个:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Take the first 3 only:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> n <span style="font-weight: bold;">in</span> infinite.<span style="color: #006633;">take</span><span style="">(</span><span style="color: #009999;">3</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  RUNOOB: $n'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// skip：跳过前 N 个</span><br/>
+  <span style="color: #999988; font-style: italic;">// skip: skip the first N items</span><br/>
   <span style="font-weight: bold;">var</span> data <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">fromIterable</span><span style="">(</span><span style="">[</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">4</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">5</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'跳过前 2 个:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Skip the first 2:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> n <span style="font-weight: bold;">in</span> data.<span style="color: #006633;">skip</span><span style="">(</span><span style="color: #009999;">2</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  $n'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// distinct：去重</span><br/>
+  <span style="color: #999988; font-style: italic;">// distinct: remove duplicates</span><br/>
   <span style="font-weight: bold;">var</span> duplicates <span style="font-weight: bold;">=</span> Stream.<span style="color: #006633;">fromIterable</span><span style="">(</span><span style="">[</span><span style="color: #009999;">1</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">2</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">3</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'去重:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Distinct:'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   await <span style="font-weight: bold;">for</span> <span style="">(</span><span style="font-weight: bold;">var</span> n <span style="font-weight: bold;">in</span> duplicates.<span style="color: #006633;">distinct</span><span style="">(</span><span style="">)</span><span style="">)</span> <span style="">{</span><br/>
     print<span style="">(</span><span style="color: #d14;">'  $n'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
@@ -571,22 +571,17 @@ RUNOOB 迟到的订阅者C: 收到 4
   1
   2
   3
-</pre>
-其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-async.html" rel="prev">Dart 异步编程</a> </div>
-<div class="next-design-link"><a href="../dart/dart-isolates.html" rel="next">Dart 并发与 Isolate</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-async.html" rel="prev">Dart Asynchronous Programming</a> </div>
+<div class="next-design-link"><a href="../dart/dart-isolates.html" rel="next">Dart Concurrency and Isolate</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -690,16 +685,16 @@ RUNOOB 迟到的订阅者C: 收到 4
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -707,14 +702,14 @@ RUNOOB 迟到的订阅者C: 收到 4
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31426"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -892,7 +887,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -983,7 +978,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

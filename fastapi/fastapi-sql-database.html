@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FastAPI 数据库集成 | 菜鸟教程</title>
+<title>FastAPI Database Integration | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="FastAPI 数据库集成 FastAPI 可以与各种数据库集成，最常用的方式是使用 SQLAlchemy 作为 ORM。本节介绍如何使用 FastAPI + SQLAlchemy 构建具有 CRUD（创建、读取、更新、删除）功能的 API。   安装依赖 pip install sqlalchemy   项目结构 project/ ├── main.py          # FastAPI 应用入口 ├── database.py .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,18 +158,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-testing.html" rel="prev">FastAPI 测试</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-project-init.html" rel="next">FastAPI Web 应用</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-testing.html" rel="prev">FastAPI Testing</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-project-init.html" rel="next">FastAPI Web application</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>FastAPI Database Integration</h1>
 <p>FastAPI can be integrated with various databases, and the most common approach is to use SQLAlchemy as the ORM. This section introduces how to build an API with CRUD (Create, Read, Update, Delete) functionality using FastAPI + SQLAlchemy.</p>
 <hr/>
-<h2>安装依赖</h2>
+<h2>Install dependencies</h2>
 <pre>pip install sqlalchemy</pre>
 <hr/>
-<h2>项目结构</h2>
+<h2>Project Structure</h2>
 <pre>project/
 ├── main.py          # FastAPI 应用入口
 ├── database.py      # 数据库连接配置
@@ -178,39 +178,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 └── crud.py          # 数据库操作函数</pre>
 <hr/>
 <h2>1. Database Configuration</h2>
-<p>在 <code>database.py</code>Configure the database connection in:</p>
+<p>In<code>database.py</code>Configure the database connection in:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># database.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy <span style="color: Green;font-weight:bold;">import</span> create_engine<br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy.<span style="color: #05a;">orm</span> <span style="color: Green;font-weight:bold;">import</span> sessionmaker<span style="color: Gray;">,</span> DeclarativeBase<br/>
 <br/>
-<span style="color: #a50"># SQLite 数据库（适合开发）</span><br/>
+<span style="color: #a50"># SQLite database (suitable for development)</span><br/>
 SQLALCHEMY_DATABASE_URL <span style="color: Gray;">=</span> <span style="color: #a11;">"sqlite:///./sql_app.db"</span><br/>
 <br/>
-<span style="color: #a50"># 创建数据库引擎</span><br/>
-<span style="color: #a50"># connect_args 仅 SQLite 需要，允许多线程访问</span><br/>
+<span style="color: #a50"># Create database engine</span><br/>
+<span style="color: #a50"># connect_args is only needed for SQLite, allowing multi-threaded access</span><br/>
 engine <span style="color: Gray;">=</span> create_engine<span style="color: Olive;">(</span><br/>
     SQLALCHEMY_DATABASE_URL<span style="color: Gray;">,</span><br/>
     connect_args<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"check_same_thread"</span>: <span style="color: Teal;">False</span><span style="color: Olive;">}</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 创建会话工厂</span><br/>
+<span style="color: #a50"># Create session factory</span><br/>
 SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color: Olive;">(</span>autocommit<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Gray;">,</span> autoflush<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Gray;">,</span> bind<span style="color: Gray;">=</span>engine<span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 声明基类</span><br/>
+<span style="color: #a50"># Declare Base Class</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> Base<span style="color: Olive;">(</span>DeclarativeBase<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">pass</span><br/>
 </div>
 </div>
-<blockquote><p>For the development environment, SQLite is sufficient. It is a file-based database that requires no additional database service installation. For the production environment, PostgreSQL or MySQL is recommended; you only need to modify the<code>SQLALCHEMY_DATABASE_URL</code>即可。</p></blockquote>
+<blockquote><p>For the development environment, SQLite is sufficient. It is a file-based database that requires no additional database service installation. For the production environment, PostgreSQL or MySQL is recommended; you only need to modify the<code>SQLALCHEMY_DATABASE_URL</code>That's it.</p></blockquote>
 <hr/>
-<h2>2. SQLAlchemy 模型</h2>
-<p>在 <code>models.py</code>Define the database table structure in:</p>
+<h2>2. SQLAlchemy Model</h2>
+<p>In<code>models.py</code>Define the database table structure in:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># models.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy <span style="color: Green;font-weight:bold;">import</span> Column<span style="color: Gray;">,</span> Integer<span style="color: Gray;">,</span> String<br/>
@@ -218,50 +218,50 @@ SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color:
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> User<span style="color: Olive;">(</span>Base<span style="color: Olive;">)</span>:<br/>
-    __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">"users"</span>  <span style="color: #a50"># 表名</span><br/>
+    __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">"users"</span>  <span style="color: #a50"># Table name</span><br/>
 <br/>
-    <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Integer<span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 主键，自增</span><br/>
-    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>      <span style="color: #a50"># 唯一，建索引</span><br/>
-    hashed_password <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Olive;">)</span>                      <span style="color: #a50"># 哈希密码</span><br/>
-    is_active <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Boolean<span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>             <span style="color: #a50"># 是否活跃</span><br/>
+    <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Integer<span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Primary key, auto-increment</span><br/>
+    <span style="color: #05a;">email</span> <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Gray;">,</span> unique<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>      <span style="color: #a50"># Unique, create index</span><br/>
+    hashed_password <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Olive;">)</span>                      <span style="color: #a50"># Hash Password</span><br/>
+    is_active <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Boolean<span style="color: Gray;">,</span> default<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>             <span style="color: #a50"># Is Active</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Item<span style="color: Olive;">(</span>Base<span style="color: Olive;">)</span>:<br/>
     __tablename__ <span style="color: Gray;">=</span> <span style="color: #a11;">"items"</span><br/>
 <br/>
     <span style="color: Teal;">id</span> <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Integer<span style="color: Gray;">,</span> primary_key<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
-    title <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>                   <span style="color: #a50"># 标题，建索引</span><br/>
-    description <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Olive;">)</span>                          <span style="color: #a50"># 描述</span><br/>
-    owner_id <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Integer<span style="color: Gray;">,</span> ForeignKey<span style="color: Olive;">(</span><span style="color: #a11;">"users.id"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>   <span style="color: #a50"># 外键关联 users 表</span><br/>
+    title <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Gray;">,</span> index<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>                   <span style="color: #a50"># Title, create index</span><br/>
+    description <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Olive;">)</span>                          <span style="color: #a50"># Description</span><br/>
+    owner_id <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>Integer<span style="color: Gray;">,</span> ForeignKey<span style="color: Olive;">(</span><span style="color: #a11;">"users.id"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>   <span style="color: #a50"># Foreign key references the users table</span><br/>
 </div>
 </div>
 <hr/>
 <h2>3. Pydantic Data Models</h2>
-<p>在 <code>schemas.py</code>defining the input/output data structures of the API:</p>
+<p>In<code>schemas.py</code>defining the input/output data structures of the API:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># schemas.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> pydantic <span style="color: Green;font-weight:bold;">import</span> BaseModel<br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 用户模型 =====</span><br/>
+<span style="color: #a50"># ===== User Model =====</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> UserBase<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     <span style="color: #05a;">email</span>: <span style="color: Teal;">str</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> UserCreate<span style="color: Olive;">(</span>UserBase<span style="color: Olive;">)</span>:<br/>
-    password: <span style="color: Teal;">str</span>          <span style="color: #a50"># 创建时需要密码</span><br/>
+    password: <span style="color: Teal;">str</span>          <span style="color: #a50"># Password required when creating</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> UserOut<span style="color: Olive;">(</span>UserBase<span style="color: Olive;">)</span>:<br/>
     <span style="color: Teal;">id</span>: <span style="color: Teal;">int</span><br/>
     is_active: <span style="color: Teal;">bool</span><br/>
 <br/>
-    model_config <span style="color: Gray;">=</span> ConfigDict<span style="color: Olive;">(</span>from_attributes<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 支持 ORM 对象</span><br/>
+    model_config <span style="color: Gray;">=</span> ConfigDict<span style="color: Olive;">(</span>from_attributes<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Supports ORM objects</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 商品模型 =====</span><br/>
+<span style="color: #a50"># ===== Product Model =====</span><br/>
 <span style="color: Green;font-weight:bold;">class</span> ItemBase<span style="color: Olive;">(</span>BaseModel<span style="color: Olive;">)</span>:<br/>
     title: <span style="color: Teal;">str</span><br/>
     description: <span style="color: Teal;">str</span> | <span style="color: Teal;">None</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
@@ -281,9 +281,9 @@ SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color:
 <blockquote><p>Pydantic models and SQLAlchemy models are separate. Pydantic is responsible for data validation at the API layer, while SQLAlchemy is responsible for table structures at the database layer.<code>from_attributes=True</code>Enable Pydantic to read data from SQLAlchemy objects.</p></blockquote>
 <hr/>
 <h2>4. Database Operation Functions</h2>
-<p>在 <code>crud.py</code>Encapsulate database operations in:</p>
+<p>In<code>crud.py</code>Encapsulate database operations in:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># crud.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy.<span style="color: #05a;">orm</span> <span style="color: Green;font-weight:bold;">import</span> Session<br/>
@@ -291,40 +291,40 @@ SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color:
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_user<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> user_id: <span style="color: Teal;">int</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""根据 ID 获取用户"""</span><br/>
+    <span style="color: #a11;">"""Get user by ID"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">User</span><span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">User</span>.<span style="color: Teal;">id</span> <span style="color: Gray;">==</span> user_id<span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_user_by_email<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> <span style="color: #05a;">email</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""根据邮箱获取用户"""</span><br/>
+    <span style="color: #a11;">"""Get user by email"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">User</span><span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">User</span>.<span style="color: #05a;">email</span> <span style="color: Gray;">==</span> <span style="color: #05a;">email</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_users<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> skip: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> limit: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">100</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取用户列表"""</span><br/>
+    <span style="color: #a11;">"""Get user list"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">User</span><span style="color: Olive;">)</span>.<span style="color: #05a;">offset</span><span style="color: Olive;">(</span>skip<span style="color: Olive;">)</span>.<span style="color: #05a;">limit</span><span style="color: Olive;">(</span>limit<span style="color: Olive;">)</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> <span style="color: #05a;">user</span>: schemas.<span style="color: #05a;">UserCreate</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""创建用户"""</span><br/>
-    fake_hashed_password <span style="color: Gray;">=</span> <span style="color: #05a;">user</span>.<span style="color: #05a;">password</span> + <span style="color: #a11;">"notreallyhashed"</span>  <span style="color: #a50"># 实际应使用 passlib 哈希</span><br/>
+    <span style="color: #a11;">"""Create user"""</span><br/>
+    fake_hashed_password <span style="color: Gray;">=</span> <span style="color: #05a;">user</span>.<span style="color: #05a;">password</span> + <span style="color: #a11;">"notreallyhashed"</span>  <span style="color: #a50"># In practice, use passlib for hashing</span><br/>
     db_user <span style="color: Gray;">=</span> models.<span style="color: #05a;">User</span><span style="color: Olive;">(</span><br/>
         <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #05a;">user</span>.<span style="color: #05a;">email</span><span style="color: Gray;">,</span><br/>
         hashed_password<span style="color: Gray;">=</span>fake_hashed_password<br/>
     <span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>db_user<span style="color: Olive;">)</span><br/>
-    db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>        <span style="color: #a50"># 提交事务</span><br/>
-    db.<span style="color: #05a;">refresh</span><span style="color: Olive;">(</span>db_user<span style="color: Olive;">)</span>  <span style="color: #a50"># 刷新对象，获取数据库生成的 id</span><br/>
+    db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>        <span style="color: #a50"># Commit Transaction</span><br/>
+    db.<span style="color: #05a;">refresh</span><span style="color: Olive;">(</span>db_user<span style="color: Olive;">)</span>  <span style="color: #a50"># Refresh the object to get the database-generated id</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db_user<br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_items<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> skip: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> limit: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">100</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取商品列表"""</span><br/>
+    <span style="color: #a11;">"""Get product list"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>models.<span style="color: #05a;">Item</span><span style="color: Olive;">)</span>.<span style="color: #05a;">offset</span><span style="color: Olive;">(</span>skip<span style="color: Olive;">)</span>.<span style="color: #05a;">limit</span><span style="color: Olive;">(</span>limit<span style="color: Olive;">)</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> create_item<span style="color: Olive;">(</span>db: Session<span style="color: Gray;">,</span> item: schemas.<span style="color: #05a;">ItemCreate</span><span style="color: Gray;">,</span> user_id: <span style="color: Teal;">int</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""创建商品"""</span><br/>
+    <span style="color: #a11;">"""Create product"""</span><br/>
     db_item <span style="color: Gray;">=</span> models.<span style="color: #05a;">Item</span><span style="color: Olive;">(</span>**item.<span style="color: #05a;">model_dump</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> owner_id<span style="color: Gray;">=</span>user_id<span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>db_item<span style="color: Olive;">)</span><br/>
     db.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -334,9 +334,9 @@ SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color:
 </div>
 <hr/>
 <h2>5. FastAPI Application Entry Point</h2>
-<p>在 <code>main.py</code>Integrate all components in:</p>
+<p>In<code>main.py</code>Integrate all components in:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #a50"># main.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> typing <span style="color: Green;font-weight:bold;">import</span> Annotated<br/>
@@ -347,13 +347,13 @@ SessionLocal <span style="color: Gray;">=</span> sessionmaker<span style="color:
 <span style="color: Green;font-weight:bold;">import</span> models<span style="color: Gray;">,</span> schemas<span style="color: Gray;">,</span> crud<br/>
 <span style="color: Green;font-weight:bold;">from</span> database <span style="color: Green;font-weight:bold;">import</span> engine<span style="color: Gray;">,</span> SessionLocal<span style="color: Gray;">,</span> Base<br/>
 <br/>
-<span style="color: #a50"># 创建数据库表</span><br/>
+<span style="color: #a50"># Create database table</span><br/>
 Base.<span style="color: #05a;">metadata</span>.<span style="color: #05a;">create_all</span><span style="color: Olive;">(</span>bind<span style="color: Gray;">=</span>engine<span style="color: Olive;">)</span><br/>
 <br/>
 app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># 依赖：获取数据库会话</span><br/>
+<span style="color: #a50"># Dependency: get database session</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_db<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     db <span style="color: Gray;">=</span> SessionLocal<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">try</span>:<br/>
@@ -362,13 +362,13 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
         db.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 用户路由 =====</span><br/>
+<span style="color: #a50"># ===== User Routes =====</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>schemas.<span style="color: #05a;">UserOut</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span><span style="color: #05a;">user</span>: schemas.<span style="color: #05a;">UserCreate</span><span style="color: Gray;">,</span> db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 检查邮箱是否已存在</span><br/>
+    <span style="color: #a50"># Check whether the email already exists</span><br/>
     db_user <span style="color: Gray;">=</span> crud.<span style="color: #05a;">get_user_by_email</span><span style="color: Olive;">(</span>db<span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #05a;">user</span>.<span style="color: #05a;">email</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db_user:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"邮箱已注册"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">“Email already registered”</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> crud.<span style="color: #05a;">create_user</span><span style="color: Olive;">(</span>db<span style="color: Gray;">=</span>db<span style="color: Gray;">,</span> <span style="color: #05a;">user</span><span style="color: Gray;">=</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
@@ -382,11 +382,11 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <span style="color: Green;font-weight:bold;">def</span> read_user<span style="color: Olive;">(</span>user_id: <span style="color: Teal;">int</span><span style="color: Gray;">,</span> db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
     db_user <span style="color: Gray;">=</span> crud.<span style="color: #05a;">get_user</span><span style="color: Olive;">(</span>db<span style="color: Gray;">,</span> user_id<span style="color: Gray;">=</span>user_id<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db_user <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">404</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"用户不存在"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">404</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">“User does not exist”</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> db_user<br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 商品路由 =====</span><br/>
+<span style="color: #a50"># ===== Product Routes =====</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/users/{user_id}/items/"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>schemas.<span style="color: #05a;">ItemOut</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_item_for_user<span style="color: Olive;">(</span><br/>
     user_id: <span style="color: Teal;">int</span><span style="color: Gray;">,</span><br/>
@@ -415,36 +415,31 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <hr/>
 <h2>Connection Strings for Different Databases</h2>
 <table class="reference">
-<tr><th>数据库</th><th>Connection string example</th></tr>
+<tr><th>database</th><th>Connection string example</th></tr>
 <tr><td>SQLite</td><td><code>sqlite:///./sql_app.db</code></td></tr>
 <tr><td>PostgreSQL</td><td><code>postgresql://user:password@localhost/dbname</code></td></tr>
 <tr><td>MySQL</td><td><code>mysql+pymysql://user:password@localhost/dbname</code></td></tr>
 </table>
 <blockquote><p>Switching databases only requires modifying the connection string; the rest of the code does not need to be changed. This is one of the advantages of using an ORM.</p></blockquote>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <ul>
 <li>Use SQLAlchemy as the ORM, and FastAPI manages database sessions through dependency injection.</li>
-<li>Pydantic 模型（<code>schemas.py</code>) handles API data validation, SQLAlchemy models (<code>models.py</code>) is responsible for the database table structure</li>
+<li>Pydantic model (<code>schemas.py</code>) handles API data validation, SQLAlchemy models (<code>models.py</code>) is responsible for the database table structure</li>
 <li>CRUD operations are encapsulated in<code>crud.py</code>in, keeping the code clean</li>
 <li>For development, use SQLite; for production, switch to PostgreSQL/MySQL by only changing the connection string.</li>
 <li><code>from_attributes=True</code>Enable Pydantic to read data from ORM objects.</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-testing.html" rel="prev">FastAPI 测试</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-project-init.html" rel="next">FastAPI Web 应用</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-testing.html" rel="prev">FastAPI Testing</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-project-init.html" rel="next">FastAPI Web application</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -548,16 +543,16 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -565,14 +560,14 @@ app <span style="color: Gray;">=</span> FastAPI<span style="color: Olive;">(</sp
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29908"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -750,7 +745,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -841,7 +836,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

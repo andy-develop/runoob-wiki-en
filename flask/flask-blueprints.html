@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 蓝图 (Blueprints) | 菜鸟教程</title>
+<title>Flask Blueprints | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="蓝图（Blueprint） 当应用只有一个文件时，所有路由写在一起还没问题。 但随着功能增长——用户模块、文章模块、管理后台——代码会变得难以维护。 Blueprint（蓝图）就是 Flask 提供的模块化解决方案，让你将应用拆分为独立的功能单元。   为什么需要蓝图 蓝图解决的核心问题：    代码组织：将相关的路由、模板、静态文件归为一组   复用性：同一个蓝图可以注册到不同应用，或注册多次（加不同前缀）   团队协作：不同开发者负.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,39 +158,39 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-orm.html" rel="prev">Flask 数据库操作</a> </div>
-<div class="next-design-link"><a href="../flask/flask-error.html" rel="next">Flask 错误处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-orm.html" rel="prev">Flask Database Operations</a> </div>
+<div class="next-design-link"><a href="../flask/flask-error.html" rel="next">Flask Error Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>蓝图（Blueprint）</h1>
+<h1>Blueprint</h1>
 <p>When the application has only one file, writing all routes together is not a problem.</p>
 <p>But as features grow—user module, article module, admin backend—the code becomes difficult to maintain.</p>
-<p><span class="marked">Blueprint（蓝图）</span>It is the modular solution Flask provides, allowing you to split the application into independent functional units.</p>
+<p><span class="marked">Blueprint</span>It is the modular solution Flask provides, allowing you to split the application into independent functional units.</p>
 <hr/>
 <h2>Why blueprints are needed</h2>
 <p>The core problem that blueprints solve:</p>
 <ul>
-<li><span class="marked">代码组织</span>Group related routes, templates, and static files together</li>
-<li><span class="marked">复用性</span>The same blueprint can be registered to different applications, or registered multiple times (with different prefixes)</li>
-<li><span class="marked">团队协作</span>: Different developers are responsible for different blueprint modules, reducing conflicts.</li>
+<li><span class="marked">Code Organization</span>Group related routes, templates, and static files together</li>
+<li><span class="marked">Reusability</span>The same blueprint can be registered to different applications, or registered multiple times (with different prefixes)</li>
+<li><span class="marked">Team Collaboration</span>: Different developers are responsible for different blueprint modules, reducing conflicts.</li>
 </ul>
 <p>
 <img alt="Flask Blueprint 蓝图模块架构" decoding="async" src="../wp-content/uploads/2024/08/flask-blueprints.svg" style="width:100%;height:auto;margin:20px 0;"/></p><hr/>
-<h2>创建蓝图</h2>
-<p>蓝图使用<span class="marked">Blueprint</span>Class creation, usage and<span class="marked">Flask</span>Very similar—the same route decorators, the same view function syntax:</p>
+<h2>Creating a Blueprint</h2>
+<p>Using a Blueprint<span class="marked">Blueprint</span>Class creation, usage and<span class="marked">Flask</span>Very similar—the same route decorators, the same view function syntax:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：auth.py（用户认证蓝图）</span><br/>
+<span style="color: #a50"># File path: auth.py (user authentication blueprint)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> render_template<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> session<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<br/>
 <br/>
-<span style="color: #a50"># 创建蓝图实例</span><br/>
-<span style="color: #a50"># 第一个参数 "auth" 是蓝图的名称（用于 url_for 引用）</span><br/>
-<span style="color: #a50"># __name__ 告诉蓝图从哪里查找模板和静态文件</span><br/>
+<span style="color: #a50"># Create blueprint instance</span><br/>
+<span style="color: #a50"># The first parameter "auth" is the blueprint's name (used for url_for references)</span><br/>
+<span style="color: #a50"># __name__ tells the blueprint where to find templates and static files</span><br/>
 bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</span><span style="color: #a11;">"auth"</span><span style="color: Gray;">,</span> __name__<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 蓝图中使用 bp.route，而不是 app.route</span><br/>
+<span style="color: #a50"># Use bp.route in the blueprint, not app.route</span><br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">method</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"POST"</span>:<br/>
@@ -215,19 +215,19 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
 </div>
 </div>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：blog.py（博客蓝图）</span><br/>
+<span style="color: #a50"># File path: blog.py (blog blueprint)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Blueprint<span style="color: Gray;">,</span> render_template<br/>
 <br/>
 bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</span><span style="color: #a11;">"blog"</span><span style="color: Gray;">,</span> __name__<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 模拟文章数据</span><br/>
+    <span style="color: #a50"># Mock article data</span><br/>
     posts <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-        <span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">"Flask 入门"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
-        <span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">"Blueprint 详解"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author"</span>: <span style="color: #a11;">"RUNOOB"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+        <span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">Flask Introduction</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+        <span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">Blueprint Explained</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author"</span>: <span style="color: #a11;">"RUNOOB"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">"blog/index.html"</span><span style="color: Gray;">,</span> posts<span style="color: Gray;">=</span>posts<span style="color: Olive;">)</span><br/>
 <br/>
@@ -237,12 +237,12 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
 </div>
 </div>
 <hr/>
-<h2>注册蓝图</h2>
+<h2>Registering the Blueprint</h2>
 <p>A blueprint does not take effect automatically after creation; it needs to be registered in the application:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> auth_bp<br/>
 <span style="color: Green;font-weight:bold;">from</span> blog <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> blog_bp<br/>
@@ -250,21 +250,21 @@ bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</s
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"dev-secret-key"</span><br/>
 <br/>
-<span style="color: #a50"># 注册蓝图到应用</span><br/>
-<span style="color: #a50"># url_prefix：为蓝图中所有路由添加统一的前缀</span><br/>
+<span style="color: #a50"># Register the blueprint with the app</span><br/>
+<span style="color: #a50"># url_prefix: adds a common prefix to all routes in the blueprint</span><br/>
 app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>auth_bp<span style="color: Gray;">,</span> url_prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/auth"</span><span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># auth 蓝图的路由变成：/auth/login, /auth/logout, /auth/register</span><br/>
+<span style="color: #a50"># The auth blueprint routes become: /auth/login, /auth/logout, /auth/register</span><br/>
 <br/>
 app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>blog_bp<span style="color: Olive;">)</span><br/>
-<span style="color: #a50"># blog 蓝图不带前缀，路由保持：/、/create</span><br/>
+<span style="color: #a50"># The blog blueprint has no prefix, routes remain: /, /create</span><br/>
 </div>
 </div>
 <p>Complete route table after registration:</p>
 <table class="reference">
 <tr>
 <th>URL</th>
-<th>蓝图</th>
-<th>endpoint（url_for 使用）</th>
+<th>Blueprint</th>
+<th>endpoint (used by url_for)</th>
 </tr>
 <tr>
 <td>/</td>
@@ -292,21 +292,21 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <td>auth.logout</td>
 </tr>
 </table>
-<blockquote><p>After registering the blueprint,<span class="marked">url_for()</span>In it, the endpoint needs to have the blueprint name added as a prefix, for example<span class="marked">url_for("auth.login")</span>而非<span class="marked">url_for("login")</span>。</p></blockquote>
+<blockquote><p>After registering the blueprint,<span class="marked">url_for()</span>In it, the endpoint needs to have the blueprint name added as a prefix, for example<span class="marked">url_for("auth.login")</span>rather than<span class="marked">url_for("login")</span>。</p></blockquote>
 <hr/>
 <h2>Special usage of url_for in blueprints</h2>
 <p>Within the same blueprint, you can use relative references that start with a dot:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 在 auth.py 内部，使用相对引用更简洁</span><br/>
+<span style="color: #a50"># Inside auth.py, using relative references is cleaner</span><br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> index<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 同蓝图内的相对引用（以 . 开头）</span><br/>
-    login_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">".login"</span><span style="color: Olive;">)</span>       <span style="color: #a50"># 等价于 url_for("auth.login")</span><br/>
-    register_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">".register"</span><span style="color: Olive;">)</span> <span style="color: #a50"># 等价于 url_for("auth.register")</span><br/>
-    <span style="color: #a50"># 跨蓝图引用需要使用完整 endpoint</span><br/>
-    blog_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">"blog.index"</span><span style="color: Olive;">)</span>    <span style="color: #a50"># 引用 blog 蓝图的 index</span><br/>
+    <span style="color: #a50"># Relative references within the same blueprint (starting with a dot)</span><br/>
+    login_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">".login"</span><span style="color: Olive;">)</span>       <span style="color: #a50"># Equivalent to url_for("auth.login")</span><br/>
+    register_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">".register"</span><span style="color: Olive;">)</span> <span style="color: #a50"># Equivalent to url_for("auth.register")</span><br/>
+    <span style="color: #a50"># Referencing across blueprints requires the full endpoint</span><br/>
+    blog_url <span style="color: Gray;">=</span> url_for<span style="color: Olive;">(</span><span style="color: #a11;">"blog.index"</span><span style="color: Olive;">)</span>    <span style="color: #a50"># Reference the blog blueprint's index</span><br/>
 </div>
 </div>
 <hr/>
@@ -314,15 +314,15 @@ app.<span style="color: #05a;">register_blueprint</span><span style="color: Oliv
 <p>Blueprints can also have their own templates and static files.</p>
 <p>When a blueprint has its own template folder, Flask will first look in the application's<span class="marked">templates</span>search in it, and if not found, then search in the folder specified by the blueprint.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 创建带有独立模板文件夹的蓝图</span><br/>
+<span style="color: #a50"># Create a blueprint with its own template folder</span><br/>
 bp <span style="color: Gray;">=</span> Blueprint<span style="color: Olive;">(</span><span style="color: #a11;">"auth"</span><span style="color: Gray;">,</span> __name__<span style="color: Gray;">,</span> template_folder<span style="color: Gray;">=</span><span style="color: #a11;">"templates"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 蓝图特有的模板组织</span><br/>
-<span style="color: #a50"># 路径：auth/templates/auth/login.html</span><br/>
-<span style="color: #a50"># 渲染时：render_template("auth/login.html")</span><br/>
-<span style="color: #a50"># 这样组织可以避免文件名冲突（login.html 在 auth 和 blog 中可能是不同的）</span><br/>
+<span style="color: #a50"># Blueprint-specific template organization</span><br/>
+<span style="color: #a50"># Path: auth/templates/auth/login.html</span><br/>
+<span style="color: #a50"># When rendering: render_template("auth/login.html")</span><br/>
+<span style="color: #a50"># This organization avoids file name conflicts (login.html may differ between auth and blog)</span><br/>
 </div>
 </div>
 <p>Recommended blueprint directory structure:</p>
@@ -352,24 +352,24 @@ myflaskapp/
 <p>As blueprints increase, directly creating them at the top level of the module<span class="marked">app = Flask(__name__)</span>Will encounter circular import issues.</p>
 <p>The Factory Pattern is the best practice for solving this problem:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：app.py</span><br/>
+<span style="color: #a50"># File path: app.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> create_app<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""应用工厂函数——返回配置好的 Flask 实例"""</span><br/>
+    <span style="color: #a11;">"""Application factory function — returns a configured Flask instance"""</span><br/>
     app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
     app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"dev-secret-key"</span><br/>
 <br/>
-    <span style="color: #a50"># 加载配置</span><br/>
+    <span style="color: #a50"># Load configuration</span><br/>
     app.<span style="color: #05a;">config</span>.<span style="color: #05a;">from_pyfile</span><span style="color: Olive;">(</span><span style="color: #a11;">"config.py"</span><span style="color: Gray;">,</span> silent<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 在函数内部导入蓝图，避免循环引用</span><br/>
+    <span style="color: #a50"># Import blueprints inside the function to avoid circular imports</span><br/>
     <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> auth_bp<br/>
     <span style="color: Green;font-weight:bold;">from</span> blog <span style="color: Green;font-weight:bold;">import</span> bp <span style="color: Green;font-weight:bold;">as</span> blog_bp<br/>
 <br/>
-    <span style="color: #a50"># 注册蓝图</span><br/>
+    <span style="color: #a50"># Register blueprint</span><br/>
     app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>auth_bp<span style="color: Gray;">,</span> url_prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/auth"</span><span style="color: Olive;">)</span><br/>
     app.<span style="color: #05a;">register_blueprint</span><span style="color: Olive;">(</span>blog_bp<span style="color: Olive;">)</span><br/>
 <br/>
@@ -378,11 +378,11 @@ myflaskapp/
 </div>
 <p>Advantages of the factory pattern:</p>
 <ul>
-<li><span class="marked">消除循环导入</span>Blueprints can be imported<span class="marked">app</span>，<span class="marked">app</span>You can also import blueprints, because the import happens inside the function.</li>
-<li><span class="marked">支持测试</span>Can create app instances with different configurations for testing</li>
-<li><span class="marked">多实例部署</span>The same code can create multiple independent app instances</li>
+<li><span class="marked">Eliminate circular imports</span>Blueprints can be imported<span class="marked">app</span>，<span class="marked">app</span>You can also import blueprints, because the import happens inside the function.</li>
+<li><span class="marked">Support testing</span>Can create app instances with different configurations for testing</li>
+<li><span class="marked">Multi-instance deployment</span>The same code can create multiple independent app instances</li>
 </ul>
-<p>After using the factory pattern, you need to<span class="marked">flask --app "app:create_app()" run</span>启动：</p>
+<p>After using the factory pattern, you need to<span class="marked">flask --app "app:create_app()" run</span>Start:</p>
 <pre>
 $ flask --app "app:create_app()" run
 </pre>
@@ -390,37 +390,32 @@ $ flask --app "app:create_app()" run
 <h2>Other features in blueprints</h2>
 <p>Blueprints also support decorators such as before_request, errorhandler, etc., and their usage is the same as the app:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">before_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> check_login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""在 auth 蓝图的所有请求前检查登录状态"""</span><br/>
+    <span style="color: #a11;">"""Check login status before all requests in the auth blueprint"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">endpoint</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">(</span><span style="color: #a11;">"auth.login"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"auth.register"</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"username"</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> session:<br/>
             <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"auth.login"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>bp.<span style="color: #05a;">errorhandler</span><span style="color: Olive;">(</span><span style="color: Maroon;">404</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> not_found<span style="color: Olive;">(</span>error<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""auth 蓝图专用的 404 错误页面"""</span><br/>
+    <span style="color: #a11;">"""404 error page dedicated to the auth blueprint"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> render_template<span style="color: Olive;">(</span><span style="color: #a11;">"auth/404.html"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: Maroon;">404</span><br/>
 </div>
 </div>
-<blockquote><p>蓝图的<span class="marked">before_request</span>It only affects the routes within that blueprint. If you need to execute logic before all requests, you should use<span class="marked">app.before_request</span>。</p></blockquote>
-其他扩展
-</div>
+<blockquote><p>Blueprint's<span class="marked">before_request</span>It only affects the routes within that blueprint. If you need to execute logic before all requests, you should use<span class="marked">app.before_request</span>。</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-orm.html" rel="prev">Flask 数据库操作</a> </div>
-<div class="next-design-link"><a href="../flask/flask-error.html" rel="next">Flask 错误处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-orm.html" rel="prev">Flask Database Operations</a> </div>
+<div class="next-design-link"><a href="../flask/flask-error.html" rel="next">Flask Error Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -524,16 +519,16 @@ $ flask --app "app:create_app()" run
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -541,14 +536,14 @@ $ flask --app "app:create_app()" run
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="25774"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -726,7 +721,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -817,7 +812,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

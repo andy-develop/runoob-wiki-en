@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Electron 打包与分发 | 菜鸟教程</title>
+<title>Electron Packaging and Distribution | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Electron 打包与分发 Electron 应用开发完成后，需要将应用打包为桌面可执行文件，并发布给用户。打包与分发流程涉及工具选择、配置、签名和更新策略等多个环节。  打包工具介绍 electron-builder      高度自动化，支持 Windows、macOS、Linux     支持自动更新功能     配置简单，适合生产环境     可生成 .exe、.dmg、.AppImage 等格式  electron-pack.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-debug-test.html" rel="prev">Electron 调试与测试</a> </div>
-<div class="next-design-link"><a href="../electron/electron-release.html" rel="next">Electron 发布与部署</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-debug-test.html" rel="prev">Electron Debugging and Testing</a> </div>
+<div class="next-design-link"><a href="../electron/electron-release.html" rel="next">Electron Release and Deployment</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -172,7 +172,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li>Highly automated, supporting Windows, macOS, and Linux</li>
 <li>Supports Automatic Update Functionality</li>
 <li>Simple configuration, suitable for production environments</li>
-<li>可生成<code>.exe</code>、<code>.dmg</code>、<code>.AppImage</code>等格式</li>
+<li>can generate<code>.exe</code>、<code>.dmg</code>、<code>.AppImage</code>and other formats</li>
 </ul>
 <h3>electron-packager</h3>
 <ul>
@@ -190,10 +190,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <table class="reference">
 <thead>
 <tr>
-<th>工具</th>
-<th>特点</th>
-<th>优势</th>
-<th>适用场景</th>
+<th>Tools</th>
+<th>Features</th>
+<th>Advantages</th>
+<th>Applicable scenarios</th>
 </tr>
 </thead>
 <tbody>
@@ -219,7 +219,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <hr/>
 <h2>Configure Packaging Parameters</h2>
-<h3><a name="&lt;strong&gt;package.json 配置&lt;/strong&gt;"></a><span></span><strong>package.json 配置</strong></h3>
+<h3><a name="&lt;strong&gt;package.json 配置&lt;/strong&gt;"></a><span></span><strong>package.json configuration</strong></h3>
 <pre>"build": {
   "appId": "com.example.myapp",
   "productName": "MyElectronApp",
@@ -243,59 +243,59 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h3>Platform-Specific Configuration</h3>
 <ul>
 <li><strong>Windows</strong>: Installer package types (NSIS, Squirrel), icons<code>.ico</code></li>
-<li><strong>macOS</strong>: Application category, signing,<code>.icns</code>图标</li>
+<li><strong>macOS</strong>: Application category, signing,<code>.icns</code>icon</li>
 <li><strong>Linux</strong>: Target formats (AppImage, deb, rpm), PNG icons</li>
 </ul>
 <h3>Icons and Resource Files</h3>
 <ul>
 <li>Icon size and format must meet platform requirements</li>
-<li>Additional Resources Can Be Accessed Through<code>extraResources</code> 或 <code>extraFiles</code>添加</li>
+<li>Additional Resources Can Be Accessed Through<code>extraResources</code>or<code>extraFiles</code>add</li>
 </ul>
 <hr/>
-<h2>多平台打包</h2>
-<h3>Windows 打包</h3>
+<h2>Multi-platform packaging</h2>
+<h3>Windows packaging</h3>
 <pre>electron-builder --win</pre>
 <ul>
-<li>可生成<code>.exe</code> 或 <code>.msi</code>安装文件</li>
+<li>can generate<code>.exe</code>or<code>.msi</code>Installation file</li>
 <li>Supports NSIS installation wizard and silent installation</li>
 </ul>
-<h3>macOS 打包</h3>
+<h3>macOS packaging</h3>
 <pre>electron-builder --mac</pre>
 <ul>
-<li>可生成<code>.dmg</code> 或 <code>.pkg</code></li>
-<li>配合公证（Notarization）可通过 macOS Gatekeeper</li>
+<li>can generate<code>.dmg</code>or<code>.pkg</code></li>
+<li>With Notarization, it can pass macOS Gatekeeper</li>
 </ul>
-<h3>Linux 打包</h3>
+<h3>Linux packaging</h3>
 <pre>electron-builder --linux</pre>
 <ul>
-<li>常用格式：AppImage、deb、rpm</li>
+<li>Common formats: AppImage, deb, rpm</li>
 <li>Suitable for desktop distribution across different distributions</li>
 </ul>
-<h3>交叉编译</h3>
+<h3>Cross-compilation</h3>
 <ul>
 <li>Electron-builder supports cross-platform builds, but macOS applications must be signed on macOS</li>
 <li>Windows/Linux can achieve cross-packaging through Linux or Windows build virtual machines</li>
 </ul>
 <hr/>
-<h2>代码签名</h2>
+<h2>Code signing</h2>
 <h3>Windows code signing</h3>
 <ul>
-<li>Signing with digital certificates (.pfx)<code>.exe</code> 或 <code>.msi</code></li>
-<li>示例：</li>
+<li>Signing with digital certificates (.pfx)<code>.exe</code>or<code>.msi</code></li>
+<li>Example:</li>
 </ul>
 <pre>electron-builder --win --csc-link path/to/certificate.pfx --csc-key-password yourpassword</pre>
 <ul>
 <li>Enhance user trust and avoid SmartScreen blocking</li>
 </ul>
-<h3>macOS 公证（Notarization）</h3>
+<h3>macOS Notarization</h3>
 <ul>
 <li>Apple officially requires applications to be notarized to pass Gatekeeper</li>
-<li>需要 Apple Developer 账号</li>
-<li>构建示例：</li>
+<li>Requires an Apple Developer account</li>
+<li>Build example:</li>
 </ul><pre>
 electron-builder --mac --publish never</pre>
 <ul>
-<li>使用<code>notarize</code>Upload the app via API for automatic notarization</li>
+<li>Usage<code>notarize</code>Upload the app via API for automatic notarization</li>
 </ul>
 <h3>Certificate Application and Management</h3>
 <ul>
@@ -304,11 +304,11 @@ electron-builder --mac --publish never</pre>
 <li>Certificates must be stored securely to avoid leaks</li>
 </ul>
 <hr/>
-<h2>自动更新</h2>
-<h3>electron-updater 使用</h3>
+<h2>Automatic update</h2>
+<h3>electron-updater usage</h3>
 <ul>
 <li>Works with electron-builder, supports differential updates</li>
-<li>安装<code>electron-updater</code>：<span class="marked">npm install electron-updater</span></li>
+<li>Installation<code>electron-updater</code>：<span class="marked">npm install electron-updater</span></li>
 </ul>
 <p>Main Process Example:</p>
 <pre>const { autoUpdater } = require('electron-updater')
@@ -321,42 +321,38 @@ autoUpdater.checkForUpdates()</pre>
 <li>Can use GitHub Releases, private servers, or CDN</li>
 <li>Provides a JSON file describing the latest version information</li>
 </ul>
-<h3>差分更新</h3>
+<h3>Differential update</h3>
 <ul>
 <li>Only downloads changed files, reducing bandwidth consumption</li>
-<li>electron-updater 内置支持 NSIS / Squirrel / AppImage 差分更新</li>
+<li>electron-updater has built-in support for NSIS / Squirrel / AppImage differential updates</li>
 </ul>
-<h3>更新策略</h3>
+<h3>Update Strategy</h3>
 <ul>
 <li>Automatically Check for Updates (on Startup or Scheduled)</li>
 <li>Manually Trigger Updates</li>
 <li>A pop-up prompts users to update immediately or defer the update</li>
 </ul>
 <hr/>
-<h2>小结</h2>
+<h2>Summary</h2>
 <p>Core process of Electron packaging and distribution:</p>
 <ul>
-<li><strong>选择工具</strong>：electron-builder、electron-packager、electron-forge</li>
-<li><strong>配置参数</strong>: Define platform, icons, and resources in package.json</li>
-<li><strong>多平台打包</strong>：Windows、macOS、Linux</li>
-<li><strong>代码签名</strong>: Ensure the app is trustworthy and avoid security warnings</li>
-<li><strong>自动更新</strong>: Enhance User Experience, Support Differential Updates</li>
+<li><strong>Choose tool</strong>：electron-builder、electron-packager、electron-forge</li>
+<li><strong>Configuration parameters</strong>: Define platform, icons, and resources in package.json</li>
+<li><strong>Multi-platform packaging</strong>：Windows、macOS、Linux</li>
+<li><strong>Code signing</strong>: Ensure the app is trustworthy and avoid security warnings</li>
+<li><strong>Automatic update</strong>: Enhance User Experience, Support Differential Updates</li>
 </ul>
-<p>Following best practices allows Electron apps to be distributed to users quickly and securely, while also facilitating future iteration and updates.</p> 其他扩展
-</div>
+<p>Following best practices allows Electron apps to be distributed to users quickly and securely, while also facilitating future iteration and updates.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-debug-test.html" rel="prev">Electron 调试与测试</a> </div>
-<div class="next-design-link"><a href="../electron/electron-release.html" rel="next">Electron 发布与部署</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../electron/electron-debug-test.html" rel="prev">Electron Debugging and Testing</a> </div>
+<div class="next-design-link"><a href="../electron/electron-release.html" rel="next">Electron Release and Deployment</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -460,16 +456,16 @@ autoUpdater.checkForUpdates()</pre>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -477,14 +473,14 @@ autoUpdater.checkForUpdates()</pre>
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="28799"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -662,7 +658,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -753,7 +749,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

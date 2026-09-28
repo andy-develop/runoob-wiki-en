@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flutter 调试与 DevTools | 菜鸟教程</title>
+<title>Flutter Debugging and DevTools | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flutter 调试与 DevTools 本节将介绍 Flutter 的调试工具和常用调试技巧。   Flutter DevTools 简介 Flutter DevTools 是一套用于调试和分析 Flutter 应用的工具集。  启动 DevTools  $ flutter run  在运行应用后，终端会显示 DevTools 的 URL，通常是 http://127.0.0.1:9100  常用命令  命令说明 flutter do.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,78 +158,77 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-images.html" rel="prev">Flutter 图片与资源</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-platform-channels.html" rel="next">Flutter 平台特定代码</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-images.html" rel="prev">Flutter Images and Assets</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-platform-channels.html" rel="next">Flutter Platform-Specific Code</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Flutter 调试与 DevTools</h1>
+<h1>Flutter Debugging and DevTools</h1>
 <p>This section will introduce Flutter's debugging tools and common debugging techniques.</p>
 <hr/>
-<h2>Flutter DevTools 简介</h2>
+<h2>Introduction to Flutter DevTools</h2>
 <p>Flutter DevTools is a suite of tools for debugging and analyzing Flutter applications.</p>
-<h3>启动 DevTools</h3>
+<h3>Launch DevTools</h3>
 <pre>
 $ flutter run
 </pre>
 <p>After running the application, the terminal will display the DevTools URL, usually<code>http://127.0.0.1:9100</code></p>
-<h3>常用命令</h3>
+<h3>Common Commands</h3>
 <table class="reference">
-<tr><th>命令</th><th>说明</th></tr>
+<tr><th>Command</th><th>Description</th></tr>
 <tr><td>flutter doctor</td><td>Check development environment configuration</td></tr>
 <tr><td>flutter analyze</td><td>Static Code Analysis</td></tr>
-<tr><td>flutter test</td><td>运行测试</td></tr>
+<tr><td>flutter test</td><td>Run tests</td></tr>
 </table>
 <hr/>
-<h2>print 和 debugPrint</h2>
+<h2>print and debugPrint</h2>
 <div class="example">
 <h2 class="example">Example: Basic Debug Output</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 基础打印</span><br/>
-print<span style="">(</span><span style="color: #d14;">'Hello Debug'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 输出到控制台</span><br/>
+<span style="color: #999988; font-style: italic;">// Basic printing</span><br/>
+print<span style="">(</span><span style="color: #d14;">'Hello Debug'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Output to console</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// debugPrint 避免长文本截断</span><br/>
-debugPrint<span style="">(</span><span style="color: #d14;">'这是一段很长的文本，可以完整输出而不会被截断'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+<span style="color: #999988; font-style: italic;">// debugPrint avoids long text truncation</span><br/>
+debugPrint<span style="">(</span><span style="color: #d14;">'This is a long text that can be output in full without being truncated'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 条件打印</span><br/>
+<span style="color: #999988; font-style: italic;">// Conditional printing</span><br/>
 <span style="font-weight: bold;">if</span> <span style="">(</span>debugMode<span style="">)</span> <span style="">{</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'调试信息'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Debug info'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 打印对象（需要 toString）</span><br/>
-<span style="font-weight: bold;">final</span> user <span style="font-weight: bold;">=</span> <span style="">{</span><span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'张三'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">25</span><span style="">}</span><span style="font-weight: bold;">;</span><br/>
-print<span style="">(</span><span style="color: #d14;">'用户信息: $user'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 输出: 用户信息: {name: 张三, age: 25}</span><br/>
+<span style="color: #999988; font-style: italic;">// Print object (requires toString)</span><br/>
+<span style="font-weight: bold;">final</span> user <span style="font-weight: bold;">=</span> <span style="">{</span><span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'Zhang San'</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">25</span><span style="">}</span><span style="font-weight: bold;">;</span><br/>
+print<span style="">(</span><span style="color: #d14;">'User info: $user'</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Output: User info: {name: John Doe, age: 25}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>断言 - assert</h2>
+<h2>Assertion - assert</h2>
 <p>Assertions are used to check conditions during development and only take effect in debug mode.</p>
-<div class="example">&lt; h2 class="example"&gt;实例：使用断言
-<div class="example_code">
-<span style="color: #999988; font-style: italic;">// 简单的断言</span><br/>
-<span style="font-weight: bold;">assert</span><span style="">(</span>user <span style="font-weight: bold;">!=</span> <span style="font-weight: bold;">null</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'用户不能为空'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+<div class="example">&lt; h2 class="example"&gt;Example: Using assertions<div class="example_code">
+<span style="color: #999988; font-style: italic;">// Simple assertion</span><br/>
+<span style="font-weight: bold;">assert</span><span style="">(</span>user <span style="font-weight: bold;">!=</span> <span style="font-weight: bold;">null</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'User cannot be empty'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 函数参数验证</span><br/>
+<span style="color: #999988; font-style: italic;">// Function parameter validation</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> setAge<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> age<span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 年龄必须大于 0</span><br/>
-  <span style="font-weight: bold;">assert</span><span style="">(</span>age <span style="font-weight: bold;">&gt;</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'年龄必须大于 0'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Age must be greater than 0</span><br/>
+  <span style="font-weight: bold;">assert</span><span style="">(</span>age <span style="font-weight: bold;">&gt;</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">,</span> <span style="color: #d14;">'Age must be greater than 0'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">this</span>.<span style="color: #006633;">age</span> <span style="font-weight: bold;">=</span> age<span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// UI 构建中的断言（仅开发时）</span><br/>
+<span style="color: #999988; font-style: italic;">// Assertions in UI building (development only)</span><br/>
 Widget build<span style="">(</span>BuildContext context<span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 确保 context 不为 null</span><br/>
+  <span style="color: #999988; font-style: italic;">// Ensure context is not null</span><br/>
   <span style="font-weight: bold;">assert</span><span style="">(</span>context <span style="font-weight: bold;">!=</span> <span style="font-weight: bold;">null</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// 确保有父级 Scaffold</span><br/>
+  <span style="color: #999988; font-style: italic;">// Ensure there is a parent Scaffold</span><br/>
   <span style="font-weight: bold;">assert</span><span style="">(</span>debugCheckHasMaterial<span style="">(</span>context<span style="">)</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">return</span> Scaffold<span style="">(</span><span style="font-weight: bold;">..</span>.<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
 <hr/>
-<h2>断点调试</h2>
+<h2>Breakpoint debugging</h2>
 <p>Set breakpoints in VS Code or Android Studio for debugging.</p>
-<h3>VS Code 调试</h3>
+<h3>VS Code debugging</h3>
 <ol>
 <li>Click on the left side of the line number to set a breakpoint</li>
 <li>Press F5 or click the debug button to start debugging</li>
@@ -237,7 +236,7 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 </ol>
 <h3>Common Breakpoint Commands</h3>
 <table class="reference">
-<tr><th>操作</th><th>说明</th></tr>
+<tr><th>Operation</th><th>Description</th></tr>
 <tr><td>Continue / F5</td><td>Continue execution to the next breakpoint</td></tr>
 <tr><td>Step Over / F10</td><td>Step over, without entering functions</td></tr>
 <tr><td>Step Into / F11</td><td>Step into, entering functions</td></tr>
@@ -246,7 +245,7 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <hr/>
 <h2>Flutter Inspector</h2>
 <p>Flutter Inspector is part of DevTools, used to visualize and inspect the Widget tree.</p>
-<h3>主要功能</h3>
+<h3>Main Features</h3>
 <ul>
 <li><strong>Widget Tree</strong>: View the Widget hierarchy structure</li>
 <li><strong>Layout Explorer</strong>: Check layout constraints</li>
@@ -257,43 +256,38 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <div class="example">
 <h2 class="example">Example: Debugging UI Not Updating</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 问题：UI 不更新</span><br/>
-<span style="color: #999988; font-style: italic;">// 原因：修改状态后没有调用 setState</span><br/>
+<span style="color: #999988; font-style: italic;">// Issue: UI not updating</span><br/>
+<span style="color: #999988; font-style: italic;">// Reason: setState was not called after modifying the state</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 错误示例</span><br/>
+<span style="color: #999988; font-style: italic;">// Wrong example</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> _increment<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 状态已改变，但 UI 不会更新！</span><br/>
+  _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// State has changed, but the UI won't update!</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 正确示例</span><br/>
+<span style="color: #999988; font-style: italic;">// Correct example</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> _increment<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   setState<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 必须调用 setState</span><br/>
+    _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Must call setState</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 问题：状态管理混乱</span><br/>
-<span style="color: #999988; font-style: italic;">// 建议：使用 Provider 或其他状态管理方案</span><br/>
+<span style="color: #999988; font-style: italic;">// Issue: state management is messy</span><br/>
+<span style="color: #999988; font-style: italic;">// Suggestion: Use Provider or other state management solution</span><br/>
 </div>
 </div>
 <blockquote>
 <p>Common tools for debugging: print for outputting logs, Inspector for inspecting the Widget tree, and Timeline for analyzing performance.</p>
-</blockquote>
-其他扩展
-</div>
+</blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-images.html" rel="prev">Flutter 图片与资源</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-platform-channels.html" rel="next">Flutter 平台特定代码</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-images.html" rel="prev">Flutter Images and Assets</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-platform-channels.html" rel="next">Flutter Platform-Specific Code</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -397,16 +391,16 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click Me to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -414,14 +408,14 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29930"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -599,7 +593,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -690,7 +684,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

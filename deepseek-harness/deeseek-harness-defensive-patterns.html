@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeeSeek Harness 防御性编程：结果报告、清理与凭据 | 菜鸟教程</title>
+<title>DeeSeek Harness Defensive Programming: Result Reporting, Cleanup, and Credentials | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeeSeek Harness 防御性编程：结果报告、清理与凭据  写了这么多插件，你可能会遇到一类「平时测不出来、一上线就出事」的边界 bug。 官方文档把它们归纳成「来之不易的缺陷类别规则」——每一条都是真实发布或差点发布过的缺陷。 这一篇讲五个最重要的防御性编程模式：结果报告、dispose 停稳、凭据擦除、链接删除、回调隔离。   一句话：这些模式防止「一个简单的边界情况把整个 Agent 搞挂」。     先看对照图 下面的图.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="prev">DeepSeek Harness 会话日志与轮次生命周期</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-postmortem.html" rel="next">DeeSeek Harness 事故复盘与工程文化</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="prev">DeepSeek Harness Session Logs and Turn Lifecycle</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-postmortem.html" rel="next">DeeSeek Harness Incident Retrospective and Engineering Culture</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -171,7 +171,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In one sentence: these patterns prevent "a simple edge case from taking down the entire Agent."</p>
 </blockquote>
 <hr/>
-<h2>先看对照图</h2>
+<h2>First look at the comparison chart</h2>
 <p>The diagram below compares bad examples side-by-side with good examples, each one drawn from a real bug category.</p>
 <p><img alt="防御性编程坏好示例对照图" decoding="async" src="../wp-content/uploads/2026/08/27-defensive-patterns.svg" style="width:100%;max-width:900px;"/></p>
 <p>The official docs call these patterns the "please read this before writing lifecycle, concurrency, child process, or cleanup code" rules.</p>
@@ -181,16 +181,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Each independent fact (<code>timedOut</code>、<code>signal</code>、<code>exitCode</code>) should each be reported separately.</p>
 <p>Never nest the reporting of one flag inside the branch of another flag; otherwise callers may mistake an early-terminated run for normal success.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：packages/my-shell/src/run.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 运行一个子进程，并正交上报三个独立事实：timedOut、signal、exitCode。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: packages/my-shell/src/run.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Run a child process and orthogonally report three independent facts: timedOut, signal, exitCode.</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> spawn<span style="color: #339933;">,</span> type ChildProcess <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'node:child_process'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #FF0000;">interface</span> RunResult <span style="color: #009900;">{</span><br/>
-  timedOut<span style="color: #339933;">:</span> <span style="color: #FF0000;">boolean</span>      <span style="color: #006600; font-style: italic;">// 独立事实 1：是否超时</span><br/>
-  signal<span style="color: #339933;">:</span> NodeJS.<span style="color: #660066;">Signals</span> <span style="color: #339933;">|</span> <span style="color: #003366; font-weight: bold;">null</span> <span style="color: #006600; font-style: italic;">// 独立事实 2：是否被信号终止</span><br/>
-  exitCode<span style="color: #339933;">:</span> number <span style="color: #339933;">|</span> <span style="color: #003366; font-weight: bold;">null</span>       <span style="color: #006600; font-style: italic;">// 独立事实 3：退出码</span><br/>
+  timedOut<span style="color: #339933;">:</span> <span style="color: #FF0000;">boolean</span>      <span style="color: #006600; font-style: italic;">// Independent fact 1: whether it timed out</span><br/>
+  signal<span style="color: #339933;">:</span> NodeJS.<span style="color: #660066;">Signals</span> <span style="color: #339933;">|</span> <span style="color: #003366; font-weight: bold;">null</span> <span style="color: #006600; font-style: italic;">// Independent fact 2: whether it was terminated by a signal</span><br/>
+  exitCode<span style="color: #339933;">:</span> number <span style="color: #339933;">|</span> <span style="color: #003366; font-weight: bold;">null</span>       <span style="color: #006600; font-style: italic;">// Independent fact 3: exit code</span><br/>
   stdout<span style="color: #339933;">:</span> string<br/>
   stderr<span style="color: #339933;">:</span> string<br/>
 <span style="color: #009900;">}</span><br/>
@@ -205,17 +205,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     child.<span style="color: #660066;">stdout</span>.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'data'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>d<span style="color: #339933;">:</span> Buffer<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">(</span>stdout <span style="color: #339933;">+=</span> d<span style="color: #009900;">)</span><span style="color: #009900;">)</span><br/>
     child.<span style="color: #660066;">stderr</span>.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'data'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>d<span style="color: #339933;">:</span> Buffer<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">(</span>stderr <span style="color: #339933;">+=</span> d<span style="color: #009900;">)</span><span style="color: #009900;">)</span><br/>
 <br/>
-    <span style="color: #006600; font-style: italic;">// 独立事实 1 单独维护：超时是一个标志，与退出码无关。</span><br/>
+    <span style="color: #006600; font-style: italic;">// Independent fact 1, maintained separately: timeout is a flag, unrelated to the exit code.</span><br/>
     let timedOut <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">false</span><br/>
     <span style="color: #000066; font-weight: bold;">const</span> timer <span style="color: #339933;">=</span> setTimeout<span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
       timedOut <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">true</span><br/>
-      child.<span style="color: #660066;">kill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'SIGTERM'</span><span style="color: #009900;">)</span> <span style="color: #006600; font-style: italic;">// 超时触发终止</span><br/>
+      child.<span style="color: #660066;">kill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'SIGTERM'</span><span style="color: #009900;">)</span> <span style="color: #006600; font-style: italic;">// Timeout triggers termination</span><br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span> timeoutMs<span style="color: #009900;">)</span><br/>
 <br/>
     child.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'close'</span><span style="color: #339933;">,</span> <span style="color: #009900;">(</span>code<span style="color: #339933;">,</span> signal<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
       clearTimeout<span style="color: #009900;">(</span>timer<span style="color: #009900;">)</span><br/>
-      <span style="color: #006600; font-style: italic;">// 三个字段各自独立返回：进程可能 timedOut=true 且 exitCode=0，</span><br/>
-      <span style="color: #006600; font-style: italic;">// 因为它在超时后捕获了 SIGTERM 并以 0 退出。</span><br/>
+      <span style="color: #006600; font-style: italic;">// The three fields are returned independently: the process may have timedOut=true and exitCode=0,</span><br/>
+      <span style="color: #006600; font-style: italic;">// Because it catches SIGTERM after timeout and exits with 0.</span><br/>
       resolve<span style="color: #009900;">(</span><span style="color: #009900;">{</span> timedOut<span style="color: #339933;">,</span> signal<span style="color: #339933;">,</span> exitCode<span style="color: #339933;">:</span> code<span style="color: #339933;">,</span> stdout<span style="color: #339933;">,</span> stderr <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
     child.<span style="color: #660066;">on</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'error'</span><span style="color: #339933;">,</span> reject<span style="color: #009900;">)</span><br/>
@@ -223,7 +223,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="color: #009900;">}</span><br/>
 </div>
 </div>
-<p>With this style, callers can combine checks:<code>timedOut</code>为真但<code>exitCode</code>If it's 0, it means "force-killed, but the process masked it with a 0."</p>
+<p>With this style, callers can combine checks:<code>timedOut</code>is true but<code>exitCode</code>If it's 0, it means "force-killed, but the process masked it with a 0."</p>
 <p>If reporting is nested, this combination can never be expressed.</p>
 <hr/>
 <h2>dispose must reach a fully-stopped state.</h2>
@@ -231,22 +231,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Cleanup logic should use an async flow and wait for the child process to exit (send terminate signal, then wait<code>done</code>）。</p>
 <p>You should also close the listener registries and notification registries before terminating the process, keeping late completion events silent.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：packages/my-shell/src/dispose.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// dispose 必须完全停稳：发信号后等待子进程退出，而不是只发信号就返回。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: packages/my-shell/src/dispose.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// dispose must fully stop: after sending signal, wait for child process to exit, rather than returning after just sending the signal.</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> once <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'node:events'</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> ChildProcess <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'node:child_process'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> async <span style="color: #000066; font-weight: bold;">function</span> disposeQuiescent<span style="color: #009900;">(</span>child<span style="color: #339933;">:</span> ChildProcess<span style="color: #009900;">)</span><span style="color: #339933;">:</span> Promise<span style="color: #339933;">&lt;</span>void<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 1. 先移除监听器，让迟到的完成事件保持静默。</span><br/>
+  <span style="color: #006600; font-style: italic;">// 1. First remove the listeners so that late completion events remain silent.</span><br/>
   child.<span style="color: #660066;">removeAllListeners</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 2. 请求停止：发出终止信号。</span><br/>
+  <span style="color: #006600; font-style: italic;">// 2. Request stop: issue termination signal.</span><br/>
   child.<span style="color: #660066;">kill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'SIGTERM'</span><span style="color: #009900;">)</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 3. 等待子进程真正退出；若超时仍不退，升级到 SIGKILL。</span><br/>
-  <span style="color: #006600; font-style: italic;">//    Promise.race 保证 dispose 不会被一个不肯退出的子进程永远挂起。</span><br/>
+  <span style="color: #006600; font-style: italic;">// 3. Wait for the child process to actually exit; if it still hasn't exited after the timeout, escalate to SIGKILL.</span><br/>
+  <span style="color: #006600; font-style: italic;">//    Promise.race guarantees that dispose will not be hung forever by a child process that refuses to exit.</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> forceKill <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Promise<span style="color: #339933;">&lt;</span>void<span style="color: #339933;">&gt;</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>resolve<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     setTimeout<span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
       child.<span style="color: #660066;">kill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'SIGKILL'</span><span style="color: #009900;">)</span><br/>
@@ -261,27 +261,27 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>This way, when dispose returns, the child has either exited or been force-killed with SIGKILL.</p>
 <hr/>
 <h2>Credential scrubbing: never expose environment variables to untrusted output.</h2>
-<p>Spawned commands should use a scrubbed environment, removing names matching<code>*KEY*</code>、<code>*SECRET*</code>、<code>*TOKEN*</code> 或 <code>*PASSWORD*</code>的项。</p>
+<p>Spawned commands should use a scrubbed environment, removing names matching<code>*KEY*</code>、<code>*SECRET*</code>、<code>*TOKEN*</code>or<code>*PASSWORD*</code>the item.</p>
 <p>Otherwise, harness credentials may leak through command output,<code>env</code>or spill file leaks.</p>
 <p>Temporary files and spill files should be placed in a private directory with 0700 permissions, use random file names, and be opened in an exclusive, owner-only accessible manner (<code>'wx'</code>、<code>0o600</code>）。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：packages/my-shell/src/env.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 启动命令前清理环境变量，防止 harness 凭证经命令输出或 env 泄漏。</span><br/>
-<span style="color: #006600; font-style: italic;">// 匹配 *KEY* *SECRET* *TOKEN* *PASSWORD* 的敏感项一律移除。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: packages/my-shell/src/env.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Clean environment variables before starting the command to prevent harness credentials from leaking through command output or env.</span><br/>
+<span style="color: #006600; font-style: italic;">// Sensitive items matching *KEY* *SECRET* *TOKEN* *PASSWORD* are all removed.</span><br/>
 <span style="color: #000066; font-weight: bold;">const</span> SENSITIVE_NAME <span style="color: #339933;">=</span> <span style="color: #009966; font-style: italic;">/.*(?:KEY|SECRET|TOKEN|PASSWORD).*/i</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> scrubEnv<span style="color: #009900;">(</span>env<span style="color: #339933;">:</span> NodeJS.<span style="color: #660066;">ProcessEnv</span><span style="color: #009900;">)</span><span style="color: #339933;">:</span> Record<span style="color: #339933;">&lt;</span>string<span style="color: #339933;">,</span> string<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> clean<span style="color: #339933;">:</span> Record<span style="color: #339933;">&lt;</span>string<span style="color: #339933;">,</span> string<span style="color: #339933;">&gt;</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><span style="color: #009900;">}</span><br/>
   <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">[</span>key<span style="color: #339933;">,</span> value<span style="color: #009900;">]</span> of <span style="">Object</span>.<span style="color: #660066;">entries</span><span style="color: #009900;">(</span>env<span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>SENSITIVE_NAME.<span style="color: #660066;">test</span><span style="color: #009900;">(</span>key<span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #000066; font-weight: bold;">continue</span> <span style="color: #006600; font-style: italic;">// 敏感键直接跳过</span><br/>
+    <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>SENSITIVE_NAME.<span style="color: #660066;">test</span><span style="color: #009900;">(</span>key<span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #000066; font-weight: bold;">continue</span> <span style="color: #006600; font-style: italic;">// Skip sensitive keys directly</span><br/>
     <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>value <span style="color: #339933;">!==</span> <span style="color: #003366; font-weight: bold;">undefined</span><span style="color: #009900;">)</span> clean<span style="color: #009900;">[</span>key<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> value<br/>
   <span style="color: #009900;">}</span><br/>
   <span style="color: #000066; font-weight: bold;">return</span> clean<br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 用法：spawn(argv[0], argv.slice(1), { env: scrubEnv(process.env), ... })</span><br/>
+<span style="color: #006600; font-style: italic;">// Usage:spawn(argv[0], argv.slice(1), { env: scrubEnv(process.env), ... })</span><br/>
 </div>
 </div>
 <blockquote>
@@ -290,25 +290,25 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </blockquote>
 <hr/>
 <h2>Delete symlinks with unlink.</h2>
-<p>A path that may be a symlink or Windows junction should first use<code>lstatSync().isSymbolicLink()</code>判断，再用<code>unlinkSync</code>删除。</p>
+<p>A path that may be a symlink or Windows junction should first use<code>lstatSync().isSymbolicLink()</code>Judge, then use<code>unlinkSync</code>Delete.</p>
 <p>unlink only removes the link itself and refuses real directories, so it never follows a link into its target.</p>
-<p>Windows 上对 junction 调用<code>rmSync(link)</code>会抛<code>ERR_FS_EISDIR</code>; recursive deletion may traverse the junction into its target.</p>
-<p>Only real directories use tape<code>recursive</code> 的 <code>rmSync</code>。</p>
+<p>Calling junction on Windows<code>rmSync(link)</code>Will throw<code>ERR_FS_EISDIR</code>; recursive deletion may traverse the junction into its target.</p>
+<p>Only real directories use tape<code>recursive</code>of<code>rmSync</code>。</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：packages/my-fs/src/remove.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 链接形态的路径用 unlink 删除，绝不递归跟随链接进入其目标。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: packages/my-fs/src/remove.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Delete link-form paths with unlink, never recursively follow links into their targets.</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> lstatSync<span style="color: #339933;">,</span> rmSync<span style="color: #339933;">,</span> unlinkSync <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'node:fs'</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> removePath<span style="color: #009900;">(</span>p<span style="color: #339933;">:</span> string<span style="color: #009900;">)</span><span style="color: #339933;">:</span> <span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 先判断是不是符号链接（或 Windows junction）。</span><br/>
+  <span style="color: #006600; font-style: italic;">// First check if it is a symbolic link (or Windows junction).</span><br/>
   <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>lstatSync<span style="color: #009900;">(</span>p<span style="color: #009900;">)</span>.<span style="color: #660066;">isSymbolicLink</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// unlink 只删除链接本身并拒绝真实目录，不会跟随链接。</span><br/>
+    <span style="color: #006600; font-style: italic;">// unlink only deletes the link itself and refuses actual directories; it does not follow links</span><br/>
     unlinkSync<span style="color: #009900;">(</span>p<span style="color: #009900;">)</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span><br/>
   <span style="color: #009900;">}</span><br/>
-  <span style="color: #006600; font-style: italic;">// 确认真实目录后，才使用带 recursive 的 rmSync。</span><br/>
+  <span style="color: #006600; font-style: italic;">// Only after confirming the actual directory, use rmSync with recursive.</span><br/>
   rmSync<span style="color: #009900;">(</span>p<span style="color: #339933;">,</span> <span style="color: #009900;">{</span> recursive<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
@@ -319,16 +319,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Wrap the dispatch loop in try/catch and log errors.</p>
 <p>A misbehaving subscriber must never break the core lifecycle.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：packages/my-events/src/dispatch.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 分发器隔离回调异常：一个坏订阅者不能破坏核心生命周期。</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: packages/my-events/src/dispatch.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Dispatcher isolates callback exceptions: a bad subscriber cannot break the core lifecycle.</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> dispatch<span style="color: #009900;">(</span>listeners<span style="color: #339933;">:</span> ReadonlyArray<span style="color: #339933;">&lt;</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> void<span style="color: #339933;">&gt;</span><span style="color: #009900;">)</span><span style="color: #339933;">:</span> <span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">const</span> listener of listeners<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">{</span><br/>
       listener<span style="color: #009900;">(</span><span style="color: #009900;">)</span><br/>
     <span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">catch</span> <span style="color: #009900;">(</span>err<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-      <span style="color: #006600; font-style: italic;">// 记录日志并继续分发，绝不 reject，也绝不饿死后面的监听器。</span><br/>
+      <span style="color: #006600; font-style: italic;">// Log and continue dispatching, never reject, and never starve subsequent listeners.</span><br/>
       console.<span style="color: #660066;">error</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'[dispatch] a listener failed:'</span><span style="color: #339933;">,</span> err<span style="color: #009900;">)</span><br/>
     <span style="color: #009900;">}</span><br/>
   <span style="color: #009900;">}</span><br/>
@@ -342,43 +342,38 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The official docs also record two more worth remembering:</p>
 <table class="reference">
 <thead>
-<tr><th>模式</th><th>规则</th></tr>
+<tr><th>Mode</th><th>Rules</th></tr>
 </thead>
 <tbody>
 <tr><td>Both sides of the public contract must comply</td><td>When receiving multiple representations of the same result, normalize them before returning through the public API; consumers should not have to guess whether exceptions come from the provider, the wrapper layer, or their own assembly logic</td></tr>
-<tr><td>Asynchronous state is not synchronous state</td><td>不要把<code>agent/status</code> 或 <code>whenIdle()</code>当作某次<code>followup()</code>the result of; the caller that truly owns a run must explicitly define the interval</td></tr>
+<tr><td>Asynchronous state is not synchronous state</td><td>Do not<code>agent/status</code>or<code>whenIdle()</code>As an instance<code>followup()</code>the result of; the caller that truly owns a run must explicitly define the interval</td></tr>
 </tbody>
 </table>
 <p>The testing counterparts of these rules (real entry paths, verifying actual results, resource ownership) are detailed in testing.md, which will be covered in the next post.</p>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>Defensive programming plugs the pitfalls prone to failing at boundaries in advance: orthogonal result reporting, fully quiesced dispose, credential erasure, safe link deletion, and callback exception isolation.</p>
-<p>自测题：</p>
+<p>Self-test questions:</p>
 <table class="reference">
 <thead>
-<tr><th>问题</th><th>参考</th></tr>
+<tr><th>Problem</th><th>Reference</th></tr>
 </thead>
 <tbody>
 <tr><td>A process timed out, but the exit code is 0 — what does that mean?</td><td>It may have caught the termination signal and exited with 0 on its own; timedOut and exitCode are two independent facts.</td></tr>
 <tr><td>What's the risk of only sending SIGTERM and returning when cleaning up a child process?</td><td>It leaves orphan processes; you should wait for exit, then escalate to SIGKILL on timeout.</td></tr>
 <tr><td>What should you use to delete a path that may be a symlink?</td><td>First check with lstatSync, then use unlinkSync; only use rmSync recursive for real directories.</td></tr>
 </tbody>
-</table>
-其他扩展
-</div>
+</table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="prev">DeepSeek Harness 会话日志与轮次生命周期</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-postmortem.html" rel="next">DeeSeek Harness 事故复盘与工程文化</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-session-turn.html" rel="prev">DeepSeek Harness Session Logs and Turn Lifecycle</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deeseek-harness-postmortem.html" rel="next">DeeSeek Harness Incident Retrospective and Engineering Culture</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -482,16 +477,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -499,14 +494,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31991"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -684,7 +679,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -775,7 +770,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

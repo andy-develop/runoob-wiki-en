@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>指令周期 — 取指、译码、执行、写回 | 菜鸟教程</title>
+<title>Instruction Cycle — Fetch, Decode, Execute, Writeback | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="指令周期 -- 取指、译码、执行、写回 CPU 执行每一条指令都遵循同样的四步流程，就像一个永不停止的流水线节拍。本讲将带你深入了解这四步分别做了什么，并用 Python 模拟一个完整 CPU 的指令执行过程。   生活中的类比：餐厅后厨  想象你是一家餐厅的主厨。客人下单后，你按以下步骤出菜：   取单（Fetch）：从前台取一张新的点菜单，看看客人点了什么 看单（Decode）：分析菜单——「红烧肉」需要五花肉、酱油、冰糖，「清炒时.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/stored-program-concept.html" rel="prev">程序和数据为什么能放在同一块内存里</a> </div>
-<div class="next-design-link"><a href="../computer-organization/clock-frequency.html" rel="next">时钟频率是什么意思</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/stored-program-concept.html" rel="prev">Why can programs and data be placed in the same memory?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/clock-frequency.html" rel="next">What does clock frequency mean?</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,10 +169,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Life analogy: restaurant kitchen</h2>
 <p>Imagine you are the head chef at a restaurant. After a customer places an order, you prepare the dish in the following steps:</p>
 <ol>
-<li><span class="marked">取单（Fetch）</span>: Take a new order ticket from the front desk and see what the customer ordered</li>
-<li><span class="marked">看单（Decode）</span>: Analyze the menu -- "Braised Pork" needs pork belly, soy sauce, and rock sugar; "Stir-fried Vegetables" needs greens and minced garlic</li>
-<li><span class="marked">做菜（Execute）</span>: Actually start cooking -- chop vegetables, stir-fry, and season</li>
-<li><span class="marked">出菜（Write Back）</span>: Plate the finished dish and hand it to the waiter to serve</li>
+<li><span class="marked">Fetch</span>: Take a new order ticket from the front desk and see what the customer ordered</li>
+<li><span class="marked">Decode</span>: Analyze the menu -- "Braised Pork" needs pork belly, soy sauce, and rock sugar; "Stir-fried Vegetables" needs greens and minced garlic</li>
+<li><span class="marked">Cooking (Execute)</span>: Actually start cooking -- chop vegetables, stir-fry, and season</li>
+<li><span class="marked">Serve (Write Back)</span>: Plate the finished dish and hand it to the waiter to serve</li>
 </ol>
 <p>Every order ticket goes through these four steps. After finishing one dish, go pick up the next ticket. The CPU works the same way—fetch an instruction, decode an instruction, execute an instruction, and write back the result, in a never-ending cycle.</p>
 <blockquote><p>This four-step cycle is the CPU's core working rhythm. Every second from the moment your computer powers on to the moment it shuts down, the CPU continuously repeats the "fetch-decode-execute-write-back" cycle billions of times per second.</p></blockquote>
@@ -180,7 +180,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Detailed explanation of the four stages</h2>
 <h3>Stage 1: Fetch</h3>
 <p>The CPU first "fetches" the next instruction to be executed from memory.</p>
-<p>There is a special register called<span class="marked">程序计数器（PC，Program Counter）</span>, which always holds the address in memory of the next instruction.</p>
+<p>There is a special register called<span class="marked">Program Counter (PC, Program Counter)</span>, which always holds the address in memory of the next instruction.</p>
 <p>What the fetch stage does:</p>
 <ol>
 <li>The CPU places the address from the PC onto the address bus</li>
@@ -189,33 +189,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li>The instruction is placed into the Instruction Register (IR)</li>
 <li>The PC automatically increments by 1, pointing to the next instruction</li>
 </ol>
-<p>There is a key design here:<span class="marked">PC 自动递增</span>. This means the CPU executes instructions in order by default, unless it encounters a jump instruction (such as if-else or loops) that changes the PC value.</p>
+<p>There is a key design here:<span class="marked">PC auto-increments</span>. This means the CPU executes instructions in order by default, unless it encounters a jump instruction (such as if-else or loops) that changes the PC value.</p>
 <h3>Stage 2: Decode</h3>
 <p>The fetched instruction is a string of binary digits (for example<code>0001 0010 0011</code>), the CPU needs to "translate" it.</p>
 <p>The core work of the decode stage:</p>
 <ul>
-<li><span class="tag1">识别操作码（Opcode）</span>: The first few bits of the instruction tell the CPU what to do -- is it addition, subtraction, loading data, or a jump?</li>
-<li><span class="tag1">提取操作数（Operands）</span>: The remaining bits specify the operand -- which register to use? Which address in memory?</li>
-<li><span class="tag1">设置控制信号</span>: Based on the decode result, the controller issues corresponding control signals to components such as the ALU, register file, and bus.</li>
+<li><span class="tag1">Identify opcode (Opcode)</span>: The first few bits of the instruction tell the CPU what to do -- is it addition, subtraction, loading data, or a jump?</li>
+<li><span class="tag1">Extract Operands</span>: The remaining bits specify the operand -- which register to use? Which address in memory?</li>
+<li><span class="tag1">Set control signal</span>: Based on the decode result, the controller issues corresponding control signals to components such as the ALU, register file, and bus.</li>
 </ul>
 <p>For example, an instruction<code>ADD R1, R2, R3</code>, after decoding, the CPU knows: have the ALU perform an addition operation, with inputs from registers R2 and R3, and store the result in R1.</p>
 <h3>Stage 3: Execute</h3>
 <p>This is the stage where the instruction actually "does the work." Depending on the instruction type, the execute stage does different things:</p>
 <table class="reference">
-<tr><th>指令类型</th><th>What does the execution phase do</th><th>涉及的硬件</th></tr>
+<tr><th>Instruction type</th><th>What does the execution phase do</th><th>Hardware involved</th></tr>
 <tr><td>Arithmetic operations (ADD, SUB, etc.)</td><td>The ALU performs arithmetic operations on the operands</td><td>ALU, register file</td></tr>
 <tr><td>Logical operations (AND, OR, etc.)</td><td>The ALU performs bitwise operations on the operands</td><td>ALU, register file</td></tr>
 <tr><td>Memory read (LOAD)</td><td>Access memory through the address bus to read data</td><td>Address bus, data bus, memory</td></tr>
 <tr><td>Memory write (STORE)</td><td>Access memory through the address bus to write data</td><td>Address bus, data bus, memory</td></tr>
-<tr><td>跳转（JUMP、BRANCH）</td><td>Modify the PC value to change the execution flow</td><td>Controller, PC register</td></tr>
+<tr><td>Jump (JUMP, BRANCH)</td><td>Modify the PC value to change the execution flow</td><td>Controller, PC register</td></tr>
 </table>
 <h3>Stage 4: Write Back</h3>
 <p>The result produced in the execution stage needs to be "written" to the target location.</p>
 <p>The write-back targets can be:</p>
 <ul>
-<li><span class="tag1 green">寄存器</span>: Store the operation result into a general-purpose register (most common)</li>
-<li><span class="tag1 green">内存</span>: store the result to an address in memory</li>
-<li><span class="tag1 green">标志寄存器</span>: Update status flags (such as whether the result is zero, whether it overflows, whether it is negative, etc.)</li>
+<li><span class="tag1 green">register</span>: Store the operation result into a general-purpose register (most common)</li>
+<li><span class="tag1 green">Memory</span>: store the result to an address in memory</li>
+<li><span class="tag1 green">Flag register</span>: Update status flags (such as whether the result is zero, whether it overflows, whether it is negative, etc.)</li>
 </ul>
 <p>Once write-back is complete, the execution cycle of one instruction officially ends. If the PC still points to a valid instruction address, the CPU automatically returns to the fetch stage and begins the next instruction.</p>
 <hr/>
@@ -234,108 +234,108 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Interactive Demo: SimpleCPU Simulator</h2>
 <p>The Python program below simulates the complete instruction cycle of a minimalist CPU. It supports LOAD (load value), ADD (addition), MUL (multiplication), CMP (compare + conditional jump), and STORE (print output) instructions, and prints detailed logs for each stage.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a11;">"""<br/>SimpleCPU 模拟器 — 完整指令周期演示<br/>支持指令：LOAD, ADD, MUL, CMP+JGT, STORE, HALT<br/>每一条指令都会经历：取指(IF) → 译码(ID) → 执行(EX) → 写回(WB)<br/>
+<span style="color: #a11;">"""<br/>SimpleCPU Simulator — Full Instruction Cycle Demo<br/>Supported instructions: LOAD, ADD, MUL, CMP+JGT, STORE, HALT<br/>Every instruction goes through: Fetch (IF) → Decode (ID) → Execute (EX) → Write-back (WB)<br/>
 """</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> SimpleCPU:<br/>
-    <span style="color: #a11;">"""一个教学用的 CPU 模拟器，展示指令周期的四个阶段"""</span><br/>
+    <span style="color: #a11;">"""A teaching CPU simulator demonstrating the four stages of the instruction cycle"""</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 通用寄存器：R0~R3，初始值都是 0</span><br/>
+        <span style="color: #a50"># General-purpose registers: R0~R3, initial values are all 0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'R0'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'R1'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'R2'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'R3'</span>: <span style="color: Maroon;">0</span><span style="color: Olive;">}</span><br/>
-        <span style="color: #a50"># 标志寄存器：记录比较结果</span><br/>
+        <span style="color: #a50"># Flag Register: Records comparison results</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">flags</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'ZERO'</span>: <span style="color: Teal;">False</span><span style="color: Gray;">,</span> <span style="color: #a11;">'GREATER'</span>: <span style="color: Teal;">False</span><span style="color: Olive;">}</span><br/>
-        <span style="color: #a50"># 程序计数器：指向下一条指令在内存中的位置</span><br/>
+        <span style="color: #a50"># Program counter: points to the memory location of the next instruction</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
-        <span style="color: #a50"># 指令寄存器：存放当前正在执行的指令</span><br/>
+        <span style="color: #a50"># Instruction register: stores the currently executing instruction</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">ir</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
-        <span style="color: #a50"># 内存：存放程序的指令序列</span><br/>
+        <span style="color: #a50"># Memory: Stores the program's instruction sequence</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
-        <span style="color: #a50"># 统计各个阶段执行的次数</span><br/>
+        <span style="color: #a50"># Count the number of executions at each stage</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">stats</span> <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">'fetch'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'decode'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'execute'</span>: <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: #a11;">'writeback'</span>: <span style="color: Maroon;">0</span><span style="color: Olive;">}</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_cycles</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
-        <span style="color: #a50"># 控制标志</span><br/>
+        <span style="color: #a50"># Control flags</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">running</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> load_program<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> instructions<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""将指令列表加载到内存中"""</span><br/>
+        <span style="color: #a11;">"""Load the instruction list into memory"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span> <span style="color: Gray;">=</span> instructions<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">running</span> <span style="color: Gray;">=</span> <span style="color: Teal;">True</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[系统] 程序加载完毕，共 {len(instructions)} 条指令"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[系统] 初始寄存器: {self.registers}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[System] Program loaded, total {len(instructions)} instructions"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[System] Initial registers: {self.registers}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> fetch<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""阶段 1：取指 (Instruction Fetch)"""</span><br/>
+        <span style="color: #a11;">"""Stage 1: Instruction Fetch"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> <span style="color: Gray;">&gt;=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Olive;">)</span>:<br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">running</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
-        <span style="color: #a50"># 从内存中读取 PC 指向的指令</span><br/>
+        <span style="color: #a50"># Read the instruction pointed to by PC from memory</span><br/>
         instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">memory</span><span style="color: Olive;">[</span><span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span><span style="color: Olive;">]</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">ir</span> <span style="color: Gray;">=</span> instruction<br/>
         old_pc <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span>  <span style="color: #a50"># PC 自动递增</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span>  <span style="color: #a50"># PC auto-increment</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">stats</span><span style="color: Olive;">[</span><span style="color: #a11;">'fetch'</span><span style="color: Olive;">]</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[周期 {self.total_cycles}] 取指 (IF)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  PC={old_pc} → 从内存地址 {old_pc} 读取指令"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  指令内容:<span style="color: #000099; font-weight: bold;">\"</span>{instruction}<span style="color: #000099; font-weight: bold;">\"</span>"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  PC 更新: {old_pc} → {self.pc}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Cycle {self.total_cycles}] Instruction Fetch (IF)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">PC={old_pc} → read instruction from memory address {old_pc}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Instruction content:<span style="color: #000099; font-weight: bold;">\"</span>{instruction}<span style="color: #000099; font-weight: bold;">\"</span>"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">PC update: {old_pc} → {self.pc}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  IR ← <span style="color: #000099; font-weight: bold;">\"</span>{instruction}<span style="color: #000099; font-weight: bold;">\"</span>"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> instruction<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> decode<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> instruction<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""阶段 2：译码 (Instruction Decode)"""</span><br/>
+        <span style="color: #a11;">"""Stage 2: Decode (Instruction Decode)"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">stats</span><span style="color: Olive;">[</span><span style="color: #a11;">'decode'</span><span style="color: Olive;">]</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: #a50"># 解析操作码和操作数</span><br/>
+        <span style="color: #a50"># Parse opcode and operand</span><br/>
         parts <span style="color: Gray;">=</span> instruction.<span style="color: #05a;">split</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-        opcode <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span>.<span style="color: #05a;">upper</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># 操作码</span><br/>
-        operands <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">1</span>:<span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parts<span style="color: Olive;">)</span> <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># 操作数</span><br/>
+        opcode <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span>.<span style="color: #05a;">upper</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>  <span style="color: #a50"># opcode</span><br/>
+        operands <span style="color: Gray;">=</span> parts<span style="color: Olive;">[</span><span style="color: Maroon;">1</span>:<span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>parts<span style="color: Olive;">)</span> <span style="color: Gray;">&gt;</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span>  <span style="color: #a50"># operand</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[周期 {self.total_cycles}] 译码 (ID)"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作码 (Opcode): {opcode}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作数 (Operands): {operands}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Cycle {self.total_cycles}] Decode (ID)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Opcode: {opcode}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Operands: {operands}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 解释操作码的含义</span><br/>
+        <span style="color: #a50"># Explain the meaning of the opcode</span><br/>
         opcode_meaning <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
-            <span style="color: #a11;">'LOAD'</span>: <span style="color: #a11;">'从立即数加载到寄存器'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'ADD'</span>:  <span style="color: #a11;">'寄存器加法'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'MUL'</span>:  <span style="color: #a11;">'寄存器乘法'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'CMP'</span>:  <span style="color: #a11;">'比较两个寄存器的值'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'JGT'</span>:  <span style="color: #a11;">'条件跳转（大于时跳转）'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'STORE'</span>:<span style="color: #a11;">'将寄存器值输出'</span><span style="color: Gray;">,</span><br/>
-            <span style="color: #a11;">'HALT'</span>: <span style="color: #a11;">'停止执行'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'LOAD'</span>: <span style="color: #a11;">'Load immediate value into register'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'ADD'</span>:  <span style="color: #a11;">'Register Addition'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'MUL'</span>:  <span style="color: #a11;">'Register Multiplication'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'CMP'</span>:  <span style="color: #a11;">'Compare the values of two registers'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'JGT'</span>:  <span style="color: #a11;">'Conditional jump (jump when greater)'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'STORE'</span>:<span style="color: #a11;">'Output register value'</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">'HALT'</span>: <span style="color: #a11;">'Halt execution'</span><span style="color: Gray;">,</span><br/>
         <span style="color: Olive;">}</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> opcode <span style="color: Green;font-weight:bold;">in</span> opcode_meaning:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  含义: {opcode_meaning[opcode]}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Meaning: {opcode_meaning[opcode]}</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> opcode<span style="color: Gray;">,</span> operands<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> execute<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> opcode<span style="color: Gray;">,</span> operands<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""阶段 3：执行 (Execute)"""</span><br/>
+        <span style="color: #a11;">"""Stage 3: Execute"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">stats</span><span style="color: Olive;">[</span><span style="color: #a11;">'execute'</span><span style="color: Olive;">]</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[周期 {self.total_cycles}] 执行 (EX)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Cycle {self.total_cycles}] Execute (EX)</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'HALT'</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  HALT: 结束程序执行"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  HALT: End program execution"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">running</span> <span style="color: Gray;">=</span> <span style="color: Teal;">False</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'LOAD'</span>:<br/>
-            <span style="color: #a50"># LOAD Rx, value → 将立即数 value 存入寄存器 Rx</span><br/>
+            <span style="color: #a50"># LOAD Rx, value → store the immediate value into register Rx</span><br/>
             reg <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><br/>
             value <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 将立即数 {value} 加载到寄存器 {reg}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  涉及部件: 数据总线（传输立即数 {value}）"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: #a50"># 暂存结果，写回阶段再更新寄存器</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Operation: load the immediate value {value} into register {reg}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Involved components: data bus (transfers immediate value {value})</span><span style="color: Olive;">)</span><br/>
+            <span style="color: #a50"># Temporarily store the result; update registers in the write-back stage</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'LOAD'</span><span style="color: Gray;">,</span> reg<span style="color: Gray;">,</span> value<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'ADD'</span>:<br/>
@@ -344,8 +344,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             a <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>rx<span style="color: Olive;">]</span><br/>
             b <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>ry<span style="color: Olive;">]</span><br/>
             result <span style="color: Gray;">=</span> a + b<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: ALU 执行 {rx}({a}) + {ry}({b}) = {result}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  涉及部件: ALU（运算器）、寄存器组"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: ALU executes {rx}({a}) + {ry}({b}) = {result}</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Components involved: ALU (arithmetic unit), register file"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'WRITE_REG'</span><span style="color: Gray;">,</span> rx<span style="color: Gray;">,</span> result<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'MUL'</span>:<br/>
@@ -354,120 +354,120 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             a <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>rx<span style="color: Olive;">]</span><br/>
             b <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>ry<span style="color: Olive;">]</span><br/>
             result <span style="color: Gray;">=</span> a * b<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: ALU 执行 {rx}({a}) * {ry}({b}) = {result}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  涉及部件: ALU（运算器）、寄存器组"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: ALU executes {rx}({a}) * {ry}({b}) = {result}</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Components involved: ALU (arithmetic unit), register file"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'WRITE_REG'</span><span style="color: Gray;">,</span> rx<span style="color: Gray;">,</span> result<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'CMP'</span>:<br/>
-            <span style="color: #a50"># CMP Rx, Ry → 比较两个寄存器，设置标志位</span><br/>
+            <span style="color: #a50"># CMP Rx, Ry → Compare two registers, set flags.</span><br/>
             rx<span style="color: Gray;">,</span> ry <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><br/>
             a <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>rx<span style="color: Olive;">]</span><br/>
             b <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>ry<span style="color: Olive;">]</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">flags</span><span style="color: Olive;">[</span><span style="color: #a11;">'ZERO'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>a <span style="color: Gray;">==</span> b<span style="color: Olive;">)</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">flags</span><span style="color: Olive;">[</span><span style="color: #a11;">'GREATER'</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>a <span style="color: Gray;">&gt;</span> b<span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 比较 {rx}({a}) 和 {ry}({b})"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  结果: ZERO={self.flags['ZERO']}, GREATER={self.flags['GREATER']}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  涉及部件: ALU（比较器）、标志寄存器"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: compare {rx}({a}) and {ry}({b})</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Result: ZERO={self.flags['ZERO']}, GREATER={self.flags['GREATER']}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">" Components involved: ALU (comparator), flag register"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'FLAGS'</span><span style="color: Gray;">,</span> <span style="color: Teal;">None</span><span style="color: Gray;">,</span> <span style="color: Teal;">None</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'JGT'</span>:<br/>
-            <span style="color: #a50"># JGT address → 如果 GREATER 标志为真，则跳转到 address</span><br/>
+            <span style="color: #a50"># JGT address → If the GREATER flag is true, jump to address</span><br/>
             target <span style="color: Gray;">=</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">flags</span><span style="color: Olive;">[</span><span style="color: #a11;">'GREATER'</span><span style="color: Olive;">]</span>:<br/>
                 old_pc <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span><br/>
                 <span style="color: Teal;">self</span>.<span style="color: #05a;">pc</span> <span style="color: Gray;">=</span> target<br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  条件满足 (GREATER=True): PC 跳转 {old_pc} → {target}"</span><span style="color: Olive;">)</span><br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  涉及部件: 控制器、PC 寄存器"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Condition met (GREATER=True): PC jump {old_pc} → {target}</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Involved components: Controller, PC register"</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">else</span>:<br/>
-                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  条件不满足 (GREATER=False): 不跳转，PC 保持 {self.pc}"</span><span style="color: Olive;">)</span><br/>
+                <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Condition not satisfied (GREATER=False): no jump, PC remains {self.pc}</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> opcode <span style="color: Gray;">==</span> <span style="color: #a11;">'STORE'</span>:<br/>
-            <span style="color: #a50"># STORE Rx → 输出寄存器的值</span><br/>
+            <span style="color: #a50"># STORE Rx → Output the value of the register</span><br/>
             reg <span style="color: Gray;">=</span> operands<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><br/>
             value <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  操作: 输出寄存器 {reg} 的值"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Operation: Output the value of register {reg}</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">(</span><span style="color: #a11;">'OUTPUT'</span><span style="color: Gray;">,</span> reg<span style="color: Gray;">,</span> value<span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> writeback<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> action<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""阶段 4：写回 (Write Back)"""</span><br/>
+        <span style="color: #a11;">Stage 4: Write Back</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">total_cycles</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">stats</span><span style="color: Olive;">[</span><span style="color: #a11;">'writeback'</span><span style="color: Olive;">]</span> +<span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> action <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[周期 {self.total_cycles}] 写回 (WB) - 无操作"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Cycle {self.total_cycles}] Write-Back (WB) - No operation</span><span style="color: Olive;">)</span><br/>
             <span style="color: Green;font-weight:bold;">return</span><br/>
 <br/>
         action_type <span style="color: Gray;">=</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[周期 {self.total_cycles}] 写回 (WB)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">[Cycle {self.total_cycles}] Write-back (WB)</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">if</span> action_type <span style="color: Gray;">==</span> <span style="color: #a11;">'LOAD'</span>:<br/>
             reg<span style="color: Gray;">,</span> value <span style="color: Gray;">=</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Olive;">]</span><br/>
             old_val <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> value<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  目标: 寄存器 {reg}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  数据: {old_val} → {value}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  通道: 数据总线 → 寄存器组"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Target: register {reg}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Data: {old_val} → {value}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Channel: data bus → register file"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> action_type <span style="color: Gray;">==</span> <span style="color: #a11;">'WRITE_REG'</span>:<br/>
             reg<span style="color: Gray;">,</span> result <span style="color: Gray;">=</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Olive;">]</span><br/>
             old_val <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">registers</span><span style="color: Olive;">[</span>reg<span style="color: Olive;">]</span> <span style="color: Gray;">=</span> result<br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  目标: 寄存器 {reg}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  数据: {old_val} → {result}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  通道: ALU 输出 → 寄存器组（内部总线）"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Target: register {reg}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Data: {old_val} → {result}</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Channel: ALU output → register file (internal bus)"</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">elif</span> action_type <span style="color: Gray;">==</span> <span style="color: #a11;">'OUTPUT'</span>:<br/>
             reg<span style="color: Gray;">,</span> value <span style="color: Gray;">=</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> action<span style="color: Olive;">[</span><span style="color: Maroon;">2</span><span style="color: Olive;">]</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  输出: 寄存器 {reg} = {value}"</span><span style="color: Olive;">)</span><br/>
-            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  通道: 寄存器组 → 数据总线 → I/O 接口"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Output: register {reg} = {value}"</span><span style="color: Olive;">)</span><br/>
+            <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Channel: Register file → Data bus → I/O interface</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  当前寄存器状态: {self.registers}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  标志位: {self.flags}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Current register state: {self.registers}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Flags: {self.flags}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> run<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""运行整个程序，逐条指令执行"""</span><br/>
+        <span style="color: #a11;">"""Run the entire program, executing instructions one by one"""</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"SimpleCPU 模拟器启动 — 指令周期演示 (runoob)"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">SimpleCPU simulator startup — instruction cycle demo (runoob)</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">while</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">running</span>:<br/>
-            <span style="color: #a50"># 四个阶段的循环</span><br/>
-            instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">fetch</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>          <span style="color: #a50"># 阶段 1: 取指</span><br/>
+            <span style="color: #a50"># Four-stage cycle</span><br/>
+            instruction <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">fetch</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>          <span style="color: #a50"># Stage 1: Fetch</span><br/>
             <span style="color: Green;font-weight:bold;">if</span> instruction <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
                 <span style="color: Green;font-weight:bold;">break</span><br/>
 <br/>
-            opcode<span style="color: Gray;">,</span> operands <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">decode</span><span style="color: Olive;">(</span>instruction<span style="color: Olive;">)</span>  <span style="color: #a50"># 阶段 2: 译码</span><br/>
-            action <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span>opcode<span style="color: Gray;">,</span> operands<span style="color: Olive;">)</span>      <span style="color: #a50"># 阶段 3: 执行</span><br/>
-            <span style="color: Teal;">self</span>.<span style="color: #05a;">writeback</span><span style="color: Olive;">(</span>action<span style="color: Olive;">)</span>                       <span style="color: #a50"># 阶段 4: 写回</span><br/>
+            opcode<span style="color: Gray;">,</span> operands <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">decode</span><span style="color: Olive;">(</span>instruction<span style="color: Olive;">)</span>  <span style="color: #a50"># Stage 2: Decode</span><br/>
+            action <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span>opcode<span style="color: Gray;">,</span> operands<span style="color: Olive;">)</span>      <span style="color: #a50"># Stage 3: Execute</span><br/>
+            <span style="color: Teal;">self</span>.<span style="color: #05a;">writeback</span><span style="color: Olive;">(</span>action<span style="color: Olive;">)</span>                       <span style="color: #a50"># Stage 4: Write Back</span><br/>
 <br/>
-        <span style="color: #a50"># 执行完毕，打印统计信息</span><br/>
+        <span style="color: #a50"># Execution complete, print statistics</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span> + <span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"程序执行完毕！统计信息："</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  总时钟周期数: {self.total_cycles}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  取指阶段执行: {self.stats['fetch']} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  译码阶段执行: {self.stats['decode']} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  执行阶段执行: {self.stats['execute']} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  写回阶段执行: {self.stats['writeback']} 次"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最终寄存器: {self.registers}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最终标志位: {self.flags}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  最终 PC: {self.pc}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Program execution complete! Statistics:"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Total clock cycles: {self.total_cycles}</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Fetch stage executed: {self.stats['fetch']} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Decode stage execution: {self.stats['decode']} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Execute phase executed: {self.stats['execute']} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Write-back stage executed: {self.stats['writeback']} times</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Final registers: {self.registers}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Final flags: {self.flags}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Final PC: {self.pc}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
-<span style="color: #a50"># ===== 运行演示程序 =====</span><br/>
-<span style="color: #a50"># 程序逻辑：计算 1+2 的结果，然后乘以 3，并与 10 比较</span><br/>
+<span style="color: #a50"># ===== Run the demo program =====</span><br/>
+<span style="color: #a50"># Program logic: calculate the result of 1+2, then multiply by 3, and compare with 10.</span><br/>
 <span style="color: #a50"># LOAD R0, 1   → R0 = 1</span><br/>
 <span style="color: #a50"># LOAD R1, 2   → R1 = 2</span><br/>
 <span style="color: #a50"># ADD R0, R1   → R0 = R0 + R1 = 1 + 2 = 3</span><br/>
 <span style="color: #a50"># LOAD R2, 3   → R2 = 3</span><br/>
 <span style="color: #a50"># MUL R0, R2   → R0 = R0 * R2 = 3 * 3 = 9</span><br/>
-<span style="color: #a50"># CMP R0, R2   → 比较 R0(9) 和 R2(3)，设置 GREATER=True</span><br/>
-<span style="color: #a50"># STORE R0     → 输出 R0 的值</span><br/>
-<span style="color: #a50"># HALT         → 停止</span><br/>
+<span style="color: #a50"># CMP R0, R2   → Compare R0(9) and R2(3), set GREATER=True</span><br/>
+<span style="color: #a50"># STORE R0     → output the value of R0</span><br/>
+<span style="color: #a50"># HALT         → stop</span><br/>
 <br/>
 cpu <span style="color: Gray;">=</span> SimpleCPU<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 program <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
@@ -476,11 +476,11 @@ program <span style="color: Gray;">=</span> <span style="color: Olive;">[</span>
     <span style="color: #a11;">"ADD R0 R1"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># R0 = R0 + R1 = 3</span><br/>
     <span style="color: #a11;">"LOAD R2 3"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># R2 = 3</span><br/>
     <span style="color: #a11;">"MUL R0 R2"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># R0 = R0 * R2 = 9</span><br/>
-    <span style="color: #a11;">"CMP R0 R2"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># 比较 9 和 3，GREATER=True</span><br/>
-    <span style="color: #a11;">"JGT 8"</span><span style="color: Gray;">,</span>          <span style="color: #a50"># 如果 GREATER 则跳转到指令 8</span><br/>
-    <span style="color: #a11;">"LOAD R3 0"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># (这条不会执行，因为 JGT 跳过了)</span><br/>
-    <span style="color: #a11;">"STORE R0"</span><span style="color: Gray;">,</span>       <span style="color: #a50"># 输出 R0 = 9</span><br/>
-    <span style="color: #a11;">"HALT"</span><span style="color: Gray;">,</span>           <span style="color: #a50"># 停止</span><br/>
+    <span style="color: #a11;">"CMP R0 R2"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># Compare 9 and 3, GREATER=True</span><br/>
+    <span style="color: #a11;">"JGT 8"</span><span style="color: Gray;">,</span>          <span style="color: #a50"># If GREATER, jump to instruction 8</span><br/>
+    <span style="color: #a11;">"LOAD R3 0"</span><span style="color: Gray;">,</span>      <span style="color: #a50"># (This won't execute because JGT skipped it)</span><br/>
+    <span style="color: #a11;">"STORE R0"</span><span style="color: Gray;">,</span>       <span style="color: #a50"># Output R0 = 9</span><br/>
+    <span style="color: #a11;">"HALT"</span><span style="color: Gray;">,</span>           <span style="color: #a50"># Stop</span><br/>
 <span style="color: Olive;">]</span><br/>
 cpu.<span style="color: #05a;">load_program</span><span style="color: Olive;">(</span>program<span style="color: Olive;">)</span><br/>
 cpu.<span style="color: #05a;">run</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -488,9 +488,9 @@ cpu.<span style="color: #05a;">run</span><span style="color: Olive;">(</span><sp
 </div>
 <p>The code above prints detailed logs for every stage of every instruction, so you can clearly see what the CPU does internally in each clock cycle. Observe the following:</p>
 <ul>
-<li><span class="tag1 green">PC 自动递增</span>: Each time an instruction executes, the PC automatically increments by 1 (fetch stage)</li>
-<li><span class="tag1 green">条件跳转</span>: The CMP+JGT combination implements an if statement -- if R0 &gt; R2, it jumps to instruction 8, skipping instruction 7</li>
-<li><span class="tag1 green">寄存器作为中转站</span>: All data must first be loaded into registers; the ALU reads from registers, computes, and writes the result back to a register</li>
+<li><span class="tag1 green">PC auto-increments</span>: Each time an instruction executes, the PC automatically increments by 1 (fetch stage)</li>
+<li><span class="tag1 green">Conditional jump</span>: The CMP+JGT combination implements an if statement -- if R0 &gt; R2, it jumps to instruction 8, skipping instruction 7</li>
+<li><span class="tag1 green">Registers as transfer stations</span>: All data must first be loaded into registers; the ALU reads from registers, computes, and writes the result back to a register</li>
 </ul>
 <h2>Interactive Demo: CPU Internal Structure &amp; Step-by-Step Instruction Cycle Playback</h2>
 <p>Below is a simplified CPU internal structure diagram drawn with vis-network. Click the "Next" button to observe which hardware components are used in each of the four instruction stages; activated components are highlighted in the corresponding stage color.</p>
@@ -577,27 +577,27 @@ cpu.<span style="color: #05a;">run</span><span style="color: Olive;">(</span><sp
 <div class="stage-indicator">
 <div class="stage-dot-wrap">
 <div class="stage-dot" id="dotFetch"></div>
-<div class="stage-dot-label">取指 IF</div>
+<div class="stage-dot-label">Instruction fetch IF</div>
 </div>
 <div class="stage-dot-wrap">
 <div class="stage-dot" id="dotDecode"></div>
-<div class="stage-dot-label">译码 ID</div>
+<div class="stage-dot-label">Decode ID</div>
 </div>
 <div class="stage-dot-wrap">
 <div class="stage-dot" id="dotExecute"></div>
-<div class="stage-dot-label">执行 EX</div>
+<div class="stage-dot-label">Execute EX</div>
 </div>
 <div class="stage-dot-wrap">
 <div class="stage-dot" id="dotWriteback"></div>
-<div class="stage-dot-label">写回 WB</div>
+<div class="stage-dot-label">Write back WB</div>
 </div>
 </div>
 <div class="stage-info" id="stageInfo">
-<div class="stage-description">点击「下一步」开始指令周期演示，观察各阶段中 CPU 内部哪些部件被激活。</div>
+<div class="stage-description">Click 'Next' to start the instruction cycle demo and observe which components inside the CPU are activated at each stage.</div>
 </div>
 <div class="cpu-controls">
-<button class="cpu-btn" id="btnNext" onclick="cpuNextStep()">下一步</button>
-<button class="cpu-btn reset" id="btnReset" onclick="cpuReset()">重置</button>
+<button class="cpu-btn" id="btnNext" onclick="cpuNextStep()">next step</button>
+<button class="cpu-btn reset" id="btnReset" onclick="cpuReset()">reset</button>
 </div>
 </div>
 <script>
@@ -784,22 +784,17 @@ if (typeof vis !== 'undefined') {
     setTimeout(initCpuNetwork, 200);
   });
 }
-</script>
-其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/stored-program-concept.html" rel="prev">程序和数据为什么能放在同一块内存里</a> </div>
-<div class="next-design-link"><a href="../computer-organization/clock-frequency.html" rel="next">时钟频率是什么意思</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/stored-program-concept.html" rel="prev">Why can programs and data be placed in the same memory?</a> </div>
+<div class="next-design-link"><a href="../computer-organization/clock-frequency.html" rel="next">What does clock frequency mean?</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -903,16 +898,16 @@ if (typeof vis !== 'undefined') {
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -920,14 +915,14 @@ if (typeof vis !== 'undefined') {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31882"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1105,7 +1100,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1196,7 +1191,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

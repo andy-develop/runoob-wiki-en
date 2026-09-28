@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness 插件生命周期：Fiber 状态机 | 菜鸟教程</title>
+<title>DeepSeek Harness Plugin Lifecycle: Fiber State Machine | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness 插件生命周期：Fiber 状态机  之前章节我们已经注册过监听器、注册过工具、也写过 ctx.effect()。 你有没有想过：一个插件究竟从什么时刻开始「运行」，又在什么时刻开始「卸载」？ 本章节介绍 Cordis 插件模型与生命周期状态机，也就是 Fiber 状态机。    Fiber 是什么 每个被加载的插件都拥有一个 Fiber 作用域。 Fiber 可以理解成插件实例的执行单元，它承载插件从声.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,18 +158,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="prev">DeepSeek Harness 插件配置：Config 与 Schemastery</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-nested-reload.html" rel="next">DeepSeek Harness 依赖驱动加载、自动重载与嵌套上下文</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="prev">DeepSeek Harness plugin configuration: Config and Schemastery</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-nested-reload.html" rel="next">DeepSeek Harness dependency-driven loading, automatic reloading, and nested contexts</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>DeepSeek Harness plugin lifecycle: Fiber state machine</h1>
 <p>In previous chapters, we have already registered listeners, registered tools, and written<span class="marked">ctx.effect()</span>。</p>
 <p>Have you ever wondered: at what exact moment does a plugin start "running", and at what exact moment does it start "unloading"?</p>
-<p>This section introduces the Cordis plugin model and the lifecycle state machine, i.e.<span class="tag1 blue">Fiber 状态机</span>。</p>
+<p>This section introduces the Cordis plugin model and the lifecycle state machine, i.e.<span class="tag1 blue">Fiber state machine</span>。</p>
 <hr/>
 <h2>What is Fiber</h2>
-<p>Every loaded plugin has a<span class="tag1">Fiber</span>作用域。</p>
+<p>Every loaded plugin has a<span class="tag1">Fiber</span>Scope.</p>
 <p>Fiber can be understood as the execution unit of a plugin instance; it carries all the state of the plugin from declaration, loading, and running to unloading.</p>
 <p>Through Fiber, the framework knows what stage a plugin is currently in and what can be done next.</p>
 <blockquote>
@@ -180,19 +180,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Fiber state machine</h2>
 <p>Fiber states transition in the following order, describing the complete lifetime of a plugin from loading to unloading.</p>
 <p><img alt="Fiber 状态机" decoding="async" src="../wp-content/uploads/2026/08/12-fiber-state.svg" style="width:100%;max-width:800px;"/></p>
-<p>主路径是<span class="tag1">PENDING → LOADING → ACTIVE → UNLOADING → DISPOSED</span>。</p>
+<p>The main path is<span class="tag1">PENDING → LOADING → ACTIVE → UNLOADING → DISPOSED</span>。</p>
 <p>If apply throws an exception during the LOADING stage, it enters<span class="tag1 purple">FAILED</span>。</p>
 <table class="reference">
 <thead>
-<tr><th>状态</th><th>含义</th><th>发生时机</th></tr>
+<tr><th>State</th><th>Meaning</th><th>When it occurs</th></tr>
 </thead>
 <tbody>
 <tr><td><strong>PENDING</strong></td><td>Declared, but required dependencies are not ready</td><td>The plugin has been added to the context, and the inject services are not ready yet.</td></tr>
 <tr><td><strong>LOADING</strong></td><td>Dependencies are ready, and apply is being executed.</td><td>All required services are ready, and the framework calls apply(ctx).</td></tr>
-<tr><td><strong>ACTIVE</strong></td><td>插件运行中</td><td>apply returns normally, registration takes effect</td></tr>
+<tr><td><strong>ACTIVE</strong></td><td>Plugin running</td><td>apply returns normally, registration takes effect</td></tr>
 <tr><td><strong>FAILED</strong></td><td>apply throws an exception</td><td>An error is thrown during apply execution, and loading fails.</td></tr>
 <tr><td><strong>UNLOADING</strong></td><td>Plugin is unloading and releasing resources</td><td>Dependencies disappear, get disposed, or HMR triggers unloading.</td></tr>
-<tr><td><strong>DISPOSED</strong></td><td>已完全卸载</td><td>All disposers have been executed</td></tr>
+<tr><td><strong>DISPOSED</strong></td><td>Completely uninstalled</td><td>All disposers have been executed</td></tr>
 </tbody>
 </table>
 <blockquote>
@@ -203,15 +203,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>A plugin that declares inject waits for all required services to be ready before entering LOADING.</p>
 <p>If a dependent service never appears, the plugin stays in PENDING and will not execute apply.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：scratch-plugin/src/my-plugin.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 声明本插件需要 tools 与 llm 两个服务，二者就绪前 apply 不会执行</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: scratch-plugin/src/my-plugin.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Declare that this plugin requires the tools and llm services; apply will not execute until both are ready.</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> inject <span style="color: #339933;">=</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'tools'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'llm'</span><span style="color: #009900;">]</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// 走到这里时，ctx.tools 和 ctx.llm 一定已经就绪</span><br/>
-  <span style="color: #006600; font-style: italic;">// 可以放心地注册工具、读取模型配置</span><br/>
+  <span style="color: #006600; font-style: italic;">// When execution reaches this point, ctx.tools and ctx.llm must already be ready.</span><br/>
+  <span style="color: #006600; font-style: italic;">// You can safely register tools and read model configuration.</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
 </div>
@@ -222,7 +222,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>This is the fundamental reason why dsh can "clean up after itself", and also the prerequisite for hot replacement to take effect safely.</p>
 <table class="reference">
 <thead>
-<tr><th>注册操作</th><th>Cleanup on unload</th></tr>
+<tr><th>Register Operation</th><th>Cleanup on unload</th></tr>
 </thead>
 <tbody>
 <tr><td>ctx.on(event, handler)</td><td>Event listeners are automatically removed</td></tr>
@@ -245,19 +245,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <h2>Hands-on example: observe state transitions</h2>
 <p>The official documentation uses the following minimal plugin to demonstrate the loading and unloading logs.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：scratch-plugin/src/lifecycle-log.ts</span><br/>
-<span style="color: #006600; font-style: italic;">// 用 console.log 打印生命周期事件，观察 apply 与 effect 的先后</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: scratch-plugin/src/lifecycle-log.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// Use console.log to print lifecycle events, observe the order of apply and effect</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-  <span style="color: #006600; font-style: italic;">// apply 被调用：插件从 LOADING 进入 ACTIVE</span><br/>
+  <span style="color: #006600; font-style: italic;">// apply is called: the plugin transitions from LOADING to ACTIVE</span><br/>
   console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob plugin loading'</span><span style="color: #009900;">)</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// 注册一个效果：返回的清理函数在卸载时执行</span><br/>
+  <span style="color: #006600; font-style: italic;">// Register an effect: the returned cleanup function is executed on unmount</span><br/>
   ctx.<span style="color: #660066;">effect</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-    <span style="color: #006600; font-style: italic;">// 效果注册完成（apply 仍在执行中）</span><br/>
+    <span style="color: #006600; font-style: italic;">// Effect registration complete (apply still in progress)</span><br/>
     console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob effect registered'</span><span style="color: #009900;">)</span><br/>
-    <span style="color: #006600; font-style: italic;">// 返回 disposer：插件卸载时调用</span><br/>
+    <span style="color: #006600; font-style: italic;">// Return disposer: called when the plugin is unloaded</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob effect cleaned up'</span><span style="color: #009900;">)</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
@@ -274,28 +274,24 @@ runoob effect cleaned up
 </pre>
 <p>It can be seen that apply executes first, then the effect registration is executed, and the returned disposer is called during the unloading phase.</p>
 <hr/>
-<h2>小结自测</h2>
+<h2>Summary self-test</h2>
 <p>The Fiber state machine describes the six states of a plugin from declaration to complete unloading; disposers clean up registrations asynchronously and concurrently in reverse registration order.</p>
-<p>自测一下：</p>
+<p>Test yourself:</p>
 <ol>
 <li>What are the six states of Fiber? Which state does it enter when apply throws an exception?</li>
 <li>Why don't listeners registered via ctx.on require manual removeListener?</li>
 <li>If two cleanup steps have order dependencies, how should they be written to be safe?</li>
-</ol> 其他扩展
-</div>
+</ol>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="prev">DeepSeek Harness 插件配置：Config 与 Schemastery</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-nested-reload.html" rel="next">DeepSeek Harness 依赖驱动加载、自动重载与嵌套上下文</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-plugin-config.html" rel="prev">DeepSeek Harness plugin configuration: Config and Schemastery</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-nested-reload.html" rel="next">DeepSeek Harness dependency-driven loading, automatic reloading, and nested contexts</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -399,16 +395,16 @@ runoob effect cleaned up
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -416,14 +412,14 @@ runoob effect cleaned up
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31976"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -601,7 +597,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -692,7 +688,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>用户系统 — 注册、登录、JWT 认证 | 菜鸟教程</title>
+<title>User System — Registration, Login, JWT Authentication | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="用户系统 — 注册、登录、JWT 认证  本章你将学会 FastAPI 的 JWT 认证方案，理解它和 Django/Flask Session 认证的区别。   JWT vs Session 认证 Django 和 Flask 用的是 Session 认证：服务器存储用户状态，Cookie 中只存 Session ID。 FastAPI 推荐 JWT 认证：用户登录后获得一个 Token（令牌），后续请求携带 Token 即可认证。 .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,28 +158,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-search-pagination.html" rel="prev">关键词搜索与分页</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-favorites-admin.html" rel="next">收藏功能与后台管理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-search-pagination.html" rel="prev">Keyword Search and Pagination</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-favorites-admin.html" rel="next">Favorites and Admin Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>User system — registration, login, JWT authentication</h1>
 <p>In this chapter, you will learn FastAPI's JWT authentication scheme and understand its differences from Django/Flask Session authentication.</p>
 <hr/>
-<h2>JWT vs Session 认证</h2>
-<p>Django and Flask use<span class="marked">Session 认证</span>The server stores user state, and only the Session ID is stored in the cookie.</p>
-<p>FastAPI 推荐<span class="marked">JWT 认证</span>: After the user logs in, they obtain a Token. Subsequent requests can carry the Token for authentication.</p>
+<h2>JWT vs Session Authentication</h2>
+<p>Django and Flask use<span class="marked">Session authentication</span>The server stores user state, and only the Session ID is stored in the cookie.</p>
+<p>FastAPI recommends<span class="marked">JWT Authentication</span>: After the user logs in, they obtain a Token. Subsequent requests can carry the Token for authentication.</p>
 <table class="reference">
 <tbody>
-<tr><th>特性</th><th>Session（Django/Flask）</th><th>JWT（FastAPI）</th></tr>
-<tr><td>存储位置</td><td>服务器端（内存/数据库）</td><td>客户端（Cookie/LocalStorage）</td></tr>
-<tr><td>扩展性</td><td>The server needs to share Session</td><td>Stateless, naturally supports distributed systems</td></tr>
-<tr><td>适用场景</td><td>Server-side rendered websites</td><td>API + SPA / Mobile</td></tr>
-<tr><td>过期控制</td><td>The server can invalidate it at any time</td><td>Valid throughout the Token's validity period</td></tr>
+<tr><th>Features</th><th>Session（Django/Flask）</th><th>JWT（FastAPI）</th></tr>
+<tr><td>Storage location</td><td>Server-side (memory/database)</td><td>Client-side (Cookie/LocalStorage)</td></tr>
+<tr><td>Extensibility</td><td>The server needs to share Session</td><td>Stateless, naturally supports distributed systems</td></tr>
+<tr><td>Applicable scenarios</td><td>Server-side rendered websites</td><td>API + SPA / Mobile</td></tr>
+<tr><td>Expiration control</td><td>The server can invalidate it at any time</td><td>Valid throughout the Token's validity period</td></tr>
 </tbody>
 </table>
 <hr/>
-<h2>安装依赖</h2>
+<h2>Install dependencies</h2>
 <pre>
 (venv) $ pip install passlib python-jose python-multipart
 </pre>
@@ -191,9 +191,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Define the User model</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：models.py 新增</span><br/>
+<span style="color: #a50"># File path: models.py, new additions</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> passlib.<span style="color: #05a;">context</span> <span style="color: Green;font-weight:bold;">import</span> CryptContext<br/>
 <br/>
 pwd_context <span style="color: Gray;">=</span> CryptContext<span style="color: Olive;">(</span>schemes<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"bcrypt"</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span> deprecated<span style="color: Gray;">=</span><span style="color: #a11;">"auto"</span><span style="color: Olive;">)</span><br/>
@@ -206,11 +206,11 @@ pwd_context <span style="color: Gray;">=</span> CryptContext<span style="color: 
     hashed_password <span style="color: Gray;">=</span> Column<span style="color: Olive;">(</span>String<span style="color: Olive;">(</span><span style="color: Maroon;">256</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> nullable<span style="color: Gray;">=</span><span style="color: Teal;">False</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> set_password<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> password: <span style="color: Teal;">str</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""哈希密码"""</span><br/>
+        <span style="color: #a11;">"""Hash password"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">hashed_password</span> <span style="color: Gray;">=</span> pwd_context.<span style="color: Teal;">hash</span><span style="color: Olive;">(</span>password<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> verify_password<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> password: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">bool</span>:<br/>
-        <span style="color: #a11;">"""校验密码"""</span><br/>
+        <span style="color: #a11;">"""Verify password"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> pwd_context.<span style="color: #05a;">verify</span><span style="color: Olive;">(</span>password<span style="color: Gray;">,</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">hashed_password</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -222,32 +222,32 @@ pwd_context <span style="color: Gray;">=</span> CryptContext<span style="color: 
 <hr/>
 <h2>JWT utility functions</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：auth.py（新建文件）</span><br/>
+<span style="color: #a50"># File path: auth.py (new file)</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> <span style="color: #05a;">datetime</span> <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">datetime</span><span style="color: Gray;">,</span> timedelta<br/>
 <span style="color: Green;font-weight:bold;">from</span> jose <span style="color: Green;font-weight:bold;">import</span> JWTError<span style="color: Gray;">,</span> jwt<br/>
 <span style="color: Green;font-weight:bold;">from</span> passlib.<span style="color: #05a;">context</span> <span style="color: Green;font-weight:bold;">import</span> CryptContext<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> Depends<span style="color: Gray;">,</span> HTTPException<span style="color: Gray;">,</span> status<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">security</span> <span style="color: Green;font-weight:bold;">import</span> OAuth2PasswordBearer<br/>
 <br/>
-<span style="color: #a50"># 密钥（生产环境从环境变量读取）</span><br/>
+<span style="color: #a50"># Secret key (read from environment variables in production)</span><br/>
 SECRET_KEY <span style="color: Gray;">=</span> <span style="color: #a11;">"your-secret-key-change-in-production"</span><br/>
 ALGORITHM <span style="color: Gray;">=</span> <span style="color: #a11;">"HS256"</span><br/>
-ACCESS_TOKEN_EXPIRE_MINUTES <span style="color: Gray;">=</span> <span style="color: Maroon;">60</span> * <span style="color: Maroon;">24</span>  <span style="color: #a50"># Token 有效期：24 小时</span><br/>
+ACCESS_TOKEN_EXPIRE_MINUTES <span style="color: Gray;">=</span> <span style="color: Maroon;">60</span> * <span style="color: Maroon;">24</span>  <span style="color: #a50"># Token validity period: 24 hours</span><br/>
 <br/>
-<span style="color: #a50"># OAuth2PasswordBearer 告诉 FastAPI：从请求头 Authorization: Bearer &lt;token&gt; 中提取 JWT</span><br/>
+<span style="color: #a50"># OAuth2PasswordBearer 告诉 FastAPI: fromRequest headers Authorization: Bearer &lt;token&gt; Mediummention取 JWT</span><br/>
 oauth2_scheme <span style="color: Gray;">=</span> OAuth2PasswordBearer<span style="color: Olive;">(</span>tokenUrl<span style="color: Gray;">=</span><span style="color: #a11;">"token"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> create_access_token<span style="color: Olive;">(</span>data: <span style="color: Teal;">dict</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""生成 JWT Token"""</span><br/>
+    <span style="color: #a11;">"""Generate JWT Token"""</span><br/>
     to_encode <span style="color: Gray;">=</span> data.<span style="color: #05a;">copy</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     expire <span style="color: Gray;">=</span> <span style="color: #05a;">datetime</span>.<span style="color: #05a;">utcnow</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> + timedelta<span style="color: Olive;">(</span>minutes<span style="color: Gray;">=</span>ACCESS_TOKEN_EXPIRE_MINUTES<span style="color: Olive;">)</span><br/>
     to_encode.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"exp"</span>: expire<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> jwt.<span style="color: #05a;">encode</span><span style="color: Olive;">(</span>to_encode<span style="color: Gray;">,</span> SECRET_KEY<span style="color: Gray;">,</span> algorithm<span style="color: Gray;">=</span>ALGORITHM<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> decode_access_token<span style="color: Olive;">(</span><span style="color: #05a;">token</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">dict</span> | <span style="color: Teal;">None</span>:<br/>
-    <span style="color: #a11;">"""验证并解码 JWT Token"""</span><br/>
+    <span style="color: #a11;">"""Verify and decode JWT Token"""</span><br/>
     <span style="color: Green;font-weight:bold;">try</span>:<br/>
         payload <span style="color: Gray;">=</span> jwt.<span style="color: #05a;">decode</span><span style="color: Olive;">(</span><span style="color: #05a;">token</span><span style="color: Gray;">,</span> SECRET_KEY<span style="color: Gray;">,</span> algorithms<span style="color: Gray;">=</span><span style="color: Olive;">[</span>ALGORITHM<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> payload<br/>
@@ -256,11 +256,11 @@ oauth2_scheme <span style="color: Gray;">=</span> OAuth2PasswordBearer<span styl
 </div>
 </div>
 <hr/>
-<h2>注册路由</h2>
+<h2>Route registration</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：routers/users.py</span><br/>
+<span style="color: #a50"># File path: routers/users.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi <span style="color: Green;font-weight:bold;">import</span> APIRouter<span style="color: Gray;">,</span> Depends<span style="color: Gray;">,</span> HTTPException<span style="color: Gray;">,</span> Request<span style="color: Gray;">,</span> Form<br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">templating</span> <span style="color: Green;font-weight:bold;">import</span> Jinja2Templates<br/>
 <span style="color: Green;font-weight:bold;">from</span> sqlalchemy.<span style="color: #05a;">orm</span> <span style="color: Green;font-weight:bold;">import</span> Session<br/>
@@ -269,7 +269,7 @@ oauth2_scheme <span style="color: Gray;">=</span> OAuth2PasswordBearer<span styl
 <span style="color: Green;font-weight:bold;">from</span> schemas <span style="color: Green;font-weight:bold;">import</span> UserCreate<span style="color: Gray;">,</span> UserResponse<br/>
 <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> create_access_token<br/>
 <br/>
-router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">(</span>prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/users"</span><span style="color: Gray;">,</span> tags<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"用户"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
+router <span style="color: Gray;">=</span> APIRouter<span style="color: Olive;">(</span>prefix<span style="color: Gray;">=</span><span style="color: #a11;">"/users"</span><span style="color: Gray;">,</span> tags<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"User"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color: Olive;">(</span>directory<span style="color: Gray;">=</span><span style="color: #a11;">"templates"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">@</span>router.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/register"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>UserResponse<span style="color: Olive;">)</span><br/>
@@ -279,12 +279,12 @@ templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color:
     password: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> Form<span style="color: Olive;">(</span>...<span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><br/>
 <span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""用户注册"""</span><br/>
-    <span style="color: #a50"># 检查用户名和邮箱是否已存在</span><br/>
+    <span style="color: #a11;">"""User registration"""</span><br/>
+    <span style="color: #a50"># Check if username and email already exist</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>User<span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>User.<span style="color: #05a;">username</span> <span style="color: Gray;">==</span> username<span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"用户名已被使用"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"Username already in use"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>User<span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>User.<span style="color: #05a;">email</span> <span style="color: Gray;">==</span> <span style="color: #05a;">email</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"邮箱已被注册"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">400</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">Email already registered</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span>username<span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #05a;">email</span><span style="color: Olive;">)</span><br/>
     <span style="color: #05a;">user</span>.<span style="color: #05a;">set_password</span><span style="color: Olive;">(</span>password<span style="color: Olive;">)</span><br/>
@@ -297,9 +297,9 @@ templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color:
 <hr/>
 <h2>Login Route (Issue JWT)</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 文件路径：routers/users.py 追加</span><br/>
+<span style="color: #a50"># Append to file: routers/users.py</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> fastapi.<span style="color: #05a;">security</span> <span style="color: Green;font-weight:bold;">import</span> OAuth2PasswordRequestForm<br/>
 <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> create_access_token<br/>
 <br/>
@@ -308,73 +308,68 @@ templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color:
     form_data: OAuth2PasswordRequestForm <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><br/>
 <span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>登录并获取 Token<br/>使用 OAuth2PasswordRequestForm：字段名为 username 和 password（表单格式）<br/>
+    <span style="color: #a11;">"""<br/>Log in and get Token<br/>Use OAuth2PasswordRequestForm: field names are username and password (form format).<br/>
     """</span><br/>
     <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>User<span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>User.<span style="color: #05a;">username</span> <span style="color: Gray;">==</span> form_data.<span style="color: #05a;">username</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: #05a;">user</span> <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: #05a;">user</span>.<span style="color: #05a;">verify_password</span><span style="color: Olive;">(</span>form_data.<span style="color: #05a;">password</span><span style="color: Olive;">)</span>:<br/>
         <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span><br/>
             status_code<span style="color: Gray;">=</span><span style="color: Maroon;">401</span><span style="color: Gray;">,</span><br/>
-            detail<span style="color: Gray;">=</span><span style="color: #a11;">"用户名或密码错误"</span><span style="color: Gray;">,</span><br/>
+            detail<span style="color: Gray;">=</span><span style="color: #a11;">"Invalid username or password"</span><span style="color: Gray;">,</span><br/>
             headers<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"WWW-Authenticate"</span>: <span style="color: #a11;">"Bearer"</span><span style="color: Olive;">}</span><br/>
         <span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 签发 JWT：只包含 user_id（不能放敏感信息）</span><br/>
+    <span style="color: #a50"># Issue JWT: contains only user_id (must not contain sensitive information)</span><br/>
     access_token <span style="color: Gray;">=</span> create_access_token<span style="color: Olive;">(</span>data<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"sub"</span>: <span style="color: Teal;">str</span><span style="color: Olive;">(</span><span style="color: #05a;">user</span>.<span style="color: Teal;">id</span><span style="color: Olive;">)</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"access_token"</span>: access_token<span style="color: Gray;">,</span> <span style="color: #a11;">"token_type"</span>: <span style="color: #a11;">"bearer"</span><span style="color: Olive;">}</span><br/>
 </div>
 </div>
-<blockquote><p>JWT Token 中<code>sub</code>It is the standard subject field, storing the user identifier. The Token itself is not encrypted (just Base64 encoded), so<span class="marked">绝对不能</span>do not put sensitive information such as passwords in it. If you want encryption, use JWE instead of JWT.</p></blockquote>
+<blockquote><p>In JWT Token<code>sub</code>It is the standard subject field, storing the user identifier. The Token itself is not encrypted (just Base64 encoded), so<span class="marked">Absolutely not</span>do not put sensitive information such as passwords in it. If you want encryption, use JWE instead of JWT.</p></blockquote>
 <hr/>
 <h2>Use JWT protection in routes</h2>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 获取当前用户的依赖函数</span><br/>
+<span style="color: #a50"># Dependency function to get current user</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> auth <span style="color: Green;font-weight:bold;">import</span> oauth2_scheme<span style="color: Gray;">,</span> decode_access_token<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_current_user<span style="color: Olive;">(</span><br/>
     <span style="color: #05a;">token</span>: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>oauth2_scheme<span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     db: Session <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_db<span style="color: Olive;">)</span><br/>
 <span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""从 JWT Token 中解析当前用户"""</span><br/>
+    <span style="color: #a11;">"""Parse the current user from the JWT Token"""</span><br/>
     payload <span style="color: Gray;">=</span> decode_access_token<span style="color: Olive;">(</span><span style="color: #05a;">token</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> payload <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">401</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"Token 无效或已过期"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">401</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"Token invalid or expired"</span><span style="color: Olive;">)</span><br/>
 <br/>
     user_id <span style="color: Gray;">=</span> payload.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"sub"</span><span style="color: Olive;">)</span><br/>
     <span style="color: #05a;">user</span> <span style="color: Gray;">=</span> db.<span style="color: #05a;">query</span><span style="color: Olive;">(</span>User<span style="color: Olive;">)</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>User.<span style="color: Teal;">id</span> <span style="color: Gray;">==</span> <span style="color: Teal;">int</span><span style="color: Olive;">(</span>user_id<span style="color: Olive;">)</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: #05a;">user</span> <span style="color: Green;font-weight:bold;">is</span> <span style="color: Teal;">None</span>:<br/>
-        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">401</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">"用户不存在"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">raise</span> HTTPException<span style="color: Olive;">(</span>status_code<span style="color: Gray;">=</span><span style="color: Maroon;">401</span><span style="color: Gray;">,</span> detail<span style="color: Gray;">=</span><span style="color: #a11;">“User does not exist”</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #05a;">user</span><br/>
 <br/>
-<span style="color: #a50"># 在需要登录的路由中注入</span><br/>
+<span style="color: #a50"># Inject into routes that require login</span><br/>
 <span style="color: Gray;">@</span>router.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/me"</span><span style="color: Gray;">,</span> response_model<span style="color: Gray;">=</span>UserResponse<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> read_current_user<span style="color: Olive;">(</span>current_user: User <span style="color: Gray;">=</span> Depends<span style="color: Olive;">(</span>get_current_user<span style="color: Olive;">)</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取当前用户信息（需要登录）"""</span><br/>
+    <span style="color: #a11;">"""Get current user info (login required)"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> current_user<br/>
 </div>
 </div>
 <p>For SSR pages, JWT is usually stored in a Cookie (rather than the Authorization Header), and in template routes the Token is extracted from the Cookie for verification.</p>
 <hr/>
-<h2>本章小结</h2>
+<h2>Chapter summary</h2>
 <p>In this chapter, you implemented FastAPI's JWT authentication: passlib for password hashing, python-jose for issuing and verifying JWTs, OAuth2PasswordBearer for extracting Tokens, and Depends for authentication dependency injection.</p>
-<p>Unlike Django/Flask's Session authentication, JWT is a stateless solution, more suitable for front-end/back-end separation scenarios.</p>
-其他扩展
-</div>
+<p>Unlike Django/Flask's Session authentication, JWT is a stateless solution, more suitable for front-end/back-end separation scenarios.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-search-pagination.html" rel="prev">关键词搜索与分页</a> </div>
-<div class="next-design-link"><a href="../fastapi/fastapi-blog-favorites-admin.html" rel="next">收藏功能与后台管理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../fastapi/fastapi-blog-search-pagination.html" rel="prev">Keyword Search and Pagination</a> </div>
+<div class="next-design-link"><a href="../fastapi/fastapi-blog-favorites-admin.html" rel="next">Favorites and Admin Management</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -478,16 +473,16 @@ templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color:
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -495,14 +490,14 @@ templates <span style="color: Gray;">=</span> Jinja2Templates<span style="color:
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31174"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -680,7 +675,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -771,7 +766,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ECharts 异步加载数据 | 菜鸟教程</title>
+<title>ECharts Asynchronous Data Loading | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="ECharts 异步加载数据 ECharts 通常数据设置在 setOption 中，如果我们需要异步加载数据，可以配合 jQuery等工具，在异步获取数据后通过 setOption 填入数据和配置项就行。 ECharts 通常数据设置在 setOption 中，如果我们需要异步加载数据，可以配合 jQuery等工具，在异步获取数据后通过 setOption 填入数据和配置项就行。 json 数据：  echarts_test_data.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,63 +158,63 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-style.html" rel="prev">ECharts 样式设置</a> </div>
-<div class="next-design-link"><a href="../echarts/echarts-dataset.html" rel="next">ECharts 数据集（dataset）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-style.html" rel="prev">ECharts style settings</a> </div>
+<div class="next-design-link"><a href="../echarts/echarts-dataset.html" rel="next">ECharts Dataset (dataset)</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>ECharts Asynchronous Data Loading</h1>
-<p>ECharts data is usually set in setOption. If we need to load data asynchronously, we can use tools like jQuery, and after asynchronously fetching the data, just fill in the data and configuration items via setOption.</p>ECharts 通常数据设置在 setOption 中，如果我们需要异步加载数据，可以配合 jQuery等工具，在异步获取数据后通过 setOption 填入数据和配置项就行。
-json 数据：<div class="example"><h2 class="example">echarts_test_data.json 数据：</h2> <div class="example_code">
+<p>ECharts data is usually set in setOption. If we need to load data asynchronously, we can use tools like jQuery, and after asynchronously fetching the data, just fill in the data and configuration items via setOption.</p>ECharts 通常DataSettingsIn setOption Among them,ifI们requiresAsynchronous loadingData，YesCoordination jQuerywaitTools，Indifferent步Get DataafterThrough setOption 填入DataandConfiguration ItemJustline。
+json Data：<div class="example"><h2 class="example">echarts_test_data.json data:</h2> <div class="example_code">
 <span style="color: #009900;">{</span><br/>
     <span style="color: #3366CC;">"data_pie"</span> <span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
-    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">235</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">"视频广告"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">274</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">"联盟广告"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">310</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">"邮件营销"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">335</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">"直接访问"</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
-    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">400</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">"搜索引擎"</span><span style="color: #009900;">}</span><br/>
+    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">235</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">Video Ad</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
+    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">274</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">Affiliate Ad</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
+    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">310</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">Email Marketing</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
+    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">335</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">Direct Access</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
+    <span style="color: #009900;">{</span><span style="color: #3366CC;">"value"</span><span style="color: #339933;">:</span><span style="color: #CC0000;">400</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"name"</span><span style="color: #339933;">:</span><span style="color: #3366CC;">Search Engine</span><span style="color: #009900;">}</span><br/>
     <span style="color: #009900;">]</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div></div>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #000066; font-weight: bold;">var</span> myChart <span style="color: #339933;">=</span> echarts.<span style="color: #660066;">init</span><span style="color: #009900;">(</span>document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'main'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 $.<span style="color: #000066; font-weight: bold;">get</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/static/js/echarts_test_data.json'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>data<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     myChart.<span style="color: #660066;">setOption</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
         series <span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
             <span style="color: #009900;">{</span><br/>
-                name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'访问来源'</span><span style="color: #339933;">,</span><br/>
-                type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'pie'</span><span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// 设置图表类型为饼图</span><br/>
-                radius<span style="color: #339933;">:</span> <span style="color: #3366CC;">'55%'</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。</span><br/>
+                name<span style="color: #339933;">:</span> <span style="color: #3366CC;">Traffic Source</span><span style="color: #339933;">,</span><br/>
+                type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'pie'</span><span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// Set chart type to pie chart</span><br/>
+                radius<span style="color: #339933;">:</span> <span style="color: #3366CC;">'55%'</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// The radius of the pie chart: the outer radius is 55% of the visible area size (the smaller of the container's width and height).</span><br/>
                 data<span style="color: #339933;">:</span>data.<span style="color: #660066;">data_pie</span><br/>
             <span style="color: #009900;">}</span><br/>
         <span style="color: #009900;">]</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'json'</span><span style="color: #009900;">)</span><br/>
 </div><br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgokLmdldCgnaHR0cHM6Ly93d3cucnVub29iLmNvbS9zdGF0aWMvanMvZWNoYXJ0c190ZXN0X2RhdGEuanNvbicsIGZ1bmN0aW9uIChkYXRhKSB7CgrCoCDCoCBteUNoYXJ0LnNldE9wdGlvbih7CgrCoCDCoCDCoCDCoCBzZXJpZXMgOiBbCgrCoCDCoCDCoCDCoCDCoCDCoCB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBuYW1lOiAn6K6/6Zeu5p2l5rqQJywKCsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHR5cGU6ICdwaWUnLCDCoCDCoC8vIOiuvue9ruWbvuihqOexu+Wei+S4uumlvOWbvgoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgcmFkaXVzOiAnNTUlJywgwqAvLyDppbzlm77nmoTljYrlvoTvvIzlpJbljYrlvoTkuLrlj6/op4bljLrlsLrlr7jvvIjlrrnlmajpq5jlrr3kuK3ovoPlsI/kuIDpobnvvInnmoQgNTUlIOmVv+W6puOAggoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTpkYXRhLmRhdGFfcGllCgrCoCDCoCDCoCDCoCDCoCDCoCB9CgrCoCDCoCDCoCDCoCBdCgrCoCDCoCB9KQoKfSwgJ2pzb24nKQ==');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a></div>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgokLmdldCgnaHR0cHM6Ly93d3cucnVub29iLmNvbS9zdGF0aWMvanMvZWNoYXJ0c190ZXN0X2RhdGEuanNvbicsIGZ1bmN0aW9uIChkYXRhKSB7CgrCoCDCoCBteUNoYXJ0LnNldE9wdGlvbih7CgrCoCDCoCDCoCDCoCBzZXJpZXMgOiBbCgrCoCDCoCDCoCDCoCDCoCDCoCB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBuYW1lOiAn6K6/6Zeu5p2l5rqQJywKCsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHR5cGU6ICdwaWUnLCDCoCDCoC8vIOiuvue9ruWbvuihqOexu+Wei+S4uumlvOWbvgoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgcmFkaXVzOiAnNTUlJywgwqAvLyDppbzlm77nmoTljYrlvoTvvIzlpJbljYrlvoTkuLrlj6/op4bljLrlsLrlr7jvvIjlrrnlmajpq5jlrr3kuK3ovoPlsI/kuIDpobnvvInnmoQgNTUlIOmVv+W6puOAggoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTpkYXRhLmRhdGFfcGllCgrCoCDCoCDCoCDCoCDCoCDCoCB9CgrCoCDCoCDCoCDCoCBdCgrCoCDCoCB9KQoKfSwgJ2pzb24nKQ==');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a></div>
 <p>If asynchronous loading takes some time, we can add a loading effect. ECharts provides a simple loading animation by default. Just call the showLoading method to display it. After the data loading is complete, call the hideLoading method to hide the loading animation:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #000066; font-weight: bold;">var</span> myChart <span style="color: #339933;">=</span> echarts.<span style="color: #660066;">init</span><span style="color: #009900;">(</span>document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'main'</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-myChart.<span style="color: #660066;">showLoading</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #006600; font-style: italic;">// 开启 loading 效果</span><br/>
+myChart.<span style="color: #660066;">showLoading</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #006600; font-style: italic;">// Enable loading effect</span><br/>
 $.<span style="color: #000066; font-weight: bold;">get</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/static/js/echarts_test_data.json'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span>data<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-    myChart.<span style="color: #660066;">hideLoading</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #006600; font-style: italic;">// 隐藏 loading 效果</span><br/>
+    myChart.<span style="color: #660066;">hideLoading</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #006600; font-style: italic;">// Hide loading effect</span><br/>
     myChart.<span style="color: #660066;">setOption</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
         series <span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
             <span style="color: #009900;">{</span><br/>
-                name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'访问来源'</span><span style="color: #339933;">,</span><br/>
-                type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'pie'</span><span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// 设置图表类型为饼图</span><br/>
-                radius<span style="color: #339933;">:</span> <span style="color: #3366CC;">'55%'</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。</span><br/>
+                name<span style="color: #339933;">:</span> <span style="color: #3366CC;">Traffic Source</span><span style="color: #339933;">,</span><br/>
+                type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'pie'</span><span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// Set chart type to pie chart</span><br/>
+                radius<span style="color: #339933;">:</span> <span style="color: #3366CC;">'55%'</span><span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// The radius of the pie chart: the outer radius is 55% of the visible area size (the smaller of the container's width and height).</span><br/>
                 data<span style="color: #339933;">:</span>data.<span style="color: #660066;">data_pie</span><br/>
             <span style="color: #009900;">}</span><br/>
         <span style="color: #009900;">]</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'json'</span><span style="color: #009900;">)</span><br/>
 </div><br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgpteUNoYXJ0LnNob3dMb2FkaW5nKCk7IMKgLy8g5byA5ZCvIGxvYWRpbmcg5pWI5p6cCgokLmdldCgnaHR0cHM6Ly93d3cucnVub29iLmNvbS9zdGF0aWMvanMvZWNoYXJ0c190ZXN0X2RhdGEuanNvbicsIGZ1bmN0aW9uIChkYXRhKSB7CgrCoCDCoCBteUNoYXJ0LmhpZGVMb2FkaW5nKCk7IMKgLy8g6ZqQ6JePIGxvYWRpbmcg5pWI5p6cCgrCoCDCoCBteUNoYXJ0LnNldE9wdGlvbih7CgrCoCDCoCDCoCDCoCBzZXJpZXMgOiBbCgrCoCDCoCDCoCDCoCDCoCDCoCB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBuYW1lOiAn6K6/6Zeu5p2l5rqQJywKCsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHR5cGU6ICdwaWUnLCDCoCDCoC8vIOiuvue9ruWbvuihqOexu+Wei+S4uumlvOWbvgoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgcmFkaXVzOiAnNTUlJywgwqAvLyDppbzlm77nmoTljYrlvoTvvIzlpJbljYrlvoTkuLrlj6/op4bljLrlsLrlr7jvvIjlrrnlmajpq5jlrr3kuK3ovoPlsI/kuIDpobnvvInnmoQgNTUlIOmVv+W6puOAggoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTpkYXRhLmRhdGFfcGllCgrCoCDCoCDCoCDCoCDCoCDCoCB9CgrCoCDCoCDCoCDCoCBdCgrCoCDCoCB9KQoKfSwgJ2pzb24nKQ==');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a></div>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIG15Q2hhcnQgPSBlY2hhcnRzLmluaXQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21haW4nKSk7CgpteUNoYXJ0LnNob3dMb2FkaW5nKCk7IMKgLy8g5byA5ZCvIGxvYWRpbmcg5pWI5p6cCgokLmdldCgnaHR0cHM6Ly93d3cucnVub29iLmNvbS9zdGF0aWMvanMvZWNoYXJ0c190ZXN0X2RhdGEuanNvbicsIGZ1bmN0aW9uIChkYXRhKSB7CgrCoCDCoCBteUNoYXJ0LmhpZGVMb2FkaW5nKCk7IMKgLy8g6ZqQ6JePIGxvYWRpbmcg5pWI5p6cCgrCoCDCoCBteUNoYXJ0LnNldE9wdGlvbih7CgrCoCDCoCDCoCDCoCBzZXJpZXMgOiBbCgrCoCDCoCDCoCDCoCDCoCDCoCB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBuYW1lOiAn6K6/6Zeu5p2l5rqQJywKCsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIHR5cGU6ICdwaWUnLCDCoCDCoC8vIOiuvue9ruWbvuihqOexu+Wei+S4uumlvOWbvgoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgcmFkaXVzOiAnNTUlJywgwqAvLyDppbzlm77nmoTljYrlvoTvvIzlpJbljYrlvoTkuLrlj6/op4bljLrlsLrlr7jvvIjlrrnlmajpq5jlrr3kuK3ovoPlsI/kuIDpobnvvInnmoQgNTUlIOmVv+W6puOAggoKwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTpkYXRhLmRhdGFfcGllCgrCoCDCoCDCoCDCoCDCoCDCoCB9CgrCoCDCoCDCoCDCoCBdCgrCoCDCoCB9KQoKfSwgJ2pzb24nKQ==');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a></div>
 <h3>Dynamic data update</h3>
 <p>ECharts is data-driven; changes in data drive changes in the chart display, so implementing dynamic data becomes extremely simple.</p>
 <p>All data updates are implemented through setOption. You only need to fetch data at regular intervals and pass it into setOption, without having to worry about what changes have actually occurred in the data. ECharts will identify the differences between the two sets of data and then use appropriate animations to represent the changes.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #000066; font-weight: bold;">var</span> base <span style="color: #339933;">=</span> <span style="color: #339933;">+</span><span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">(</span><span style="color: #CC0000;">2014</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">9</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">3</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000066; font-weight: bold;">var</span> oneDay <span style="color: #339933;">=</span> <span style="color: #CC0000;">24</span> <span style="color: #339933;">*</span> <span style="color: #CC0000;">3600</span> <span style="color: #339933;">*</span> <span style="color: #CC0000;">1000</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000066; font-weight: bold;">var</span> date <span style="color: #339933;">=</span> <span style="color: #009900;">[</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span><br/>
@@ -251,7 +251,7 @@ option <span style="color: #339933;">=</span> <span style="color: #009900;">{</s
     <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
     series<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
         <span style="color: #009900;">{</span><br/>
-            name<span style="color: #339933;">:</span><span style="color: #3366CC;">'成交'</span><span style="color: #339933;">,</span><br/>
+            name<span style="color: #339933;">:</span><span style="color: #3366CC;">'Transactions'</span><span style="color: #339933;">,</span><br/>
             type<span style="color: #339933;">:</span><span style="color: #3366CC;">'line'</span><span style="color: #339933;">,</span><br/>
             smooth<span style="color: #339933;">:</span><span style="color: #003366; font-weight: bold;">true</span><span style="color: #339933;">,</span><br/>
             symbol<span style="color: #339933;">:</span> <span style="color: #3366CC;">'none'</span><span style="color: #339933;">,</span><br/>
@@ -271,27 +271,23 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
             data<span style="color: #339933;">:</span> date<br/>
         <span style="color: #009900;">}</span><span style="color: #339933;">,</span><br/>
         series<span style="color: #339933;">:</span> <span style="color: #009900;">[</span><span style="color: #009900;">{</span><br/>
-            name<span style="color: #339933;">:</span><span style="color: #3366CC;">'成交'</span><span style="color: #339933;">,</span><br/>
+            name<span style="color: #339933;">:</span><span style="color: #3366CC;">'Transactions'</span><span style="color: #339933;">,</span><br/>
             data<span style="color: #339933;">:</span> data<br/>
         <span style="color: #009900;">}</span><span style="color: #009900;">]</span><br/>
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">500</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div><br/>
-<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIGJhc2UgPSArbmV3IERhdGUoMjAxNCwgOSwgMyk7Cgp2YXIgb25lRGF5ID0gMjQgKiAzNjAwICogMTAwMDsKCnZhciBkYXRlID0gW107CgoKCnZhciBkYXRhID0gW01hdGgucmFuZG9tKCkgKiAxNTBdOwoKdmFyIG5vdyA9IG5ldyBEYXRlKGJhc2UpOwoKCgpmdW5jdGlvbiBhZGREYXRhKHNoaWZ0KSB7CgrCoCDCoCBub3cgPSBbbm93LmdldEZ1bGxZZWFyKCksIG5vdy5nZXRNb250aCgpICsgMSwgbm93LmdldERhdGUoKV0uam9pbignLycpOwoKwqAgwqAgZGF0ZS5wdXNoKG5vdyk7CgrCoCDCoCBkYXRhLnB1c2goKE1hdGgucmFuZG9tKCkgLSAwLjQpICogMTAgKyBkYXRhW2RhdGEubGVuZ3RoIC0gMV0pOwoKCgrCoCDCoCBpZiAoc2hpZnQpIHsKCsKgIMKgIMKgIMKgIGRhdGUuc2hpZnQoKTsKCsKgIMKgIMKgIMKgIGRhdGEuc2hpZnQoKTsKCsKgIMKgIH0KCgoKwqAgwqAgbm93ID0gbmV3IERhdGUoK25ldyBEYXRlKG5vdykgKyBvbmVEYXkpOwoKfQoKCgpmb3IgKHZhciBpID0gMTsgaSA8IDEwMDsgaSsrKSB7CgrCoCDCoCBhZGREYXRhKCk7Cgp9CgoKCm9wdGlvbiA9IHsKCsKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCB0eXBlOiAnY2F0ZWdvcnknLAoKwqAgwqAgwqAgwqAgYm91bmRhcnlHYXA6IGZhbHNlLAoKwqAgwqAgwqAgwqAgZGF0YTogZGF0ZQoKwqAgwqAgfSwKCsKgIMKgIHlBeGlzOiB7CgrCoCDCoCDCoCDCoCBib3VuZGFyeUdhcDogWzAsICc1MCUnXSwKCsKgIMKgIMKgIMKgIHR5cGU6ICd2YWx1ZScKCsKgIMKgIH0sCgrCoCDCoCBzZXJpZXM6IFsKCsKgIMKgIMKgIMKgIHsKCsKgIMKgIMKgIMKgIMKgIMKgIG5hbWU6J+aIkOS6pCcsCgrCoCDCoCDCoCDCoCDCoCDCoCB0eXBlOidsaW5lJywKCsKgIMKgIMKgIMKgIMKgIMKgIHNtb290aDp0cnVlLAoKwqAgwqAgwqAgwqAgwqAgwqAgc3ltYm9sOiAnbm9uZScsCgrCoCDCoCDCoCDCoCDCoCDCoCBzdGFjazogJ2EnLAoKwqAgwqAgwqAgwqAgwqAgwqAgYXJlYVN0eWxlOiB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBub3JtYWw6IHt9CgrCoCDCoCDCoCDCoCDCoCDCoCB9LAoKwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTogZGF0YQoKwqAgwqAgwqAgwqAgfQoKwqAgwqAgXQoKfTsKCgoKc2V0SW50ZXJ2YWwoZnVuY3Rpb24gKCkgewoKwqAgwqAgYWRkRGF0YSh0cnVlKTsKCsKgIMKgIG15Q2hhcnQuc2V0T3B0aW9uKHsKCsKgIMKgIMKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCDCoCDCoCBkYXRhOiBkYXRlCgrCoCDCoCDCoCDCoCB9LAoKwqAgwqAgwqAgwqAgc2VyaWVzOiBbewoKwqAgwqAgwqAgwqAgwqAgwqAgbmFtZTon5oiQ5LqkJywKCsKgIMKgIMKgIMKgIMKgIMKgIGRhdGE6IGRhdGEKCsKgIMKgIMKgIMKgIH1dCgrCoCDCoCB9KTsKCn0sIDUwMCk7');localStorage.setItem('tryit_lang','javascript');">尝试一下 »</a></div> 其他扩展
-</div>
+<a class="tryitbtn" data-lang="javascript" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','dmFyIGJhc2UgPSArbmV3IERhdGUoMjAxNCwgOSwgMyk7Cgp2YXIgb25lRGF5ID0gMjQgKiAzNjAwICogMTAwMDsKCnZhciBkYXRlID0gW107CgoKCnZhciBkYXRhID0gW01hdGgucmFuZG9tKCkgKiAxNTBdOwoKdmFyIG5vdyA9IG5ldyBEYXRlKGJhc2UpOwoKCgpmdW5jdGlvbiBhZGREYXRhKHNoaWZ0KSB7CgrCoCDCoCBub3cgPSBbbm93LmdldEZ1bGxZZWFyKCksIG5vdy5nZXRNb250aCgpICsgMSwgbm93LmdldERhdGUoKV0uam9pbignLycpOwoKwqAgwqAgZGF0ZS5wdXNoKG5vdyk7CgrCoCDCoCBkYXRhLnB1c2goKE1hdGgucmFuZG9tKCkgLSAwLjQpICogMTAgKyBkYXRhW2RhdGEubGVuZ3RoIC0gMV0pOwoKCgrCoCDCoCBpZiAoc2hpZnQpIHsKCsKgIMKgIMKgIMKgIGRhdGUuc2hpZnQoKTsKCsKgIMKgIMKgIMKgIGRhdGEuc2hpZnQoKTsKCsKgIMKgIH0KCgoKwqAgwqAgbm93ID0gbmV3IERhdGUoK25ldyBEYXRlKG5vdykgKyBvbmVEYXkpOwoKfQoKCgpmb3IgKHZhciBpID0gMTsgaSA8IDEwMDsgaSsrKSB7CgrCoCDCoCBhZGREYXRhKCk7Cgp9CgoKCm9wdGlvbiA9IHsKCsKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCB0eXBlOiAnY2F0ZWdvcnknLAoKwqAgwqAgwqAgwqAgYm91bmRhcnlHYXA6IGZhbHNlLAoKwqAgwqAgwqAgwqAgZGF0YTogZGF0ZQoKwqAgwqAgfSwKCsKgIMKgIHlBeGlzOiB7CgrCoCDCoCDCoCDCoCBib3VuZGFyeUdhcDogWzAsICc1MCUnXSwKCsKgIMKgIMKgIMKgIHR5cGU6ICd2YWx1ZScKCsKgIMKgIH0sCgrCoCDCoCBzZXJpZXM6IFsKCsKgIMKgIMKgIMKgIHsKCsKgIMKgIMKgIMKgIMKgIMKgIG5hbWU6J+aIkOS6pCcsCgrCoCDCoCDCoCDCoCDCoCDCoCB0eXBlOidsaW5lJywKCsKgIMKgIMKgIMKgIMKgIMKgIHNtb290aDp0cnVlLAoKwqAgwqAgwqAgwqAgwqAgwqAgc3ltYm9sOiAnbm9uZScsCgrCoCDCoCDCoCDCoCDCoCDCoCBzdGFjazogJ2EnLAoKwqAgwqAgwqAgwqAgwqAgwqAgYXJlYVN0eWxlOiB7CgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCBub3JtYWw6IHt9CgrCoCDCoCDCoCDCoCDCoCDCoCB9LAoKwqAgwqAgwqAgwqAgwqAgwqAgZGF0YTogZGF0YQoKwqAgwqAgwqAgwqAgfQoKwqAgwqAgXQoKfTsKCgoKc2V0SW50ZXJ2YWwoZnVuY3Rpb24gKCkgewoKwqAgwqAgYWRkRGF0YSh0cnVlKTsKCsKgIMKgIG15Q2hhcnQuc2V0T3B0aW9uKHsKCsKgIMKgIMKgIMKgIHhBeGlzOiB7CgrCoCDCoCDCoCDCoCDCoCDCoCBkYXRhOiBkYXRlCgrCoCDCoCDCoCDCoCB9LAoKwqAgwqAgwqAgwqAgc2VyaWVzOiBbewoKwqAgwqAgwqAgwqAgwqAgwqAgbmFtZTon5oiQ5LqkJywKCsKgIMKgIMKgIMKgIMKgIMKgIGRhdGE6IGRhdGEKCsKgIMKgIMKgIMKgIH1dCgrCoCDCoCB9KTsKCn0sIDUwMCk7');localStorage.setItem('tryit_lang','javascript');">Try it Yourself »</a></div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-style.html" rel="prev">ECharts 样式设置</a> </div>
-<div class="next-design-link"><a href="../echarts/echarts-dataset.html" rel="next">ECharts 数据集（dataset）</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../echarts/echarts-style.html" rel="prev">ECharts style settings</a> </div>
+<div class="next-design-link"><a href="../echarts/echarts-dataset.html" rel="next">ECharts Dataset (dataset)</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -395,16 +391,16 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -412,14 +408,14 @@ setInterval<span style="color: #009900;">(</span><span style="color: #000066; fo
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="22144"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -597,7 +593,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -688,7 +684,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

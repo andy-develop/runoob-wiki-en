@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flask 请求生命周期 | 菜鸟教程</title>
+<title>Flask Request Lifecycle | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flask 请求生命周期 理解 Flask 请求的完整生命周期，是写好 Flask 应用的关键。 本章从源码层面拆解一个 HTTP 请求从进入服务器到返回响应的全过程，帮你建立清晰的执行模型。   什么是请求生命周期 请求生命周期（Request Lifecycle）指的是一个 HTTP 请求在 Flask 内部经历的完整处理过程。 它包含以下阶段：接收请求 → 创建上下文 → 预处理 → 路由分发 → 视图执行 → 响应构建 → 清理.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-testing.html" rel="prev">Flask 测试</a> </div>
-<div class="next-design-link"><a href="../flask/flask-api-application-object.html" rel="next">Flask 应用对象 API</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-testing.html" rel="prev">Flask Testing</a> </div>
+<div class="next-design-link"><a href="../flask/flask-api-application-object.html" rel="next">Flask Application Object API</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,100 +169,100 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>What is the request lifecycle</h2>
 <p>Request lifecycle refers to the complete processing that an HTTP request goes through inside Flask.</p>
-<p>It includes the following stages:<span class="marked">接收请求 → 创建上下文 → 预处理 → 路由分发 → 视图执行 → 响应构建 → 清理上下文 → 返回响应</span>。</p>
+<p>It includes the following stages:<span class="marked">Receive request → Create context → Preprocess → Route dispatch → Execute view → Build response → Clean up context → Return response</span>。</p>
 <p>By understanding this process, you can correctly answer the following questions:</p>
 <ul>
 <li><span class="marked">g</span>When does the object's data become available? When is it cleaned up?</li>
-<li><span class="marked">before_request</span> 和 <span class="marked">after_request</span>What is the execution order?</li>
+<li><span class="marked">before_request</span>and<span class="marked">after_request</span>What is the execution order?</li>
 <li>When an exception occurs, which handling stages does it pass through in sequence?</li>
-<li>Why use [it] outside the view function<span class="marked">request</span>会报错？</li>
+<li>Why use [it] outside the view function<span class="marked">request</span>Will it throw an error?</li>
 </ul>
 <hr/>
-<h2>完整流程图</h2>
+<h2>Complete flowchart</h2>
 <p>The following diagram shows the complete call chain from Flask receiving a request to returning a response:</p>
 <img alt="Flask 请求处理生命周期" decoding="async" src="../wp-content/uploads/2026/05/flask-request-lifecycle.svg" style="width:100%;height:auto;margin:20px 0;"/>
 <hr/>
-<h2>分步详解</h2>
+<h2>Step-by-step detailed explanation</h2>
 <h3>Stage 1: WSGI Entry</h3>
 <p>When an HTTP request arrives at the server, the WSGI server (such as Gunicorn, Werkzeug development server) calls the Flask application instance.</p>
 <p>Flask implements<span class="marked">__call__</span>method, making it a valid WSGI application:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># Flask 源码简化版（实际位置：flask/app.py）</span><br/>
-<span style="color: #a50"># WSGI 服务器会这样调用你的应用：</span><br/>
+<span style="color: #a50"># Simplified Flask source code (actual location: flask/app.py)</span><br/>
+<span style="color: #a50"># The WSGI server will call your application like this:</span><br/>
 <span style="color: #a50"># response = app(environ, start_response)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Flask<span style="color: Olive;">(</span>App<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__call__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> environ<span style="color: Gray;">,</span> start_response<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""WSGI 服务器调用的入口点"""</span><br/>
+        <span style="color: #a11;">"""Entry point called by the WSGI server"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">wsgi_app</span><span style="color: Olive;">(</span>environ<span style="color: Gray;">,</span> start_response<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> wsgi_app<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> environ<span style="color: Gray;">,</span> start_response<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""真正的 WSGI 处理逻辑"""</span><br/>
-        <span style="color: #a50"># 第一步：根据 environ 创建请求上下文</span><br/>
+        <span style="color: #a11;">"""The actual WSGI handling logic"""</span><br/>
+        <span style="color: #a50"># Step 1: Create request context based on environ</span><br/>
         ctx <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">request_context</span><span style="color: Olive;">(</span>environ<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">try</span>:<br/>
-            ctx.<span style="color: #05a;">push</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># 推入上下文栈</span><br/>
-            response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">full_dispatch_request</span><span style="color: Olive;">(</span>ctx<span style="color: Olive;">)</span>  <span style="color: #a50"># 完整调度</span><br/>
+            ctx.<span style="color: #05a;">push</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>                    <span style="color: #a50"># Push onto context stack</span><br/>
+            response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">full_dispatch_request</span><span style="color: Olive;">(</span>ctx<span style="color: Olive;">)</span>  <span style="color: #a50"># Full dispatch</span><br/>
         <span style="color: Green;font-weight:bold;">except</span> <span style="color: Teal;">Exception</span> <span style="color: Green;font-weight:bold;">as</span> e:<br/>
-            response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">handle_exception</span><span style="color: Olive;">(</span>ctx<span style="color: Gray;">,</span> e<span style="color: Olive;">)</span>    <span style="color: #a50"># 异常兜底</span><br/>
+            response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">handle_exception</span><span style="color: Olive;">(</span>ctx<span style="color: Gray;">,</span> e<span style="color: Olive;">)</span>    <span style="color: #a50"># Exception fallback</span><br/>
         <span style="color: Green;font-weight:bold;">finally</span>:<br/>
-            ctx.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span>error<span style="color: Olive;">)</span>               <span style="color: #a50"># 弹出上下文，执行清理</span><br/>
+            ctx.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span>error<span style="color: Olive;">)</span>               <span style="color: #a50"># Pop the context and perform cleanup</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> response<span style="color: Olive;">(</span>environ<span style="color: Gray;">,</span> start_response<span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <blockquote><p>Flask designs the entry point as calling<span class="marked">wsgi_app</span>method, rather than directly writing<span class="marked">__call__</span>logic inside. This way you can replace<span class="marked">app.wsgi_app</span>to insert middleware, without affecting<span class="marked">app</span>calling the instance itself.</p></blockquote>
 <h3>Stage 2: Create Context</h3>
-<p><span class="marked">request_context(environ)</span>Create one based on the WSGI environment variables<span class="marked">AppContext</span>对象。</p>
+<p><span class="marked">request_context(environ)</span>Create one based on the WSGI environment variables<span class="marked">AppContext</span>Object.</p>
 <p>This object contains all the information about the current request. Once it is pushed onto the stack,<span class="marked">request</span>、<span class="marked">session</span>、<span class="marked">g</span>、<span class="marked">current_app</span>these global proxies begin pointing to the data of the current request.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 理解上下文的简单实验</span><br/>
+<span style="color: #a50"># Simple experiment to understand context</span><br/>
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> current_app<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">with</span> app.<span style="color: #05a;">app_context</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 只有应用上下文——current_app 可用，request 不可用</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>current_app.<span style="color: #05a;">name</span><span style="color: Olive;">)</span>  <span style="color: #a50"># ✓ 正常</span><br/>
-    <span style="color: #a50"># print(request.method)  # ✗ 报错：Working outside of request context</span><br/>
+    <span style="color: #a50"># Only the application context is available — current_app is usable, request is not.</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>current_app.<span style="color: #05a;">name</span><span style="color: Olive;">)</span>  <span style="color: #a50"># ✓ OK</span><br/>
+    <span style="color: #a50"># print(request.method)  # ✗ Error: Working outside of request context</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">with</span> app.<span style="color: #05a;">test_request_context</span><span style="color: Olive;">(</span><span style="color: #a11;">"/hello?name=runoob"</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 请求上下文也包含了应用上下文——两者都可用</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>current_app.<span style="color: #05a;">name</span><span style="color: Olive;">)</span>     <span style="color: #a50"># ✓ 输出 app 名称</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">path</span><span style="color: Olive;">)</span>         <span style="color: #a50"># ✓ 输出 /hello</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">args</span><span style="color: Olive;">[</span><span style="color: #a11;">"name"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span> <span style="color: #a50"># ✓ 输出 runoob</span><br/>
+    <span style="color: #a50"># The request context also includes the application context — both are available.</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>current_app.<span style="color: #05a;">name</span><span style="color: Olive;">)</span>     <span style="color: #a50"># ✓ Outputs app name</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">path</span><span style="color: Olive;">)</span>         <span style="color: #a50"># ✓ Outputs /hello</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>request.<span style="color: #05a;">args</span><span style="color: Olive;">[</span><span style="color: #a11;">"name"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span> <span style="color: #a50"># ✓ Outputs runoob</span><br/>
 </div>
 </div>
 <table class="reference">
 <tr>
-<th>上下文类型</th>
-<th>何时创建</th>
-<th>何时销毁</th>
+<th>Context Type</th>
+<th>When Created</th>
+<th>When Destroyed</th>
 <th>Available global variables</th>
 </tr>
 <tr>
-<td>应用上下文</td>
+<td>Application Context</td>
 <td>When a request arrives / Manually with app.app_context()</td>
 <td>End of request / exit of the with block</td>
 <td>current_app, g</td>
 </tr>
 <tr>
-<td>请求上下文</td>
-<td>请求到达时 / 手动 with app.test_request_context()</td>
+<td>Request context</td>
+<td>When request arrives / manually with app.test_request_context()</td>
 <td>End of request / exit of the with block</td>
 <td>request, session (all variables in the application context)</td>
 </tr>
 </table>
-<blockquote><p>The most common mistake beginners make is accessing directly at the module level<span class="marked">request</span>。记住：<span class="marked">request</span>It only exists within the request context. You can only access it inside view functions (or functions they call).</p></blockquote>
+<blockquote><p>The most common mistake beginners make is accessing directly at the module level<span class="marked">request</span>. Remember:<span class="marked">request</span>It only exists within the request context. You can only access it inside view functions (or functions they call).</p></blockquote>
 <h3>Phase 3: preprocess_request (Preprocessing)</h3>
-<p>Once the context is ready,<span class="marked">full_dispatch_request</span>首先调用<span class="marked">preprocess_request</span>。</p>
+<p>Once the context is ready,<span class="marked">full_dispatch_request</span>First, call<span class="marked">preprocess_request</span>。</p>
 <p>This stage executes all code registered with<span class="marked">@app.before_request</span>registered functions.</p>
 <p>If any one<span class="marked">before_request</span>function returns a non-<span class="marked">None</span>value, Flask treats it as the final response and skips the execution of subsequent view functions.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> request<span style="color: Gray;">,</span> session<span style="color: Gray;">,</span> redirect<span style="color: Gray;">,</span> url_for<br/>
 <br/>
@@ -271,16 +271,16 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">before_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> check_authentication<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""在每次请求前检查用户是否已登录"""</span><br/>
-    <span style="color: #a50"># 跳过登录和注册页面的认证检查</span><br/>
+    <span style="color: #a11;">"""Check whether the user is logged in before each request"""</span><br/>
+    <span style="color: #a50"># Skip authentication checks for login and registration pages</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> request.<span style="color: #05a;">endpoint</span> <span style="color: Green;font-weight:bold;">in</span> <span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"register"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"static"</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># None 表示继续正常流程</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># None means continue with normal flow</span><br/>
 <br/>
-    <span style="color: #a50"># 如果未登录，直接返回重定向响应（跳过视图函数）</span><br/>
+    <span style="color: #a50"># If not logged in, directly return a redirect response (skip the view function)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"username"</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> session:<br/>
         <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span>url_for<span style="color: Olive;">(</span><span style="color: #a11;">"login"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 用户已登录，正常继续</span><br/>
+    <span style="color: #a50"># User is logged in, continue normally</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Gray;">,</span> methods<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: #a11;">"GET"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"POST"</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
@@ -292,11 +292,11 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/register"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> register<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"注册页面（无需登录）"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"Registration page (no login required)"</span><br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">route</span><span style="color: Olive;">(</span><span style="color: #a11;">"/dashboard"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> dashboard<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"欢迎 {session['username']} 来到 RUNOOB 控制台"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Welcome {session['username']} to RUNOOB console"</span><br/>
 </div>
 </div>
 <h3>Phase 4: dispatch_request (Route Dispatching)</h3>
@@ -307,16 +307,16 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <li>Call the corresponding view function, passing in the extracted parameters</li>
 </ol>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 源码简化版：dispatch_request 的工作流程</span><br/>
+<span style="color: #a50"># Simplified source code: dispatch_request workflow</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> dispatch_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> ctx<span style="color: Olive;">)</span>:<br/>
     req <span style="color: Gray;">=</span> ctx.<span style="color: #05a;">request</span><br/>
-    <span style="color: #a50"># 获取匹配到的路由规则（Rule 对象）</span><br/>
+    <span style="color: #a50"># Get the matched routing rule (Rule object)</span><br/>
     rule <span style="color: Gray;">=</span> req.<span style="color: #05a;">url_rule</span><br/>
-    <span style="color: #a50"># 获取 URL 中的变量参数。例如 /post/42 → {"post_id": 42}</span><br/>
+    <span style="color: #a50"># Get variable parameters from the URL. For example /post/42 → {"post_id": 42}</span><br/>
     view_args <span style="color: Gray;">=</span> req.<span style="color: #05a;">view_args</span><br/>
-    <span style="color: #a50"># 从 view_functions 字典中找到对应的函数并调用</span><br/>
+    <span style="color: #a50"># Find the corresponding function in the view_functions dictionary and call it</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">view_functions</span><span style="color: Olive;">[</span>rule.<span style="color: #05a;">endpoint</span><span style="color: Olive;">]</span><span style="color: Olive;">(</span>**view_args<span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -325,19 +325,19 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <p>This is where you write your business logic. Flask calls your view function and obtains the return value.</p>
 <p>The return value can be of many types—strings, dicts, tuples, Response objects—all of which are handled uniformly in the next stage.</p>
 <h3>Phase 6: finalize_request (Response Construction)</h3>
-<p>After the view function finishes execution,<span class="marked">finalize_request</span>responsible for converting the return value into a standard<span class="marked">Response</span>对象：</p>
+<p>After the view function finishes execution,<span class="marked">finalize_request</span>responsible for converting the return value into a standard<span class="marked">Response</span>Object:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># 源码简化版：finalize_request 的工作流程</span><br/>
+<span style="color: #a50"># Simplified source code: finalize_request workflow</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> finalize_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> ctx<span style="color: Gray;">,</span> rv<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># 1. 调用 make_response 将各种类型的返回值转为 Response 对象</span><br/>
+    <span style="color: #a50"># 1. Call make_response to convert various types of return values into Response objects</span><br/>
     response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">make_response</span><span style="color: Olive;">(</span>rv<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 2. 通过 process_response 执行 after_request 钩子</span><br/>
+    <span style="color: #a50"># 2. Execute after_request hooks via process_response</span><br/>
     response <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">process_response</span><span style="color: Olive;">(</span>ctx<span style="color: Gray;">,</span> response<span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 3. 发送信号：request_finished</span><br/>
+    <span style="color: #a50"># 3. Sending signal: request_finished</span><br/>
     request_finished.<span style="color: #05a;">send</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> response<span style="color: Gray;">=</span>response<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> response<br/>
@@ -346,24 +346,24 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <p><span class="marked">make_response</span>conversion rules:</p>
 <table class="reference">
 <tr>
-<th>返回值类型</th>
-<th>转换方式</th>
+<th>Return value type</th>
+<th>Conversion method</th>
 </tr>
 <tr>
 <td>str / bytes</td>
-<td>作为响应体，Content-Type: text/html</td>
+<td>As response body, Content-Type: text/html</td>
 </tr>
 <tr>
 <td>dict / list</td>
-<td>调用 jsonify()，Content-Type: application/json</td>
+<td>Call jsonify(), Content-Type: application/json</td>
 </tr>
 <tr>
 <td>tuple</td>
-<td>按 (body, status) 或 (body, headers) 解析</td>
+<td>Interpreted as (body, status) or (body, headers)</td>
 </tr>
 <tr>
-<td>Response 对象</td>
-<td>直接使用</td>
+<td>Response object</td>
+<td>Used directly</td>
 </tr>
 <tr>
 <td>iterator / generator</td>
@@ -371,20 +371,20 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 </tr>
 </table>
 <h3>Phase 7: after_request Hook</h3>
-<p><span class="marked">process_response</span>在执行<span class="marked">make_response</span>Afterwards, it calls all registered<span class="marked">@app.after_request</span>registered functions.</p>
-<p>每个<span class="marked">after_request</span>functions receive and return<span class="marked">Response</span>object, you can modify response headers, add cookies, and so on.</p>
+<p><span class="marked">process_response</span>During execution<span class="marked">make_response</span>Afterwards, it calls all registered<span class="marked">@app.after_request</span>registered functions.</p>
+<p>each<span class="marked">after_request</span>functions receive and return<span class="marked">Response</span>object, you can modify response headers, add cookies, and so on.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># after_request 典型用法：为每个响应添加安全头</span><br/>
+<span style="color: #a50"># Typical after_request usage: add security headers to every response</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">after_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> add_security_headers<span style="color: Olive;">(</span>response<span style="color: Olive;">)</span>:<br/>
     response.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-Content-Type-Options"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"nosniff"</span><br/>
     response.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-Frame-Options"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"DENY"</span><br/>
     response.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-XSS-Protection"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"1; mode=block"</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> response  <span style="color: #a50"># 必须返回 response 对象</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> response  <span style="color: #a50"># Must return a response object</span><br/>
 <br/>
-<span style="color: #a50"># 也常用于添加 CORS 头</span><br/>
+<span style="color: #a50"># Also commonly used to add CORS headers</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">after_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> add_cors_headers<span style="color: Olive;">(</span>response<span style="color: Olive;">)</span>:<br/>
     response.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"Access-Control-Allow-Origin"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"*"</span><br/>
@@ -393,38 +393,38 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 </div>
 </div>
 <h3>Stage 8: Context Cleanup</h3>
-<p>After the response is sent,<span class="marked">finally</span>块中的<span class="marked">ctx.pop()</span>Perform context cleanup:</p>
+<p>After the response is sent,<span class="marked">finally</span>in the block<span class="marked">ctx.pop()</span>Perform context cleanup:</p>
 <ol>
-<li>调用所有<span class="marked">teardown_request</span>functions registered with (executed regardless of request success or failure)</li>
-<li>调用所有<span class="marked">teardown_appcontext</span>注册的函数</li>
-<li>发送<span class="marked">request_tearing_down</span> 和 <span class="marked">appcontext_tearing_down</span>信号</li>
-<li>释放<span class="marked">g</span>all data stored in the object</li>
+<li>call all<span class="marked">teardown_request</span>functions registered with (executed regardless of request success or failure)</li>
+<li>call all<span class="marked">teardown_appcontext</span>registered functions</li>
+<li>send<span class="marked">request_tearing_down</span>and<span class="marked">appcontext_tearing_down</span>signal</li>
+<li>release<span class="marked">g</span>all data stored in the object</li>
 </ol>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #a50"># teardown 典型用法：关闭数据库连接</span><br/>
+<span style="color: #a50"># Typical teardown usage: close database connection</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">teardown_appcontext</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> close_database_connection<span style="color: Olive;">(</span>error<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""即使请求出错，也确保数据库连接被关闭"""</span><br/>
+    <span style="color: #a11;">"""Ensure the database connection is closed even if the request fails"""</span><br/>
     db <span style="color: Gray;">=</span> g.<span style="color: #05a;">pop</span><span style="color: Olive;">(</span><span style="color: #a11;">"db"</span><span style="color: Gray;">,</span> <span style="color: Teal;">None</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> db <span style="color: Green;font-weight:bold;">is</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Teal;">None</span>:<br/>
         db.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># error 参数：如果请求过程中有异常，这里会接收到</span><br/>
+    <span style="color: #a50"># error parameter: if an exception occurs during the request, it will be received here</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> error:<br/>
-        app.<span style="color: #05a;">logger</span>.<span style="color: #05a;">warning</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"请求异常，已关闭数据库连接: {error}"</span><span style="color: Olive;">)</span><br/>
+        app.<span style="color: #05a;">logger</span>.<span style="color: #05a;">warning</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Request exception, database connection closed: {error}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># teardown 与 after_request 的区别</span><br/>
+<span style="color: #a50"># Difference between teardown and after_request</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">after_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> after<span style="color: Olive;">(</span>response<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># after_request 在正常流程中执行，异常时不执行</span><br/>
-    <span style="color: #a50"># 用于修改成功的响应</span><br/>
+    <span style="color: #a50"># after_request runs in the normal flow, not when an exception occurs</span><br/>
+    <span style="color: #a50"># Used to modify successful responses</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> response<br/>
 <br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">teardown_request</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> teardown<span style="color: Olive;">(</span>error<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># teardown 始终执行——无论请求成功还是失败</span><br/>
-    <span style="color: #a50"># 用于清理资源（关闭文件、释放锁等）</span><br/>
+    <span style="color: #a50"># teardown always runs — whether the request succeeds or fails</span><br/>
+    <span style="color: #a50"># Used to clean up resources (close files, release locks, etc.)</span><br/>
     <span style="color: Green;font-weight:bold;">pass</span><br/>
 </div>
 </div>
@@ -432,22 +432,22 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <h2>exception handling flow</h2>
 <p>When a view function raises an exception, Flask has a dedicated exception handling path:</p>
 <ol>
-<li><span class="marked">full_dispatch_request</span>捕获异常</li>
-<li>调用<span class="marked">handle_user_exception</span>determine the exception type</li>
+<li><span class="marked">full_dispatch_request</span>Catch exceptions</li>
+<li>Call<span class="marked">handle_user_exception</span>determine the exception type</li>
 <li>HTTP exceptions (such as<span class="marked">abort(404)</span>) → find the corresponding<span class="marked">errorhandler</span></li>
 <li>normal exception → find the exception class's<span class="marked">errorhandler</span></li>
 <li>no handler found → call<span class="marked">handle_exception</span>, return a 500 error</li>
-<li>Regardless of exceptions, it will ultimately go through<span class="marked">finalize_request</span>构建响应</li>
+<li>Regardless of exceptions, it will ultimately go through<span class="marked">finalize_request</span>Build response</li>
 </ol>
 <blockquote><p>Key points in the exception path:<span class="marked">after_request</span>Hooks also execute for error responses (since Flask 1.1), but<span class="marked">before_request</span>A non-None value returned from it short-circuits the entire flow; subsequent view functions and hooks will not execute.</p></blockquote>
 <hr/>
 <h2>hook function quick reference</h2>
 <table class="reference">
 <tr>
-<th>钩子</th>
-<th>注册方式</th>
-<th>执行时机</th>
-<th>典型用途</th>
+<th>Hook</th>
+<th>Registration method</th>
+<th>Execution timing</th>
+<th>Typical use</th>
 </tr>
 <tr>
 <td>before_request</td>
@@ -457,7 +457,7 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 </tr>
 <tr>
 <td>before_first_request</td>
-<td>@app.before_request（已废弃）</td>
+<td>@app.before_request (deprecated)</td>
 <td>Before the first request (only once)</td>
 <td>Initialization operations (it is recommended to use the factory pattern instead)</td>
 </tr>
@@ -482,40 +482,40 @@ app.<span style="color: #05a;">secret_key</span> <span style="color: Gray;">=</s
 <tr>
 <td>errorhandler</td>
 <td>@app.errorhandler(code)</td>
-<td>对应错误码/异常发生时</td>
+<td>When the corresponding error code/exception occurs</td>
 <td>custom error pages</td>
 </tr>
 </table>
 <hr/>
-<h2>信号事件</h2>
-<p>Flask 使用<span class="marked">blinker</span>The library sends signals at key points:</p>
+<h2>Signal event</h2>
+<p>Flask uses<span class="marked">blinker</span>The library sends signals at key points:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">from</span> flask <span style="color: Green;font-weight:bold;">import</span> Flask<span style="color: Gray;">,</span> signals<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 连接信号——在请求到达时记录</span><br/>
+<span style="color: #a50"># Connect signal — record when the request arrives</span><br/>
 <span style="color: Gray;">@</span>signals.<span style="color: #05a;">request_started</span>.<span style="color: #05a;">connect_via</span><span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> log_request_start<span style="color: Olive;">(</span>sender<span style="color: Gray;">,</span> **extra<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"请求开始"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Request started"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 连接信号——在请求完成时记录</span><br/>
+<span style="color: #a50"># Connect signal — record when the request completes</span><br/>
 <span style="color: Gray;">@</span>signals.<span style="color: #05a;">request_finished</span>.<span style="color: #05a;">connect_via</span><span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> log_request_end<span style="color: Olive;">(</span>sender<span style="color: Gray;">,</span> response<span style="color: Gray;">,</span> **extra<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"请求结束，响应状态码: {response.status_code}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Request finished, response status code: {response.status_code}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 连接信号——捕获异常</span><br/>
+<span style="color: #a50"># Connect signal — catch exceptions</span><br/>
 <span style="color: Gray;">@</span>signals.<span style="color: #05a;">got_request_exception</span>.<span style="color: #05a;">connect_via</span><span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> log_exception<span style="color: Olive;">(</span>sender<span style="color: Gray;">,</span> exception<span style="color: Gray;">,</span> **extra<span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"请求中发生异常: {exception}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Exception occurred during request: {exception}"</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <table class="reference">
 <tr>
-<th>信号</th>
-<th>触发时机</th>
+<th>signal</th>
+<th>Trigger timing</th>
 </tr>
 <tr>
 <td>request_started</td>
@@ -552,22 +552,18 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 </table>
 <hr/>
 <h2>key points summary</h2>
-<blockquote><p><span class="tag1">核心规则</span>: In a complete request lifecycle,<span class="marked">before_request</span> → <span class="marked">视图函数</span> → <span class="marked">after_request</span> → <span class="marked">teardown</span>These four nodes are guaranteed to execute in order (teardown always executes, regardless of whether the first three error out).</p></blockquote>
-<blockquote><p>After understanding the request lifecycle, when writing Flask applications you will know: put authentication logic in<span class="marked">before_request</span>, put business logic in view functions, and put response header modification in<span class="marked">after_request</span>put resource cleanup in<span class="marked">teardown</span>。</p></blockquote> 其他扩展
-</div>
+<blockquote><p><span class="tag1">Core rules</span>: In a complete request lifecycle,<span class="marked">before_request</span> → <span class="marked">View function</span> → <span class="marked">after_request</span> → <span class="marked">teardown</span>These four nodes are guaranteed to execute in order (teardown always executes, regardless of whether the first three error out).</p></blockquote>
+<blockquote><p>After understanding the request lifecycle, when writing Flask applications you will know: put authentication logic in<span class="marked">before_request</span>, put business logic in view functions, and put response header modification in<span class="marked">after_request</span>put resource cleanup in<span class="marked">teardown</span>。</p></blockquote>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-testing.html" rel="prev">Flask 测试</a> </div>
-<div class="next-design-link"><a href="../flask/flask-api-application-object.html" rel="next">Flask 应用对象 API</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flask/flask-testing.html" rel="prev">Flask Testing</a> </div>
+<div class="next-design-link"><a href="../flask/flask-api-application-object.html" rel="next">Flask Application Object API</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -671,16 +667,16 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -688,14 +684,14 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31002"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -873,7 +869,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -964,7 +960,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

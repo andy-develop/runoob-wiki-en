@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>触发器与寄存器 — 计算机如何「记住」数据 | 菜鸟教程</title>
+<title>Flip-flops and Registers — How Computers 'Remember' Data | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="触发器与寄存器 -- 计算机如何「记住」数据  从组合逻辑到时序逻辑，理解 D 触发器和寄存器的工作原理    生活类比：相机快门  想象你手中有一台相机。在按下快门之前，外面的世界千变万化——行人走动、树叶摇晃、光线明暗交替。  但当你按下快门的那个瞬间（时钟上升沿），当前画面被「锁存」到照片中。  之后无论外面的世界如何变化，照片里的内容永远定格在了那个瞬间。这就是 D 触发器的核心行为——在时钟信号的上升沿，捕捉并保存数据。   .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/from-gates-to-adder.html" rel="prev">从逻辑门到加法器</a> </div>
-<div class="next-design-link"><a href="../computer-organization/computer-architecture-overview.html" rel="next">一台计算机的整体骨架</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/from-gates-to-adder.html" rel="prev">From logic gates to adders</a> </div>
+<div class="next-design-link"><a href="../computer-organization/computer-architecture-overview.html" rel="next">The overall skeleton of a computer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,106 +168,106 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Life analogy: camera shutter</h2>
 <p>Imagine you have a camera in your hand. Before you press the shutter, the outside world is constantly changing—pedestrians walking, leaves swaying, light alternating between bright and dim.</p>
-<p>But at the instant you press the shutter (<span class="marked">时钟上升沿</span>), the current scene is "latched" into the photo.</p>
+<p>But at the instant you press the shutter (<span class="marked">Clock rising edge</span>), the current scene is "latched" into the photo.</p>
 <p>Afterward, no matter how the outside world changes, the content in the photo is forever frozen at that moment. This is the core behavior of a D flip-flop—capturing and saving data at the rising edge of the clock signal.</p>
 <hr/>
 <h2>Combinational logic vs sequential logic</h2>
-<p>The AND gates, OR gates, NOT gates, and other circuits we studied in previous lectures all belong to<span class="marked">组合逻辑</span>combinational logic. Their outputs are determined solely by the current inputs—when the inputs change, the outputs change immediately (ignoring propagation delay).</p>
-<p>But for a computer to "remember" data, it needs a circuit that can maintain its output even after the input disappears. This is sequential logic.<span class="tag1 green">时序逻辑</span>。</p>
-<h3>核心区别</h3>
+<p>The AND gates, OR gates, NOT gates, and other circuits we studied in previous lectures all belong to<span class="marked">Combinational logic</span>combinational logic. Their outputs are determined solely by the current inputs—when the inputs change, the outputs change immediately (ignoring propagation delay).</p>
+<p>But for a computer to "remember" data, it needs a circuit that can maintain its output even after the input disappears. This is sequential logic.<span class="tag1 green">Sequential logic</span>。</p>
+<h3>Core difference</h3>
 <p>Combinational logic is like a lamp—when the switch is pressed, it lights up; when released, it goes out; the output depends entirely on the current input.</p>
 <p>Sequential logic is like a safe—you put something in and lock it (when the clock rising edge arrives), and even if you walk away afterward (when the input disappears), the contents remain inside.</p>
 <table class="reference">
 <tr>
-<th>对比维度</th>
-<th>组合逻辑</th>
-<th>时序逻辑</th>
+<th>Comparison Dimension</th>
+<th>Combinational logic</th>
+<th>Sequential logic</th>
 </tr>
 <tr>
-<td>输出依赖</td>
+<td>Output dependency</td>
 <td>Depends only on current inputs</td>
 <td>Depends on current inputs and previous state</td>
 </tr>
 <tr>
-<td>记忆能力</td>
+<td>Memory capability</td>
 <td>None (stateless)</td>
 <td>Has (can remember history)</td>
 </tr>
 <tr>
-<td>典型电路</td>
+<td>Typical circuit</td>
 <td>AND gate, OR gate, NOT gate, adder</td>
 <td>D flip-flop, register, counter</td>
 </tr>
 <tr>
-<td>时钟依赖</td>
-<td>不依赖时钟</td>
+<td>Clock dependency</td>
+<td>Does not depend on clock</td>
 <td>Relies on clock signal to synchronize state updates</td>
 </tr>
 <tr>
-<td>反馈回路</td>
+<td>Feedback loop</td>
 <td>No feedback (acyclic)</td>
 <td>Has feedback loops to hold state</td>
 </tr>
 </table>
 <hr/>
 <h2>Structure and behavior of the D flip-flop</h2>
-<p><span class="marked">D 触发器（D Flip-Flop）</span>It is the most basic sequential logic unit. It has two inputs and one output:</p>
+<p><span class="marked">D Flip-Flop</span>It is the most basic sequential logic unit. It has two inputs and one output:</p>
 <p>D (Data): the data input, representing the value to be stored (0 or 1).</p>
 <p>CLK (Clock): the clock input, controlling when data is latched.</p>
 <p>Q: the data output, outputting the currently stored value.</p>
-<blockquote><p>Key behavior: The D flip-flop latches data only at the clock signal's<span class="marked">上升沿</span>rising edge (the instant it transitions from 0 to 1), latching D's value into Q. At all other times, no matter how D changes, Q remains unchanged.</p></blockquote>
+<blockquote><p>Key behavior: The D flip-flop latches data only at the clock signal's<span class="marked">rising edge</span>rising edge (the instant it transitions from 0 to 1), latching D's value into Q. At all other times, no matter how D changes, Q remains unchanged.</p></blockquote>
 <p>This is like a camera recording a scene only at the moment the shutter is pressed; at any other time, no matter how the outside scene changes, the photo is unaffected.</p>
 <h3>Why is a clock needed?</h3>
 <p>Without a clock signal, the D flip-flop's output would keep changing with the input, turning it into just another combinational logic circuit. "Memory" would be out of the question.</p>
-<p>The clock signal provides a<span class="tag1 green">同步节拍</span>, allowing all flip-flops to update their state at a unified point in time. The entire computer system coordinates its work under this rhythm.</p>
+<p>The clock signal provides a<span class="tag1 green">Synchronous timing</span>, allowing all flip-flops to update their state at a unified point in time. The entire computer system coordinates its work under this rhythm.</p>
 <hr/>
 <h2>Register: multiple flip-flops in parallel</h2>
 <p>A single D flip-flop can store only 1 bit of data. To store a byte (8 bits) or a word (32 bits), multiple flip-flops must be connected in parallel.</p>
-<p>Connect N D flip-flops in parallel so that they,<span class="marked">共享同一个时钟信号</span>, forming an N-bit<span class="tag1 green">寄存器（Register）</span>。</p>
+<p>Connect N D flip-flops in parallel so that they,<span class="marked">Share the same clock signal</span>, forming an N-bit<span class="tag1 green">Register</span>。</p>
 <p>when the clock rising edge arrives, simultaneously latch the values at their respective D inputs, saving the complete N bits of data at once.</p>
 <h3>Multi-stage registers and pipelining</h3>
-<p>Inside the CPU, register outputs are often connected to the next stage of combinational logic, which in turn connects to the next stage of registers—forming<span class="marked">寄存器-组合逻辑-寄存器</span>pipeline structure.</p>
+<p>Inside the CPU, register outputs are often connected to the next stage of combinational logic, which in turn connects to the next stage of registers—forming<span class="marked">Register-Combinational Logic-Register</span>pipeline structure.</p>
 <p>a pipeline in which, each clock cycle, data flows from one register stage through combinational logic and is stored into the next register stage at the next rising edge. This is the foundation of modern CPU pipelining.</p>
 <hr/>
 <h2>Code demonstration: simulating D flip-flops and registers in Python</h2>
 <p>The following Python code simulates the behavior of a D flip-flop and a 4-bit register. Pay special attention to the rising edge detection logic: data is captured only when clk is detected transitioning from 0 to 1.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> DFlipFlop:<br/>
-    <span style="color: #a11;">"""<br/>D 触发器：在时钟上升沿锁存输入数据<br/>
-<br/>行为规则：<br/>- 当时钟从 0 跳变到 1（上升沿）时，将 D 输入锁存到 Q 输出<br/>- 其他时间（clk=0、clk=1 但非跳变时），Q 保持原值不变<br/>
+    <span style="color: #a11;">"""<br/>D Flip-Flop: latches input data on the rising edge of the clock<br/>
+<br/>Behavior rules:<br/>- When the clock transitions from 0 to 1 (rising edge), the D input is latched to the Q output.<br/>- At other times (clk=0, or clk=1 but not at a transition edge), Q remains unchanged<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> name<span style="color: Gray;">=</span><span style="color: #a11;">"DFF"</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>           <span style="color: #a50"># 输出 Q，初始为 0</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># 上一个时刻的时钟值，用于检测上升沿</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>           <span style="color: #a50"># Output Q, initially 0</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span>    <span style="color: #a50"># The clock value at the previous time instant, used to detect the rising edge</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">name</span> <span style="color: Gray;">=</span> name<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> update<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> d<span style="color: Gray;">,</span> clk<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>更新触发器状态<br/>
-<br/>参数:<br/>d:   数据输入 (0 或 1)<br/>clk: 时钟信号 (0 或 1)<br/>
-<br/>返回:<br/>当前的 Q 输出值<br/>
-<br/>上升沿检测：prev_clk == 0 且 clk == 1<br/>只有满足此条件时才将 d 的值锁存到 q<br/>
+        <span style="color: #a11;">"""<br/>Update flip-flop state<br/>
+<br/>Parameters:<br/>d:   Data input (0 or 1)<br/>clk: Clock signal (0 or 1)<br/>
+<br/>Returns:<br/>Current Q output value<br/>
+<br/>Rising edge detection: prev_clk == 0 and clk == 1<br/>Only when this condition is satisfied is the value of d latched into q<br/>
         """</span><br/>
-        <span style="color: #a50"># === 上升沿检测 ===</span><br/>
+        <span style="color: #a50"># === Rising edge detection ===</span><br/>
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">and</span> clk <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
-            <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> d  <span style="color: #a50"># 在上升沿将 D 的值锁存到 Q</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">=</span> clk  <span style="color: #a50"># 记录当前时钟状态，供下一周期使用</span><br/>
+            <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> d  <span style="color: #a50"># Latch the value of D to Q on the rising edge</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">=</span> clk  <span style="color: #a50"># Record the current clock state for the next cycle</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> reset<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""重置触发器状态"""</span><br/>
+        <span style="color: #a11;">"""Reset flip-flop state"""</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">q</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">prev_clk</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <br/>
 <span style="color: Green;font-weight:bold;">class</span> Register4Bit:<br/>
-    <span style="color: #a11;">"""<br/>4 位寄存器：4 个 D 触发器并联，共享同一时钟信号<br/>
-<br/>结构示意：<br/>D3 ──&amp;#x25b6; [DFF3] ──&amp;#x25b6; Q3 (高位)<br/>
+    <span style="color: #a11;">"""<br/>4-bit register: 4 D flip-flops in parallel, sharing the same clock signal<br/>
+<br/>Structure diagram:<br/>D3 ──&amp;#x25b6; [DFF3] ──&amp;#x25b6; Q3 (high bit)<br/>
         D2 ──&amp;#x25b6; [DFF2] ──&amp;#x25b6; Q2<br/>
-        D1 ──&amp;#x25b6; [DFF1] ──&amp;#x25b6; Q1<br/>D0 ──&amp;#x25b6; [DFF0] ──&amp;#x25b6; Q0 (低位)<br/>↑↑↑↑ 共享同一个 CLK<br/>
-<br/>当时钟上升沿到达时，4 个触发器同时锁存各自的 D 输入<br/>
+        D1 ──&amp;#x25b6; [DFF1] ──&amp;#x25b6; Q1<br/>D0 ──&amp;#x25b6; [DFF0] ──&amp;#x25b6; Q0 (low bit)<br/>↑↑↑↑ Share the same CLK<br/>
+<br/>When the clock rising edge arrives, the 4 flip-flops simultaneously latch their respective D inputs.<br/>
     """</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a50"># 创建 4 个触发器，bit[3] 为最高位，bit[0] 为最低位</span><br/>
+        <span style="color: #a50"># Create 4 flip-flops, with bit[3] as the most significant bit and bit[0] as the least significant bit.</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">flip_flops</span> <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
             DFlipFlop<span style="color: Olive;">(</span><span style="color: #a11;">"bit3"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
             DFlipFlop<span style="color: Olive;">(</span><span style="color: #a11;">"bit2"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
@@ -276,61 +276,61 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> update<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> data<span style="color: Gray;">,</span> clk<span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""<br/>更新寄存器<br/>
-<br/>参数:<br/>data: 要存储的数据 (0-15 的整数，超出范围会被截断)<br/>clk:  时钟信号 (0 或 1)<br/>
-<br/>返回:<br/>寄存器中当前存储的值 (0-15)<br/>
+        <span style="color: #a11;">"""<br/>Update register<br/>
+<br/>Parameters:<br/>data: data to be stored (integer 0-15, out-of-range will be truncated)<br/>clk: clock signal (0 or 1)<br/>
+<br/>Returns:<br/>Value currently stored in the register (0-15)<br/>
         """</span><br/>
-        data <span style="color: Gray;">=</span> data &amp; <span style="color: Maroon;">0b1111</span>  <span style="color: #a50"># 确保只有 4 位有效</span><br/>
-        <span style="color: #a50"># 逐位送入对应的触发器，高位在前</span><br/>
+        data <span style="color: Gray;">=</span> data &amp; <span style="color: Maroon;">0b1111</span>  <span style="color: #a50"># Ensure only 4 bits are valid</span><br/>
+        <span style="color: #a50"># Feed each bit into the corresponding flip-flop, most significant bit first</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">4</span><span style="color: Olive;">)</span>:<br/>
-            <span style="color: #a50"># 从高到低提取每一位：bit3, bit2, bit1, bit0</span><br/>
+            <span style="color: #a50"># Extract each bit from high to low: bit3, bit2, bit1, bit0</span><br/>
             bit <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>data <span style="color: Gray;">&gt;&gt;</span> <span style="color: Olive;">(</span><span style="color: Maroon;">3</span> - i<span style="color: Olive;">)</span><span style="color: Olive;">)</span> &amp; <span style="color: Maroon;">1</span><br/>
             <span style="color: Teal;">self</span>.<span style="color: #05a;">flip_flops</span><span style="color: Olive;">[</span>i<span style="color: Olive;">]</span>.<span style="color: #05a;">update</span><span style="color: Olive;">(</span>bit<span style="color: Gray;">,</span> clk<span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">read</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> read<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""读取寄存器中当前存储的值（不改变状态）"""</span><br/>
+        <span style="color: #a11;">"""Read the value currently stored in the register (without changing state)"""</span><br/>
         value <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> ff <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">flip_flops</span>:<br/>
             value <span style="color: Gray;">=</span> <span style="color: Olive;">(</span>value <span style="color: Gray;">&lt;&lt;</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> | ff.<span style="color: #05a;">q</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> value<br/>
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> reset<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Olive;">)</span>:<br/>
-        <span style="color: #a11;">"""重置所有触发器"""</span><br/>
+        <span style="color: #a11;">"""Reset all flip-flops"""</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> ff <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">flip_flops</span>:<br/>
             ff.<span style="color: #05a;">reset</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
 <span style="color: #a50"># ============================================================</span><br/>
-<span style="color: #a50"># 模拟演示：多个时钟周期下寄存器的行为</span><br/>
+<span style="color: #a50"># Simulation Demo: Register Behavior over Multiple Clock Cycles</span><br/>
 <span style="color: #a50"># ============================================================</span><br/>
 <span style="color: Green;font-weight:bold;">if</span> __name__ <span style="color: Gray;">==</span> <span style="color: #a11;">"__main__"</span>:<br/>
     reg <span style="color: Gray;">=</span> Register4Bit<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 测试数据序列：模拟在不同时钟周期写入不同数据</span><br/>
+    <span style="color: #a50"># Test data sequence: simulate writing different data at different clock cycles</span><br/>
     test_data <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">15</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">7</span><span style="color: Gray;">,</span> <span style="color: Maroon;">13</span><span style="color: Gray;">,</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span> <span style="color: Maroon;">8</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Gray;">,</span> <span style="color: Maroon;">14</span><span style="color: Olive;">]</span><br/>
     <span style="color: #a50"># 5=0101, 10=1010, 15=1111, 0=0000, 7=0111</span><br/>
     <span style="color: #a50"># 13=1101, 3=0011, 8=1000, 1=0001, 14=1110</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  runoob - 4 位寄存器模拟演示"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  观察：数据只在时钟上升沿被锁存进寄存器"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  runoob - 4-bit register simulation demo"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Observation: data is latched into the register only on the rising edge of the clock"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'周期':&lt;6} {'时钟':&lt;10} {'输入数据 D':&lt;12} {'寄存器值 Q':&lt;12} {'说明'}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'Period':&lt;6} {'Clock':&lt;10} {'Input data D':&lt;12} {'Register value Q':&lt;12} {'Description'}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> cycle <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">range</span><span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Olive;">)</span>:<br/>
         data <span style="color: Gray;">=</span> test_data<span style="color: Olive;">[</span>cycle<span style="color: Olive;">]</span><br/>
 <br/>
-        <span style="color: #a50"># 阶段 1：时钟低电平 (clk=0)，寄存器值不应改变</span><br/>
+        <span style="color: #a50"># Stage 1: Clock low (clk=0), register values should not change</span><br/>
         reg.<span style="color: #05a;">update</span><span style="color: Olive;">(</span>data<span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
 <br/>
-        <span style="color: #a50"># 阶段 2：时钟上升沿 (clk 从 0→1)，锁存数据</span><br/>
+        <span style="color: #a50"># Stage 2: Clock rising edge (clk transitions 0→1), latch data</span><br/>
         result <span style="color: Gray;">=</span> reg.<span style="color: #05a;">update</span><span style="color: Olive;">(</span>data<span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
 <br/>
         data_bin <span style="color: Gray;">=</span> f<span style="color: #a11;">"{data:04b}"</span><br/>
         result_bin <span style="color: Gray;">=</span> f<span style="color: #a11;">"{result:04b}"</span><br/>
-        note <span style="color: Gray;">=</span> <span style="color: #a11;">"← 上升沿锁存"</span> <span style="color: Green;font-weight:bold;">if</span> result <span style="color: Gray;">==</span> data <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"状态未变"</span><br/>
+        note <span style="color: Gray;">=</span> <span style="color: #a11;">"← Latch on rising edge"</span> <span style="color: Green;font-weight:bold;">if</span> result <span style="color: Gray;">==</span> data <span style="color: Green;font-weight:bold;">else</span> <span style="color: #a11;">"Status unchanged"</span><br/>
 <br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{cycle:&lt;6} {'0→1':&lt;10} {data}({data_bin}){'':&lt;4} {result}({result_bin}){'':&lt;4} {note}"</span><span style="color: Olive;">)</span><br/>
 <br/>
@@ -338,35 +338,35 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #a50"># ============================================================</span><br/>
-    <span style="color: #a50"># 额外演示：数据只在上升沿锁存，其他时间保持</span><br/>
+    <span style="color: #a50"># Extra demo: data is latched only on the rising edge and held at other times</span><br/>
     <span style="color: #a50"># ============================================================</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  演示 2：非上升沿时，数据变化不被锁存"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Demo 2: When not on the rising edge, data changes are not latched"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
 <br/>
     reg2 <span style="color: Gray;">=</span> Register4Bit<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: #a50"># 先写入初始值 5</span><br/>
+    <span style="color: #a50"># First write the initial value 5</span><br/>
     reg2.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
     reg2.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Maroon;">5</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"上升沿写入 5 → 寄存器值: {reg2.read()}"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">Write 5 on the rising edge → register value: {reg2.read()}</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># clk 保持高电平，改变数据为 10——不应被锁存</span><br/>
+    <span style="color: #a50"># clk stays high, change data to 10—should not be latched</span><br/>
     reg2.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"clk=1 时改数据为 10 → 寄存器值: {reg2.read()} (应仍为 5)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">When clk=1, change data to 10 → register value: {reg2.read()} (should still be 5)</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># clk 回到低电平，再给上升沿写入 10</span><br/>
+    <span style="color: #a50"># clk returns to low level, then write 10 on the rising edge</span><br/>
     reg2.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">0</span><span style="color: Olive;">)</span><br/>
     result <span style="color: Gray;">=</span> reg2.<span style="color: #05a;">update</span><span style="color: Olive;">(</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"clk 0→1 时写入 10 → 寄存器值: {reg2.read()} (现在是 10)"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">On clk 0→1, write 10 → register value: {reg2.read()} (now 10)</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  演示完成！runoob - 理解触发器与寄存器"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  Demo complete! runoob - Understanding Flip-Flops and Registers"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">55</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <hr/>
 <h2>Interactive demo: D flip-flop timing diagram</h2>
-<p>下方用<strong>Chart.js 的 stepped:true</strong>The option plots the timing diagram of the clock signal (square wave) and the data signal.<span class="marked">红色竖线标注了每个时钟上升沿（CLK 从 0 跳变到 1 的时刻）</span>These moments are precisely the critical instants when the D flip-flop latches data.</p>
+<p>use below<strong>Chart.js's stepped:true</strong>The option plots the timing diagram of the clock signal (square wave) and the data signal.<span class="marked">Red vertical lines mark each clock rising edge (the moment when CLK transitions from 0 to 1).</span>These moments are precisely the critical instants when the D flip-flop latches data.</p>
 <style>
 /* === runoob 演示专用样式：时序图波形容器 === */
 #waveform-demo {
@@ -423,11 +423,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <canvas id="timingCanvas"></canvas>
 </div>
 <div class="waveform-legend">
-<span><span class="legend-line" style="background:#FF9800;"></span>时钟 CLK（方波）</span>
-<span><span class="legend-line" style="background:#2196F3;"></span>数据输入 D</span>
-<span><span class="legend-line" style="background:#4C7EAF;"></span>输出 Q（锁存后的值）</span>
+<span><span class="legend-line" style="background:#FF9800;"></span>Clock CLK (square wave)</span>
+<span><span class="legend-line" style="background:#2196F3;"></span>Data input D</span>
+<span><span class="legend-line" style="background:#4C7EAF;"></span>Output Q (latched value)</span>
 </div>
-<div class="waveform-info" id="waveformInfo">红色虚线 = 上升沿时刻（D 触发器锁存数据）。<br/>Q 输出只在上升沿更新，其余时间保持不变。</div>
+<div class="waveform-info" id="waveformInfo">Red dashed line = rising edge moment (D flip-flop latches data).<br/>Q output updates only on the rising edge and remains unchanged at all other times.</div>
 </div>
 <script src="../static.jyshare.com/assets/libs/chart.js-4.5.0/chart.umd.min.js"></script>
 <script>
@@ -656,22 +656,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     plugins: [riseEdgePlugin]
   });
 })();
-</script>
-其他扩展
-</div>
+</script>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/from-gates-to-adder.html" rel="prev">从逻辑门到加法器</a> </div>
-<div class="next-design-link"><a href="../computer-organization/computer-architecture-overview.html" rel="next">一台计算机的整体骨架</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/from-gates-to-adder.html" rel="prev">From logic gates to adders</a> </div>
+<div class="next-design-link"><a href="../computer-organization/computer-architecture-overview.html" rel="next">The overall skeleton of a computer</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -775,16 +770,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -792,14 +787,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31879"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -977,7 +972,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1068,7 +1063,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

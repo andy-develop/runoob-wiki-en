@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>观察者模式 | 菜鸟教程</title>
+<title>Observer Pattern | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="观察者模式 观察者模式是一种行为型设计模式，它定义了一种一对多的依赖关系，当一个对象的状态发生改变时，其所有依赖者都会收到通知并自动更新。 当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知依赖它的对象。观察者模式属于行为型模式。  介绍 意图创建了对象间的一种一对多的依赖关系，当一个对象状态改变时，所有依赖于它的对象都会得到通知并自动更新。。 主要解决的问题  观察者.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,69 +158,69 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/memento-pattern.html" rel="prev">备忘录模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/state-pattern.html" rel="next">状态模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/memento-pattern.html" rel="prev">Memento Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/state-pattern.html" rel="next">State Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>观察者模式</h1>
+<h1>Observer Pattern</h1>
 <p>The Observer pattern is a behavioral design pattern that defines a one-to-many dependency relationship. When an object's state changes, all its dependents are notified and update automatically.</p>
 <p>When there is a one-to-many relationship between objects, use the Observer Pattern. For example, when an object is modified, it automatically notifies the objects that depend on it. The Observer Pattern is a behavioral pattern.</p>
-<h2 class="tutheader">介绍</h2>
-<h3>意图</h3><p>It creates a one-to-many dependency relationship between objects. When one object's state changes, all objects that depend on it are notified and update automatically.</p>
+<h2 class="tutheader">Introduction</h2>
+<h3>intent</h3><p>It creates a one-to-many dependency relationship between objects. When one object's state changes, all objects that depend on it are notified and update automatically.</p>
 <h3>Main problem addressed</h3>
 <ul>
 <li>The Observer Pattern solves the problem of how to automatically notify other dependent objects when an object's state changes, while maintaining low coupling and high collaboration between objects.</li>
 </ul>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>When a change in one object's state needs to update other objects at the same time.</li>
 </ul>
-<h3>实现方式</h3>
+<h3>Implementation Approach</h3>
 <ul>
 <li><strong>Define the observer interface</strong>: Contains an update method.</li>
 <li><strong>Create concrete observers</strong>Implements the observer interface and defines the behavior when receiving a notification.</li>
 <li><strong>Define the subject interface</strong>Contains methods for adding, removing, and notifying observers.</li>
 <li><strong>Create the concrete subject</strong>: Implement the subject interface, manage the observer list, and notify observers when the state changes.</li>
 </ul>
-<h3>关键代码</h3>
+<h3>Key code</h3>
 <ul>
-<li><strong>观察者列表</strong>: Maintain a list of observers in the subject.</li>
+<li><strong>Observer list</strong>: Maintain a list of observers in the subject.</li>
 </ul>
-<h3>应用实例</h3>
+<h3>Application example</h3>
 <ul>
-<li><strong>拍卖系统</strong>: The auctioneer acts as the subject, bidders act as observers, and all bidders are notified when the auction price updates.</li>
-<li><strong>西游记故事</strong>The Bodhisattva sprinkling water serves as the state change, and the old turtle serves as the observer, observing this change.</li>
+<li><strong>Auction System</strong>: The auctioneer acts as the subject, bidders act as observers, and all bidders are notified when the auction price updates.</li>
+<li><strong>Journey to the West story</strong>The Bodhisattva sprinkling water serves as the state change, and the old turtle serves as the observer, observing this change.</li>
 </ul>
-<h3>优点</h3>
+<h3>Advantages</h3>
 <ul>
-<li><strong>抽象耦合</strong>: There is abstract coupling between observers and the subject.</li>
-<li><strong>触发机制</strong>Establishes a trigger and notification mechanism for state changes.</li>
+<li><strong>Abstract Coupling</strong>: There is abstract coupling between observers and the subject.</li>
+<li><strong>Trigger Mechanism</strong>Establishes a trigger and notification mechanism for state changes.</li>
 </ul>
-<h3>缺点</h3>
+<h3>Disadvantages</h3>
 <ul>
-<li><strong>性能问题</strong>If there are many observers, the notification process may be time-consuming.</li>
-<li><strong>循环依赖</strong>It may lead to circular calls and system crashes.</li>
+<li><strong>Performance issues</strong>If there are many observers, the notification process may be time-consuming.</li>
+<li><strong>Circular Dependency</strong>It may lead to circular calls and system crashes.</li>
 <li><strong>Lack of change details</strong>: Observers do not know how the subject changes, only that a change has occurred.</li>
 </ul>
-<h3>使用建议</h3>
+<h3>Usage suggestions</h3>
 <ul>
 <li>Use it when you need to reduce coupling between objects and when object state changes need to trigger other object changes.</li>
-<li>Consider using Java's built-in observer pattern support classes, such as<code class="">java.util.Observable</code>和<code class="">java.util.Observer</code>。</li>
+<li>Consider using Java's built-in observer pattern support classes, such as<code class="">java.util.Observable</code>and<code class="">java.util.Observer</code>。</li>
 </ul>
-<h3>注意事项</h3>
+<h3>Notes</h3>
 <ul>
 <li><strong>Avoid circular references</strong>: Be careful about the dependency between observers and the subject to avoid circular references.</li>
-<li><strong>异步执行</strong>Consider using asynchronous notification to avoid a single point of failure causing the entire system to stall.</li>
-</ul><h3>结构</h3>
+<li><strong>Asynchronous Execution</strong>Consider using asynchronous notification to avoid a single point of failure causing the entire system to stall.</li>
+</ul><h3>Structure</h3>
 <p><strong>The Observer Pattern includes the following core roles:</strong></p>
 <ul><li>Subject: Also known as the observed or observable, it is an object with state and maintains a list of observers. The subject provides methods for adding, removing, and notifying observers.</li><li>Observer: An observer is an object that receives notifications from the subject. It needs to implement an update method, which is called to perform update operations when a notification is received from the subject.</li><li>Concrete Subject: A concrete subject is a concrete implementation class of the subject. It maintains the observer list and notifies observers when the state changes.</li><li>Concrete Observer: A concrete observer is a concrete implementation class of the observer. It implements the update method and defines the specific operations to perform when receiving a notification from the subject.</li></ul>
 <p>The Observer pattern decouples the subject and observers to achieve loose coupling between objects. When the subject's state changes, all observers that depend on it receive notifications and update accordingly.</p>
-<h2 class="tutheader">实现</h2>
-<p>The Observer Pattern uses three classes: Subject, Observer, and Client. The Subject object has methods for binding observers to the Client object and unbinding observers from the Client object. We create<i>Subject</i>类、<i>Observer</i>An abstract class and classes that extend the abstract class<i>Observer</i>的实体类。</p>
+<h2 class="tutheader">Implementation</h2>
+<p>The Observer Pattern uses three classes: Subject, Observer, and Client. The Subject object has methods for binding observers to the Client object and unbinding observers from the Client object. We create<i>Subject</i>class,<i>Observer</i>An abstract class and classes that extend the abstract class<i>Observer</i>entity class.</p>
 <p><i>ObserverPatternDemo</i>, our demo class uses<i>Subject</i>and entity class objects to demonstrate the Observer Pattern.</p>
 <img alt="观察者模式的 UML 图" decoding="async" src="../wp-content/uploads/2014/08/observer_pattern_uml_diagram.jpg"/>
-<h3>步骤 1</h3>
+<h3>Step 1</h3>
 <p>Create the Subject class.</p>
 <div class="example">
 <h2 class="example">Subject.java</h2>
@@ -250,7 +250,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 2</h3>
+<h3>Step 2</h3>
 <p>Create the Observer class.</p>
 <div class="example">
 <h2 class="example">Observer.java</h2>
@@ -260,7 +260,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-reserved">abstract</span><span class="hl-code"> </span><span class="hl-types">void</span><span class="hl-code"> </span><span class="hl-identifier">update</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 3</h3>
+<h3>Step 3</h3>
 <p>to create entity observer classes.</p>
 <div class="example">
 <h2 class="example">BinaryObserver.java</h2>
@@ -310,8 +310,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 4</h3>
-<p>使用<i>Subject</i>and entity observer objects.</p>
+<h3>Step 4</h3>
+<p>Usage<i>Subject</i>and entity observer objects.</p>
 <div class="example">
 <h2 class="example">ObserverPatternDemo.java</h2>
 <div class="example_code">
@@ -330,7 +330,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
    </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
 </div></div>
-<h3>步骤 5</h3>
+<h3>Step 5</h3>
 <p>Run the program and output the results:</p>
 <pre class="result">
 First state change: 15
@@ -341,21 +341,17 @@ Second state change: 10
 Hex String: A
 Octal String: 12
 Binary String: 1010
-</pre> 其他扩展
-</div>
+</pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/memento-pattern.html" rel="prev">备忘录模式</a> </div>
-<div class="next-design-link"><a href="../design-pattern/state-pattern.html" rel="next">状态模式</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../design-pattern/memento-pattern.html" rel="prev">Memento Pattern</a> </div>
+<div class="next-design-link"><a href="../design-pattern/state-pattern.html" rel="next">State Pattern</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -461,8 +457,8 @@ Binary String: 1010
 <div class="altblock">
 <i aria-hidden="true" class="fa fa-plus-square" style="font-size:28px;margin-top: 8px;"></i>
 </div>
-<span class="mw-headline" id="qa_headline">11  篇笔记</span>
-<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>写笔记</span>
+<span class="mw-headline" id="qa_headline">11 notes</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Write note</span>
 </h2>
 </div>
 <div id="postcomments" style="display:none;">
@@ -490,7 +486,7 @@ Binary String: 1010
         System.out.println(T_Observer.class.getName() + " : " + msg);
     }
 }</pre>
-<p>被观察者：</p>
+<p>Subject:</p>
 <pre>public class Subject {        
     private List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();    //状态改变    
     public void setMsg(String msg) {        
@@ -507,7 +503,7 @@ Binary String: 1010
         }   
     }
 }</pre>
-<p>使用方法：</p>
+<p>Usage:</p>
 <pre>public class Main {    
     public static void main(String[] args) {        
         F_Observer fObserver = new F_Observer();        
@@ -519,10 +515,10 @@ Binary String: 1010
         subject.addAttach(tObserver);                
         subject.setMsg("msg change");    
     }
-}</pre>运行结果：
+}</pre>Run result:
 test.F_Observer : msg 
 changetest.S_Observer : msg 
-changetest.T_Observer : msg change<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">fatcheung</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   fatcheung</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***7025@qq.com</p></div></span>9年前 (2018-02-23)</div></div></li><!-- #comment-## -->
+changetest.T_Observer : msg change<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">fatcheung</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   fatcheung</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***7025@qq.com</p></div></span>9 years ago (2018-02-23)</div></div></li><!-- #comment-## -->
 <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-33659"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   DHclly</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  335***817@qq.com</p></div><div class="upvotejs" data-commid="33659" id="runoobvote-id-33659"><a class="upvote"></a> <span class="count">11</span></div></div><div class="comt-main" id="div-comment-33659"><p>I implemented and optimized the example using C#:</p>
 <p><strong>Subject.cs</strong></p>
 <pre>public class Subject
@@ -627,9 +623,9 @@ changetest.T_Observer : msg change<div class="comt-meta wrapper"><span class="co
     Console.WriteLine("2 state=10");
     subject1.State = 10;
 }</pre>
-<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">DHclly</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   DHclly</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  335***817@qq.com</p></div></span>8年前 (2018-08-06)</div></div></li><!-- #comment-## -->
-<li class="comment even thread-even depth-1" id="comment-35228"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   jade</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***u_study@163.com</p></div><div class="upvotejs" data-commid="35228" id="runoobvote-id-35228"><a class="upvote"></a> <span class="count">20</span></div></div><div class="comt-main" id="div-comment-35228"><p>Definition of the Observer Pattern: This pattern<b>定义了对象之间的一对多依赖关系</b>The Subject object is singular, the Observer object is plural.<b>当 Subject 对象的状态发生改变时，所有依赖于该 Subject 对象的 Observer 对象都会得到通知</b>，<b>并且自动更新</b>。</p><p></p><p>By carefully analyzing the definition, to accurately understand the Observer Pattern, there are three main points to note:</p><p>1. Defines a one-to-many dependency relationship between objects;</p><p>2. When the state of the Subject object changes, all Observer objects that depend on the Subject object will be notified;</p><p>3. After an Observer object receives a notification, it updates automatically rather than passively;</p><p></p><p>All other points are trivial details determined by specific business requirements. For example:</p><p>1. Should the Subject role be defined as a class? For example, the built-in java.util.Observable; or should it be defined as an interface to avoid Java's lack of support for multiple inheritance? For example, the recommended approach in "Head First Design Patterns".</p><p>2. When should one subscribe to the subject (or register as an observer)? At the same time as instantiating the observer object? For example, as in the original poster's example; or should it be decided by the client? For example, as in the first sharing note in this post.</p><p>3. Should the unsubscribe feature (or unregistration) be implemented?</p><p>4. When the subject object notifies observers, should it carry a message? In other words, is it "push" messaging? Like the original poster's example; or "pull" messaging?</p><p>5. Should multithreading be supported?</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">jade</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   jade</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***u_study@163.com</p></div></span>8年前 (2018-09-19)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-41760"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>iwh冬</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  630***826@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://blog.csdn.net/u010913414/article/details/89219755" rel="nofollow" target="_blank">参考地址</a></p></div><div class="upvotejs" data-commid="41760" id="runoobvote-id-41760"><a class="upvote"></a> <span class="count">1</span></div></div><div class="comt-main" id="div-comment-41760"><p>After looking at the above code, I implemented it in Kotlin:</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">DHclly</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   DHclly</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  335***817@qq.com</p></div></span>8 years ago (2018-08-06)</div></div></li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-35228"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   jade</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***u_study@163.com</p></div><div class="upvotejs" data-commid="35228" id="runoobvote-id-35228"><a class="upvote"></a> <span class="count">20</span></div></div><div class="comt-main" id="div-comment-35228"><p>Definition of the Observer Pattern: This pattern<b>Defines a one-to-many dependency relationship between objects</b>The Subject object is singular, the Observer object is plural.<b>When the state of the Subject object changes, all Observer objects that depend on the Subject object will be notified.</b>，<b>And automatically update</b>。</p><p></p><p>By carefully analyzing the definition, to accurately understand the Observer Pattern, there are three main points to note:</p><p>1. Defines a one-to-many dependency relationship between objects;</p><p>2. When the state of the Subject object changes, all Observer objects that depend on the Subject object will be notified;</p><p>3. After an Observer object receives a notification, it updates automatically rather than passively;</p><p></p><p>All other points are trivial details determined by specific business requirements. For example:</p><p>1. Should the Subject role be defined as a class? For example, the built-in java.util.Observable; or should it be defined as an interface to avoid Java's lack of support for multiple inheritance? For example, the recommended approach in "Head First Design Patterns".</p><p>2. When should one subscribe to the subject (or register as an observer)? At the same time as instantiating the observer object? For example, as in the original poster's example; or should it be decided by the client? For example, as in the first sharing note in this post.</p><p>3. Should the unsubscribe feature (or unregistration) be implemented?</p><p>4. When the subject object notifies observers, should it carry a message? In other words, is it "push" messaging? Like the original poster's example; or "pull" messaging?</p><p>5. Should multithreading be supported?</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">jade</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   jade</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***u_study@163.com</p></div></span>8 years ago (2018-09-19)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-41760"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>iwhWinter</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  630***826@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://blog.csdn.net/u010913414/article/details/89219755" rel="nofollow" target="_blank">Reference address</a></p></div><div class="upvotejs" data-commid="41760" id="runoobvote-id-41760"><a class="upvote"></a> <span class="count">1</span></div></div><div class="comt-main" id="div-comment-41760"><p>After looking at the above code, I implemented it in Kotlin:</p>
 <pre>/**
  * 观察者
  */
@@ -690,8 +686,8 @@ fun main() {
         setMsg('A')
         setMsg(null)
     }
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">iwh冬</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>iwh冬</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  630***826@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://blog.csdn.net/u010913414/article/details/89219755" rel="nofollow" target="_blank">参考地址</a></p></div></span>8年前 (2019-04-11)</div></div></li><!-- #comment-## -->
-<li class="comment even thread-even depth-1" id="comment-42843"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   shenshaonian</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***3404@qq.com</p></div><div class="upvotejs" data-commid="42843" id="runoobvote-id-42843"><a class="upvote"></a> <span class="count">5</span></div></div><div class="comt-main" id="div-comment-42843"><p>观音洒水</p>
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">iwhWinter</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>iwhWinter</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  630***826@qq.com</p><p><i aria-hidden="true" class="fa fa-external-link"></i> <a href="https://blog.csdn.net/u010913414/article/details/89219755" rel="nofollow" target="_blank">Reference address</a></p></div></span>8 years ago (2019-04-11)</div></div></li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-42843"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   shenshaonian</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***3404@qq.com</p></div><div class="upvotejs" data-commid="42843" id="runoobvote-id-42843"><a class="upvote"></a> <span class="count">5</span></div></div><div class="comt-main" id="div-comment-42843"><p>Guanyin Sprinkling Water</p>
 <pre>public class TortoisObserverDemo {
     public static void main(String[] args){
         GuanYin guanYin = new GuanYin();
@@ -761,8 +757,8 @@ public class BigTortoise extends Observer {
     protected void flyToGuanYin() {
         System.out.println("BigTortoise fly to guanyin");
     }
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">shenshaonian</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   shenshaonian</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***3404@qq.com</p></div></span>7年前 (2019-05-17)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-44027"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>郭艺宾</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***990@163.com</p></div><div class="upvotejs" data-commid="44027" id="runoobvote-id-44027"><a class="upvote"></a> <span class="count">8</span></div></div><div class="comt-main" id="div-comment-44027"><p>Using the JDK to implement the Observer Pattern. In the one-to-many relationship, one side's code:</p>
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">shenshaonian</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   shenshaonian</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  134***3404@qq.com</p></div></span>7 years ago (2019-05-17)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-44027"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>Guo Yibin</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***990@163.com</p></div><div class="upvotejs" data-commid="44027" id="runoobvote-id-44027"><a class="upvote"></a> <span class="count">8</span></div></div><div class="comt-main" id="div-comment-44027"><p>Using the JDK to implement the Observer Pattern. In the one-to-many relationship, one side's code:</p>
 <pre>import java.util.Observable;
 
 public class Subject extends Observable {
@@ -778,7 +774,7 @@ public class Subject extends Observable {
         this.notifyObservers();
     }
 }</pre>
-<p>多方代码：</p>
+<p>Multi-party code:</p>
 <pre>import java.util.Observable;
 import java.util.Observer;
 
@@ -837,7 +833,7 @@ public class OctalObserver implements Observer {
         subject.setState(10);
     }
 }</pre>
-<p>运行结果：</p>
+<p>Run result:</p>
 <pre>First state change: 15
 Binary String: f
 Binary String: 17
@@ -845,9 +841,9 @@ Binary String: 1111
 Second state change: 10
 Binary String: a
 Binary String: 12
-Binary String: 1010</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">郭艺宾</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>郭艺宾</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***990@163.com</p></div></span>7年前 (2019-06-28)</div></div></li><!-- #comment-## -->
-<li class="comment even thread-even depth-1" id="comment-51086"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   infiniteH</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  212***971@qq.com</p></div><div class="upvotejs" data-commid="51086" id="runoobvote-id-51086"><a class="upvote"></a> <span class="count">10</span></div></div><div class="comt-main" id="div-comment-51086"><p>The observed object and the observer object</p><p>One observed object is associated with multiple observer objects.</p><p>Therefore, the observed object has a container to store observer objects.</p><p>The observer object also has a member variable of the observed object.</p><p>When an attribute of the observed object changes and we want all associated observer objects to respond, we call the notification method in the method that changes the attribute. Therefore, a notification method needs to be declared, which traverses all observers and calls a method common to all observers, namely the update method.</p><p>The essence is that after changing a certain property, it traverses and calls a method on all elements; in fact, it is polymorphism.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">infiniteH</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   infiniteH</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  212***971@qq.com</p></div></span>7年前 (2020-02-29)</div></div></li><!-- #comment-## -->
-<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-51090"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51090" id="runoobvote-id-51090"><a class="upvote"></a> <span class="count">3</span></div></div><div class="comt-main" id="div-comment-51090"><p>Python 方式：</p>
+Binary String: 1010</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Guo Yibin</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>Guo Yibin</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  guo***990@163.com</p></div></span>7 years ago (2019-06-28)</div></div></li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-51086"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   infiniteH</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  212***971@qq.com</p></div><div class="upvotejs" data-commid="51086" id="runoobvote-id-51086"><a class="upvote"></a> <span class="count">10</span></div></div><div class="comt-main" id="div-comment-51086"><p>The observed object and the observer object</p><p>One observed object is associated with multiple observer objects.</p><p>Therefore, the observed object has a container to store observer objects.</p><p>The observer object also has a member variable of the observed object.</p><p>When an attribute of the observed object changes and we want all associated observer objects to respond, we call the notification method in the method that changes the attribute. Therefore, a notification method needs to be declared, which traverses all observers and calls a method common to all observers, namely the update method.</p><p>The essence is that after changing a certain property, it traverses and calls a method on all elements; in fact, it is polymorphism.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">infiniteH</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   infiniteH</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  212***971@qq.com</p></div></span>7 years ago (2020-02-29)</div></div></li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-51090"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div><div class="upvotejs" data-commid="51090" id="runoobvote-id-51090"><a class="upvote"></a> <span class="count">3</span></div></div><div class="comt-main" id="div-comment-51090"><p>Python way:</p>
 <pre># Observer Pattern with Python Code
 from abc import abstractmethod,ABCMeta
 
@@ -910,7 +906,7 @@ if __name__ == '__main__':
     aSubject.setState(15);
     print("======================")
     print("First state change : 10")
-    aSubject.setState(10);</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7年前 (2020-02-29)</div></div></li><!-- #comment-## -->
+    aSubject.setState(10);</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">Siskin.xu</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   Siskin.xu</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  sis***@sohu.com</p></div></span>7 years ago (2020-02-29)</div></div></li><!-- #comment-## -->
 <li class="comment even thread-even depth-1" id="comment-76177"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   glory</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  809***053@qq.com</p></div><div class="upvotejs" data-commid="76177" id="runoobvote-id-76177"><a class="upvote"></a> <span class="count">2</span></div></div><div class="comt-main" id="div-comment-76177"><p>It's not good for your observer and observed to have a compositional relationship; you can change it to a dependency relationship.</p>
 <pre>public  class Subject {    
    private List observers = new ArrayList();   
@@ -974,14 +970,14 @@ public class Test {
    }
 }
 public class Nurse extends Observer {}</pre>
-<p>输出结果：</p>
+<p>Output result:</p>
 <pre>============变化1========
 医生观察到患者变化：年龄-20岁,疾病-高血压
 护士观察到患者变化：年龄-20岁,疾病-高血压
 ============变化2========
 医生观察到患者变化：年龄-20岁,疾病-糖尿病
-护士观察到患者变化：年龄-20岁,疾病-糖尿病</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">glory</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   glory</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  809***053@qq.com</p></div></span>4年前 (2022-11-04)</div></div></li><!-- #comment-## -->
-<li class="comment byuser comment-author-tianqixin odd alt thread-odd thread-alt depth-1" id="comment-77652"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>失业</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  gjh***04@qq.com</p></div><div class="upvotejs" data-commid="77652" id="runoobvote-id-77652"><a class="upvote"></a> <span class="count">1</span></div></div><div class="comt-main" id="div-comment-77652"><p>Writing it this way seems easier to understand.</p>
+护士观察到患者变化：年龄-20岁,疾病-糖尿病</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">glory</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   glory</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  809***053@qq.com</p></div></span>4 years ago (2022-11-04)</div></div></li><!-- #comment-## -->
+<li class="comment byuser comment-author-tianqixin odd alt thread-odd thread-alt depth-1" id="comment-77652"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>unemployment</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  gjh***04@qq.com</p></div><div class="upvotejs" data-commid="77652" id="runoobvote-id-77652"><a class="upvote"></a> <span class="count">1</span></div></div><div class="comt-main" id="div-comment-77652"><p>Writing it this way seems easier to understand.</p>
 <pre>public class Subject {
    private List observers = new ArrayList();
    private int state;
@@ -1034,7 +1030,7 @@ public class ObserverPatternDemo {
       subject.notifyAllObservers();
    }
 
-}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">失业</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>失业</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  gjh***04@qq.com</p></div></span>4年前 (2023-02-17)</div></div></li><!-- #comment-## -->
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">unemployment</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>unemployment</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  gjh***04@qq.com</p></div></span>4 years ago (2023-02-17)</div></div></li><!-- #comment-## -->
 <li class="comment byuser comment-author-tianqixin even thread-even depth-1" id="comment-79914"><span class="comt-f">#0</span><div class="comt-avatar wrapper"><i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i><div class="tooltip"><p><i aria-hidden="true" class="fa fa-user"></i>   RUNOOB</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  429***967@qq.com</p></div><div class="upvotejs" data-commid="79914" id="runoobvote-id-79914"><a class="upvote"></a> <span class="count">2</span></div></div><div class="comt-main" id="div-comment-79914"><p>The Observer pattern can achieve loose coupling, making the relationship between the subject and observers more flexible. It makes it easy to add new observers and to dynamically add, remove, or modify observers at runtime. At the same time, the Observer pattern conforms to the open-closed principle, allowing the subject and observers to change independently without affecting each other.</p>
 <p>Below is a simple Observer pattern example. Suppose there is a weather monitoring system, where the subject is weather data and the observers are different display devices that show changes in the weather data in real time:</p>
 <pre>// 主题 - 天气数据
@@ -1119,22 +1115,22 @@ public class Main {
         // Display 1 - Temperature: 27.8 Humidity: 62.8 Pressure: 1010.5
     }
 }</pre>
-<p>In the above example, we define the subject interface WeatherData and the observer interface WeatherObserver, the concrete subject class WeatherStation, and the concrete observer class DisplayDevice. Through the process of registering observers, updating state, and notifying observers, the interaction between the subject and observers is implemented.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">RUNOOB</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   RUNOOB</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  429***967@qq.com</p></div></span>3年前 (2023-07-11)</div></div></li><!-- #comment-## -->
+<p>In the above example, we define the subject interface WeatherData and the observer interface WeatherObserver, the concrete subject class WeatherStation, and the concrete observer class DisplayDevice. Through the process of registering observers, updating state, and notifying observers, the interaction between the subject and observers is implemented.</p><div class="comt-meta wrapper"><span class="comt-author"><a href=";.html" target="_blank">RUNOOB</a><div class="tooltip tooltip1"><p><i aria-hidden="true" class="fa fa-user"></i>   RUNOOB</p><p><i aria-hidden="true" class="fa fa-envelope"></i>  429***967@qq.com</p></div></span>3 years ago (2023-07-11)</div></div></li><!-- #comment-## -->
 </ol>
 </div>
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style="display:none; padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -1142,14 +1138,14 @@ public class Main {
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="8941"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -1327,7 +1323,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1418,7 +1414,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JavaScript 实现搜索框联想功能（autocomplete） | 菜鸟教程</title>
+<title>JavaScript implementation of search box autocomplete (autocomplete) | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,16 +31,16 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -51,7 +51,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="本章节我们将学习如何使用 JS/CSS 实现搜索框联想功能。 先看下效果如下：   查看在线实例：https://c.runoob.com/codedemo/6190 基础 HTML 代码 实例 [mycode3 type='html']                  [/mycode3] 再准备基础的搜索测试数据，是一个 JavaScript 数组： var sites = ['Google'.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -69,14 +69,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-</div><!-- 导航栏 -->
-<!--  内容  -->
+</div>navigation bar
+content
 <div class="container main">
 <div class="row">
 <div class="col middle-column big-middle-column">
 <div class="article">
 <div class="article-heading">
-<h2>JavaScript implementation of search box autocomplete functionality</h2> <h3><em>分类</em> <a href="../w3cnote_genre/code.html" title="编程技术">编程技术</a> </h3>
+<h2>JavaScript implementation of search box autocomplete functionality</h2> <h3><em>Category</em> <a href="../w3cnote_genre/code.html" title="编程技术">Programming Technology</a> </h3>
 </div>
 <div class="article-body note-body">
 <div class="article-intro">
@@ -87,22 +87,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p><img decoding="async" src="../wp-content/uploads/2021/07/E82E4C04-A418-4EAD-B88E-F58C2D4538FE.jpg"/></p>
 <p>View online examples:<a href="../codedemo/6190.html" rel="noopener" target="_blank">https://c.runoob.com/codedemo/6190</a></p>
 <h3>Basic HTML code</h3>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code"><div class="hl-main"><span class="hl-comment">&lt;!--</span><span class="hl-comment">autocomplete="off" 确保表单已关闭自动填充功能：</span><span class="hl-comment">--&gt;</span><span class="hl-code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code"><div class="hl-main"><span class="hl-comment">&lt;!--</span><span class="hl-comment">autocomplete="off" ensures the form has autofill disabled:</span><span class="hl-comment">--&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">form</span><span class="hl-code"> </span><span class="hl-var">autocomplete</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">off</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">action</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">/index.php</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">class</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">autocomplete</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">width:300px;</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">myInput</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">text</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">s</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">placeholder</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">请输入搜索内容</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">myInput</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">text</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">s</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">placeholder</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Please enter search content</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">submit</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">form</span><span class="hl-brackets">&gt;</span></div></div></div>
 <p>Next, prepare the basic search test data, which is a JavaScript array:</p>
 <pre>var sites = ["Google","Taobao","Runoob","Wiki","Zhihu","Baidu","Sina","Tmall","JD","Alibaba","QQ","Weixin"];</pre>
 <p>The following are the styles for the search box and the suggestion menu:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code"><div class="hl-main"><span class="hl-identifier">*</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-reserved">box-sizing:</span><span class="hl-code"> </span><span class="hl-code">border-box</span><span class="hl-reserved"></span><span class="hl-code">; </span><span class="hl-brackets">}</span><span class="hl-code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code"><div class="hl-main"><span class="hl-identifier">*</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-reserved">box-sizing:</span><span class="hl-code"> </span><span class="hl-code">border-box</span><span class="hl-reserved"></span><span class="hl-code">; </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-identifier">body</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">font:</span><span class="hl-code"> </span><span class="hl-number">16</span><span class="hl-string">px</span><span class="hl-code"> </span><span class="hl-code">Arial</span><span class="hl-reserved"></span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-identifier">.autocomplete</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">容器定位设置为 relative:</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Container positioning set to relative:</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">position:</span><span class="hl-code"> </span><span class="hl-string">relative</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">display:</span><span class="hl-code"> </span><span class="hl-string">inline-block</span><span class="hl-reserved"></span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
@@ -126,7 +126,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   </span><span class="hl-reserved">border-bottom:</span><span class="hl-code"> </span><span class="hl-string">none</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">border-top:</span><span class="hl-code"> </span><span class="hl-string">none</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">z-index:</span><span class="hl-code"> </span><span class="hl-number">99</span><span class="hl-reserved"></span><span class="hl-code">;
-  </span><span class="hl-comment">/*</span><span class="hl-comment">设置自动填充项宽度与容器相同</span><span class="hl-comment">*/</span><span class="hl-code">
+  </span><span class="hl-comment">/*</span><span class="hl-comment">Set the auto-fill item width to be the same as the container</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">top:</span><span class="hl-code"> </span><span class="hl-number">100</span><span class="hl-string">%</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">left:</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">right:</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-reserved"></span><span class="hl-code">;
@@ -138,94 +138,94 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   </span><span class="hl-reserved">border-bottom:</span><span class="hl-code"> </span><span class="hl-number">1</span><span class="hl-string">px</span><span class="hl-code"> </span><span class="hl-string">solid</span><span class="hl-code"> </span><span class="hl-var">#d4d4d4</span><span class="hl-reserved"></span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-identifier">.autocomplete-items</span><span class="hl-code"> </span><span class="hl-identifier">div</span><span class="hl-special">:hover</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">鼠标移动到填充项设置的背景颜色</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">The background color set when the mouse moves over the filled item</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">background-color:</span><span class="hl-code"> </span><span class="hl-var">#e9e9e9</span><span class="hl-reserved"></span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-identifier">.autocomplete-active</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">使用箭头键浏览填充项时的背景颜色</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Background color when using arrow keys to browse filled items</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">background-color:</span><span class="hl-code"> </span><span class="hl-code">DodgerBlue</span><span class="hl-code"> !</span><span class="hl-code">important</span><span class="hl-reserved"></span><span class="hl-code">;
   </span><span class="hl-reserved">color:</span><span class="hl-code"> </span><span class="hl-var">#ffffff</span><span class="hl-reserved"></span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div></div></div>
 <p>The following is the JavaScript code for the search box and the suggestion menu:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code"><div class="hl-main"><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">autocomplete</span><span class="hl-brackets">(</span><span class="hl-identifier">inp</span><span class="hl-code">, </span><span class="hl-identifier">arr</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">自动填充函数有两个参数，input 输入框元素和自动填充的数组</span><span class="hl-comment">*/</span><span class="hl-code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code"><div class="hl-main"><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">autocomplete</span><span class="hl-brackets">(</span><span class="hl-identifier">inp</span><span class="hl-code">, </span><span class="hl-identifier">arr</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">The autofill function has two parameters: the input element and the array to autofill.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">currentFocus</span><span class="hl-code">;
-  </span><span class="hl-comment">/*</span><span class="hl-comment">监听 input 输入框，当在 input 输入框元素中时执行以下函数</span><span class="hl-comment">*/</span><span class="hl-code">
+  </span><span class="hl-comment">/*</span><span class="hl-comment">Listen to the input field; when inside the input element, execute the following function.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">addEventListener</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">input</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">a</span><span class="hl-code">, </span><span class="hl-identifier">b</span><span class="hl-code">, </span><span class="hl-identifier">i</span><span class="hl-code">, </span><span class="hl-identifier">val</span><span class="hl-code"> = </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
-      </span><span class="hl-comment">/*</span><span class="hl-comment">关闭已打开的自动填充列表</span><span class="hl-comment">*/</span><span class="hl-code">
+      </span><span class="hl-comment">/*</span><span class="hl-comment">Close the open autofill list</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">closeAllLists</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-code">!</span><span class="hl-identifier">val</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">false</span><span class="hl-code">;</span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-identifier">currentFocus</span><span class="hl-code"> = -</span><span class="hl-number">1</span><span class="hl-code">;
-      </span><span class="hl-comment">/*</span><span class="hl-comment">创建 DIV 元素用于放置自动填充列表的值</span><span class="hl-comment">*/</span><span class="hl-code">
+      </span><span class="hl-comment">/*</span><span class="hl-comment">Create a DIV element to hold the values of the autofill list</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">DIV</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">a</span><span class="hl-code">.</span><span class="hl-identifier">setAttribute</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">id</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">id</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-list</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-identifier">a</span><span class="hl-code">.</span><span class="hl-identifier">setAttribute</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">class</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-items</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
-      </span><span class="hl-comment">/*</span><span class="hl-comment">DIV 作为自动填充容器的子元素</span><span class="hl-comment">*/</span><span class="hl-code">
+      </span><span class="hl-comment">/*</span><span class="hl-comment">DIV as a child element of the auto-fill container</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">parentNode</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code">;
-      </span><span class="hl-comment">/*</span><span class="hl-comment">循环数组</span><span class="hl-comment">*/</span><span class="hl-code">
+      </span><span class="hl-comment">/*</span><span class="hl-comment">Circular Array</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">arr</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">检查填充项是否有与文本字段值相同的内容，不区分大小写</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Check if autocomplete items have the same content as the text field value, ignoring case.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">substr</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-identifier">val</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">toUpperCase</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> == </span><span class="hl-identifier">val</span><span class="hl-code">.</span><span class="hl-identifier">toUpperCase</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">为每个匹配元素创建一个 DIV 元素</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Create a DIV element for each matching element</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">b</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">DIV</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
-          </span><span class="hl-comment">/*</span><span class="hl-comment">匹配项加粗</span><span class="hl-comment">*/</span><span class="hl-code">
+          </span><span class="hl-comment">/*</span><span class="hl-comment">Bold matching items</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">b</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">&lt;strong&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">substr</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-identifier">val</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-brackets">)</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/strong&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
           </span><span class="hl-identifier">b</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> += </span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">substr</span><span class="hl-brackets">(</span><span class="hl-identifier">val</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-brackets">)</span><span class="hl-code">;
-          </span><span class="hl-comment">/*</span><span class="hl-comment">选中的填充项插入到隐藏 input 输入字段，用于保存当前选中值</span><span class="hl-comment">*/</span><span class="hl-code">
+          </span><span class="hl-comment">/*</span><span class="hl-comment">The selected fill item is inserted into a hidden input field to store the current selected value.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">b</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> += </span><span class="hl-quotes">"</span><span class="hl-string">&lt;input type='hidden' value='</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">'&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
-              </span><span class="hl-comment">/*</span><span class="hl-comment">当有人点击填充项（DIV 元素）时执行函数</span><span class="hl-comment">*/</span><span class="hl-code">
+              </span><span class="hl-comment">/*</span><span class="hl-comment">Execute a function when someone clicks a fill item (DIV element)</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">b</span><span class="hl-code">.</span><span class="hl-identifier">addEventListener</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">click</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">选中的填充项插入到隐藏 input 搜索字段</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">The selected fill item is inserted into the hidden input search field</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code"> = </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">input</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
-              </span><span class="hl-comment">/*</span><span class="hl-comment">关闭自动填充列表</span><span class="hl-comment">*/</span><span class="hl-code">
+              </span><span class="hl-comment">/*</span><span class="hl-comment">Disable auto-fill list</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">closeAllLists</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
           </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
           </span><span class="hl-identifier">a</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code">;
         </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
-  </span><span class="hl-comment">/*</span><span class="hl-comment">按下键盘上的一个键时执行函数</span><span class="hl-comment">*/</span><span class="hl-code">
+  </span><span class="hl-comment">/*</span><span class="hl-comment">Execute a function when a key on the keyboard is pressed</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">addEventListener</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">keydown</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">id</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-list</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">div</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-code">.</span><span class="hl-identifier">keyCode</span><span class="hl-code"> == </span><span class="hl-number">40</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">如果按下箭头向下键，currentFocus 变量加 1，即向下移动一位</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">If the down arrow key is pressed, the currentFocus variable is incremented by 1, i.e., it moves down one position.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">currentFocus</span><span class="hl-code">++;
-        </span><span class="hl-comment">/*</span><span class="hl-comment">使当前选中项更醒目</span><span class="hl-comment">*/</span><span class="hl-code">
+        </span><span class="hl-comment">/*</span><span class="hl-comment">Make the current selected item more prominent</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">addActive</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-code">.</span><span class="hl-identifier">keyCode</span><span class="hl-code"> == </span><span class="hl-number">38</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-comment">//</span><span class="hl-comment">up</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">按下箭头向上键，选中列表项向上移动一位</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Press the up arrow key to move the selected list item up one position.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">currentFocus</span><span class="hl-code">--;
-        </span><span class="hl-comment">/*</span><span class="hl-comment">使当前选中项更醒目</span><span class="hl-comment">*/</span><span class="hl-code">
+        </span><span class="hl-comment">/*</span><span class="hl-comment">Make the current selected item more prominent</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">addActive</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code">;
       </span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-code">.</span><span class="hl-identifier">keyCode</span><span class="hl-code"> == </span><span class="hl-number">13</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">如果按下 ENTER 键，阻止提交，你也可以设置 submit 提交</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">If the ENTER key is pressed, prevent submission; you can also set submit to submit.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">e</span><span class="hl-code">.</span><span class="hl-identifier">preventDefault</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
         </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">currentFocus</span><span class="hl-code"> &gt; -</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">模拟点击选中项</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Simulate clicking the selected item</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">currentFocus</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">click</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
         </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
   </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">addActive</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">设置选中的选项函数</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Set the selected option function</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-code">!</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">false</span><span class="hl-code">;
-    </span><span class="hl-comment">/*</span><span class="hl-comment">移动选项设置不同选中选项的背景颜色</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-comment">/*</span><span class="hl-comment">Mobile options set the background color of different selected options</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">removeActive</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code">;
     </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">currentFocus</span><span class="hl-code"> &gt;= </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-identifier">currentFocus</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">;
     </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">currentFocus</span><span class="hl-code"> &lt; </span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-identifier">currentFocus</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code"> - </span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
-    </span><span class="hl-comment">/*</span><span class="hl-comment">添加 "autocomplete-active" 类</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-comment">/*</span><span class="hl-comment">Add the "autocomplete-active" class</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">currentFocus</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">classList</span><span class="hl-code">.</span><span class="hl-identifier">add</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-active</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
   </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">removeActive</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">移除没有选中选项的 "autocomplete-active" 类</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Remove the "autocomplete-active" class from unselected options.</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">classList</span><span class="hl-code">.</span><span class="hl-identifier">remove</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-active</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
     </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">closeAllLists</span><span class="hl-brackets">(</span><span class="hl-identifier">elmnt</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">关闭自动添加列表</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Disable auto-add list</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByClassName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">autocomplete-items</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
     </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">elmnt</span><span class="hl-code"> != </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">elmnt</span><span class="hl-code"> != </span><span class="hl-identifier">inp</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -233,17 +233,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-comment">/*</span><span class="hl-comment">点击 HTML 文档任意位置关闭填充列表</span><span class="hl-comment">*/</span><span class="hl-code">
+</span><span class="hl-comment">/*</span><span class="hl-comment">Click anywhere in the HTML document to close the populated list</span><span class="hl-comment">*/</span><span class="hl-code">
 </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">addEventListener</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">click</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-identifier">closeAllLists</span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-code">.</span><span class="hl-identifier">target</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div></div></div>
 <p>Finally, we use the above JavaScript code on the input field with id myInput:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code"><div class="hl-main"><span class="hl-identifier">autocomplete</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myInput</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">, </span><span class="hl-identifier">countries</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div></div><br/><a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','YXV0b2NvbXBsZXRlKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJteUlucHV0IiksIGNvdW50cmllcyk7');localStorage.setItem('tryit_lang','html');">尝试一下 »</a></div> </div>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code"><div class="hl-main"><span class="hl-identifier">autocomplete</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myInput</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">, </span><span class="hl-identifier">countries</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div></div><br/><a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','YXV0b2NvbXBsZXRlKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJteUlucHV0IiksIGNvdW50cmllcyk7');localStorage.setItem('tryit_lang','html');">Try it Yourself »</a></div> </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link">← <a href="./css-search-box.html" rel="prev">CSS 创建搜索框</a> </div>
-<div class="next-design-link"><a href="./javascript-css-accordion.html" rel="next">JavaScript/CSS 实现手风琴/折叠效果</a> →</div>
+<div class="previous-design-link">← <a href="./css-search-box.html" rel="prev">Create a Search Box with CSS</a> </div>
+<div class="next-design-link"><a href="./javascript-css-accordion.html" rel="next">JavaScript/CSS Implementation of Accordion/Collapse Effect</a> →</div>
 </div>
 <style>
 .wrapper {
@@ -349,11 +349,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to share notes</h3>
-<p style="font-size:14px;">The note needs to be an extension of this article's content!</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
-	<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get the registration invitation code</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> Before sharing notes, you must<a href=".." class="runoob-pop">log in</a>!</h3>
-		<p><a href="./runoob-user-test-intro.html" target="_blank">How to get the registration invitation code</a></p>
+<p style="font-size:14px;">The note needs to be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="./runoob-user-test-intro.html" target="_blank">How to get the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i> Before sharing notes, you must<a class="runoob-pop" href="..">log in</a>!</h3>
+<p><a href="./runoob-user-test-intro.html" target="_blank">How to get the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">

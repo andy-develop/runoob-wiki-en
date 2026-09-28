@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>高级树结构 | 菜鸟教程</title>
+<title>Advanced Tree Structures | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="高级树结构 在掌握了二叉树、二叉搜索树等基础树结构后，我们即将踏入一个更广阔、更高效的领域——高级树结构。如果说基础树是数据结构世界中的普通公路，那么高级树结构就是精心设计的高速公路”和立交桥，它们通过巧妙的平衡规则和存储策略，确保了在数据量巨大或操作频繁时，依然能保持卓越的性能。 本章节将介绍 AVL树、红黑树、B树 和 B+树 这四种经典高级树结构。  为什么需要高级树结构？ 在深入学习之前，我们先问一个问题：有了高效的二叉搜索树（.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,59 +158,59 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-dynamic-programming.html" rel="prev">动态规划</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-advanced-graph.html" rel="next">高级图算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-dynamic-programming.html" rel="prev">Dynamic programming</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-advanced-graph.html" rel="next">Advanced Graph Algorithms</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>高级树结构</h1>
+<h1>Advanced Tree Structures</h1>
 <p>After mastering basic tree structures such as binary trees and binary search trees, we are about to step into a broader and more efficient domain—advanced tree structures.</p><p>If basic trees are ordinary roads in the world of data structures, then advanced tree structures are carefully designed highways and interchanges. Through ingenious balancing rules and storage strategies, they ensure excellent performance even when data volumes are huge or operations are frequent.</p>
-<p>This section will introduce<strong>AVL树</strong>、<strong>红黑树</strong>、<strong>B树</strong> 和 <strong>B+树</strong>These four classic advanced tree structures.</p>
+<p>This section will introduce<strong>AVL Tree</strong>、<strong>red-black tree</strong>、<strong>B-Tree</strong>and<strong>B+ Tree</strong>These four classic advanced tree structures.</p>
 <hr/>
 <h2>Why do we need advanced tree structures?</h2>
 <p>Before diving deeper, let us first ask a question: with an efficient binary search tree (BST) at hand, why do we still need more complex trees?</p>
 <p>Imagine you have a library and use a BST to store books sorted by title. If you insert books one by one in alphabetical order (for example:<code>A...</code>, <code>B...</code>, <code>C...</code>), the tree degenerates into a chain (similar to a linked list). At this point, the time to find a book changes from the ideal<code>O(log n)</code>Worst-case degradation<code>O(n)</code>, extremely low efficiency.</p>
 <p><img decoding="async" src="../wp-content/uploads/2025/12/595d6823-2cd6-4772-84a3-3c3aa1a5368f.png"/></p>
 <p><em>Figure: a schematic diagram of a binary search tree degenerating into a linked list when inserting ordered data, causing lookup performance to degrade.</em></p>
-<p><strong>Advanced tree structures (self-balancing trees) were born precisely to solve this problem.</strong>. They automatically adjust the tree's shape when inserting or deleting nodes, keep the tree balanced, thereby ensuring that the time complexity of operations such as search, insertion, and deletion always remains at<code>O(log n)</code>级别。</p>
+<p><strong>Advanced tree structures (self-balancing trees) were born precisely to solve this problem.</strong>. They automatically adjust the tree's shape when inserting or deleting nodes, keep the tree balanced, thereby ensuring that the time complexity of operations such as search, insertion, and deletion always remains at<code>O(log n)</code>Level.</p>
 <hr/>
 <h2>AVL Tree: The Guardian of Height Balance</h2>
 <p>The AVL tree is the earliest self-balancing binary search tree ever invented, named after its inventors Adelson-Velsky and Landis.</p>
 <p>The core idea of the AVL tree is very simple:<strong>For any node in the tree, the height difference between its left subtree and right subtree cannot exceed 1.</strong>。</p>
 <h3>Core Concept: Balance Factor</h3>
-<p>Each node has a<strong>平衡因子</strong>, and its calculation formula is:<code>Balance factor = height of left subtree - height of right subtree</code>In an AVL tree, the balance factor of each node can only be -1, 0, or 1.</p>
+<p>Each node has a<strong>Balance Factor</strong>, and its calculation formula is:<code>Balance factor = height of left subtree - height of right subtree</code>In an AVL tree, the balance factor of each node can only be -1, 0, or 1.</p>
 <h3>Imbalance and rotation adjustment</h3>
-<p>After inserting or deleting a node, if a node's balance factor becomes 2 or -2, the tree is unbalanced. To restore balance, the AVL tree uses four<strong>旋转</strong>operations to adjust:</p>
+<p>After inserting or deleting a node, if a node's balance factor becomes 2 or -2, the tree is unbalanced. To restore balance, the AVL tree uses four<strong>Rotation</strong>operations to adjust:</p>
 <ul>
-<li><strong>左旋</strong>: Handles the "right-right" imbalance case.</li>
-<li><strong>右旋</strong>: Handles the "left-left" imbalance case.</li>
-<li><strong>左右旋</strong>: first left rotation then right rotation, handling the "left-right" unbalanced case.</li>
-<li><strong>右左旋</strong>: first right rotation then left rotation, handling the "right-left" unbalanced case.</li>
+<li><strong>Left Rotation</strong>: Handles the "right-right" imbalance case.</li>
+<li><strong>Right Rotation</strong>: Handles the "left-left" imbalance case.</li>
+<li><strong>Left-Right Rotation</strong>: first left rotation then right rotation, handling the "left-right" unbalanced case.</li>
+<li><strong>Right-Left Rotation</strong>: first right rotation then left rotation, handling the "right-left" unbalanced case.</li>
 </ul>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> AVLNode:<br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> key<span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">key</span> <span style="color: Gray;">=</span> key<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">height</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span>  <span style="color: #a50"># 节点高度，初始为1</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">height</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span>  <span style="color: #a50"># Node height, initially 1</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">left</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">right</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_height<span style="color: Olive;">(</span>node<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""获取节点高度（处理空节点）"""</span><br/>
+    <span style="color: #a11;">"""Get node height (handle empty nodes)"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> node.<span style="color: #05a;">height</span> <span style="color: Green;font-weight:bold;">if</span> node <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> get_balance_factor<span style="color: Olive;">(</span>node<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""计算节点的平衡因子"""</span><br/>
+    <span style="color: #a11;">"""Calculate the balance factor of a node"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> node:<br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">0</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> get_height<span style="color: Olive;">(</span>node.<span style="color: #05a;">left</span><span style="color: Olive;">)</span> - get_height<span style="color: Olive;">(</span>node.<span style="color: #05a;">right</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> right_rotate<span style="color: Olive;">(</span>y<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""<br/>对以y为根的子树进行右旋<br/>
+    <span style="color: #a11;">"""<br/>Perform a right rotation on the subtree rooted at y<br/>
          y                              x<br/>
-        / <span style="color: #000099; font-weight: bold;">\ </span>                          /   <span style="color: #000099; font-weight: bold;">\</span><br/>x   T4     向右旋转 (y)        z     y<br/>
+        / <span style="color: #000099; font-weight: bold;">\ </span>                          /   <span style="color: #000099; font-weight: bold;">\</span><br/>x   T4     right rotate (y)        z     y<br/>
       / <span style="color: #000099; font-weight: bold;">\ </span>      - - - - - - - -&gt;    / <span style="color: #000099; font-weight: bold;">\ </span>  / <span style="color: #000099; font-weight: bold;">\</span><br/>
      z   T3                       T1  T2 T3 T4<br/>
     / <span style="color: #000099; font-weight: bold;">\</span><br/>
@@ -219,20 +219,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     x <span style="color: Gray;">=</span> y.<span style="color: #05a;">left</span><br/>
     T3 <span style="color: Gray;">=</span> x.<span style="color: #05a;">right</span><br/>
 <br/>
-    <span style="color: #a50"># 执行旋转</span><br/>
+    <span style="color: #a50"># Perform the rotation</span><br/>
     x.<span style="color: #05a;">right</span> <span style="color: Gray;">=</span> y<br/>
     y.<span style="color: #05a;">left</span> <span style="color: Gray;">=</span> T3<br/>
 <br/>
-    <span style="color: #a50"># 更新高度（必须先更新y的高度，再更新x的高度）</span><br/>
+    <span style="color: #a50"># Update heights (must update y's height first, then x's height)</span><br/>
     y.<span style="color: #05a;">height</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span> + <span style="color: Teal;">max</span><span style="color: Olive;">(</span>get_height<span style="color: Olive;">(</span>y.<span style="color: #05a;">left</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> get_height<span style="color: Olive;">(</span>y.<span style="color: #05a;">right</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     x.<span style="color: #05a;">height</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span> + <span style="color: Teal;">max</span><span style="color: Olive;">(</span>get_height<span style="color: Olive;">(</span>x.<span style="color: #05a;">left</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> get_height<span style="color: Olive;">(</span>x.<span style="color: #05a;">right</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <br/>
-    <span style="color: #a50"># 返回新的根节点</span><br/>
+    <span style="color: #a50"># Return the new root node</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> x<br/>
 <br/>
-<span style="color: #a50"># 左旋函数与右旋对称，此处省略详细实现</span><br/>
+<span style="color: #a50"># The left rotation function is symmetric to the right rotation; the detailed implementation is omitted here</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> left_rotate<span style="color: Olive;">(</span>x<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""对以x为根的子树进行左旋（逻辑与右旋对称）"""</span><br/>
+    <span style="color: #a11;">"""Perform a left rotation on the subtree rooted at x (the logic is symmetric to the right rotation)"""</span><br/>
     <span style="color: Green;font-weight:bold;">pass</span><br/>
 </div>
 </div>
@@ -240,26 +240,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <table class="reference">
 <thead>
 <tr>
-<th align="left">特点</th>
-<th align="left">说明</th>
+<th align="left">Features</th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>严格平衡</strong></td>
+<td align="left"><strong>Strictly balanced</strong></td>
 <td align="left">The balance condition is strict (height difference ≤ 1), the tree height is closest to log n, and search performance is excellent.</td>
 </tr>
 <tr>
-<td align="left"><strong>调整频繁</strong></td>
+<td align="left"><strong>Frequent adjustments</strong></td>
 <td align="left">After insertion/deletion, multiple rotations from bottom to top may be needed to restore balance.</td>
 </tr>
 <tr>
-<td align="left"><strong>适用场景</strong></td>
-<td align="left">适合<strong>More queries, fewer insertions/deletions</strong>scenarios, such as the middle layer of database indexes or in-memory lookup tables.</td>
+<td align="left"><strong>Applicable scenarios</strong></td>
+<td align="left">Suitable<strong>More queries, fewer insertions/deletions</strong>scenarios, such as the middle layer of database indexes or in-memory lookup tables.</td>
 </tr>
 </tbody></table>
 <hr/>
 <h2>Red-Black Tree: The King of Engineering Practice</h2>
-<p>红黑树是另一种自平衡二叉搜索树，它在AVL树的基础上做了一些"妥协"。它不像AVL树那样追求绝对平衡，而是通过一套更宽松的规则来保证大致平衡，从而减少在插入/删除时的旋转次数，在整体性能上取得了更好的工程实践效果。Java的<code>TreeMap</code>、<code>TreeSet</code>和 C++ STL 的<code>map</code>、<code>set</code>All of their underlying implementations use red-black trees.</p>
+<p>The red-black tree is another self-balancing binary search tree. It makes some “compromises” based on the AVL tree. Rather than pursuing absolute balance like the AVL tree, it uses a set of more relaxed rules to ensure approximate balance, thereby reducing the number of rotations during insertion/deletion and achieving better engineering results in overall performance. Java's<code>TreeMap</code>、<code>TreeSet</code>and C++ STL's<code>map</code>、<code>set</code>All of their underlying implementations use red-black trees.</p>
 <h3>The Five Core Rules of Red-Black Trees</h3>
 <p>Red-black trees maintain balance by adding a color attribute (red or black) to nodes and obeying the following rules:</p>
 <ul>
@@ -267,13 +267,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li><strong>The root node is black</strong>。</li>
 <li>All leaf nodes (NIL empty nodes) are black.</li>
 <li><strong>The two children of a red node must be black.</strong>(i.e., there cannot be consecutive red nodes).</li>
-<li>All paths from any node to each of its leaf nodes contain<strong>相同数目</strong>The black nodes.</li>
+<li>All paths from any node to each of its leaf nodes contain<strong>The same number</strong>The black nodes.</li>
 </ul>
 <p>Rules 4 and 5 are key to red-black tree balance. Rule 5 ensures that no path is more than twice as long as any other path, thus achieving approximate balance.</p>
 <h3>Insertion adjustment strategy</h3>
-<p>When inserting a new node, we always first color it<strong>红色</strong>(to avoid violating rule 5). If this causes a conflict (mainly violating rule 2 or rule 4), it needs to be adjusted through<strong>变色</strong>和<strong>旋转</strong>to adjust. The core idea of adjustment is to continuously "move up" the conflict (red) toward the root until it can be resolved by recoloring or rotation.</p>
+<p>When inserting a new node, we always first color it<strong>Red</strong>(to avoid violating rule 5). If this causes a conflict (mainly violating rule 2 or rule 4), it needs to be adjusted through<strong>Color change</strong>and<strong>Rotation</strong>to adjust. The core idea of adjustment is to continuously "move up" the conflict (red) toward the root until it can be resolved by recoloring or rotation.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">class</span> RBNode:<br/>
     RED <span style="color: Gray;">=</span> <span style="color: #a11;">"RED"</span><br/>
@@ -281,68 +281,68 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <br/>
     <span style="color: Green;font-weight:bold;">def</span> <span style="color: Navy;">__init__</span><span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> key<span style="color: Olive;">)</span>:<br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">key</span> <span style="color: Gray;">=</span> key<br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">color</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">RED</span>  <span style="color: #a50"># 新节点初始为红色</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">color</span> <span style="color: Gray;">=</span> <span style="color: Teal;">self</span>.<span style="color: #05a;">RED</span>  <span style="color: #a50"># New node is initially red</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">left</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
         <span style="color: Teal;">self</span>.<span style="color: #05a;">right</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span><br/>
-        <span style="color: Teal;">self</span>.<span style="color: #05a;">parent</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># 红黑树需要父节点指针</span><br/>
+        <span style="color: Teal;">self</span>.<span style="color: #05a;">parent</span> <span style="color: Gray;">=</span> <span style="color: Teal;">None</span>  <span style="color: #a50"># The red-black tree needs a parent pointer</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> insert_fixup<span style="color: Olive;">(</span>tree<span style="color: Gray;">,</span> node<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""插入后修复红黑树性质（简化版逻辑描述）"""</span><br/>
+    <span style="color: #a11;">"""Repair red-black tree properties after insertion (simplified logic description)"""</span><br/>
     <span style="color: Green;font-weight:bold;">while</span> node.<span style="color: #05a;">parent</span> <span style="color: Green;font-weight:bold;">and</span> node.<span style="color: #05a;">parent</span>.<span style="color: #05a;">color</span> <span style="color: Gray;">==</span> RBNode.<span style="color: #05a;">RED</span>:<br/>
-        <span style="color: #a50"># 情况1：叔叔节点是红色 -&gt; 重新着色</span><br/>
-        <span style="color: #a50"># 情况2 &amp; 3：叔叔节点是黑色 -&gt; 通过旋转和重新着色解决</span><br/>
-        <span style="color: #a50"># ... (具体实现涉及大量指针操作，此处为逻辑描述)</span><br/>
+        <span style="color: #a50"># Case 1: the uncle node is red -&gt; recolor</span><br/>
+        <span style="color: #a50"># Cases 2 &amp; 3: the uncle node is black -&gt; solved by rotation and recoloring</span><br/>
+        <span style="color: #a50"># ... (The actual implementation involves a large number of pointer operations; here is a logical description)</span><br/>
         <span style="color: Green;font-weight:bold;">pass</span><br/>
-    tree.<span style="color: #05a;">root</span>.<span style="color: #05a;">color</span> <span style="color: Gray;">=</span> RBNode.<span style="color: #05a;">BLACK</span>  <span style="color: #a50"># 确保根节点为黑</span><br/>
+    tree.<span style="color: #05a;">root</span>.<span style="color: #05a;">color</span> <span style="color: Gray;">=</span> RBNode.<span style="color: #05a;">BLACK</span>  <span style="color: #a50"># Ensure the root node is black</span><br/>
 </div>
 </div>
 <h3>Red-Black Tree vs. AVL Tree</h3>
 <table class="reference">
 <thead>
 <tr>
-<th align="left">特性</th>
-<th align="left">AVL树</th>
-<th align="left">红黑树</th>
+<th align="left">Features</th>
+<th align="left">AVL Tree</th>
+<th align="left">red-black tree</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>平衡标准</strong></td>
+<td align="left"><strong>Balance criterion</strong></td>
 <td align="left">Strict (height difference ≤ 1)</td>
 <td align="left">Loose (approximate balance guaranteed via color rules)</td>
 </tr>
 <tr>
-<td align="left"><strong>查找性能</strong></td>
-<td align="left"><strong>更优</strong>(tree is more balanced)</td>
+<td align="left"><strong>Search performance</strong></td>
+<td align="left"><strong>Better</strong>(tree is more balanced)</td>
 <td align="left">Slightly inferior, but still O(log n)</td>
 </tr>
 <tr>
-<td align="left"><strong>插入/删除</strong></td>
-<td align="left">可能需要<strong>更多旋转</strong></td>
-<td align="left">Fewer rotations,<strong>效率更高</strong></td>
+<td align="left"><strong>Insert/Delete</strong></td>
+<td align="left">May require<strong>More rotations</strong></td>
+<td align="left">Fewer rotations,<strong>More efficient</strong></td>
 </tr>
 <tr>
-<td align="left"><strong>适用场景</strong></td>
+<td align="left"><strong>Applicable scenarios</strong></td>
 <td align="left">Scenarios requiring frequent lookups</td>
 <td align="left"><strong>High comprehensive performance requirements</strong>scenarios, such as language standard libraries and file systems.</td>
 </tr>
 </tbody></table>
 <hr/>
 <h2>B-Tree and B+ Tree: The Engine of Disk Storage</h2>
-<p>When data is too large to fit entirely in memory, it must be stored on disk. Disk I/O (read/write) speed is much slower than memory access. B-trees and B+ trees are designed to<strong>Reduce the number of disk I/O operations</strong>而设计的<strong>Multi-way balanced search tree</strong>, and they are widely used in database and file system indexes.</p>
+<p>When data is too large to fit entirely in memory, it must be stored on disk. Disk I/O (read/write) speed is much slower than memory access. B-trees and B+ trees are designed to<strong>Reduce the number of disk I/O operations</strong>Designed for<strong>Multi-way balanced search tree</strong>, and they are widely used in database and file system indexes.</p>
 <h3>B-tree: balanced multi-way search tree</h3>
-<p>A B-tree no longer has each node store only one data item and two pointers. A<strong>m阶B树</strong>A node has the following characteristics:</p>
+<p>A B-tree no longer has each node store only one data item and two pointers. A<strong>B-tree of order m</strong>A node has the following characteristics:</p>
 <ul>
 <li>Each node has at most<strong>m child nodes</strong>。</li>
 <li>Every non-root, non-leaf node has at least<strong>⌈m/2⌉ child nodes</strong>。</li>
 <li>root node has at least 2 child nodes (unless it is itself a leaf node).</li>
 <li>All leaf nodes are located at the same level.</li>
-<li>If a non-leaf node has k child nodes, it contains<strong>k-1 个键</strong>, and these keys partition the value ranges of the subtrees.</li>
+<li>If a non-leaf node has k child nodes, it contains<strong>k-1 keys</strong>, and these keys partition the value ranges of the subtrees.</li>
 </ul>
 <p><img decoding="async" src="../wp-content/uploads/2025/12/40e0ca29-b85f-4c06-9f39-869cfd326a80.png"/></p>
 <p><em>Figure: A structural diagram of an order-3 B-tree node. It contains two keys and three pointers, dividing the data range into three intervals.</em></p>
-<p><strong>B树的优势</strong>lies in its short, fat tree shape. Because a node can store multiple keys and have multiple child nodes, the tree height is greatly reduced. When searching for a data item, fewer disk pages (nodes) need to be loaded, improving efficiency.</p>
+<p><strong>Advantages of B-tree</strong>lies in its short, fat tree shape. Because a node can store multiple keys and have multiple child nodes, the tree height is greatly reduced. When searching for a data item, fewer disk pages (nodes) need to be loaded, improving efficiency.</p>
 <h3>B+ Tree: The Upgraded Version of the B-Tree</h3>
-<p>B+ trees make key improvements over B-trees and are the<strong>事实标准</strong>。</p>
+<p>B+ trees make key improvements over B-trees and are the<strong>De facto standard</strong>。</p>
 <p><strong>Core Differences Between B+ Trees and B-Trees:</strong></p>
 <ol>
 <li><strong>Data storage location</strong>: In the B+ tree,<strong>All data records (or pointers to records) are stored only in leaf nodes.</strong>. Internal nodes (non-leaf nodes) store only keys for routing.</li>
@@ -354,8 +354,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <table class="reference">
 <thead>
 <tr>
-<th align="left">优势</th>
-<th align="left">解释</th>
+<th align="left">Advantages</th>
+<th align="left">Explanation</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -376,56 +376,52 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </tr>
 </tbody></table>
 <hr/>
-<h2>总结</h2>
+<h2>Summary</h2>
 <p>Let's use a table to review these four advanced tree structures:</p>
 <table class="reference">
 <thead>
 <tr>
-<th align="left">树结构</th>
-<th align="left">核心目标</th>
-<th align="left">关键特性</th>
-<th align="left">典型应用</th>
+<th align="left">Tree structure</th>
+<th align="left">Core objective</th>
+<th align="left">Key features</th>
+<th align="left">Typical applications</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>AVL 树</strong></td>
+<td align="left"><strong>AVL tree</strong></td>
 <td align="left">Ultimate query speed</td>
 <td align="left">Highly strictly balanced, with frequent rotation adjustments</td>
 <td align="left">Scenarios requiring fast lookups in memory</td>
 </tr>
 <tr>
-<td align="left"><strong>红黑树</strong></td>
+<td align="left"><strong>red-black tree</strong></td>
 <td align="left">Balanced comprehensive performance</td>
 <td align="left">Approximately balanced via color rules, efficient insertion and deletion</td>
 <td align="left">Language standard libraries (Map/Set), process scheduling</td>
 </tr>
 <tr>
-<td align="left"><strong>B 树</strong></td>
+<td align="left"><strong>B-tree</strong></td>
 <td align="left">Reduce disk I/O</td>
 <td align="left">Multi-way balanced, data can be stored in internal nodes</td>
 <td align="left">Early file systems, certain database indexes</td>
 </tr>
 <tr>
-<td align="left"><strong>B+ 树</strong></td>
+<td align="left"><strong>B+ tree</strong></td>
 <td align="left">Optimize database index</td>
 <td align="left">Data only stored in leaves, leaves form a linked list, strong range queries</td>
 <td align="left"><strong>Modern relational database (MySQL, PostgreSQL) indexes</strong></td>
 </tr>
-</tbody></table> 其他扩展
-</div>
+</tbody></table>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-dynamic-programming.html" rel="prev">动态规划</a> </div>
-<div class="next-design-link"><a href="../data-structures/dsa-advanced-graph.html" rel="next">高级图算法</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../data-structures/dsa-dynamic-programming.html" rel="prev">Dynamic programming</a> </div>
+<div class="next-design-link"><a href="../data-structures/dsa-advanced-graph.html" rel="next">Advanced Graph Algorithms</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -529,16 +525,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -546,14 +542,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29099"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -731,7 +727,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -822,7 +818,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

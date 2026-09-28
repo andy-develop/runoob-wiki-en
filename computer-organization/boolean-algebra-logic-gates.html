@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>布尔代数基础 — AND / OR / NOT / XOR | 菜鸟教程</title>
+<title>Boolean Algebra Basics — AND / OR / NOT / XOR | Runoob Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="布尔代数基础 -- AND / OR / NOT / XOR 布尔代数是所有数字电路的数学基础，四种基本逻辑运算的组合可以构建任意复杂电路。   生活类比：自动门与门禁系统 在进入一栋高度安全的建筑时，你会遇到各种门禁规则。这些规则恰好对应了布尔代数的基本运算，让我们用生活场景来理解它们。  AND 与门——两道门同时打开才能进入：某金库需要两把钥匙同时转动才能开门。两把钥匙都插入并旋转（输入都为 1），门才会打开（输出为 1）。任意一.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/character-encoding.html" rel="prev">字符怎么表示 — ASCII 与 Unicode</a> </div>
-<div class="next-design-link"><a href="../computer-organization/building-logic-circuits.html" rel="next">逻辑门电路搭建</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/character-encoding.html" rel="prev">How are characters represented? — ASCII and Unicode</a> </div>
+<div class="next-design-link"><a href="../computer-organization/building-logic-circuits.html" rel="next">Logic Gate Circuit Construction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -168,19 +168,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Life Analogy: Automatic Doors and Access Control Systems</h2>
 <p>When entering a highly secure building, you will encounter various access control rules. These rules happen to correspond exactly to the basic operations of Boolean algebra; let’s understand them using everyday scenarios.</p>
-<p><span class="marked">AND 与门——两道门同时打开才能进入</span>: A certain vault requires two keys to be turned simultaneously to open. Only when both keys are inserted and turned (both inputs are 1) will the door open (output is 1). If either key is missing, the door remains motionless.</p>
-<p><span class="marked">OR 或门——任意一扇门开着就能进入</span>: An office building has two entrances; as long as either the front door or the back door is open, you can enter. If any entrance is open (at least one input is 1), you can pass through (output is 1).</p>
-<p><span class="marked">NOT 非门——按钮翻转指示牌</span>: There is a “Vacant/Occupied” toggle sign at the restroom entrance; pressing a button flips the current state. With input 0 (vacant), the output is 1 (occupied), and vice versa.</p>
-<p><span class="marked">XOR 异或门——房间两盏灯必须一开一关</span>: A room has two lights, and the rule is that the two lights must be in opposite states (one on, one off); otherwise, the alarm system is triggered. Therefore, when the two inputs differ, the output is 1; when they are the same, the output is 0.</p>
+<p><span class="marked">AND gate — two doors must be open at the same time to enter</span>: A certain vault requires two keys to be turned simultaneously to open. Only when both keys are inserted and turned (both inputs are 1) will the door open (output is 1). If either key is missing, the door remains motionless.</p>
+<p><span class="marked">OR gate——if any one door is open, you can enter</span>: An office building has two entrances; as long as either the front door or the back door is open, you can enter. If any entrance is open (at least one input is 1), you can pass through (output is 1).</p>
+<p><span class="marked">NOT gate — button flips the sign</span>: There is a “Vacant/Occupied” toggle sign at the restroom entrance; pressing a button flips the current state. With input 0 (vacant), the output is 1 (occupied), and vice versa.</p>
+<p><span class="marked">XOR gate — the two lights in a room must be one on and one off</span>: A room has two lights, and the rule is that the two lights must be in opposite states (one on, one off); otherwise, the alarm system is triggered. Therefore, when the two inputs differ, the output is 1; when they are the same, the output is 0.</p>
 <hr/>
 <h2>Brief History of Boolean Algebra</h2>
-<p>Boolean algebra was developed by the British mathematician<span class="marked">乔治·布尔（George Boole）</span>In 1854, Boolean algebra was first systematically proposed in the work An Investigation of the Laws of Thought. Boole’s goal was to mathematize human logical reasoning; he created a method of using algebraic symbols to express “true” and “false.”</p>
-<p>1938 年，<span class="marked">克劳德·香农（Claude Shannon）</span>In his MIT master’s thesis, he proved that Boolean algebra could be used to describe and simplify relay switching circuits. This work, known as “the most important master’s thesis in history,” laid the theoretical foundation for the entire design of digital circuits.</p>
+<p>Boolean algebra was developed by the British mathematician<span class="marked">George Boole</span>In 1854, Boolean algebra was first systematically proposed in the work An Investigation of the Laws of Thought. Boole’s goal was to mathematize human logical reasoning; he created a method of using algebraic symbols to express “true” and “false.”</p>
+<p>In 1938,<span class="marked">Claude Shannon</span>In his MIT master’s thesis, he proved that Boolean algebra could be used to describe and simplify relay switching circuits. This work, known as “the most important master’s thesis in history,” laid the theoretical foundation for the entire design of digital circuits.</p>
 <blockquote><p>It can be said that without Boolean algebra there would be no digital circuits, and without digital circuits there would be no modern computers. Inside the device on which you are reading this passage, hundreds of millions of Boolean operations are being performed every second.</p></blockquote>
 <hr/>
 <h2>Detailed Explanation of the Four Basic Logic Operations</h2>
 <h3>AND Operation</h3>
-<p>The rule for the AND operation is just one sentence:<span class="tag1 green">只有当所有输入都为 1 时，输出才为 1</span>; otherwise, the output is 0. You can think of it as switches connected in series — both switches must be closed for the bulb to light.</p>
+<p>The rule for the AND operation is just one sentence:<span class="tag1 green">The output is 1 only when all inputs are 1.</span>; otherwise, the output is 0. You can think of it as switches connected in series — both switches must be closed for the bulb to light.</p>
 <table class="reference">
 <thead><tr><th>A</th><th>B</th><th>A AND B</th></tr></thead>
 <tbody>
@@ -192,7 +192,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>Logical Expression:<span class="marked">Y = A · B</span>(Sometimes the dot is omitted, written directly as Y = AB). Mnemonic: output is 1 only when all inputs are 1.</p>
 <h3>OR Operation</h3>
-<p>Rules of the OR Operation:<span class="tag1 green">只要有一个输入为 1，输出就为 1</span>; the output is 0 only when all inputs are 0. Analogous to switches in parallel — if any switch is closed, the bulb lights.</p>
+<p>Rules of the OR Operation:<span class="tag1 green">As long as one input is 1, the output is 1</span>; the output is 0 only when all inputs are 0. Analogous to switches in parallel — if any switch is closed, the bulb lights.</p>
 <table class="reference">
 <thead><tr><th>A</th><th>B</th><th>A OR B</th></tr></thead>
 <tbody>
@@ -204,7 +204,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>Logical Expression:<span class="marked">Y = A + B</span>(Note that this is not arithmetic addition; in Boolean algebra, 1+1 still equals 1). Mnemonic: any 1 yields 1.</p>
 <h3>NOT Operation</h3>
-<p>NOT is the only basic operation that accepts exactly one input, and its rule is the simplest:<span class="tag1 green">输出与输入相反</span>If the input is 1, the output is 0; if the input is 0, the output is 1.</p>
+<p>NOT is the only basic operation that accepts exactly one input, and its rule is the simplest:<span class="tag1 green">Output is the inverse of the input</span>If the input is 1, the output is 0; if the input is 0, the output is 1.</p>
 <table class="reference">
 <thead><tr><th>A</th><th>NOT A</th></tr></thead>
 <tbody>
@@ -212,9 +212,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <tr><td>1</td><td>0</td></tr>
 </tbody>
 </table>
-<p>Logical Expression:<span class="marked">Y = A'</span> 或 <span class="marked">Y = NOT A</span>In circuit diagrams, a small circle on the input line is commonly used to represent inversion. Mnemonic: 0 becomes 1, 1 becomes 0.</p>
+<p>Logical Expression:<span class="marked">Y = A'</span>or<span class="marked">Y = NOT A</span>In circuit diagrams, a small circle on the input line is commonly used to represent inversion. Mnemonic: 0 becomes 1, 1 becomes 0.</p>
 <h3>XOR (Exclusive OR) Operation</h3>
-<p>Rules of XOR:<span class="tag1 green">两个输入不同时输出为 1，相同时输出为 0</span>。XOR 可以由 AND、OR、NOT 组合实现：A XOR B = (A' · B) + (A · B')。</p>
+<p>Rules of XOR:<span class="tag1 green">When the two inputs differ, output 1; when they are the same, output 0</span>。XOR Yesby AND、OR、NOT combinationImplementation:A XOR B = (A' · B) + (A · B')。</p>
 <table class="reference">
 <thead><tr><th>A</th><th>B</th><th>A XOR B</th></tr></thead>
 <tbody>
@@ -226,7 +226,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </table>
 <p>Logical Expression:<span class="marked">Y = A XOR B</span>XOR has a large number of applications in fields such as adder design, parity checking, and data encryption. Mnemonic: different inputs give 1.</p>
 <hr/>
-<h2>逻辑门符号</h2>
+<h2>Logic gate symbols</h2>
 <p>In digital circuit diagrams, each basic logic operation has a corresponding standard logic gate symbol:</p>
 <p>AND gate: the symbol is D-shaped — a straight edge plus a semicircular arc, with two input lines on the left and one output line on the right.</p>
 <p>OR gate: the symbol is shield-shaped — an inward-curving arc that converges to a pointed tip at the back, representing the logical meaning of “or.”</p>
@@ -369,9 +369,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 <div class="gate-demo-wrap">
 <h3>Standard Symbols of the Four Logic Gates</h3>
-<div class="gate-svg-row">
-AND 门（D 形：直边 + 半圆弧）
-<div class="gate-svg-card">
+<div class="gate-svg-row">AND gate (D-shape: straight edge + semicircular arc)<div class="gate-svg-card">
 <svg viewbox="0 0 120 100">
 <path d="M 20,10 L 20,90 Q 80,90 80,50 Q 80,10 20,10 Z" fill="none" stroke="#4C7EAF" stroke-width="2.5"></path>
 <line stroke="#4C7EAF" stroke-width="2" x1="0" x2="20" y1="30" y2="30"></line>
@@ -381,11 +379,9 @@ AND 门（D 形：直边 + 半圆弧）
 <text fill="#4C7EAF" font-size="14" font-weight="bold" x="2" y="64">B</text>
 <text fill="#4C7EAF" font-size="14" font-weight="bold" x="110" y="44">Y</text>
 </svg>
-<div class="gate-name">AND 与门</div>
-<div class="gate-desc">全1才1 · D形符号</div>
-</div>
-OR 门（弧形：内收曲线汇聚为尖点）
-<div class="gate-svg-card">
+<div class="gate-name">AND gate</div>
+<div class="gate-desc">1 only when all are 1 · D-shaped symbol</div>
+</div>OR gate（arc: inward-curved lines converge to a cusp）<div class="gate-svg-card">
 <svg viewbox="0 0 120 100">
 <path d="M 25,15 Q 50,15 70,50 Q 50,85 25,85 Q 35,50 25,15 Z" fill="none" stroke="#FF9800" stroke-width="2.5"></path>
 <line stroke="#FF9800" stroke-width="2" x1="0" x2="30" y1="30" y2="30"></line>
@@ -395,11 +391,9 @@ OR 门（弧形：内收曲线汇聚为尖点）
 <text fill="#FF9800" font-size="14" font-weight="bold" x="2" y="64">B</text>
 <text fill="#FF9800" font-size="14" font-weight="bold" x="110" y="44">Y</text>
 </svg>
-<div class="gate-name">OR 或门</div>
-<div class="gate-desc">有1就1 · 盾形符号</div>
-</div>
-NOT 门（三角形 + 输出端小圆圈表示取反）
-<div class="gate-svg-card">
+<div class="gate-name">OR gate</div>
+<div class="gate-desc">1 if any is 1 · shield-shaped symbol</div>
+</div>NOT gate (triangle + small circle at the output terminal indicates inversion)<div class="gate-svg-card">
 <svg viewbox="0 0 120 100">
 <polygon fill="none" points="20,10 65,50 20,90" stroke="#E91E63" stroke-width="2.5"></polygon>
 <circle cx="74" cy="50" fill="none" r="9" stroke="#E91E63" stroke-width="2.5"></circle>
@@ -408,16 +402,10 @@ NOT 门（三角形 + 输出端小圆圈表示取反）
 <text fill="#E91E63" font-size="14" font-weight="bold" x="2" y="44">A</text>
 <text fill="#E91E63" font-size="14" font-weight="bold" x="110" y="44">Y</text>
 </svg>
-<div class="gate-name">NOT 非门</div>
-<div class="gate-desc">取反 · 三角+圆圈</div>
-</div>
-XOR 门（OR 门基础上输入端加一条弧线）
-<div class="gate-svg-card">
-<svg viewbox="0 0 120 100">
-XOR 特有的输入端额外弧线
-<path d="M 14,18 Q 26,18 28,50 Q 26,82 14,82" fill="none" stroke="#9C27B0" stroke-width="2"></path>
-OR 门主体
-<path d="M 34,15 Q 55,15 75,50 Q 55,85 34,85 Q 44,50 34,15 Z" fill="none" stroke="#9C27B0" stroke-width="2.5"></path>
+<div class="gate-name">NOT gate</div>
+<div class="gate-desc">Negation · Triangle + Circle</div>
+</div>XOR gate (OR gate with an arc added on the input side)<div class="gate-svg-card">
+<svg viewbox="0 0 120 100">XOR-specific extra arc on the input side<path d="M 14,18 Q 26,18 28,50 Q 26,82 14,82" fill="none" stroke="#9C27B0" stroke-width="2"></path>OR gate body<path d="M 34,15 Q 55,15 75,50 Q 55,85 34,85 Q 44,50 34,15 Z" fill="none" stroke="#9C27B0" stroke-width="2.5"></path>
 <line stroke="#9C27B0" stroke-width="2" x1="5" x2="28" y1="30" y2="30"></line>
 <line stroke="#9C27B0" stroke-width="2" x1="5" x2="28" y1="70" y2="70"></line>
 <line stroke="#9C27B0" stroke-width="2" x1="75" x2="115" y1="50" y2="50"></line>
@@ -425,23 +413,23 @@ OR 门主体
 <text fill="#9C27B0" font-size="14" font-weight="bold" x="2" y="64">B</text>
 <text fill="#9C27B0" font-size="14" font-weight="bold" x="110" y="44">Y</text>
 </svg>
-<div class="gate-name">XOR 异或门</div>
-<div class="gate-desc">不同为1 · OR+弧线</div>
+<div class="gate-name">XOR gate</div>
+<div class="gate-desc">1 if different · OR+arc</div>
 </div>
 </div>
 <h3>Interactive Truth Table — Click Buttons to Toggle Inputs</h3>
 <p style="text-align:center;color:#888;margin:8px 0;">Click the A and B buttons below to toggle between 0/1, and observe the corresponding input rows in the table being highlighted</p>
 <div class="truth-controls">
 <div class="truth-input-group">
-<div class="truth-label">输入 A</div>
+<div class="truth-label">Input A</div>
 <div class="truth-btn val0" id="truthBtnA" onclick="toggleTruthA()">0</div>
 </div>
 <div class="truth-input-group">
-<div class="truth-label">输入 B</div>
+<div class="truth-label">Input B</div>
 <div class="truth-btn val0" id="truthBtnB" onclick="toggleTruthB()">0</div>
 </div>
 </div>
-<div style="text-align:center;color:#FF9800;margin:12px 0;">当前选中：<span id="currentCombo" style="font-weight:bold;font-size:18px;">A=0, B=0</span>
+<div style="text-align:center;color:#FF9800;margin:12px 0;">Currently selected:<span id="currentCombo" style="font-weight:bold;font-size:18px;">A=0, B=0</span>
 </div>
 <div class="truth-table-wrap">
 <table id="truthTable">
@@ -516,7 +504,7 @@ OR 门主体
   refresh();
 })();
 </script><hr/>
-<h2>交互演示</h2>
+<h2>Interactive demo</h2>
 <p>Click the buttons below to toggle the values of inputs A and B (0 or 1), and observe how the outputs of each logic gate change in real time:</p>
 <div class="gate-demo" style="padding:20px;background:#1a1a2e;border-radius:12px;color:#eee;font-family:Arial,sans-serif;">
 <h3 style="color:#FF9800;text-align:center;">Logic gate interactive demonstration (runoob demo)</h3>
@@ -534,11 +522,11 @@ OR 门主体
   </style>
 <div class="input-row">
 <div class="input-group">
-<div style="color:#FF9800;margin-bottom:8px;">输入 A</div>
+<div style="color:#FF9800;margin-bottom:8px;">Input A</div>
 <button class="input-btn" id="btnA" onclick="toggleA()">0</button>
 </div>
 <div class="input-group">
-<div style="color:#FF9800;margin-bottom:8px;">输入 B</div>
+<div style="color:#FF9800;margin-bottom:8px;">Input B</div>
 <button class="input-btn" id="btnB" onclick="toggleB()">1</button>
 </div>
 </div>
@@ -616,57 +604,57 @@ OR 门主体
 </script>
 <h2>Python Code Demonstration</h2>
 <p>Below, Python is used to implement functions for the four basic logic operations, automatically generating complete truth tables while also verifying De Morgan’s laws:</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
-<span style="color: #a50"># runoob 测试：布尔代数 Python 完整实现</span><br/>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<span style="color: #a50"># runoob test: Complete implementation of Boolean algebra in Python</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""与运算：全 1 才 1"""</span><br/>
+    <span style="color: #a11;">"""AND operation: all 1s then 1"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">and</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> OR<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""或运算：有 1 就 1"""</span><br/>
+    <span style="color: #a11;">"""OR operation: if any 1, result is 1"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">or</span> b <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> NOT<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""非运算：取反"""</span><br/>
+    <span style="color: #a11;">"""NOT operation: invert"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">==</span> <span style="color: Maroon;">0</span> <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> XOR<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""异或运算：不同为 1"""</span><br/>
+    <span style="color: #a11;">"""XOR operation: different is 1"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Maroon;">1</span> <span style="color: Green;font-weight:bold;">if</span> a <span style="color: Gray;">!=</span> b <span style="color: Green;font-weight:bold;">else</span> <span style="color: Maroon;">0</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> print_truth_table<span style="color: Olive;">(</span>title<span style="color: Gray;">,</span> func<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a11;">"""通用真值表打印函数"""</span><br/>
+    <span style="color: #a11;">"""Generic truth table printing function"""</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'='*40}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {title}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'='*40}"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> func.__code__.<span style="color: #05a;">co_argcount</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">1</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'A':&gt;4} | {'输出':&gt;4}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'A':&gt;4} | {'output':&gt;4}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'-'*13}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> inputs:<br/>
             <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {a:&gt;4} | {func(a):&gt;4}"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">else</span>:<br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'A':&gt;4} | {'B':&gt;4} | {'输出':&gt;4}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">{'A':&gt;4} | {'B':&gt;4} | {'Output':&gt;4}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {'-'*20}"</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> inputs:<br/>
             <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> inputs:<br/>
                 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  {a:&gt;4} | {b:&gt;4} | {func(a, b):&gt;4}"</span><span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 主程序：打印所有真值表</span><br/>
+<span style="color: #a50"># Main program: print all truth tables</span><br/>
 inputs <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">]</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob 布尔代数真值表完整演示"</span><span style="color: Olive;">)</span><br/>
-print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"AND 与运算"</span><span style="color: Gray;">,</span> AND<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
-print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"OR 或运算"</span><span style="color: Gray;">,</span> OR<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
-print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"NOT 非运算"</span><span style="color: Gray;">,</span> NOT<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
-print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"XOR 异或运算"</span><span style="color: Gray;">,</span> XOR<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob Boolean algebra truth table complete demonstration"</span><span style="color: Olive;">)</span><br/>
+print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"AND Operation"</span><span style="color: Gray;">,</span> AND<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
+print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"OR (or operation)"</span><span style="color: Gray;">,</span> OR<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
+print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"NOT Operation"</span><span style="color: Gray;">,</span> NOT<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
+print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">"XOR operation"</span><span style="color: Gray;">,</span> XOR<span style="color: Gray;">,</span> inputs<span style="color: Olive;">)</span><br/>
 <br/>
-<span style="color: #a50"># 德摩根定律验证</span><br/>
+<span style="color: #a50"># De Morgan's Law Verification</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>{'='*40}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  德摩根定律验证"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  De Morgan's law verification"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"{'='*40}"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  定律 1: NOT(A AND B) = NOT A OR NOT B"</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"  定律 2: NOT(A OR B) = NOT A AND NOT B"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Law 1: NOT(A AND B) = NOT A OR NOT B</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">Law 2: NOT(A OR B) = NOT A AND NOT B</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> a <span style="color: Green;font-weight:bold;">in</span> inputs:<br/>
     <span style="color: Green;font-weight:bold;">for</span> b <span style="color: Green;font-weight:bold;">in</span> inputs:<br/>
         left1 <span style="color: Gray;">=</span> NOT<span style="color: Olive;">(</span>AND<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
@@ -674,24 +662,19 @@ print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">
         left2 <span style="color: Gray;">=</span> NOT<span style="color: Olive;">(</span>OR<span style="color: Olive;">(</span>a<span style="color: Gray;">,</span> b<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
         right2 <span style="color: Gray;">=</span> AND<span style="color: Olive;">(</span>NOT<span style="color: Olive;">(</span>a<span style="color: Olive;">)</span><span style="color: Gray;">,</span> NOT<span style="color: Olive;">(</span>b<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  A={a}, B={b}:"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    定律1: {left1} = {right1} -&gt; {'OK' if left1 == right1 else 'FAIL'}"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    定律2: {left2} = {right2} -&gt; {'OK' if left2 == right2 else 'FAIL'}"</span><span style="color: Olive;">)</span><br/>
-</div></div>
-其他扩展
-</div>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    decide律1: {left1} = {right1} -&gt; {'OK' if left1 == right1 else 'FAIL'}"</span><span style="color: Olive;">)</span><br/>
+        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"    decide律2: {left2} = {right2} -&gt; {'OK' if left2 == right2 else 'FAIL'}"</span><span style="color: Olive;">)</span><br/>
+</div></div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/character-encoding.html" rel="prev">字符怎么表示 — ASCII 与 Unicode</a> </div>
-<div class="next-design-link"><a href="../computer-organization/building-logic-circuits.html" rel="next">逻辑门电路搭建</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../computer-organization/character-encoding.html" rel="prev">How are characters represented? — ASCII and Unicode</a> </div>
+<div class="next-design-link"><a href="../computer-organization/building-logic-circuits.html" rel="next">Logic Gate Circuit Construction</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -795,16 +778,16 @@ print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click to Share Notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -812,14 +795,14 @@ print_truth_table<span style="color: Olive;">(</span><span style="color: #a11;">
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31876"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -997,7 +980,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -1088,7 +1071,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

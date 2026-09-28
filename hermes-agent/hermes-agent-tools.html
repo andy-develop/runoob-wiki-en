@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hermes Agent 工具集 | 菜鸟教程</title>
+<title>Hermes Agent Toolkit | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Hermes Agent 工具集 工具是 Hermes Agent 与外部世界交互的唯一通道——读写文件、执行命令、搜索网页、生成图片，所有能力都通过工具暴露。 Hermes 内置 70+ 工具，分为 28 个工具集。本章将逐一解析每个工具集的核心工具、参数和最佳实践。   工具系统架构 在深入具体工具之前，先理解工具的组织方式。  Hermes 采用三层结构管理工具：   工具（Tool）          ← 单个可调用函数，如 r.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,12 +158,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-cli.html" rel="prev">Hermes Agent CLI 命令行</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-mcp.html" rel="next">Hermes Agent MCP 集成</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-cli.html" rel="prev">Hermes Agent CLI Command Line</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-mcp.html" rel="next">Hermes Agent MCP integration</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Hermes Agent 工具集</h1>
+<h1>Hermes Agent Toolkit</h1>
 <p>Tools are the only channel through which Hermes Agent interacts with the external world—reading and writing files, executing commands, searching the web, generating images; all capabilities are exposed through tools.</p>
 <p>Hermes has 70+ built-in tools, organized into 28 tool collections. This chapter will analyze the core tools, parameters, and best practices of each tool collection one by one.</p>
 <hr/>
@@ -175,7 +175,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   └── 工具集（Toolset）   ← 相关工具的逻辑分组，如 file、web
         └── 平台配置        ← 哪个平台加载哪些工具集
 </pre>
-<p><span class="tag1">关键设计</span>: Disabling a tool collection makes its tools completely disappear from the system prompt—not just uncallable, but the Agent is entirely unaware of their existence. This both saves Tokens and prevents the Agent from misusing tools it shouldn't use.</p>
+<p><span class="tag1">Key Design</span>: Disabling a tool collection makes its tools completely disappear from the system prompt—not just uncallable, but the Agent is entirely unaware of their existence. This both saves Tokens and prevents the Agent from misusing tools it shouldn't use.</p>
 <p>Ways to manage tool sets:</p>
 <pre># TUI 交互式管理（推荐）
 hermes tools
@@ -204,20 +204,20 @@ platform_toolsets:
 <h3>file — file operations</h3>
 <p>The most fundamental tool collection; the Agent relies on it for nearly all tasks to read and write files.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>read_file</td><td>Read file content</td><td>file_path (required), offset (starting line), limit (maximum number of lines)</td></tr>
-<tr><td>write_file</td><td>Create or overwrite file</td><td>file_path（必填）、content（必填）</td></tr>
+<tr><td>write_file</td><td>Create or overwrite file</td><td>file_path (required), content (required)</td></tr>
 <tr><td>edit_file</td><td>Precisely replace text in files</td><td>file_path、old_string、new_string、replace_all</td></tr>
 <tr><td>list_dir</td><td>List directory contents</td><td>path (required), recursive (whether to recurse)</td></tr>
 <tr><td>search_files</td><td>Search by file name pattern</td><td>pattern (required, supports glob), path (search root directory)</td></tr>
-<tr><td>search_content</td><td>Search text in file content</td><td>pattern（必填，支持正则）、path、file_types</td></tr>
+<tr><td>search_content</td><td>Search text in file content</td><td>pattern (required, supports regex), path, file_types</td></tr>
 </table>
-<p><span class="tag1">edit_file 的工作原理</span>: It uses exact substring matching to locate the modification point. The Agent provides old_string (text that actually exists in the file), the tool finds it and replaces it with new_string. If old_string matches multiple locations, set replace_all: true to replace all occurrences.</p>
+<p><span class="tag1">How edit_file works</span>: It uses exact substring matching to locate the modification point. The Agent provides old_string (text that actually exists in the file), the tool finds it and replaces it with new_string. If old_string matches multiple locations, set replace_all: true to replace all occurrences.</p>
 <blockquote><p>edit_file is the Agent's most commonly used file modification method—it is safer than write_file because if old_string is not found, the operation fails with an error instead of accidentally overwriting the file.</p></blockquote>
-<h3>terminal — Shell 命令执行</h3>
+<h3>terminal — Shell command execution</h3>
 <p>Allows the Agent to execute Shell commands in a specified backend environment.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>run_command</td><td>Execute a single Shell command</td><td>command (required), workdir (working directory), timeout (timeout in milliseconds)</td></tr>
 <tr><td>run_script</td><td>Execute multi-line Shell scripts</td><td>script (required, multi-line script content), workdir, timeout</td></tr>
 </table>
@@ -226,14 +226,14 @@ platform_toolsets:
 <h3>code — sandbox code execution</h3>
 <p>Executes code snippets in an isolated sandbox, supporting Python, JavaScript, and Bash.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-<tr><td>execute_code</td><td>Run code in sandbox</td><td>language（python/js/bash）、code（必填）、timeout</td></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
+<tr><td>execute_code</td><td>Run code in sandbox</td><td>language (python/js/bash), code (required), timeout</td></tr>
 </table>
 <p>Difference from terminal: the code tool runs in an independent sandbox and cannot access the file system (unless explicitly mounted). It is suitable for running code that does not require file interaction, such as algorithm validation and data processing.</p>
 <h3>computer — desktop GUI automation</h3>
 <p>Controls the mouse, keyboard, and screenshots of the desktop environment.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th></tr>
+<tr><th>Tools</th><th>Features</th></tr>
 <tr><td>screenshot</td><td>Capture the screen or a specified region</td></tr>
 <tr><td>click</td><td>Click the mouse at specified coordinates</td></tr>
 <tr><td>type</td><td>Simulate keyboard text input</td></tr>
@@ -247,50 +247,50 @@ platform_toolsets:
 <h3>web — Web search and content extraction</h3>
 <p>The main channel through which the Agent obtains external information.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>web_search</td><td>Search internet content</td><td>query (required), num_results (number of results)</td></tr>
-<tr><td>web_extract</td><td>Extract the main content of a specified URL</td><td>url（必填）、extract_mode（auto/text/markdown）</td></tr>
+<tr><td>web_extract</td><td>Extract the main content of a specified URL</td><td>url (required), extract_mode (auto/text/markdown)</td></tr>
 </table>
 <p>web_search returns a list of search results (title + URL + summary). The Agent typically searches first, then calls web_extract on pages of interest to get detailed content.</p>
 <p>A search API must be configured to use it. Multiple providers are supported:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 配置网页搜索后端</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Configure web search backend</span><span style="color: #007F45;"><br/>
 web</span>:<span style="color: green;"><br/>
-  search_provider</span><span style="font-weight: bold; color: brown;">: </span>firecrawl    <span style="color: blue;"># 或 brave、serpapi、tavily</span><br/>
-  <span style="color: blue;"># 在 .env 中设置对应的 API Key</span><br/>
+  search_provider</span><span style="font-weight: bold; color: brown;">: </span>firecrawl    <span style="color: blue;"># or brave, serpapi, tavily</span><br/>
+  <span style="color: blue;"># Set the corresponding API Key in .env</span><br/>
   <span style="color: blue;"># FIRECRAWL_API_KEY=fc-...</span><br/>
-  <span style="color: blue;"># 或 BRAVE_API_KEY=BS...</span><br/>
+  <span style="color: blue;"># Or BRAVE_API_KEY=BS...</span><br/>
 </div>
 </div>
 <h3>browser — Browser automation</h3>
 <p>Full browser control capabilities—navigation, clicking, form filling, screenshots—operating web pages like a human.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-<tr><td>navigate</td><td>Navigate to a specified URL</td><td>url（必填）</td></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
+<tr><td>navigate</td><td>Navigate to a specified URL</td><td>url (required)</td></tr>
 <tr><td>click</td><td>Click page element</td><td>selector (CSS selector or text description)</td></tr>
 <tr><td>fill_form</td><td>Fill form fields</td><td>fields (mapping from field names to values)</td></tr>
 <tr><td>screenshot</td><td>Capture current page</td><td>full_page (whether to take a full-page screenshot)</td></tr>
 <tr><td>extract</td><td>Extract structured data from a page</td><td>selector、format（json/text）</td></tr>
-<tr><td>execute_js</td><td>Executes JavaScript in the page</td><td>code（必填）</td></tr>
+<tr><td>execute_js</td><td>Executes JavaScript in the page</td><td>code (required)</td></tr>
 </table>
 <p>The browser tool collection requires Playwright or a cloud browser backend.</p>
 <blockquote><p>The browser tool set consumes additional resources when launching browser instances. If you only need to extract web page text content, prefer web_extract over browser extract—the former is a lightweight HTTP request, while the latter requires launching a full browser.</p></blockquote>
 <h3>vision — image analysis</h3>
 <p>Allows the Agent to "understand" image content.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>analyze_image</td><td>Analyze image content and generate a description</td><td>image_path or image_url (required), question (optional, specific question about the image)</td></tr>
-<tr><td>describe_image</td><td>Generate a detailed textual description of an image</td><td>image_path 或 image_url（必填）</td></tr>
+<tr><td>describe_image</td><td>Generate a detailed textual description of an image</td><td>image_path or image_url (required)</td></tr>
 </table>
 <p>The vision tool sends images to a vision-capable LLM (such as claude-sonnet-4-6, gpt-4o), and the model recognizes and describes the image content.</p>
 <h3>audio — audio processing</h3>
 <p>Speech-to-text and text-to-speech.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-<tr><td>transcribe</td><td>Convert audio files to text</td><td>audio_path（必填）、language（可选）</td></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
+<tr><td>transcribe</td><td>Convert audio files to text</td><td>audio_path (required), language (optional)</td></tr>
 <tr><td>tts</td><td>Convert text to speech files</td><td>text (required), voice (voice selection), provider</td></tr>
 </table>
 <hr/>
@@ -299,7 +299,7 @@ web</span>:<span style="color: green;"><br/>
 <h3>memory — memory management</h3>
 <p>Read and write persistent memory and search cross-session history.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>memory</td><td>Manage persistent memory (add, delete, modify)</td><td>action（add/replace/remove）、target（memory/user）、content</td></tr>
 <tr><td>session_search</td><td>Full-text search historical sessions</td><td>query (required, supports FTS5 syntax)</td></tr>
 </table>
@@ -307,23 +307,23 @@ web</span>:<span style="color: green;"><br/>
 <h3>skills — skill management</h3>
 <p>Loads and manages reusable workflow skills.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>skills_list</td><td>List all installed skills and their descriptions</td><td>None (automatically called at session startup)</td></tr>
 <tr><td>skill_view</td><td>Load the full content of a skill</td><td>name (required), path (optional, load references sub-files)</td></tr>
 <tr><td>skill_manage</td><td>Create, modify, or delete skill files</td><td>action、name、content</td></tr>
 </table>
-<h3>delegation — 子 Agent 委托</h3>
+<h3>delegation — sub-agent delegation</h3>
 <p>Spawns sub-Agents to execute tasks in parallel.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
 <tr><td>spawn_agent</td><td>Creates a single sub-Agent to execute a task</td><td>prompt (required), model (optional)</td></tr>
 <tr><td>spawn_parallel</td><td>Create multiple sub-Agents in parallel</td><td>tasks (required, task list)</td></tr>
 </table>
 <p>Sub-Agents have independent context windows and do not pollute the main Agent's conversation history. After execution, they return a summary of results.</p>
-<h3>kanban — 多 Agent 看板</h3>
+<h3>kanban — Multi-agent kanban board</h3>
 <p>A structured multi-Agent collaboration system that requires explicit enabling (all/* does not automatically turn it on).</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th></tr>
+<tr><th>Tools</th><th>Features</th></tr>
 <tr><td>task_create</td><td>Create a new task in the kanban board</td></tr>
 <tr><td>task_update</td><td>Update task status (todo/in_progress/done)</td></tr>
 <tr><td>task_list</td><td>List all tasks of the tenant</td></tr>
@@ -336,13 +336,13 @@ web</span>:<span style="color: green;"><br/>
 <h3>image_gen — AI image generation</h3>
 <p>Generates images from text descriptions, supporting 9 models.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-<tr><td>generate_image</td><td>Generate an image based on a Prompt</td><td>prompt（必填）、model（flux/gpt-image/ideogram 等）、size、style</td></tr>
+<tr><th>Tools</th><th>Features</th><th>Key Parameters</th></tr>
+<tr><td>generate_image</td><td>Generate an image based on a Prompt</td><td>prompt（Required）、model（flux/gpt-image/ideogram etc.)、size、style</td></tr>
 </table>
 <h3>tts — text-to-speech</h3>
 <p>TTS functionality independent of the audio tool collection, offering a richer selection of providers.</p>
 <table class="reference">
-<tr><th>工具</th><th>功能</th></tr>
+<tr><th>Tools</th><th>Features</th></tr>
 <tr><td>text_to_speech</td><td>Convert text to speech files</td></tr>
 <tr><td>list_voices</td><td>List available voice timbres</td></tr>
 </table>
@@ -350,39 +350,39 @@ web</span>:<span style="color: green;"><br/>
 <h2>Custom toolset</h2>
 <p>You can combine existing tool collections into project-specific custom tool collections:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：~/.hermes/config.yaml</span><br/>
-<span style="color: blue;"># 定义项目专属工具集组合</span><span style="color: #007F45;"><br/>
+<span style="color: blue;"># File path: ~/.hermes/config.yaml</span><br/>
+<span style="color: blue;"># Define project-specific toolset combination</span><span style="color: #007F45;"><br/>
 custom_toolsets</span><span style="font-weight: bold; color: brown;">:<br/>
-</span>  <span style="color: blue;"># 数据科学项目需要的工具</span><span style="color: #007F45;"><br/>
+</span>  <span style="color: blue;"># Tools needed for data science projects</span><span style="color: #007F45;"><br/>
   data-science</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>    - file<br/>
     - terminal<br/>
     - code<br/>
     - web<br/>
 <br/>
-  <span style="color: blue;"># 纯写作项目只需文件操作</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Pure writing projects only need file operations</span><span style="color: #007F45;"><br/>
   writing</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>    - file<br/>
     - web<br/>
     - memory<br/>
 <br/>
-  <span style="color: blue;"># 运维项目需要终端 + 文件，不需要浏览器</span><span style="color: #007F45;"><br/>
+  <span style="color: blue;"># Ops projects need terminal + files, not a browser</span><span style="color: #007F45;"><br/>
   devops</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>    - file<br/>
     - terminal<br/>
     - memory<br/>
 </div>
 </div>
-<p>使用时通过<code>--toolsets</code>参数指定：</p>
+<p>When using, through<code>--toolsets</code>Parameter specification:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 启动时使用自定义工具集</span><br/>
+<span style="color: #666666; font-style: italic;"># Use custom toolset at startup</span><br/>
 hermes <span style="color: #660033;">--toolsets</span> data-science chat<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 或在 Profile 配置中设为默认</span><br/>
+<span style="color: #666666; font-style: italic;"># Or set as default in Profile configuration</span><br/>
 coder config <span style="color: #000000; font-weight: bold;">set</span> toolsets data-science<br/>
 </div>
 </div>
@@ -405,21 +405,21 @@ coder config <span style="color: #000000; font-weight: bold;">set</span> toolset
 <p>Knowing which tools are frequently used helps optimize tool collection configuration and Token consumption.</p>
 <p>In a session, view the tool call statistics for the current session:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #666666; font-style: italic;"># 查看本次会话的工具使用统计</span><br/>
+<span style="color: #666666; font-style: italic;"># View tool usage statistics for this session</span><br/>
 <span style="color: #000000; font-weight: bold;">/</span>usage<br/>
 <br/>
-<span style="color: #666666; font-style: italic;"># 输出示例：</span><br/>
-<span style="color: #666666; font-style: italic;"># Token 用量: 输入 12,340 | 输出 5,678 | 总计 18,018</span><br/>
-<span style="color: #666666; font-style: italic;"># 工具调用: read_file (15次) | edit_file (8次) |</span><br/>
-<span style="color: #666666; font-style: italic;">#            terminal (3次) | web_search (2次)</span><br/>
+<span style="color: #666666; font-style: italic;"># Output example:</span><br/>
+<span style="color: #666666; font-style: italic;"># Token usage: Input 12,340 | Output 5,678 | Total 18,018</span><br/>
+<span style="color: #666666; font-style: italic;"># Tool calls: read_file (15 times) | edit_file (8 times)</span><br/>
+<span style="color: #666666; font-style: italic;">#            terminal (3 times) | web_search (2 times)</span><br/>
 </div>
 </div>
 <p>In batch processing scenarios, the statistics.json file records more detailed statistics:</p>
 <div class="example">
-<h2 class="example">实例</h2>
-<div class="example_code">// 文件路径：data/my_first_run/statistics.json<br/>
+<h2 class="example">Example</h2>
+<div class="example_code">// File path: data/my_first_run/statistics.json<br/>
 {<br/>
   "total_tool_calls": 1523,<br/>
   "tools": {<br/>
@@ -434,21 +434,17 @@ coder config <span style="color: #000000; font-weight: bold;">set</span> toolset
   ]<br/>
 }<br/>
 </div>
-</div> 其他扩展
-</div>
+</div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-cli.html" rel="prev">Hermes Agent CLI 命令行</a> </div>
-<div class="next-design-link"><a href="../hermes-agent/hermes-agent-mcp.html" rel="next">Hermes Agent MCP 集成</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../hermes-agent/hermes-agent-cli.html" rel="prev">Hermes Agent CLI Command Line</a> </div>
+<div class="next-design-link"><a href="../hermes-agent/hermes-agent-mcp.html" rel="next">Hermes Agent MCP integration</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -552,16 +548,16 @@ coder config <span style="color: #000000; font-weight: bold;">set</span> toolset
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -569,14 +565,14 @@ coder config <span style="color: #000000; font-weight: bold;">set</span> toolset
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29877"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -754,7 +750,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -845,7 +841,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dart 包与库管理 | 菜鸟教程</title>
+<title>Dart Package and Library Management | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Dart 包与库管理 当项目规模增长时，将代码拆分为多个文件和模块是必不可少的。 本章介绍 Dart 的包管理系统 pub、依赖配置文件 pubspec.yaml、import/export 语法以及如何创建自定义库。   pubspec.yaml 配置 pubspec.yaml 是每个 Dart 项目的核心配置文件，声明了项目的元数据和依赖。  一个典型的 pubspec.yaml 文件结构如下：   实例  [mycode4 typ.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-exception-handling.html" rel="prev">Dart 异常处理</a> </div>
-<div class="next-design-link"><a href="../dart/dart-typedef.html" rel="next">Dart typedef 与函数类型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-exception-handling.html" rel="prev">Dart Exception Handling</a> </div>
+<div class="next-design-link"><a href="../dart/dart-typedef.html" rel="next">Dart typedef and Function Types</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -167,46 +167,46 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>When the project scale grows, splitting code into multiple files and modules is essential.</p>
 <p>This chapter introduces Dart's package management system pub, the dependency configuration file pubspec.yaml, import/export syntax, and how to create custom libraries.</p>
 <hr/>
-<h2>pubspec.yaml 配置</h2>
+<h2>pubspec.yaml Configuration</h2>
 <p>pubspec.yaml is the core configuration file for every Dart project, declaring the project's metadata and dependencies.</p>
 <p>A typical pubspec.yaml file structure is as follows:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：pubspec.yaml</span><span style="color: green;"><br/>
-name</span><span style="font-weight: bold; color: brown;">: </span>my_dart_app              <span style="color: blue;"># 项目名称（必填，小写+下划线）</span><span style="color: green;"><br/>
-description</span><span style="font-weight: bold; color: brown;">: </span>一个 Dart 示例项目<span style="color: blue;"># 项目描述</span><span style="color: green;"><br/>
-version</span><span style="font-weight: bold; color: brown;">: </span>1.0.0                 <span style="color: blue;"># 版本号</span><br/>
-<span style="color: blue;"># publish_to: none             # 如果不想发布到 pub.dev，取消这行注释</span><br/>
+<span style="color: blue;"># File path: pubspec.yaml</span><span style="color: green;"><br/>
+name</span><span style="font-weight: bold; color: brown;">: </span>my_dart_app              <span style="color: blue;"># Project name (required, lowercase + underscore)</span><span style="color: green;"><br/>
+description</span><span style="font-weight: bold; color: brown;">: </span>A Dart example project<span style="color: blue;"># Project description</span><span style="color: green;"><br/>
+version</span><span style="font-weight: bold; color: brown;">: </span>1.0.0                 <span style="color: blue;"># Version number</span><br/>
+<span style="color: blue;"># publish_to: none             # If you don't want to publish to pub.dev, uncomment this line</span><br/>
 <span style="color: #007F45;"><br/>
 environment</span>:<span style="color: green;"><br/>
-  sdk</span><span style="font-weight: bold; color: brown;">: </span>'&gt;=3.0.0 &lt;4.0.0'      <span style="color: blue;"># Dart SDK 版本范围</span><br/>
+  sdk</span><span style="font-weight: bold; color: brown;">: </span>'&gt;=3.0.0 &lt;4.0.0'      <span style="color: blue;"># Dart SDK version range</span><br/>
 <span style="color: #007F45;"><br/>
 dependencies</span><span style="font-weight: bold; color: brown;">:<br/>
-</span>  <span style="color: blue;"># 项目运行时依赖的第三方包</span><span style="color: green;"><br/>
-  http</span><span style="font-weight: bold; color: brown;">: </span>^1.1.0                <span style="color: blue;"># HTTP 客户端</span><span style="color: green;"><br/>
-  path</span><span style="font-weight: bold; color: brown;">: </span>^1.8.0                <span style="color: blue;"># 路径工具</span><br/>
+</span>  <span style="color: blue;"># Third-party packages that the project depends on at runtime</span><span style="color: green;"><br/>
+  http</span><span style="font-weight: bold; color: brown;">: </span>^1.1.0                <span style="color: blue;"># HTTP client</span><span style="color: green;"><br/>
+  path</span><span style="font-weight: bold; color: brown;">: </span>^1.8.0                <span style="color: blue;"># Path utilities</span><br/>
 <span style="color: #007F45;"><br/>
 dev_dependencies</span><span style="font-weight: bold; color: brown;">:<br/>
-</span>  <span style="color: blue;"># 仅开发时需要的依赖（测试、代码检查等）</span><span style="color: green;"><br/>
-  test</span><span style="font-weight: bold; color: brown;">: </span>^1.24.0               <span style="color: blue;"># 测试框架</span><span style="color: green;"><br/>
-  lints</span><span style="font-weight: bold; color: brown;">: </span>^2.0.0               <span style="color: blue;"># 官方 lint 规则</span><br/>
+</span>  <span style="color: blue;"># Dependencies needed only during development (testing, linting, etc.)</span><span style="color: green;"><br/>
+  test</span><span style="font-weight: bold; color: brown;">: </span>^1.24.0               <span style="color: blue;"># Testing framework</span><span style="color: green;"><br/>
+  lints</span><span style="font-weight: bold; color: brown;">: </span>^2.0.0               <span style="color: blue;"># Official lint rules</span><br/>
 <br/>
-<span style="color: blue;"># 可选：可执行文件入口</span><br/>
+<span style="color: blue;"># Optional: executable entry point</span><br/>
 <span style="color: blue;"># executables:</span><br/>
 <span style="color: blue;">#   my_app: main</span><br/>
 </div>
 </div>
 <p>Explanation of version number syntax:</p>
 <table class="reference">
-<tr><th>写法</th><th>含义</th><th>示例</th></tr>
+<tr><th>Syntax</th><th>Meaning</th><th>Example</th></tr>
 <tr><td>^1.1.0</td><td>Compatible with 1.1.0 to 2.0.0 (exclusive)</td><td>Most commonly used, recommended</td></tr>
-<tr><td>1.1.0</td><td>精确版本</td><td>不太灵活</td></tr>
-<tr><td>&gt;=1.1.0 &lt;1.5.0</td><td>版本范围</td><td>Use when precise control is needed</td></tr>
-<tr><td>any</td><td>任意版本</td><td>不推荐</td></tr>
+<tr><td>1.1.0</td><td>Exact version</td><td>Not very flexible</td></tr>
+<tr><td>&gt;=1.1.0 &lt;1.5.0</td><td>Version range</td><td>Use when precise control is needed</td></tr>
+<tr><td>any</td><td>Any version</td><td>Not recommended</td></tr>
 </table>
 <blockquote><p>The caret symbol (^) is Dart's default version constraint method. ^1.1.0 is equivalent to &gt;=1.1.0 &lt;2.0.0. This means minor and patch versions can be upgraded automatically, but major versions cannot be upgraded (major version upgrades may include breaking changes).</p></blockquote>
-<h3>安装依赖</h3>
+<h3>Install dependencies</h3>
 <pre>
 $ dart pub get           # 安装依赖
 $ dart pub upgrade       # 升级依赖到最新兼容版本
@@ -214,35 +214,35 @@ $ dart pub outdated      # 查看哪些依赖有更新
 </pre>
 <hr/>
 <h2>Find dependencies on pub.dev</h2>
-<p>pub.dev 是 Dart 和 Flutter 的官方包仓库，类似于 npm（JavaScript）或 PyPI（Python）。</p>
-<p>你可以在<a href="https://pub.dev" target="_blank">https://pub.dev</a>Search and browse tens of thousands of Dart packages.</p>
+<p>pub.dev is the official package repository for Dart and Flutter, similar to npm (JavaScript) or PyPI (Python).</p>
+<p>You can<a href="https://pub.dev" target="_blank">https://pub.dev</a>Search and browse tens of thousands of Dart packages.</p>
 <p>Examples of common third-party packages:</p>
 <table class="reference">
-<tr><th>包名</th><th>用途</th><th>说明</th></tr>
-<tr><td>http</td><td>HTTP 请求</td><td>Officially maintained HTTP client</td></tr>
-<tr><td>path</td><td>路径操作</td><td>Cross-platform path processing tool</td></tr>
-<tr><td>test</td><td>单元测试</td><td>Official testing framework</td></tr>
+<tr><th>Package name</th><th>Purpose</th><th>Description</th></tr>
+<tr><td>http</td><td>HTTP request</td><td>Officially maintained HTTP client</td></tr>
+<tr><td>path</td><td>Path operations</td><td>Cross-platform path processing tool</td></tr>
+<tr><td>test</td><td>Unit Testing</td><td>Official testing framework</td></tr>
 <tr><td>json_serializable</td><td>JSON serialization</td><td>Automatically generate JSON conversion code</td></tr>
 <tr><td>dio</td><td>HTTP client</td><td>A more powerful third-party HTTP library than http.</td></tr>
-<tr><td>riverpod</td><td>状态管理</td><td>Popular state management solution for Flutter projects</td></tr>
+<tr><td>riverpod</td><td>State management</td><td>Popular state management solution for Flutter projects</td></tr>
 </table>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Add the http package and use it:</p>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 首先在 pubspec.yaml 的 dependencies 中添加：</span><br/>
+<span style="color: #999988; font-style: italic;">// First, add to dependencies in pubspec.yaml:</span><br/>
 <span style="color: #999988; font-style: italic;">//   http: ^1.1.0</span><br/>
-<span style="color: #999988; font-style: italic;">// 然后运行：dart pub get</span><br/>
+<span style="color: #999988; font-style: italic;">// Then run: dart pub get</span><br/>
 <br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:http/http.dart'</span> <span style="font-weight: bold;">as</span> http<span style="font-weight: bold;">;</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 发送一个 GET 请求</span><br/>
+  <span style="color: #999988; font-style: italic;">// Send a GET request</span><br/>
   <span style="font-weight: bold;">var</span> url <span style="font-weight: bold;">=</span> Uri.<span style="color: #006633;">parse</span><span style="">(</span><span style="color: #d14;">'https://www.runoob.com'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> response <span style="font-weight: bold;">=</span> await http.<span style="font-weight: bold;">get</span><span style="">(</span>url<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'状态码: ${response.statusCode}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'响应体长度: ${response.body.length} 字符'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Status code: ${response.statusCode}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Response body length: ${response.body.length} characters'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -252,23 +252,23 @@ $ dart pub outdated      # 查看哪些依赖有更新
 <p>Dart supports multiple import styles, each suited to different scenarios.</p>
 <h3>Import Dart built-in libraries</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// dart: 前缀表示 Dart 内置的核心库</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span><span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// 数学库（随机数、三角函数等）</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:convert'</span><span style="font-weight: bold;">;</span> <span style="color: #999988; font-style: italic;">// 编码转换库（JSON、Base64 等）</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:io'</span><span style="font-weight: bold;">;</span>      <span style="color: #999988; font-style: italic;">// I/O 库（文件、网络等）</span><br/>
+<span style="color: #999988; font-style: italic;">// The dart: prefix indicates Dart's built-in core libraries</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span><span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// Math library (random numbers, trigonometric functions, etc.)</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:convert'</span><span style="font-weight: bold;">;</span> <span style="color: #999988; font-style: italic;">// Encoding conversion library (JSON, Base64, etc.)</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:io'</span><span style="font-weight: bold;">;</span>      <span style="color: #999988; font-style: italic;">// I/O library (files, network, etc.)</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 使用 dart:math 中的函数</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'圆周率: $pi'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'2 的 10 次方: ${pow(2, 10)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="color: #999988; font-style: italic;">// Using functions from dart:math</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Pi: $pi'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'2 to the 10th power: ${pow(2, 10)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 使用 dart:convert 中的函数</span><br/>
+  <span style="color: #999988; font-style: italic;">// Using functions from dart:convert</span><br/>
   <span style="font-weight: bold;">var</span> jsonStr <span style="font-weight: bold;">=</span> <span style="color: #d14;">'{"name": "runoob", "age": 10}'</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> decoded <span style="font-weight: bold;">=</span> jsonDecode<span style="">(</span>jsonStr<span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'解析后的 JSON: $decoded'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  print<span style="">(</span><span style="color: #d14;">'用户名: ${decoded['</span>name<span style="color: #d14;">']}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Parsed JSON: $decoded'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'Username: ${decoded['</span>name<span style="color: #d14;">']}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -280,55 +280,55 @@ $ dart pub outdated      # 查看哪些依赖有更新
 </pre>
 <h3>Import third-party packages</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// package: 前缀表示 pub.dev 上的第三方包</span><br/>
+<span style="color: #999988; font-style: italic;">// The package: prefix indicates third-party packages on pub.dev</span><br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:http/http.dart'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:path/path.dart'</span> <span style="font-weight: bold;">as</span> p<span style="font-weight: bold;">;</span><br/>
 </div>
 </div>
 <h3>Import local files</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 相对路径导入：导入同项目中的其他 Dart 文件</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'src/utils.dart'</span><span style="font-weight: bold;">;</span>          <span style="color: #999988; font-style: italic;">// 同目录下的子目录</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'../models/user.dart'</span><span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// 上级目录中的文件</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'constants.dart'</span><span style="font-weight: bold;">;</span>         <span style="color: #999988; font-style: italic;">// 同目录下的文件</span><br/>
+<span style="color: #999988; font-style: italic;">// Relative path import: import other Dart files in the same project</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'src/utils.dart'</span><span style="font-weight: bold;">;</span>          <span style="color: #999988; font-style: italic;">// Subdirectory under the same directory</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'../models/user.dart'</span><span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// File in the parent directory</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'constants.dart'</span><span style="font-weight: bold;">;</span>         <span style="color: #999988; font-style: italic;">// File in the same directory</span><br/>
 </div>
 </div>
 <h3>Modifiers of import</h3>
 <table class="reference">
-<tr><th>修饰符</th><th>语法</th><th>用途</th></tr>
-<tr><td>前缀（as）</td><td>import 'lib.dart' as myLib;</td><td>Give the library an alias to avoid naming conflicts</td></tr>
+<tr><th>Modifiers</th><th>Syntax</th><th>Purpose</th></tr>
+<tr><td>Prefix (as)</td><td>import 'lib.dart' as myLib;</td><td>Give the library an alias to avoid naming conflicts</td></tr>
 <tr><td>Import only part (show)</td><td>import 'lib.dart' show foo, bar;</td><td>Import only the specified names</td></tr>
 <tr><td>Exclude part (hide)</td><td>import 'lib.dart' hide foo;</td><td>Import everything except the specified names</td></tr>
 <tr><td>Lazy loading (deferred as)</td><td>import 'lib.dart' deferred as lib;</td><td>Load on demand to reduce startup time</td></tr>
 </table>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Practical usage of various import modifiers:</p>
 <div class="example_code">
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span><span style="font-weight: bold;">;</span>              <span style="color: #999988; font-style: italic;">// 标准导入</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> <span style="font-weight: bold;">as</span> math<span style="font-weight: bold;">;</span>      <span style="color: #999988; font-style: italic;">// 前缀导入：使用 math.pow() 而非 pow()</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> show pi<span style="font-weight: bold;">,</span> sqrt<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 只导入 pi 和 sqrt</span><br/>
-<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> hide Random<span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// 导入除 Random 外的所有内容</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span><span style="font-weight: bold;">;</span>              <span style="color: #999988; font-style: italic;">// Standard import</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> <span style="font-weight: bold;">as</span> math<span style="font-weight: bold;">;</span>      <span style="color: #999988; font-style: italic;">// Prefix import: use math.pow() instead of pow()</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> show pi<span style="font-weight: bold;">,</span> sqrt<span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Import only pi and sqrt</span><br/>
+<span style="font-weight: bold;">import</span> <span style="color: #d14;">'dart:math'</span> hide Random<span style="font-weight: bold;">;</span>    <span style="color: #999988; font-style: italic;">// Import everything except Random</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 标准导入</span><br/>
+  <span style="color: #999988; font-style: italic;">// Standard import</span><br/>
   print<span style="">(</span><span style="color: #d14;">'sin(0) = ${sin(0)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 前缀导入：需要通过前缀访问</span><br/>
+  <span style="color: #999988; font-style: italic;">// Prefix import: needs to be accessed via prefix</span><br/>
   print<span style="">(</span><span style="color: #d14;">'cos(0) = ${math.cos(0)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// show 导入：只能使用 pi 和 sqrt</span><br/>
+  <span style="color: #999988; font-style: italic;">// show import: only pi and sqrt can be used</span><br/>
   print<span style="">(</span><span style="color: #d14;">'π = $pi'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   print<span style="">(</span><span style="color: #d14;">'sqrt(16) = ${sqrt(16)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// print(sin(0));  // 错误：sin 没有被导入</span><br/>
+  <span style="color: #999988; font-style: italic;">// print(sin(0));  // Error: sin is not imported</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// hide 导入：Random 不可用，其他都可以</span><br/>
+  <span style="color: #999988; font-style: italic;">// hide import: Random is unavailable, everything else is available</span><br/>
   print<span style="">(</span><span style="color: #d14;">'max(3, 7) = ${max(3, 7)}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// Random();  // 错误：Random 被排除了</span><br/>
+  <span style="color: #999988; font-style: italic;">// Random();  // Error: Random is excluded</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -356,27 +356,27 @@ lib/
 │       └── helpers.dart     # 工具函数
 </pre>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Using export to create an aggregate library entry point:</p>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 文件：lib/my_package.dart</span><br/>
-<span style="color: #999988; font-style: italic;">// 聚合导出：将所有公开 API 统一暴露</span><br/>
+<span style="color: #999988; font-style: italic;">// File: lib/my_package.dart</span><br/>
+<span style="color: #999988; font-style: italic;">// Aggregate export: uniformly exposes all public APIs</span><br/>
 <br/>
 <span style="font-weight: bold;">export</span> <span style="color: #d14;">'src/models/user.dart'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">export</span> <span style="color: #d14;">'src/services/api_service.dart'</span><span style="font-weight: bold;">;</span><br/>
-<span style="color: #999988; font-style: italic;">// 只导出 helpers 中的部分内容</span><br/>
+<span style="color: #999988; font-style: italic;">// Only export part of the contents in helpers</span><br/>
 <span style="font-weight: bold;">export</span> <span style="color: #d14;">'src/utils/helpers.dart'</span> show formatDate<span style="font-weight: bold;">,</span> validateEmail<span style="font-weight: bold;">;</span><br/>
 </div>
 </div>
 <p>This way, users only need to import one file:</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 使用者只需导入入口文件</span><br/>
+<span style="color: #999988; font-style: italic;">// Users only need to import the entry file</span><br/>
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:my_package/my_package.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 可以直接使用所有 export 的类</span><br/>
+  <span style="color: #999988; font-style: italic;">// Can directly use all exported classes</span><br/>
   <span style="font-weight: bold;">var</span> user <span style="font-weight: bold;">=</span> User<span style="">(</span><span style="color: #d14;">'runoob'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> api <span style="font-weight: bold;">=</span> ApiService<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
@@ -388,25 +388,25 @@ lib/
 <p>However, you can use the library keyword to explicitly declare a library name, and use part/part of to split large libraries.</p>
 <h3>Using library to declare a library name</h3>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 文件：lib/calculator.dart</span><br/>
-<span style="color: #999988; font-style: italic;">// library 声明库名（可选，但有助于文档化）</span><br/>
+<span style="color: #999988; font-style: italic;">// File: lib/calculator.dart</span><br/>
+<span style="color: #999988; font-style: italic;">// library declares the library name (optional, but helpful for documentation)</span><br/>
 <span style="font-weight: bold;">library</span> calculator<span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">/// 加法运算</span><br/>
+<span style="color: #999988; font-style: italic;">/// Addition operation</span><br/>
 <span style="color: #445588; font-weight: bold;">int</span> add<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> a<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> b<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> a <span style="font-weight: bold;">+</span> b<span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">/// 减法运算</span><br/>
+<span style="color: #999988; font-style: italic;">/// Subtraction operation</span><br/>
 <span style="color: #445588; font-weight: bold;">int</span> subtract<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> a<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> b<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> a <span style="font-weight: bold;">-</span> b<span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">/// 乘法运算</span><br/>
+<span style="color: #999988; font-style: italic;">/// Multiplication operation</span><br/>
 <span style="color: #445588; font-weight: bold;">int</span> multiply<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> a<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> b<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> a <span style="font-weight: bold;">*</span> b<span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">/// 除法运算，除数为 0 时抛出异常</span><br/>
+<span style="color: #999988; font-style: italic;">/// Division operation, throws an exception when the divisor is 0</span><br/>
 <span style="color: #445588; font-weight: bold;">double</span> divide<span style="">(</span><span style="color: #445588; font-weight: bold;">int</span> a<span style="font-weight: bold;">,</span> <span style="color: #445588; font-weight: bold;">int</span> b<span style="">)</span> <span style="">{</span><br/>
   <span style="font-weight: bold;">if</span> <span style="">(</span>b <span style="font-weight: bold;">==</span> <span style="color: #009999;">0</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="font-weight: bold;">throw</span> ArgumentError<span style="">(</span><span style="color: #d14;">'除数不能为 0'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    <span style="font-weight: bold;">throw</span> ArgumentError<span style="">(</span><span style="color: #d14;">Divisor cannot be 0</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
   <span style="font-weight: bold;">return</span> a <span style="font-weight: bold;">/</span> b<span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
@@ -415,37 +415,37 @@ lib/
 <h3>Use part to split large libraries</h3>
 <p>When a library's code is too long, you can use part to split it into multiple physical files, but they still logically belong to the same library.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>Main file declares part:</p>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 文件：lib/user_system.dart</span><br/>
-<span style="color: #999988; font-style: italic;">// 主库文件</span><br/>
+<span style="color: #999988; font-style: italic;">// File: lib/user_system.dart</span><br/>
+<span style="color: #999988; font-style: italic;">// Main library file</span><br/>
 <span style="font-weight: bold;">library</span> user_system<span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 声明组成这个库的其他文件</span><br/>
+<span style="color: #999988; font-style: italic;">// Declare the other files that make up this library</span><br/>
 <span style="font-weight: bold;">part</span> <span style="color: #d14;">'src/user_model.dart'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">part</span> <span style="color: #d14;">'src/user_service.dart'</span><span style="font-weight: bold;">;</span><br/>
 <span style="font-weight: bold;">part</span> <span style="color: #d14;">'src/user_validator.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 库级别的公开 API</span><br/>
+<span style="color: #999988; font-style: italic;">// Library-level public API</span><br/>
 String libraryVersion <span style="font-weight: bold;">=</span> <span style="color: #d14;">'1.0.0'</span><span style="font-weight: bold;">;</span><br/>
 </div>
 </div>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <p>part file declares part of:</p>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 文件：lib/src/user_model.dart</span><br/>
-<span style="color: #999988; font-style: italic;">// part of 声明自己属于哪个库</span><br/>
+<span style="color: #999988; font-style: italic;">// File: lib/src/user_model.dart</span><br/>
+<span style="color: #999988; font-style: italic;">// part of declares which library this file belongs to</span><br/>
 <span style="font-weight: bold;">part</span> of <span style="color: #d14;">'../user_system.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 可以访问主库中的 libraryVersion</span><br/>
+<span style="color: #999988; font-style: italic;">// Can access libraryVersion in the main library</span><br/>
 <span style="font-weight: bold;">class</span> User <span style="">{</span><br/>
   String name<span style="font-weight: bold;">;</span><br/>
   User<span style="">(</span><span style="font-weight: bold;">this</span>.<span style="color: #006633;">name</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #445588; font-weight: bold;">void</span> printVersion<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'RUNOOB User 模块版本: $libraryVersion'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'RUNOOB User module version: $libraryVersion'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -454,31 +454,26 @@ String libraryVersion <span style="font-weight: bold;">=</span> <span style="col
 <hr/>
 <h2>Dart core library overview</h2>
 <table class="reference">
-<tr><th>库名</th><th>导入方式</th><th>主要功能</th></tr>
-<tr><td>dart:core</td><td>自动导入</td><td>Basic types, collections, exceptions, etc.</td></tr>
+<tr><th>Library name</th><th>Import method</th><th>Main Features</th></tr>
+<tr><td>dart:core</td><td>Automatic import</td><td>Basic types, collections, exceptions, etc.</td></tr>
 <tr><td>dart:math</td><td>import 'dart:math';</td><td>Mathematical constants and functions</td></tr>
-<tr><td>dart:convert</td><td>import 'dart:convert';</td><td>JSON、UTF-8、Base64 编解码</td></tr>
+<tr><td>dart:convert</td><td>import 'dart:convert';</td><td>JSON, UTF-8, Base64 encoding/decoding</td></tr>
 <tr><td>dart:io</td><td>import 'dart:io';</td><td>File, network, and process operations</td></tr>
 <tr><td>dart:async</td><td>import 'dart:async';</td><td>Asynchronous tools such as Future, Stream, etc.</td></tr>
 <tr><td>dart:collection</td><td>import 'dart:collection';</td><td>More collection types (Queue, etc.)</td></tr>
 <tr><td>dart:developer</td><td>import 'dart:developer';</td><td>Debugging and performance analysis tools</td></tr>
 </table>
-<p>dart:core is automatically imported, so you don't need to write import 'dart:core' to use basic types like int, String, List, Map, etc.</p>
-其他扩展
-</div>
+<p>dart:core is automatically imported, so you don't need to write import 'dart:core' to use basic types like int, String, List, Map, etc.</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-exception-handling.html" rel="prev">Dart 异常处理</a> </div>
-<div class="next-design-link"><a href="../dart/dart-typedef.html" rel="next">Dart typedef 与函数类型</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../dart/dart-exception-handling.html" rel="prev">Dart Exception Handling</a> </div>
+<div class="next-design-link"><a href="../dart/dart-typedef.html" rel="next">Dart typedef and Function Types</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -582,16 +577,16 @@ String libraryVersion <span style="font-weight: bold;">=</span> <span style="col
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -599,14 +594,14 @@ String libraryVersion <span style="font-weight: bold;">=</span> <span style="col
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31423"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -784,7 +779,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -875,7 +870,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

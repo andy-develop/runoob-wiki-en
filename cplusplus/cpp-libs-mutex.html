@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>C++ 标准库 &lt;mutex&gt; | 菜鸟教程</title>
+<title>C++ Standard Library &lt;mutex&gt; | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="C++ 标准库 &amp;lt;mutex&amp;gt;  在多线程编程中，确保数据的一致性和线程安全是至关重要的。  C++ 标准库提供了一套丰富的同步原语，用于控制对共享资源的访问。 C++ 标准库中的 &amp;lt;mutex&amp;gt; 头文件提供了一组工具，用于在多线程程序中实现线程间的同步和互斥。 &amp;lt;mutex&amp;gt; 头文件是 C++11 引入的，它包含了用于互斥锁（mutex）的类和函数。互.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cplusplus/cpp-libs-condition_variable.html" rel="prev">C++ 标准库 &lt;condition_variable&gt;</a> </div>
-<div class="next-design-link"><a href="../cplusplus/cpp-libs-thread.html" rel="next">C++ 多线程库 &lt;thread&gt;</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cplusplus/cpp-libs-condition_variable.html" rel="prev">C++ Standard Library &lt;condition_variable&gt;</a> </div>
+<div class="next-design-link"><a href="../cplusplus/cpp-libs-thread.html" rel="next">C++ Multithreading Library &lt;thread&gt;</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -169,30 +169,30 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>In the C++ standard library,<code>&lt;mutex&gt;</code>The header file provides a set of tools for implementing synchronization and mutual exclusion between threads in multithreaded programs.</p>
 <p><code>&lt;mutex&gt;</code>The header file was introduced in C++11 and contains classes and functions for mutex locks. A mutex lock is a synchronization mechanism used to prevent multiple threads from accessing shared resources at the same time.</p>
 <p>A mutex is a synchronization primitive used to control access to shared resources. When a thread needs to access a shared resource, it attempts to lock the mutex. If the mutex has already been locked by another thread, the requesting thread will be blocked until the mutex is released.</p>
-<h2>基本语法</h2>
-<p>在 C++ 中，<code>&lt;mutex&gt;</code>The header file provides the following main classes:</p>
+<h2>Basic Syntax</h2>
+<p>In C++,<code>&lt;mutex&gt;</code>The header file provides the following main classes:</p>
 <ul>
 <li><code>std::mutex</code>: Basic mutex.</li>
 <li><code>std::recursive_mutex</code>: Recursive mutex lock, allowing the same thread to lock multiple times.</li>
 <li><code>std::timed_mutex</code>: Mutex with timeout functionality.</li>
 <li><code>std::recursive_timed_mutex</code>: Recursive mutex with timeout functionality.</li>
 </ul>
-<h2>实例</h2>
-<h3>1. 使用<code>std::mutex</code></h3>
+<h2>Example</h2>
+<h3>1. Usage<code>std::mutex</code></h3>
 <p>The following is a simple example showing how to use in C++<code>std::mutex</code>to synchronize access to shared resources.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;iostream&gt;</span><br/>
 <span style="color: #060;">#include &lt;thread&gt;</span><br/>
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <br/>
-std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span> <span style="color: #666666;">// 全局互斥锁</span><br/>
+std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span> <span style="color: #666666;">// Global mutex lock</span><br/>
 <span style="color: #05a;">int</span> shared_resource <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">void</span> increment<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">for</span> <span style="color: #008000;">(</span><span style="color: #05a;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> <span style="color: #0000DD;">10000</span><span style="color: #008080;">;</span> <span style="color: #000040;">++</span>i<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        mtx.<span style="color: #007788;">lock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 锁定互斥锁</span><br/>
+        mtx.<span style="color: #007788;">lock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Lock the mutex</span><br/>
         <span style="color: #000040;">++</span>shared_resource<span style="color: #008080;">;</span><br/>
-        mtx.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 解锁互斥锁</span><br/>
+        mtx.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Unlock the mutex</span><br/>
     <span style="color: #008000;">}</span><br/>
 <span style="color: #008000;">}</span><br/>
 <br/>
@@ -207,43 +207,43 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</s
     <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div>
-<p>输出结果：</p>
+<p>Output result:</p>
 <pre>
 Final value of shared_resource: 20000</pre>
-<h3>2. 使用<code>std::recursive_mutex</code></h3>
-<p>A recursive mutex lock allows the same thread to lock the same mutex multiple times. The following is an example using<code>std::recursive_mutex</code>的示例。</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<h3>2. Usage<code>std::recursive_mutex</code></h3>
+<p>A recursive mutex lock allows the same thread to lock the same mutex multiple times. The following is an example using<code>std::recursive_mutex</code>Example.</p>
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;iostream&gt;</span><br/>
 <span style="color: #060;">#include &lt;thread&gt;</span><br/>
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <br/>
-std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span> rmtx<span style="color: #008080;">;</span> <span style="color: #666666;">// 创建一个递归 mutex 对象</span><br/>
-<span style="color: #05a;">int</span> shared_resource <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 共享资源</span><br/>
+std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span> rmtx<span style="color: #008080;">;</span> <span style="color: #666666;">// Create a recursive mutex object</span><br/>
+<span style="color: #05a;">int</span> shared_resource <span style="color: #000080;">=</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Shared resource</span><br/>
 <br/>
-<span style="color: #666666;">// 递归函数</span><br/>
+<span style="color: #666666;">// Recursive function</span><br/>
 <span style="color: #05a;">void</span> recursive_increment<span style="color: #008000;">(</span><span style="color: #05a;">int</span> count<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>count <span style="color: #000080;">&lt;=</span> <span style="color: #0000DD;">0</span><span style="color: #008000;">)</span> <span style="color: #05a;">return</span><span style="color: #008080;">;</span><br/>
 <br/>
-    std<span style="color: #008080;">::</span><span style="color: #007788;">lock_guard</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>rmtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 上锁，确保线程安全</span><br/>
+    std<span style="color: #008080;">::</span><span style="color: #007788;">lock_guard</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>rmtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Lock to ensure thread safety</span><br/>
     <span style="color: #000040;">++</span>shared_resource<span style="color: #008080;">;</span><br/>
     std<span style="color: #008080;">::</span><span style="color: #05a;">cout</span> <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">"Incremented shared_resource to "</span> <span style="color: #000080;">&lt;&lt;</span> shared_resource <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">" (count = "</span> <span style="color: #000080;">&lt;&lt;</span> count <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">")"</span> <span style="color: #000080;">&lt;&lt;</span> std<span style="color: #008080;">::</span><span style="color: #007788;">endl</span><span style="color: #008080;">;</span><br/>
 <br/>
-    <span style="color: #666666;">// 递归调用</span><br/>
+    <span style="color: #666666;">// Recursive call</span><br/>
     recursive_increment<span style="color: #008000;">(</span>count <span style="color: #000040;">-</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 <br/>
 <span style="color: #05a;">int</span> main<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> t1<span style="color: #008000;">(</span>recursive_increment, <span style="color: #0000DD;">3</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 线程 t1 执行 recursive_increment(3)</span><br/>
-    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> t2<span style="color: #008000;">(</span>recursive_increment, <span style="color: #0000DD;">3</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 线程 t2 执行 recursive_increment(3)</span><br/>
+    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> t1<span style="color: #008000;">(</span>recursive_increment, <span style="color: #0000DD;">3</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Thread t1 executes recursive_increment(3)</span><br/>
+    std<span style="color: #008080;">::</span><span style="color: #007788;">thread</span> t2<span style="color: #008000;">(</span>recursive_increment, <span style="color: #0000DD;">3</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Thread t2 executes recursive_increment(3)</span><br/>
     <br/>
-    t1.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 等待线程 t1 完成</span><br/>
-    t2.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// 等待线程 t2 完成</span><br/>
+    t1.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Wait for thread t1 to finish</span><br/>
+    t2.<span style="color: #007788;">join</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span> <span style="color: #666666;">// Wait for thread t2 to finish</span><br/>
 <br/>
     std<span style="color: #008080;">::</span><span style="color: #05a;">cout</span> <span style="color: #000080;">&lt;&lt;</span> <span style="color: #a11;">"Final value of shared_resource: "</span> <span style="color: #000080;">&lt;&lt;</span> shared_resource <span style="color: #000080;">&lt;&lt;</span> std<span style="color: #008080;">::</span><span style="color: #007788;">endl</span><span style="color: #008080;">;</span><br/>
 <br/>
     <span style="color: #05a;">return</span> <span style="color: #0000DD;">0</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
-</div></div><p>输出结果：</p>
+</div></div><p>Output result:</p>
 <pre>Incremented shared_resource to 1 (count = 3)
 Incremented shared_resource to 2 (count = 2)
 Incremented shared_resource to 3 (count = 1)
@@ -254,32 +254,32 @@ Incremented shared_resource to 7 (count = 1)
 Incremented shared_resource to 8 (count = 0)
 Final value of shared_resource: 8
 </pre>
-<p><strong>代码解析：</strong></p>
-<ol><li><p><strong>创建<code>std::recursive_mutex</code>对象</strong>：<code>std::recursive_mutex rmtx;</code>Is a recursive mutex that allows the same thread to acquire the lock multiple times.</p></li><li><p><strong>共享资源</strong>：<code>int shared_resource = 0;</code>is a resource accessed by multiple threads concurrently.</p></li><li><p><strong>递归函数<code>recursive_increment</code></strong>：</p><ul><li>使用<code>std::lock_guard&lt;std::recursive_mutex&gt;</code> 对 <code>rmtx</code>Lock. Since a recursive mutex is used, the same thread can acquire the lock multiple times.</li><li>通过<code>++shared_resource</code>Increases the value of the shared resource.</li><li>The function recursively calls itself, demonstrating how a recursive function works safely when locked multiple times.</li></ul></li><li><p><strong>Creating and Running Threads</strong>：</p><ul><li><code>std::thread t1(recursive_increment, 3);</code> 和 <code>std::thread t2(recursive_increment, 3);</code>Two threads are created separately, and both will execute<code>recursive_increment(3)</code>。</li><li><code>t1.join()</code> 和 <code>t2.join()</code>Waits for two threads to complete execution.</li></ul></li></ol>
-<h2>注意事项</h2>
+<p><strong>Code Analysis:</strong></p>
+<ol><li><p><strong>Create<code>std::recursive_mutex</code>Object</strong>：<code>std::recursive_mutex rmtx;</code>Is a recursive mutex that allows the same thread to acquire the lock multiple times.</p></li><li><p><strong>Shared resource</strong>：<code>int shared_resource = 0;</code>is a resource accessed by multiple threads concurrently.</p></li><li><p><strong>Recursive function<code>recursive_increment</code></strong>：</p><ul><li>Usage<code>std::lock_guard&lt;std::recursive_mutex&gt;</code>Pair<code>rmtx</code>Lock. Since a recursive mutex is used, the same thread can acquire the lock multiple times.</li><li>Through<code>++shared_resource</code>Increases the value of the shared resource.</li><li>The function recursively calls itself, demonstrating how a recursive function works safely when locked multiple times.</li></ul></li><li><p><strong>Creating and Running Threads</strong>：</p><ul><li><code>std::thread t1(recursive_increment, 3);</code>and<code>std::thread t2(recursive_increment, 3);</code>Two threads are created separately, and both will execute<code>recursive_increment(3)</code>。</li><li><code>t1.join()</code>and<code>t2.join()</code>Waits for two threads to complete execution.</li></ul></li></ol>
+<h2>Notes</h2>
 <ul>
 <li>Ensure that after each mutex lock is acquired, an unlock operation is performed to avoid deadlock.</li>
-<li>使用<code>std::lock_guard</code> 或 <code>std::unique_lock</code>Can automatically manage the locking and unlocking of mutex locks, reducing the possibility of errors.</li>
+<li>Usage<code>std::lock_guard</code>or<code>std::unique_lock</code>Can automatically manage the locking and unlocking of mutex locks, reducing the possibility of errors.</li>
 <li>Avoid calling functions that may throw exceptions while holding a mutex lock, because this may lead to deadlock.</li>
 </ul>
 <p><code>&lt;mutex&gt;</code>Is a very important header file in the C++ standard library, providing basic synchronization mechanisms for multithreaded programming. By using mutex locks, we can ensure that access to shared resources is safe, thereby avoiding data races and inconsistency issues.</p>
 <hr/>
-<h2>更多说明</h2>
+<h2>More information</h2>
 <h3>
 1. std::mutex</h3>
 <p>Provide a basic mutex to ensure that only one thread can access shared resources at the same time.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">void</span> thread_function<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     std<span style="color: #008080;">::</span><span style="color: #007788;">lock_guard</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>mtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #666666;">// 访问共享资源</span><br/>
+    <span style="color: #666666;">// Access shared resource</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div><h3>
 2. std::recursive_mutex</h3><p>Allow the same thread to acquire the lock multiple times without causing deadlock, which is especially useful for recursive functions.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span> rmtx<span style="color: #008080;">;</span><br/>
@@ -287,12 +287,12 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">recursiv
 <span style="color: #05a;">void</span> recursive_function<span style="color: #008000;">(</span><span style="color: #05a;">int</span> count<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>count <span style="color: #000080;">&lt;=</span> <span style="color: #0000DD;">0</span><span style="color: #008000;">)</span> <span style="color: #05a;">return</span><span style="color: #008080;">;</span><br/>
     std<span style="color: #008080;">::</span><span style="color: #007788;">lock_guard</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">recursive_mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>rmtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #666666;">// 递归调用</span><br/>
+    <span style="color: #666666;">// Recursive call</span><br/>
     recursive_function<span style="color: #008000;">(</span>count <span style="color: #000040;">-</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div>
 <h3>3. std::timed_mutex</h3><p>Provides a timed mutex that can set a timeout when attempting to acquire the lock.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <span style="color: #060;">#include &lt;chrono&gt;</span><br/>
 <br/>
@@ -300,15 +300,15 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">timed_mu
 <br/>
 <span style="color: #05a;">void</span> try_lock_for_example<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span><span style="color: #05a;">tm</span>.<span style="color: #007788;">try_lock_for</span><span style="color: #008000;">(</span>std<span style="color: #008080;">::</span><span style="color: #007788;">chrono</span><span style="color: #008080;">::</span><span style="color: #007788;">seconds</span><span style="color: #008000;">(</span><span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        <span style="color: #666666;">// 成功获得锁</span><br/>
+        <span style="color: #666666;">// Successfully acquired the lock</span><br/>
         <span style="color: #05a;">tm</span>.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span> <span style="color: #05a;">else</span> <span style="color: #008000;">{</span><br/>
-        <span style="color: #666666;">// 锁获取失败</span><br/>
+        <span style="color: #666666;">// Failed to acquire the lock</span><br/>
     <span style="color: #008000;">}</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div><h3>
 4. std::recursive_timed_mutex</h3><p>Inherited from std::timed_mutex, allowing the same thread to acquire the lock multiple times while also supporting timed functionality.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <span style="color: #060;">#include &lt;chrono&gt;</span><br/>
 <br/>
@@ -317,29 +317,29 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">recursiv
 <span style="color: #05a;">void</span> recursive_timed_function<span style="color: #008000;">(</span><span style="color: #05a;">int</span> count<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>count <span style="color: #000080;">&lt;=</span> <span style="color: #0000DD;">0</span><span style="color: #008000;">)</span> <span style="color: #05a;">return</span><span style="color: #008080;">;</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>rtm.<span style="color: #007788;">try_lock_for</span><span style="color: #008000;">(</span>std<span style="color: #008080;">::</span><span style="color: #007788;">chrono</span><span style="color: #008080;">::</span><span style="color: #007788;">seconds</span><span style="color: #008000;">(</span><span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        <span style="color: #666666;">// 成功获得锁</span><br/>
+        <span style="color: #666666;">// Successfully acquired the lock</span><br/>
         recursive_timed_function<span style="color: #008000;">(</span>count <span style="color: #000040;">-</span> <span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
         rtm.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <span style="color: #008000;">}</span> <span style="color: #05a;">else</span> <span style="color: #008000;">{</span><br/>
-        <span style="color: #666666;">// 锁获取失败</span><br/>
+        <span style="color: #666666;">// Failed to acquire the lock</span><br/>
     <span style="color: #008000;">}</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div><h3>
 5. std::lock_guard</h3>
 <p>A wrapper that automatically manages std::mutex locks, using the RAII style to ensure that the lock is automatically released when the scope ends.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">void</span> function<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     std<span style="color: #008080;">::</span><span style="color: #007788;">lock_guard</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>mtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #666666;">// 访问共享资源</span><br/>
+    <span style="color: #666666;">// Access shared resource</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div><h3>
 6. std::unique_lock</h3>
 <p>Provide more flexible lock management than std::lock_guard, allowing manual release and re-acquisition of locks, and also supporting timed locking.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #060;">#include &lt;mutex&gt;</span><br/>
 <span style="color: #060;">#include &lt;chrono&gt;</span><br/>
 <br/>
@@ -347,57 +347,53 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</s
 <br/>
 <span style="color: #05a;">void</span> function<span style="color: #008000;">(</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
     std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>mtx<span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-    <span style="color: #666666;">// 访问共享资源</span><br/>
+    <span style="color: #666666;">// Access shared resource</span><br/>
     <br/>
-    <span style="color: #666666;">// 可以手动释放锁</span><br/>
+    <span style="color: #666666;">// Can manually release the lock</span><br/>
     lock.<span style="color: #007788;">unlock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <br/>
-    <span style="color: #666666;">// 可以重新获得锁</span><br/>
+    <span style="color: #666666;">// Can reacquire the lock</span><br/>
     lock.<span style="color: #007788;">lock</span><span style="color: #008000;">(</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
     <br/>
-    <span style="color: #666666;">// 可以进行定时锁定</span><br/>
+    <span style="color: #666666;">// Can perform timed locking</span><br/>
     <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>lock.<span style="color: #007788;">try_lock_for</span><span style="color: #008000;">(</span>std<span style="color: #008080;">::</span><span style="color: #007788;">chrono</span><span style="color: #008080;">::</span><span style="color: #007788;">seconds</span><span style="color: #008000;">(</span><span style="color: #0000DD;">1</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span><span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-        <span style="color: #666666;">// 成功获得锁</span><br/>
+        <span style="color: #666666;">// Successfully acquired the lock</span><br/>
     <span style="color: #008000;">}</span><br/>
 <span style="color: #008000;">}</span><br/>
 </div></div><h3>
 7. std::adopt_lock_t</h3>
 <p>A flag type used to specify that std::unique_lock adopts an existing lock.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span><br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>mtx, std<span style="color: #008080;">::</span><span style="color: #007788;">adopt_lock</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
 </div></div><h3>
 8. std::defer_lock_t</h3><p>Function: A flag type used for deferred locking, and no lock is acquired during initialization.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx<span style="color: #008080;">;</span><br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock<span style="color: #008000;">(</span>mtx, std<span style="color: #008080;">::</span><span style="color: #007788;">defer_lock</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
-<span style="color: #666666;">// 可以在之后的某个时刻调用 lock.lock()</span><br/>
+<span style="color: #666666;">// Can call lock.lock() at some later time</span><br/>
 </div></div>
 <h3>9. std::try_to_lock_t</h3>
 <p>Flag type, used to attempt locking without blocking.</p>
-<div class="example"><h2 class="example">实例</h2> <div class="example_code">
+<div class="example"><h2 class="example">Example</h2> <div class="example_code">
 std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span> mtx1, mtx2<span style="color: #008080;">;</span><br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock1<span style="color: #008000;">(</span>mtx1, std<span style="color: #008080;">::</span><span style="color: #007788;">try_to_lock</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
 std<span style="color: #008080;">::</span><span style="color: #007788;">unique_lock</span><span style="color: #000080;">&lt;</span>std<span style="color: #008080;">::</span><span style="color: #007788;">mutex</span><span style="color: #000080;">&gt;</span> lock2<span style="color: #008000;">(</span>mtx2, std<span style="color: #008080;">::</span><span style="color: #007788;">try_to_lock</span><span style="color: #008000;">)</span><span style="color: #008080;">;</span><br/>
 <br/>
 <span style="color: #05a;">if</span> <span style="color: #008000;">(</span>lock1 <span style="color: #000040;">&amp;&amp;</span> lock2<span style="color: #008000;">)</span> <span style="color: #008000;">{</span><br/>
-    <span style="color: #666666;">// 成功获得两个锁</span><br/>
+    <span style="color: #666666;">// Successfully acquired both locks</span><br/>
 <span style="color: #008000;">}</span><br/>
-</div></div> 其他扩展
-</div>
+</div></div>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cplusplus/cpp-libs-condition_variable.html" rel="prev">C++ 标准库 &lt;condition_variable&gt;</a> </div>
-<div class="next-design-link"><a href="../cplusplus/cpp-libs-thread.html" rel="next">C++ 多线程库 &lt;thread&gt;</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../cplusplus/cpp-libs-condition_variable.html" rel="prev">C++ Standard Library &lt;condition_variable&gt;</a> </div>
+<div class="next-design-link"><a href="../cplusplus/cpp-libs-thread.html" rel="next">C++ Multithreading Library &lt;thread&gt;</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -501,16 +497,16 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">unique_l
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -518,14 +514,14 @@ std<span style="color: #008080;">::</span><span style="color: #007788;">unique_l
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="25655"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -703,7 +699,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -794,7 +790,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

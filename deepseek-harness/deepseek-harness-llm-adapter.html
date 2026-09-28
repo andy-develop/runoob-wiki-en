@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DeepSeek Harness LLM 适配器：接入任意模型 | 菜鸟教程</title>
+<title>DeepSeek Harness LLM Adapter: Integrate Any Model | Runoob</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="DeepSeek Harness LLM 适配器：接入任意模型   模型提供方不止 DeepSeek 一家，想把 dsh 接到自己的模型端点，就要写一个 LLM 适配器。 本章节我们将讲 LlmAdapter 抽象类、stream() 方法、路由注册与 cordis.yml 配置。    LLM 适配器是什么 LLM 适配器是一个继承 LlmAdapter 并实现 stream() 方法的类。 它把 Harness 的提供方无关请求，转.." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,8 +158,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-build-capability.html" rel="prev">DeepSeek Harness 实战：写一个可替换的能力</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-stream-chunk.html" rel="next">DeepSeek Harness StreamChunk 协议与错误处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-build-capability.html" rel="prev">DeepSeek Harness Hands-on: Writing a Replaceable Capability</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-stream-chunk.html" rel="next">DeepSeek Harness StreamChunk Protocol and Error Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
@@ -176,21 +176,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>At the top is agent-loop, which consumes a provider-agnostic streaming generation service.</p>
 <p>In the middle is the ctx.llm registry, which maintains the abstract contract of LlmAdapter.</p>
 <p>At the bottom are the individual adapters, each connecting to a different API format.</p>
-<p>注册时用<span class="marked">ctx.llm.registerAdapter(['my-provider'], adapter)</span>绑定路由。</p>
+<p>Used when registering<span class="marked">ctx.llm.registerAdapter(['my-provider'], adapter)</span>Bind route.</p>
 <hr/>
-<h2>最小实现</h2>
+<h2>Minimal implementation</h2>
 <p>The official documentation gives a minimal skeleton; we follow it and add comments.</p>
 <p>stream() is the core, returning an async generator AsyncIterable.</p>
 <p>The three-step comments mark the standard flow: converting the message format, calling the streaming API, and converting the response into StreamChunk.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：src/my-llm-adapter.ts</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: src/my-llm-adapter.ts</span><br/>
 <span style="color: #FF0000;">import</span> type <span style="color: #009900;">{</span> Context <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/cordis'</span><br/>
 <span style="color: #FF0000;">import</span> Schema from <span style="color: #3366CC;">'@deepseek-ai/schemastery'</span><br/>
 <span style="color: #FF0000;">import</span> <span style="color: #009900;">{</span> LlmAdapter<span style="color: #339933;">,</span> type GenerateOptions<span style="color: #339933;">,</span> type StreamChunk <span style="color: #009900;">}</span> from <span style="color: #3366CC;">'@deepseek-ai/dsh-llm'</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 适配器：继承抽象类，实现 stream()</span><br/>
+<span style="color: #006600; font-style: italic;">// Adapter: inherits from the abstract class and implements stream().</span><br/>
 <span style="color: #FF0000;">class</span> MyAdapter <span style="color: #FF0000;">extends</span> LlmAdapter <span style="color: #009900;">{</span><br/>
   private apiKey<span style="color: #339933;">:</span> string<br/>
 <br/>
@@ -199,7 +199,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">apiKey</span> <span style="color: #339933;">=</span> apiKey<br/>
   <span style="color: #009900;">}</span><br/>
 <br/>
-  <span style="color: #006600; font-style: italic;">// stream() 返回异步生成器，逐片产出 StreamChunk</span><br/>
+  <span style="color: #006600; font-style: italic;">// stream() returns an async generator, yielding StreamChunk piece by piece</span><br/>
   async <span style="color: #339933;">*</span>stream<span style="color: #009900;">(</span>options<span style="color: #339933;">:</span> GenerateOptions<span style="color: #009900;">)</span><span style="color: #339933;">:</span> AsyncIterable<span style="color: #339933;">&lt;</span>StreamChunk<span style="color: #339933;">&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #006600; font-style: italic;">// 1. Convert options.messages to the provider format.</span><br/>
     <span style="color: #006600; font-style: italic;">// 2. Call the streaming API.</span><br/>
@@ -207,32 +207,32 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 插件配置：apiKey 与 providers 都必填</span><br/>
+<span style="color: #006600; font-style: italic;">// Plugin config: apiKey and providers are both required.</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #FF0000;">interface</span> Config <span style="color: #009900;">{</span><br/>
   apiKey<span style="color: #339933;">:</span> string<br/>
   providers<span style="color: #339933;">:</span> string<span style="color: #009900;">[</span><span style="color: #009900;">]</span><br/>
 <span style="color: #009900;">}</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// 同名的 Schemastery schema，加载时校验配置</span><br/>
+<span style="color: #006600; font-style: italic;">// Schemastery schema with the same name, validate configuration on load</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> Config<span style="color: #339933;">:</span> Schema<span style="color: #339933;">&lt;</span>Config<span style="color: #339933;">&gt;</span> <span style="color: #339933;">=</span> Schema.<span style="color: #660066;">object</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span><br/>
   apiKey<span style="color: #339933;">:</span> Schema.<span style="color: #660066;">string</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">required</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
   providers<span style="color: #339933;">:</span> Schema.<span style="color: #660066;">array</span><span style="color: #009900;">(</span>Schema.<span style="color: #660066;">string</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span>.<span style="color: #660066;">required</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> name <span style="color: #339933;">=</span> <span style="color: #3366CC;">'my-llm-adapter'</span><br/>
-<span style="color: #006600; font-style: italic;">// 声明依赖 llm 服务，保证 ctx.llm 已就绪</span><br/>
+<span style="color: #006600; font-style: italic;">// Declare dependency on the llm service to ensure ctx.llm is ready.</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">const</span> inject <span style="color: #339933;">=</span> <span style="color: #009900;">[</span><span style="color: #3366CC;">'llm'</span><span style="color: #009900;">]</span><br/>
 <br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #339933;">,</span> config<span style="color: #339933;">:</span> Config<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> adapter <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> MyAdapter<span style="color: #009900;">(</span>config.<span style="color: #660066;">apiKey</span><span style="color: #009900;">)</span><br/>
-  <span style="color: #006600; font-style: italic;">// 把提供方路由列表绑定到这个适配器</span><br/>
+  <span style="color: #006600; font-style: italic;">// Bind the provider route list to this adapter</span><br/>
   ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">registerAdapter</span><span style="color: #009900;">(</span>config.<span style="color: #660066;">providers</span><span style="color: #339933;">,</span> adapter<span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
 </div>
 <p>apiKey comes from the plugin configuration, avoiding hardcoding the secret into the code.</p>
 <p>The providers array declares which provider routes this adapter is responsible for.</p>
-<p>apply 里先 new MyAdapter(config.apiKey)，再 registerAdapter 完成注册。</p>
+<p>apply 里先 new MyAdapter(config.apiKey)，再 registerAdapter 完ChengRegister.</p>
 <p>inject: ['llm'] ensures apply is executed only after the ctx.llm service is ready.</p>
 <blockquote>
 <p>stream() returns an asynchronous generator that uses yield to emit chunks one by one.</p>
@@ -245,14 +245,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>The complete fields are subject to the TypeScript types exported by @deepseek-ai/dsh-llm.</p>
 <table class="reference">
 <thead>
-<tr><th>字段</th><th>说明</th></tr>
+<tr><th>Fields</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td><strong>provider</strong></td><td>Select a registered adapter</td></tr>
 <tr><td><strong>model</strong></td><td>Model IDs owned by the adapter do not need to be registered at startup.</td></tr>
-<tr><td><strong>messages</strong></td><td>对话历史</td></tr>
-<tr><td><strong>system prompt</strong></td><td>系统提示词</td></tr>
-<tr><td><strong>tools</strong></td><td>工具 schema</td></tr>
+<tr><td><strong>messages</strong></td><td>Conversation history</td></tr>
+<tr><td><strong>system prompt</strong></td><td>System prompt</td></tr>
+<tr><td><strong>tools</strong></td><td>tool schema</td></tr>
 <tr><td><strong>reasoning</strong></td><td>The reasoning effort ID supported by the adapter (optional).</td></tr>
 <tr><td><strong>signal</strong></td><td>Abort signal, used by cancellation and resource release to fully stop.</td></tr>
 </tbody>
@@ -263,12 +263,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p>Unsupported fields should raise explicit errors rather than being silently ignored; otherwise, the model will receive incomplete results.</p>
 </blockquote>
 <hr/>
-<h2>注册适配器</h2>
+<h2>Register adapter</h2>
 <p>In apply, call ctx.llm.registerAdapter to complete route registration.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: #006600; font-style: italic;">// 文件路径：src/my-llm-adapter.ts（注册片段）</span><br/>
+<span style="color: #006600; font-style: italic;">// File path: src/my-llm-adapter.ts (registration snippet)</span><br/>
 ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">registerAdapter</span><span style="color: #009900;">(</span><span style="color: #009900;">[</span><span style="color: #3366CC;">'my-provider'</span><span style="color: #009900;">]</span><span style="color: #339933;">,</span> adapter<span style="color: #009900;">)</span><br/>
 </div>
 </div>
@@ -289,10 +289,10 @@ ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">regis
 <h2>Using in cordis.yml</h2>
 <p>Load the adapter plugin together with agent-loop, and make agent-loop use the new provider and model.</p>
 <div class="example">
-<h2 class="example">实例</h2>
+<h2 class="example">Example</h2>
 <div class="example_code">
-<span style="color: blue;"># 文件路径：cordis.yml</span><br/>
-<span style="color: blue;"># 加载适配器插件，apiKey 从环境变量读取</span><span style="color: green;"><br/>
+<span style="color: blue;"># File path: cordis.yml</span><br/>
+<span style="color: blue;"># Load adapter plugin; apiKey is read from environment variables.</span><span style="color: green;"><br/>
 - id</span><span style="font-weight: bold; color: brown;">: </span>my-llm<span style="color: green;"><br/>
   name</span><span style="font-weight: bold; color: brown;">: </span>'./src/my-llm-adapter.ts'<span style="color: #007F45;"><br/>
   config</span>:<span style="color: green;"><br/>
@@ -300,7 +300,7 @@ ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">regis
     providers</span><span style="font-weight: bold; color: brown;">:<br/>
 </span>      - my-provider<br/>
 <br/>
-<span style="color: blue;"># 配置 agent-loop 使用新适配器的 provider 与 model</span><span style="color: green;"><br/>
+<span style="color: blue;"># Configure agent-loop to use the new adapter's provider and model</span><span style="color: green;"><br/>
 - id</span><span style="font-weight: bold; color: brown;">: </span>agent-loop<span style="color: green;"><br/>
   name</span><span style="font-weight: bold; color: brown;">: </span>'@deepseek-ai/dsh-agent-loop'<span style="color: #007F45;"><br/>
   config</span>:<span style="color: #007F45;"><br/>
@@ -314,35 +314,30 @@ ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">regis
 <p>The providers array registers the route my-provider to MyAdapter.</p>
 <p>Configure provider and model in agent-loop's agents.main, and generated requests will hit the new adapter.</p>
 <hr/>
-<h2>实战参考</h2>
+<h2>Practical reference</h2>
 <p>The repository has two complete existing implementations for comparison.</p>
-<p>llm-deepseek 适配 DeepSeek API，走 OpenAI 兼容格式。</p>
+<p>llm-deepseek adapts to DeepSeek API, using OpenAI-compatible format.</p>
 <p>llm-pi-ai adapts Pi AI, which uses a different API format.</p>
 <p>Comparing these two adapters shows how the same harness contract is implemented on top of different provider SDKs.</p>
 <blockquote>
 <p>Reading llm-deepseek first and then llm-pi-ai makes it easiest to see the seam idea of "contract unchanged, implementations vary."</p>
 </blockquote>
 <hr/>
-<h2>小结与自测</h2>
+<h2>Summary and self-test</h2>
 <p>One-sentence summary: LLM adapter = inherit LlmAdapter + implement stream() + registerAdapter route registration + cordis.yml configuration.</p>
 <p>Self-test question 1: What is the return type of stream()?</p>
 <p>Self-test question 2: What does the first parameter of registerAdapter represent?</p>
-<p>Self-test question 3: Which configuration options does agent-loop use to select a new adapter?</p>
-其他扩展
-</div>
+<p>Self-test question 3: Which configuration options does agent-loop use to select a new adapter?</p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-build-capability.html" rel="prev">DeepSeek Harness 实战：写一个可替换的能力</a> </div>
-<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-stream-chunk.html" rel="next">DeepSeek Harness StreamChunk 协议与错误处理</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../deepseek-harness/deepseek-harness-build-capability.html" rel="prev">DeepSeek Harness Hands-on: Writing a Replaceable Capability</a> </div>
+<div class="next-design-link"><a href="../deepseek-harness/deepseek-harness-stream-chunk.html" rel="next">DeepSeek Harness StreamChunk Protocol and Error Handling</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -446,16 +441,16 @@ ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">regis
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -463,14 +458,14 @@ ctx.<span style="color: #660066;">llm</span>.<span style="color: #660066;">regis
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="31983"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -648,7 +643,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -739,7 +734,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">

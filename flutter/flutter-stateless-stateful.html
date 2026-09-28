@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flutter StatelessWidget vs StatefulWidget  深入理解 | 菜鸟教程</title>
+<title>Flutter StatelessWidget vs StatefulWidget In-depth Understanding | Rookie Tutorial</title>
 <script>
 window.RUNOOB_CONFIG = {
   darkCssUrl: "https://www.runoob.com/wp-content/themes/runoob/dark-mode.css?v=1.125"
@@ -31,21 +31,21 @@ window.RUNOOB_CONFIG = {
   }
 })();
 </script>
-<!-- 图标 -->
+icon
 <link href="../static.char123.com/images/favicon.ico" rel="shortcut icon"/>
 <link href="../static.char123.com/images/icon/mobile-icon.png" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- 样式 -->
+style
 <link href="../wp-content/themes/runoob/style.css" media="all" rel="stylesheet"/>
 <link href="../static.jyshare.com/assets/font-awesome-4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet"/>
-<!-- jQuery（IE 条件注释已无意义，现代浏览器直接加载） -->
+jQuery (IE conditional comments are meaningless, modern browsers load directly)
 <script src="../static.char123.com/assets/libs/jquery.min.js"></script>
 <link href="../manifest.webmanifest.html" rel="manifest"/>
 <meta content="#10151c" name="theme-color"/>
 <link href="../pwa/icon-192.png.html" rel="apple-touch-icon"/>
 <meta content="菜鸟教程" name="application-name"/>
 <meta content="菜鸟教程" name="apple-mobile-web-app-title"/>
-<!-- WordPress head 钩子，必须紧贴 </head> 前 -->
+WordPress head hook, must be placed immediately before &lt;/head&gt;
 <meta content="max-image-preview:large" name="robots"/>
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
@@ -56,7 +56,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta content="Flutter StatelessWidget vs StatefulWidget 深入理解 理解 StatelessWidget 和 StatefulWidget 的区别是 Flutter 开发的基础。本节将深入分析这两种 Widget 的使用场景和内部工作机制。   核心区别 Flutter 中有两种主要类型的 Widget，它们的根本区别在于是否能持有可变状态。   特性StatelessWidgetStatefulWidget .." name="description"/>
 </head>
 <body>
-<!-- 头部 -->
+header
 <div class="container logo-search">
 <div class="col search row-search-mobile">
 <form action="../search.html" method="get">
@@ -75,7 +75,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 </div>
-<!-- 导航栏 -->
+navigation bar
 <style>
 /* 主题切换按钮 */
 /* ===== 主题变量（核心）===== */
@@ -142,11 +142,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #3b82f6;
 }
 </style>
-<!-- 导航栏 -->
-<!-- 二级导航 -->
-<!--  内容  -->
+navigation bar
+secondary navigation
+content
 <div class="container main">
-<!-- 中间 -->
+middle
 <div class="row">
 <div class="runoob-col-md2">
 <div class="left-column">
@@ -158,27 +158,27 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div> <div class="col middle-column">
 <div class="article">
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-widget-basics.html" rel="prev">Flutter Widget 基础</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-layout.html" rel="next">Flutter 布局基础</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-widget-basics.html" rel="prev">Flutter Widget Basics</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-layout.html" rel="next">Flutter Layout Basics</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
 </div>
 <div class="article-body">
 <div class="article-intro" id="content">
-<h1>Flutter StatelessWidget vs StatefulWidget 深入理解</h1>
+<h1>Flutter StatelessWidget vs StatefulWidget: In-Depth Understanding</h1>
 <p>Understanding the difference between StatelessWidget and StatefulWidget is fundamental to Flutter development.</p><p>This section will deeply analyze the usage scenarios and internal working mechanisms of these two types of Widgets.</p>
 <hr/>
-<h2>核心区别</h2>
+<h2>Core difference</h2>
 <p>In Flutter, there are two main types of Widgets, and their fundamental difference lies in whether they can hold mutable state.</p>
 <table class="reference">
-<tr><th>特性</th><th>StatelessWidget</th><th>StatefulWidget</th></tr>
-<tr><td>状态</td><td>Immutable</td><td>可变（mutable）</td></tr>
-<tr><td>重建时机</td><td>Only when the parent Widget rebuilds</td><td>When state changes + parent Widget rebuilds</td></tr>
-<tr><td>性能</td><td>Higher (no need to listen to state)</td><td>Slightly lower (requires state management)</td>
-<tr><td>使用场景</td><td>静态内容</td><td>Dynamic interactive content</td></tr>
+<tr><th>Features</th><th>StatelessWidget</th><th>StatefulWidget</th></tr>
+<tr><td>State</td><td>Immutable</td><td>mutable</td></tr>
+<tr><td>Rebuild timing</td><td>Only when the parent Widget rebuilds</td><td>When state changes + parent Widget rebuilds</td></tr>
+<tr><td>Performance</td><td>Higher (no need to listen to state)</td><td>Slightly lower (requires state management)</td>
+<tr><td>Use Case</td><td>Static content</td><td>Dynamic interactive content</td></tr>
 </tr></table>
 <hr/>
-<h2>StatelessWidget 详解</h2>
+<h2>StatelessWidget Detailed Explanation</h2>
 <p>StatelessWidget is suitable for content that does not change over time. Once created, all its properties are final and cannot be modified.</p>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>Display static text, images, icons</li>
 <li>Displaying a data list (data source comes from the parent Widget)</li>
@@ -190,14 +190,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="example_code">
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:flutter/material.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 用户信息展示组件（无状态）</span><br/>
+<span style="color: #999988; font-style: italic;">// User info display component (stateless)</span><br/>
 <span style="font-weight: bold;">class</span> UserCard <span style="font-weight: bold;">extends</span> StatelessWidget <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 属性定义为 final，确保不可变</span><br/>
+  <span style="color: #999988; font-style: italic;">// Properties are defined as final to ensure immutability</span><br/>
   <span style="font-weight: bold;">final</span> String name<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> String email<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">final</span> String avatarUrl<span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// const 构造函数提高性能</span><br/>
+  <span style="color: #999988; font-style: italic;">// const constructor improves performance</span><br/>
   <span style="font-weight: bold;">const</span> UserCard<span style="">(</span><span style="">{</span><br/>
     <span style="font-weight: bold;">super</span>.<span style="color: #006633;">key</span><span style="font-weight: bold;">,</span><br/>
     required <span style="font-weight: bold;">this</span>.<span style="color: #006633;">name</span><span style="font-weight: bold;">,</span><br/>
@@ -212,7 +212,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         padding<span style="font-weight: bold;">:</span> <span style="font-weight: bold;">const</span> EdgeInsets.<span style="color: #006633;">all</span><span style="">(</span><span style="color:#800080;">16.0</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
         child<span style="font-weight: bold;">:</span> Row<span style="">(</span><br/>
           children<span style="font-weight: bold;">:</span> <span style="">[</span><br/>
-            <span style="color: #999988; font-style: italic;">// 头像</span><br/>
+            <span style="color: #999988; font-style: italic;">// Avatar</span><br/>
             CircleAvatar<span style="">(</span><br/>
               backgroundImage<span style="font-weight: bold;">:</span> avatarUrl.<span style="color: #006633;">isNotEmpty</span><br/>
                   <span style="font-weight: bold;">?</span> NetworkImage<span style="">(</span>avatarUrl<span style="">)</span><br/>
@@ -222,7 +222,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                   <span style="font-weight: bold;">:</span> <span style="font-weight: bold;">null</span><span style="font-weight: bold;">,</span><br/>
             <span style="">)</span><span style="font-weight: bold;">,</span><br/>
             <span style="font-weight: bold;">const</span> SizedBox<span style="">(</span>width<span style="font-weight: bold;">:</span> <span style="color: #009999;">16</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
-            <span style="color: #999988; font-style: italic;">// 用户信息</span><br/>
+            <span style="color: #999988; font-style: italic;">// User info</span><br/>
             Expanded<span style="">(</span><br/>
               child<span style="font-weight: bold;">:</span> Column<span style="">(</span><br/>
                 crossAxisAlignment<span style="font-weight: bold;">:</span> CrossAxisAlignment.<span style="color: #006633;">start</span><span style="font-weight: bold;">,</span><br/>
@@ -253,19 +253,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 </div>
 <hr/>
-<h2>StatefulWidget 详解</h2>
+<h2>StatefulWidget Detailed Explanation</h2>
 <p>StatefulWidget is suitable for scenarios that need to respond to user interactions or data changes. It consists of two parts: the Widget itself (immutable) and the State object (mutable).</p>
-<h3>使用场景</h3>
+<h3>Use Case</h3>
 <ul>
 <li>Dynamic data such as counters, timers</li>
-<li>表单输入</li>
-<li>动画控制</li>
+<li>Form input</li>
+<li>Animation Control</li>
 <li>Network request status display</li>
 <li>User interaction response</li>
 </ul>
 <h3>State object lifecycle</h3>
 <table class="reference">
-<tr><th>方法</th><th>说明</th></tr>
+<tr><th>Methods</th><th>Description</th></tr>
 <tr><td>initState</td><td>Called when the Widget is first created, used to initialize state.</td></tr>
 <tr><td>didChangeDependencies</td><td>Called when the Widget's dependencies change.</td></tr>
 <tr><td>build</td><td>Builds the UI, called every time the state changes.</td></tr>
@@ -277,7 +277,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="example_code">
 <span style="font-weight: bold;">import</span> <span style="color: #d14;">'package:flutter/material.dart'</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 计数器应用</span><br/>
+<span style="color: #999988; font-style: italic;">// Counter app</span><br/>
 <span style="font-weight: bold;">class</span> CounterApp <span style="font-weight: bold;">extends</span> StatefulWidget <span style="">{</span><br/>
   <span style="font-weight: bold;">const</span> CounterApp<span style="">(</span><span style="">{</span><span style="font-weight: bold;">super</span>.<span style="color: #006633;">key</span><span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
@@ -286,42 +286,42 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <span style="">}</span><br/>
 <br/>
 <span style="font-weight: bold;">class</span> _CounterAppState <span style="font-weight: bold;">extends</span> State<span style="font-weight: bold;">&lt;</span>CounterApp<span style="font-weight: bold;">&gt;</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 计数器状态</span><br/>
+  <span style="color: #999988; font-style: italic;">// Counter state</span><br/>
   <span style="color: #445588; font-weight: bold;">int</span> _counter <span style="font-weight: bold;">=</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">;</span><br/>
-  <span style="color: #999988; font-style: italic;">// 计时器（用于演示 dispose）</span><br/>
+  <span style="color: #999988; font-style: italic;">// Timer (to demonstrate dispose)</span><br/>
   Timer<span style="font-weight: bold;">?</span> _timer<span style="font-weight: bold;">;</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 1. initState - 初始化状态</span><br/>
+  <span style="color: #999988; font-style: italic;">// 1. initState - Initialize state</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> initState<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="font-weight: bold;">super</span>.<span style="color: #006633;">initState</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-    <span style="color: #999988; font-style: italic;">// 初始化计数器</span><br/>
+    <span style="color: #999988; font-style: italic;">// Initialize counter</span><br/>
     _counter <span style="font-weight: bold;">=</span> <span style="color: #009999;">0</span><span style="font-weight: bold;">;</span><br/>
-    <span style="color: #999988; font-style: italic;">// 启动一个定时器（每秒增加一次）</span><br/>
+    <span style="color: #999988; font-style: italic;">// Start a timer (increment every second)</span><br/>
     _timer <span style="font-weight: bold;">=</span> Timer.<span style="color: #006633;">periodic</span><span style="">(</span><span style="font-weight: bold;">const</span> Duration<span style="">(</span>seconds<span style="font-weight: bold;">:</span> <span style="color: #009999;">1</span><span style="">)</span><span style="font-weight: bold;">,</span> <span style="">(</span>timer<span style="">)</span> <span style="">{</span><br/>
       _increment<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 2. didChangeDependencies - 依赖变化时调用</span><br/>
+  <span style="color: #999988; font-style: italic;">// 2. didChangeDependencies - Called when dependencies change</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> didChangeDependencies<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="font-weight: bold;">super</span>.<span style="color: #006633;">didChangeDependencies</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 3. build - 构建 UI</span><br/>
+  <span style="color: #999988; font-style: italic;">// 3. build - Build UI</span><br/>
   @override<br/>
   Widget build<span style="">(</span>BuildContext context<span style="">)</span> <span style="">{</span><br/>
     <span style="font-weight: bold;">return</span> Scaffold<span style="">(</span><br/>
       appBar<span style="font-weight: bold;">:</span> AppBar<span style="">(</span><br/>
-        title<span style="font-weight: bold;">:</span> <span style="font-weight: bold;">const</span> Text<span style="">(</span><span style="color: #d14;">'计数器'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
+        title<span style="font-weight: bold;">:</span> <span style="font-weight: bold;">const</span> Text<span style="">(</span><span style="color: #d14;">'Counter'</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
       <span style="">)</span><span style="font-weight: bold;">,</span><br/>
       body<span style="font-weight: bold;">:</span> Center<span style="">(</span><br/>
         child<span style="font-weight: bold;">:</span> Column<span style="">(</span><br/>
           mainAxisAlignment<span style="font-weight: bold;">:</span> MainAxisAlignment.<span style="color: #006633;">center</span><span style="font-weight: bold;">,</span><br/>
           children<span style="font-weight: bold;">:</span> <span style="">[</span><br/>
             <span style="font-weight: bold;">const</span> Text<span style="">(</span><br/>
-              <span style="color: #d14;">'当前计数：'</span><span style="font-weight: bold;">,</span><br/>
+              <span style="color: #d14;">'Current count:'</span><span style="font-weight: bold;">,</span><br/>
               style<span style="font-weight: bold;">:</span> TextStyle<span style="">(</span>fontSize<span style="font-weight: bold;">:</span> <span style="color: #009999;">20</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
             <span style="">)</span><span style="font-weight: bold;">,</span><br/>
             Text<span style="">(</span><br/>
@@ -334,7 +334,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <span style="">]</span><span style="font-weight: bold;">,</span><br/>
         <span style="">)</span><span style="font-weight: bold;">,</span><br/>
       <span style="">)</span><span style="font-weight: bold;">,</span><br/>
-      <span style="color: #999988; font-style: italic;">// 增加按钮</span><br/>
+      <span style="color: #999988; font-style: italic;">// Increment button</span><br/>
       floatingActionButton<span style="font-weight: bold;">:</span> FloatingActionButton<span style="">(</span><br/>
         onPressed<span style="font-weight: bold;">:</span> _increment<span style="font-weight: bold;">,</span><br/>
         child<span style="font-weight: bold;">:</span> <span style="font-weight: bold;">const</span> Icon<span style="">(</span>Icons.<span style="color: #006633;">add</span><span style="">)</span><span style="font-weight: bold;">,</span><br/>
@@ -342,24 +342,24 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 增加计数器的方法</span><br/>
+  <span style="color: #999988; font-style: italic;">// Method to increment the counter</span><br/>
   <span style="color: #445588; font-weight: bold;">void</span> _increment<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #999988; font-style: italic;">// 必须调用 setState 来触发 UI 更新</span><br/>
+    <span style="color: #999988; font-style: italic;">// Must call setState to trigger UI update</span><br/>
     setState<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
       _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span><br/>
     <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 4. didUpdateWidget - 父 Widget 重建时调用</span><br/>
+  <span style="color: #999988; font-style: italic;">// 4. didUpdateWidget - Called when parent widget rebuilds</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> didUpdateWidget<span style="">(</span>CounterApp oldWidget<span style="">)</span> <span style="">{</span><br/>
     <span style="font-weight: bold;">super</span>.<span style="color: #006633;">didUpdateWidget</span><span style="">(</span>oldWidget<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
-  <span style="color: #999988; font-style: italic;">// 5. dispose - 清理资源</span><br/>
+  <span style="color: #999988; font-style: italic;">// 5. dispose - Clean up resources</span><br/>
   @override<br/>
   <span style="color: #445588; font-weight: bold;">void</span> dispose<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #999988; font-style: italic;">// 取消定时器，防止内存泄漏</span><br/>
+    <span style="color: #999988; font-style: italic;">// Cancel timer to prevent memory leaks</span><br/>
     _timer<span style="font-weight: bold;">?</span>.<span style="color: #006633;">cancel</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     <span style="font-weight: bold;">super</span>.<span style="color: #006633;">dispose</span><span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
@@ -369,24 +369,24 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <hr/>
 <h2>Correct usage of setState</h2>
 <p>In StatefulWidget, you must notify Flutter of state changes through setState.</p>
-<h3>正确用法</h3>
+<h3>Correct Usage</h3>
 <div class="example">
 <h2 class="example">Example: Correct setState usage</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 正确：在 setState 中更新状态</span><br/>
+<span style="color: #999988; font-style: italic;">// Correct: update state in setState</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> _increment<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   setState<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 正确：状态更新与 UI 无关时可以不用 setState</span><br/>
+<span style="color: #999988; font-style: italic;">// Correct: When state update is unrelated to UI, you don't need setState</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> _someInternalLogic<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 内部逻辑，不影响 UI</span><br/>
+  <span style="color: #999988; font-style: italic;">// Internal logic, does not affect UI</span><br/>
   _calculateSomething<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 正确：异步操作后更新状态</span><br/>
+<span style="color: #999988; font-style: italic;">// Correct: Update state after async operation</span><br/>
 Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: bold;">&gt;</span> _loadData<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
   <span style="font-weight: bold;">final</span> data <span style="font-weight: bold;">=</span> await fetchData<span style="">(</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   setState<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
@@ -395,21 +395,21 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 <span style="">}</span><br/>
 </div>
 </div>
-<h3>错误用法</h3>
+<h3>Wrong usage</h3>
 <div class="example">
 <h2 class="example">Example: Incorrect setState usage</h2>
 <div class="example_code">
-<span style="color: #999988; font-style: italic;">// 错误：修改状态但不调用 setState</span><br/>
+<span style="color: #999988; font-style: italic;">// Wrong: Modifying state without calling setState</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> _increment<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-  _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 状态已改变，但 UI 不会更新！</span><br/>
+  _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// State has changed, but the UI won't update!</span><br/>
 <span style="">}</span><br/>
 <br/>
-<span style="color: #999988; font-style: italic;">// 错误：在 build 方法中调用 setState</span><br/>
+<span style="color: #999988; font-style: italic;">// Wrong: Calling setState in the build method</span><br/>
 @override<br/>
 Widget build<span style="">(</span>BuildContext context<span style="">)</span> <span style="">{</span><br/>
-  <span style="color: #999988; font-style: italic;">// 永远不要在 build 中调用 setState！</span><br/>
+  <span style="color: #999988; font-style: italic;">// Never call setState in build!</span><br/>
   setState<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// 这会导致无限循环</span><br/>
+    _counter<span style="font-weight: bold;">++</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// This leads to an infinite loop</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">return</span> Text<span style="">(</span><span style="color: #d14;">'$_counter'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
@@ -420,37 +420,32 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <p>Frequent calls to setState or calling setState within the build method can both lead to performance issues.</p>
 </blockquote>
 <hr/>
-<h2>如何选择</h2>
+<h2>How to choose</h2>
 <p>During development, you should choose the appropriate Widget type based on actual needs:</p>
-<h3>选择 StatelessWidget 当</h3>
+<h3>Choose StatelessWidget when</h3>
 <ul>
 <li>The Widget's appearance does not depend on any mutable state.</li>
 <li>All required data is passed in from the parent Widget via the constructor.</li>
 <li>The Widget does not need to respond to user interactions.</li>
 <li>Pursuing optimal performance</li>
 </ul>
-<h3>选择 StatefulWidget 当</h3>
+<h3>Choose StatefulWidget when</h3>
 <ul>
 <li>The Widget needs to maintain internal state.</li>
 <li>Needs to respond to user input (clicks, swipes, etc.)</li>
 <li>Needs to respond to data changes (e.g., network request responses)</li>
 <li>Need to control animations</li>
-</ul>
-其他扩展
-</div>
+</ul>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">
-<div class="post-intro" id="ai-info" style="width: 100%;">AI 思考中...</div>
+<div class="post-intro" id="ai-info" style="width: 100%;">AI thinking...</div>
 </div>
 </div>
 <div class="previous-next-links">
-<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-widget-basics.html" rel="prev">Flutter Widget 基础</a> </div>
-<div class="next-design-link"><a href="../flutter/flutter-layout.html" rel="next">Flutter 布局基础</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
-</div>
-
-笔记列表
-<style>
+<div class="previous-design-link"><i aria-hidden="true" class="fa fa-arrow-left" style="font-size:16px;"></i> <a href="../flutter/flutter-widget-basics.html" rel="prev">Flutter Widget Basics</a> </div>
+<div class="next-design-link"><a href="../flutter/flutter-layout.html" rel="next">Flutter Layout Basics</a> <i aria-hidden="true" class="fa fa-arrow-right" style="font-size:16px;"></i></div>
+</div>note list<style>
 .wrapper {
   /*text-transform: uppercase; */
   background: #ececec;
@@ -554,16 +549,16 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <div class="no_webshot" id="respond">
 <div class="comment-signarea" style=" padding: 20px 20px;">
 <h3 class="text-muted" id="share_code" style="color: #5B80A6;"><i aria-hidden="true" class="fa fa-pencil-square-o"></i>Click me to share notes</h3>
-<p style="font-size:14px;">笔记需要是本篇文章的内容扩展！</p><br>
-	<p style="font-size:12px;"><a href="../tougao.html" target="_blank">文章投稿，可点击这里</a></p>
-	<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
-		<h3 class="text-muted"><i class="fa fa-info-circle" aria-hidden="true"></i> 分享笔记前必须<a href=";.html" class="runoob-pop">登录</a>！</h3>
-		<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">注册邀请码获取方式</a></p>
+<p style="font-size:14px;">The note must be an extension of this article's content!</p><br/>
+<p style="font-size:12px;"><a href="../tougao.html" target="_blank">For article submission, click here</a></p>
+<p style="font-size:14px;"><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
+<h3 class="text-muted"><i aria-hidden="true" class="fa fa-info-circle"></i>Before sharing notes, you must<a class="runoob-pop" href=";.html">Log in</a>！</h3>
+<p><a href="../w3cnote/runoob-user-test-intro.html" target="_blank">How to obtain the registration invitation code</a></p>
 </div>
 <form action="../wp-content/themes/runoob/option/addnote.php" id="commentform" method="post" style="display:none;">
 <div class="comt">
 <div class="comt-title">
-<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">取消</a></p>
+<i aria-hidden="true" class="fa fa-user-circle" style="font-size:36px;"></i> <p><a href=";.html" id="cancel-comment-reply-link">Cancel</a></p>
 </div>
 <div class="comt-box">
 <div id="mded"></div>
@@ -571,14 +566,14 @@ Widget build<span style="">(</span>BuildContext context<span style="">)</span> <
 <div class="comt-tips"><input id="comment_post_ID" name="comment_post_ID" type="hidden" value="29916"/>
 <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
 </div>
-<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>分享笔记</button>
+<button id="submit" name="submit" tabindex="5" type="submit"><i aria-hidden="true" class="fa fa-pencil"></i>Share note</button>
 </div>
 </div>
 <div class="comt-comterinfo">
 <ul id="comment-author-info">
-<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">昵称 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">邮箱 (必填)</span></li>
-<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">引用地址</span></li>
+<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" id="author" name="author" placeholder="昵称" tabindex="2" type="text" value=""/><span class="text-muted">Nickname (required)</span></li>
+<li class="form-inline"><label class="hide" for="email">Email</label><input class="ipt" id="email" name="email" placeholder="邮箱" tabindex="3" type="text" value=""/><span class="text-muted">Email (required)</span></li>
+<li class="form-inline"><label class="hide" for="url">Reference address</label><input class="ipt" id="url" name="url" placeholder="引用地址" tabindex="4" type="text" value=""/><span class="text-muted">Reference address</span></li>
 </ul>
 </div>
 </div>
@@ -756,7 +751,7 @@ function kFormatter(num) {
 <script src="../static.char123.com/assets/simditor/2.3.6/scripts/simditor-autosave.js" type="text/javascript"></script>
 </div>
 </div>
-<!-- 右边栏 -->
+right sidebar
 <div class="fivecol last right-column">
 <style>
 .sidebar-tree .double-li {
@@ -847,7 +842,7 @@ function coll() {
 
 })();
 </script>
-<!-- 反馈对话框开始 -->
+feedback dialog start
 <script src="../wp-content/themes/runoob/assets/js/runoob-article-dir.min.js"></script>
 <div class="fixed-btn">
 <a class="go-top" href="#" title="返回顶部">
