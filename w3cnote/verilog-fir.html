@@ -97,7 +97,7 @@ Android Basic Tutorial end
 <p>FIR (Finite Impulse Response) filter is a finite-length unit impulse response filter, also known as a non-recursive filter.</p><p>FIR filters have strict linear phase-frequency characteristics, and their unit response is finite, so they are stable systems and are widely used in digital communications, image processing, and other fields.</p>
 <h3>FIR Filter Principle</h3>
 <p>FIR filter is a finite-length unit impulse response filter. The direct-form structure is as follows:</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/10/D9lZSuIQcPTnGJfB.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/D9lZSuIQcPTnGJfB.png"/></p>
 <p>The FIR filter is essentially the convolution of the input signal with the unit impulse response function, expressed as follows:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/10/wa2y7ATjbJV2jmFR.png"/></p>
 <p>The FIR filter has the following characteristics:</p>
@@ -345,16 +345,16 @@ Android Basic Tutorial end
 </div></div>
 <p><strong>Simulation Results</strong></p>
 <p>From the simulation results in the figure below, the signal after the FIR filter contains only one low-frequency signal (250KHz), and the high-frequency signal (7.5MHz) has been filtered out. Moreover, the output waveform is continuous and can be output continuously.</p><p>However, as shown in the red circle, the beginning of the waveform is irregular. Zoom in on this part.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/10/HtNqJpEq5lJ3xDjO.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/HtNqJpEq5lJ3xDjO.png"/></p>
 <p>After zooming in on the beginning of the waveform, as shown in the figure below, it can be seen that the time period of the irregular waveform, i.e., the time interval between the two vertical lines, is 16 clock cycles.</p><p>Because the data is input serially and 16 sets of delay registers are used in the design, the first normal point after filtering should be delayed by 16 clock cycles from the first filtered data output moment. That is, the data output valid signal valid should be delayed by another 16 clock cycles, which will make the output waveform more perfect.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/10/Uu7ivtcmfUQpkR5N.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/Uu7ivtcmfUQpkR5N.png"/></p>
 <h3>Appendix: matlab Usage</h3>
 <p><strong>Generating FIR Filter Coefficients</strong></p>
 <p>Open matlab, and enter the command in the command window: fdatool.</p>
 <p>Then the following window will open; set the parameters according to the FIR filter.</p><p>The FIR implementation method selected here is least-squares (Least-squares). Different implementation methods produce different filtering effects.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/10/9QnVRqsnDU7qqWn1.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/9QnVRqsnDU7qqWn1.png"/></p>
 <p>Click File -&gt; Export</p><p>Export the filter parameters and store them in the variable coef, as shown in the figure below.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/10/ofJimBJSeof88y1g.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/ofJimBJSeof88y1g.png"/></p>
 <p>At this point, the coef variable should be floating-point data. Multiply it by a certain factor to expand it, and then take its approximate fixed-point data as the FIR filter parameters in the design. Here the expansion factor is 2048, and the results are as follows.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/10/CA3vJ3Bqq7INC16U.png"/></p>
 <p><strong>Generating the Input Mixed Signal</strong></p>The reference code for generating the mixed input signal using matlab is as follows.<p>The signal is unsigned fixed-point data with a bit width of 12 bits, stored in a file<strong>cosx0p25m7p5m12bit.txt</strong>。</p>

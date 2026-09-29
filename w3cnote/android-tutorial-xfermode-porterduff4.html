@@ -102,12 +102,12 @@ Android Basic Tutorial end
 <p>I don't know if you noticed a problem: when we erase the beauty's clothes, the erased areas are all squares, but when drawing on the drawing board, the lines are very smooth. Is there a way to combine the two so that when we erase clothes, it is also smooth? The answer is definitely yes, just use Xfermode! In this section, we use another mode,<strong>DST_OUT</strong>mode! Draw the destination image in non-intersecting places</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/21369612.jpg"/></p>
 <p>If you have forgotten a certain mode or haven't even seen the 18 modes, then please move on to:<a href="./android-tutorial-xfermode-porterduff2.html">Android Basic Beginner Tutorial - 8.3.5 Paint API - Xfermode and PorterDuff Detailed Explanation (II)</a>In addition, we still need to post the effect diagram of PorterDuff.Mode:</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/aHR0cHM6Ly93d3cuc.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/aHR0cHM6Ly93d3cuc.png"/></p>
 <p>Okay, without further ado, let's start the content of this section~</p></blockquote>
 <hr/>
 <h2>1. The effect picture to be achieved and implementation flow analysis:</h2>
 <p><strong>The effect picture to be achieved</strong>：</p>
-<p><img decoding="async" src="../wp-content/uploads/2015/10/xxx-222.png" width="50%"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/xxx-222.png" width="50%"/></p>
 <blockquote><p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/31236777.jpg"/>Well, I don't know how many times you've watched that GIF. I wonder if the picture suits everyone's taste. The little pig was taken from someone else's app. Don't ask me for the code number or leave your email or anything; I don't know anything~ For finding the code, ask the old driver in the group - Ji Shen. Alright, let's analyze the implementation process~</p>
 <ul>
 <li>Let's talk about the principle. In fact, there are two Bitmaps, one in front and one behind. The front one is wearing clothes, and the behind one is not wearing clothes. Then a Path is used to record the graphics drawn by the user, and then set the DST_OUT mode for our paintbrush. Then the part of DST (destination image) overlapping with the Path, which is the image wearing clothes, will become transparent! Okay, very simple! Let's refine it slowly!</li>

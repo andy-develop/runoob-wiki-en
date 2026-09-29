@@ -132,7 +132,7 @@ Android Basic Tutorial end
 <b>Code analysis:</b>Very simple. Three TextViews are set with different sizes and background colors, covering each other in sequence. Then, in the lower-right corner is the foreground image. Use android:foreground="@drawable/logo" to set the foreground image, and android:foregroundGravity="right|bottom" to set the foreground image position to the lower-right corner.</p>
 <h3>2) Cute Girl Moving with Your Finger</h3>
 <p>The effect is as follows:</p>
-<img alt="18442553" class="attachment-full" decoding="async" height="730" src="../wp-content/uploads/2015/07/18442553.jpg" width="395"/>
+<img alt="18442553" class="attachment-full" decoding="async" height="730" src="https://www.runoob.com/wp-content/uploads/2015/07/18442553.jpg" width="395"/>
 <p>Implementation process analysis:</p>
 <ul>
 <li>Step 1: First set the main.xml layout as an empty FrameLayout, and set an image background for it.</li><li>Step 2: Create a custom component class MeziView that inherits from the View class, and initialize the initial coordinates of the view in the constructor.</li><li>Step 3: Override the onDraw() method and instantiate an empty Paint brush class.</li><li>Step 4: Call BitmapFactory.decodeResource() to generate a bitmap object.</li><li>Step 5: Call canvas.drawBitmap() to draw the bitmap object of the girl.</li><li>Step 6: Check whether the image is recycled; if not, force recycle the image.</li><li>Step 7: In the main Java code, obtain the frame layout object, and instantiate a MeziView class.</li><li>Step 8: Add a touch event listener to the instantiated mezi object, override the onTouch method, change the X,Y coordinates of mezi, and call the invalidate() redraw method.</li><li>Step 9: Add the mezi object to the frame layout.</li>
@@ -230,7 +230,7 @@ public class MainActivity extends Activity {
 <h3>3) Running Cute Girl</h3>
 <p>
 <b>The effect is as follows:</b></p>
-<img decoding="async" src="../wp-content/uploads/2015/07/3405501.jpg"/>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/3405501.jpg"/>
 <p><b>Implementation flow:</b></p>
 <ul>
 <li>Step 1: Define an empty FrameLayout layout, and set the position of the foreground image to the center.</li><li>Step 2: In the Activity, obtain the FrameLayout layout, create a new Handler object, override the handlerMessage() method, and call the image update method.</li><li>Step 3: Define a custom move() method, and use switch to dynamically set the bitmap displayed by the foreground image.</li><li>Step 4: In the onCreate() method, create a Timer object, override the run method, and send an empty message to the handler every 170 milliseconds.</li>

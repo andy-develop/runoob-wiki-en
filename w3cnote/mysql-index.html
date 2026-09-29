@@ -291,7 +291,7 @@ select * from dept where dname='xxx' or loc='xx' or deptno=45 --如果条件中�
 <li>SELECT * FROM `houdunwang` WHERE `uname` LIKE 'after盾%' — uses the index</li>
 <li>SELECT * FROM `houdunwang` WHERE `uname` LIKE '%after盾%' — does not use the index</li>
 </ul>
-<p><img decoding="async" src="../wp-content/uploads/2015/06/9dc0c2bc09374310718f0dbfd1d2ec54.jpg"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/06/9dc0c2bc09374310718f0dbfd1d2ec54.jpg"/></p>
 <p>From the figure above, we can see that the type of all tables is "all", indicating a full table scan. That is, 6 6 6, for a total of 216 traversal queries.</p>
 <p>Except for the first table, which is a full table scan (necessary, as it is used to associate the other tables), the rest are "range" (obtained via index range), i.e., 6+1+1+1, for a total of 9 traversal queries.</p>
 <p>Therefore, we suggest joining as few tables as possible in multi-table joins, because if you are not careful, it becomes a terrifying Cartesian product scan. In addition, we also suggest using LEFT JOIN as much as possible, associating from the smaller table to the larger one. Because when using JOIN, the first table must be fully scanned, and using the smaller table to drive the larger one can reduce this number of scans.</p>

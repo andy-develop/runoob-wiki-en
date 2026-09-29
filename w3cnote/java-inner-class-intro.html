@@ -364,7 +364,7 @@ public com.cxh.test2.Outter$Inner(com.cxh.test2.Outter);
 <p>According to the figure above, the anonymous inner class in the test method is named Test$1.</p>
 <p>In the above code, if the final before either variable a or b is removed, this code will not compile. First, let's consider such a problem:</p>
 <p>When the test method finishes executing, the lifecycle of variable a ends. At this time, the lifecycle of the Thread object may not yet be over. So continuing to access variable a in the run method of Thread becomes impossible. But this effect still needs to be achieved. What can be done? Java uses a copying approach to solve this problem. Decompiling the bytecode of this code yields the following:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/04/021939271846598.jpg"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/04/021939271846598.jpg"/></p>
 <p>We can see that in the run method there is an instruction:</p><pre>bipush 10</pre><p>This instruction pushes the operand 10 onto the stack, indicating that a local local variable is used. This process is done by the compiler by default during compilation. If the value of the variable can be determined at compile time, the compiler by default adds a literal with equal content to the constant pool of the anonymous inner class (local inner class), or directly embeds the corresponding bytecode into the executed bytecode. In this way, the variable used by the anonymous inner class is another local variable, only its value is equal to that of the local variable in the method, so it is completely independent from the local variable in the method.</p><p>Now look at another example:</p>
 <pre>public class Test {
     public static void main(String[] args)  {
@@ -379,7 +379,7 @@ public com.cxh.test2.Outter$Inner(com.cxh.test2.Outter);
         }.start();
     }
 }</pre><p>Decompiling yields:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/04/021950384493440.jpg"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/04/021950384493440.jpg"/></p>
 <p>We can see that the constructor of the anonymous inner class Test$1 has two parameters: one is a reference to the outer class object, and the other is an int variable. Obviously, the parameter a in the test method is passed in as an argument to initialize the copy of variable a in the anonymous inner class.</p>
 <p>That is to say, if the value of the local variable can be determined at compile time, a copy is created directly in the anonymous inner class. If the value of the local variable cannot be determined at compile time, the copy is initialized by passing parameters through the constructor.</p>
 <p>From the above, it can be seen that the variable a accessed in the run method is not the local variable a in the test method at all. This solves the problem of inconsistent lifecycles mentioned earlier. But a new problem arises: since the variable a accessed in the run method and the variable a in the test method are not the same variable, what would happen if the value of variable a is changed in the run method?</p>

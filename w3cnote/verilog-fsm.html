@@ -290,7 +290,7 @@ Android Basic Tutorial end
 <p>The simulation results are as follows:</p>
 <p>It can be seen from the figure that the signal sell, which represents the product dispensing action, can be normally pulled high after coin insertion is completed, and the signal change, which represents the change-making action, can also output the correct change or no-change signal according to the input coin scenario.</p>
 <p>
-<a href="../wp-content/uploads/2020/09/ymJcSH14aenfZbDR.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/ymJcSH14aenfZbDR.png"/></a></p>
+<a href="../wp-content/uploads/2020/09/ymJcSH14aenfZbDR.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/ymJcSH14aenfZbDR.png"/></a></p>
 <h3>State Machine Modification: 2-Segment Style</h3>
 <p><strong>Merge the descriptions of segments 2 and 3 of the 3-segment state machine, keep other parts unchanged, and the state machine becomes a 2-segment description.</strong></p>
 <p>The modified parts are as follows:</p>
@@ -368,7 +368,7 @@ Android Basic Tutorial end
 </div></div>
 <p><strong>Instantiate the newly modified module above into the 3-segment testbench to perform simulation. The results are as follows:</strong></p><p>It can be seen from the figure that the product dispensing signal sell and the change signal change are one clock cycle earlier than the output of the 3-segment state machine. This is because the output signals are all blocking assignments.</p><p>As shown in the red circle parts in the figure, glitch pulses appear on the output signals. This is because the input signals are asynchronous, and the output signals are combinational logic outputs without clock drive.</p><p>In practice, if the input signals are synchronized with the clock, such glitch pulses will not appear. If the input signals are asynchronous, the signals should be synchronized first.</p>
 <p>
-<a href="../wp-content/uploads/2020/09/mLTvRsiPSEgpti4Y.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/mLTvRsiPSEgpti4Y.png"/></a></p>
+<a href="../wp-content/uploads/2020/09/mLTvRsiPSEgpti4Y.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/mLTvRsiPSEgpti4Y.png"/></a></p>
 <h3>State Machine Modification: 1-Segment Style (Use with Caution)</h3>
 <p><strong>Merge the descriptions of segments 1, 2, and 3 of the 3-segment state machine, and the state machine becomes a 1-segment description.</strong></p>
 <p>The modified parts are as follows:</p>
@@ -435,7 +435,7 @@ Android Basic Tutorial end
 <p>It can be seen from the figure that the output signals are exactly the same as those of the 3-segment state machine.</p>
 <p>The disadvantage of the 1-segment state machine is that many kinds of logic are mixed together, making later maintenance difficult. When the state machine and output signals are few, this description style can be tried.</p>
 <p>
-<a href="../wp-content/uploads/2020/09/DCvzwVT7h58iH0aN.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/DCvzwVT7h58iH0aN.png"/></a></p>
+<a href="../wp-content/uploads/2020/09/DCvzwVT7h58iH0aN.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/DCvzwVT7h58iH0aN.png"/></a></p>
 <h3>State Machine Modification: Moore Type</h3><p>If a Moore state machine is used to describe the working flow of the vending machine, then 2 more state encodings need to be added to describe the input signal and state machine state when the Mealy state machine outputs.</p><p>The Verilog code of the automatic vending machine described by the 3-segment Moore state machine is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #A52A2A; font-weight: bold;">module</span>  vending_machine_moore    <span style="color: #9F79EE;">(</span><br/>
@@ -532,7 +532,7 @@ Android Basic Tutorial end
 </div></div>
 <p><strong>Instantiate the modified Moore state machine above into the 3-segment testbench to perform simulation. The results are as follows:</strong></p>
 <p>It can be seen from the figure that the output signal is delayed by one clock cycle compared with the Mealy type 3-segment state machine. This is because entering the newly added encoding state machine requires a delay of one clock cycle. At this time, using non-blocking assignment for the output will cause the final output signal to be delayed by one clock cycle. This is also a characteristic of the Moore state machine.</p>
-<a href="../wp-content/uploads/2020/09/yEY0bJksZAfFA7ob.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/yEY0bJksZAfFA7ob.png"/></a>
+<a href="../wp-content/uploads/2020/09/yEY0bJksZAfFA7ob.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/yEY0bJksZAfFA7ob.png"/></a>
 <p><strong>When assigning the output signal, using blocking assignment can advance it by one clock cycle.</strong></p>
 <p>The output logic is modified as follows.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
@@ -554,7 +554,7 @@ Android Basic Tutorial end
 </div></div>
 <p><strong>The simulation results of blocking assignment for the output signal are as follows:</strong></p>
 <p>It can be seen from the figure that the output signal is now consistent with the 3-segment Mealy state machine.</p>
-<a href="../wp-content/uploads/2020/09/gpEFw1qJbdvRLDhS.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/gpEFw1qJbdvRLDhS.png"/></a>
+<a href="../wp-content/uploads/2020/09/gpEFw1qJbdvRLDhS.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/gpEFw1qJbdvRLDhS.png"/></a>
 <h3>Source Code Download</h3>
 <p><a class="download" download="" href="../wp-content/uploads/2020/09/6.3state-machine.zip">Download</a></p> </div>
 </div>

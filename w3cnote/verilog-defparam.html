@@ -198,7 +198,7 @@ ram_4x4    u_ram_4x4<br/>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span> <span style="color: #00008B; font-style: italic;">// test</span><br/>
 </div></div>
 <p>The simulation results are as follows:</p><p>In the yellow part of the figure, when the address is c for the first time, data 4 is written; when the address is c for the second time, data 4 is read out. It can be seen that the RAM behaves correctly at this time, and MASK is not 3, because bit2 of the RAM's Q output is not masked.</p><p>When the address is 1 for the first time, data 9 is written; when the address is 1 for the second time, the read data is 1, because at this time MASK is 7, and bit3 of the RAM's Q output signal is masked. From this, it can be seen that the MASK parameter has been correctly overridden.</p>
-<a href="../wp-content/uploads/2020/09/tnlPObwYSjF2Y5Qj.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/tnlPObwYSjF2Y5Qj.png"/></a>
+<a href="../wp-content/uploads/2020/09/tnlPObwYSjF2Y5Qj.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/tnlPObwYSjF2Y5Qj.png"/></a>
 <h3>Parameterized Module Instantiation</h3><p>The second method is to write the new parameter values into the module instantiation statement when instantiating the module, thereby overriding the original module's parameter values.</p>
 <p>For example, perform parameterized module instantiation on a RAM module with variable address and data widths:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
@@ -240,7 +240,7 @@ ram <span style="color: #5D478B;">#</span><span style="color: #9F79EE;">(</span>
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span><br/>
 </div></div>
 <p>In simulation, simply replace the instantiated module u_ram_4x4 with this instantiated module u_ram in the previous testbench, or add it again.</p><p>The simulation results are as follows. As can be seen from the figure, the parameters AW and DW of the RAM module have both been overridden to 4, and the RAM behaves correctly.</p>
-<a href="../wp-content/uploads/2020/09/ffkMeqEwZhiGqvPc.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="../wp-content/uploads/2020/09/ffkMeqEwZhiGqvPc.png"/></a>
+<a href="../wp-content/uploads/2020/09/ffkMeqEwZhiGqvPc.png" rel="noopener noreferrer" target="_blank"><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/ffkMeqEwZhiGqvPc.png"/></a>
 <h3>Differences and Suggestions</h3><p>(1) Just like module port instantiation, when doing parameterized instantiation, you can also perform parameter instantiation in order without specifying the original parameter names. For example, the instantiation of u_ram can be described as:</p>
 <pre>ram #(4, 4)   u_ram (......) ;</pre>
 <p>(2) Of course, defparam can also be used to override parameters declared in the module port declaration, and parameterized instantiation can also override parameters declared in the module body. For example, the instantiations of u_ram and u_ram_4x4 can be described as:</p>

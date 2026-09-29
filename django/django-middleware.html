@@ -208,7 +208,7 @@ MIDDLEWARE <span style="color: Gray;">=</span> <span style="color: Olive;">[</sp
 </div></div>
 <hr/>
 <h2>Methods of custom middleware classes</h2><p>The methods of a custom middleware class include: process_request and process_response.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_5.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-md_5.png"/></p>
 <h3>process_request method</h3><p>The process_request method has one parameter, request, which is the same as the request in the view function.</p>
 <p>The return value of the process_request method can be either None or an HttpResponse object.</p>
 <ul><li>If the return value is None, continue with the normal flow and pass it to the next middleware for processing.</li><li>If the return value is an HttpResponse object, Django will not execute the methods before the subsequent view function or the view function itself. Instead, starting from this middleware, it will execute the middleware in reverse order, and only execute the methods that run after the view function.</li></ul>
@@ -224,7 +224,7 @@ MIDDLEWARE <span style="color: Gray;">=</span> <span style="color: Olive;">[</sp
     <span style="color: Green;font-weight:bold;">def</span> process_request<span style="color: Olive;">(</span><span style="color: Teal;">self</span><span style="color: Gray;">,</span> request<span style="color: Olive;">)</span>:<br/>
        <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"md1  process_request method."</span><span style="color: Gray;">,</span> <span style="color: Teal;">id</span><span style="color: Olive;">(</span>request<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_1.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-md_1.gif"/></p>
 <h3>process_response</h3><p>The process_response method has two parameters: one is request, and the other is response. request is the request object, and response is the HttpResponse object returned by the view function. This method must have a return value, and it must be response.</p>
 <p>The process_response method is executed after the view function.</p>
 <p>When multiple middleware are configured, they execute in reverse order according to the registration order in MIDDLEWARE, i.e., the list index value.</p>
@@ -261,8 +261,8 @@ process_view(request, view_func, view_args, view_kwargs)</pre>The process_view m
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">md1 process_view method!</span><span style="color: Olive;">)</span> <span style="color: #a50"># Execute before the view; execute sequentially</span><br/>
         <span style="color: #a50">#return view_func(request)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_2.gif"/></p>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/md-32rdf.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-md_2.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/md-32rdf.png"/></p>
 <h3>
 process_exception</h3><p>process_exception method is as follows:</p><pre>
 process_exception(request, exception)</pre>
@@ -292,7 +292,7 @@ and neither the view function nor the process_exception method will be executed.
         <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">md1  process_exception  method!</span><span style="color: Olive;">)</span> <br/>
         <span style="color: #a50"># return HttpResponse(exception) # Return error message</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-md_3.gif"/></p>other extensions</li></ul></div>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-md_3.gif"/></p>other extensions</li></ul></div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">

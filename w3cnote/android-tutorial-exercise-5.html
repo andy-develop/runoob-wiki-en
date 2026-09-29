@@ -158,9 +158,9 @@ Android Basic Tutorial end
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928015-9168-46828sb373zsxtfj01kvg9ql.png"/></p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928015-7749-p6j1w8my03o75b0vikauotg9.png"/></p>
 <p>Finally, I felt the effect on my Meilan E2 was a bit off, so I slightly adjusted the page layout to make the image width fill the screen and the height self-adaptive. The attribute used here is<strong>android:adjustViewBounds = "true"</strong>, that is, scale width and height proportionally; also put the previous/next step text into<strong>strings.xml</strong>the file, and slightly adjust the margins:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928015-2216-rvay1y8if1c01xh6revn49zv.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928015-2216-rvay1y8if1c01xh6revn49zv.png"/></p>
 <p>Finally, let's look at the running result of our project: (tsk tsk, good-looking girls are pleasing to the eye):<img decoding="async" src="../wp-content/uploads/2017/12/1513928016-1421-5e6f63u5hwhtt13ir1omvp2k.gif"/></p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928016-2202-s733cjuawgz3fripy2tn5kpl.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928016-2202-s733cjuawgz3fripy2tn5kpl.gif"/></p>
 <p>Then merge this branch into the develop branch. Here we don't use the previous merge routine, but use rebase to merge. The specific process is as follows:</p>
 <pre>git add .
 git commit -m "fix code in as3.0"
@@ -182,14 +182,14 @@ git branch -d fix_code_as3.0.1  # 删除合并后的本地分支</pre>
 <p>Okay, the requirements are the above two points. Next, we are ready to start writing code. But before writing code, let's do a little popularization about two points regarding Log. Most of you may already know them. If you know, you can skip directly:</p>
 <h3>1) Quickly Print Log</h3>
 <p>Open Settings and click in order:<strong>Live Templates</strong> -&gt; <strong>AndroidLog</strong>Check all the log printing options. You can also write templates in the Template text below~</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928016-7093-f9tq60nafa3vy493pckxylfq.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928016-7093-f9tq60nafa3vy493pckxylfq.png"/></p>
 <p>Then just type the above log... in any code, press Enter, and the Log statement appears. The TAG is directly your current method name~</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928016-9802-srdif5h6klmy7voqu1o158wu.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928016-9802-srdif5h6klmy7voqu1o158wu.png"/></p>
 <hr/>
 <h3>2. A Primer on Using Log</h3>
 <p><strong>1) Quickly print Log print command</strong></p>
 <p>Open Settings, click in order:<strong>Live Templates</strong> -&gt; <strong>AndroidLog</strong>Check all the log printing options. You can also write templates in the Template text below~</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928016-5655-argb5mlg120rduj1l0r1mr21473n.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928016-5655-argb5mlg120rduj1l0r1mr21473n.png"/></p>
 <p>Then just type the above log... in any code, press Enter, and the Log statement appears~</p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928019-2273--1argb9tak86apko1bikglv60814.png"/></p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928020-9516-argbanqcuh91pcqb1k1evg1ctm1h.png"/></p>
@@ -213,7 +213,7 @@ git branch -d fix_code_as3.0.1  # 删除合并后的本地分支</pre>
 <h3>3) Write a Log Utility Class</h3>
 <p>As usual, first create a branch:<strong>bug<em>log</em>catch</strong>This is very simple: output during debugging, do not output in the release version. Use<strong>BuildConfig.Debug</strong>to make the judgment. The code is as follows:</p>
 <p>
-<img decoding="async" src="../wp-content/uploads/2017/12/1513928021-3638-1c1p0op3op171go0avr1fbvu8o1t.png"/></p>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928021-3638-1c1p0op3op171go0avr1fbvu8o1t.png"/></p>
 <h3>4) Write a Crash Log Collection Class</h3>
 <p>The crash log collection class depends on<strong>Application</strong>and<strong>Thread.UncaughtExceptionHandler</strong>implementation~
 When the program is because of<strong>uncaught exception</strong>When it is about to terminate and exit, it will use Thread.UncaughtExceptionHandler to query the thread that has an UncaughtExceptionHandler, and call<strong>the uncaughtException method</strong>, passing the thread and the exception as parameters. If the thread<strong>has not explicitly set an UncaughtExceptionHandler</strong>, then it will use it<strong>ThreadGroup</strong>as its UncaughtExceptionHandler, and then hand it to the default uncaught exception handler for processing. So we only need to<strong>implement the UncaughtExceptionHandler interface</strong>, override<strong>the uncaughtException method</strong>to implement our custom handling. Let's first sort out the logic checklist:</p>
@@ -225,27 +225,27 @@ When the program is because of<strong>uncaught exception</strong>When it is abou
 <li>5. Finally, restart the app; set it to restart after 1 second;</li>
 </ul>
 <p>The general logic is as above. Let's go through it step by step, starting with steps 1 and 2:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928021-8209-auoo6b3768ewaexch8wru07n.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928021-8209-auoo6b3768ewaexch8wru07n.png"/></p>
 <p>Next is the crash log, which consists of several parts: first the current time</p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928021-8270-1c1pevhabe4j1fe618ijfi1ar02m.png"/></p>
 <p>Then the app version and device info. Here we use a HashMap to store them:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928022-1456--1c1pfvm4roassp61u8s613dci33.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928022-1456--1c1pfvm4roassp61u8s613dci33.png"/></p>
 <p>Then the exception info. This is simple: just pass the exception object and call printStackTrace. Finally combine them together as:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928022-9667-1c1pgn9vp1q01kegjubir01vt13g.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928022-9667-1c1pgn9vp1q01kegjubir01vt13g.png"/></p>
 <p>Writing to the file is also solved. Next is the custom UncaughtExceptionHandler singleton, and obtaining the default UncaughtExceptionHandler handler, setting it to the custom UncaughtExceptionHandler, and also needing to override the uncaughtException method</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928022-7838--1c1pgst8nqraum2bqngp81m1l3t.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928022-7838--1c1pgst8nqraum2bqngp81m1l3t.png"/></p>
 <p>Next, we put the entire set of handling exceptions into a method. When an exception occurs, pop up a Toast to tell the user the app is about to restart, and also call the method to write the log:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928023-2375-1ph5f281ua612r716q4tch16ri4n.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928023-2375-1ph5f281ua612r716q4tch16ri4n.png"/></p>
 <p>Then in the overridden uncaughtException method, make a judgment: whether the exception has been handled by custom handling, and whether the default UncaughtExceptionHandler is null, that is:<strong>Has the exception been handled</strong>? If not handled, hand it to the custom UncaughtExceptionHandler; if handled, restart the app.</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928023-5639-0dqouhkhhna3y5fnloefgc9c.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928023-5639-0dqouhkhhna3y5fnloefgc9c.png"/></p>
 <p>Finally, add the relevant code for restarting the app, and it's done:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928023-1959--1c1phd7kbcf1c59b2n1p64dmo5g.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928023-1959--1c1phd7kbcf1c59b2n1p64dmo5g.png"/></p>
 <p>At this point, our crash log collection utility class is fully written. To enable it, you need to add the following in the onCreate() method of DrySisterApp.java:</p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928023-6308-1c1phgpbd1k0rh9hmifunq14li5t.png"/></p>
 <p>After finishing, testing whether it works is very simple: just manually trigger a crash. For example, I do a division by zero operation in the next step button:</p>
 <p><img decoding="async" src="../wp-content/uploads/2017/12/1513928023-8923-1c1phjhrv15deccc1eql44l4cg6a.png"/></p>
 <p>After running the app, click "Next", it crashes immediately. Open the built-in storage root directory and see if there is a Crash folder. If you open it and see our log file, it means success:</p>
-<p><img decoding="async" src="../wp-content/uploads/2017/12/1513928024-2285--1c1phn3or1nicvet1kcem8ehb77.png"/><img decoding="async" src="../wp-content/uploads/2017/12/1513928024-3082-e-1c1phqa9du7lk1ulle3m1a3l7k.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2017/12/1513928024-2285--1c1phn3or1nicvet1kcem8ehb77.png"/><img decoding="async" src="../wp-content/uploads/2017/12/1513928024-3082-e-1c1phqa9du7lk1ulle3m1a3l7k.png"/></p>
 <p>Done here. Merge the branch into develop, then push it to the remote repository:</p>
 <pre>git add .
 git commit -m "add LogUtils and CrashHandler"

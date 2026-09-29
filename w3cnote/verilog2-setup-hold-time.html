@@ -92,12 +92,12 @@ Android Basic Tutorial end
 <p>Hold time is the minimum time that data must remain stable after the clock trigger event arrives, so that the data can be accurately transmitted by the circuit.</p><p>It can be understood in simple terms: before the clock arrives, the data needs to be prepared in advance; after the clock arrives, the data must remain stable for a period of time. Setup time and hold time together form the data stability window, as shown in the figure below.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-1.png"/></p>
 <p><a href="./verilog2-gate-delay.html" rel="noopener" target="_blank">Section 1.3 Gate Delay</a>A simple D flip-flop has already been introduced. Now let's look at a typical rising-edge D flip-flop to illustrate the origin of setup time and hold time.</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-2.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-2.png"/></p>
 <p>G1~G4 NAND gates form a maintain-block circuit, and G5~G6 form an RS flip-flop.</p><p>The clock directly acts on gates G2/G3. When the clock is low, the G2/G3 path is closed; when it is high, the path opens for data sampling and transmission.</p><p>However, before data reaches gates G2/G3, it passes through NAND gates G4/G1, which introduces time delay. The concept of setup time is introduced to compensate for the delay of data on gates G4/G1. That is, before the clock arrives, the input data at G2/G3 needs to be ready so that the data can be sampled correctly.</p><p>After the data is sampled by the clock and before it is transmitted to the RS flip-flop for latching, it also needs to pass through gates G2/G3, which also introduces delay. Hold time is to compensate for the delay of data on gates G2/G3. That is, after the clock arrives, it must be ensured that the data can be correctly transmitted to the input ends of NAND gates G6/G5.</p><p>If the data does not meet the setup time or hold time during transmission, it will be in a metastable state, causing transmission errors.</p>
 <hr/>
 <h2>Constraints</h2>
 <h3>Setup Time Constraint</h3><p>The figure below is a typical data transmission diagram between flip-flops. Here, "Comb" represents combinational logic delay, "Clock Skew" represents clock skew, and data is triggered on the rising edge of the clock.</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-3.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-3.png"/></p>
 <p>Before the clock arrives, the data must be prepared in advance in order to be correctly sampled by the clock. This requires the data path to be faster than the clock path, i.e., the data arrival time is less than the data required time. Then the setup time constraint expression is:</p>
 <pre>Tcq + Tcomb + Tsu &lt;= Tclk + Tskew （1）</pre>
 <p>The description of each time parameter is as follows:</p>
@@ -111,10 +111,10 @@ Android Basic Tutorial end
 <h3>Timing Diagram of Setup Time and Hold Time</h3><p>A complex timing diagram regarding setup time and hold time is shown below.</p><p>Among them, the green part represents the setup time margin, and the blue part represents the hold time margin. The time margin is actually the difference between the two sides of inequality (1) or (2) when the circuit satisfies the timing constraints.</p>
 <pre>Setup time margin is: (clock path time) - (data path time)</pre>
 <p>This diagram is only for easier understanding of the derivation of setup time and hold time constraints. If it causes memory confusion here, it is recommended not to dwell on it (^_^).</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-4.png"/></p><hr/>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-4.png"/></p><hr/>
 <h2>Calculation Examples</h2><p>To better understand the concepts of setup time and hold time, and to facilitate interviews or work, some typical setup time and hold time test problems are listed here for reference.</p>
 <p>Example 1:</p><p>Considering net delay, the various delay values (unit: ns) of a circuit are as follows, and the clock period is 15ns. Please determine whether the setup time and hold time of this circuit have a violation.</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-5.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-5.png"/></p>
 <p><strong>Solution:</strong></p><p>The maximum and minimum values of delay are involved here.</p>
 <p>Since the timing constraints are required to always hold, equations (1) and (2) are transformed as:</p>
 <pre>max (data path time) &lt;= min (clock path time)
@@ -141,9 +141,9 @@ Thold &lt;= T2min</pre><p>Many delay types are not considered in this example. W
 <pre>Tcq + Tbuf + Tsu &lt;= Tclk</pre>
 <p>The maximum operating frequency of this circuit can be obtained as:</p><pre>1 / (6ns + 1ns + 3ns) = 100Mhz。</pre><p>This example is a feedback from the flip-flop to itself. You must carefully analyze the data path and the clock path. Next, let's look at an extended example of this type.</p>
 <p>Example 4:</p><ul><li>(1) What are the inherent setup time and hold time of the following circuit?</li><li>(2) What is the maximum operating frequency of this circuit?</li></ul>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-7.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-7.png"/></p>
 <p><strong>Solution:</strong></p><p>This circuit has delays on both the data path and the clock path. To achieve the same setup time and hold time constraints as the flip-flop, the timing diagrams of the flip-flop's D terminal and clock terminal CK, as well as the equivalent data terminal Data and clock terminal Clock, are as follows (I have tried very hard to draw it in a concise direction ~_~):</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-set-hold-time-8.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-set-hold-time-8.png"/></p>
 <p>(1) It can be seen from the figure:</p>
 <p>The inherent setup time of this circuit is:<strong>2.1 + 2 - 1.2 = 2.9ns</strong></p>
 <p>The inherent hold time is:<strong>1.2 + 1.5 - 2.1 = 0.6ns</strong></p>

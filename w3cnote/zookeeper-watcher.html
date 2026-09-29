@@ -141,10 +141,10 @@ Android Basic Tutorial end
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-03.png"/></p><p>The client sends requests to the server through a TCP long connection to establish a network channel. By default, the underlying implementation uses Java NIO, and it can also be configured to use Netty.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-04.png"/></p>
 <p>Flowchart of registering watcher listening events:</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-05.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/watcher-05.png"/></p>
 <h3>1. Client sends event notification request</h3>
 <p>When the Zookeeper class calls the exists method, the event listener creation is encapsulated into the request object with the watch attribute set to true. After the server returns a response, the listener event is encapsulated into the client's ZKWatchManager class.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-06.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/watcher-06.png"/></p>
 <h3>2. Server processes the watcher event request</h3>
 <p>The server-side NIOServerCnxn class is used to process requests sent by the client, ultimately calling FinalRequestProcessor, where a piece of source code adds the watcher event sent by the client:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-07.png"/></p>
@@ -156,7 +156,7 @@ Android Basic Tutorial end
 <p>The deletion call chain eventually reaches the trigger code segment for the delete node branch in the DataTree class:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-11.png"/></p>
 <p>Enter the triggerWatch method of the WatchManager class:</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-12.png"/></p><p>Continuing to trace into NIOServerCnxn, it constructs a ReplyHeader object with xid of -1 and zxid of -1, and then calls the sendResonpe method.</p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/watcher-12.png"/></p><p>Continuing to trace into NIOServerCnxn, it constructs a ReplyHeader object with xid of -1 and zxid of -1, and then calls the sendResonpe method.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-13.png"/></p>
 <h3>4. Client callback for watcher event</h3><p>The client's SendThread class readResponse method receives the event notification triggered by the server, enters the xid = -1 flow, and processes the Event.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/watcher-14.png"/></p>

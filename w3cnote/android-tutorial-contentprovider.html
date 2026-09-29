@@ -103,7 +103,7 @@ Android Basic Tutorial end
 <p>It may seem pretty badass, but it's actually very simple to use. Below, let's learn about ContentProvider~<strong>Official Documentation</strong>：<a href="http://androiddoc.qiniudn.com/guide/topics/providers/content-providers.html">ContentProvider</a>In this section, we will explain the concept of ContentProvider, provide several common examples of using the system's ContentProvider, and also cover custom ContentProvider!</p></blockquote>
 <hr/>
 <h2>1. Explanation of the ContentProvider Concept:</h2>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/08/58811327.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/08/58811327.jpg"/></p>
 <hr/>
 <h2>2. Using the ContentProvider Provided by the System</h2>
 <blockquote><p>Actually, in many cases when we use ContentProvider, it's not to expose our own data, but more often it is to<strong>ContentResolver</strong>read information from other applications. The most common ones are reading system apps, messages, contacts, multimedia information, and so on! If you want to call these ContentProviders, you need to consult the relevant API documentation yourself! In addition, different versions may correspond to different URLs! Here we explain how to obtain the URL and the corresponding database table fields, taking the most common contact as an example; for others, just Google it~<br/>① Go to the system source code file: all-src.rar -&gt; TeleponeProvider -&gt; AndroidManifest.xml to find the corresponding API<br/>② Open the emulator's file explorer, export /data/data/com.android.providers.contacts/databases/contact2.db, and view it with a SQLite graphical tool. The three core tables are:<strong>raw_contact table</strong>，<strong>data table</strong>，<strong>mimetypes table</strong>！<br/>Below are some basic operation examples:</p></blockquote>
@@ -251,7 +251,7 @@ private void AddContact() throws RemoteException, OperationApplicationException 
 }
 </pre>
 <p><b>Running result:</b></p>
-<img decoding="async" src="../wp-content/uploads/2015/08/41407183.jpg"/>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/08/41407183.jpg"/>
 <p><b>Don't forget the permission:</b></p>
 <pre>
 &lt;uses-permission android:name="android.permission.WRITE_CONTACTS"/&gt;
@@ -260,7 +260,7 @@ private void AddContact() throws RemoteException, OperationApplicationException 
 <hr/>
 <h2>3. Custom ContentProvider</h2>
 <blockquote><p>We rarely define our own ContentProvider, because we often don't want our app's data to be exposed to other apps. Even so, learning how to create a ContentProvider is still necessary — it's one more way to transfer data, right~<br/>This is a flowchart drawn earlier:</p></blockquote>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/08/40787698.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/08/40787698.jpg"/></p>
 <p>Next, let's implement it step by step:</p>
 <p>Before we start, we first need to create a database creation class (database content will be covered later~):</p>
 <p><strong>DBOpenHelper.java</strong>
@@ -403,7 +403,7 @@ public class MainActivity extends Activity {
 <p><strong>How to use it?</strong>Well, the code is still quite simple. First run the project that acts as the ContentProvider, then run the ContentResolver project, click the button to insert a piece of data, then open file explorer to take out the ContentProvider's db database, and view it with a graphical viewing tool. You will then see the inserted data. Due to time constraints, I won't demonstrate the results~</p>
 <hr/>
 <h2>4. Monitoring ContentProvider Data Changes via ContentObserver</h2>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/08/34168859.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/08/34168859.jpg"/></p>
 <p><strong>Usage Guide</strong>：</p>
 <blockquote><p>After running the program, leave it aside. When a text message is received, you can see the content of the message in logcat. You can change the Activity to a Service according to your needs and do this kind of thing in the background~</p></blockquote>
 <hr/>

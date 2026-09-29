@@ -99,7 +99,7 @@ Android Basic Tutorial end
 <hr/>
 <h2>1. Causes of the problem:</h2>
 <p>This is a diagram found online about the calling mechanism of the ListView getView method.</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/09/23101560K-0.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/09/23101560K-0.jpg"/></p>
 <p>In the above figure there is a<strong>Recycler</strong>thing. Normally the Items visible on our ListView are in memory, while the other Items are placed in this Recycler. When loading items for the first time, the convertView on the current page is NULL. When scrolled off the screen, at this time it is not null, so a new item will reuse this ConvertView!<strong>ConvertView</strong>We can write a simple example and follow the log. Below are some log diagrams after running!</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/09/64217183.jpg"/></p>
 <p>As can be seen from the figure, starting from Position 12, ConvertView is no longer null. As for what exactly this represents here, I don't know either; it seems we need to go into the source code... We just need to know that ConvertView is cached here. It is because of this reason that the CheckBox becomes misaligned. So the first solution is to not reuse this ConvertView, or to set this ConvertView to null every time in getView. However, if the number of Items to display is huge, this approach will seem very bloated. In actual development, we generally use the following solution:<strong>Find something to save the current Item CheckBox state, make a judgment during initialization, and set whether it is selected!</strong></p>

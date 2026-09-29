@@ -344,14 +344,14 @@ Android Basic Tutorial end
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span> <br/>
 </div></div>
 <p><strong>Simulation Results</strong></p><p>From the simulation results in the figure below, it can be seen that the signal after the FIR filter contains only one low-frequency signal (250KHz), and the high-frequency signal (7.5MHz) has been filtered out. For a more aesthetically pleasing waveform, the filtered data after the first 16 samples are taken as the valid output.</p><p>
-<img decoding="async" src="../wp-content/uploads/2020/10/kkReHpOO1QNe60Rs.png"/></p><p>The locally enlarged waveform is shown in the figure below. At this time, the input data valid signal en and the output data valid signal valid are pulse signals with the same period (50MHz), and are not continuously valid. However, since the working clock is 400MHz, the output will also appear as a sine wave signal with a frequency of 250KHz at a sampling frequency of 50MHz.</p><p>
-<img decoding="async" src="../wp-content/uploads/2020/10/qeQPvnHLQpg5L9Yi.png"/></p>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/kkReHpOO1QNe60Rs.png"/></p><p>The locally enlarged waveform is shown in the figure below. At this time, the input data valid signal en and the output data valid signal valid are pulse signals with the same period (50MHz), and are not continuously valid. However, since the working clock is 400MHz, the output will also appear as a sine wave signal with a frequency of 250KHz at a sampling frequency of 50MHz.</p><p>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/qeQPvnHLQpg5L9Yi.png"/></p>
 <h3>Appendix: MATLAB Usage (same as<a href="./verilog-fir.html" rel="noopener noreferrer" target="_blank">"Parallel FIR Filter Design"</a>consistent)</h3>
 <p><strong>Generate FIR Filter Coefficients</strong></p><p>Open MATLAB, enter the command in the command window: fdatool.</p><p>Then the following window will open. Set it according to the FIR filter parameters, as shown below.</p><p>The FIR implementation method selected here is the least-squares method (Least-squares). Different implementation methods also produce different filtering effects.</p>
 <p>
-<img decoding="async" src="../wp-content/uploads/2020/10/9QnVRqsnDU7qqWn1-1.png"/></p>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/9QnVRqsnDU7qqWn1-1.png"/></p>
 <p>Click File -&gt; Export</p><p>Export the filter parameters and store them in the variable coef, as shown in the figure below.</p><p>
-<img decoding="async" src="../wp-content/uploads/2020/10/ofJimBJSeof88y1g-1.png"/></p>
+<img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/ofJimBJSeof88y1g-1.png"/></p>
 <p>At this time, the coef variable should be floating-point data. Multiply it by a certain factor to scale it up, and then take its approximate fixed-point data as the FIR filter parameters in the design. Here the scaling factor is 2048, and the results are as follows.</p><p>
 <img decoding="async" src="../wp-content/uploads/2020/10/CA3vJ3Bqq7INC16U-1.png"/></p>
 <p><strong>Generate the Input Mixed Signal</strong></p><p>The reference code for generating the mixed input signal using MATLAB is as follows.</p><p>The signal is unsigned fixed-point data with a bit width of 12 bits, stored in the file<strong>cosx0p25m7p5m12bit.txt</strong> 。</p>

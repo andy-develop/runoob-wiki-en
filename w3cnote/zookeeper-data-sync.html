@@ -99,7 +99,7 @@ Android Basic Tutorial end
 <ul><li>Message Broadcast</li><li>Crash Recovery</li></ul>
 <h3>Message Broadcast</h3>
 <p>Zookeeper uses a single main process, the Leader, to receive and process all transaction requests from clients, and uses the atomic broadcast protocol of the ZAB protocol to broadcast transaction requests as Proposal proposals to all Follower nodes. When more than half of the Follower servers in the cluster provide correct ACK feedback, the Leader will send a commit message to all Follower servers again to commit this proposal. This process can be abbreviated as 2PC transaction commit. Refer to the figure below for the entire process. Note that Observer nodes are only responsible for synchronizing Leader data and do not participate in the 2PC data synchronization process.</p>
-<p><img decoding="async" src="../wp-content/uploads/2020/09/zk-data-stream-async.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/zk-data-stream-async.png"/></p>
 <h3>Crash Recovery</h3><p>Under normal circumstances, the message broadcast mode works well. However, once the Leader server crashes, or due to network issues the Leader server loses communication with more than half of the Followers, it enters crash recovery mode, and a new Leader server needs to be elected. During this process, two potential data inconsistency hazards may arise, which need to be avoided through the features of the ZAB protocol.</p>
 <ul><li>1. The Leader server crashes immediately after sending the commit message</li><li>2. The Leader server crashes immediately after just proposing a proposal</li></ul>
 <p>The recovery mode of the ZAB protocol uses the following strategies:</p>

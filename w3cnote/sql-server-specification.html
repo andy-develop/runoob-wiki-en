@@ -213,7 +213,7 @@ header
 <h2>Variable/parameter/join field types must match the field type (This is something I didn't pay much attention to before)</h2>
 <p>Avoid the extra CPU consumption caused by type conversion; the large table scans it triggers are especially severe.</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/06/a46fb7e52c3107f55b1bfd1c36a53247.png"/></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/06/ff9467e29f94f87b3ce197c1424f8e36.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/06/ff9467e29f94f87b3ce197c1424f8e36.png"/></p>
 <p>Looking at the two figures above, I think I do not need to explain further—everyone should already be clear about this.</p>
 <p>If the database field type is VARCHAR, it is best to specify the type as AnsiString in the application and explicitly specify its length.</p>
 <p>If the database field type is CHAR, it is best to specify the type as AnsiStringFixedLength in the application and explicitly specify its length.</p>
@@ -224,8 +224,8 @@ sp_executesql<br/>
 Prepared Queries<br/>
 Stored procedures</p>
 <p>Let me illustrate with a figure, haha.</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/06/7144da91cfd453fca23ba652074acb1a.png"/></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/06/b183a02f6d1b3b30b1a7c65a4d26cb90.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/06/7144da91cfd453fca23ba652074acb1a.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/06/b183a02f6d1b3b30b1a7c65a4d26cb90.png"/></p>
 <h2>Limit the number of JOINs</h2>
 <ul>
 <li>The number of table JOINs in a single SQL statement must not exceed 5.</li>
@@ -241,7 +241,7 @@ Stored procedures</p>
 <li>Distributed transactions on the database are prohibited.</li>
 </ul>
 <p>Let me illustrate with a figure.</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/06/fd37ab47480e131d108c559c88f7b8f9.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/06/fd37ab47480e131d108c559c88f7b8f9.png"/></p>
 <p>That is to say, we should not execute COMMIT TRAN only after all 1000 rows of data have been updated. Think about it—while you are updating those thousand rows, are you not exclusively occupying resources, causing other transactions to be unable to process?</p>
 <h2>Disable the return of affected row count information</h2>
 <p>Explicitly set "Set Nocount On" in SQL statements to cancel the return of affected row count information and reduce network traffic.</p>

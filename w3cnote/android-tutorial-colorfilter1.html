@@ -99,7 +99,7 @@ Android Basic Tutorial end
 <strong>Color matrix color filter</strong>：<a href="http://androiddoc.qiniudn.com/reference/android/graphics/ColorMatrixColorFilter.html">ColorMatrixColorFilter</a></p><p>
 <strong>Lighting color filter</strong>：<a href="http://androiddoc.qiniudn.com/reference/android/graphics/LightingColorFilter.html">LightingColorFilter</a></p><p>
 <strong>Blend color filter</strong><a href="http://androiddoc.qiniudn.com/reference/android/graphics/PorterDuffColorFilter.html">PorterDuffColorFilter</a></p><p>In this section we will learn about the usage of the first one, ColorMatrixColorFilter. Open the ColorMatrixColorFilter documentation,</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/39876874.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/39876874.jpg"/></p>
 <p>It roughly says: use a 4 x 5 color matrix to transform colors, can modify pixel saturation, convert YUV to RGB, etc. And the ColorMatrix in the constructor is the color matrix, which is also the core of our study. Let me explain it one by one!</p><p>
 PS：<a href="http://androiddoc.qiniudn.com/reference/android/graphics/ColorMatrix.html">ColorMatrix API documentation</a></p></blockquote>
 <hr/>
@@ -115,16 +115,16 @@ PS：<a href="http://androiddoc.qiniudn.com/reference/android/graphics/ColorMatr
 <hr/>
 <h2>2. Interpretation of ColorMatrix</h2>
 <blockquote><p>As the title suggests, the color matrix (4 * 5) allows us to modify the values in the matrix to achieve effects such as black-and-white photos, yellowish old photos, high contrast, etc. The hand-drawn explanation diagram of the color matrix is as follows:</p></blockquote>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/92928364.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/92928364.jpg"/></p>
 <p>I don't know if you understand the above diagram. If you've studied advanced mathematics, you must be familiar with this; it's nothing more than matrix cross multiplication. If you haven't studied it, it doesn't matter. The calculation method is the one in the lower right corner,<strong>Take each row of the color matrix and multiply it by each column of the color matrix components.</strong>！</p><p>A very typical example is comparing the results before and after processing. We can also let a certain<strong>color value be multiplied by a constant</strong>, for example, multiply the third row (blue) by 2, and the effect becomes bluish. Of course, we definitely need to write code to verify the above results!</p>
 <hr/>
 <h2>3. Write code to verify the role of ColorMatrix</h2>
 <blockquote><p>Here we write a very common example: an ImageView, 4 * 5 EditTexts, a reset button and a generate button. Let's look at the effect diagram:</p></blockquote>
 <p>In order: original image, yellowish, greenish, reddish, high contrast, hue transform, and yellow retro.</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/53679704.jpg"/> <img alt="" decoding="async" src="../wp-content/uploads/2015/10/36562322.jpg"/></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/93111170.jpg"/> <img alt="" decoding="async" src="../wp-content/uploads/2015/10/55826138.jpg"/></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/22469866.jpg"/> <img alt="" decoding="async" src="../wp-content/uploads/2015/10/71970690.jpg"/></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/41645227.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/53679704.jpg"/> <img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/36562322.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/93111170.jpg"/> <img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/55826138.jpg"/></p>
+<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/22469866.jpg"/> <img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/71970690.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/41645227.jpg"/></p>
 <p>Next, let's write code to achieve the above effects:<strong>Code implementation</strong>：</p>
 <p>First, the layout file<strong>activity_main.xml</strong>：</p>
 <pre>
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 <hr/>
 <h2>4. Using three methods of ColorMatrix to process images</h2>
 <p><strong>Running effect diagram</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/48170375.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/48170375.jpg"/></p>
 <p><strong>Code implementation</strong>：</p>
 <p>First, let's write an image processing utility class. We pass in a Bitmap, hue, saturation, and brightness; after processing, it returns the processed image:<strong>ImageHelper.java</strong>：</p>
 <pre>

@@ -221,7 +221,7 @@ insert into app01_authordetail(gender,tel,addr,birthday) values (1,13432335433,"
 
 # 再将数据插入 author，这样 author 才能找到 authordetail 
 insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任我行",58,2), ("任盈盈",23,3)</pre>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_1.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_1.gif"/></p>
 <hr/>
 <h2>ORM - Adding Data</h2>
 <h3>One-to-many (foreign key ForeignKey)</h3>
@@ -237,7 +237,7 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_2.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_2.gif"/></p>
 <p>Method 2: Passing the object id (since the data passed in is generally an id, passing the object id is commonly used).</p>
 <p>In a one-to-many relationship, in the class (the 'many' table) that sets the foreign key property, the field name displayed in MySQL is:<strong>Foreign key attribute name _id</strong>。</p>
 <p>The return value's data type is an object, a book object.</p>
@@ -253,7 +253,7 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_3.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_3.gif"/></p>
 <h3>Many-to-many (ManyToManyField): Add data in the third relationship table</h3>
 <p><strong>Method 1:</strong>Passing the object form; no return value.</p>
 <p><strong>Steps:</strong></p>
@@ -269,7 +269,7 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
     book.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>chong<span style="color: Gray;">,</span> ying<span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_4.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_4.gif"/></p>
 <p><strong>Method 2:</strong>Passing the object id form; no return value.</p>
 <p><strong>Steps:</strong></p>
 <ul><li>a. Get the id of the author object</li><li>b. Get the book object</li><li>c. Use the add method to pass the author object's id to the authors  attribute of the book object</li></ul>
@@ -284,7 +284,7 @@ insert into app01_author(name,age,au_detail_id) values ("令狐冲",25,1), ("任
     <span style="color: #a50"># Use the add method to pass the author object's id to the authors attribute of the book object</span><br/>
     book.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>pk<span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_5.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_5.gif"/></p>
 <h3>Related manager (object call)</h3>
 <p><strong>Prerequisite:</strong></p>
 <ul><li>Many-to-many (both directions have related managers)</li><li>One-to-many (only the object of the 'many' class has a related manager, i.e., only in the reverse direction)</li></ul>
@@ -303,7 +303,7 @@ book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">ad
 book_obj.<span style="color: #05a;">authors</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>*<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Gray;">,</span><span style="color: Maroon;">3</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span> <span style="color: #a50"># Add the author objects with id=1 and id=3 to this book's author set.</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_6.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_6.gif"/></p>
 <p>Reverse:<span class="marked">lowercase table name_set</span></p>
 <div class="example"> <div class="example_code">
 ying <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Yingying"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -311,7 +311,7 @@ book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book<
 ying.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_7.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_7.gif"/></p>
 <p><strong>create()</strong>: Creates a new object and adds it to the related object set at the same time.</p>
 <p>Returns the newly created object.</p>
 <div class="example"> <div class="example_code">
@@ -321,7 +321,7 @@ book <span style="color: Gray;">=</span> wo.<span style="color: #05a;">book_set<
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>book<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>book<span style="color: Olive;">)</span><span style="color: Olive;">)</span> <br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_8.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_8.gif"/></p>
 <p><strong>remove()</strong>: Removes the specified model object from the related object set.</p><p>For ForeignKey objects, this method only exists when null=True (can be empty), and has no return value.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 author_obj <span style="color: Gray;">=</span>models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Teal;">id</span><span style="color: Gray;">=</span><span style="color: Maroon;">1</span><span style="color: Olive;">)</span><br/>
@@ -329,7 +329,7 @@ book_obj <span style="color: Gray;">=</span> models.<span style="color: #05a;">B
 author_obj.<span style="color: #05a;">book_set</span>.<span style="color: #05a;">remove</span><span style="color: Olive;">(</span>book_obj<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_9.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_9.gif"/></p>
 <p><strong>clear()</strong>: Removes all objects from the related object set, deletes the relationships, but does not delete the objects.</p>
 <p>For ForeignKey objects, this method only exists when null=True (can be empty).</p>
 <p>No return value.</p>
@@ -350,7 +350,7 @@ res <span style="color: Gray;">=</span> book.<span style="color: #05a;">publish<
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_10.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_10.gif"/></p>
 <p>Query the names of books published by Mingjiao Publishing House (reverse).</p><p>Reverse:<span class="marked">object.lowercase_class_name_set (pub.book_set)</span>You can jump to the associated table (the book table).</p>
 <p>
 <strong>pub.book_set.all()</strong>: Retrieve all book objects from the book table, and within a QuerySet, iterate to fetch each book object.</p>
@@ -361,7 +361,7 @@ res <span style="color: Gray;">=</span> pub.<span style="color: #05a;">book_set<
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">title</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_11.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_11.gif"/></p>
 <h3>one-to-one</h3>
 <p>Query Linghu Chong's phone number (forward)</p>
 <p>Forward: object.attribute (author.au_detail) can jump to the associated table (author detail table)</p>
@@ -371,7 +371,7 @@ res <span style="color: Gray;">=</span> author.<span style="color: #05a;">au_det
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_12.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_12.gif"/></p>
 <p>Query the names of all authors whose address is on Black Wood Cliff (reverse).</p><p>For the reverse of one-to-one, use<strong>Object.lowercase class name</strong>is enough, no need to add _set.</p>
 <p>Reverse: object.lowercase_class_name (addr.author) can jump to the associated table (author table).</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
@@ -380,7 +380,7 @@ res <span style="color: Gray;">=</span> addr.<span style="color: #05a;">author</
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>res<span style="color: Gray;">,</span> <span style="color: Teal;">type</span><span style="color: Olive;">(</span>res<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_13.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_13.gif"/></p>
 <h3>many-to-many</h3><p>All authors' names and phone numbers in Example Tutorial (forward).</p><p>Forward:<strong>object.attribute (book.authors)</strong>You can jump to the associated table (the author table).</p><p>There is no author phone in the author table, so again through<strong>object.attribute (i.au_detail)</strong>Jump to the associated table (author detail table).</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 book <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>title<span style="color: Gray;">=</span><span style="color: #a11;">"Example"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -389,7 +389,7 @@ res <span style="color: Gray;">=</span> book.<span style="color: #05a;">authors<
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">name</span><span style="color: Gray;">,</span> i.<span style="color: #05a;">au_detail</span>.<span style="color: #05a;">tel</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_14.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_14.gif"/></p>
 <p>Query the names of all books published by Ren Woxing (reverse).</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 author <span style="color: Gray;">=</span> models.<span style="color: #05a;">Author</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Ren Woxing"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
@@ -397,7 +397,7 @@ res <span style="color: Gray;">=</span> author.<span style="color: #05a;">book_s
 <span style="color: Green;font-weight:bold;">for</span> i <span style="color: Green;font-weight:bold;">in</span> res:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>i.<span style="color: #05a;">title</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
-</div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_15.gif"/></p>
+</div></div><p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_15.gif"/></p>
 <hr/>
 <h2>Cross-table queries based on double underscores</h2>
 <h3>Forward: attribute name __ attribute name on the related table
@@ -405,23 +405,23 @@ Reverse: lowercase class name __ attribute name on the related table</h3>
 <h3>one-to-many</h3><p>Query the names and prices of all books published by Rookie Publishing House.</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
 res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Book</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>publish__name<span style="color: Gray;">=</span><span style="color: #a11;">"Rookie Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"title"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"price"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_16.gif"/></p><p>Reverse: through the lowercase class name<strong>Write class name__cross-table attribute name (book__title, book__price)</strong>Cross-table data retrieval.</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_16.gif"/></p><p>Reverse: through the lowercase class name<strong>Write class name__cross-table attribute name (book__title, book__price)</strong>Cross-table data retrieval.</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
 res <span style="color: Gray;">=</span> models.<span style="color: #05a;">Publish</span>.<span style="color: #05a;">objects</span>.<span style="color: Teal;">filter</span><span style="color: Olive;">(</span>name<span style="color: Gray;">=</span><span style="color: #a11;">"Rookie Press"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">values_list</span><span style="color: Olive;">(</span><span style="color: #a11;">"book__title"</span><span style="color: Gray;">,</span><span style="color: #a11;">"book__price"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"ok"</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_17.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_17.gif"/></p>
 <h3>many-to-many</h3><p>Query the names of all books published by Ren Woxing.</p><p>Forward: Get data across tables through attribute name __ attribute name on the related table (authors__name):</p>
 <pre>res = models.Book.objects.filter(authors__name="任我行").values_list("title")</pre>
 <p>Reverse: Get data across tables through lowercase class name __ attribute name on the related table (book__title):</p>
 <pre>res = models.Author.objects.filter(name="任我行").values_list("book__title")</pre>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_18.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_18.gif"/></p>
 <h3>one-to-one</h3>
 <p>Query Ren Woxing's phone number.</p><p>Forward: through<strong>Attribute name __ attribute name on the related table (au_detail__tel)</strong>Cross-table data retrieval.</p>
 <pre>res = models.Author.objects.filter(name="任我行").values_list("au_detail__tel")</pre>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_19.gif"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_19.gif"/></p>
 <p>Reverse: through<strong>Lowercase class name __ attribute name on the related table (author__name)</strong>Cross-table data retrieval.</p><pre>
 res = models.AuthorDetail.objects.filter(author__name="任我行").values_list("tel")</pre>
-<p><img decoding="async" src="../wp-content/uploads/2020/05/Django-orm2_20.gif"/></p>other extensions</div>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/05/Django-orm2_20.gif"/></p>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">
 <div class="archive-list-item">

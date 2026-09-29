@@ -158,7 +158,7 @@ Android Basic Tutorial end
 <span style="color: #A52A2A; font-weight: bold;">endmodule</span><br/>
 </div></div>
 <p>The timing result diagram of this method is shown below.</p><p>Obviously, in the clk2 clock domain, sampling and buffering data at time t2 is much safer than at time t1.</p>
-<p><img decoding="async" src="../wp-content/uploads/2021/05/v-slow2fast-2.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2021/05/v-slow2fast-2.png"/></p>
 <p>
 <strong>However, if the slow clock domain has no data enable signal din_en, or the data enable signal is always active, the method of detecting the rising edge of the data enable signal in the fast clock domain will fail. Because the data enable signal is always active, except for the first data, the fast clock domain will not be able to detect the transmission times of subsequent data.</strong></p><p>The solution is to detect the edge of the slow clock signal in the fast clock domain.</p><p>If the frequency difference between the two clocks is small, it may be necessary to delay-buffer the data to ensure that the sampled data corresponds to the current clock beat; if the frequency difference is large, the data sampling time can be obtained by counting, without buffering the data.</p><p>The Verilog description of detecting the slow clock edge by using the counting delayed sampling method is as follows.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">

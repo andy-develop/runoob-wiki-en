@@ -435,11 +435,11 @@ middle
 <pre>mvn test -Ptest</pre>
 <p>Tip: The first test is the Maven lifecycle phase, and the second test is the<strong>build profile</strong>specified &lt;id&gt; parameter, which is passed via<span class="marked">-P</span>of course, it can be prod or normal, which you define yourself.<strong>&lt;id&gt;</strong>。</p>
 <p>The result of the execution is as follows:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/09/417876-20170509045108972-905096973.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/09/417876-20170509045108972-905096973.png"/></p>
 <p>It can be seen that the AntRun task was successfully triggered. Moreover, it corresponds to the<strong>build profile</strong>whose &lt;id&gt; is test.</p>
 <p>Now test the other two commands, and the results are as follows:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/09/417876-20170509045310191-1036132016.png"/></p>
-<p><img decoding="async" src="../wp-content/uploads/2018/09/417876-20170509045353941-271428179.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/09/417876-20170509045310191-1036132016.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/09/417876-20170509045353941-271428179.png"/></p>
 <h3>2. Activating Profiles via Maven Settings</h3>
 <p>Open the<strong>%USER_HOME%/.m2</strong>directory<strong>settings.xml</strong>file, where<strong>%USER_HOME%</strong>represents the user home directory. If the settings.xml file does not exist, directly copy<strong>%M2_HOME%/conf/settings.xml</strong>to the .m2 directory, where<strong>%M2_HOME%</strong>represents Maven's installation directory.</p>
 <p>Configure the settings.xml file by adding<code>&lt;activeProfiles&gt;属性：</code> </p>
@@ -461,7 +461,7 @@ middle
 <p><strong>Tip 1:</strong>At this point, there is no need to use -Ptest to input the parameter. The &lt;activeprofile&gt; in the settings.xml file above has already specified the test parameter instead.</p>
 <p><strong>Tip 2:</strong>You can also configure it in the<strong>%M2_HOME%/conf/settings.xml</strong>file, and the effect is the same.</p>
 <p>Execution result:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/09/417876-20170509050428441-2007100718.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/09/417876-20170509050428441-2007100718.png"/></p>
 <h3>3. Activating Profiles via Environment Variables</h3>
 <p>First, remove all the settings.xml values from the previous test.</p>
 <p>Then, in the pom.xml, inside the &lt;profile&gt; node with &lt;id&gt; test, add the &lt;activation&gt; node:</p>
@@ -578,7 +578,7 @@ middle
 <p><strong>Tip 1:</strong>The above uses -D to pass environment variables, where env corresponds to the &lt;name&gt; value just set, and test corresponds to &lt;value&gt;.</p>
 <p><strong>Tip 2:</strong>I tested system environment variables on Windows 10, but they did not take effect, so they can only be passed via<span class="marked">-D</span>passing.</p>
 <p>Execution result:</p>
-<p><img decoding="async" src="../wp-content/uploads/2018/09/417876-20170509051102519-322573915.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2018/09/417876-20170509051102519-322573915.png"/></p>
 <h3>4. Activating Profiles via Operating System</h3>
 <p>The activation element contains the following operating system information. When the system is Windows XP, the test Profile will be triggered.</p>
 <div class="example">

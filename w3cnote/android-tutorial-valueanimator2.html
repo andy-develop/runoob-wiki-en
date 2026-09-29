@@ -108,9 +108,9 @@ Android Basic Tutorial end
 <p>In the examples, we used both ofInt and ofFloat, respectively used for animating integer and floating-point data!</p>
 <p>Then<strong>ofObject</strong>ofObject()? The initial object and the end object? How does the transition work? Or how is this thing used?</p>
 <p>Okay, with these questions, let's first understand something: Evaluator. We actually talked about this thing when we were rambling about property animation concepts:</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/54469594.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/54469594.jpg"/></p>
 <p><strong>used to tell the animation system how to transition from the initial value to the end value!</strong>Good, our starting point is right! Let's go into the source code of IntEvaluator and see what's inside?</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/48403251.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/48403251.jpg"/></p>
 <p>Well, it implements the<strong>TypeEvaluator</strong>TypeEvaluator interface, and then overrides the<strong>evaluate()</strong>evaluate method. There are three parameters, in order:</p>
 <ul>
 <li><strong>fraction</strong>: the animation completion degree. We calculate what the animation value should be based on it.</li>
@@ -121,7 +121,7 @@ Android Basic Tutorial end
 <p>Similarly, there is FloatEvaluator. If we want to tell the system how to transition from the initial object to the end object, then we need to implement it ourselves.<strong>TypeEvaluator</strong>interface, that is, custom Evaluator. Words are useless, let's write an example to see:</p>
 <h3><strong>2) Usage example</strong></h3>
 <p><strong>Running effect screenshot</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/10209964.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/10209964.jpg"/></p>
 <p><strong>Code implementation</strong>：</p>
 <p>Define an object<strong>Point.java</strong>, the object only has two properties, x and y, plus get and set methods~</p>
 <pre>
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
 <h3><strong>3) Enhanced version of the example</strong></h3>
 <p>Based on the above example, add color changes while the circle moves. Here we additionally use an ObjectAnimator to load the color change animation. We add an int color in the View to control the color, and also write the getColor() and setColor() methods. Let's first define a custom Evaluator~</p>
 <p><strong>Running effect screenshot</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/65529491.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/65529491.jpg"/></p>
 <p><strong>Implementation code</strong>：</p>
 <p><strong>ColorEvaluator.java</strong>：
 </p>
@@ -359,12 +359,12 @@ public class AnimView2 extends View {
 <hr/>
 <h2>2. Interpolator (Tween)</h2>
 <p>Well, we already talked about this thing when discussing tween animation~ Do you still have any impression?</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/73854084.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/73854084.jpg"/></p>
 <p>The above interpolators are available for both tween animation and property animation, and property animation also added a new<strong>TimeInterpolator</strong>interface. This interface is used to be compatible with the previous Interpolator, so all past Interpolator implementation classes can be directly brought over and used in property animation! We can call the animation object's setInterpolator() method to set different Interpolators! First let's change something so that the ball falls from the top center of the screen to the bottom. Then we will call the following statement for our combined animation:<strong>animatorSet.setInterpolator(new AccelerateInterpolator(2f));</strong>The value in parentheses is used to control acceleration~</p>
 <p><strong>Running effect</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/6420198.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/6420198.jpg"/></p>
 <p>It seems a bit unreasonable. Normally it should bounce, right? Let's change to<strong>BounceInterpolator</strong>try it~</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/42165604.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/42165604.jpg"/></p>
 <p>Hehe, the effect is pretty nice. Of course, there are also many system-provided Interpolators. You can try them one by one. I won't bother going through them slowly here~</p>
 <p>Next, let's take a look:</p>
 <h3><strong>1) The internal implementation mechanism of Interpolator</strong></h3>
@@ -375,11 +375,11 @@ public class AnimView2 extends View {
 <p>the algorithm in the getInterpolation() method. Based on the value of input, calculate a return value, and this return value is fraction.<strong>LinearInterpolator</strong>We can look at</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/53510297.jpg"/></p>
 <p>the code inside:<strong>BounceInterpolator</strong>Here, it directly returns the input value without any processing, that is, the value of fraction is equal to the value of input. This is how a uniform motion Interpolator is implemented! Actually, it's nothing more than different algorithms, which involves some mathematics. Once again, we realize the importance of mathematics. Here I'll also post the</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/43642406.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/11/43642406.jpg"/></p>
 <p>source code:<strong>AccelerateDecelerateInterpolator</strong></p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/80592279.jpg"/></p>
 <p>Don't ask me about the algorithm here, I don't know it either. Let's find one that is easier to understand:<strong>(float)(Math.cos((input + 1) * Math.PI) / 2.0f) + 0.5f</strong>This Interpolator has the effect of accelerating first and then decelerating:</p><p>Understanding the algorithm:</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/11/Center.html"/></p>
+<p></p>
 <p>Solution: Since the value range of input is [0,1], it can be concluded that the value inside cos has a range of [π,2π], and the corresponding values are -1 and 1; after dividing this value by 2 and adding 0.5, the final result returned by getInterpolation() is still in the range [0,1]. The corresponding curve is as follows:</p>
 <p>So it is a process of accelerating first and then decelerating!<img alt="" decoding="async" src="../wp-content/uploads/2015/11/90823139.jpg"/>Well, as a study slacker, I can't play anymore...</p>
 <h3><strong>The above is all copied from Uncle Guo's article... I want to be alone for a while...</strong></h3>

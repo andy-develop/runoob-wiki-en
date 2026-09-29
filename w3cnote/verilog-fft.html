@@ -106,7 +106,7 @@ Android Basic Tutorial end
 <p>Similarly, the last N/2 points can be expressed as:</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2020/10/MMmgQxwSMAEcLjjl.png"/></p><p>It can be seen that the values of the last N/2 points can be completely determined by the intermediate values obtained when calculating the first N/2 points. Continue to perform odd-even decomposition on A[k] and B[k] until it becomes a 2-point DFT, which avoids a lot of repeated calculations and realizes the fast discrete Fourier transform (FFT) process.</p>
 <p><strong>Algorithm Structure</strong></p><p>The structural diagram of the 8-point FFT computation is as follows.</p><p>It can be seen from the figure that the DFT process can be completed with only a few simple multiplications and additions, rather than tedious multiplication and accumulation for each data item.</p>
-<p><img decoding="async" src="../static.jyshare.com/images/mix/uuE5FKpYLflJt5EF.jpg"/></p>
+<p><img decoding="async" src="https://static.jyshare.com/images/mix/uuE5FKpYLflJt5EF.jpg"/></p>
 <p><strong>Important Characteristics</strong></p>
 <p>(1) Concept of Stage</p>
 <p>Each split is called one stage of operation.</p><p>Let the number of FFT operation points be N and the total number of stages be M; they satisfy:</p>
@@ -554,7 +554,7 @@ timescale <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">
 </div></div>
 <p><strong>Simulation Results</strong></p>
 <p>It can be roughly seen that the FFT results can be output in a pipeline manner.</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2020/10/Ax6nfRQh1amzJmPE.png"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/10/Ax6nfRQh1amzJmPE.png"/></p>
 <p>Using MATLAB's built-in FFT function to operate on the same data, the FFT results of the first 2 groups of data are as follows.</p><p>It can be seen that when the first input data signal has only the real part valid, the FFT results are exactly the same.</p><p>However, when the second input data also has a signal in the imaginary part, the results between the two begin to have errors, and sometimes the errors are quite large.</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2020/10/aq7TX9tZrWCmGahi.png"/></p>
 <p>Using MATLAB to simulate the FFT process implemented in Verilog, it is found that the FFT results of this process are basically consistent with the FFT results implemented in Verilog.</p><p>Take the absolute values of the two erroneous FFT results for comparison, as shown in the figure below.</p><p>It can be seen that the trends of the FFT results are roughly the same, but there are visible errors at individual points.</p>

@@ -108,7 +108,7 @@ Android Basic Tutorial end
 <ul><li>a. Compare epoch first.</li><li>b. Check zxid. The server with the larger zxid is preferred as the leader.</li><li>c. If the zxid is the same, then compare myid. The server with the larger myid becomes the leader server.</li></ul></li><li>
 <p>(4) Count votes. After each vote, the server tallies the voting information and determines whether more than half of the machines have received the same voting information. Both server1 and server2 determine that two machines in the cluster have accepted the vote (2,0), so server2 has been selected as the leader node.</p></li><li>
 <p>(5) Change server status. Once the leader is determined, each server updates its own status accordingly. If it is a follower, it changes to FOLLOWING; if it is the leader, it changes to LEADING. At this time, server3 starts up and directly joins, changing itself to FOLLOWING.</p></li></ul>
-<p><img decoding="async" src="../wp-content/uploads/2020/09/vote-01.png"/></p>
+<p><img decoding="async" src="https://www.runoob.com/wp-content/uploads/2020/09/vote-01.png"/></p>
 <h3>2. Leader election during operation</h3>
 <p>When the leader server in the cluster crashes or becomes unavailable, the entire cluster cannot provide services to the outside and enters a new round of leader election.</p><ul><li>(1) Change status. After the leader crashes, other non-Observer servers change their own server status to LOOKING.</li><li>(2) Each server sends out a vote. During operation, the zxid on each server may be different.</li><li>(3) Process votes. Rules are the same as in the startup process.</li><li>(4) Count votes. Same as the startup process.</li><li>(5) Change server status. Same as the startup process.</li></ul>
 </div>

@@ -98,16 +98,16 @@ Android Basic Tutorial end
 <blockquote><p>After finishing the previous section, you have mastered the basic operations of SQLite in Android. In this section, we will learn some slightly more advanced things: database transactions, how to store large binary data in the database, and how the database should be handled during version upgrades! Alright, let's begin this section!</p></blockquote>
 <hr/>
 <h2>1. SQLite Transactions</h2>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/09/29572776.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/09/29572776.jpg"/></p>
 <p>In simple terms: if all database operations written in a transaction succeed, the transaction is committed; otherwise, the transaction rolls back, returning to the previous state — when the database operations were not executed! In addition, as we also mentioned earlier, in the data/data/&lt;package name&gt;/database/ directory, besides the db file we created, there is also a xxx.db-journal file, which is a temporary log file generated to enable the database to support transactions!</p>
 <hr/>
 <h2>2. Storing Large Binary Files in SQLite</h2>
 <p>Of course, we rarely store large binary files, such as images, audio, and video, in the database. For these, we generally store the file path. But there will always be some weird requirements; one day you suddenly want to store these files in the database. Below we use images as an example to save images to SQLite and to read images from SQLite!</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/09/83617087.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/09/83617087.jpg"/></p>
 <hr/>
 <h2>3. SimpleCursorAdapter Binding Database Data</h2>
 <p>Of course, this is fine for playing around, but it is still not recommended for use, even though it is very simple to use! Actually, when talking about ContentProvider, we already used this thing to bind the contacts list! We won't write an example here; we'll directly give the core code! If you need it, you can tinker with it yourself. In addition, these days we rarely write database-related code ourselves; we generally use third-party frameworks: ormlite, greenDao, etc. We'll learn about them again in the advanced part~</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/09/21347521.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/09/21347521.jpg"/></p>
 <hr/>
 <h2>4. A Collection of Database Upgrade Tips</h2>
 <p>PS: Well, I haven't actually done this myself; my project experience is insufficient. The company's products are all location-based. I just looked at the company project and found that the code left by predecessors was: onCreate() creates the DB, then onUpgrade() deletes the previous DB, and then calls onCreate()! After looking at several versions of the code, I found there was no database upgrade operation... There was nothing to borrow from, so I could only refer to others' practices. Below are some summaries after I (Little Pig) consulted various materials. If there is anything wrong, please point it out. Some third-party frameworks may have already handled this, but due to time constraints, I won't slowly investigate! If you know, you can leave a comment, thanks!</p>

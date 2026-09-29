@@ -96,7 +96,7 @@ Android Basic Tutorial end
 <!-- ad end-->
 <h2>Introduction to this section:</h2>
 <blockquote><p>I wonder if you are familiar with these two things in the title. If you have implemented rounded corners or circular images yourself, I believe these two terms are not unfamiliar to you. Can't remember for a moment? Never mind, have you ever seen the image below?</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/31597067.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/31597067.jpg"/></p>
 <p>PS: People online all say this image can be found under: \samples\android-XX\legacy\ApiDemos\src\com\example\android\apis\graphics, but it isn't actually there. I don't know if it's because my sample is android-22; I only found a<strong>Xfermodes.java</strong>Java file here! Here I'll directly paste the one I found online~</p><p>Well, back on track. I believe most friends have seen this image. If not, it doesn't matter; in this section we will take everyone to learn this thing step by step~, looking back at our previous<a href="./android-tutorial-drawable-tool.html">Android Basic Tutorial - 8.3.1 Detailed Explanation of Three Drawing Tool Classes</a></p><p>
 <strong>setXfermode</strong>(Xfermode xfermode): Set the processing method when shapes overlap, such as merging, taking the intersection or union, often used to create an eraser effect!</p><p>Let's go to the official documentation:<a href="http://androiddoc.qiniudn.com/reference/android/graphics/Xfermode.html">Xfermode</a>, we find that he has three sons:</p>
 <p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/14913136.jpg"/></p>
@@ -115,7 +115,7 @@ Android Basic Tutorial end
 <p><strong>Code usage example</strong>：</p>
 <p><strong>Screenshot of the result</strong>：</p>
 <p>Well, first here is the original image. Material from<strong>gank.io</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/18043775.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/18043775.jpg"/></p>
 <p>Next, let's use a color picker to pick a color from some place on the wall, then write a simple View!</p><p>PS: You need to add the hardware acceleration disable setting in the application node of AndroidManifest.xml:<strong>android:hardwareAccelerated="false"</strong></p>
 <pre>
 /**
@@ -159,20 +159,20 @@ public class AvoidXfermodeView1 extends View {
 }
 </pre>
 <p><strong>Effect after running</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/84692476.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/84692476.jpg"/></p>
 <p>See that pile of period red on the wall? The effect is amazing. Here our tolerance value did not play a role; let's change it and turn the girl's white clothes into period red!</p><p>Let's change the above AvoidXfermode constructor content to:</p>
 <pre>
 avoidXfermode = new AvoidXfermode(0XFFD9E5F3, 25, AvoidXfermode.Mode.TARGET);
 </pre>
 <p>Then, the white clothes on the girl turn into period red...<img alt="" decoding="async" src="../wp-content/uploads/2015/10/49317231.jpg"/>, full of guilt...</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/76781638.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/76781638.jpg"/></p>
 <hr/>
 <h3>Mode 2: AvoidXfermode.Mode.AVOID</h3>
 <blockquote><p>It is the opposite of the TARGET mode above. Above, the color is changed only when it is the same; here, it is changed when it is different. The tolerance value brings the opposite result as well. When the tolerance is 0, the image will only be dyed when the pixel color value is completely different from the set color value. When the tolerance reaches the maximum of 255, any slight difference in color will cause it to be dyed! We just need to simply modify the above example. That is, modify the content of the AvoidXfermode constructor! We change it to the following sentence:</p></blockquote>
 <pre>avoidXfermode = new AvoidXfermode(0XFFD9E5F3,230, AvoidXfermode.Mode.AVOID);
 </pre>
 <p><strong>Screenshot of the result</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/74447975.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/74447975.jpg"/></p>
 <hr/>
 <h2>Second son: PixelXorXfermode</h2>
 <blockquote><p>This is another image blending mode. Compared to the eldest son, it is simpler. Its constructor is as follows:</p><p>Official API documentation:<a href="http://androiddoc.qiniudn.com/reference/android/graphics/PixelXorXfermode.html">PixelXorXfermode</a></p>
@@ -180,7 +180,7 @@ avoidXfermode = new AvoidXfermode(0XFFD9E5F3, 25, AvoidXfermode.Mode.TARGET);
 <p>Parameter analysis:</p><p>It is just a hexadecimal color value with alpha. As for the function of this value, there is an algorithm: PixelXorXfermode internally calculates according to the XOR algorithm "opColor ^ src ^ dst", obtaining an opaque (alpha = 255) color value and setting it into the image! Well, this is what I found online; I don't specifically know it either. Let's write an example and see the effect~</p></blockquote>
 <p><strong>Code example</strong>：</p>
 <p><strong>Screenshot of the result</strong>：</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/10/95700671.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/10/95700671.jpg"/></p>
 <p><strong>Implementation code</strong>：</p>
 <pre>
 /**

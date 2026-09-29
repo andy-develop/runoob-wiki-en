@@ -98,7 +98,7 @@ Android Basic Tutorial end
 <p>This section starts to discuss layouts in Android. There are six major layouts in Android: LinearLayout (linear layout), RelativeLayout (relative layout), TableLayout (table layout), FrameLayout (frame layout), AbsoluteLayout (absolute layout), and GridLayout (grid layout). Today we are going to explain the first layout, LinearLayout. In screen adaptation, the most commonly used feature is LinearLayout's weight property. In this section, we will analyze LinearLayout in detail, including some basic attributes, the use of the weight property, and how proportions are calculated. In addition, we will also mention a less frequently used attribute: android:divider for drawing divider lines.</p>
 <hr/>
 <h2>1. Learning diagram for this section</h2>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/15116314.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/15116314.jpg"/></p>
 <hr/>
 <h2>2. Detailed explanation of the weight property:</h2>
 <h3>① Simplest usage:</h3>
@@ -135,7 +135,7 @@ You can write a vertical proportional division yourself to experience this simpl
 <h3>② Detailed explanation of the weight property:</h3>
 <p>Of course, if we don't use the above method of setting 0dp and directly use wrap_content or match_parent, then we need to further analyze the weight property. There are two cases: wrap_content and match_parent! In addition, we also need to look at whether the orientation of the LinearLayout is horizontal or vertical, because this determines in which direction the proportional division is applied.</p>
 <p><strong>1) wrap_content is simpler; it is directly divided by proportion.</strong></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/2036364.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/2036364.jpg"/></p>
 <p>Implementation code:</p>
 <pre>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    
@@ -203,17 +203,17 @@ You can write a vertical proportional division yourself to experience this simpl
 &lt;/LinearLayout&gt; 
  </pre>
 <p>Screenshot of the running result:</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/6746070.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/6746070.jpg"/></p>
 <blockquote><p>At this point you may have questions: Why is it like this? The ratio seems to be 2:1, right? So where did "three" go? The code clearly has "three", and it is set to 3. Also, the ratio between 1 and 2 is wrong: 1:2:3 has become 2:1:0. How did this happen?  
 Answer: It is actually not that simple here; we still need to calculate. There are several algorithms given online. Here I will present the one that the author finds easier to understand:<strong>step 1：</strong>Every one is fill_parent, but there is only one screen, so 1 - 3 = -2 fill_parent.<strong>step 2：</strong>The proportions are 1/6, 2/6, 3/6 respectively.<strong>step 3：</strong>First come, first served. First give to "one": calculate 1 - 2 * (1/6) = 2/3 fill_parent.  
             Then to "two": calculate 1 - 2 * (2/6) = 1/3 fill_parent.  
             Finally to "three": calculate 1 - 2 * (3/6) = 0 fill_parent.<strong>step 4：</strong>So the final result is: "one" takes two shares, "two" takes one share, and "three" gets nothing at all.  
 That is why "three" does not appear. Maybe you are still a bit confused after reading this. It's okay, let's try a few more examples and you will understand!</p></blockquote>
 <p><strong>The ratio is 1:1:1.</strong></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/77411800.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/77411800.jpg"/></p>
 <p>Calculate once according to the above method; the result is 1/3   1/3   1/3, that's right.</p>
 <p><strong>Next, let's try 2:3:4.</strong></p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/81150547.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/81150547.jpg"/></p>
 <p>Calculation result: 5/9   3/9   1/9. Comparing with the effect screenshot, 5:3:1, it's also correct. So you should mark this calculation method down!</p>
 <h3>③ Setting the weight property in Java code:</h3>
 <pre>
@@ -223,7 +223,7 @@ setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 <hr/>
 <h2>3. Setting a divider for LinearLayout</h2>
 <p>In many UI development projects, some underlines or dividers are set to make the interface cleaner and more beautiful, such as the Kugou Music registration page below:</p>
-<p><img alt="" decoding="async" src="../wp-content/uploads/2015/07/91165417.jpg"/></p>
+<p><img alt="" decoding="async" src="https://www.runoob.com/wp-content/uploads/2015/07/91165417.jpg"/></p>
 <p>For this kind of line, we usually have two approaches:<strong>① Directly add a View in the layout</strong>This View is only used to display a line, and the code is also very simple:</p>
 <pre>
 &lt;View  
