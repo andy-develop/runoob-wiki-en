@@ -172,7 +172,7 @@ middle
 <p>You can use Sort by to view other versions of Python; the default is the latest version.<strong>python:latest</strong>。</p>
 <p>In addition, we can also use the docker search python command to view available versions:</p>
 <pre>
-runoob@runoob:~/python$ docker search python
+example@example:~/python$ docker search python
 NAME                           DESCRIPTION                        STARS     OFFICIAL   AUTOMATED
 python                         Python is an interpreted,...       982       [OK]       
 kaggle/python                  Docker image for Python...         33                   [OK]
@@ -189,10 +189,10 @@ ruimashita/python              ubuntu 14.04 python                0             
 tnanba/python                  Python on CentOS-7 image.          0                    [OK]
 </pre>
 <p>Here we pull the official image with tag 3.5</p>
-<pre>runoob@runoob:~/python$ docker pull python:3.5</pre>
+<pre>example@example:~/python$ docker pull python:3.5</pre>
 <p>After the download completes, we can find the image with REPOSITORY python and tag 3.5 in the local image list.</p>
 <pre>
-runoob@runoob:~/python$ docker images python:3.5 
+example@example:~/python$ docker images python:3.5 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 python              3.5              045767ddf24a        9 days ago          684.1 MB
 </pre>
@@ -200,7 +200,7 @@ python              3.5              045767ddf24a        9 days ago          684
 <p><strong>Create Dockerfile&lt;</strong>/p&gt;
 <p>First, create a directory called python to store the related items later.</p>
 <pre>
-runoob@runoob:~$ mkdir -p ~/python ~/python/myapp
+example@example:~$ mkdir -p ~/python ~/python/myapp
 </pre>
 <p>The myapp directory will be mapped to the application directory configured for the python container.</p>
 <p>Enter the created python directory and create a Dockerfile.</p>
@@ -259,11 +259,11 @@ CMD ["python3"]
 </pre>
 <p>Create an image via Dockerfile, and replace it with your own name:</p>
 <pre>
-runoob@runoob:~/python$ docker build -t python:3.5 .
+example@example:~/python$ docker build -t python:3.5 .
 </pre>
 <p>Once created, we can find the newly created image in the local image list:</p>
 <pre>
-runoob@runoob:~/python$ docker images python:3.5 
+example@example:~/python$ docker images python:3.5 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 python              3.5              045767ddf24a        9 days ago          684.1 MB
 </pre>
@@ -277,7 +277,7 @@ print("Hello, World!");
 </pre>
 <h3>Run container</h3>
 <pre>
-runoob@runoob:~/python$ docker run  -v $PWD/myapp:/usr/src/myapp  -w /usr/src/myapp python:3.5 python helloworld.py
+example@example:~/python$ docker run  -v $PWD/myapp:/usr/src/myapp  -w /usr/src/myapp python:3.5 python helloworld.py
 </pre>
 <p>Command description:</p>
 <p><strong>-v $PWD/myapp:/usr/src/myapp:</strong>Mount the myapp directory in the current directory on the host to /usr/src/myapp in the container.</p>

@@ -235,7 +235,7 @@ Asynchronous result: Data fetch complete
   <span style="color: #999988; font-style: italic;">// Create a Future</span><br/>
   Future<span style="font-weight: bold;">&lt;</span>String<span style="font-weight: bold;">&gt;</span> future <span style="font-weight: bold;">=</span> Future<span style="">(</span><span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// This function will execute at some point in the future</span><br/>
-    <span style="font-weight: bold;">return</span> <span style="color: #d14;">'RUNOOB async result'</span><span style="font-weight: bold;">;</span><br/>
+    <span style="font-weight: bold;">return</span> <span style="color: #d14;">'EXAMPLE async result'</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   print<span style="">(</span><span style="color: #d14;">'Future created, but not yet completed'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -253,7 +253,7 @@ Asynchronous result: Data fetch complete
 程序开始
 Future 已创建，但还没完成
 程序继续执行...
-收到结果: RUNOOB 异步结果
+收到结果: EXAMPLE 异步结果
 </pre>
 <p>Note the order of the output: "program continues executing" is printed first, and "result received" is printed afterward.</p>
 <p>This shows that Future callbacks are executed asynchronously and do not block subsequent code.</p>
@@ -289,7 +289,7 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
   <span style="font-weight: bold;">var</span> age <span style="font-weight: bold;">=</span> await fetchUserAge<span style="">(</span>id<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   print<span style="">(</span><span style="color: #d14;">'Fetched age: $age'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">'RUNOOB user: $name, age: $age'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">'EXAMPLE user: $name, age: $age'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #999988; font-style: italic;">// Execute multiple asynchronous operations concurrently</span><br/>
@@ -305,7 +305,7 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
   <span style="font-weight: bold;">var</span> name <span style="font-weight: bold;">=</span> results<span style="">[</span><span style="color: #009999;">0</span><span style="">]</span> <span style="font-weight: bold;">as</span> String<span style="font-weight: bold;">;</span><br/>
   <span style="font-weight: bold;">var</span> age <span style="font-weight: bold;">=</span> results<span style="">[</span><span style="color: #009999;">1</span><span style="">]</span> <span style="font-weight: bold;">as</span> <span style="color: #445588; font-weight: bold;">int</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  print<span style="">(</span><span style="color: #d14;">RUNOOB user (concurrent): $name, age: $age</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  print<span style="">(</span><span style="color: #d14;">EXAMPLE user (concurrent): $name, age: $age</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> async <span style="">{</span><br/>
@@ -323,10 +323,10 @@ Future<span style="font-weight: bold;">&lt;</span>void<span style="font-weight: 
 开始获取用户信息...
 获取到名称: 用户1
 获取到年龄: 21
-RUNOOB 用户: 用户1, 年龄: 21
+EXAMPLE 用户: 用户1, 年龄: 21
 ---
 开始并发获取用户信息...
-RUNOOB 用户(并发): 用户2, 年龄: 22
+EXAMPLE 用户(并发): 用户2, 年龄: 22
 </pre>
 <blockquote><p>If multiple asynchronous operations have no dependencies between them, you should use Future.wait to run them concurrently instead of awaiting them one by one. This can significantly improve performance—the total time equals the slowest operation, not the sum of all operations.</p></blockquote>
 <h3>Core rules of async/await</h3>
@@ -358,7 +358,7 @@ Future<span style="font-weight: bold;">&lt;</span>String<span style="font-weight
   print<span style="">(</span><span style="color: #d14;">Starting request...</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #999988; font-style: italic;">// then / catchError chained call</span><br/>
-  fetchData<span style="">(</span><span style="color: #d14;">'https://runoob.com/api'</span><span style="">)</span><br/>
+  fetchData<span style="">(</span><span style="color: #d14;">'https://example.com/api'</span><span style="">)</span><br/>
       .<span style="color: #006633;">then</span><span style="">(</span><span style="">(</span>data<span style="">)</span> <span style="">{</span><br/>
         <span style="color: #999988; font-style: italic;">// Request succeeded</span><br/>
         print<span style="">(</span><span style="color: #d14;">Got data: $data</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -384,8 +384,8 @@ Future<span style="font-weight: bold;">&lt;</span>String<span style="font-weight
 <pre>
 开始请求...
 请求已发出，程序继续...
-获取到数据: 来自 https://runoob.com/api 的数据
-处理后的: 来自 https://runoob.com/api 的数据
+获取到数据: 来自 https://example.com/api 的数据
+处理后的: 来自 https://example.com/api 的数据
 请求结束（无论成功或失败）
 </pre>
 <h3>How to choose between async/await and then/catchError?</h3>

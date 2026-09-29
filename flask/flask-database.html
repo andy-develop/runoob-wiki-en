@@ -176,21 +176,21 @@ middle
 <span style="color: #a50"># A simple SQLite example (without using Flask)</span><br/>
 <span style="color: Green;font-weight:bold;">import</span> sqlite3<br/>
 <br/>
-<span style="color: #a50"># Connect to the database (runoob.db is automatically created if it does not exist)</span><br/>
-conn <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">connect</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #a50"># Connect to the database (example.db is automatically created if it does not exist)</span><br/>
+conn <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">connect</span><span style="color: Olive;">(</span><span style="color: #a11;">"example.db"</span><span style="color: Olive;">)</span><br/>
 <span style="color: #a50"># row_factory makes query results accessible by field names like a dictionary</span><br/>
 conn.<span style="color: #05a;">row_factory</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">Row</span><br/>
 <br/>
 <span style="color: #a50"># Create table</span><br/>
 conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT)"</span><span style="color: Olive;">)</span><br/>
 <span style="color: #a50"># Insert data</span><br/>
-conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"INSERT INTO user (username, password) VALUES (?, ?)"</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"pass123"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
+conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"INSERT INTO user (username, password) VALUES (?, ?)"</span><span style="color: Gray;">,</span> <span style="color: Olive;">(</span><span style="color: #a11;">"example"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"pass123"</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 conn.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Query data</span><br/>
 rows <span style="color: Gray;">=</span> conn.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span><span style="color: #a11;">"SELECT * FROM user"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">fetchall</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> row <span style="color: Green;font-weight:bold;">in</span> rows:<br/>
-    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: {'id': 1, 'username': 'runoob', 'password': 'pass123'}</span><br/>
+    <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: Teal;">dict</span><span style="color: Olive;">(</span>row<span style="color: Olive;">)</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Output: {'id': 1, 'username': 'example', 'password': 'pass123'}</span><br/>
 <br/>
 conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
@@ -210,7 +210,7 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
     <span style="color: #a11;">"""Get a database connection, reused within the same request"""</span><br/>
     <span style="color: Green;font-weight:bold;">if</span> <span style="color: #a11;">"db"</span> <span style="color: Green;font-weight:bold;">not</span> <span style="color: Green;font-weight:bold;">in</span> g:<br/>
         <span style="color: #a50"># Read database path from configuration</span><br/>
-        db_path <span style="color: Gray;">=</span> current_app.<span style="color: #05a;">config</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"DATABASE"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
+        db_path <span style="color: Gray;">=</span> current_app.<span style="color: #05a;">config</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"DATABASE"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"example.db"</span><span style="color: Olive;">)</span><br/>
         g.<span style="color: #05a;">db</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">connect</span><span style="color: Olive;">(</span>db_path<span style="color: Olive;">)</span><br/>
         g.<span style="color: #05a;">db</span>.<span style="color: #05a;">row_factory</span> <span style="color: Gray;">=</span> sqlite3.<span style="color: #05a;">Row</span>  <span style="color: #a50"># Allow results to be accessed by field name</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> g.<span style="color: #05a;">db</span><br/>
@@ -267,7 +267,7 @@ conn.<span style="color: #05a;">close</span><span style="color: Olive;">(</span>
 <br/>
     <span style="color: #a50"># Configure database path (stored in the instance folder)</span><br/>
     <span style="color: Green;font-weight:bold;">import</span> <span style="color: #05a;">os</span><br/>
-    app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"DATABASE"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #05a;">os</span>.<span style="color: #05a;">path</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>app.<span style="color: #05a;">instance_path</span><span style="color: Gray;">,</span> <span style="color: #a11;">"runoob.db"</span><span style="color: Olive;">)</span><br/>
+    app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"DATABASE"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #05a;">os</span>.<span style="color: #05a;">path</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>app.<span style="color: #05a;">instance_path</span><span style="color: Gray;">,</span> <span style="color: #a11;">"example.db"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #a50"># Ensure the instance folder exists</span><br/>
     <span style="color: #05a;">os</span>.<span style="color: #05a;">makedirs</span><span style="color: Olive;">(</span>app.<span style="color: #05a;">instance_path</span><span style="color: Gray;">,</span> exist_ok<span style="color: Gray;">=</span><span style="color: Teal;">True</span><span style="color: Olive;">)</span><br/>
@@ -379,12 +379,12 @@ $ curl http://127.0.0.1:5000/api/posts
 # 创建文章
 $ curl -X POST http://127.0.0.1:5000/api/posts \
   -H "Content-Type: application/json" \
-  -d '{"title":"RUNOOB 教程","body":"Flask 入门教程内容","author_id":1}'
+  -d '{"title":"EXAMPLE 教程","body":"Flask 入门教程内容","author_id":1}'
 
 # 更新文章
 $ curl -X PUT http://127.0.0.1:5000/api/posts/1 \
   -H "Content-Type: application/json" \
-  -d '{"title":"RUNOOB 教程（修订版）","body":"更新后的内容"}'
+  -d '{"title":"EXAMPLE 教程（修订版）","body":"更新后的内容"}'
 
 # 删除文章
 $ curl -X DELETE http://127.0.0.1:5000/api/posts/1
@@ -398,7 +398,7 @@ $ curl -X DELETE http://127.0.0.1:5000/api/posts/1
 (.venv) $ flask init-db
 
 # 验证表已创建
-(.venv) $ sqlite3 instance/runoob.db ".tables"
+(.venv) $ sqlite3 instance/example.db ".tables"
 post  user
 </pre>
 <hr/>
@@ -428,7 +428,7 @@ db.<span style="color: #05a;">execute</span><span style="color: Olive;">(</span>
 <span style="color: Green;font-weight:bold;">from</span> flask_sqlalchemy <span style="color: Green;font-weight:bold;">import</span> SQLAlchemy<br/>
 <br/>
 app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span>__name__<span style="color: Olive;">)</span><br/>
-app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"SQLALCHEMY_DATABASE_URI"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"sqlite:///runoob.db"</span><br/>
+app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span><span style="color: #a11;">"SQLALCHEMY_DATABASE_URI"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"sqlite:///example.db"</span><br/>
 db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</span>app<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Define data model (table structure represented by a Python class)</span><br/>
@@ -445,13 +445,13 @@ db <span style="color: Gray;">=</span> SQLAlchemy<span style="color: Olive;">(</
     db.<span style="color: #05a;">create_all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Create a user</span><br/>
-<span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #a11;">"test@runoob.com"</span><span style="color: Olive;">)</span><br/>
+<span style="color: #05a;">user</span> <span style="color: Gray;">=</span> User<span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"example"</span><span style="color: Gray;">,</span> <span style="color: #05a;">email</span><span style="color: Gray;">=</span><span style="color: #a11;">"test@example.com"</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">add</span><span style="color: Olive;">(</span><span style="color: #05a;">user</span><span style="color: Olive;">)</span><br/>
 db.<span style="color: #05a;">session</span>.<span style="color: #05a;">commit</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Query a user</span><br/>
 users <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: Teal;">all</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-runoob_user <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"runoob"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
+example_user <span style="color: Gray;">=</span> User.<span style="color: #05a;">query</span>.<span style="color: #05a;">filter_by</span><span style="color: Olive;">(</span>username<span style="color: Gray;">=</span><span style="color: #a11;">"example"</span><span style="color: Olive;">)</span>.<span style="color: #05a;">first</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <blockquote><p>This chapter uses native SQLite to avoid introducing additional dependencies, making it suitable for learning and small projects. For real production projects, we recommend using SQLAlchemy or a similar ORM, which can significantly reduce repetitive code and improve security.</p></blockquote>other extensions</div>

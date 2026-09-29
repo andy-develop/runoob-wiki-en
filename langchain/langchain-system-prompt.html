@@ -180,12 +180,12 @@ model <span style="color: Gray;">=</span> init_chat_model<span style="color: Oli
 <span style="color: #a50"># Method 1: String (simplest)</span><br/>
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are the learning consultant for Runoob. Keep your answers concise and professional."</span><span style="color: Gray;">,</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are the learning consultant for Example. Keep your answers concise and professional."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Method 2: SystemMessage object (reusable)</span><br/>
 system_msg <span style="color: Gray;">=</span> SystemMessage<span style="color: Olive;">(</span><br/>
-    content<span style="color: Gray;">=</span><span style="color: #a11;">"You are the learning consultant for Runoob. Keep your answers concise and professional."</span><br/>
+    content<span style="color: Gray;">=</span><span style="color: #a11;">"You are the learning consultant for Example. Keep your answers concise and professional."</span><br/>
 <span style="color: Olive;">)</span><br/>
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span>model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span> system_prompt<span style="color: Gray;">=</span>system_msg<span style="color: Olive;">)</span><br/>
 </div>
@@ -204,7 +204,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_course<span style="color: Olive;">(</span><span style="color: #05a;">keyword</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search for courses on Runoob"""</span><br/>
+    <span style="color: #a11;">"""Search for courses on Example"""</span><br/>
     courses <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"python"</span>: <span style="color: #a11;">"Python3 Basic Tutorial (Free)"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"html"</span>: <span style="color: #a11;">"HTML Basic Tutorial (Free)"</span><span style="color: Gray;">,</span><br/>
@@ -213,7 +213,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <br/>
 <br/>
 <span style="color: #a50"># A well-designed system_prompt</span><br/>
-GOOD_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""You are the learning consultant for Runoob.<br/>
+GOOD_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""You are the learning consultant for Example.<br/>
 <br/>## Your Responsibilities<br/>- Help users find suitable programming courses<br/>- Answer questions related to programming learning<br/>- Recommend learning paths based on the user's level<br/>
 <br/>## Code of Conduct<br/>- Keep answers concise, no more than 3 sentences each time<br/>- Prefer using the search_course tool to query course information<br/>- If the user is a complete beginner, prioritize recommending introductory courses<br/>- Do not use emoji<br/>- If you don't know, say so; do not fabricate"""</span><br/>
 <br/>
@@ -233,7 +233,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 <p>Output:</p>
 <pre>
 建议从 Python3 基础教程开始学习。Python 语法简洁，适合零基础入门。
-该课程在菜鸟教程 RUNOOB 上免费提供，内容系统全面。
+该课程在Example 上免费提供，内容系统全面。
 </pre>
 <hr/>
 <h2>@dynamic_prompt — Dynamically Generating Prompts</h2>
@@ -252,7 +252,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_course<span style="color: Olive;">(</span><span style="color: #05a;">keyword</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search for courses on Runoob"""</span><br/>
+    <span style="color: #a11;">"""Search for courses on Example"""</span><br/>
     courses <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"python"</span>: <span style="color: #a11;">"Python3 Basic Tutorial (Free, 20 hours)"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"html"</span>: <span style="color: #a11;">"HTML Basic Tutorial (Free, 15 hours)"</span><span style="color: Gray;">,</span><br/>
@@ -269,7 +269,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
     message_count <span style="color: Gray;">=</span> <span style="color: Teal;">len</span><span style="color: Olive;">(</span>messages<span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #a50"># You can dynamically adjust the prompt based on different conditions</span><br/>
-    base_prompt <span style="color: Gray;">=</span> <span style="color: #a11;">"You are the learning consultant for Runoob."</span><br/>
+    base_prompt <span style="color: Gray;">=</span> <span style="color: #a11;">"You are the learning consultant for Example."</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> message_count <span style="color: Gray;">&lt;=</span> <span style="color: Maroon;">2</span>:<br/>
         <span style="color: #a50"># Conversation just started; guide patiently</span><br/>
@@ -307,7 +307,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 </div>
 <p>Output:</p>
 <pre>
-第一轮回复: 你好！欢迎来到菜鸟教程 RUNOOB。请问您想学习什么内容？
+First reply: 你好！欢迎来到Example。请问您想学习什么内容？
 目前的编程水平如何？我可以根据您的情况推荐合适的课程。
 </pre>
 <hr/>
@@ -336,7 +336,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
     <span style="color: #a50"># Get the current message count</span><br/>
     messages <span style="color: Gray;">=</span> request.<span style="color: #05a;">state</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"messages"</span><span style="color: Gray;">,</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
 <br/>
-    prompt <span style="color: Gray;">=</span> f<span style="color: #a11;">"""You are the learning consultant for Runoob.<br/>
+    prompt <span style="color: Gray;">=</span> f<span style="color: #a11;">"""You are the learning consultant for Example.<br/>
 <br/>Current time: {now.strftime('%Y-%m-%d %H:%M')}<br/>User info: {user_name}, {user_level} level<br/>
 <br/>## Code of Conduct<br/>- Address the user as "{user_name}"<br/>- Recommend courses of appropriate difficulty based on the user's level ({user_level})<br/>- Be friendly but not verbose"""</span><br/>
 <br/>
@@ -369,7 +369,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 model <span style="color: Gray;">=</span> init_chat_model<span style="color: Olive;">(</span><span style="color: #a11;">"deepseek:deepseek-v4-flash"</span><span style="color: Gray;">,</span> temperature<span style="color: Gray;">=</span><span style="color: Maroon;">0.7</span><span style="color: Olive;">)</span><br/>
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a professional learning consultant for Runoob."</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Overridden</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a professional learning consultant for Example."</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Overridden</span><br/>
     middleware<span style="color: Gray;">=</span><span style="color: Olive;">[</span>override_prompt<span style="color: Olive;">]</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Higher priority</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
@@ -386,7 +386,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 <h2>System Prompt Design Checklist</h2>
 <table class="reference">
 <tr><th>Element</th><th>Description</th><th>Example</th></tr>
-<tr><td>Role Definition</td><td>Clarify the AI's identity and responsibilities</td><td>You are the learning consultant for Runoob</td></tr>
+<tr><td>Role Definition</td><td>Clarify the AI's identity and responsibilities</td><td>You are the learning consultant for Example</td></tr>
 <tr><td>Code of Conduct</td><td>Constrain the style and boundaries of replies</td><td>Keep answers concise, no more than 3 sentences each time</td></tr>
 <tr><td>Tool Usage Guidelines</td><td>Tell the model when to use which tools</td><td>Prefer the search_course tool when querying courses</td></tr>
 <tr><td>Boundary Constraints</td><td>Specify what cannot be done</td><td>If you don't know, say so; do not fabricate</td></tr>

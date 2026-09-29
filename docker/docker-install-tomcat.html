@@ -170,7 +170,7 @@ middle
 <p>You can use Sort by to view other versions of tomcat; the default is the latest version.<strong>tomcat:latest</strong>。</p>
 <p>In addition, we can also, in the console, use<span class="marked">docker search tomcat</span>the command to view the available versions:</p>
 <pre>
-runoob@runoob:~/tomcat$ docker search tomcat
+example@example:~/tomcat$ docker search tomcat
 NAME                       DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
 tomcat                     Apache Tomcat is an open source implementa...   744       [OK]       
 dordoka/tomcat             Ubuntu 14.04, Oracle JDK 8 and Tomcat 8 ba...   19                   [OK]
@@ -184,16 +184,16 @@ fbrx/tomcat                Minimal Tomcat image based on Alpine Linux      2    
 jtech/tomcat               Latest Tomcat production distribution on l...   1                    [OK]
 </pre>
 <p>Here we pull the official image:</p>
-<pre>runoob@runoob:~/tomcat$ docker pull tomcat</pre>
+<pre>example@example:~/tomcat$ docker pull tomcat</pre>
 <p>After the download is complete, we can find the image with REPOSITORY as tomcat in the local image list.</p>
 <pre>
-runoob@runoob:~/tomcat$ docker images|grep tomcat
+example@example:~/tomcat$ docker images|grep tomcat
 tomcat              latest              70f819d3d2d9        7 days ago          335.8 MB
 </pre>
 <h3>Method 2: Building via a Dockerfile</h3>
 <p>Create Dockerfile</p>
 <p>First, create a directory named tomcat to store related things later.</p>
-<pre>runoob@runoob:~$ mkdir -p ~/tomcat/webapps ~/tomcat/logs ~/tomcat/conf</pre>
+<pre>example@example:~$ mkdir -p ~/tomcat/webapps ~/tomcat/logs ~/tomcat/conf</pre>
 <p>The webapps directory will be mapped to the application directory configured by the tomcat container.</p>
 <p>The logs directory will be mapped to the log directory of the tomcat container.</p>
 <p>The configuration files in the conf directory will be mapped to the configuration files of the tomcat container.</p>
@@ -362,26 +362,26 @@ EXPOSE 8080
 CMD ["catalina.sh", "run"]
 </pre>
 <p>Create an image with a Dockerfile, substituting your own name:</p>
-<pre>runoob@runoob:~/tomcat$ docker build -t tomcat .</pre>
+<pre>example@example:~/tomcat$ docker build -t tomcat .</pre>
 <p>After creation, we can find the newly created image in the local image list:</p>
 <pre>
-runoob@runoob:~/tomcat$ docker images|grep tomcat
+example@example:~/tomcat$ docker images|grep tomcat
 tomcat              latest              70f819d3d2d9        7 days ago          335.8 MB
 </pre>
 <hr/>
 <h2>Use the tomcat image.</h2>
 <h3>Run container</h3>
 <pre>
-runoob@runoob:~/tomcat$ docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat  
+example@example:~/tomcat$ docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat  
 acb33fcb4beb8d7f1ebace6f50f5fc204b1dbe9d524881267aa715c61cf75320
-runoob@runoob:~/tomcat$
+example@example:~/tomcat$
 </pre>
 <p>Command description:</p>
 <p><strong>-p 8080:8080：</strong>Map the host's port 8080 to the container's port 8080.</p>
 <p><strong>-v $PWD/test:/usr/local/tomcat/webapps/test：</strong>Mount the test in the current directory of the host to /test in the container.</p>
 <p>Check the container startup status.</p>
 <pre>
-runoob@runoob:~/tomcat$ docker ps 
+example@example:~/tomcat$ docker ps 
 CONTAINER ID    IMAGE     COMMAND               ... PORTS                    NAMES
 acb33fcb4beb    tomcat    "catalina.sh run"     ... 0.0.0.0:8080-&gt;8080/tcp   tomcat
 </pre>

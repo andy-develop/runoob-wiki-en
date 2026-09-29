@@ -171,7 +171,7 @@ middle
 <p>You can use Sort by to view other versions of httpd; the default is the latest version.<strong>httpd:latest</strong>。</p>
 <p>In addition, we can also use the docker search httpd command to view the available versions:</p>
 <pre>
-runoob@runoob:~/apache$ docker search httpd
+example@example:~/apache$ docker search httpd
 NAME                           DESCRIPTION                  STARS  OFFICIAL AUTOMATED
 httpd                          The Apache HTTP Server ..    524     [OK]       
 centos/httpd                                                7                [OK]
@@ -191,11 +191,11 @@ alizarion/httpd                httpd on centos with mo...   0                [OK
 </pre>
 <p>Here we pull the official image.</p>
 <pre>
-runoob@runoob:~/apache$ docker pull httpd
+example@example:~/apache$ docker pull httpd
 </pre>
 <p>After the download is complete, we can find the image with REPOSITORY httpd in the local image list.</p>
 <pre>
-runoob@runoob:~/apache$ docker images httpd
+example@example:~/apache$ docker images httpd
 REPOSITORY     TAG        IMAGE ID        CREATED           SIZE
 httpd          latest     da1536b4ef14    23 seconds ago    195.1 MB
 </pre>
@@ -203,7 +203,7 @@ httpd          latest     da1536b4ef14    23 seconds ago    195.1 MB
 <p><b>Create Dockerfile</b></p>
 <p>First, create a directory apache to store related items for later.</p>
 <pre>
-runoob@runoob:~$ mkdir -p  ~/apache/www ~/apache/logs ~/apache/conf 
+example@example:~$ mkdir -p  ~/apache/www ~/apache/logs ~/apache/conf 
 </pre>
 <p>The www directory will be mapped to the application directory configured by the apache container.</p>
 <p>The logs directory will be mapped to the log directory of the apache container.</p>
@@ -296,12 +296,12 @@ rm -f /usr/local/apache2/logs/httpd.pid
 exec httpd -DFOREGROUND
 </pre>
 <p>Grant execute permission to the httpd-foreground file.</p>
-<pre>runoob@runoob:~/apache$ chmod +x httpd-foreground</pre>
+<pre>example@example:~/apache$ chmod +x httpd-foreground</pre>
 <p>Create an image via a Dockerfile, and replace it with your own name.</p>
-<pre>runoob@runoob:~/apache$ docker build -t httpd .</pre>
+<pre>example@example:~/apache$ docker build -t httpd .</pre>
 <p>After the creation is complete, we can find the just-created image in the local image list.</p>
 <pre>
-runoob@runoob:~/apache$ docker images httpd
+example@example:~/apache$ docker images httpd
 REPOSITORY     TAG        IMAGE ID        CREATED           SIZE
 httpd          latest     da1536b4ef14    23 seconds ago    195.1 MB
 </pre>
@@ -319,7 +319,7 @@ docker run -p 80:80 -v $PWD/www/:/usr/local/apache2/htdocs/ -v $PWD/conf/httpd.c
 <p>For more detailed commands, refer to:<a href="../docker/docker-run-command.html" rel="noopener" target="_blank">Docker run Command</a></p>
 <p>Check the container startup status:</p>
 <pre>
-runoob@runoob:~/apache$ docker ps
+example@example:~/apache$ docker ps
 CONTAINER ID  IMAGE   COMMAND             ... PORTS               NAMES
 79a97f2aac37  httpd   "httpd-foreground"  ... 0.0.0.0:80-&gt;80/tcp  sharp_swanson
 </pre>

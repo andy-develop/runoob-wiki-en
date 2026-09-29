@@ -379,25 +379,25 @@ fileObject.write( [ str ])
 <h3>Return Value</h3>
 <p>Returns the number of characters written.</p>
 <h3>Example</h3>
-<p>The content of the file runoob.txt is as follows:</p>
+<p>The content of the file example.txt is as follows:</p>
 <pre>
-1:www.runoob.com
-2:www.runoob.com
-3:www.runoob.com
-4:www.runoob.com
-5:www.runoob.com
+1:www.example.com
+2:www.example.com
+3:www.example.com
+4:www.example.com
+5:www.example.com
 </pre>
 <p>The following example demonstrates the use of the write() method:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #a50">#!/usr/bin/python3</span><br/>
 <br/>
 <span style="color: #a50"># Use the with statement to open the file, ensuring it is closed properly</span><br/>
-<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"r+"</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> fo:<br/>
+<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">"example.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"r+"</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> fo:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"File name: "</span><span style="color: Gray;">,</span> fo.<span style="color: #05a;">name</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #a50"># Write a line at the end of the file</span><br/>
     fo.<span style="color: #05a;">seek</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Gray;">,</span> <span style="color: Maroon;">2</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Move the file pointer to the end of the file</span><br/>
-    fo.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">"6:www.runoob.com<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Write content and add a newline</span><br/>
+    fo.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">"6:www.example.com<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Write content and add a newline</span><br/>
 <br/>
     <span style="color: #a50"># Read all content of the file</span><br/>
     fo.<span style="color: #05a;">seek</span><span style="color: Olive;">(</span><span style="color: Maroon;">0</span><span style="color: Olive;">)</span>  <span style="color: #a50"># Move the file pointer to the beginning of the file</span><br/>
@@ -406,22 +406,22 @@ fileObject.write( [ str ])
 </div></div>
 <p>The output of the above example is:</p>
 <pre>
-文件行号 0 - 1:www.runoob.com
-文件行号 1 - 2:www.runoob.com
-文件行号 2 - 3:www.runoob.com
-文件行号 3 - 4:www.runoob.com
-文件行号 4 - 5:www.runoob.com
-文件行号 5 - 6:www.runoob.com
+文件行号 0 - 1:www.example.com
+文件行号 1 - 2:www.example.com
+文件行号 2 - 3:www.example.com
+文件行号 3 - 4:www.example.com
+文件行号 4 - 5:www.example.com
+文件行号 5 - 6:www.example.com
 </pre>
 <p>View the file content:</p>
 <pre>
-$ cat runoob.txt 
-1:www.runoob.com
-2:www.runoob.com
-3:www.runoob.com
-4:www.runoob.com
-5:www.runoob.com
-6:www.runoob.com
+$ cat example.txt 
+1:www.example.com
+2:www.example.com
+3:www.example.com
+4:www.example.com
+5:www.example.com
+6:www.example.com
 </pre>
 <h3>Notes</h3><ol><li><p><strong>File Modes</strong>：</p><ul><li><p>If the file is opened in read-only mode (<code>"r"</code>), calling<code>write()</code>will raise<code>io.UnsupportedOperation</code>an exception.</p></li><li><p>If the file is opened in write mode (<code>"w"</code>or<code>"w+"</code>), the file content will be cleared, and then new content will be written.</p></li><li><p>If the file is opened in append mode (<code>"a"</code>or<code>"a+"</code>), the written content will be added to the end of the file.</p></li></ul></li><li><p><strong>File Pointer</strong>：</p><ul><li><p>The write operation starts from the current file pointer position. If you need to write from the beginning or a specific position, you can use the<code>seek()</code>method to move the file pointer.</p></li></ul></li><li><p><strong>Newline Character</strong>：</p><ul><li><p><code>write()</code>The method does not automatically add a newline. If a newline is needed, you must explicitly add<code>\n</code>。</p></li></ul></li><li><p><strong>Return Value</strong>：</p><ul><li><p><code>write()</code>The method returns the number of characters written. If the write fails, an exception may be raised.</p></li></ul></li></ol>
 <hr/>

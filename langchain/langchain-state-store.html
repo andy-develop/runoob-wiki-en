@@ -498,7 +498,7 @@ store.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><
 <br/>
 <span style="color: #a50"># Create Store and preset data</span><br/>
 store <span style="color: Gray;">=</span> InMemoryStore<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-store.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"courses"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"catalog"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><br/>
+store.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><span style="color: Olive;">(</span><span style="color: #a11;">"example"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"courses"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"catalog"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><br/>
     <span style="color: #a11;">"data"</span>: <span style="color: Olive;">{</span><br/>
         <span style="color: #a11;">"Python3 Basic Tutorial"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"price"</span>: <span style="color: #a11;">"Free"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"duration"</span>: <span style="color: #a11;">"20 hours"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"Python Data Analysis"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"price"</span>: <span style="color: #a11;">"Member"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"duration"</span>: <span style="color: #a11;">"30 hours"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
@@ -512,11 +512,11 @@ store.<span style="color: #05a;">put</span><span style="color: Olive;">(</span><
     course_name: <span style="color: Teal;">str</span><span style="color: Gray;">,</span><br/>
     store: Annotated<span style="color: Olive;">[</span>BaseStore<span style="color: Gray;">,</span> InjectedStore<span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Query the price information of a specified course on RUNOOB.<br/>
+    <span style="color: #a11;">"""Query the price information of a specified course on EXAMPLE.<br/>
 <br/>
     Args:<br/>course_name: the course name<br/>
     """</span><br/>
-    item <span style="color: Gray;">=</span> store.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Olive;">(</span><span style="color: #a11;">"runoob"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"courses"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"catalog"</span><span style="color: Olive;">)</span><br/>
+    item <span style="color: Gray;">=</span> store.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: Olive;">(</span><span style="color: #a11;">"example"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"courses"</span><span style="color: Olive;">)</span><span style="color: Gray;">,</span> <span style="color: #a11;">"catalog"</span><span style="color: Olive;">)</span><br/>
     catalog <span style="color: Gray;">=</span> item.<span style="color: #05a;">value</span><span style="color: Olive;">[</span><span style="color: #a11;">"data"</span><span style="color: Olive;">]</span> <span style="color: Green;font-weight:bold;">if</span> item <span style="color: Green;font-weight:bold;">else</span> <span style="color: Olive;">{</span><span style="color: Olive;">}</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">if</span> course_name <span style="color: Green;font-weight:bold;">in</span> catalog:<br/>
@@ -530,7 +530,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
     tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>query_course_price<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     store<span style="color: Gray;">=</span>store<span style="color: Gray;">,</span>  <span style="color: #a50"># Pass the Store into the Agent</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a course consultant at RUNOOB."</span><span style="color: Gray;">,</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a course consultant at EXAMPLE."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><br/>

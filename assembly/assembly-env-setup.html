@@ -313,17 +313,17 @@ $ gdb --version
 GNU gdb (Ubuntu 12.1-0ubuntu1) 12.1
 </pre>
 <hr/>
-<h2>First Assembly Program: Hello, runoob</h2>
+<h2>First Assembly Program: Hello, example</h2>
 <p>Create a new file<code>hello.asm</code>, and enter the following content:</p>
 <div class="example">
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;">; File path: hello.asm</span><br/>
-<span style="color: #666666; font-style: italic;">; First assembly program: print Hello, runoob!</span><br/>
+<span style="color: #666666; font-style: italic;">; First assembly program: print Hello, example!</span><br/>
 <span style="color: #666666; font-style: italic;">; NASM syntax, Linux 32-bit</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span>                       <span style="color: #666666; font-style: italic;">; Data section: stores initialized data</span><br/>
-    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, runoob!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span>    <span style="color: #666666; font-style: italic;">; Define string msg, 0xA is newline character</span><br/>
+    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, example!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span>    <span style="color: #666666; font-style: italic;">; Define string msg, 0xA is newline character</span><br/>
     len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg                 <span style="color: #666666; font-style: italic;">; Compute string length: current address - msg start address</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span>                       <span style="color: #666666; font-style: italic;">; Code section: stores executable instructions</span><br/>
@@ -352,7 +352,7 @@ _start<span style="color: #339933;">:</span>                        
 $ nasm -f elf32 hello.asm -o hello.o    # 汇编：将 .asm 转为 .o 目标文件
 $ ld -m elf_i386 hello.o -o hello       # 链接：将 .o 转为可执行文件
 $ ./hello                               # 运行程序
-Hello, runoob!
+Hello, example!
 </pre>
 <p>The purpose of each of the three commands above:</p>
 <table class="reference">
@@ -368,7 +368,7 @@ Hello, runoob!
 $ nasm -f elf32 hello.asm -o hello.o
 $ gcc -m32 hello.o -o hello -nostartfiles
 $ ./hello
-Hello, runoob!
+Hello, example!
 </pre>
 <p><code>-nostartfiles</code>The option tells GCC not to add default startup code, because we define our own<code>_start</code>entry point.</p>
 <hr/>
@@ -377,7 +377,7 @@ Hello, runoob!
 <table class="reference">
 <tr><th>Part</th><th>Code</th><th>Description</th></tr>
 <tr><td>Data segment declaration</td><td><code>section .data</code></td><td>Declares the data segment, storing variables and constants</td></tr>
-<tr><td>String definition</td><td><code>msg db 'Hello, runoob!', 0xA</code></td><td>db defines a byte sequence; 0xA is the ASCII code for newline</td></tr>
+<tr><td>String definition</td><td><code>msg db 'Hello, example!', 0xA</code></td><td>db defines a byte sequence; 0xA is the ASCII code for newline</td></tr>
 <tr><td>Length calculation</td><td><code>len equ $ - msg</code></td><td>$ represents the current address; subtracting the msg address gives the string length</td></tr>
 <tr><td>Code segment declaration</td><td><code>section .text</code></td><td>Declares the code segment, storing instructions</td></tr>
 <tr><td>Entry declaration</td><td><code>global _start</code></td><td>Export _start as a global symbol; the linker needs it</td></tr>

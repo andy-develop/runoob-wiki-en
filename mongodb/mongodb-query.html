@@ -339,8 +339,8 @@ db.<span style="color: #660066;">col</span>.<span style="color: #660066;">find</
         <span style="color: #3366CC;">"_id"</span> <span style="color: #339933;">:</span> ObjectId<span style="color: #009900;">(</span><span style="color: #3366CC;">"56063f17ade2f21f36b03133"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
         <span style="color: #3366CC;">"title"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"MongoDB Tutorial"</span><span style="color: #339933;">,</span><br/>
         <span style="color: #3366CC;">"description"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"MongoDB is a NoSQL database"</span><span style="color: #339933;">,</span><br/>
-        <span style="color: #3366CC;">"by"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"Runoob Tutorial"</span><span style="color: #339933;">,</span><br/>
-        <span style="color: #3366CC;">"url"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"http://www.runoob.com"</span><span style="color: #339933;">,</span><br/>
+        <span style="color: #3366CC;">"by"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"Example Tutorial"</span><span style="color: #339933;">,</span><br/>
+        <span style="color: #3366CC;">"url"</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">"http://www.example.com"</span><span style="color: #339933;">,</span><br/>
         <span style="color: #3366CC;">"tags"</span> <span style="color: #339933;">:</span> <span style="color: #009900;">[</span><br/>
                 <span style="color: #3366CC;">"mongodb"</span><span style="color: #339933;">,</span><br/>
                 <span style="color: #3366CC;">"database"</span><span style="color: #339933;">,</span><br/>
@@ -428,8 +428,8 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 <tr>
 <td>Equals</td>
 <td><code>{&lt;key&gt;:&lt;value&gt;</code>}</td>
-<td><code>db.col.find({"by":"菜鸟教程"}).pretty()</code></td>
-<td><code>where by = '菜鸟教程'</code></td>
+<td><code>db.col.find({"by":"Example"}).pretty()</code></td>
+<td><code>where by = 'Example'</code></td>
 </tr>
 <tr>
 <td>Less than</td>
@@ -470,15 +470,15 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 &gt;db.col.find({key1:value1, key2:value2}).pretty()
 </pre>
 <h3>Example</h3>
-<p>The following example uses the<strong>by</strong>and<strong>title</strong>key to query<b>Runoob Tutorial</b>Medium<b>MongoDB Tutorial</b>data</p>
+<p>The following example uses the<strong>by</strong>and<strong>title</strong>key to query<b>Example Tutorial</b>Medium<b>MongoDB Tutorial</b>data</p>
 <pre>
-&gt; db.col.find({"by":"菜鸟教程", "title":"MongoDB 教程"}).pretty()
+&gt; db.col.find({"by":"Example", "title":"MongoDB 教程"}).pretty()
 {
         "_id" : ObjectId("56063f17ade2f21f36b03133"),
         "title" : "MongoDB 教程",
         "description" : "MongoDB 是一个 Nosql 数据库",
-        "by" : "菜鸟教程",
-        "url" : "http://www.runoob.com",
+        "by" : "Example",
+        "url" : "http://www.example.com",
         "tags" : [
                 "mongodb",
                 "database",
@@ -487,7 +487,7 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
         "likes" : 100
 }
 </pre>
-<p>The above example is similar to the WHERE statement:<strong>WHERE by='Runoob Tutorial' AND title='MongoDB Tutorial'</strong></p>
+<p>The above example is similar to the WHERE statement:<strong>WHERE by='Example Tutorial' AND title='MongoDB Tutorial'</strong></p>
 <hr/><h2>MongoDB OR Conditions</h2>
 <p>MongoDB OR condition statements use the keyword<b>$or</b>, the syntax format is as follows:</p>
 <pre>
@@ -500,15 +500,15 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 ).pretty()
 </pre>
 <h3>Example</h3>
-<p>In the following example, we demonstrate querying the key<b>by</b>with the valueRunoob Tutorialor the key<b>title</b>with the value<b>MongoDB Tutorial</b>documents.</p>
+<p>In the following example, we demonstrate querying the key<b>by</b>with the valueExample Tutorialor the key<b>title</b>with the value<b>MongoDB Tutorial</b>documents.</p>
 <pre>
-&gt;db.col.find({$or:[{"by":"菜鸟教程"},{"title": "MongoDB 教程"}]}).pretty()
+&gt;db.col.find({$or:[{"by":"Example"},{"title": "MongoDB 教程"}]}).pretty()
 {
         "_id" : ObjectId("56063f17ade2f21f36b03133"),
         "title" : "MongoDB 教程",
         "description" : "MongoDB 是一个 Nosql 数据库",
-        "by" : "菜鸟教程",
-        "url" : "http://www.runoob.com",
+        "by" : "Example",
+        "url" : "http://www.example.com",
         "tags" : [
                 "mongodb",
                 "database",
@@ -520,15 +520,15 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 </pre>
 <hr/>
 <h2>Combining AND and OR</h2>
-<p>The following example demonstrates the combined use of AND and OR, similar to the conventional SQL statement:<b>'where likes&gt;50 AND (by = 'Runoob Tutorial' OR title = 'MongoDB Tutorial')'</b></p>
+<p>The following example demonstrates the combined use of AND and OR, similar to the conventional SQL statement:<b>'where likes&gt;50 AND (by = 'Example Tutorial' OR title = 'MongoDB Tutorial')'</b></p>
 <pre>
-&gt;db.col.find({"likes": {$gt:50}, $or: [{"by": "菜鸟教程"},{"title": "MongoDB 教程"}]}).pretty()
+&gt;db.col.find({"likes": {$gt:50}, $or: [{"by": "Example"},{"title": "MongoDB 教程"}]}).pretty()
 {
         "_id" : ObjectId("56063f17ade2f21f36b03133"),
         "title" : "MongoDB 教程",
         "description" : "MongoDB 是一个 Nosql 数据库",
-        "by" : "菜鸟教程",
-        "url" : "http://www.runoob.com",
+        "by" : "Example",
+        "url" : "http://www.example.com",
         "tags" : [
                 "mongodb",
                 "database",

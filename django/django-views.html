@@ -179,7 +179,7 @@ middle
 <p>Value format:<span class="marked">object.method</span>。</p>
 <p><span class="marked">get()</span>: Returns a string; if the key corresponds to multiple values, it retrieves the last value for that key.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     name <span style="color: Gray;">=</span> request.<span style="color: #05a;">GET</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"name"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">'Name: {}'</span>.<span style="color: #05a;">format</span><span style="color: Olive;">(</span>name<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div></div>
@@ -190,49 +190,49 @@ middle
 <p>Value format:<span class="marked">object.method</span>。</p>
 <p><span class="marked">get()</span>: Returns a string; if the key corresponds to multiple values, it retrieves the last value for that key.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     name <span style="color: Gray;">=</span> request.<span style="color: #05a;">POST</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"name"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">'Name: {}'</span>.<span style="color: #05a;">format</span><span style="color: Olive;">(</span>name<span style="color: Olive;">)</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django_2.png"/></p>
 <h3>3、body</h3><p>The data type is a binary byte stream, which is the parameter content in the raw request body. In HTTP, it is used for POST because GET has no request body.</p>
 <p>It is not commonly used in HTTP, but is very useful when processing non-HTTP message formats, such as binary images, XML, JSON, etc.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     name <span style="color: Gray;">=</span> request.<span style="color: #05a;">body</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>name<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"Runoob"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"Example"</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django_3.png"/></p>
 <h3>4、path</h3><p>Gets the path part of the URL; the data type is string.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-def runoob(request):<br/>
+def example(request):<br/>
     name = request.path<br/>
-    print(name)<br/>return HttpResponse("Runoob Tutorial")<br/>
+    print(name)<br/>return HttpResponse("Example Tutorial")<br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django_4.png"/></p>
 <h3>5、method</h3><p>The way to obtain the current request: the data type is a string, and the result is in uppercase.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     name <span style="color: Gray;">=</span> request.<span style="color: #05a;">method</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>name<span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"Runoob"</span><span style="color: Olive;">)</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"Example"</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django_5.png"/></p>
 <hr/>
 <h2>Response object: HttpResponse object</h2><p>The response object mainly comes in three forms: HttpResponse(), render(), redirect().</p>
 <p><strong>HttpResponse():</strong>Returns text; the parameter is a string, and the text content is written in the string. If the string parameter contains HTML tags, it can also be rendered.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    <span style="color: #a50"># return HttpResponse("Runoob")</span><br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+    <span style="color: #a50"># return HttpResponse("Example")</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> HttpResponse<span style="color: Olive;">(</span><span style="color: #a11;">"&lt;a href='/index.html'&gt;Rookie Tutorial&lt;/a&gt;"</span><span style="color: Olive;">)</span><br/>
 </div></div><p><img decoding="async" src="../wp-content/uploads/2020/05/Django_6.png"/></p>
 <p><strong>render():</strong>Returns text; the first parameter is request, the second parameter is a string (page name), and the third parameter is a dictionary (optional parameter, parameters passed to the page: the key is the page parameter name, and the value is the views parameter name).</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
-    name <span style="color: Gray;">=</span><span style="color: #a11;">"Runoob"</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span><span style="color: #a11;">"runoob.html"</span><span style="color: Gray;">,</span><span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+    name <span style="color: Gray;">=</span><span style="color: #a11;">"Example"</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> render<span style="color: Olive;">(</span>request<span style="color: Gray;">,</span><span style="color: #a11;">"example.html"</span><span style="color: Gray;">,</span><span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>:name<span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p><img decoding="async" src="../wp-content/uploads/2020/05/63474478-68C3-4156-A5D2-17EEE425DDD1.jpg"/></p>
 <p><strong>redirect()</strong>: Redirect, jump to a new page. The parameter is a string, and the page path is filled in the string. Generally used to jump to a new page after form submission.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">def</span> runoob<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
+<span style="color: Green;font-weight:bold;">def</span> example<span style="color: Olive;">(</span>request<span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">return</span> redirect<span style="color: Olive;">(</span><span style="color: #a11;">"/index/"</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p>render and redirect are wrappers built on top of HttpResponse:</p>

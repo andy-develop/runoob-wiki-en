@@ -264,10 +264,10 @@ scp local_file remote_ip:remote_file
 <li>The 3rd and 4th do not specify a username. After executing the command, you need to enter the username and password. The 3rd only specifies the remote directory, so the file name remains unchanged; the 4th specifies the file name.</li></ul>
 <p>Application example:</p>
 <pre>
-scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music 
-scp /home/space/music/1.mp3 root@www.runoob.com:/home/root/others/music/001.mp3 
-scp /home/space/music/1.mp3 www.runoob.com:/home/root/others/music 
-scp /home/space/music/1.mp3 www.runoob.com:/home/root/others/music/001.mp3 
+scp /home/space/music/1.mp3 root@www.example.com:/home/root/others/music 
+scp /home/space/music/1.mp3 root@www.example.com:/home/root/others/music/001.mp3 
+scp /home/space/music/1.mp3 www.example.com:/home/root/others/music 
+scp /home/space/music/1.mp3 www.example.com:/home/root/others/music/001.mp3 
 </pre>
 <p>Command format for copying directories:</p>
 <pre>
@@ -280,22 +280,22 @@ scp -r local_folder remote_ip:remote_folder
 <li>The 2nd does not specify a username, and you need to enter the username and password after executing the command;</li></ul>
 <p>Application example:</p>
 <pre>
-scp -r /home/space/music/ root@www.runoob.com:/home/root/others/ 
-scp -r /home/space/music/ www.runoob.com:/home/root/others/ 
+scp -r /home/space/music/ root@www.example.com:/home/root/others/ 
+scp -r /home/space/music/ www.example.com:/home/root/others/ 
 </pre>
 <p>The above command copies the local music directory to the remote others directory.</p>
 <h4>2. Copy from remote to local</h4>
 <p>To copy from remote to local, simply swap the order of the last two parameters of the command used to copy from local to remote, as in the example below</p>
 <p>Application example:</p>
 <pre>
-scp root@www.runoob.com:/home/root/others/music /home/space/music/1.mp3 
-scp -r www.runoob.com:/home/root/others/ /home/space/music/
+scp root@www.example.com:/home/root/others/music /home/space/music/1.mp3 
+scp -r www.example.com:/home/root/others/ /home/space/music/
 </pre>
 <h3>Notes</h3>
 <p>1. If the remote server firewall has set a designated port for the scp command, we need to use the -P parameter to set the port number for the command. The command format is as follows:</p>
 <pre>
 #scp 命令使用端口号 4588
-scp -P 4588 remote@www.runoob.com:/usr/local/sin.sh /home/administrator
+scp -P 4588 remote@www.example.com:/usr/local/sin.sh /home/administrator
 </pre>
 <p>2. When using the scp command, make sure that the user used has permission to read the corresponding files on the remote server; otherwise, the scp command will not work.</p>
 <hr/>

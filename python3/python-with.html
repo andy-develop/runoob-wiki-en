@@ -360,16 +360,16 @@ middle
 <p><strong>with</strong>The statement makes code clearer and more readable, and it simplifies the management of common resources such as file streams.</p>
 <p>Using the with keyword when handling file objects is a good practice.</p>We can take a look at the following code examples:<p>Without using<strong>with</strong>, and without using<strong>try…except…finally</strong></p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Teal;">file</span> <span style="color: Gray;">=</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_runoob.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span><br/>
+<span style="color: Teal;">file</span> <span style="color: Gray;">=</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_example.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span><br/>
 <span style="color: Teal;">file</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">'hello world !'</span><span style="color: Olive;">)</span><br/>
 <span style="color: Teal;">file</span>.<span style="color: #05a;">close</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p>In the above code, if an exception occurs during the call to write, the close method will not be executed, so the resource will remain occupied by the program and cannot be released.</p>
 <blockquote>
-<p>More references for the Python with keyword:<a href="../python3/python3-with-keyword.html" target="_blank">https://www.runoob.com/python3/python3-with-keyword.html</a></p></blockquote>
+<p>More references for the Python with keyword:<a href="../python3/python3-with-keyword.html" target="_blank">https://www.example.com/python3/python3-with-keyword.html</a></p></blockquote>
 <p>Next, we can use<strong>try…except…finally</strong>to improve the code:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Teal;">file</span> <span style="color: Gray;">=</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_runoob.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span><br/>
+<span style="color: Teal;">file</span> <span style="color: Gray;">=</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_example.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">try</span>:<br/>
     <span style="color: Teal;">file</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">'hello world'</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">finally</span>:<br/>
@@ -378,11 +378,11 @@ middle
 <p>In the above code, we use try to catch exceptions where they may occur. When an exception occurs, the except block is executed, and the finally block is executed no matter what, so the file will be closed and resources will not be occupied due to exceptions during execution.</p>
 <p>Using<strong>with</strong>keyword:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_runoob.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> <span style="color: Teal;">file</span>:<br/>
+<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_example.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> <span style="color: Teal;">file</span>:<br/>
     <span style="color: Teal;">file</span>.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">'hello world !'</span><span style="color: Olive;">)</span><br/>
 </div></div>
 <p>Using<strong>with</strong>keyword, the system will automatically call the f.close() method, and the effect of with is equivalent to the try/finally statement.</p>We can check whether the file is closed after executing the with keyword:<div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Gray;">&gt;&gt;&gt;</span> <span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_runoob.txt'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> f:<br/>
+<span style="color: Gray;">&gt;&gt;&gt;</span> <span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_example.txt'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> f:<br/>
 ...     <span style="color: #05a;">read_data</span> <span style="color: Gray;">=</span> f.<span style="color: #05a;">read</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Gray;">&gt;&gt;&gt;</span> <span style="color: #a50"># Check whether the file is closed</span><br/>
@@ -394,10 +394,10 @@ middle
 <p>Using the with statement ensures that the __exit__ method is called at the end of the nested block.</p>
 <p>This concept is similar to using try...finally blocks.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_runoob.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> my_file:<br/>
+<span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">'./test_example.txt'</span><span style="color: Gray;">,</span> <span style="color: #a11;">'w'</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> my_file:<br/>
     my_file.<span style="color: #05a;">write</span><span style="color: Olive;">(</span><span style="color: #a11;">'hello world!'</span><span style="color: Olive;">)</span><br/>
 </div></div>
-<p>The above example writes<strong>hello world!</strong>to the ./test_runoob.txt file.</p>
+<p>The above example writes<strong>hello world!</strong>to the ./test_example.txt file.</p>
 <p>In the file object, the __enter__ and __exit__ methods are defined, meaning the file object also implements the context manager. First, the __enter__ method is called, then the code in the with statement is executed, and finally the __exit__ method is called. Even if an error occurs, the __exit__ method is still called, which means the file stream will be closed.</p>
 <h3>Example</h3>
 <p>The following Python code is a simple travel plan management tool that reads a list of cities from the 5A.txt file and provides the following functions:</p>

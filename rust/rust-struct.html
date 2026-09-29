@@ -173,9 +173,9 @@ middle
 }</pre><p>Note: If you are used to C/C++, remember that in Rust the struct statement is only used for definition, it cannot declare instances, and it does not need a<span class="marked">;</span>symbol, and after each field definition use<span class="marked">,</span>to separate.</p>
 <h3>Struct Instance</h3><p>Rust is influenced by JavaScript in many places. When instantiating a struct, it uses the JSON object's<span class="marked">key: value</span>syntax to achieve the definition:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-let runoob <span style="color: #339933;">=</span> Site <span style="color: #009900;">{</span><br/>
-    domain<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"www.runoob.com"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
-    name<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"RUNOOB"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
+let example <span style="color: #339933;">=</span> Site <span style="color: #009900;">{</span><br/>
+    domain<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"www.example.com"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
+    name<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"EXAMPLE"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
     nation<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"China"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
     found<span style="color: #339933;">:</span> <span style="color: #CC0000;">2013</span><br/>
 <span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
@@ -185,9 +185,9 @@ let runoob <span style="color: #339933;">=</span> Site <span style="color: #
     ...
 }</pre><p>The advantage of this is that it not only makes the program more intuitive, but also does not require entering member values in the order they were defined.</p><p>If the struct being instantiated has field names that match existing variable names, you can simplify the writing:</p><div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <br/>
-let domain <span style="color: #339933;">=</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"www.runoob.com"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-let name <span style="color: #339933;">=</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"RUNOOB"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-let runoob <span style="color: #339933;">=</span> Site <span style="color: #009900;">{</span><br/>
+let domain <span style="color: #339933;">=</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"www.example.com"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+let name <span style="color: #339933;">=</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"EXAMPLE"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+let example <span style="color: #339933;">=</span> Site <span style="color: #009900;">{</span><br/>
     domain<span style="color: #339933;">,</span>  <span style="color: #006600; font-style: italic;">// equivalent to domain: domain,</span><br/>
     name<span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// equivalent to name: name,</span><br/>
     nation<span style="color: #339933;">:</span> <span style="">String</span><span style="color: #339933;">::</span>from<span style="color: #009900;">(</span><span style="color: #3366CC;">"China"</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span><br/>
@@ -196,10 +196,10 @@ let runoob <span style="color: #339933;">=</span> Site <span style="color: #
 </div></div>
 <p>There is a situation: you want to create a new struct instance where most properties need to be set to the same values as an existing struct, and you only need to change one or two field values. You can use the struct update syntax:</p>
 <pre>let site = Site {
-    domain: String::from("www.runoob.com"),
-    name: String::from("RUNOOB"),
-    ..runoob
-};</pre><p>Note:<span class="marked">..runoob</span>There cannot be a comma after it. This syntax does not allow copying another struct instance exactly without changes; that is, you must set at least one field's value before referencing another instance's values.</p>
+    domain: String::from("www.example.com"),
+    name: String::from("EXAMPLE"),
+    ..example
+};</pre><p>Note:<span class="marked">..example</span>There cannot be a comma after it. This syntax does not allow copying another struct instance exactly without changes; that is, you must set at least one field's value before referencing another instance's values.</p>
 <h3>Tuple Struct</h3><p>There is a simpler way to define and use structs:<strong>Tuple Struct</strong>。</p>
 <p>A tuple struct is a struct that has the form of a tuple.</p><p>The difference from a tuple is that it has a name and a fixed type format. It exists to handle simple data that needs a defined type (for frequent use) without being too complex:</p><pre>
 struct Color(u8, u8, u8);

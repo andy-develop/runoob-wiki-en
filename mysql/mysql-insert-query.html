@@ -311,56 +311,56 @@ VALUES (value1, value2, value3, ...);
 <p>If the data is character type, you must use single quotes<span class="marked">'</span>or double quotes<span class="marked">"</span>, such as: 'value1', "value1".</p>
 <p>A simple example that inserts a row of data into a table named users:</p>
 <pre>INSERT INTO users (username, email, birthdate, is_active)
-VALUES ('test', 'test@runoob.com', '1990-01-01', true);</pre>
+VALUES ('test', 'test@example.com', '1990-01-01', true);</pre>
 <ul><li><code>username</code>: username, string type.</li><li><code>email</code>: email address, string type.</li><li><code>birthdate</code>: user birthday, date type.</li><li><code>is_active</code>: whether activated, boolean type.</li></ul>
 <p>If you want to insert data for all columns, you can omit the column names:</p>
 <pre>
 INSERT INTO users
-VALUES (NULL,'test', 'test@runoob.com', '1990-01-01', true);</pre>
+VALUES (NULL,'test', 'test@example.com', '1990-01-01', true);</pre>
 <p>Here,<span class="marked">NULL</span>is the placeholder for the auto-increment column, indicating that the system will<strong>id</strong>generate a unique value for the column.</p>
 <p>If you want to insert multiple rows of data, you can specify multiple sets of values in the VALUES clause:</p>
 <pre>INSERT INTO users (username, email, birthdate, is_active)
 VALUES
-    ('test1', 'test1@runoob.com', '1985-07-10', true),
-    ('test2', 'test2@runoob.com', '1988-11-25', false),
-    ('test3', 'test3@runoob.com', '1993-05-03', true);</pre>
+    ('test1', 'test1@example.com', '1985-07-10', true),
+    ('test2', 'test2@example.com', '1988-11-25', false),
+    ('test3', 'test3@example.com', '1993-05-03', true);</pre>
 <p>The above code will insert three rows of data into the users table.</p>
 <hr/>
 <h2>Insert data via the command prompt window</h2>
-<p>In the following, we will use<span class="marked">INSERT INTO</span>statement to insert data into the MySQL data table runoob_tbl</p>
+<p>In the following, we will use<span class="marked">INSERT INTO</span>statement to insert data into the MySQL data table example_tbl</p>
 <h3>Example</h3>
-<p>In the following example, we will insert three rows of data into the runoob_tbl table:</p>
+<p>In the following example, we will insert three rows of data into the example_tbl table:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 root@host# mysql <span style="color: #66CC66;">-</span>u root <span style="color: #66CC66;">-</span>p password;<br/>
 Enter password:<span style="color: #66CC66;">*******</span><br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> RUNOOB;<br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> EXAMPLE;<br/>
 <span style="color: #993333; font-weight: bold;">DATABASE</span> changed<br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> runoob_tbl <br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>runoob_title<span style="color: #66CC66;">,</span> runoob_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> example_tbl <br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>example_title<span style="color: #66CC66;">,</span> example_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
     <span style="color: #66CC66;">-&gt;</span> <span style="color: #993333; font-weight: bold;">VALUES</span><br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"Learn PHP"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"Runoob Tutorial"</span><span style="color: #66CC66;">,</span> NOW<span style="color: #66CC66;">(</span><span style="color: #66CC66;">)</span><span style="color: #66CC66;">)</span>;<br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"Learn PHP"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"Example Tutorial"</span><span style="color: #66CC66;">,</span> NOW<span style="color: #66CC66;">(</span><span style="color: #66CC66;">)</span><span style="color: #66CC66;">)</span>;<br/>
 Query OK<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">1</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">1</span> warnings <span style="color: #66CC66;">(</span><span style="color: #CC66CC;">0.01</span> sec<span style="color: #66CC66;">)</span><br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> runoob_tbl<br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>runoob_title<span style="color: #66CC66;">,</span> runoob_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> example_tbl<br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>example_title<span style="color: #66CC66;">,</span> example_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
     <span style="color: #66CC66;">-&gt;</span> <span style="color: #993333; font-weight: bold;">VALUES</span><br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"Learn MySQL"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"Runoob Tutorial"</span><span style="color: #66CC66;">,</span> NOW<span style="color: #66CC66;">(</span><span style="color: #66CC66;">)</span><span style="color: #66CC66;">)</span>;<br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"Learn MySQL"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"Example Tutorial"</span><span style="color: #66CC66;">,</span> NOW<span style="color: #66CC66;">(</span><span style="color: #66CC66;">)</span><span style="color: #66CC66;">)</span>;<br/>
 Query OK<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">1</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">1</span> warnings <span style="color: #66CC66;">(</span><span style="color: #CC66CC;">0.01</span> sec<span style="color: #66CC66;">)</span><br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> runoob_tbl<br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>runoob_title<span style="color: #66CC66;">,</span> runoob_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">INSERT</span> <span style="color: #993333; font-weight: bold;">INTO</span> example_tbl<br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span>example_title<span style="color: #66CC66;">,</span> example_author<span style="color: #66CC66;">,</span> submission_date<span style="color: #66CC66;">)</span><br/>
     <span style="color: #66CC66;">-&gt;</span> <span style="color: #993333; font-weight: bold;">VALUES</span><br/>
-    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"JAVA Tutorial"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"RUNOOB.COM"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">'2016-05-06'</span><span style="color: #66CC66;">)</span>;<br/>
+    <span style="color: #66CC66;">-&gt;</span> <span style="color: #66CC66;">(</span><span style="color: #FF0000;">"JAVA Tutorial"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">"example.com"</span><span style="color: #66CC66;">,</span> <span style="color: #FF0000;">'2016-05-06'</span><span style="color: #66CC66;">)</span>;<br/>
 Query OK<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">1</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected <span style="color: #66CC66;">(</span><span style="color: #CC66CC;">0.00</span> sec<span style="color: #66CC66;">)</span><br/>
 mysql<span style="color: #66CC66;">&gt;</span><br/>
 </div></div>
 <p>
 <strong>Note:</strong>Use the arrow marker<span class="marked">-&gt;</span>is not part of the SQL statement; it merely indicates a new line. If a SQL statement is too long, we can press the Enter key to create a new line to write the SQL statement. The command terminator for a SQL statement is a semicolon.<span class="marked">;</span>。
 </p>
-<p>In the above example, we did not provide<strong>runoob_id</strong>data for this field, because we already set this field to<strong>AUTO_INCREMENT</strong>(auto-increment) attribute.<strong>NOW()</strong>is a MySQL function that returns the date and time.</p>
+<p>In the above example, we did not provide<strong>example_id</strong>data for this field, because we already set this field to<strong>AUTO_INCREMENT</strong>(auto-increment) attribute.<strong>NOW()</strong>is a MySQL function that returns the date and time.</p>
 <p>Next, we can view the data table data with the following statement:</p>
 <div class="example">
 <h2 class="example">Read the data table:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">runoob_tbl</span><span class="hl-code">;</span></div>
+<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">example_tbl</span><span class="hl-code">;</span></div>
 </div>
 <p>Output result:</p>
 <div class="example_code">
@@ -417,18 +417,18 @@ mysqli_query(connection,query,resultmode);
 </span><span class="hl-comment">//</span><span class="hl-comment">Set the encoding to prevent garbled Chinese characters</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$runoob_title</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Learn Python</span><span class="hl-quotes">'</span><span class="hl-code">;
-</span><span class="hl-var">$runoob_author</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB.COM</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$example_title</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Learn Python</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$example_author</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-var">$submission_date</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">2016-03-06</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">INSERT INTO runoob_tbl </span><span class="hl-quotes">"</span><span class="hl-code">.
-        </span><span class="hl-quotes">"</span><span class="hl-string">(runoob_title,runoob_author, submission_date) </span><span class="hl-quotes">"</span><span class="hl-code">.
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">INSERT INTO example_tbl </span><span class="hl-quotes">"</span><span class="hl-code">.
+        </span><span class="hl-quotes">"</span><span class="hl-string">(example_title,example_author, submission_date) </span><span class="hl-quotes">"</span><span class="hl-code">.
         </span><span class="hl-quotes">"</span><span class="hl-string">VALUES </span><span class="hl-quotes">"</span><span class="hl-code">.
-        </span><span class="hl-quotes">"</span><span class="hl-string">('</span><span class="hl-var">$runoob_title</span><span class="hl-string">','</span><span class="hl-var">$runoob_author</span><span class="hl-string">','</span><span class="hl-var">$submission_date</span><span class="hl-string">')</span><span class="hl-quotes">"</span><span class="hl-code">;
+        </span><span class="hl-quotes">"</span><span class="hl-string">('</span><span class="hl-var">$example_title</span><span class="hl-string">','</span><span class="hl-var">$example_author</span><span class="hl-string">','</span><span class="hl-var">$submission_date</span><span class="hl-string">')</span><span class="hl-quotes">"</span><span class="hl-code">;
  
  
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -443,7 +443,7 @@ mysqli_query(connection,query,resultmode);
 <div class="example">
 <h2 class="example">Read the data table:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">runoob_tbl</span><span class="hl-code">;</span></div>
+<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">example_tbl</span><span class="hl-code">;</span></div>
 </div>
 <p>Output result:</p>
 <div class="example_code">

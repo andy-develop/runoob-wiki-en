@@ -251,26 +251,26 @@ middle
 <span style="color: #006600; font-style: italic;">// Use console.log to print lifecycle events, observe the order of apply and effect</span><br/>
 <span style="color: #FF0000;">export</span> <span style="color: #000066; font-weight: bold;">function</span> apply<span style="color: #009900;">(</span>ctx<span style="color: #339933;">:</span> Context<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
   <span style="color: #006600; font-style: italic;">// apply is called: the plugin transitions from LOADING to ACTIVE</span><br/>
-  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob plugin loading'</span><span style="color: #009900;">)</span><br/>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'example plugin loading'</span><span style="color: #009900;">)</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Register an effect: the returned cleanup function is executed on unmount</span><br/>
   ctx.<span style="color: #660066;">effect</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #006600; font-style: italic;">// Effect registration complete (apply still in progress)</span><br/>
-    console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob effect registered'</span><span style="color: #009900;">)</span><br/>
+    console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'example effect registered'</span><span style="color: #009900;">)</span><br/>
     <span style="color: #006600; font-style: italic;">// Return disposer: called when the plugin is unloaded</span><br/>
-    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob effect cleaned up'</span><span style="color: #009900;">)</span><br/>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'example effect cleaned up'</span><span style="color: #009900;">)</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div>
 </div>
 <p>Output on load:</p>
 <pre>
-runoob plugin loading
-runoob effect registered
+example plugin loading
+example effect registered
 </pre>
 <p>Output on unload:</p>
 <pre>
-runoob effect cleaned up
+example effect cleaned up
 </pre>
 <p>It can be seen that apply executes first, then the effect registration is executed, and the returned disposer is called during the unloading phase.</p>
 <hr/>

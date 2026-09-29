@@ -452,14 +452,14 @@ prevNode</strong></p><p>The previous virtual node, only available in the beforeU
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">app</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-runoob</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ name: 'Runoob', url: 'www.runoob.com' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-example</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ name: 'Example', url: 'www.example.com' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 ​
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">```
 const app = Vue.createApp({})
-app.directive('runoob', (el, binding, vnode) =&gt; {
-console.log(binding.value.name) // =&gt; "Runoob"
-console.log(binding.value.url) // =&gt; "www.runoob.com"
+app.directive('example', (el, binding, vnode) =&gt; {
+console.log(binding.value.name) // =&gt; "Example"
+console.log(binding.value.url) // =&gt; "www.example.com"
 var s = JSON.stringify
 el.innerHTML = s(binding.value)
 })
@@ -471,7 +471,7 @@ app.mount('#app')
 </div>
 <p>Sometimes we don't need other hook functions, so we can write a shorthand function as follows:</p>
 <pre>
-Vue.directive('runoob', function (el, binding) {
+Vue.directive('example', function (el, binding) {
   // 设置指令的背景颜色
   el.style.backgroundColor = binding.value.color
 })
@@ -481,10 +481,10 @@ Vue.directive('runoob', function (el, binding) {
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">app</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-runoob</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ color: 'green', text: 'Runoob!' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-example</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ color: 'green', text: 'Example!' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">```
-Vue.directive('runoob', function (el, binding) {
+Vue.directive('example', function (el, binding) {
     // AbbreviationMethodSettingsTextandBackground color
     el.innerHTML = binding.value.text
     el.style.backgroundColor = binding.value.color

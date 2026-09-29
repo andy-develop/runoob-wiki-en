@@ -322,13 +322,13 @@ TRUNCATE TABLE table_name;</pre><p>This will clear all the data in the table, bu
 <p><strong>Notes:</strong></p>
 <ul><li><strong>Backup data</strong>: Before dropping the table, make sure you have backed up the data, if you need it.</li><li><strong>Foreign key constraints</strong>: If the table has foreign key constraints with other tables, you may need to drop the foreign key constraints first, or ensure that the dependencies are properly handled.</li></ul>
 <h3>Example</h3>
-<p>The following example drops the data table runoob_tbl:</p>
+<p>The following example drops the data table example_tbl:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 root@host# mysql <span style="color: #66CC66;">-</span>u root <span style="color: #66CC66;">-</span>p<br/>
 Enter password:<span style="color: #66CC66;">*******</span><br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> RUNOOB;<br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">USE</span> EXAMPLE;<br/>
 <span style="color: #993333; font-weight: bold;">DATABASE</span> changed<br/>
-mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">DROP</span> <span style="color: #993333; font-weight: bold;">TABLE</span> runoob_tbl;<br/>
+mysql<span style="color: #66CC66;">&gt;</span> <span style="color: #993333; font-weight: bold;">DROP</span> <span style="color: #993333; font-weight: bold;">TABLE</span> example_tbl;<br/>
 Query OK<span style="color: #66CC66;">,</span> <span style="color: #CC66CC;">0</span> <span style="color: #993333; font-weight: bold;">ROWS</span> affected <span style="color: #66CC66;">(</span><span style="color: #CC66CC;">0.8</span> sec<span style="color: #66CC66;">)</span><br/>
 mysql<span style="color: #66CC66;">&gt;</span><br/>
 </div></div>
@@ -363,7 +363,7 @@ mysqli_query(connection,query,resultmode);
 </tr>
 </tbody></table>
 <h3>Example</h3>
-<p>The following example uses a PHP script to drop the data table runoob_tbl:</p>
+<p>The following example uses a PHP script to drop the data table example_tbl:</p>
 <div class="example">
 <h2 class="example">Drop Database</h2>
 <div class="example_code">
@@ -377,8 +377,8 @@ mysqli_query(connection,query,resultmode);
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Connection failed:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">Connection successful&lt;br /&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">DROP TABLE runoob_tbl</span><span class="hl-quotes">"</span><span class="hl-code">;
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">DROP TABLE example_tbl</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -388,7 +388,7 @@ mysqli_query(connection,query,resultmode);
 </span><span class="hl-identifier">mysqli_close</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-inlinetags">?&gt;</span></div>
 </div></div>
-<p>After successful execution, we use the following command, and the runoob_tbl table will no longer be visible:</p>
+<p>After successful execution, we use the following command, and the example_tbl table will no longer be visible:</p>
 <pre>
 mysql&gt; show tables;
 Empty set (0.01 sec)

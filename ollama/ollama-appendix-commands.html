@@ -323,10 +323,10 @@ curl http:<span style="color: #000000; font-weight: bold;">//</span>localhost:<s
 <tr><td>ollama show &lt;model&gt;</td><td>View model details: parameters, template, system prompt, etc.</td><td>ollama show qwen3.5</td></tr>
 <tr><td>ollama ps</td><td>View models loaded into memory and their remaining time-to-live.</td><td>ollama ps</td></tr>
 <tr><td>ollama stop &lt;model&gt;</td><td>Immediately stop and unload a running model.</td><td>ollama stop qwen3.5</td></tr>
-<tr><td>ollama cp &lt;src&gt; &lt;dst&gt;</td><td>Copy or rename a model.</td><td>ollama cp qwen3.5 runoob-clone</td></tr>
+<tr><td>ollama cp &lt;src&gt; &lt;dst&gt;</td><td>Copy or rename a model.</td><td>ollama cp qwen3.5 example-clone</td></tr>
 <tr><td>ollama rm &lt;model&gt;</td><td>Delete a local model to free disk space.</td><td>ollama rm qwen3.5:0.8b</td></tr>
-<tr><td>ollama create &lt;name&gt; -f &lt;file&gt;</td><td>Create a custom model based on a Modelfile.</td><td>ollama create runoob-coder -f Modelfile</td></tr>
-<tr><td>ollama push &lt;model&gt;</td><td>Push a model to a remote model library; login is required first.</td><td>ollama push myteam/runoob-coder</td></tr>
+<tr><td>ollama create &lt;name&gt; -f &lt;file&gt;</td><td>Create a custom model based on a Modelfile.</td><td>ollama create example-coder -f Modelfile</td></tr>
+<tr><td>ollama push &lt;model&gt;</td><td>Push a model to a remote model library; login is required first.</td><td>ollama push myteam/example-coder</td></tr>
 <tr><td>ollama serve</td><td>Start the background service; it usually runs automatically with the system.</td><td>ollama serve</td></tr>
 </tbody>
 </table>
@@ -338,7 +338,7 @@ curl http:<span style="color: #000000; font-weight: bold;">//</span>localhost:<s
 ollama pull qwen3.5:0.8b<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Make a copy and give it your own name</span><br/>
-ollama <span style="color: #C20CB9; font-weight: bold;">cp</span> qwen3.5 runoob-clone<br/>
+ollama <span style="color: #C20CB9; font-weight: bold;">cp</span> qwen3.5 example-clone<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># After confirming the copy succeeded, delete the size that is no longer needed</span><br/>
 ollama <span style="color: #C20CB9; font-weight: bold;">rm</span> qwen3.5:0.8b<br/>
@@ -357,7 +357,7 @@ ollama <span style="color: #C20CB9; font-weight: bold;">rm</span> qwen3.5:0.8b<b
 ollama run qwen3.5<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># One-shot Q&amp;A: prompt follows the model name; exits automatically after answering</span><br/>
-ollama run qwen3.5 <span style="color: #a10;">"Introduce runoob in one sentence."</span><br/>
+ollama run qwen3.5 <span style="color: #a10;">"Introduce Python in one sentence."</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Show token statistics: total time, tokens per second, and other performance metrics</span><br/>
 ollama run qwen3.5 <span style="color: #660033;">--verbose</span><br/>
@@ -412,10 +412,10 @@ PARAMETER num_ctx <span style="color: #000000;">8192</span><br/>
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># Build a new model with a Modelfile</span><br/>
-ollama create runoob-coder <span style="color: #660033;">-f</span> Modelfile<br/>
+ollama create example-coder <span style="color: #660033;">-f</span> Modelfile<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Run it like a regular model</span><br/>
-ollama run runoob-coder <span style="color: #a10;">"Write a quicksort, including tests."</span><br/>
+ollama run example-coder <span style="color: #a10;">"Write a quicksort, including tests."</span><br/>
 </div>
 </div>
 <p>To import local GGUF weights, simply point FROM to the file path; this is commonly used to run model files downloaded from the open-source community.</p>
@@ -501,14 +501,14 @@ client <span style="color: Gray;">=</span> OpenAI<span style="color: Olive;">(</
 <br/>
 resp <span style="color: Gray;">=</span> client.<span style="color: #05a;">chat</span>.<span style="color: #05a;">completions</span>.<span style="color: #05a;">create</span><span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span><span style="color: #a11;">"qwen3.5"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Name of the locally downloaded model</span><br/>
-    messages<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"role"</span>: <span style="color: #a11;">"user"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"content"</span>: <span style="color: #a11;">"Hello, please introduce runoob"</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
+    messages<span style="color: Gray;">=</span><span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"role"</span>: <span style="color: #a11;">"user"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"content"</span>: <span style="color: #a11;">"Hello, please introduce example"</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>resp.<span style="color: #05a;">choices</span><span style="color: Olive;">[</span><span style="color: Maroon;">0</span><span style="color: Olive;">]</span>.<span style="color: #05a;">message</span>.<span style="color: #05a;">content</span><span style="color: Olive;">)</span><br/>
 </div>
 </div>
 <pre>
 $ python3 openai_compat.py
-你好！runoob（菜鸟教程）是一个面向初学者的编程学习网站，提供大量免费的基础技术教程。
+你好！example（Example）是一个面向初学者的编程学习网站，提供大量免费的基础技术教程。
 </pre>
 <hr/>
 <h2>Environment Variables Quick Reference</h2>

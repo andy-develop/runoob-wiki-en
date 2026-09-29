@@ -245,7 +245,7 @@ $ git branch
 <pre>
 $ ls
 README
-$ echo 'runoob.com' &gt; test.txt
+$ echo 'example.com' &gt; test.txt
 $ git add .
 $ git commit -m 'add test.txt'
 [master 3e92c19] add test.txt
@@ -273,22 +273,22 @@ $ git rm test.txt
 rm 'test.txt'
 $ ls
 README
-$ touch runoob.php
+$ touch example.php
 $ git add .
-$ git commit -am 'removed test.txt、add runoob.php'
-[newtest c1501a2] removed test.txt、add runoob.php
+$ git commit -am 'removed test.txt、add example.php'
+[newtest c1501a2] removed test.txt、add example.php
  2 files changed, 1 deletion(-)
- create mode 100644 runoob.php
+ create mode 100644 example.php
  delete mode 100644 test.txt
 $ ls
-README        runoob.php
+README        example.php
 $ git checkout master
 Switched to branch 'master'
 $ ls
 README        test.txt
 
 </pre>
-<p>As you can see, we created a branch, removed the file test.txt on that branch, and added the runoob.php file, then switched back to our main branch. The deleted test.txt file returned, and the newly added runoob.php does not exist in the main branch.</p><p>Using branches to separate work allows us to work in different development environments and switch back and forth.</p>
+<p>As you can see, we created a branch, removed the file test.txt on that branch, and added the example.php file, then switched back to our main branch. The deleted test.txt file returned, and the newly added example.php does not exist in the main branch.</p><p>Using branches to separate work allows us to work in different development environments and switch back and forth.</p>
 <h3>Delete branch</h3>
 <p>Delete branch command:</p>
 <pre>git branch -d (branchname)</pre>
@@ -315,13 +315,13 @@ README        test.txt
 $ git merge newtest
 Updating 3e92c19..c1501a2
 Fast-forward
- runoob.php | 0
+ example.php | 0
  test.txt   | 1 -
  2 files changed, 1 deletion(-)
- create mode 100644 runoob.php
+ create mode 100644 example.php
  delete mode 100644 test.txt
 $ ls
-README        runoob.php
+README        example.php
 
 </pre>
 <p>In the example above, we merged the newtest branch into the main branch, and the test.txt file was deleted.</p>
@@ -336,41 +336,41 @@ Deleted branch newtest (was c1501a2).</pre>
 <pre>
 $ git branch
 * master
-$ cat runoob.php
+$ cat example.php
 </pre>
-<p><strong>Note:</strong>If runoob.php does not exist, you need to create this file first. The command can be<span class="marked">touch runoob.php</span>。</p>
-<p>First, we create a branch called change_site, switch to it, and change the content of runoob.php to:</p>
+<p><strong>Note:</strong>If example.php does not exist, you need to create this file first. The command can be<span class="marked">touch example.php</span>。</p>
+<p>First, we create a branch called change_site, switch to it, and change the content of example.php to:</p>
 <pre>&lt;?php
-echo 'runoob';
+echo 'example';
 ?&gt;</pre>
 <p>Create the change_site branch:</p>
 <pre>
 $ git checkout -b change_site
 Switched to a new branch 'change_site'
-$ vim runoob.php
-$ head -3 runoob.php
+$ vim example.php
+$ head -3 example.php
 &lt;?php
-echo 'runoob';
+echo 'example';
 ?&gt;
-$ git commit -am 'changed the runoob.php'
-[change_site 7774248] changed the runoob.php
+$ git commit -am 'changed the example.php'
+[change_site 7774248] changed the example.php
  1 file changed, 3 insertions(+)
  </pre><p>For vim command operations, please refer to:<a href="../linux/linux-vim.html" target="_blank">Linux vi/vim</a>。</p>
-<p>Commit the modified content to the change_site branch. Now, if we switch back to the master branch, we can see the content restored to what it was before our modification (empty file, no code). We modify the runoob.php file again.</p>
+<p>Commit the modified content to the change_site branch. Now, if we switch back to the master branch, we can see the content restored to what it was before our modification (empty file, no code). We modify the example.php file again.</p>
 <pre>
 $ git checkout master
 Switched to branch 'master'
-$ cat runoob.php
-$ vim runoob.php    # 修改内容如下
-$ cat runoob.php
+$ cat example.php
+$ vim example.php    # 修改内容如下
+$ cat example.php
 &lt;?php
 echo 1;
 ?&gt;
 $ git diff
-diff --git a/runoob.php b/runoob.php
+diff --git a/example.php b/example.php
 index e69de29..ac60739 100644
---- a/runoob.php
-+++ b/runoob.php
+--- a/example.php
++++ b/example.php
 @@ -0,0 +1,3 @@
 +&lt;?php
 +echo 1;
@@ -382,45 +382,45 @@ $ git commit -am '修改代码'
 <p>Now these changes have been recorded to my "master" branch. Next, we will merge the "change_site" branch in.</p>
 <pre>
 $ git merge change_site
-Auto-merging runoob.php
-CONFLICT (content): Merge conflict in runoob.php
+Auto-merging example.php
+CONFLICT (content): Merge conflict in example.php
 Automatic merge failed; fix conflicts and then commit the result.
 
-$ cat runoob.php     # 打开文件，看到冲突内容
+$ cat example.php     # 打开文件，看到冲突内容
 &lt;?php
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 echo 1;
 =======
-echo 'runoob';
+echo 'example';
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; change_site
 ?&gt;
 </pre>
 <p>When we merged the previous branch into the master branch, a merge conflict appeared, and now we need to manually modify it.</p>
 <pre>
-$ vim runoob.php 
-$ cat runoob.php
+$ vim example.php 
+$ cat example.php
 &lt;?php
 echo 1;
-echo 'runoob';
+echo 'example';
 ?&gt;
 $ git diff
-diff --cc runoob.php
+diff --cc example.php
 index ac60739,b63d7d7..0000000
---- a/runoob.php
-+++ b/runoob.php
+--- a/example.php
++++ b/example.php
 @@@ -1,3 -1,3 +1,4 @@@
   &lt;?php
  +echo 1;
-+ echo 'runoob';
++ echo 'example';
   ?&gt;
 </pre>
 <p>In Git, we can use git add to tell Git that the file conflict has been resolved</p>
 <pre>
 $ git status -s
-UU runoob.php
-$ git add runoob.php
+UU example.php
+$ git add example.php
 $ git status -s
-M  runoob.php
+M  example.php
 $ git commit
 [master 88afe0e] Merge branch 'change_site'
 </pre>

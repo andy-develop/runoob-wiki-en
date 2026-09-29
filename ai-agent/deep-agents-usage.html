@@ -511,11 +511,11 @@ agent <span style="color: Gray;">=</span> create_deep_agent<span style="color: O
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># thread_id is the unique identifier of a conversation thread; the same thread_id shares the same context</span><br/>
-config <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"runoob-session-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
+config <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"example-session-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: #a50"># First round</span><br/>
 result1 <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><br/>
-    <span style="color: Olive;">{</span><span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"role"</span>: <span style="color: #a11;">"user"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"content"</span>: <span style="color: #a11;">"My name is RUNOOB, and I am learning Python."</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+    <span style="color: Olive;">{</span><span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span><span style="color: Olive;">{</span><span style="color: #a11;">"role"</span>: <span style="color: #a11;">"user"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"content"</span>: <span style="color: #a11;">"My name is EXAMPLE, and I am learning Python."</span><span style="color: Olive;">}</span><span style="color: Olive;">]</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
     config<span style="color: Gray;">=</span>config<span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"First round reply:"</span><span style="color: Gray;">,</span> result1<span style="color: Olive;">[</span><span style="color: #a11;">"messages"</span><span style="color: Olive;">]</span><span style="color: Olive;">[</span>-<span style="color: Maroon;">1</span><span style="color: Olive;">]</span>.<span style="color: #05a;">content</span><span style="color: Olive;">)</span><br/>
@@ -529,8 +529,8 @@ result2 <span style="color: Gray;">=</span> agent.<span style="color: #05a;">inv
 </div>
 </div>
 <pre>
-第一轮回复：你好，RUNOOB！很高兴认识你，Python 是一门非常适合初学者的语言...
-第二轮回复：你叫 RUNOOB，你正在学习 Python！...
+First reply:你好，EXAMPLE！很高兴认识你，Python 是一门非常适合初学者的语言...
+Second reply:你叫 EXAMPLE，你正在学习 Python！...
 </pre>
 <blockquote><p><strong>The role of thread_id:</strong>The same<code>thread_id</code>All calls under it share the same conversation history. Different<code>thread_id</code>are isolated from each other and do not interfere. You can think of it as a "conversation room number".</p></blockquote>
 <hr/>
@@ -660,7 +660,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
             <span style="color: #a11;">"content"</span>: <span style="color: #a11;">Please help me research what LangGraph is and its main application scenarios.</span><br/>
         <span style="color: Olive;">}</span><span style="color: Olive;">]</span><br/>
     <span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
-    config<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"runoob-research-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
+    config<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"example-research-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
@@ -743,7 +743,7 @@ agent <span style="color: Gray;">=</span> create_deep_agent<span style="color: O
     checkpointer<span style="color: Gray;">=</span>checkpointer<span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
-config <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"runoob-hitl-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
+config <span style="color: Gray;">=</span> <span style="color: Olive;">{</span><span style="color: #a11;">"configurable"</span>: <span style="color: Olive;">{</span><span style="color: #a11;">"thread_id"</span>: <span style="color: #a11;">"example-hitl-001"</span><span style="color: Olive;">}</span><span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: #a50"># First invocation: Agent pauses when executing delete_file</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"Starting Agent..."</span><span style="color: Olive;">)</span><br/>

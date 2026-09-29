@@ -264,24 +264,24 @@ Save workspace image? [y/n/c]: y</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/07/DDF9B88F-3BBC-4679-9D93-565E4D0ABBAB.jpg"/></p>
 <h3>File Scripts</h3>
 <p>The file extension for R language is<span class="marked">.R</span>。</p>
-<p>Next, we create a runoob-test.R file: the code is as follows:</p>
-<div class="example"><h2 class="example">runoob-test.R file</h2> <div class="example_code">
-myString <span style="color: #170;">&lt;-</span> <span style="color: #a11;">"RUNOOB"</span><br/>
+<p>Next, we create a example-test.R file: the code is as follows:</p>
+<div class="example"><h2 class="example">example-test.R file</h2> <div class="example_code">
+myString <span style="color: #170;">&lt;-</span> <span style="color: #a11;">"EXAMPLE"</span><br/>
 <br/>
 <span style="color: #05a; font-weight: bold;">print</span> <span style="color: #080;">(</span> myString <span style="color: #080;">)</span><br/>
 </div></div><p>Next, we use Rscript in the command-line window to execute this script:</p>
-<pre>Rscript runoob-test.R</pre>
-<p>The output result is as follows:</p><pre>[1] "RUNOOB"</pre>
+<pre>Rscript example-test.R</pre>
+<p>The output result is as follows:</p><pre>[1] "EXAMPLE"</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/07/0E277616-7A0A-423B-A3FB-8BCF0D381C80.jpg"/></p>
 <hr/><h2>Input and Output</h2>
 <h3>print() Output</h3>
 <p><span class="marked">print()</span>is R's output function.</p>
 <p>Like other programming languages, R supports output of numbers, characters, and so on.</p><p>The output statement is very simple:</p>
-<pre>print("RUNOOB")
+<pre>print("EXAMPLE")
 print(123)
 print(3e2)</pre>
 <p>Execution result:</p>
-<pre>[1] "RUNOOB"
+<pre>[1] "EXAMPLE"
 [1] 123
 [1] 300</pre>
 <p>R, like node.js and Python, is an interpreted language, so we can often use R just like using a command line.</p><p>If we enter just a value on a line, R will also output it directly in standard form:</p>
@@ -319,20 +319,20 @@ print(x)</pre>
 <h3>Outputting Content to a File</h3><p>R has many convenient methods for outputting to files.</p>
 <p>
 <span class="marked">cat()</span>The function supports directly outputting results to a file:</p>
-<pre>cat("RUNOOB", file="/Users/runoob/runoob-test/r_test.txt")</pre>
-<p>This statement will not produce a result in the console; instead, it outputs "RUNOOB" to the file "/Users/runoob/runoob-test/r_test.txt".</p>
+<pre>cat("EXAMPLE", file="/Users/example/example-test/r_test.txt")</pre>
+<p>This statement will not produce a result in the console; instead, it outputs "EXAMPLE" to the file "/Users/example/example-test/r_test.txt".</p>
 <p>The file parameter can be an absolute or relative path. It is recommended to use an absolute path. The Windows path format is<span class="marked">D:\\r_test.txt</span>。</p>
-<pre>cat("RUNOOB", file="D:\\r_test.txt")</pre>
+<pre>cat("EXAMPLE", file="D:\\r_test.txt")</pre>
 <p>Note: This operation is an "overwrite" operation. Use it with caution, because it will clear the existing data in the output file. If you want to "append", don't forget to set the append parameter:</p>
-<pre>cat("GOOGLE", file="/Users/runoob/runoob-test/r_test.txt", append=TRUE)</pre>
+<pre>cat("GOOGLE", file="/Users/example/example-test/r_test.txt", append=TRUE)</pre>
 <p>After executing the above code, opening the r_test.txt file shows the following content:</p>
-<pre>RUNOOBGOOGLE</pre>
+<pre>EXAMPLEGOOGLE</pre>
 <h3>sink()</h3>
 <p>The sink() function can directly output console text to a file:</p>
-<pre>sink("/Users/runoob/runoob-test/r_test.txt")</pre><p>After this statement is executed, any console output will be written to the file "/Users/runoob/runoob-test/r_test.txt", and the console will not display the output.</p>
+<pre>sink("/Users/example/example-test/r_test.txt")</pre><p>After this statement is executed, any console output will be written to the file "/Users/example/example-test/r_test.txt", and the console will not display the output.</p>
 <p>Note: This operation is also an "overwrite" operation and will directly clear the original file content.</p>
 <p>If we still want to keep console output, we can set the split attribute:</p>
-<pre>sink("/Users/runoob/runoob-test/r_test.txt", split=TRUE)</pre>
+<pre>sink("/Users/example/example-test/r_test.txt", split=TRUE)</pre>
 <p>If you want to cancel output to a file, you can call sink with no arguments:</p>
 <pre>
 sink()</pre>
@@ -343,7 +343,7 @@ sink()</pre>
 <span style="color: #05a; font-weight: bold;">sink</span><span style="color: #080;">(</span><span style="color: #080;">)</span>   <span style="color: #a50;"># Cancel output to file</span><br/>
 <br/>
 <span style="color: #05a; font-weight: bold;">sink</span><span style="color: #080;">(</span><span style="color: #a11;">"r_test.txt"</span>, <span style="color: #05a; font-weight: bold;">append</span><span style="color: #170;">=</span>TRUE<span style="color: #080;">)</span> <span style="color: #a50;"># Console does not output, append to file</span><br/>
-<span style="color: #05a; font-weight: bold;">print</span><span style="color: #080;">(</span><span style="color: #a11;">"RUNOOB"</span><span style="color: #080;">)</span><br/>
+<span style="color: #05a; font-weight: bold;">print</span><span style="color: #080;">(</span><span style="color: #a11;">"EXAMPLE"</span><span style="color: #080;">)</span><br/>
 </div></div>
 <p>After executing the above code, a r_test.txt file will be generated in the current directory. Opening the file shows the following content:</p>
 <pre>[1] 1
@@ -351,7 +351,7 @@ sink()</pre>
 [1] 3
 [1] 4
 [1] 5
-[1] "RUNOOB"</pre>
+[1] "EXAMPLE"</pre>
 <p>The console output is:</p>
 <pre>[1] 1
 [1] 2
@@ -363,10 +363,10 @@ sink()</pre>
 <h3>Reading Text from a File</h3>
 <p>R has a rich set of file-reading functions. However, if you simply want to read the contents of a file as strings, you can use the readLines function:</p>
 <pre>
-readLines("/Users/runoob/runoob-test/r_test.txt")</pre>
+readLines("/Users/example/example-test/r_test.txt")</pre>
 <p>Execution result:</p>
 <pre>
-[1] "RUNOOBGOOGLE"</pre>
+[1] "EXAMPLEGOOGLE"</pre>
 <p>The read result is two strings, corresponding to the two lines contained in the read file.</p>
 <blockquote><p><strong>Note:</strong>Each line of the text file being read (including the last line) must end with a newline character; otherwise, an error will occur.</p></blockquote>
 <h3>Other Methods</h3>
@@ -380,14 +380,14 @@ readLines("/Users/runoob/runoob-test/r_test.txt")</pre>
 print<span style="color: #7A0874; font-weight: bold;">(</span>getwd<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #7A0874; font-weight: bold;">)</span><span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Set the current working directory</span><br/>
-setwd<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #a10;">"/Users/runoob/runoob-test2"</span><span style="color: #7A0874; font-weight: bold;">)</span><br/>
+setwd<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #a10;">"/Users/example/example-test2"</span><span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># View the current working directory</span><br/>
 print<span style="color: #7A0874; font-weight: bold;">(</span>getwd<span style="color: #7A0874; font-weight: bold;">(</span><span style="color: #7A0874; font-weight: bold;">)</span><span style="color: #7A0874; font-weight: bold;">)</span><br/>
 </div></div>
 <p>Executing the above code produces the following output:</p>
-<pre>[1] "/Users/runoob/runoob-test"
-[1] "/Users/tianqixin/runoob-test2"</pre>
+<pre>[1] "/Users/example/example-test"
+[1] "/Users/tianqixin/example-test2"</pre>
 <hr/>
 <h2>R's Core Feature: Vectorization</h2>
 <p>This is one of R's most powerful aspects.</p>

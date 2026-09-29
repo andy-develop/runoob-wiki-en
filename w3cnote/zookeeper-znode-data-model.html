@@ -101,25 +101,25 @@ $ ls /zookeeper
 $ ls /zookeeper/quota
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/data-model-01.png"/></p>
-<p>We can intuitively see that the stored data currently has two nodes, runoob and zookeeper, under the root directory, and under the zookeeper node there is a node called quota.</p>
+<p>We can intuitively see that the stored data currently has two nodes, example and zookeeper, under the root directory, and under the zookeeper node there is a node called quota.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/data-model-02.png"/></p>
-<p>The runoob node was created in our previous chapter, and its value was set to 0 through the Java client. Now we execute in the command line terminal<span class="marked">get /runoob</span>to display the attributes of this node.</p>
-<pre>$ get /runoob</pre>
+<p>The example node was created in our previous chapter, and its value was set to 0 through the Java client. Now we execute in the command line terminal<span class="marked">get /example</span>to display the attributes of this node.</p>
+<pre>$ get /example</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/data-model-03.png"/></p>
 <p>The 0 displayed in the first line is the value of this node.</p>
 <h3>Znode Status Attributes</h3>
 <table class="reference"><thead><tr><th>cZxid</th><th>The transaction ID when the node was created</th></tr></thead><tbody><tr><td>ctime</td><td>The time when the node was created</td></tr><tr><td>mZxid</td><td>The transaction ID when the node was last modified</td></tr><tr><td>mtime</td><td>The time when the node was last modified</td></tr><tr><td>pZxid</td><td>Indicates the transaction ID of the last modification to the child node list of this node. Adding or deleting child nodes affects the child node list, but modifying the data content of a child node does not affect this ID.<strong>(Note: only changes to the child node list will change pzxid; changes to child node content do not affect pzxid)</strong></td></tr><tr><td>cversion</td><td>Child node version number; the version number increases by 1 each time the child node is modified</td></tr><tr><td>dataversion</td><td>Data version number; the version number increases by 1 each time the data is modified</td></tr><tr><td>aclversion</td><td>Permission version number; the version number increases by 1 each time the permission is modified</td></tr><tr><td>ephemeralOwner</td><td>The session ID of the session that created this ephemeral node.<strong>（*</strong>*If the node is a persistent node, then this attribute value is 0)**</td></tr><tr><td>dataLength</td><td>The data length of this node</td></tr><tr><td>numChildren</td><td>The number of child nodes this node has<strong>(Only counts the number of direct child nodes)</strong></td></tr></tbody></table>
-<p>With the above status attribute values understood, we will<strong>/runoob</strong>make a modification to the node, execute the command<span class="marked">set /runoob 1</span>, as shown in the figure below:</p>
-<pre>$ set /runoob 1</pre>
+<p>With the above status attribute values understood, we will<strong>/example</strong>make a modification to the node, execute the command<span class="marked">set /example 1</span>, as shown in the figure below:</p>
+<pre>$ set /example 1</pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/data-model-04.png"/></p>
 <p>Comparing the above results, it can be seen that mZxid, mtime, and dataVersion have all changed.</p>
-<p>In<strong>/runoob</strong>Under the node, we add another child node, execute:</p>
-<pre>$ create -e  /runoob/child  0
-$ get /runoob</pre>
+<p>In<strong>/example</strong>Under the node, we add another child node, execute:</p>
+<pre>$ create -e  /example/child  0
+$ get /example</pre>
 <p><strong>Note:</strong>More command usage will be explained in detail in later chapters.</p>
 <p>After execution, the terminal command line displays:</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/data-model-05.png"/></p>
-<p>It can be seen that<strong>/runoob</strong>the pZxid, cversion, and numChildren of the node have all changed accordingly.</p>
+<p>It can be seen that<strong>/example</strong>the pZxid, cversion, and numChildren of the node have all changed accordingly.</p>
 </div>
 </div>
 <div class="previous-next-links">

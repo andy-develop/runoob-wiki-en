@@ -332,7 +332,7 @@ WHERE  column_name OPERATOR
       [WHERE])</pre>
 <h3>Example</h3>
 <p>Create the COMPANY table (<a href="https://static.jyshare.com/download/company.sql">Download COMPANY SQL file</a>), and the data content is as follows:</p>
-<pre>runoobdb# select * from COMPANY;
+<pre>exampledb# select * from COMPANY;
  id | name  | age | address   | salary
 ----+-------+-----+-----------+--------
   1 | Paul  |  32 | California|  20000
@@ -344,7 +344,7 @@ WHERE  column_name OPERATOR
   7 | James |  24 | Houston   |  10000
 (7 rows)</pre>
 <p>Now, let's use a subquery in a SELECT statement:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE ID IN (SELECT ID FROM COMPANY  WHERE SALARY &gt; 45000) ;</pre>
+<pre>exampledb=# SELECT * FROM COMPANY WHERE ID IN (SELECT ID FROM COMPANY  WHERE SALARY &gt; 45000) ;</pre>
 <p>The result obtained is as follows:</p>
 <pre> id | name  | age |  address    | salary
 ----+-------+-----+-------------+--------
@@ -362,7 +362,7 @@ WHERE  column_name OPERATOR
    [ WHERE VALUE OPERATOR ]</pre>
 <h3>Example</h3>
 <p>Assume that COMPANY_BKP has a similar structure to the COMPANY table and can be created using the same CREATE TABLE, except that the table name is changed to COMPANY_BKP. Now copy the entire COMPANY table to COMPANY_BKP, the syntax is as follows:</p>
-<pre>runoobdb=# INSERT INTO COMPANY_BKP SELECT * FROM COMPANY  WHERE ID IN (SELECT ID FROM COMPANY) ;</pre>
+<pre>exampledb=# INSERT INTO COMPANY_BKP SELECT * FROM COMPANY  WHERE ID IN (SELECT ID FROM COMPANY) ;</pre>
 <hr/>
 <h2>Subquery usage in UPDATE statement</h2>
 <p>Subqueries can be used in conjunction with UPDATE statements. When a subquery is used with an UPDATE statement, one or more columns in the table are updated.</p>
@@ -376,7 +376,7 @@ SET column_name = new_value
 <h3>Example</h3>
 <p>Assume we have the COMPANY_BKP table, which is a backup of the COMPANY table.</p>
 <p>The following example updates the SALARY of all customers in the COMPANY table whose AGE is greater than 27 to 0.50 times the original:</p>
-<pre>runoobdb=# UPDATE COMPANY SET SALARY = SALARY * 0.50 WHERE AGE IN (SELECT AGE FROM COMPANY_BKP WHERE AGE &gt;= 27 );</pre>
+<pre>exampledb=# UPDATE COMPANY SET SALARY = SALARY * 0.50 WHERE AGE IN (SELECT AGE FROM COMPANY_BKP WHERE AGE &gt;= 27 );</pre>
 <p>This will affect two rows, and the final records in the COMPANY table are as follows:</p>
 <pre> id | name  | age | address     | salary
 ----+-------+-----+-------------+--------
@@ -400,7 +400,7 @@ SET column_name = new_value
 <h3>Example</h3>
 <p>Assume we have the COMPANY_BKP table, which is a backup of the COMPANY table.</p>
 <p>The following example deletes the records of all customers in the COMPANY table whose AGE is greater than or equal to 27:</p>
-<pre>runoobdb=# DELETE FROM COMPANY WHERE AGE IN (SELECT AGE FROM COMPANY_BKP WHERE AGE &gt; 27 );</pre>
+<pre>exampledb=# DELETE FROM COMPANY WHERE AGE IN (SELECT AGE FROM COMPANY_BKP WHERE AGE &gt; 27 );</pre>
 <p>This will affect two rows, and the final records in the COMPANY table are as follows:</p>
 <pre> id | name  | age | address     | salary
 ----+-------+-----+-------------+--------

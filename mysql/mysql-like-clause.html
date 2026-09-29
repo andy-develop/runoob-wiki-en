@@ -301,8 +301,8 @@ middle
 <div class="article-intro" id="content">
 <h1>MySQL LIKE Clause</h1>
 <p>We know that in MySQL, we use<span class="marked">SELECT</span>the command to read data, and we can also use<span class="marked">SELECT</span>in the statement<span class="marked">WHERE</span>clause to retrieve specified records.</p>
-<p>You can use the equal sign in the WHERE clause<span class="marked">=</span>to set the condition for retrieving data, such as "runoob_author = 'RUNOOB.COM'".</p>
-<p>But sometimes we need to retrieve all records where the runoob_author field contains the characters "COM". In such cases, we need to use in the WHERE clause<span class="marked">LIKE</span>the LIKE clause.</p>
+<p>You can use the equal sign in the WHERE clause<span class="marked">=</span>to set the condition for retrieving data, such as "example_author = 'example.com'".</p>
+<p>But sometimes we need to retrieve all records where the example_author field contains the characters "COM". In such cases, we need to use in the WHERE clause<span class="marked">LIKE</span>the LIKE clause.</p>
 <span class="marked">LIKE</span>The LIKE clause is a keyword in MySQL used for fuzzy matching in the WHERE clause. It is usually used with wildcards to search for strings that match a certain pattern.<p><span class="marked">LIKE</span>In the clause, use the percent sign<span class="marked">%</span>character to represent any character, similar to the asterisk in UNIX or regular expressions.<span class="marked">*</span>。</p>
 <p>If the percent sign is not used<span class="marked">%</span>, the LIKE clause and the equal sign<span class="marked">=</span>have the same effect.</p>
 <h3>Syntax</h3>
@@ -336,20 +336,20 @@ SELECT * FROM employees WHERE last_name LIKE 'smi%' COLLATE utf8mb4_general_ci;<
 <p><span class="marked">LIKE</span>The LIKE clause provides powerful fuzzy search capabilities and can be customized according to different patterns and requirements. When using it, make sure you understand the meaning of the wildcards and match according to the actual situation.</p>
 <hr/>
 <h2>Using the LIKE Clause in the Command Prompt</h2>
-<p>In the following, we will<span class="marked">SELECT</span>use the command<span class="marked">WHERE...LIKE</span>the LIKE clause to read data from the MySQL table runoob_tbl.</p>
+<p>In the following, we will<span class="marked">SELECT</span>use the command<span class="marked">WHERE...LIKE</span>the LIKE clause to read data from the MySQL table example_tbl.</p>
 <h3>Examples</h3>
-<p>The following is how we will get from the runoob_tbl table the records where the runoob_author field<span class="marked">COM</span>ends with:</p>
+<p>The following is how we will get from the example_tbl table the records where the example_author field<span class="marked">COM</span>ends with:</p>
 <div class="example">
 <h2 class="example">SQL LIKE statement:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-identifier">use</span><span class="hl-code"> </span><span class="hl-identifier">RUNOOB</span><span class="hl-code">;
+<div class="hl-main"><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-identifier">use</span><span class="hl-code"> </span><span class="hl-identifier">EXAMPLE</span><span class="hl-code">;
 </span><span class="hl-identifier">Database</span><span class="hl-code"> </span><span class="hl-identifier">changed</span><span class="hl-code">
-</span><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-reserved">SELECT</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">runoob_tbl</span><span class="hl-code"> </span><span class="hl-reserved">WHERE</span><span class="hl-code"> </span><span class="hl-identifier">runoob_author</span><span class="hl-code"> </span><span class="hl-reserved">LIKE</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">%COM</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-reserved">SELECT</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">example_tbl</span><span class="hl-code"> </span><span class="hl-reserved">WHERE</span><span class="hl-code"> </span><span class="hl-identifier">example_author</span><span class="hl-code"> </span><span class="hl-reserved">LIKE</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">%COM</span><span class="hl-quotes">'</span><span class="hl-code">;
 +-----------+---------------+---------------+-----------------+
-| </span><span class="hl-identifier">runoob_id</span><span class="hl-code"> | </span><span class="hl-identifier">runoob_title</span><span class="hl-code">  | </span><span class="hl-identifier">runoob_author</span><span class="hl-code"> | </span><span class="hl-identifier">submission_date</span><span class="hl-code"> |
+| </span><span class="hl-identifier">example_id</span><span class="hl-code"> | </span><span class="hl-identifier">example_title</span><span class="hl-code">  | </span><span class="hl-identifier">example_author</span><span class="hl-code"> | </span><span class="hl-identifier">submission_date</span><span class="hl-code"> |
 +-----------+---------------+---------------+-----------------+
-| </span><span class="hl-number">3</span><span class="hl-code">| Learning</span><span class="hl-identifier">Java</span><span class="hl-code">   | </span><span class="hl-identifier">RUNOOB</span><span class="hl-code">.</span><span class="hl-identifier">COM</span><span class="hl-code">    | </span><span class="hl-number">2015</span><span class="hl-code">-</span><span class="hl-number">05</span><span class="hl-code">-</span><span class="hl-number">01</span><span class="hl-code">      |
-| </span><span class="hl-number">4</span><span class="hl-code">| Learning</span><span class="hl-identifier">Python</span><span class="hl-code"> | </span><span class="hl-identifier">RUNOOB</span><span class="hl-code">.</span><span class="hl-identifier">COM</span><span class="hl-code">    | </span><span class="hl-number">2016</span><span class="hl-code">-</span><span class="hl-number">03</span><span class="hl-code">-</span><span class="hl-number">06</span><span class="hl-code">      |
+| </span><span class="hl-number">3</span><span class="hl-code">| Learning</span><span class="hl-identifier">Java</span><span class="hl-code">   | </span><span class="hl-identifier">EXAMPLE</span><span class="hl-code">.</span><span class="hl-identifier">COM</span><span class="hl-code">    | </span><span class="hl-number">2015</span><span class="hl-code">-</span><span class="hl-number">05</span><span class="hl-code">-</span><span class="hl-number">01</span><span class="hl-code">      |
+| </span><span class="hl-number">4</span><span class="hl-code">| Learning</span><span class="hl-identifier">Python</span><span class="hl-code"> | </span><span class="hl-identifier">EXAMPLE</span><span class="hl-code">.</span><span class="hl-identifier">COM</span><span class="hl-code">    | </span><span class="hl-number">2016</span><span class="hl-code">-</span><span class="hl-number">03</span><span class="hl-code">-</span><span class="hl-number">06</span><span class="hl-code">      |
 +-----------+---------------+---------------+-----------------+
 </span><span class="hl-number">2</span><span class="hl-code"> </span><span class="hl-reserved">rows</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-reserved">set</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-number">0.01</span><span class="hl-code"> </span><span class="hl-identifier">sec</span><span class="hl-brackets">)</span></div>
 </div>
@@ -360,7 +360,7 @@ SELECT * FROM employees WHERE last_name LIKE 'smi%' COLLATE utf8mb4_general_ci;<
 <p>This function is used to execute the SQL command, and then use the PHP function mysqli_fetch_array() to output all the queried data.</p>
 <p>However, if it is a SQL statement that uses a WHERE...LIKE clause in DELETE or UPDATE, there is no need to use the mysqli_fetch_array() function.</p>
 <h3>Examples</h3>
-<p>The following is how we use a PHP script to read from the runoob_tbl table all records where the runoob_author field ends with COM:</p>
+<p>The following is how we use a PHP script to read from the example_tbl table all records where the example_author field ends with COM:</p>
 <div class="example">
 <h2 class="example">MySQL LIKE Clause Test:</h2>
 <div class="example_code">
@@ -376,24 +376,24 @@ SELECT * FROM employees WHERE last_name LIKE 'smi%' COLLATE utf8mb4_general_ci;<
 </span><span class="hl-comment">//</span><span class="hl-comment">Set encoding to prevent garbled Chinese characters</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT runoob_id, runoob_title, 
-        runoob_author, submission_date
-        FROM runoob_tbl
-        WHERE runoob_author LIKE "%COM"</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT example_id, example_title, 
+        example_author, submission_date
+        FROM example_tbl
+        WHERE example_author LIKE "%COM"</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Unable to read data:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Runoob Tutorial mysqli_fetch_array Test&lt;h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Example Tutorial mysqli_fetch_array Test&lt;h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;table border="1"&gt;&lt;tr&gt;&lt;td&gt;Tutorial ID&lt;/td&gt;&lt;td&gt;Title&lt;/td&gt;&lt;td&gt;Author&lt;/td&gt;&lt;td&gt;Submission Date&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-var">$row</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_fetch_array</span><span class="hl-brackets">(</span><span class="hl-var">$retval</span><span class="hl-code">, </span><span class="hl-identifier">MYSQLI_ASSOC</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['runoob_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['example_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['submission_date']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/tr&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">

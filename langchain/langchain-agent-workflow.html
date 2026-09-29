@@ -389,17 +389,17 @@ step <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><b
 === Agent 执行过程追踪 ===
 
 --- 步骤 1 ---
-节点: model
+Node: model
   → 请求调用工具: get_weather({'city': '杭州'})
   → 请求调用工具: get_time({'city': '杭州'})
 
 --- 步骤 2 ---
-节点: tools
+Node: tools
   → 工具结果 [get_weather]: 晴，25°C
   → 工具结果 [get_time]: 14:30
 
 --- 步骤 3 ---
-节点: model
+Node: model
   → AI 回复: 杭州现在天气晴朗，气温25°C，当前时间是14:30。
 </pre>
 <p>From this trace, you can see that the Agent executed<span class="marked">3 steps</span>：</p>
@@ -439,19 +439,19 @@ step <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><b
 <pre>
 === stream_mode='values' ===
 
-状态 0: 1 条消息
+State 0: 1 条消息
   [human] 杭州天气怎么样？
 
-状态 1: 2 条消息
+State 1: 2 条消息
   [human] 杭州天气怎么样？
   [ai]
 
-状态 2: 3 条消息
+State 2: 3 条消息
   [human] 杭州天气怎么样？
   [ai]
   [tool] 晴，25°C
 
-状态 3: 4 条消息
+State 3: 4 条消息
   [human] 杭州天气怎么样？
   [ai]
   [tool] 晴，25°C
@@ -463,7 +463,7 @@ step <span style="color: Gray;">=</span> <span style="color: Maroon;">0</span><b
 <div class="example_code">
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"=== stream_mode='messages' (streaming typing effect) ===<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> msg_chunk<span style="color: Gray;">,</span> metadata <span style="color: Green;font-weight:bold;">in</span> agent.<span style="color: #05a;">stream</span><span style="color: Olive;">(</span><br/>
-    <span style="color: Olive;">{</span><span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>HumanMessage<span style="color: Olive;">(</span>content<span style="color: Gray;">=</span><span style="color: #a11;">"Introduce Runoob in one sentence"</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
+    <span style="color: Olive;">{</span><span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>HumanMessage<span style="color: Olive;">(</span>content<span style="color: Gray;">=</span><span style="color: #a11;">"Introduce Python in one sentence"</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span><br/>
     stream_mode<span style="color: Gray;">=</span><span style="color: #a11;">"messages"</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span>:<br/>
     <span style="color: #a50"># msg_chunk is an AIMessageChunk, each containing only one Token</span><br/>
@@ -499,7 +499,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <span style="color: Olive;">)</span><br/>
 <br/>
 result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><br/>
-    <span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>HumanMessage<span style="color: Olive;">(</span>content<span style="color: Gray;">=</span><span style="color: #a11;">"Introduce Runoob in one sentence"</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
+    <span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>HumanMessage<span style="color: Olive;">(</span>content<span style="color: Gray;">=</span><span style="color: #a11;">"Introduce Python in one sentence"</span><span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
 <span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
 <span style="color: #a50"># The model replies directly, the loop executes only once</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"No-tool scenario, message count: {len(result['messages'])}"</span><span style="color: Olive;">)</span><br/>
@@ -509,7 +509,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 <span style="color: #a50"># Case 2: Tool call required (multi-round loop)</span><br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_course<span style="color: Olive;">(</span><span style="color: #05a;">keyword</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search Runoob courses"""</span><br/>
+    <span style="color: #a11;">"""Search Example courses"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Found 3 courses related to {keyword}"</span><br/>
 <br/>
 <br/>
@@ -534,13 +534,13 @@ result <span style="color: Gray;">=</span> agent_with_tools.<span style="color: 
 <p>Running result:</p>
 <pre>
 无工具场景，消息数: 2
-回复: 菜鸟教程是一个面向初学者的编程学习平台，提供丰富的教程和实例...
+Reply: Example is a programming learning platform for beginners, offering rich tutorials and examples...
 
 有工具场景，消息数: 4
   [human] 搜索 Python 课程
   [ai] tool_calls: ['search_course']
   [tool] 找到 python 相关课程 3 门
-  [ai] 在菜鸟教程中搜索 "Python 课程" 找到了 3 门相关课程...
+  [ai] Searching Example for "Python courses" found 3 related courses...
 </pre>
 <hr/>
 <h2>invoke vs stream Comparison</h2>

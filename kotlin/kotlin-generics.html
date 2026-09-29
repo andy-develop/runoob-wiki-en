@@ -282,7 +282,7 @@ class Box&lt;T&gt;(t : T) {
 
 fun main(args: Array&lt;String&gt;) {
     var boxInt = Box&lt;Int&gt;(10)
-    var boxString = Box&lt;String&gt;("Runoob")
+    var boxString = Box&lt;String&gt;("Example")
 
     println(boxInt.value)
     println(boxString.value)
@@ -290,7 +290,7 @@ fun main(args: Array&lt;String&gt;) {
 </pre>
 <p>The output result is:</p>
 <pre>10
-Runoob</pre>
+Example</pre>
 <p>When defining a generic type variable, you can write out the type parameter in full, or omit it if the compiler can automatically infer the type parameter.</p><p>The declaration of Kotlin generic functions is the same as Java's; the type parameter should be placed before the function name:</p>
 <pre>
 fun &lt;T&gt; boxIn(value: T) = Box(value)
@@ -304,7 +304,7 @@ val box5 = boxIn(1)     // 编译器会进行类型推断
 <pre>
 fun main(args: Array&lt;String&gt;) {
     val age = 23
-    val name = "runoob"
+    val name = "example"
     val bool = true
 
     doPrintln(age)    // 整型
@@ -323,7 +323,7 @@ fun &lt;T&gt; doPrintln(content: T) {
 </pre>
 <p>The output result is:</p>
 <pre>整型数字为 23
-字符串转换为大写：RUNOOB
+字符串转换为大写：EXAMPLE
 T 不是整型，也不是字符串
 </pre>
 <hr/>
@@ -358,29 +358,29 @@ fun &lt;T&gt; copyWhenGreater(list: List&lt;T&gt;, threshold: T): List&lt;String
 <p>Using out makes a type parameter covariant. A covariant type parameter can only be used as output, and can be used as a return value type but not as an input parameter type:</p>
 <pre>
 // 定义一个支持协变的类
-class Runoob&lt;out A&gt;(val a: A) {
+class Example&lt;out A&gt;(val a: A) {
     fun foo(): A {
         return a
     }
 }
 
 fun main(args: Array&lt;String&gt;) {
-    var strCo: Runoob&lt;String&gt; = Runoob("a")
-    var anyCo: Runoob&lt;Any&gt; = Runoob&lt;Any&gt;("b")
+    var strCo: Example&lt;String&gt; = Example("a")
+    var anyCo: Example&lt;Any&gt; = Example&lt;Any&gt;("b")
     anyCo = strCo
     println(anyCo.foo())   // 输出 a
 }
 </pre><p>Using in makes a type parameter contravariant. A contravariant type parameter can only be used as input, and can be used as an input parameter type but not as a return value type:</p>
 <pre>
 // 定义一个支持逆变的类
-class Runoob&lt;in A&gt;(a: A) {
+class Example&lt;in A&gt;(a: A) {
     fun foo(a: A) {
     }
 }
 
 fun main(args: Array&lt;String&gt;) {
-    var strDCo = Runoob("a")
-    var anyDCo = Runoob&lt;Any&gt;("b")
+    var strDCo = Example("a")
+    var anyDCo = Example&lt;Any&gt;("b")
     strDCo = anyDCo
 }
 </pre>

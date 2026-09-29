@@ -255,27 +255,27 @@ middle
 <hr/>
 <h3>Reason for version conflict:</h3>
 <p>Suppose that both user A and user B updated the file kingtuns.txt when its version number was 100. After user A modified and committed kingtuns.txt to the server, the commit succeeded, and the version number of kingtuns.txt became 101. Meanwhile, user B modified kingtuns.txt based on version 100. When user B committed the modification to the server, the commit failed because the modification was not based on the current latest version 101.</p>
-<p>We have already checked out the runoob01 repository locally. Below we will implement the method to resolve version conflicts.</p>
+<p>We have already checked out the example01 repository locally. Below we will implement the method to resolve version conflicts.</p>
 <p>We find that there is an error in the HelloWorld.html file, and we need to modify the file and commit it to the repository.</p>
-<p>We modify the content of HelloWorld.html to "HelloWorld! https://www.runoob.com/".</p>
+<p>We modify the content of HelloWorld.html to "HelloWorld! https://www.example.com/".</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# cat HelloWorld.html 
-HelloWorld! http://www.runoob.com/
+root@example:~/svn/example01/trunk# cat HelloWorld.html 
+HelloWorld! http://www.example.com/
 </pre>
 <p>Use the following command to view the changes:</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn diff 
+root@example:~/svn/example01/trunk# svn diff 
 Index: HelloWorld.html
 ===================================================================
 --- HelloWorld.html     (revision 5)
 +++ HelloWorld.html     (working copy)
 @@ -1,2 +1 @@
--HelloWorld! http://www.runoob.com/
-+HelloWorld! http://www.runoob.com/!
+-HelloWorld! http://www.example.com/
++HelloWorld! http://www.example.com/!
 </pre>
 <p>Try to commit his changes using the following command:</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn commit -m "change HelloWorld.html first"
+root@example:~/svn/example01/trunk# svn commit -m "change HelloWorld.html first"
 Sending        HelloWorld.html
 Transmitting file data .svn: E160028: Commit failed (details follow):
 svn: E160028: File '/trunk/HelloWorld.html' is out of date
@@ -284,7 +284,7 @@ svn: E160028: File '/trunk/HelloWorld.html' is out of date
 <p>Because at this time, HelloWorld.html has already been modified by user02 and committed to the repository. Subversion will not allow user01 (the svn account used in this example) to commit the changes, because user02 has already modified the repository, so our working copy is out of date.</p>
 <p>In order to prevent the two people's code from overwriting each other, Subversion does not allow us to perform such an operation. Therefore, before committing changes, we must first update the working copy. So use the update command as follows:</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn update
+root@example:~/svn/example01/trunk# svn update
 Updating '.':
 C    HelloWorld.html
 Updated to revision 6.
@@ -301,7 +301,7 @@ Summary of conflicts:
 <pre>svn update -r6</pre>
 <p>At this point, the working copy is synchronized with the repository, and the changes can be safely committed.</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn commit -m "change HelloWorld.html second"
+root@example:~/svn/example01/trunk# svn commit -m "change HelloWorld.html second"
 Sending        HelloWorld.html
 Transmitting file data .
 Committed revision 7.

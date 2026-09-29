@@ -343,10 +343,10 @@ mongod --setParameter textSearchEnabled=true
 <p>Consider the following document data in the posts collection, which contains article content (post_text) and tags:</p>
 <pre>
 {
-   "post_text": "enjoy the mongodb articles on Runoob",
+   "post_text": "enjoy the mongodb articles on Example",
    "tags": [
       "mongodb",
-      "runoob"
+      "example"
    ]
 }
 </pre>
@@ -356,21 +356,21 @@ mongod --setParameter textSearchEnabled=true
 </pre>
 <hr/>
 <h2>Use Full-Text Index</h2>
-<p>Now that we have created a full-text index on post_text, we can search for the keyword runoob in the articles:</p>
+<p>Now that we have created a full-text index on post_text, we can search for the keyword example in the articles:</p>
 <pre>
-&gt;db.posts.find({$text:{$search:"runoob"}})
+&gt;db.posts.find({$text:{$search:"example"}})
 </pre>
-<p>The following command returns the document data containing the keyword runoob:</p>
+<p>The following command returns the document data containing the keyword example:</p>
 <pre>
 { 
    "_id" : ObjectId("53493d14d852429c10000002"), 
-   "post_text" : "enjoy the mongodb articles on Runoob", 
-   "tags" : [ "mongodb", "runoob" ]
+   "post_text" : "enjoy the mongodb articles on Example", 
+   "tags" : [ "mongodb", "example" ]
 }
 </pre>
 <p>If you are using an older version of MongoDB, you can use the following command:</p>
 <pre>
-&gt;db.posts.runCommand("text",{search:"runoob"})
+&gt;db.posts.runCommand("text",{search:"example"})
 </pre>
 <p>Using full-text indexes can improve search efficiency.</p>
 <hr/>

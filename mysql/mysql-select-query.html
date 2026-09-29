@@ -347,13 +347,13 @@ FROM table_name
 </div></div>
 <hr/>
 <h2>Fetch Data via Command Prompt</h2>
-<p>In the following example, we will use the SQL SELECT command to fetch data from the MySQL data table runoob_tbl:</p>
+<p>In the following example, we will use the SQL SELECT command to fetch data from the MySQL data table example_tbl:</p>
 <h3>Example</h3>
-<p>The following example will return all records from the data table runoob_tbl:</p>
+<p>The following example will return all records from the data table example_tbl:</p>
 <div class="example">
 <h2 class="example">Read data table:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">runoob_tbl</span><span class="hl-code">;</span></div>
+<div class="hl-main"><span class="hl-reserved">select</span><span class="hl-code"> * </span><span class="hl-reserved">from</span><span class="hl-code"> </span><span class="hl-identifier">example_tbl</span><span class="hl-code">;</span></div>
 </div>
 <p>Output result:</p>
 <div class="example_code">
@@ -364,9 +364,9 @@ FROM table_name
 <h2>Fetch Data Using PHP Scripts</h2>
 <p>Use the PHP function's<span class="marked">mysqli_query()</span>and<span class="marked">SQL SELECT</span>command to fetch data.</p><p>This function is used to execute SQL commands, and then through the PHP function<span class="marked">mysqli_fetch_array() </span>to use or output all queried data.</p>
 <p>
-<span class="marked">mysqli_fetch_array() </span>The function fetches a row from the result set as an associative array, a numeric array, or both. Returns an array generated from the row fetched from the result set, or false if there are no more rows.</p><p>The following example reads all records from the data table runoob_tbl.</p>
+<span class="marked">mysqli_fetch_array() </span>The function fetches a row from the result set as an associative array, a numeric array, or both. Returns an array generated from the row fetched from the result set, or false if there are no more rows.</p><p>The following example reads all records from the data table example_tbl.</p>
 <h3>Example</h3>
-<p>Try the following example to display all records of the data table runoob_tbl.<div class="example">
+<p>Try the following example to display all records of the data table example_tbl.<div class="example">
 <h2 class="example">Fetch data using the mysqli_fetch_array MYSQLI_ASSOC parameter:</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-inlinetags">&lt;?php</span><span class="hl-code">
@@ -381,23 +381,23 @@ FROM table_name
 </span><span class="hl-comment">//</span><span class="hl-comment">Set encoding to prevent Chinese garbled text</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT runoob_id, runoob_title, 
-        runoob_author, submission_date
-        FROM runoob_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT example_id, example_title, 
+        example_author, submission_date
+        FROM example_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Unable to read data:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Runoob mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Example mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;table border="1"&gt;&lt;tr&gt;&lt;td&gt;Tutorial ID&lt;/td&gt;&lt;td&gt;Title&lt;/td&gt;&lt;td&gt;Author&lt;/td&gt;&lt;td&gt;Submission Date&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-var">$row</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_fetch_array</span><span class="hl-brackets">(</span><span class="hl-var">$retval</span><span class="hl-code">, </span><span class="hl-identifier">MYSQLI_ASSOC</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['runoob_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['example_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['submission_date']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/tr&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
@@ -417,7 +417,7 @@ FROM table_name
 setting this parameter causes the query result to return an associative array, and you can use field names as array indexes.</p>
 <p>PHP provides another function<strong>mysqli_fetch_assoc()</strong>, which fetches a row from the result set as an associative array. Returns an associative array generated from the row fetched from the result set, or false if there are no more rows.</p>
 <h3>Example</h3>
-<p>Try the following example, which uses the<strong>mysqli_fetch_assoc()</strong>function to output all records of the data table runoob_tbl:</p>
+<p>Try the following example, which uses the<strong>mysqli_fetch_assoc()</strong>function to output all records of the data table example_tbl:</p>
 <div class="example">
 <h2 class="example">Fetch data using mysqli_fetch_assoc:</h2>
 <div class="example_code">
@@ -433,23 +433,23 @@ setting this parameter causes the query result to return an associative array, a
 </span><span class="hl-comment">//</span><span class="hl-comment">Set encoding to prevent Chinese garbled text</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT runoob_id, runoob_title, 
-        runoob_author, submission_date
-        FROM runoob_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT example_id, example_title, 
+        example_author, submission_date
+        FROM example_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Unable to read data:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Runoob mysqli_fetch_assoc test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Example mysqli_fetch_assoc test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;table border="1"&gt;&lt;tr&gt;&lt;td&gt;Tutorial ID&lt;/td&gt;&lt;td&gt;Title&lt;/td&gt;&lt;td&gt;Author&lt;/td&gt;&lt;td&gt;Submission Date&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-var">$row</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_fetch_assoc</span><span class="hl-brackets">(</span><span class="hl-var">$retval</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['runoob_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
-         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['runoob_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt; </span><span class="hl-var">{$row['example_id']}</span><span class="hl-string">&lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_title']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
+         </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['example_author']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;td&gt;</span><span class="hl-var">{$row['submission_date']}</span><span class="hl-string"> &lt;/td&gt; </span><span class="hl-quotes">"</span><span class="hl-code">.
          </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/tr&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
@@ -464,7 +464,7 @@ setting this parameter causes the query result to return an associative array, a
 </div>
 <p>You can also use the constant MYSQLI_NUM as the second parameter of the PHP mysqli_fetch_array() function to return a numeric array.</p>
 <h3>Example</h3>
-<p>The following example uses the<strong> MYSQLI_NUM </strong>parameter to display all records of the data table runoob_tbl:</p>
+<p>The following example uses the<strong> MYSQLI_NUM </strong>parameter to display all records of the data table example_tbl:</p>
 <div class="example">
 <h2 class="example">Fetch data using the mysqli_fetch_array MYSQLI_NUM parameter:</h2>
 <div class="example_code">
@@ -480,17 +480,17 @@ setting this parameter causes the query result to return an associative array, a
 </span><span class="hl-comment">//</span><span class="hl-comment">Set encoding to prevent Chinese garbled text</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT runoob_id, runoob_title, 
-        runoob_author, submission_date
-        FROM runoob_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT example_id, example_title, 
+        example_author, submission_date
+        FROM example_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Unable to read data:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Runoob mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Example mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;table border="1"&gt;&lt;tr&gt;&lt;td&gt;Tutorial ID&lt;/td&gt;&lt;td&gt;Title&lt;/td&gt;&lt;td&gt;Author&lt;/td&gt;&lt;td&gt;Submission Date&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-var">$row</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_fetch_array</span><span class="hl-brackets">(</span><span class="hl-var">$retval</span><span class="hl-code">, </span><span class="hl-identifier">MYSQLI_NUM</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
@@ -531,17 +531,17 @@ setting this parameter causes the query result to return an associative array, a
 </span><span class="hl-comment">//</span><span class="hl-comment">Set encoding to prevent Chinese garbled text</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT runoob_id, runoob_title, 
-        runoob_author, submission_date
-        FROM runoob_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">SELECT example_id, example_title, 
+        example_author, submission_date
+        FROM example_tbl</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Unable to read data:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Runoob mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;h2&gt;Example mysqli_fetch_array test&lt;/h2&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">&lt;table border="1"&gt;&lt;tr&gt;&lt;td&gt;Tutorial ID&lt;/td&gt;&lt;td&gt;Title&lt;/td&gt;&lt;td&gt;Author&lt;/td&gt;&lt;td&gt;Submission Date&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-var">$row</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_fetch_array</span><span class="hl-brackets">(</span><span class="hl-var">$retval</span><span class="hl-code">, </span><span class="hl-identifier">MYSQLI_NUM</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">

@@ -388,13 +388,13 @@ sudo htpasswd -c /etc/nginx/.htpasswd zhangsan
 <p>The process has four steps: register an account on ollama.com; bind the local public key (~/.ollama/id_ed25519.pub) on the official website settings page; copy the model to a name with the username; push.</p>
 <pre>
 # 复制成带命名空间的名字，用 tag 标版本
-ollama cp runoob-helper myteam/runoob-helper:v1
+ollama cp example-helper myteam/example-helper:v1
 
 # 推送到 ollama.com
-ollama push myteam/runoob-helper:v1
+ollama push myteam/example-helper:v1
 
 # 成员拉取使用（私有模型需登录授权账号）
-ollama run myteam/runoob-helper:v1</pre>
+ollama run myteam/example-helper:v1</pre>
 </div>
 <p>Version management is expressed with tags: v1, v2 are independent of each other, and rolling back is just switching back to the old tag.</p>
 <p>A fully offline intranet alternative also exists: put the customized Modelfile and weight files into an internal code repository or file service, and members run create locally to build. Ollama currently does not provide a server for self-hosted private registries, so cross-network distribution mainly takes these two forms.</p>

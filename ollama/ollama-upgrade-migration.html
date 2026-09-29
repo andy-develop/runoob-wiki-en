@@ -348,7 +348,7 @@ ollama list<br/>
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># Export the complete recipe of the model</span><br/>
-ollama show <span style="color: #660033;">--modelfile</span> runoob-coder <span style="color: #000000; font-weight: bold;">&gt;</span> runoob-coder.modelfile<br/>
+ollama show <span style="color: #660033;">--modelfile</span> example-coder <span style="color: #000000; font-weight: bold;">&gt;</span> example-coder.modelfile<br/>
 </div>
 </div>
 <p>Note one detail: the FROM line in the exported recipe points to the local blob file path, so it cannot be used directly after changing machines. When restoring, change FROM back to the base model name (e.g., FROM qwen3.5:9b) and rebuild.</p>
@@ -356,7 +356,7 @@ ollama show <span style="color: #660033;">--modelfile</span> runoob-coder <span 
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># After modifying FROM, rebuild and the recipe is restored</span><br/>
-ollama create runoob-coder <span style="color: #660033;">-f</span> runoob-coder.modelfile<br/>
+ollama create example-coder <span style="color: #660033;">-f</span> example-coder.modelfile<br/>
 </div>
 </div>
 <h3>Method 2: Push to Model Library for Cloud Backup</h3>
@@ -364,8 +364,8 @@ ollama create runoob-coder <span style="color: #660033;">-f</span> runoob-coder.
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># Copy to a name with a namespace then push (for private publishing, see team deployment chapter)</span><br/>
-ollama <span style="color: #C20CB9; font-weight: bold;">cp</span> runoob-coder myteam<span style="color: #000000; font-weight: bold;">/</span>runoob-coder:v1<br/>
-ollama push myteam<span style="color: #000000; font-weight: bold;">/</span>runoob-coder:v1<br/>
+ollama <span style="color: #C20CB9; font-weight: bold;">cp</span> example-coder myteam<span style="color: #000000; font-weight: bold;">/</span>example-coder:v1<br/>
+ollama push myteam<span style="color: #000000; font-weight: bold;">/</span>example-coder:v1<br/>
 </div>
 </div>
 <p>Recommended organization: put all Modelfiles into one Git repository for management, combined with a script to rebuild the environment from scratch — hardware will be replaced, systems will be reinstalled, but with the recipes in hand, all custom models can be restored in ten minutes.</p>

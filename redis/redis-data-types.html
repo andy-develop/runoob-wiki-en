@@ -300,12 +300,12 @@ middle
 <ul><li><code>SET key value</code>: Set the value of the key.</li><li><code>GET key</code>: Get the value of the key.</li><li><code>INCR key</code>: Increment the value of the key by 1.</li><li><code>DECR key</code>: Decrement the value of the key by 1.</li><li><code>APPEND key value</code>: Append the value to the end of the key's value.</li></ul>
 <h3>Examples</h3>
 <pre>
-redis 127.0.0.1:6379&gt; SET runoob "菜鸟教程"
+redis 127.0.0.1:6379&gt; SET example "Example"
 OK
-redis 127.0.0.1:6379&gt; GET runoob
-"菜鸟教程"
+redis 127.0.0.1:6379&gt; GET example
+"Example"
 </pre>
-<p>In the above examples we used Redis's<b>SET</b>and<b>GET</b>command. The key is runoob, and the corresponding value is<strong>Runoob</strong>。</p>
+<p>In the above examples we used Redis's<b>SET</b>and<b>GET</b>command. The key is example, and the corresponding value is<strong>Example</strong>。</p>
 <p><b>Note:</b>A key can store up to 512MB.</p>
 <hr/>
 <h2>Hash (hash)</h2>
@@ -314,15 +314,15 @@ redis 127.0.0.1:6379&gt; GET runoob
 <p>Each hash can store up to 2^32 - 1 key-value pairs.</p>
 <ul><h3>Common Commands</h3><li><code>HSET key field value</code>: Set the value of a field in the hash table.</li><li><code>HGET key field</code>: Get the value of a field in the hash table.</li><li><code>HGETALL key</code>: Get all fields and values in the hash table.</li><li><code>HDEL key field</code>: Delete one or more fields from the hash table.</li></ul>
 <h3>Examples</h3>
-<p><span class="marked">DEL runoob</span>Used to delete the key used in the previous test, otherwise an error will occur:<strong>(error) WRONGTYPE Operation against a key holding the wrong kind of value</strong></p>
+<p><span class="marked">DEL example</span>Used to delete the key used in the previous test, otherwise an error will occur:<strong>(error) WRONGTYPE Operation against a key holding the wrong kind of value</strong></p>
 <p><img decoding="async" src="../wp-content/uploads/2014/11/B104156B-7270-4D03-8EB3-B72D4022ED78.jpg"/></p>
 <pre>
-redis 127.0.0.1:6379&gt; DEL runoob
-redis 127.0.0.1:6379&gt; HMSET runoob field1 "Hello" field2 "World"
+redis 127.0.0.1:6379&gt; DEL example
+redis 127.0.0.1:6379&gt; HMSET example field1 "Hello" field2 "World"
 "OK"
-redis 127.0.0.1:6379&gt; HGET runoob field1
+redis 127.0.0.1:6379&gt; HGET example field1
 "Hello"
-redis 127.0.0.1:6379&gt; HGET runoob field2
+redis 127.0.0.1:6379&gt; HGET example field2
 "World"
 </pre>
 <p>In the example we used Redis<strong>HMSET, HGET</strong>command,<b>HMSET</b>set two<span class="marked">field=&gt;value</span>pairs. HGET gets the corresponding<strong>field</strong>corresponding<strong>value</strong>。
@@ -334,14 +334,14 @@ redis 127.0.0.1:6379&gt; HGET runoob field2
 <ul><li><code>LPUSH key value</code>: Insert a value at the head of the list.</li><li><code>RPUSH key value</code>: Insert a value at the tail of the list.</li><li><code>LPOP key</code>: Remove and get the first element of the list.</li><li><code>RPOP key</code>: Remove and get the last element of the list.</li><li><code>LRANGE key start stop</code>: Get the elements of the list within a specified range.</li></ul>
 <h3>Examples</h3>
 <pre>
-redis 127.0.0.1:6379&gt; DEL runoob
-redis 127.0.0.1:6379&gt; lpush runoob redis
+redis 127.0.0.1:6379&gt; DEL example
+redis 127.0.0.1:6379&gt; lpush example redis
 (integer) 1
-redis 127.0.0.1:6379&gt; lpush runoob mongodb
+redis 127.0.0.1:6379&gt; lpush example mongodb
 (integer) 2
-redis 127.0.0.1:6379&gt; lpush runoob rabbitmq
+redis 127.0.0.1:6379&gt; lpush example rabbitmq
 (integer) 3
-redis 127.0.0.1:6379&gt; lrange runoob 0 10
+redis 127.0.0.1:6379&gt; lrange example 0 10
 1) "rabbitmq"
 2) "mongodb"
 3) "redis"
@@ -359,16 +359,16 @@ sadd key member
 </pre>
 <h3>Examples</h3>
 <pre>
-redis 127.0.0.1:6379&gt; DEL runoob
-redis 127.0.0.1:6379&gt; sadd runoob redis
+redis 127.0.0.1:6379&gt; DEL example
+redis 127.0.0.1:6379&gt; sadd example redis
 (integer) 1
-redis 127.0.0.1:6379&gt; sadd runoob mongodb
+redis 127.0.0.1:6379&gt; sadd example mongodb
 (integer) 1
-redis 127.0.0.1:6379&gt; sadd runoob rabbitmq
+redis 127.0.0.1:6379&gt; sadd example rabbitmq
 (integer) 1
-redis 127.0.0.1:6379&gt; sadd runoob rabbitmq
+redis 127.0.0.1:6379&gt; sadd example rabbitmq
 (integer) 0
-redis 127.0.0.1:6379&gt; smembers runoob
+redis 127.0.0.1:6379&gt; smembers example
 
 1) "redis"
 2) "rabbitmq"
@@ -387,16 +387,16 @@ zadd key score member
 </pre>
 <h3>Examples</h3>
 <pre>
-redis 127.0.0.1:6379&gt; DEL runoob
-redis 127.0.0.1:6379&gt; zadd runoob 0 redis
+redis 127.0.0.1:6379&gt; DEL example
+redis 127.0.0.1:6379&gt; zadd example 0 redis
 (integer) 1
-redis 127.0.0.1:6379&gt; zadd runoob 0 mongodb
+redis 127.0.0.1:6379&gt; zadd example 0 mongodb
 (integer) 1
-redis 127.0.0.1:6379&gt; zadd runoob 0 rabbitmq
+redis 127.0.0.1:6379&gt; zadd example 0 rabbitmq
 (integer) 1
-redis 127.0.0.1:6379&gt; zadd runoob 0 rabbitmq
+redis 127.0.0.1:6379&gt; zadd example 0 rabbitmq
 (integer) 0
-redis 127.0.0.1:6379&gt; ZRANGEBYSCORE runoob 0 1000
+redis 127.0.0.1:6379&gt; ZRANGEBYSCORE example 0 1000
 1) "mongodb"
 2) "rabbitmq"
 3) "redis"

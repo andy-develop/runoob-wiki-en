@@ -171,13 +171,13 @@ middle
 <h2>Docker client</h2><p>Docker client is a command-line tool that interacts with the Docker daemon.</p>
 <p>The docker client is very simple; we can directly enter the docker command to see all command options of the Docker client.</p>
 <pre>
-runoob@runoob:~# docker
+example@example:~# docker
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker27.png"/></p>
 <p>You can use the command<strong>docker command --help</strong>To gain a deeper understanding of how to use a specified Docker command.</p>
 <p>For example, if we want to view<strong>docker stats</strong>Detailed usage of the commands:</p>
 <pre>
-runoob@runoob:~# docker stats --help
+example@example:~# docker stats --help
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker28.png"/></p>
 <p>The following are common Docker client commands:</p>
@@ -265,8 +265,8 @@ runoob@runoob:~# docker stats --help
 <p>Next, let's try to use Docker to build a web application.</p>
 <p>We will run a Python Flask application inside a Docker container to run a web application.</p>
 <pre>
-runoob@runoob:~# docker pull training/webapp  # 载入镜像
-runoob@runoob:~# docker run -d -P training/webapp python app.py
+example@example:~# docker pull training/webapp  # 载入镜像
+example@example:~# docker run -d -P training/webapp python app.py
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker29.png"/></p>
 <p>Parameter description:</p>
@@ -278,7 +278,7 @@ runoob@runoob:~# docker run -d -P training/webapp python app.py
 <h2>View the web application container</h2>
 <p>Use docker ps to view the containers we are running:</p>
 <pre>
-runoob@runoob:~#  docker ps
+example@example:~#  docker ps
 CONTAINER ID        IMAGE               COMMAND             ...        PORTS                 
 d3d5e39ed9d3        training/webapp     "python app.py"     ...        0.0.0.0:32769-&gt;5000/tcp
 </pre>
@@ -292,10 +292,10 @@ PORTS
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker31.png"/></p>
 <p>We can also use the -p parameter to set different ports:</p>
 <pre>
-runoob@runoob:~$ docker run -d -p 5000:5000 training/webapp python app.py
+example@example:~$ docker run -d -p 5000:5000 training/webapp python app.py
 </pre>
 <p><strong>docker ps</strong>View running containers</p>
-<pre>runoob@runoob:~#  docker ps
+<pre>example@example:~#  docker ps
 CONTAINER ID        IMAGE                             PORTS                     NAMES
 bf08b7f2cd89        training/webapp     ...        0.0.0.0:5000-&gt;5000/tcp    wizardly_chandrasekhar
 d3d5e39ed9d3        training/webapp     ...        0.0.0.0:32769-&gt;5000/tcp   xenodochial_hoov
@@ -307,18 +307,18 @@ d3d5e39ed9d3        training/webapp     ...        0.0.0.0:32769-&gt;5000/tcp   
 <p>The web application container we created above has the ID<strong>bf08b7f2cd89</strong>named<strong>wizardly_chandrasekhar</strong>。</p>
 <p>I can use<span class="marked">docker port bf08b7f2cd89</span>or<span class="marked">docker port wizardly_chandrasekhar</span>to view the container port mapping status.</p>
 <pre>
-runoob@runoob:~$ docker port bf08b7f2cd89
+example@example:~$ docker port bf08b7f2cd89
 5000/tcp -&gt; 0.0.0.0:5000
 </pre>
 <pre>
-runoob@runoob:~$ docker port wizardly_chandrasekhar
+example@example:~$ docker port wizardly_chandrasekhar
 5000/tcp -&gt; 0.0.0.0:5000
 </pre>
 <hr/>
 <h2>View the web application logs</h2>
 <p>docker logs [ID or name] can view the standard output from inside the container.</p>
 <pre>
-runoob@runoob:~$ docker logs -f bf08b7f2cd89
+example@example:~$ docker logs -f bf08b7f2cd89
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 192.168.239.1 - - [09/May/2016 16:30:37] "GET / HTTP/1.1" 200 -
 192.168.239.1 - - [09/May/2016 16:30:37] "GET /favicon.ico HTTP/1.1" 404 -
@@ -329,7 +329,7 @@ runoob@runoob:~$ docker logs -f bf08b7f2cd89
 <h2>View the processes of the web application container</h2>
 <p>We can also use docker top to view the processes running inside the container</p>
 <pre>
-runoob@runoob:~$ docker top wizardly_chandrasekhar
+example@example:~$ docker top wizardly_chandrasekhar
 UID     PID         PPID          ...       TIME                CMD
 root    23245       23228         ...       00:00:00            python app.py
 </pre>
@@ -337,7 +337,7 @@ root    23245       23228         ...       00:00:00            python app.py
 <h2>Inspect the web application</h2>
 <p>Usage<strong>docker inspect</strong>To view Docker's underlying information. It returns a JSON file that records the configuration and status information of the Docker container.</p>
 <pre>
-runoob@runoob:~$ docker inspect wizardly_chandrasekhar
+example@example:~$ docker inspect wizardly_chandrasekhar
 [
     {
         "Id": "bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85",
@@ -364,14 +364,14 @@ runoob@runoob:~$ docker inspect wizardly_chandrasekhar
 <hr/>
 <h2>Stop the web application container</h2>
 <pre>
-runoob@runoob:~$ docker stop wizardly_chandrasekhar   
+example@example:~$ docker stop wizardly_chandrasekhar   
 wizardly_chandrasekhar
 </pre>
 <hr/>
 <h2>Restart the web application container</h2>
 <p>For a container that has already stopped, we can use the command docker start to start it.</p>
 <pre>
-runoob@runoob:~$ docker start wizardly_chandrasekhar
+example@example:~$ docker start wizardly_chandrasekhar
 wizardly_chandrasekhar
 </pre>
 <p>docker ps -l queries the container created last time:</p>
@@ -383,12 +383,12 @@ bf08b7f2cd89        training/webapp     ...        0.0.0.0:5000-&gt;5000/tcp    
 <h2>Remove the web application container</h2>
 <p>We can use the docker rm command to delete unnecessary containers.</p>
 <pre>
-runoob@runoob:~$ docker rm wizardly_chandrasekhar  
+example@example:~$ docker rm wizardly_chandrasekhar  
 wizardly_chandrasekhar
 </pre>
 <p>When deleting a container, the container must be in a stopped state, otherwise the following error will be reported.</p>
 <pre>
-runoob@runoob:~$ docker rm wizardly_chandrasekhar
+example@example:~$ docker rm wizardly_chandrasekhar
 Error response from daemon: You cannot remove a running container bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85. Stop the container before attempting removal or force remove
 </pre>other extensions</div>
 </div>

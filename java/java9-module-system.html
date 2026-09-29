@@ -321,19 +321,19 @@ middle
 <p>A module is an encapsulation of code and data. The code of a module is organized into multiple packages, each containing Java classes and interfaces; the data of a module includes resource files and other static information.</p>
 <p>An important feature of the Java 9 module is that it contains a module-info.class file describing the module in the root directory of its artifact. The artifact can be in the traditional JAR file format or the JMOD file format newly added in Java 9. This file is compiled from the source code file module-info.java in the root directory. The module declaration file can describe different characteristics of the module.</p>
 <p>In the module-info.java file, we can use the new keyword module to declare a module, as shown below. The following shows the most basic module declaration for a module com.mycompany.mymodule.</p>
-<pre>module com.runoob.mymodule {
+<pre>module com.example.mymodule {
 }</pre>
 <hr/><h2>Creating a Module</h2>
-<p>Next, let's create a<span class="marked">com.runoob.greetings</span>module.</p>
+<p>Next, let's create a<span class="marked">com.example.greetings</span>module.</p>
 <p><strong>Step 1</strong></p>
-<p>Create the folder C:\&gt;JAVA\src, then create a folder com.runoob.greetings with the same name as the module in that directory.</p>
+<p>Create the folder C:\&gt;JAVA\src, then create a folder com.example.greetings with the same name as the module in that directory.</p>
 <p><strong>Step 2</strong></p>
-<p>Create the module-info.java file in the C:\&gt;JAVA\src\com.runoob.greetings directory, with the code as follows:</p>
-<pre>module com.runoob.greetings { }</pre>
-<p>module-info.java is used to create a module. In this step, we created the com.runoob.greetings module.</p>
+<p>Create the module-info.java file in the C:\&gt;JAVA\src\com.example.greetings directory, with the code as follows:</p>
+<pre>module com.example.greetings { }</pre>
+<p>module-info.java is used to create a module. In this step, we created the com.example.greetings module.</p>
 <p><strong>Step 3</strong></p>
-<p>Add a source code file to the module. Create the file Java9Tester.java in the directory C:\&gt;JAVA\src\com.runoob.greetings\com\runoob\greetings, with the code as follows:</p>
-<pre>package com.runoob.greetings;
+<p>Add a source code file to the module. Create the file Java9Tester.java in the directory C:\&gt;JAVA\src\com.example.greetings\com\example\greetings, with the code as follows:</p>
+<pre>package com.example.greetings;
 
 public class Java9Tester {
    public static void main(String[] args) {
@@ -341,13 +341,13 @@ public class Java9Tester {
    }
 }</pre>
 <p><strong>Step 4</strong></p>
-<p>Create the folder C:\&gt;JAVA\mods, then create the com.runoob.greetings folder in that directory, and compile the module to this directory:</p>
-<pre>C:/&gt;JAVA&gt; javac -d mods/com.runoob.greetings 
-   src/com.runoob.greetings/module-info.java 
-   src/com.runoob.greetings/com/runoob/greetings/Java9Tester.java</pre>
+<p>Create the folder C:\&gt;JAVA\mods, then create the com.example.greetings folder in that directory, and compile the module to this directory:</p>
+<pre>C:/&gt;JAVA&gt; javac -d mods/com.example.greetings 
+   src/com.example.greetings/module-info.java 
+   src/com.example.greetings/com/example/greetings/Java9Tester.java</pre>
 <p><strong>Step 5</strong></p>
 <p>Execute the module and view the output:</p>
-<pre>C:/&gt;JAVA&gt; java --module-path mods -m com.runoob.greetings/com.runoob.greetings.Java9Tester
+<pre>C:/&gt;JAVA&gt; java --module-path mods -m com.example.greetings/com.example.greetings.Java9Tester
 Hello World!</pre>
 <p><strong>module-path</strong>Specifies the path where the module is located.</p>
 <p><strong>-m</strong>Specifies the main module.</p>

@@ -294,7 +294,7 @@ HTTP/1.1 200 OK
 Date: Fri, 04 Feb 2000 21:03:38 GMT
 Server: Apache/1.3.9 (UNIX) PHP/4.0b3
 Set-Cookie: name=xyz; expires=Friday, 04-Feb-07 22:03:38 GMT; 
-                 path=/; domain=runoob.com
+                 path=/; domain=example.com
 Connection: close
 Content-Type: text/html
 </pre>
@@ -316,8 +316,8 @@ Cookie: name=xyz
 <p>The following is a list of useful methods available for manipulating Cookies in a Servlet.</p>
 <table class="reference notranslate">
 <tr><th style="width:5%">No.</th><th>Method &amp; Description</th></tr>
-<tr><td>1</td><td><b>public void setDomain(String pattern)</b><br/>This method sets the domain to which the cookie applies, e.g., runoob.com.</td></tr>
-<tr><td>2</td><td><b>public String getDomain()</b><br/>This method gets the domain to which the cookie applies, e.g., runoob.com.</td></tr>
+<tr><td>1</td><td><b>public void setDomain(String pattern)</b><br/>This method sets the domain to which the cookie applies, e.g., example.com.</td></tr>
+<tr><td>2</td><td><b>public String getDomain()</b><br/>This method gets the domain to which the cookie applies, e.g., example.com.</td></tr>
 <tr><td>3</td><td><b>public void setMaxAge(int expiry)</b><br/>This method sets the cookie expiration time (in seconds). If not set this way, the cookie will only remain valid during the current session.</td></tr>
 <tr><td>4</td><td><b>public int getMaxAge()</b><br/>This method returns the maximum lifetime of the cookie (in seconds). By default, -1 indicates the cookie will persist until the browser is closed.</td></tr>
 <tr><td>5</td><td><b>public String getName()</b><br/>This method returns the name of the cookie. The name cannot be changed after creation.</td></tr>
@@ -351,7 +351,7 @@ response.addCookie(cookie);
 <h2>Example</h2>
 <p>Let's modify our<a href="../servlet/servlet-form-data.html" target="_blank">Form Data Example</a>to set Cookies for first name and last name.</p>
 <pre>
-package com.runoob.test;
+package com.example.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -436,7 +436,7 @@ public class HelloForm extends HttpServlet {
     &lt;!-- 类名 --&gt;  
     &lt;servlet-name&gt;HelloForm&lt;/servlet-name&gt;
     &lt;!-- 所在的包 --&gt;
-    &lt;servlet-class&gt;com.runoob.test.HelloForm&lt;/servlet-class&gt;
+    &lt;servlet-class&gt;com.example.test.HelloForm&lt;/servlet-class&gt;
   &lt;/servlet&gt;
   &lt;servlet-mapping&gt;
     &lt;servlet-name&gt;HelloForm&lt;/servlet-name&gt;
@@ -450,7 +450,7 @@ public class HelloForm extends HttpServlet {
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../TomcatTest/HelloForm" method="GET"&gt;
@@ -471,7 +471,7 @@ public class HelloForm extends HttpServlet {
 <h2>Example</h2>
 <p>Let's read the Cookies set in the above example</p>
 <pre>
-package com.runoob.test;
+package com.example.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -563,7 +563,7 @@ public class ReadCookies extends HttpServlet {
 <h2>Example</h2>
 <p>The following example will delete the existing cookie named "url". When you next run the ReadCookies Servlet, it will return url as null.</p>
 <pre>
-package com.runoob.test;
+package com.example.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;

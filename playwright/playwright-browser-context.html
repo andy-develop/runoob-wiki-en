@@ -342,13 +342,13 @@ middle
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// Test A sets a Cookie</span><br/>
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Test A'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Set the Cookie (takes effect only in the current Context)</span><br/>
   await page.<span style="color: #660066;">context</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">addCookies</span><span style="color: #009900;">(</span><span style="color: #009900;">[</span><span style="color: #009900;">{</span><br/>
-    name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob_session'</span><span style="color: #339933;">,</span><br/>
+    name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'example_session'</span><span style="color: #339933;">,</span><br/>
     value<span style="color: #339933;">:</span> <span style="color: #3366CC;">'abc123'</span><span style="color: #339933;">,</span><br/>
-    domain<span style="color: #339933;">:</span> <span style="color: #3366CC;">'www.runoob.com'</span><span style="color: #339933;">,</span><br/>
+    domain<span style="color: #339933;">:</span> <span style="color: #3366CC;">'www.example.com'</span><span style="color: #339933;">,</span><br/>
     path<span style="color: #339933;">:</span> <span style="color: #3366CC;">'/'</span><span style="color: #339933;">,</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
@@ -357,7 +357,7 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Test A'
 <br/>
 <span style="color: #006600; font-style: italic;">// Test B receives a brand-new Context, without the Cookie set by Test A</span><br/>
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Test B'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// context().cookies() returns an empty array</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> cookies <span style="color: #339933;">=</span> await page.<span style="color: #660066;">context</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span>.<span style="color: #660066;">cookies</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -381,7 +381,7 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Using t
   await context.<span style="color: #660066;">route</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'**/*.{png,jpg,jpeg}'</span><span style="color: #339933;">,</span> route <span style="color: #339933;">=&gt;</span> route.<span style="color: #660066;">abort</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// page is in the same context and inherits the above settings</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
@@ -401,8 +401,8 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Two use
   <span style="color: #000066; font-weight: bold;">const</span> pageA <span style="color: #339933;">=</span> await userAContext.<span style="color: #660066;">newPage</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> pageB <span style="color: #339933;">=</span> await userBContext.<span style="color: #660066;">newPage</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-  await pageA.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/login'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-  await pageB.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/login'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await pageA.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/login'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await pageB.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/login'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// User A logs in</span><br/>
   await pageA.<span style="color: #660066;">getByLabel</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Username'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'user_a'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>

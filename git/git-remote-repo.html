@@ -222,16 +222,16 @@ Hi tianqixin! You've successfully authenticated, but GitHub does not provide she
 <p>The following command indicates that we have successfully connected to GitHub.</p>
 <p>After logging in, click "New repository" as shown below:</p>
 <img decoding="async" src="../wp-content/uploads/2015/03/github1.jpg"/>
-<p>After that, fill in "runoob-git-test" (remote repository name) in the Repository name field, keep the other default settings, and click the "Create repository" button. This successfully creates a new Git repository:</p>
+<p>After that, fill in "example-git-test" (remote repository name) in the Repository name field, keep the other default settings, and click the "Create repository" button. This successfully creates a new Git repository:</p>
 <img decoding="async" src="../wp-content/uploads/2015/03/299CF000-7B6E-4BEC-B8C2-D9AEB053307B.jpg"/>
 <p>After successful creation, the following information is displayed:</p>
 <img decoding="async" src="../wp-content/uploads/2015/03/1BCB4379-1A25-4C77-BB82-92B3E7185435.jpg"/>
 <p>The above information tells us that we can clone a new repository from this repository, and we can also push the contents of the local repository to the GitHub repository.</p>
 <p>Now, according to GitHub's prompts, run the commands in the local repository:</p>
 <pre>
-$ mkdir runoob-git-test                     # 创建测试目录
-$ cd runoob-git-test/                       # 进入测试目录
-$ echo "# 菜鸟教程 Git 测试" &gt;&gt; README.md     # 创建 README.md 文件并写入内容
+$ mkdir example-git-test                     # 创建测试目录
+$ cd example-git-test/                       # 进入测试目录
+$ echo "# Example Git 测试" &gt;&gt; README.md     # 创建 README.md 文件并写入内容
 $ ls                                        # 查看目录下的文件
 README
 $ git init                                  # 初始化
@@ -242,7 +242,7 @@ $ git commit -m "添加 README.md 文件"        # 提交并备注信息
  create mode 100644 README.md
 
 # 提交到 Github
-$ git remote add origin git@github.com:tianqixin/runoob-git-test.git
+$ git remote add origin git@github.com:tianqixin/example-git-test.git
 $ git push -u origin master
 </pre>
 <p>Please copy the following commands from where you successfully created the new repository on GitHub, rather than using the commands I provided, because our GitHub usernames are different and the repository names are also different.</p>
@@ -256,8 +256,8 @@ $ git push -u origin master
 $ git remote
 origin
 $ git remote -v
-origin    git@github.com:tianqixin/runoob-git-test.git (fetch)
-origin    git@github.com:tianqixin/runoob-git-test.git (push)
+origin    git@github.com:tianqixin/example-git-test.git (fetch)
+origin    git@github.com:tianqixin/example-git-test.git (push)
 </pre>
 <p>When running it with the -v parameter, you can also see the actual link address of each alias.</p>
 <hr/>
@@ -280,7 +280,7 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
-From github.com:tianqixin/runoob-git-test
+From github.com:tianqixin/example-git-test
    0205aab..febd8ed  master     -&gt; origin/master
 </pre>
 <p>The above information "0205aab..febd8ed  master     -&gt; origin/master" indicates that the master branch has been updated. We can use the following command to synchronize the updates to the local repository:</p>
@@ -294,7 +294,7 @@ Fast-forward
 <p>View the README.md file content:</p>
 <pre>
 $ cat README.md 
-# 菜鸟教程 Git 测试
+# Example Git 测试
 ## 第一次修改内容
 </pre>
 <hr/>
@@ -305,12 +305,12 @@ git push [alias] [branch]
 </pre>
 <p>The above command pushes your [branch] branch to become the [branch] branch on the [alias] remote repository. An example is as follows.</p>
 <pre>
-$ touch runoob-test.txt      # 添加文件
-$ git add runoob-test.txt 
+$ touch example-test.txt      # 添加文件
+$ git add example-test.txt 
 $ git commit -m "添加到远程"
 master 69e702d] 添加到远程
  1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 runoob-test.txt
+ create mode 100644 example-test.txt
 
 $ git push origin master    # 推送到 Github
 </pre>
@@ -323,23 +323,23 @@ $ git push origin master    # 推送到 Github
 <h3>Example</h3>
 <pre>
 $ git remote -v
-origin    git@github.com:tianqixin/runoob-git-test.git (fetch)
-origin    git@github.com:tianqixin/runoob-git-test.git (push)
+origin    git@github.com:tianqixin/example-git-test.git (fetch)
+origin    git@github.com:tianqixin/example-git-test.git (push)
 
 # 添加仓库 origin2
-$ git remote add origin2 git@github.com:tianqixin/runoob-git-test.git
+$ git remote add origin2 git@github.com:tianqixin/example-git-test.git
 
 $ git remote -v
-origin    git@github.com:tianqixin/runoob-git-test.git (fetch)
-origin    git@github.com:tianqixin/runoob-git-test.git (push)
-origin2    git@github.com:tianqixin/runoob-git-test.git (fetch)
-origin2    git@github.com:tianqixin/runoob-git-test.git (push)
+origin    git@github.com:tianqixin/example-git-test.git (fetch)
+origin    git@github.com:tianqixin/example-git-test.git (push)
+origin2    git@github.com:tianqixin/example-git-test.git (fetch)
+origin2    git@github.com:tianqixin/example-git-test.git (push)
 
 # 删除仓库 origin2
 $ git remote rm origin2
 $ git remote -v
-origin    git@github.com:tianqixin/runoob-git-test.git (fetch)
-origin    git@github.com:tianqixin/runoob-git-test.git (push)
+origin    git@github.com:tianqixin/example-git-test.git (fetch)
+origin    git@github.com:tianqixin/example-git-test.git (push)
 </pre>
 &lt;div style="display:none;"&gt;
 &lt;hr&gt;

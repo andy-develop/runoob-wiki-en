@@ -350,7 +350,7 @@ END TRANSACTION;</pre>
 <pre>ROLLBACK;</pre>
 <h3>Example</h3>
 <p>Create the COMPANY table (<a href="https://static.jyshare.com/download/company.sql">Download the COMPANY SQL file</a>), with the following data:</p>
-<pre>runoobdb# select * from COMPANY;
+<pre>exampledb# select * from COMPANY;
  id | name  | age | address   | salary
 ----+-------+-----+-----------+--------
   1 | Paul  |  32 | California|  20000
@@ -362,7 +362,7 @@ END TRANSACTION;</pre>
   7 | James |  24 | Houston   |  10000
 (7 rows)</pre>
 <p>Now, let us start a transaction, delete the records with age = 25 from the table, and finally use the ROLLBACK command to undo all changes.</p>
-<pre>runoobdb=# BEGIN;
+<pre>exampledb=# BEGIN;
 DELETE FROM COMPANY WHERE AGE = 25;
 ROLLBACK;</pre>
 <p>Check the COMPANY table, it still has the following records:</p>
@@ -376,7 +376,7 @@ ROLLBACK;</pre>
   6 | Kim   |  22 | South-Hall|  45000
   7 | James |  24 | Houston   |  10000</pre>
 <p>Now, let us start another transaction, delete the records with age = 25 from the table, and finally use the COMMIT command to commit all changes.</p>
-<pre>runoobdb=# BEGIN;
+<pre>exampledb=# BEGIN;
 DELETE FROM COMPANY WHERE AGE = 25;
 COMMIT;</pre>
 <p>Check the COMPANY table, the records have been deleted:</p>

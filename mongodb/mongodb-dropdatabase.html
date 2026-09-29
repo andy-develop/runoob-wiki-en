@@ -313,25 +313,25 @@ middle
 <pre>db.dropDatabase()</pre>
 <p>Drop the current database, which defaults to test. You can use the db command to view the current database name.</p>
 <h3>Example</h3>
-<p>In the following example, we drop the database runoob.</p>
+<p>In the following example, we drop the database example.</p>
 <p>First, view all databases:</p>
 <pre>
 &gt; show dbs
 admin   0.000GB
 config  0.000GB
 local   0.000GB
-runoob  0.000GB
+example  0.000GB
 </pre>
-<p>Next, switch to the database runoob:</p>
+<p>Next, switch to the database example:</p>
 <pre>
-&gt; use runoob
-switched to db runoob
+&gt; use example
+switched to db example
 &gt; 
 </pre>
 <p>Execute the drop command:</p>
 <pre>
 &gt; db.dropDatabase()
-{ "dropped" : "runoob", "ok" : 1 }
+{ "dropped" : "example", "ok" : 1 }
 </pre>
 <p>Finally, use the show dbs command to check whether the database was successfully dropped:</p>
 <pre>
@@ -345,14 +345,14 @@ local   0.000GB
 <pre>
 db.collection.drop()
 </pre>
-<p>The following example drops the collection site in the runoob database:</p>
+<p>The following example drops the collection site in the example database:</p>
 <pre>
-&gt; use runoob
-switched to db runoob
-&gt; db.createCollection("runoob")     # 先创建集合，类似数据库中的表
+&gt; use example
+switched to db example
+&gt; db.createCollection("example")     # 先创建集合，类似数据库中的表
 &gt; show tables             # show collections 命令会更加准确点
-runoob
-&gt; db.runoob.drop()
+example
+&gt; db.example.drop()
 true
 &gt; show tables
 &gt; 

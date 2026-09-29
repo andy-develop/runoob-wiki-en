@@ -259,7 +259,7 @@ middle
 mkdir /opt/svn
 </pre>
 <p>Use the svn command to create a repository</p>
-<pre>svnadmin create /opt/svn/runoob</pre>
+<pre>svnadmin create /opt/svn/example</pre>
 <p>Use the command svnserve to start the service<p>
 <pre>svnserve -d -r 目录 --listen-port 端口号</pre>
 <ul>
@@ -269,7 +269,7 @@ mkdir /opt/svn
 <p><strong>--listen-port:</strong>Specify the SVN listening port. Without this parameter, SVN listens on port 3690 by default.</p></li>
 <p>Due to different -r configuration methods, SVN startup can have two different access methods.</p>
 <p>Method 1: -r directly specifies the repository (called single-repository svnserve mode)</p>
-<pre>svnserve -d -r /opt/svn/runoob</pre>
+<pre>svnserve -d -r /opt/svn/example</pre>
 <p>In this case, one svnserve can only work for one repository.</p>
 <p>The repository permission configuration in the authz configuration file should be written like this:</p>
 <pre>
@@ -280,7 +280,7 @@ dev=user2
 @admin=rw
 user2=r
 </pre>
-<p>Use a URL like this: svn://192.168.0.1/ to access the runoob repository.</p>
+<p>Use a URL like this: svn://192.168.0.1/ to access the example repository.</p>
 <p>Method 2: Specify the parent directory of the repository (called multi-repository svnserve mode)</p>
 <pre>svnserve -d -r /opt/svn</pre>
 <p>In this case, one svnserve can work for multiple repositories.<p>The repository permission configuration in the authz configuration file should be written like this:</p>
@@ -288,16 +288,16 @@ user2=r
 [groups]
 admin=user1
 dev=user2
-[runoob:/]
+[example:/]
 @admin=rw
 user2=r
 
-[runoob01:/]
+[example01:/]
 @admin=rw
 user2=r
 </pre>
 <p>If you still use [/] at this time, it represents the root directory of all repositories. Similarly, [/src] represents the src directory under the root directory of all repositories.</p>
-<p>Use a URL like this: svn://192.168.0.1/runoob to access the runoob repository.</p>
+<p>Use a URL like this: svn://192.168.0.1/example to access the example repository.</p>
 Other Extensions
 </p></ul></p></p></div>
 </div>

@@ -193,7 +193,7 @@ middle
 <br/>
 <span style="color: #993333;">int</span> main<span style="color: #000;">(</span><span style="color: #993333;">int</span> argc<span style="color: #339933;">,</span> <span style="color: #993333;">char</span> <span style="color: #339933;">*</span>argv<span style="color: #000;">[</span><span style="color: #000;">]</span><span style="color: #000;">)</span> <span style="color: #000;">{</span><br/>
     <span style="color: #808080; font-style: italic;">/* argc: number of command-line arguments, argv: argument array */</span><br/>
-    <span style="color: #000066;">printf</span><span style="color: #000;">(</span><span style="color: #a11;">"RUNOOB C project startup<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
+    <span style="color: #000066;">printf</span><span style="color: #000;">(</span><span style="color: #a11;">"EXAMPLE C project startup<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
     init_database<span style="color: #000;">(</span><span style="color: #000;">)</span><span style="color: #339933;">;</span>     <span style="color: #808080; font-style: italic;">/* Initialize database connection */</span><br/>
     print_version<span style="color: #000;">(</span><span style="color: #000;">)</span><span style="color: #339933;">;</span>     <span style="color: #808080; font-style: italic;">/* Print version information (from utils module) */</span><br/>
@@ -213,7 +213,7 @@ middle
 <span style="color: #085;">#define UTILS_H</span><br/>
 <br/>
 <span style="color: #808080; font-style: italic;">/* Project name and version number (macro constants, all uppercase naming) */</span><br/>
-<span style="color: #085;">#define PROJECT_NAME  "RUNOOB"</span><br/>
+<span style="color: #085;">#define PROJECT_NAME  "EXAMPLE"</span><br/>
 <span style="color: #085;">#define VERSION_MAJOR 1</span><br/>
 <span style="color: #085;">#define VERSION_MINOR 0</span><br/>
 <br/>
@@ -268,7 +268,7 @@ middle
 CC      = <span style="color: #C20CB9; font-weight: bold;">gcc</span>                    <span style="color: #666666; font-style: italic;"># Specify the C compiler</span><br/>
 CFLAGS  = <span style="color: #660033;">-Wall</span> <span style="color: #660033;">-Wextra</span> <span style="color: #660033;">-g</span>      <span style="color: #666666; font-style: italic;"># Compiler options: all warnings + debug information</span><br/>
 INCLUDE = -I.<span style="color: #000000; font-weight: bold;">/</span>include           <span style="color: #666666; font-style: italic;"># Header file search path</span><br/>
-TARGET  = runoob_app            <span style="color: #666666; font-style: italic;"># Final executable filename</span><br/>
+TARGET  = example_app            <span style="color: #666666; font-style: italic;"># Final executable filename</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Source files and object files</span><br/>
 SRCS    = $<span style="color: #7A0874; font-weight: bold;">(</span>wildcard src<span style="color: #000000; font-weight: bold;">/*</span>.c<span style="color: #7A0874; font-weight: bold;">)</span>   <span style="color: #666666; font-style: italic;"># Automatically collect all .c files under src/</span><br/>
@@ -301,7 +301,7 @@ clean:<br/>
 <span style="color: #1F3F81; font-style: bold;">cmake_minimum_required</span><span style="color: #197D8B;">(</span><span style="color: #077807; font-sytle: italic;">VERSION</span> 3.10<span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Project name and language</span><br/>
-<span style="color: #1F3F81; font-style: bold;">project</span><span style="color: #197D8B;">(</span>runoob_app C<span style="color: #197D8B;">)</span><br/>
+<span style="color: #1F3F81; font-style: bold;">project</span><span style="color: #197D8B;">(</span>example_app C<span style="color: #197D8B;">)</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Set the C standard to C11</span><br/>
 <span style="color: #1F3F81; font-style: bold;">set</span><span style="color: #197D8B;">(</span>CMAKE_C_STANDARD 11<span style="color: #197D8B;">)</span><br/>
@@ -325,8 +325,8 @@ clean:<br/>
 $ mkdir build &amp;&amp; cd build
 $ cmake ..
 $ make
-$ ./runoob_app
-RUNOOB C 项目启动
+$ ./example_app
+EXAMPLE C 项目启动
 版本: v1.0
 </pre>
 <hr/>
@@ -369,16 +369,16 @@ $ gcc -S main.i -o main.s
 $ gcc -c main.s -o main.o
 
 # 4. 链接：将所有目标文件链接为可执行程序
-$ gcc main.o utils.o -o runoob_app
+$ gcc main.o utils.o -o example_app
 </pre>
 <hr/>
 <h2>Common Examples</h2>
 <p>The following is a complete small C project example, covering the entire process from directory creation to compilation and running.</p>
 <h3>Create project skeleton</h3>
 <pre>
-$ mkdir -p runoob_project/{src,include,tests,build,lib,doc}
-$ tree runoob_project/
-runoob_project/
+$ mkdir -p example_project/{src,include,tests,build,lib,doc}
+$ tree example_project/
+example_project/
 ├── build/
 ├── doc/
 ├── include/
@@ -435,15 +435,15 @@ runoob_project/
 </div>
 <h3>Compilation and Execution</h3>
 <pre>
-$ cd runoob_project
+$ cd example_project
 $ mkdir build &amp;&amp; cd build
 $ cmake ..
 -- Configuring done
 -- Generating done
 $ make
-[100%] Built target runoob_app
-$ ./runoob_app
-RUNOOB 项目运行成功！
+[100%] Built target example_app
+$ ./example_app
+EXAMPLE 项目运行成功！
 Point(0,0) 到 Point(3,4) 的距离 = 5.00
 7 是质数: 是
 </pre>

@@ -333,9 +333,9 @@ middle
     └── Main.class</pre>
 <p>In the following example, we use the multi-release JAR feature to generate two versions of the jar package from the Tester.java file, one for JDK 7 and the other for JDK 9, and then we execute them in different environments.</p>
 <p><strong>Step 1</strong></p>
-<p>Create the folder c:/test/java7/com/runoob, and create the Test.java file in this folder. The code is as follows:</p>
+<p>Create the folder c:/test/java7/com/example, and create the Test.java file in this folder. The code is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">com.runoob</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">com.example</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Tester <span style="color: #009900;">{</span><br/>
    <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
@@ -344,9 +344,9 @@ middle
 <span style="color: #009900;">}</span><br/>
 </div></div>
 <p><strong>Step 2</strong></p>
-<p>Create the folder c:/test/java9/com/runoob, and create the Test.java file in this folder. The code is as follows:</p>
+<p>Create the folder c:/test/java9/com/example, and create the Test.java file in this folder. The code is as follows:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">com.runoob</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000000; font-weight: bold;">package</span> <span style="color: #006699;">com.example</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Tester <span style="color: #009900;">{</span><br/>
    <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span><span style="color: #009900;">[</span><span style="color: #009900;">]</span> args<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
@@ -355,18 +355,18 @@ middle
 <span style="color: #009900;">}</span><br/>
 </div></div>
 <p>Compile the source code:</p>
-<pre>C:\test &gt; javac --release 9 java9/com/runoob/Tester.java
+<pre>C:\test &gt; javac --release 9 java9/com/example/Tester.java
 
-C:\JAVA &gt; javac --release 7 java7/com/runoob/Tester.java</pre>
+C:\JAVA &gt; javac --release 7 java7/com/example/Tester.java</pre>
 <p>Create a multi-release JAR file</p>
 <pre>C:\JAVA &gt; jar -c -f test.jar -C java7 . --release 9 -C java9 .
-Warning: entry META-INF/versions/9/com/runoob/Tester.java, 
+Warning: entry META-INF/versions/9/com/example/Tester.java, 
    multiple resources with same name</pre>
 <p>Execute using JDK 7:</p>
-<pre>C:\JAVA &gt; java -cp test.jar com.runoob.Tester
+<pre>C:\JAVA &gt; java -cp test.jar com.example.Tester
 Inside Java 7</pre>
 <p>Execute using JDK 9:</p>
-<pre>C:\JAVA &gt; java -cp test.jar com.runoob.Tester
+<pre>C:\JAVA &gt; java -cp test.jar com.example.Tester
 Inside Java 9</pre>
 <p><a href="java9-new-features.html"><img alt="Java 9 新特性" class="navup" decoding="async" src="../images/up.gif"/>Java 9 New Features</a></p> Other extensions
 </div>

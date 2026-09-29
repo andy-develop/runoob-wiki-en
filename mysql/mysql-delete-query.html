@@ -332,15 +332,15 @@ WHERE customer_id IN (
 <strong>Note:</strong>When using the DELETE statement, make sure you provide sufficient conditions to ensure that only the rows you want to delete are deleted. If you do not provide a WHERE clause, all rows in the table will be deleted, which may lead to unpredictable results.</p></blockquote>
 <hr/>
 <h2>Deleting Data from the Command Line</h2>
-<p>Here we will use the WHERE clause in the DELETE command to delete selected data from the MySQL data table runoob_tbl.</p>
+<p>Here we will use the WHERE clause in the DELETE command to delete selected data from the MySQL data table example_tbl.</p>
 <h3>Example</h3>
-<p>The following example deletes the record with runoob_id of 3 in the runoob_tbl table:</p>
+<p>The following example deletes the record with example_id of 3 in the example_tbl table:</p>
 <div class="example">
 <h2 class="example">DELETE Statement:</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-identifier">use</span><span class="hl-code"> </span><span class="hl-identifier">RUNOOB</span><span class="hl-code">;
+<div class="hl-main"><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-identifier">use</span><span class="hl-code"> </span><span class="hl-identifier">EXAMPLE</span><span class="hl-code">;
 </span><span class="hl-identifier">Database</span><span class="hl-code"> </span><span class="hl-identifier">changed</span><span class="hl-code">
-</span><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-reserved">DELETE</span><span class="hl-code"> </span><span class="hl-reserved">FROM</span><span class="hl-code"> </span><span class="hl-identifier">runoob_tbl</span><span class="hl-code"> </span><span class="hl-reserved">WHERE</span><span class="hl-code"> </span><span class="hl-identifier">runoob_id</span><span class="hl-code">=</span><span class="hl-number">3</span><span class="hl-code">;
+</span><span class="hl-identifier">mysql</span><span class="hl-code">&gt; </span><span class="hl-reserved">DELETE</span><span class="hl-code"> </span><span class="hl-reserved">FROM</span><span class="hl-code"> </span><span class="hl-identifier">example_tbl</span><span class="hl-code"> </span><span class="hl-reserved">WHERE</span><span class="hl-code"> </span><span class="hl-identifier">example_id</span><span class="hl-code">=</span><span class="hl-number">3</span><span class="hl-code">;
 </span><span class="hl-identifier">Query</span><span class="hl-code"> </span><span class="hl-identifier">OK</span><span class="hl-code">, </span><span class="hl-number">1</span><span class="hl-code"> </span><span class="hl-reserved">row</span><span class="hl-code"> </span><span class="hl-identifier">affected</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-number">0.23</span><span class="hl-code"> </span><span class="hl-identifier">sec</span><span class="hl-brackets">)</span></div>
 </div>
 </div>
@@ -348,7 +348,7 @@ WHERE customer_id IN (
 <p>PHP uses the mysqli_query() function to execute SQL statements. You can use the DELETE command with or without the WHERE clause.</p>
 <p>This function has the same<span class="marked">mysql&gt;</span>effect as executing SQL commands in the command prompt.</p>
 <h3>Example</h3>
-<p>The following PHP example will delete the record with runoob_id of 3 from the runoob_tbl table:</p>
+<p>The following PHP example will delete the record with example_id of 3 from the example_tbl table:</p>
 <div class="example">
 <h2 class="example">MySQL DELETE Clause Test:</h2>
 <div class="example_code">
@@ -364,10 +364,10 @@ WHERE customer_id IN (
 </span><span class="hl-comment">//</span><span class="hl-comment">Set the encoding to prevent Chinese garbled characters.</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">set names utf8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">DELETE FROM runoob_tbl
-        WHERE runoob_id=3</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">DELETE FROM example_tbl
+        WHERE example_id=3</span><span class="hl-quotes">'</span><span class="hl-code">;
  
-</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mysqli_select_db</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">

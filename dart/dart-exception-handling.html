@@ -189,7 +189,7 @@ middle
     print<span style="">(</span>numbers<span style="">[</span><span style="color: #009999;">10</span><span style="">]</span><span style="">)</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// Access out-of-bounds index</span><br/>
   <span style="">}</span> <span style="font-weight: bold;">catch</span> <span style="">(</span>e<span style="font-weight: bold;">,</span> stackTrace<span style="">)</span> <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// e is the exception, stackTrace is the call stack</span><br/>
-    print<span style="">(</span><span style="color: #d14;">RUNOOB exception: $e</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">EXAMPLE exception: $e</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
     print<span style="">(</span><span style="color: #d14;">Stack trace information:<span style="color: #000099; font-weight: bold;">\n</span>$stackTrace'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <br/>
@@ -209,7 +209,7 @@ middle
 </div>
 <pre>
 捕获到异常: IntegerDivisionByZeroException
-RUNOOB 异常: RangeError (index): Invalid value: Not in inclusive range 0..2: 10
+EXAMPLE 异常: RangeError (index): Invalid value: Not in inclusive range 0..2: 10
 堆栈信息:
 #0      List.[] (dart:core-patch/growable_array.dart:264)
 #1      main (file:///...)
@@ -277,7 +277,7 @@ RUNOOB 异常: RangeError (index): Invalid value: Not in inclusive range 0..2: 1
   <span style="font-weight: bold;">try</span> <span style="">{</span><br/>
     divide<span style="">(</span><span style="color: #009999;">10</span><span style="font-weight: bold;">,</span> <span style="color: #009999;">0</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span> <span style="font-weight: bold;">catch</span> <span style="">(</span>e<span style="">)</span> <span style="">{</span><br/>
-    print<span style="">(</span><span style="color: #d14;">RUNOOB error: $e</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">EXAMPLE error: $e</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -286,7 +286,7 @@ RUNOOB 异常: RangeError (index): Invalid value: Not in inclusive range 0..2: 1
 InvalidAgeException: 无效的年龄: -5（年龄必须在 0 到 150 之间）
 InvalidAgeException: 无效的年龄: 200（年龄必须在 0 到 150 之间）
 年龄 25 验证通过
-RUNOOB 错误: Invalid argument(s): 除数不能为 0
+EXAMPLE 错误: Invalid argument(s): 除数不能为 0
 </pre>
 <blockquote><p>The difference between Exception and Error: Exception is a predictable error that the program can handle (such as network timeout, file not found); Error is an unpredictable problem that usually indicates a program bug (such as type errors, null pointer). Your code should catch Exception, not Error.</p></blockquote>
 <hr/>
@@ -303,13 +303,13 @@ RUNOOB 错误: Invalid argument(s): 除数不能为 0
     print<span style="">(</span><span style="color: #d14;">Result: $result</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span> on IntegerDivisionByZeroException <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// Only catch division-by-zero exception</span><br/>
-    print<span style="">(</span><span style="color: #d14;">RUNOOB error: cannot divide by zero</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">EXAMPLE error: cannot divide by zero</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span> on FormatException <span style="font-weight: bold;">catch</span> <span style="">(</span>e<span style="">)</span> <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// Catch format exception and get exception information</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'RUNOOB format error: ${e.message}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'EXAMPLE format error: ${e.message}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span> on RangeError <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// Only catch range errors</span><br/>
-    print<span style="">(</span><span style="color: #d14;">'RUNOOB error: index out of range'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+    print<span style="">(</span><span style="color: #d14;">'EXAMPLE error: index out of range'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
   <span style="">}</span> <span style="font-weight: bold;">catch</span> <span style="">(</span>e<span style="">)</span> <span style="">{</span><br/>
     <span style="color: #999988; font-style: italic;">// Fallback: catch all other exceptions</span><br/>
     print<span style="">(</span><span style="color: #d14;">'Unknown error: $e'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -353,7 +353,7 @@ RUNOOB 错误: Invalid argument(s): 除数不能为 0
 </div>
 </div>
 <pre>
-RUNOOB 错误: 不能除以零
+EXAMPLE 错误: 不能除以零
 操作结束
 
 --- 测试不同的操作 ---
@@ -372,7 +372,7 @@ out_of_range -&gt; 范围异常
 <span style="color: #999988; font-style: italic;">// Simulate a multi-layer call scenario</span><br/>
 <span style="color: #445588; font-weight: bold;">void</span> databaseOperation<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   print<span style="">(</span><span style="color: #d14;">'  Connecting to database...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  <span style="font-weight: bold;">throw</span> Exception<span style="">(</span><span style="color: #d14;">'RUNOOB database connection failed'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  <span style="font-weight: bold;">throw</span> Exception<span style="">(</span><span style="color: #d14;">'EXAMPLE database connection failed'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> serviceLayer<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
@@ -422,9 +422,9 @@ out_of_range -&gt; 范围异常
 控制器层: 处理请求
   服务层: 调用数据库操作
   正在连接数据库...
-  [日志] 数据库操作异常: Exception: RUNOOB 数据库连接失败
+  [日志] 数据库操作异常: Exception: EXAMPLE 数据库连接失败
 控制器层捕获到异常
-错误信息: Exception: RUNOOB 数据库连接失败
+错误信息: Exception: EXAMPLE 数据库连接失败
 给用户返回: "服务暂时不可用，请稍后重试"
 
 --- rethrow vs throw e 的区别 ---

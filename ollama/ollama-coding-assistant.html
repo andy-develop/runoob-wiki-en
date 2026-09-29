@@ -282,7 +282,7 @@ middle
 <div class="article-body">
 <div class="article-intro" id="content">
 <h1>Ollama Local AI Coding Assistant</h1>
-<p>This chapter customizes a coding-specific local model, runoob-coder, and connects it to VS Code and Claude Code, creating a fully offline coding assistant that costs no tokens.</p>
+<p>This chapter customizes a coding-specific local model, example-coder, and connects it to VS Code and Claude Code, creating a fully offline coding assistant that costs no tokens.</p>
 <p>The core work involves three things: selecting the right code model, writing a solid coding Modelfile, and integrating it into a convenient tool.</p>
 <hr/>
 <h2>Step 1: Choosing a Code Model - VRAM Makes the Call</h2>
@@ -311,7 +311,7 @@ ollama pull qwen3.5:9b         # 16GB 内存</pre>
 <span style="color: #666666; font-style: italic;"># If you have 24GB+ VRAM, replace the base with qwen3-coder</span><br/>
 FROM qwen3.5:9b<br/>
 <br/>
-SYSTEM <span style="color: #a10;">""</span><span style="color: #a10;">"<br/>You are the RUNOOB team's coding assistant. Follow these rules:<br/>1. Prefer complete, directly runnable code over snippets<br/>2. Write Chinese comments for each key step, explaining</span>"why"<span style="color: #a10;">"<br/>3. Follow PEP 8 (Python) or the language's official style<br/>4. When unfamiliar APIs are involved, remind to check official documentation; do not fabricate interfaces<br/>5. Answer structure: one-sentence idea - code - notes<br/>
+SYSTEM <span style="color: #a10;">""</span><span style="color: #a10;">"<br/>You are the EXAMPLE team's coding assistant. Follow these rules:<br/>1. Prefer complete, directly runnable code over snippets<br/>2. Write Chinese comments for each key step, explaining</span>"why"<span style="color: #a10;">"<br/>3. Follow PEP 8 (Python) or the language's official style<br/>4. When unfamiliar APIs are involved, remind to check official documentation; do not fabricate interfaces<br/>5. Answer structure: one-sentence idea - code - notes<br/>
 "</span><span style="color: #a10;">""</span><br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># For code scenarios, keep it stable; lower the randomness</span><br/>
@@ -323,7 +323,7 @@ PARAMETER num_ctx <span style="color: #000000;">65536</span><br/>
 </div>
 <p>Build your dedicated coding model:</p>
 <pre>
-ollama create runoob-coder -f Modelfile</pre>
+ollama create example-coder -f Modelfile</pre>
 <p>To check whether it has been "properly tuned", test it with three standard tasks: make a function directly usable (check completeness), explain a piece of legacy code with pitfalls (check understanding), and ask it to write unit tests (check standard compliance). Only connect it to the editor after all three pass.</p>
 <blockquote><p>num_ctx 65536 is prepared for editor and Agent scenarios: they stuff an entire file or even multiple files into the context. When VRAM is tight, lower it to 32768, and use ollama ps to check whether PROCESSOR is still 100% GPU.</p></blockquote>
 <hr/>
@@ -331,18 +331,18 @@ ollama create runoob-coder -f Modelfile</pre>
 <p>Custom models and bare models are no different in the eyes of the tools. The integration method is exactly the same as in Chapter 11.</p>
 <p><img alt="编码助手三层结构：工具层、协议层、模型层" decoding="async" src="../wp-content/uploads/2026/08/coder-layers.svg" style="max-width:100%;"/></p>
 <h3>VS Code Chat Integration</h3>
-<p>After installing the official Ollama extension, select runoob-coder in the Chat model selector. No other configuration is needed.</p>
+<p>After installing the official Ollama extension, select example-coder in the Chat model selector. No other configuration is needed.</p>
 <h3>Claude Code Integration</h3>
 <div class="example">
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;"># One-click method</span><br/>
-ollama launch claude <span style="color: #660033;">--model</span> runoob-coder<br/>
+ollama launch claude <span style="color: #660033;">--model</span> example-coder<br/>
 <br/>
 <span style="color: #666666; font-style: italic;"># Manual method: point environment variables to local, and use the custom model name</span><br/>
 <span style="color: #7A0874; font-weight: bold;">export</span> <span style="color: #007800;">ANTHROPIC_AUTH_TOKEN</span>=ollama<br/>
 <span style="color: #7A0874; font-weight: bold;">export</span> <span style="color: #007800;">ANTHROPIC_BASE_URL</span>=http:<span style="color: #000000; font-weight: bold;">//</span>localhost:<span style="color: #000000;">11434</span><br/>
-claude <span style="color: #660033;">--model</span> runoob-coder<br/>
+claude <span style="color: #660033;">--model</span> example-coder<br/>
 </div>
 </div>
 <p>After integration, Claude Code's file editing, command execution, and multi-round refactoring abilities are all driven by the local model. Before running long tasks, remember to confirm the context window has been set as described above.</p>
@@ -354,7 +354,7 @@ claude <span style="color: #660033;">--model</span> runoob-coder<br/>
 <tr><th>Task Type</th><th>Recommended Model</th><th>Reason</th></tr>
 </thead>
 <tbody>
-<tr><td>Function autocomplete, code explanation, writing unit tests</td><td>runoob-coder (local)</td><td>Fast, free, private</td></tr>
+<tr><td>Function autocomplete, code explanation, writing unit tests</td><td>example-coder (local)</td><td>Fast, free, private</td></tr>
 <tr><td>Cross-file refactoring, complex debugging</td><td>qwen3-coder or a cloud flagship</td><td>Requires stronger long-context understanding</td></tr>
 <tr><td>Batch generation, scripted processing</td><td>Local small model + API</td><td>Zero-cost high volume</td></tr>
 </tbody>

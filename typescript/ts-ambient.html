@@ -386,7 +386,7 @@ jQuery('#foo');
 <h3>File naming conventions</h3>
 <p>Declaration files uniformly use<span class="marked">.d.ts</span>as the suffix,<span class="marked">d</span>which stands for declaration. For example:</p>
 <pre>
-runoob.d.ts
+example.d.ts
 </pre>
 <h3>Basic syntax</h3>
 <p>The syntax for declaring a module is as follows:</p>
@@ -396,7 +396,7 @@ declare module Module_Name {
 </pre>
 <p>In a TypeScript file, use the triple-slash directive to include the declaration file:</p>
 <pre>
-/// &lt;reference path = "runoob.d.ts" /&gt;
+/// &lt;reference path = "example.d.ts" /&gt;
 </pre>
 <p>The triple-slash directive is TypeScript-specific syntax used to tell the compiler to include the specified declaration file during compilation.</p>
 <blockquote><p>Declaration files for many popular third-party libraries (such as jQuery, Lodash) are already maintained by the community and stored in<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery/index.d.ts" target="_blank">DefinitelyTyped</a>the project. You just need to install the corresponding<span class="marked">@types/xxx</span>package via npm and you can use it without writing it manually.</p></blockquote>
@@ -410,21 +410,21 @@ declare module Module_Name {
 <tr><td>Calc.d.ts</td><td>Declaration file (manually written, describes the library's types)</td></tr>
 <tr><td>CalcTest.ts</td><td>TypeScript business code (references the declaration file, calls the library)</td></tr>
 <tr><td>CalcTest.js</td><td>Compiled output (JS file compiled by tsc)</td></tr>
-<tr><td>runoob.html</td><td>Final page running in the browser</td></tr>
+<tr><td>example.html</td><td>Final page running in the browser</td></tr>
 </table>
 <h3>Step 1: Create the third-party JavaScript library</h3>
-<p>Suppose we have a third-party library that provides cumulative summation functionality. It uses the namespace<span class="marked">Runoob</span>to organize code and avoid variable name conflicts:</p>
+<p>Suppose we have a third-party library that provides cumulative summation functionality. It uses the namespace<span class="marked">Example</span>to organize code and avoid variable name conflicts:</p>
 <div class="example">
 <h2 class="example">CalcThirdPartyJsLib.js file code:</h2>
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// File path: CalcThirdPartyJsLib.js</span><br/>
 <span style="color: #006600; font-style: italic;">// This is a simulated third-party JavaScript library</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// Declare the Runoob namespace variable (create an empty object if it does not exist)</span><br/>
-<span style="color: #000066; font-weight: bold;">var</span> Runoob<span style="color: #339933;">;</span><br/>
+<span style="color: #006600; font-style: italic;">// Declare the Example namespace variable (create an empty object if it does not exist)</span><br/>
+<span style="color: #000066; font-weight: bold;">var</span> Example<span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// Use an immediately invoked function expression (IIFE) to encapsulate the code and prevent internal variables from leaking into the global scope</span><br/>
-<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">(</span>Runoob<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
+<span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">(</span>Example<span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #006600; font-style: italic;">// Calc constructor, used to create calculator objects</span><br/>
     <span style="color: #000066; font-weight: bold;">var</span> Calc <span style="color: #339933;">=</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
         <span style="color: #000066; font-weight: bold;">function</span> Calc<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
@@ -444,14 +444,14 @@ declare module Module_Name {
         <span style="color: #000066; font-weight: bold;">return</span> sum<span style="color: #339933;">;</span><br/>
     <span style="color: #009900;">}</span><br/>
 <br/>
-    <span style="color: #006600; font-style: italic;">// Attach the Calc constructor to the Runoob namespace</span><br/>
-    <span style="color: #006600; font-style: italic;">// This way, the outside can create instances via new Runoob.Calc()</span><br/>
-    Runoob.<span style="color: #660066;">Calc</span> <span style="color: #339933;">=</span> Calc<span style="color: #339933;">;</span><br/>
+    <span style="color: #006600; font-style: italic;">// Attach the Calc constructor to the Example namespace</span><br/>
+    <span style="color: #006600; font-style: italic;">// This way, the outside can create instances via new Example.Calc()</span><br/>
+    Example.<span style="color: #660066;">Calc</span> <span style="color: #339933;">=</span> Calc<span style="color: #339933;">;</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span> Calc<span style="color: #339933;">;</span><br/>
-<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span>Runoob <span style="color: #339933;">||</span> <span style="color: #009900;">(</span>Runoob <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span>Example <span style="color: #339933;">||</span> <span style="color: #009900;">(</span>Example <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// Internal self-test code of the library</span><br/>
-<span style="color: #000066; font-weight: bold;">var</span> test <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Runoob.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000066; font-weight: bold;">var</span> test <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Example.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
 <p>This library uses a common pattern: the immediately invoked function expression (IIFE). In plain terms, it wraps the code in a function and runs it immediately, so variables defined inside the function do not leak out, avoiding name conflicts with other code.</p>
@@ -463,8 +463,8 @@ declare module Module_Name {
 <span style="color: #006600; font-style: italic;">// File path: Calc.d.ts</span><br/>
 <span style="color: #006600; font-style: italic;">// This is a declaration file; it contains only type information, not any executable code</span><br/>
 <br/>
-<span style="color: #006600; font-style: italic;">// Declare the Runoob module, corresponding to the Runoob namespace in the JS library</span><br/>
-declare module Runoob <span style="color: #009900;">{</span><br/>
+<span style="color: #006600; font-style: italic;">// Declare the Example module, corresponding to the Example namespace in the JS library</span><br/>
+declare module Example <span style="color: #009900;">{</span><br/>
    <span style="color: #006600; font-style: italic;">// Declare the Calc class, telling TypeScript that this class can be instantiated with new</span><br/>
    <span style="color: #FF0000;">export</span> <span style="color: #FF0000;">class</span> Calc <span style="color: #009900;">{</span><br/>
       <span style="color: #006600; font-style: italic;">// Declare the doSum method: takes a number parameter and returns a number</span><br/>
@@ -485,7 +485,7 @@ declare module Runoob <span style="color: #009900;">{</span><br/>
 <span style="color: #006600; font-style: italic;">/// &lt;reference path = "Calc.d.ts" /&gt;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// Create a Calc instance; TypeScript can now correctly identify the type of obj</span><br/>
-<span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Runoob.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Example.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// obj.doSum("Hello"); // Compilation error! "Hello" is a string, but doSum requires a number argument</span><br/>
 console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>obj.<span style="color: #660066;">doSum</span><span style="color: #009900;">(</span><span style="color: #CC0000;">10</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// Correct call: pass 10, expecting 55</span><br/>
@@ -507,7 +507,7 @@ tsc CalcTest.ts
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// File path: CalcTest.js (automatically generated by the tsc command)</span><br/>
 <span style="color: #006600; font-style: italic;">/// &lt;reference path = "Calc.d.ts" /&gt;</span><br/>
-<span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Runoob.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Example.<span style="color: #660066;">Calc</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #006600; font-style: italic;">//obj.doSum("Hello"); // Compilation error</span><br/>
 console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>obj.<span style="color: #660066;">doSum</span><span style="color: #009900;">(</span><span style="color: #CC0000;">10</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// Output: prints 55 to the console</span><br/>
 </div>
@@ -522,8 +522,8 @@ console.<span style="color: #660066;">log</span><span style="color: #009900;">(<
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">html</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">head</span>&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">meta</span> <span style="color: #00c;">charset</span><span style="color: #66CC66;">=</span><span style="color: #a11;">"utf-8"</span>&gt;</span><br/>
-<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>Runoob Tutorial (runoob.com)<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
-<span style="color: #808080; font-style: italic;">&lt;!-- Step 1: Load the third-party library to make the Runoob namespace globally available --&gt;</span><br/>
+<span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">title</span>&gt;</span>Example Tutorial (example.com)<span style="color: #170;">&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">title</span>&gt;</span><br/>
+<span style="color: #808080; font-style: italic;">&lt;!-- Step 1: Load the third-party library to make the Example namespace globally available --&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">script</span> <span style="color: #00c;">src</span> <span style="color: #66CC66;">=</span> <span style="color: #a11;">"CalcThirdPartyJsLib.js"</span>&gt;&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>
 <span style="color: #808080; font-style: italic;">&lt;!-- Step 2: Load the compiled business code --&gt;</span><br/>
 <span style="color: #170;">&lt;<span style="color: #170; font-weight: bold;">script</span> <span style="color: #00c;">src</span> <span style="color: #66CC66;">=</span> <span style="color: #a11;">"CalcTest.js"</span>&gt;&lt;<span style="color: #66CC66;">/</span><span style="color: #170; font-weight: bold;">script</span>&gt;</span><br/>

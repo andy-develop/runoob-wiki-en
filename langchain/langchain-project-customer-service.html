@@ -436,7 +436,7 @@ load_dotenv<span style="color: Olive;">(</span><span style="color: Olive;">)</sp
 <span style="color: #a50"># ========== 1. Prepare the Knowledge Base ==========</span><br/>
 <br/>
 knowledge_base <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a11;">"RUNOOB, founded in 2013, is a leading free programming learning platform in China."</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"EXAMPLE, founded in 2013, is a leading free programming learning platform in China."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The platform offers 300+ tutorials, covering Python, Java, HTML, CSS, JavaScript, and more."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The Python3 basic tutorial has 30 chapters, with over 5 million cumulative learners. The course is completely free."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"VIP membership costs ¥99/month or ¥799/year, including video courses and one-on-one Q&amp;A support."</span><span style="color: Gray;">,</span><br/>
@@ -475,7 +475,7 @@ retriever <span style="color: Gray;">=</span> vector_store.<span style="color: #
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_kb<span style="color: Olive;">(</span>query: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search the RUNOOB knowledge base for official information about the platform, courses, policies, etc.<br/>
+    <span style="color: #a11;">"""Search the EXAMPLE knowledge base for official information about the platform, courses, policies, etc.<br/>
 <br/>
     Args:<br/>query: search question or keyword<br/>
     """</span><br/>
@@ -561,7 +561,7 @@ orders_db <span style="color: Gray;">=</span> <span style="color: Olive;">{</spa
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>AIMessage<span style="color: Olive;">(</span><br/>
             <span style="color: Teal;">id</span><span style="color: Gray;">=</span>last.<span style="color: Teal;">id</span><span style="color: Gray;">,</span><br/>
             content<span style="color: Gray;">=</span>last.<span style="color: #05a;">content</span><br/>
-            + <span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>---<span style="color: #000099; font-weight: bold;">\n</span>"RUNOOB Customer Service Center | Working hours: 9:00-18:00"</span><br/>
+            + <span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>---<span style="color: #000099; font-weight: bold;">\n</span>"EXAMPLE Customer Service Center | Working hours: 9:00-18:00"</span><br/>
         <span style="color: Olive;">)</span><span style="color: Olive;">]</span><span style="color: Olive;">}</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: Teal;">None</span><br/>
 <br/>
@@ -582,7 +582,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
     tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>search_kb<span style="color: Gray;">,</span> query_order<span style="color: Gray;">,</span> transfer_to_human<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     middleware<span style="color: Gray;">=</span><span style="color: Olive;">[</span>content_guard<span style="color: Gray;">,</span> auto_signature<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
     checkpointer<span style="color: Gray;">=</span>checkpointer<span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"""You are "Xiao Cai", the intelligent customer service agent of RUNOOB.<br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"""You are "Xiao Cai", the intelligent customer service agent of EXAMPLE.<br/>
 <br/>## Your Responsibilities<br/>Warmly receive every user and address them with "you" (the polite form of "you")<br/>2. For questions about platform information, course content, policies, etc., use search_kb to look them up<br/>3. For order inquiries, use the query_order tool<br/>4. When encountering problems you cannot solve, use transfer_to_human to transfer to a human agent<br/>
 <br/>## Code of Conduct<br/>- Keep answers concise, 2-3 sentences each time<br/>- If you don't know, query the knowledge base; if not found, honestly tell the user<br/>- Maintain a friendly and warm tone"""</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
@@ -658,25 +658,25 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <p>Run results:</p>
 <pre>
 === 测试 1：知识库查询 ===
-您好！菜鸟教程的 **Python3 基础教程共 30 章**，完全免费，累计学习人次已超 500 万哦！如需了解其他教程，也可以随时问我～
+您好！Example的 **Python3 基础教程共 30 章**，完全免费，累计学习人次已超 500 万哦！如需了解其他教程，也可以随时问我～
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 === 测试 2：订单查询 ===
 您好！您查询的订单 **ORD-2024-001** 状态为 **已完成**。订单内容是 **VIP 年费会员**，金额 **¥799**，下单日期为 **2024-01-15**。请问还有什么可以帮您的吗？
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 === 测试 3：VIP 咨询 ===
 您好！VIP 会员有 **¥99/月** 和 **¥799/年** 两种套餐，包含视频课程和一对一答疑服务哦～请问您需要办理哪种呢？
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 === 测试 4：测试记忆 ===
 您好！您刚才问了以下三个问题：
@@ -687,20 +687,20 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 还有什么需要我帮忙的吗？
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 === 测试 5：人工转接（HITL） ===
 [需要审批] 用户请求转接人工客服，原因：用户要求投诉，需要转接人工客服处理。是否转接？
 您好！已经为您转接人工客服，预计等待约 5 分钟。您的工单号是 **TK-8823**，请稍候，客服会尽快为您处理～
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 
 ---
-菜鸟教程 RUNOOB 客服中心 | 工作时间 9:00-18:00
+Example 客服中心 | 工作时间 9:00-18:00
 </pre>
 <hr/>
 <h2>Project Summary</h2>

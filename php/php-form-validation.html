@@ -488,7 +488,7 @@ E-mail: &lt;input type="text" name="email"&gt;
 <p>That would be fine.</p>
 <p>However, consider that users may enter the following address in the browser address bar:</p>
 <pre>
-http://www.runoob.com/test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E
+http://www.example.com/test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E
 </pre>
 <p>In the above URL, it will be parsed as the following code and executed:</p>
 <pre>
@@ -513,11 +513,11 @@ http://www.runoob.com/test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%
 <p>First, we process all user-submitted data through PHP's htmlspecialchars() function.</p>
 <p>When we use the htmlspecialchars() function, if the user attempts to submit the following text field:</p>
 <pre>
-&lt;script&gt;location.href('http://www.runoob.com')&lt;/script&gt;
+&lt;script&gt;location.href('http://www.example.com')&lt;/script&gt;
 </pre>
 <p>The code will not be executed because it will be saved as HTML-escaped code, as follows:</p>
 <pre>
-&amp;lt;script&amp;gt;location.href('http://www.runoob.com')&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;location.href('http://www.example.com')&amp;lt;/script&amp;gt;
 </pre>
 <p>The above code is safe and can be displayed normally on the page or inserted into emails.</p>
 <p>When the user submits the form, we will do the following two things:</p>

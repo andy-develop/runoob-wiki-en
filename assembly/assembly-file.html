@@ -308,8 +308,8 @@ middle
 <span style="color: #666666; font-style: italic;">; Create a file and write content</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob_output.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>    <span style="color: #666666; font-style: italic;">; Filename (null-terminated)</span><br/>
-    content <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, RUNOOB!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span>       <span style="color: #666666; font-style: italic;">; Content to write</span><br/>
+    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example_output.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>    <span style="color: #666666; font-style: italic;">; Filename (null-terminated)</span><br/>
+    content <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, EXAMPLE!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span>       <span style="color: #666666; font-style: italic;">; Content to write</span><br/>
     content_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> content<br/>
     create_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'File created successfully!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     create_msg_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> create_msg<br/>
@@ -360,8 +360,8 @@ $ nasm -f elf32 file_write.asm -o file_write.o
 $ ld -m elf_i386 file_write.o -o file_write
 $ ./file_write
 File created successfully!
-$ cat runoob_output.txt
-Hello, RUNOOB!
+$ cat example_output.txt
+Hello, EXAMPLE!
 </pre>
 <hr/>
 <h2>Read File Contents</h2>
@@ -372,7 +372,7 @@ Hello, RUNOOB!
 <span style="color: #666666; font-style: italic;">; Open and read file contents</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob_output.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example_output.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
     open_error <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Error: cannot open file'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     open_error_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> open_error<br/>
     read_success <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'File content:'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
@@ -446,7 +446,7 @@ $ nasm -f elf32 file_read.asm -o file_read.o
 $ ld -m elf_i386 file_read.o -o file_read
 $ ./file_read
 File content:
-Hello, RUNOOB!
+Hello, EXAMPLE!
 </pre>
 <hr/>
 <h2>Append Write to File</h2>
@@ -457,7 +457,7 @@ Hello, RUNOOB!
 <span style="color: #666666; font-style: italic;">; Open file in append mode and write</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob_log.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    filename <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example_log.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
     log_entry <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'[INFO] Program executed successfully.'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     log_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> log_entry<br/>
 <br/>
@@ -503,11 +503,11 @@ _start<span style="color: #339933;">:</span><br/>
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #666666; font-style: italic;">; File path: file_copy.asm</span><br/>
-<span style="color: #666666; font-style: italic;">; Copy file: copy runoob_input.txt to runoob_copy.txt</span><br/>
+<span style="color: #666666; font-style: italic;">; Copy file: copy example_input.txt to example_copy.txt</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    src_file <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob_input.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
-    dst_file <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob_copy.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    src_file <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example_input.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    dst_file <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example_copy.txt'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
     success_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'File copied successfully!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     success_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> success_msg<br/>
     error_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Error during file copy'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>

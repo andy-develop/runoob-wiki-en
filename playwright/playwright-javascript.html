@@ -319,7 +319,7 @@ middle
 <div class="example_code">
 
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Get page data'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Get the page title (executed in page context)</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> title <span style="color: #339933;">=</span> await page.<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
@@ -348,15 +348,15 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Get pag
 <div class="example_code">
 
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Pass parameters to the page'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Pass a single parameter</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> result1 <span style="color: #339933;">=</span> await page.<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>name<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span> `Hello<span style="color: #339933;">,</span> $<span style="color: #009900;">{</span>name<span style="color: #009900;">}</span><span style="color: #339933;">!</span>`<span style="color: #339933;">;</span><br/>
-  <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'RUNOOB'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'EXAMPLE'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Pass an object parameter</span><br/>
-  <span style="color: #000066; font-weight: bold;">const</span> userInfo <span style="color: #339933;">=</span> <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'runoob'</span><span style="color: #339933;">,</span> role<span style="color: #339933;">:</span> <span style="color: #3366CC;">'admin'</span> <span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
+  <span style="color: #000066; font-weight: bold;">const</span> userInfo <span style="color: #339933;">=</span> <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'example'</span><span style="color: #339933;">,</span> role<span style="color: #339933;">:</span> <span style="color: #3366CC;">'admin'</span> <span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> result2 <span style="color: #339933;">=</span> await page.<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span>user<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
     <span style="color: #000066; font-weight: bold;">return</span> `$<span style="color: #009900;">{</span>user.<span style="color: #660066;">name</span><span style="color: #009900;">}</span>Its role is $<span style="color: #009900;">{</span>user.<span style="color: #660066;">role</span><span style="color: #009900;">}</span>`<span style="color: #339933;">;</span><br/>
   <span style="color: #009900;">}</span><span style="color: #339933;">,</span> userInfo<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
@@ -384,11 +384,11 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Pass pa
 <div class="example_code">
 
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Get the DOM attributes of the element'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Get the textContent of a specific element</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> text <span style="color: #339933;">=</span> await page<br/>
-    .<span style="color: #660066;">getByRole</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'heading'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'RUNOOB'</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
+    .<span style="color: #660066;">getByRole</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'heading'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> name<span style="color: #339933;">:</span> <span style="color: #3366CC;">'EXAMPLE'</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
     .<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span>node <span style="color: #339933;">=&gt;</span> node.<span style="color: #660066;">textContent</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Get the style attribute of the element</span><br/>
@@ -406,7 +406,7 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Get the
 <div class="example_code">
 
 test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Get the text of all list items'</span><span style="color: #339933;">,</span> async <span style="color: #009900;">(</span><span style="color: #009900;">{</span> page <span style="color: #009900;">}</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span><br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Get the text of all menu items</span><br/>
   <span style="color: #000066; font-weight: bold;">const</span> menuItems <span style="color: #339933;">=</span> await page<br/>
@@ -435,16 +435,16 @@ test<span style="color: #009900;">(</span><span style="color: #3366CC;">'Inject 
     <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
     <span style="color: #006600; font-style: italic;">// Mock global variables on window</span><br/>
-    window.<span style="color: #660066;">RUNOOB_CONFIG</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><br/>
+    window.<span style="color: #660066;">EXAMPLE_CONFIG</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span><br/>
       env<span style="color: #339933;">:</span> <span style="color: #3366CC;">'test'</span><span style="color: #339933;">,</span><br/>
       version<span style="color: #339933;">:</span> <span style="color: #3366CC;">'1.0.0'</span><span style="color: #339933;">,</span><br/>
     <span style="color: #009900;">}</span><span style="color: #339933;">;</span><br/>
   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
-  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
   <span style="color: #006600; font-style: italic;">// Verify that the injected variables take effect</span><br/>
-  <span style="color: #000066; font-weight: bold;">const</span> config <span style="color: #339933;">=</span> await page.<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> window.<span style="color: #660066;">RUNOOB_CONFIG</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+  <span style="color: #000066; font-weight: bold;">const</span> config <span style="color: #339933;">=</span> await page.<span style="color: #660066;">evaluate</span><span style="color: #009900;">(</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> window.<span style="color: #660066;">EXAMPLE_CONFIG</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
   console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>config<span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">// { env: 'test', version: '1.0.0' }</span><br/>
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>

@@ -481,7 +481,7 @@ middle
 <p>This is the most common retrieval method: compute the similarity between the question vector and all document vectors, and return the top K most relevant ones.</p>
 <p>Advantages: understands semantics, synonyms and near-synonyms can all be matched.</p>
 <p>Disadvantages: may be less accurate than keyword retrieval for precise terms and proper nouns.</p>
-<p>For example, if a user asks "runoob's Python tutorial", vector retrieval can understand that "tutorial" and "course" are similar, but if the user asks "runoob Python3.10 documentation", keyword search may be more accurate.</p>
+<p>For example, if a user asks "example's Python tutorial", vector retrieval can understand that "tutorial" and "course" are similar, but if the user asks "example Python3.10 documentation", keyword search may be more accurate.</p>
 <h3>Keyword search (BM25)</h3>
 <p>This is the method used by traditional search engines: match keywords and score based on term frequency, inverse document frequency, etc.</p>
 <ul>
@@ -579,19 +579,19 @@ OPENAI_API_KEY=你的-api-key-在这里</pre>
     """</span><br/>
     documents <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
         Document<span style="color: Olive;">(</span><br/>
-            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""The RUNOOB tutorial website was founded in 2013, created by the Rookie Tutorial team.<br/>The website aims to provide easy-to-understand programming tutorials for programming beginners.<br/>We provide tutorials for multiple programming languages including HTML, CSS, JavaScript, Python, Java, C++, and more."""</span><span style="color: Gray;">,</span><br/>
-            metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"runoob_intro.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"page"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><br/>
+            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""The EXAMPLE tutorial website was founded in 2013, created by the Rookie Tutorial team.<br/>The website aims to provide easy-to-understand programming tutorials for programming beginners.<br/>We provide tutorials for multiple programming languages including HTML, CSS, JavaScript, Python, Java, C++, and more."""</span><span style="color: Gray;">,</span><br/>
+            metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"example_intro.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"page"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><br/>
         <span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
         Document<span style="color: Olive;">(</span><br/>
-            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""RUNOOB's Python tutorial covers all important knowledge points of Python.<br/>Including: Python basic syntax, data types, control statements, functions, modules, file operations, etc.<br/>The tutorial provides a large number of code examples, each carefully designed and tested.<br/>We also provide an online Python editor, allowing you to run code directly in your browser."""</span><span style="color: Gray;">,</span><br/>
+            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""EXAMPLE's Python tutorial covers all important knowledge points of Python.<br/>Including: Python basic syntax, data types, control statements, functions, modules, file operations, etc.<br/>The tutorial provides a large number of code examples, each carefully designed and tested.<br/>We also provide an online Python editor, allowing you to run code directly in your browser."""</span><span style="color: Gray;">,</span><br/>
             metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"python_tutorial.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"page"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><br/>
         <span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
         Document<span style="color: Olive;">(</span><br/>
-            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""RUNOOB tutorials are characterized by concise content, rich examples, and a focus on practice.<br/>We believe that "the best way to learn programming is to write code."<br/>Therefore, each knowledge point comes with runnable code examples, so you can learn and practice at the same time.<br/>Our tutorials are completely free, and anyone can access and learn."""</span><span style="color: Gray;">,</span><br/>
+            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""EXAMPLE tutorials are characterized by concise content, rich examples, and a focus on practice.<br/>We believe that "the best way to learn programming is to write code."<br/>Therefore, each knowledge point comes with runnable code examples, so you can learn and practice at the same time.<br/>Our tutorials are completely free, and anyone can access and learn."""</span><span style="color: Gray;">,</span><br/>
             metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"features.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"page"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><br/>
         <span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
         Document<span style="color: Olive;">(</span><br/>
-            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""In addition to text tutorials, RUNOOB also provides video tutorials.<br/>Video tutorials are more intuitive and suitable for visual learners.<br/>Our video tutorials cover popular topics such as Python, Web development, data analysis, and more.<br/>You can find our videos on Bilibili and YouTube."""</span><span style="color: Gray;">,</span><br/>
+            page_content<span style="color: Gray;">=</span><span style="color: #a11;">"""In addition to text tutorials, EXAMPLE also provides video tutorials.<br/>Video tutorials are more intuitive and suitable for visual learners.<br/>Our video tutorials cover popular topics such as Python, Web development, data analysis, and more.<br/>You can find our videos on Bilibili and YouTube."""</span><span style="color: Gray;">,</span><br/>
             metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"video_course.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"page"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><br/>
         <span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">]</span><br/>
@@ -639,7 +639,7 @@ OPENAI_API_KEY=你的-api-key-在这里</pre>
     <span style="color: #a11;">"""Create RAG Q&amp;A chain"""</span><br/>
 <br/>
     <span style="color: #a50"># Custom Prompt template</span><br/>
-    template <span style="color: Gray;">=</span> <span style="color: #a11;">"""You are a professional RUNOOB customer service assistant.<br/>Please answer the user's question based on the following context. If the context does not contain relevant information, say "Sorry, I did not find relevant information."<br/>Keep the answer concise and clear, using Chinese.<br/>
+    template <span style="color: Gray;">=</span> <span style="color: #a11;">"""You are a professional EXAMPLE customer service assistant.<br/>Please answer the user's question based on the following context. If the context does not contain relevant information, say "Sorry, I did not find relevant information."<br/>Keep the answer concise and clear, using Chinese.<br/>
 <br/>Context:<br/>
 {context}<br/>
 <br/>User question: {question}<br/>
@@ -689,11 +689,11 @@ OPENAI_API_KEY=你的-api-key-在这里</pre>
 <br/>
     <span style="color: #a50"># 5. Test queries</span><br/>
     test_questions <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-        <span style="color: #a11;">"When was RUNOOB founded?"</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">"What are the features of RUNOOB's Python tutorial?"</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">"Does RUNOOB have video tutorials?"</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">"How to learn C++ on RUNOOB?"</span><span style="color: Gray;">,</span><br/>
-        <span style="color: #a11;">"Do RUNOOB's tutorials require payment?"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"When was EXAMPLE founded?"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"What are the features of EXAMPLE's Python tutorial?"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"Does EXAMPLE have video tutorials?"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"How to learn C++ on EXAMPLE?"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"Do EXAMPLE's tutorials require payment?"</span><span style="color: Gray;">,</span><br/>
     <span style="color: Olive;">]</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">for</span> question <span style="color: Green;font-weight:bold;">in</span> test_questions:<br/>
@@ -724,26 +724,26 @@ OPENAI_API_KEY=你的-api-key-在这里</pre>
 向量数据库已创建，共 4 条记录
 
 ============================================================
-问题：RUNOOB 是什么时候创立的？
+问题：EXAMPLE 是什么时候创立的？
 ============================================================
-回答：RUNOOB 教程网站创立于 2013 年。
+回答：EXAMPLE 教程网站创立于 2013 年。
 
 参考来源：
-  [1] runoob_intro.txt (第 1 页)
-      片段：RUNOOB 教程网站创立于 2013 年，由菜鸟教程团队创建。...
+  [1] example_intro.txt (第 1 页)
+      片段：EXAMPLE 教程网站创立于 2013 年，由Example团队创建。...
   [2] features.txt (第 1 页)
-      片段：除了文字教程，RUNOOB 还提供了视频教程。...
+      片段：除了文字教程，EXAMPLE 还提供了视频教程。...
 
 ============================================================
-问题：RUNOOB 的 Python 教程有什么特点？
+问题：EXAMPLE 的 Python 教程有什么特点？
 ============================================================
-回答：RUNOOB 的 Python 教程涵盖了 Python 的所有重要知识点，包括基础语法、数据类型、控制语句、函数、模块、文件操作等，并且提供了大量经过精心设计和测试的代码示例，还提供了在线 Python 编辑器，可以直接在浏览器中运行代码。
+回答：EXAMPLE 的 Python 教程涵盖了 Python 的所有重要知识点，包括基础语法、数据类型、控制语句、函数、模块、文件操作等，并且提供了大量经过精心设计和测试的代码示例，还提供了在线 Python 编辑器，可以直接在浏览器中运行代码。
 
 参考来源：
   [1] python_tutorial.txt (第 1 页)
-      片段：RUNOOB 的 Python 教程涵盖了 Python 的所有重要知识点。...
+      片段：EXAMPLE 的 Python 教程涵盖了 Python 的所有重要知识点。...
   [2] features.txt (第 1 页)
-      片段：RUNOOB 教程的特点是内容简洁、示例丰富、注重实践。...</pre>
+      片段：EXAMPLE 教程的特点是内容简洁、示例丰富、注重实践。...</pre>
 <p>Congratulations! You have successfully built a complete RAG document Q&amp;A system.</p>
 <hr/>
 <h2>Advanced Optimization: Re-ranking, HyDE</h2>
@@ -762,8 +762,8 @@ OPENAI_API_KEY=你的-api-key-在这里</pre>
 <p>Why is this effective? Because questions are usually short and have low information density; while hypothetical answers are longer, more document-like in style, and have higher similarity to real documents.</p>
 <p>For example:</p>
 <ul>
-<li>User question: "When was RUNOOB founded?"</li>
-<li>Hypothetical answer: "The RUNOOB tutorial website was founded in 2013, created by the Rookie Tutorial team, aiming to provide quality tutorials for programming beginners."</li>
+<li>User question: "When was EXAMPLE founded?"</li>
+<li>Hypothetical answer: "The EXAMPLE tutorial website was founded in 2013, created by the Rookie Tutorial team, aiming to provide quality tutorials for programming beginners."</li>
 </ul>
 <p>Using the hypothetical answer for retrieval often finds more relevant documents.</p>
 Other extensions

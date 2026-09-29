@@ -312,22 +312,22 @@ DROP DATABASE &lt;database_name&gt;;        -- 直接删除数据库，不检查
 DROP DATABASE [IF EXISTS] &lt;database_name&gt;;
 </pre><p><strong>Parameter description:</strong></p>
 <ul><li><code>IF EXISTS</code>It is an optional clause, indicating that the delete operation is executed only if the database exists, to avoid errors caused by the database not existing.</li><li><code>database_name</code>This is the name of the database you want to delete.</li></ul>
-<p>For example, to delete a database named RUNOOB:</p>
+<p>For example, to delete a database named EXAMPLE:</p>
 <pre>
 -- 直接删除数据库，不检查是否存在
-mysql&gt; DROP DATABASE RUNOOB;
+mysql&gt; DROP DATABASE EXAMPLE;
 
 -- 删除数据库，如果存在的话
-DROP DATABASE IF EXISTS RUNOOB;
+DROP DATABASE IF EXISTS EXAMPLE;
 </pre>
 <p><strong>Note:</strong>Before performing the database deletion operation, please make sure you really want to delete the database and all its data, because this operation is irreversible. To avoid accidental deletion, it is usually recommended to back up the database before executing the deletion.</p>
 <h2>Use mysqladmin to delete database</h2>
 <p>You can also use the MySQL<span class="marked">mysqladmin</span>command in the terminal to execute the delete command.</p><p>The following is the command to delete a database using mysqladmin:</p>
 <pre>mysqladmin -u your_username -p drop your_database</pre>
 <p><strong>your_username</strong>It is the MySQL username,<strong>your_database</strong>It is the name of the database to be deleted.</p>
-<p>After executing this command, the system will prompt you to enter a password. After entering the password, press the Enter key to delete the database.</p>The following example deletes the database RUNOOB (this database was created in the previous chapter):</p>
+<p>After executing this command, the system will prompt you to enter a password. After entering the password, press the Enter key to delete the database.</p>The following example deletes the database EXAMPLE (this database was created in the previous chapter):</p>
 <pre>
-[root@host]# mysqladmin -u root -p drop RUNOOB
+[root@host]# mysqladmin -u root -p drop EXAMPLE
 Enter password:******
 </pre>
 <p>After executing the above database deletion command, a prompt box will appear to confirm whether you really want to delete the database:</p>
@@ -335,8 +335,8 @@ Enter password:******
 Dropping the database is potentially a very bad thing to do.
 Any data stored in the database will be destroyed.
 
-Do you really want to drop the 'RUNOOB' database [y/N] y
-Database "RUNOOB" dropped
+Do you really want to drop the 'EXAMPLE' database [y/N] y
+Database "EXAMPLE" dropped
 </pre>
 <hr/>
 <h2>Use PHP script to delete database</h2>
@@ -384,13 +384,13 @@ mysqli_query(connection,query,resultmode);
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Connection failed:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">Connection successful&lt;br /&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
-</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">DROP DATABASE RUNOOB</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-var">$sql</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">DROP DATABASE EXAMPLE</span><span class="hl-quotes">'</span><span class="hl-code">;
 </span><span class="hl-var">$retval</span><span class="hl-code"> = </span><span class="hl-identifier">mysqli_query</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-var">$conn</span><span class="hl-code">, </span><span class="hl-var">$sql</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">! </span><span class="hl-var">$retval</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">die</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Failed to delete database:</span><span class="hl-quotes">'</span><span class="hl-code"> . </span><span class="hl-identifier">mysqli_error</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span><span class="hl-code">
-</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Database RUNOOB deleted successfully</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Database EXAMPLE deleted successfully</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-identifier">mysqli_close</span><span class="hl-brackets">(</span><span class="hl-var">$conn</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-inlinetags">?&gt;</span></div>
 </div></div>

@@ -205,7 +205,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
     <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"""<br/>&lt;h1&gt;Search Results&lt;/h1&gt;<br/>&lt;p&gt;Keyword: {keyword}&lt;/p&gt;<br/>&lt;p&gt;Page: {page}&lt;/p&gt;<br/>
     """</span><br/>
 <span style="color: #a50"># Test: /search?keyword=flask&amp;page=2</span><br/>
-<span style="color: #a50"># Test: /search?keyword=RUNOOB</span><br/>
+<span style="color: #a50"># Test: /search?keyword=EXAMPLE</span><br/>
 </div>
 </div>
 <blockquote><p>Recommended<span class="marked">.get()</span>Use the method instead of direct subscript access.<span class="marked">request.args["key"]</span>, because the latter throws an exception when the key does not exist.<span class="marked">KeyError</span>, resulting in a 400 error page.</p></blockquote>
@@ -225,7 +225,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
         <span style="color: Green;font-weight:bold;">if</span> <span style="color: Green;font-weight:bold;">not</span> username <span style="color: Green;font-weight:bold;">or</span> <span style="color: Green;font-weight:bold;">not</span> password:<br/>
             <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"&lt;h1&gt;Error&lt;/h1&gt;&lt;p&gt;Username and password cannot be empty&lt;/p&gt;"</span><span style="color: Gray;">,</span> <span style="color: Maroon;">400</span><br/>
 <br/>
-        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Registration successful&lt;/h1&gt;&lt;p&gt;Welcome {username} to RUNOOB!&lt;/p&gt;"</span><br/>
+        <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"&lt;h1&gt;Registration successful&lt;/h1&gt;&lt;p&gt;Welcome {username} to EXAMPLE!&lt;/p&gt;"</span><br/>
 <br/>
     <span style="color: #a50"># Display registration form on GET request</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""<br/>&lt;h1&gt;Register&lt;/h1&gt;<br/>
@@ -245,7 +245,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/user"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> create_user<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: #a50"># request.json returns JSON data already parsed into a Python dict</span><br/>
-    data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span>  <span style="color: #a50"># For example, the client sends {"name": "runoob", "email": "test@runoob.com"}</span><br/>
+    data <span style="color: Gray;">=</span> request.<span style="color: #05a;">json</span>  <span style="color: #a50"># For example, the client sends {"name": "example", "email": "test@example.com"}</span><br/>
 <br/>
     <span style="color: #a50"># Safely get the field</span><br/>
     name <span style="color: Gray;">=</span> data.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"name"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Unknown"</span><span style="color: Olive;">)</span><br/>
@@ -263,11 +263,11 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <pre>
 $ curl -X POST http://127.0.0.1:5000/api/user \
   -H "Content-Type: application/json" \
-  -d '{"name": "runoob", "email": "test@runoob.com"}'
+  -d '{"name": "example", "email": "test@example.com"}'
 {
   "message": "用户创建成功",
-  "name": "runoob",
-  "email": "test@runoob.com"
+  "name": "example",
+  "email": "test@example.com"
 }
 </pre>
 <hr/>
@@ -340,7 +340,7 @@ UPLOAD_DIR <span style="color: Gray;">=</span> <span style="color: #a11;">"uploa
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/tags"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> get_tags<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: #a50"># Return list, Flask automatically converts to JSON</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Python"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Flask"</span><span style="color: Gray;">,</span> <span style="color: #a11;">Web Development</span><span style="color: Gray;">,</span> <span style="color: #a11;">"RUNOOB"</span><span style="color: Olive;">]</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Python"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Flask"</span><span style="color: Gray;">,</span> <span style="color: #a11;">Web Development</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EXAMPLE"</span><span style="color: Olive;">]</span><br/>
 </div>
 </div>
 <h3>Returning a tuple—controlling the status code and response headers</h3>
@@ -356,13 +356,13 @@ UPLOAD_DIR <span style="color: Gray;">=</span> <span style="color: #a11;">"uploa
 <span style="color: #a50"># Form 2: (body, headers_dict)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/custom-header"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> custom_header<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"OK"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-Custom-Header"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"OK"</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-Custom-Header"</span>: <span style="color: #a11;">"example"</span><span style="color: Olive;">}</span><br/>
 <br/>
 <span style="color: #a50"># Form 3: (body, status_code, headers_dict)</span><br/>
 <span style="color: Gray;">@</span>app.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/login"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> api_login<span style="color: Olive;">(</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: #a50"># Return token and custom status code</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"token"</span>: <span style="color: #a11;">"abc123"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"user"</span>: <span style="color: #a11;">"runoob"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span> <span style="color: Maroon;">201</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-RateLimit"</span>: <span style="color: #a11;">"100"</span><span style="color: Olive;">}</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> <span style="color: Olive;">{</span><span style="color: #a11;">"token"</span>: <span style="color: #a11;">"abc123"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"user"</span>: <span style="color: #a11;">"example"</span><span style="color: Olive;">}</span><span style="color: Gray;">,</span> <span style="color: Maroon;">201</span><span style="color: Gray;">,</span> <span style="color: Olive;">{</span><span style="color: #a11;">"X-RateLimit"</span>: <span style="color: #a11;">"100"</span><span style="color: Olive;">}</span><br/>
 </div>
 </div>
 <hr/>
@@ -437,7 +437,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
     resp.<span style="color: #05a;">set_cookie</span><span style="color: Olive;">(</span><span style="color: #a11;">"lang"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"zh-CN"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: #a50"># You can also customize response headers</span><br/>
-    resp.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-Powered-By"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"RUNOOB-Flask"</span><br/>
+    resp.<span style="color: #05a;">headers</span><span style="color: Olive;">[</span><span style="color: #a11;">"X-Powered-By"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"EXAMPLE-Flask"</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> resp<br/>
 </div>
@@ -479,7 +479,7 @@ app <span style="color: Gray;">=</span> Flask<span style="color: Olive;">(</span
 <td>request.json</td>
 <td>dict or None</td>
 <td>JSON Request Body (parsed)</td>
-<td>{"name": "runoob"}</td>
+<td>{"name": "example"}</td>
 </tr>
 <tr>
 <td>request.files</td>

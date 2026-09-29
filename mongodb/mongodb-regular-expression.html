@@ -316,41 +316,41 @@ middle
 <p>Consider the following<strong>posts</strong>document structure of the collection, which contains the article content and tags:</p>
 <pre>
 {
-   "post_text": "enjoy the mongodb articles on runoob",
+   "post_text": "enjoy the mongodb articles on example",
    "tags": [
       "mongodb",
-      "runoob"
+      "example"
    ]
 }
 </pre>
 <hr/>
 <h2>Using Regular Expressions</h2>
-<p>The following command uses a regular expression to find articles containing the string runoob:</p>
+<p>The following command uses a regular expression to find articles containing the string example:</p>
 <pre>
-&gt;db.posts.find({post_text:{$regex:"runoob"}})
+&gt;db.posts.find({post_text:{$regex:"example"}})
 </pre>
 <p>The above query can also be written as:</p>
 <pre>
-&gt;db.posts.find({post_text:/runoob/})
+&gt;db.posts.find({post_text:/example/})
 </pre>
 <hr/>
 <h2>Case-Insensitive Regular Expressions</h2>
 <p>If the search needs to be case-insensitive, we can set $options to $i.</p>
-<p>The following command will find the case-insensitive string runoob:</p>
+<p>The following command will find the case-insensitive string example:</p>
 <pre>
-&gt;db.posts.find({post_text:{$regex:"runoob",$options:"$i"}})
+&gt;db.posts.find({post_text:{$regex:"example",$options:"$i"}})
 </pre>
-<p>The collection will return all data containing the string runoob, case-insensitively:</p>
+<p>The collection will return all data containing the string example, case-insensitively:</p>
 <pre>
 {
    "_id" : ObjectId("53493d37d852429c10000004"),
-   "post_text" : "hey! this is my post on  runoob", 
-   "tags" : [ "runoob" ]
+   "post_text" : "hey! this is my post on  example", 
+   "tags" : [ "example" ]
 } 
 </pre>
 <hr/>
 <h2>Using Regular Expressions on Array Elements</h2>
-<p>We can also use regular expressions in array fields to search for content. This is very useful in the implementation of tags. If you need to find tag data starting with run (ru or run or runoob), you can use the following code:</p>
+<p>We can also use regular expressions in array fields to search for content. This is very useful in the implementation of tags. If you need to find tag data starting with run (ru or run or example), you can use the following code:</p>
 <pre>
 &gt;db.posts.find({tags:{$regex:"run"}})
 </pre>

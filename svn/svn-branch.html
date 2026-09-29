@@ -259,22 +259,22 @@ middle
 <p>At this point, we can create a branch for Team 2. A branch is actually a copy version of the trunk version (mainline), but the branch also has version control functionality and is independent of the mainline. Of course, in the end, we can use the (merge) function to merge the branch back into trunk, thus finally merging it into one project.</p>
 <p>In the local copy, we create a<strong>my_branch</strong>branch.</p>
 <pre>
-root@runoob:~/svn/runoob01# ls
+root@example:~/svn/example01# ls
 branches  tags  trunk
-root@runoob:~/svn/runoob01# svn copy trunk/ branches/my_branch
+root@example:~/svn/example01# svn copy trunk/ branches/my_branch
 A         branches/my_branch
-root@runoob:~/svn/runoob01# 
+root@example:~/svn/example01# 
 </pre>
 <p>View status:</p>
 <pre>
-root@runoob:~/svn/runoob01# svn status
+root@example:~/svn/example01# svn status
 A  +    branches/my_branch
 A  +    branches/my_branch/HelloWorld.html
 A  +    branches/my_branch/readme
 </pre>
 <p>Commit the newly added branch to the repository.</p>
 <pre>
-root@runoob:~/svn/runoob01# svn commit -m "add my_branch" 
+root@example:~/svn/example01# svn commit -m "add my_branch" 
 Adding         branches/my_branch
 Replacing      branches/my_branch/HelloWorld.html
 Adding         branches/my_branch/readme
@@ -283,24 +283,24 @@ Committed revision 9.
 </pre>
 <p>Next, we develop on the my_branch branch, switch to the branch path, and create the index.html file.</p>
 <pre>
-root@runoob:~/svn/runoob01# cd branches/my_branch/
-root@runoob:~/svn/runoob01/branches/my_branch# ls
+root@example:~/svn/example01# cd branches/my_branch/
+root@example:~/svn/example01/branches/my_branch# ls
 HelloWorld.html  index.html  readme
 </pre>
 <p>Add index.html to version control and commit it to the repository.</p>
 <pre>
-root@runoob:~/svn/runoob01/branches/my_branch# svn status
+root@example:~/svn/example01/branches/my_branch# svn status
 ?       index.html
-root@runoob:~/svn/runoob01/branches/my_branch# svn add index.html 
+root@example:~/svn/example01/branches/my_branch# svn add index.html 
 A         index.html
-root@runoob:~/svn/runoob01/branches/my_branch# svn commit -m "add index.html"
+root@example:~/svn/example01/branches/my_branch# svn commit -m "add index.html"
 Adding         index.html
 Transmitting file data .
 Committed revision 10.
 </pre>
 Switch to trunk, run svn update, and then merge the my_branch branch into trunk.
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn merge ../branches/my_branch/
+root@example:~/svn/example01/trunk# svn merge ../branches/my_branch/
 --- Merging r10 into '.':
 A    index.html
 --- Recording mergeinfo for merge of r10 into '.':
@@ -308,7 +308,7 @@ A    index.html
 </pre>
 <p>At this point, view the directory, and you can see that the index.html file created in the my_branch branch has been added to trunk.</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# ll
+root@example:~/svn/example01/trunk# ll
 total 16
 drwxr-xr-x 2 root root 4096 Nov  7 03:52 ./
 drwxr-xr-x 6 root root 4096 Jul 21 19:19 ../
@@ -318,7 +318,7 @@ drwxr-xr-x 6 root root 4096 Jul 21 19:19 ../
 </pre>
 <p>Commit the merged trunk to the repository.</p>
 <pre>
-root@runoob:~/svn/runoob01/trunk# svn commit -m "add index.html"
+root@example:~/svn/example01/trunk# svn commit -m "add index.html"
 Adding         index.html
 Transmitting file data .
 Committed revision 11.

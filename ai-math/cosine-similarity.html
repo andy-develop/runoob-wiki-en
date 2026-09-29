@@ -425,7 +425,7 @@ vocab_words <span style="color: Gray;">=</span> <span style="color: Olive;">[</s
 <br/>
 <span style="color: #a50"># 5 sentences → 5 vectors</span><br/>
 vectors <span style="color: Gray;">=</span> np.<span style="color: #05a;">array</span><span style="color: Olive;">(</span><span style="color: Olive;">[</span>to_vector<span style="color: Olive;">(</span>s<span style="color: Gray;">,</span> vocab_words<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> s <span style="color: Green;font-weight:bold;">in</span> sentences<span style="color: Olive;">]</span><span style="color: Olive;">)</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"RUNOOB Vector dimension of each sentence:"</span><span style="color: Gray;">,</span> vectors.<span style="color: #05a;">shape</span><span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"EXAMPLE Vector dimension of each sentence:"</span><span style="color: Gray;">,</span> vectors.<span style="color: #05a;">shape</span><span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
       <span style="color: #a11;">"(vocabulary size)"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># 3. Write cosine similarity function manually (without calling sklearn)</span><br/>
@@ -443,13 +443,13 @@ query_vec <span style="color: Gray;">=</span> to_vector<span style="color: Olive
 <br/>
 sims <span style="color: Gray;">=</span> <span style="color: Olive;">[</span>cosine_similarity<span style="color: Olive;">(</span>query_vec<span style="color: Gray;">,</span> v<span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">for</span> v <span style="color: Green;font-weight:bold;">in</span> vectors<span style="color: Olive;">]</span><br/>
 <br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>RUNOOB Query sentence: {query!r}<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>EXAMPLE Query sentence: {query!r}<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">for</span> s<span style="color: Gray;">,</span> sim <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">sorted</span><span style="color: Olive;">(</span><span style="color: Teal;">zip</span><span style="color: Olive;">(</span>sentences<span style="color: Gray;">,</span> sims<span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
                      key<span style="color: Gray;">=</span><span style="color: Green;font-weight:bold;">lambda</span> x: -x<span style="color: Olive;">[</span><span style="color: Maroon;">1</span><span style="color: Olive;">]</span><span style="color: Olive;">)</span>:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  Similarity {sim:.3f}  &lt;-  {s}"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># 5. Verification: similarity of unrelated sentences is 0</span><br/>
-<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>RUNOOB Verification: two completely unrelated sentences"</span><span style="color: Olive;">)</span><br/>
+<span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span>EXAMPLE Verification: two completely unrelated sentences"</span><span style="color: Olive;">)</span><br/>
 v1 <span style="color: Gray;">=</span> to_vector<span style="color: Olive;">(</span><span style="color: #a11;">"python machine learning"</span><span style="color: Gray;">,</span> vocab_words<span style="color: Olive;">)</span><br/>
 v2 <span style="color: Gray;">=</span> to_vector<span style="color: Olive;">(</span><span style="color: #a11;">"walk relax"</span><span style="color: Gray;">,</span> vocab_words<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"  'python machine learning' vs 'walk relax': "</span><br/>
@@ -457,9 +457,9 @@ v2 <span style="color: Gray;">=</span> to_vector<span style="color: Olive;">(</s
 </div>
 </div>
 <pre>
-RUNOOB 每句话的向量维度: 25 (词表大小)
+EXAMPLE 每句话的向量维度: 25 (词表大小)
 
-RUNOOB 查询句子: '我在学习python和人工智能'
+EXAMPLE 查询句子: '我在学习python和人工智能'
 
   相似度 0.577  &lt;-  python是学习人工智能的好工具
   相似度 0.500  &lt;-  我喜欢用python学习机器学习
@@ -467,7 +467,7 @@ RUNOOB 查询句子: '我在学习python和人工智能'
   相似度 0.000  &lt;-  深度学习需要大量的数据和算力
   相似度 0.000  &lt;-  散步是一种很好的放松方式
 
-RUNOOB 验证：两个完全不相关的句子
+EXAMPLE 验证：两个完全不相关的句子
   'python机器学习' vs '散步放松': cos = 0.000
 </pre>
 <p>The result is intuitive: sentences containing the same keywords have high similarity, and sentences with completely unrelated content have similarity of 0.</p>

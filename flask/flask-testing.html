@@ -187,7 +187,7 @@ app <span style="color: Gray;">=</span> create_app<span style="color: Olive;">(<
 <br/>
     <span style="color: #a50"># Send POST request and send data as JSON</span><br/>
     response <span style="color: Gray;">=</span> client.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Gray;">,</span><br/>
-                          json<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">"RUNOOB Tutorial"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"body"</span>: <span style="color: #a11;">"content"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author_id"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
+                          json<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"title"</span>: <span style="color: #a11;">"EXAMPLE Tutorial"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"body"</span>: <span style="color: #a11;">"content"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"author_id"</span>: <span style="color: Maroon;">1</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>response.<span style="color: #05a;">status_code</span><span style="color: Olive;">)</span>   <span style="color: #a50"># 201</span><br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>response.<span style="color: #05a;">get_json</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">)</span>    <span style="color: #a50"># Parse JSON response</span><br/>
 </div>
@@ -254,7 +254,7 @@ app <span style="color: Gray;">=</span> create_app<span style="color: Olive;">(<
     response <span style="color: Gray;">=</span> client.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
     <span style="color: Green;font-weight:bold;">assert</span> response.<span style="color: #05a;">status_code</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">200</span><br/>
     <span style="color: #a50"># Check if the page contains expected keywords</span><br/>
-    <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"RUNOOB"</span> <span style="color: Green;font-weight:bold;">in</span> response.<span style="color: #05a;">data</span><br/>
+    <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"EXAMPLE"</span> <span style="color: Green;font-weight:bold;">in</span> response.<span style="color: #05a;">data</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> test_404_page<span style="color: Olive;">(</span>client<span style="color: Olive;">)</span>:<br/>
     <span style="color: #a11;">"""Test visiting a non-existent page"""</span><br/>
@@ -279,14 +279,14 @@ tests/test_app.py::test_404_page PASSED
 <span style="color: Green;font-weight:bold;">def</span> test_create_post<span style="color: Olive;">(</span>client<span style="color: Olive;">)</span>:<br/>
     <span style="color: #a11;">"""Test create article API"""</span><br/>
     response <span style="color: Gray;">=</span> client.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Gray;">,</span> json<span style="color: Gray;">=</span><span style="color: Olive;">{</span><br/>
-        <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"RUNOOB test article"</span><span style="color: Gray;">,</span><br/>
+        <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"EXAMPLE test article"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"body"</span>: <span style="color: #a11;">"This is test content"</span><span style="color: Gray;">,</span><br/>
         <span style="color: #a11;">"author_id"</span>: <span style="color: Maroon;">1</span><br/>
     <span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
     <span style="color: #a50"># Successful creation should return 201</span><br/>
     <span style="color: Green;font-weight:bold;">assert</span> response.<span style="color: #05a;">status_code</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">201</span><br/>
     data <span style="color: Gray;">=</span> response.<span style="color: #05a;">get_json</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">assert</span> data<span style="color: Olive;">[</span><span style="color: #a11;">"title"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"RUNOOB test article"</span><br/>
+    <span style="color: Green;font-weight:bold;">assert</span> data<span style="color: Olive;">[</span><span style="color: #a11;">"title"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"EXAMPLE test article"</span><br/>
     <span style="color: Green;font-weight:bold;">assert</span> <span style="color: #a11;">"id"</span> <span style="color: Green;font-weight:bold;">in</span> data<br/>
 <br/>
 <span style="color: Green;font-weight:bold;">def</span> test_create_post_without_title<span style="color: Olive;">(</span>client<span style="color: Olive;">)</span>:<br/>
@@ -350,11 +350,11 @@ tests/test_app.py::test_404_page PASSED
     <span style="color: #a11;">"""Directly manipulate session for testing"""</span><br/>
     <span style="color: Green;font-weight:bold;">with</span> client.<span style="color: #05a;">session_transaction</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> session:<br/>
         <span style="color: #a50"># Directly set values in session to simulate logged-in state</span><br/>
-        session<span style="color: Olive;">[</span><span style="color: #a11;">"username"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"runoob"</span><br/>
+        session<span style="color: Olive;">[</span><span style="color: #a11;">"username"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"example"</span><br/>
 <br/>
     <span style="color: #a50"># Now visit the home page; it should show logged-in status</span><br/>
     response <span style="color: Gray;">=</span> client.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/"</span><span style="color: Olive;">)</span><br/>
-    <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"runoob"</span> <span style="color: Green;font-weight:bold;">in</span> response.<span style="color: #05a;">data</span><br/>
+    <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"example"</span> <span style="color: Green;font-weight:bold;">in</span> response.<span style="color: #05a;">data</span><br/>
 </div>
 </div>
 <blockquote><p><span class="marked">client.session_transaction()</span>It is a very practical testing tool — it allows you to directly modify Session content without going through the complete login process.</p></blockquote>

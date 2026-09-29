@@ -156,8 +156,8 @@ Android Basic Tutorial end
  <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test<span style="color: #5D478B;">;</span><br/>
  <br/>
-    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> runoob   <span style="color: #00008B; font-style: italic;">//Name the named block runoob; the semicolon cannot be omitted</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">integer</span>    i <span style="color: #5D478B;">;</span>       <span style="color: #00008B; font-style: italic;">//This variable can be used by other modules via test.runoob.i</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> example   <span style="color: #00008B; font-style: italic;">//Name the named block example; the semicolon cannot be omitted</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">integer</span>    i <span style="color: #5D478B;">;</span>       <span style="color: #00008B; font-style: italic;">//This variable can be used by other modules via test.example.i</span><br/>
         i <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">forever</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
             <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> i <span style="color: #5D478B;">=</span> i <span style="color: #5D478B;">+</span> <span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span>       <br/>
@@ -167,7 +167,7 @@ Android Basic Tutorial end
     <span style="color: #A52A2A; font-weight: bold;">reg</span> stop_flag <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">initial</span> stop_flag <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1'b0</span> <span style="color: #5D478B;">;</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">always</span> <span style="color: #A52A2A; font-weight: bold;">begin</span> <span style="color: #5D478B;">:</span> detect_stop<br/>
-        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span> test.runoob.i <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">100</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span> <span style="color: #00008B; font-style: italic;">//i is incremented 10 times, i.e., simulation stops at 100ns</span><br/>
+        <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span> test.example.i <span style="color: #5D478B;">==</span> <span style="color: #FF0055;">100</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span> <span style="color: #00008B; font-style: italic;">//i is incremented 10 times, i.e., simulation stops at 100ns</span><br/>
             <span style="color: #9932CC;">$display</span><span style="color: #9F79EE;">(</span><span style="color: #FF00FF;">"Now you can stop the simulation!!!"</span><span style="color: #9F79EE;">)</span><span style="color: #5D478B;">;</span><br/>
             stop_flag <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">1'b1</span> <span style="color: #5D478B;">;</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
@@ -185,21 +185,21 @@ Android Basic Tutorial end
  <br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test<span style="color: #5D478B;">;</span><br/>
  <br/>
-    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> runoob_d <span style="color: #00008B; font-style: italic;">//Name the named block runoob_d</span><br/>
+    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> example_d <span style="color: #00008B; font-style: italic;">//Name the named block example_d</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">integer</span>    i_d <span style="color: #5D478B;">;</span><br/>
         i_d <span style="color: #5D478B;">=</span> <span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span><br/>
-        <span style="color: #A52A2A; font-weight: bold;">while</span><span style="color: #9F79EE;">(</span>i_d<span style="color: #5D478B;">&lt;=</span><span style="color: #FF0055;">100</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> runoob_d2<br/>
+        <span style="color: #A52A2A; font-weight: bold;">while</span><span style="color: #9F79EE;">(</span>i_d<span style="color: #5D478B;">&lt;=</span><span style="color: #FF0055;">100</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> example_d2<br/>
             <span style="color: #5D478B;">#</span> <span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">if</span> <span style="color: #9F79EE;">(</span>i_d <span style="color: #5D478B;">&gt;=</span> <span style="color: #FF0055;">50</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span>       <span style="color: #00008B; font-style: italic;">//Stop incrementing after 5 increments</span><br/>
-                <span style="color: #A52A2A; font-weight: bold;">disable</span> runoob_d3.clk_gen <span style="color: #5D478B;">;</span><span style="color: #00008B; font-style: italic;">//Stop external block: clk_gen</span><br/>
-                <span style="color: #A52A2A; font-weight: bold;">disable</span> runoob_d2 <span style="color: #5D478B;">;</span>       <span style="color: #00008B; font-style: italic;">//Stop current block: runoob_d2</span><br/>
+                <span style="color: #A52A2A; font-weight: bold;">disable</span> example_d3.clk_gen <span style="color: #5D478B;">;</span><span style="color: #00008B; font-style: italic;">//Stop external block: clk_gen</span><br/>
+                <span style="color: #A52A2A; font-weight: bold;">disable</span> example_d2 <span style="color: #5D478B;">;</span>       <span style="color: #00008B; font-style: italic;">//Stop current block: example_d2</span><br/>
             <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
             i_d <span style="color: #5D478B;">=</span> i_d <span style="color: #5D478B;">+</span> <span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span><br/>
         <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
     <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
  <br/>
     <span style="color: #A52A2A; font-weight: bold;">reg</span> clk <span style="color: #5D478B;">;</span><br/>
-    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> runoob_d3<br/>
+    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> example_d3<br/>
         <span style="color: #A52A2A; font-weight: bold;">while</span> <span style="color: #9F79EE;">(</span><span style="color: #FF0055;">1</span><span style="color: #9F79EE;">)</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><span style="color: #5D478B;">:</span> clk_gen  <span style="color: #00008B; font-style: italic;">//Clock generation module</span><br/>
             clk<span style="color: #5D478B;">=</span><span style="color: #FF0055;">1</span> <span style="color: #5D478B;">;</span>      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span><br/>
             clk<span style="color: #5D478B;">=</span><span style="color: #FF0055;">0</span> <span style="color: #5D478B;">;</span>      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span><br/>

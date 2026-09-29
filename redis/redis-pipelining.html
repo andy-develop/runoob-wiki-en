@@ -289,7 +289,7 @@ middle
 <h3>Example</h3>
 <p>To view the Redis pipeline, just start the Redis instance and enter the following command:</p>
 <pre>
-$(echo -en "PING\r\n SET runoobkey redis\r\nGET runoobkey\r\nINCR visitor\r\nINCR visitor\r\nINCR visitor\r\n"; sleep 10) | nc localhost 6379
+$(echo -en "PING\r\n SET examplekey redis\r\nGET examplekey\r\nINCR visitor\r\nINCR visitor\r\nINCR visitor\r\n"; sleep 10) | nc localhost 6379
 
 +PONG
 +OK
@@ -298,7 +298,7 @@ redis
 :2
 :3
 </pre>
-<p>In the above example, we used the<b>PING</b>command to check whether the Redis service is available. After that, we set the value of runoobkey to redis, then we got the value of runoobkey and incremented visitor 3 times.</p><p>From the returned results, we can see that these commands are submitted to the Redis service at once, and finally all server responses are read at once.</p>
+<p>In the above example, we used the<b>PING</b>command to check whether the Redis service is available. After that, we set the value of examplekey to redis, then we got the value of examplekey and incremented visitor 3 times.</p><p>From the returned results, we can see that these commands are submitted to the Redis service at once, and finally all server responses are read at once.</p>
 <hr/>
 <h2>Advantages of Pipelining</h2>
 <p>The most significant advantage of pipelining is that it improves the performance of the Redis service.</p>

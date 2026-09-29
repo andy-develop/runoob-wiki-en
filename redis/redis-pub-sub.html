@@ -286,37 +286,37 @@ middle
 <img decoding="async" src="../wp-content/uploads/2014/11/pubsub2.png"/>
 <hr/>
 <h2>Example</h2>
-<p>The following example demonstrates how pub/sub works. You need to open two redis-cli clients.</p><p>In our example, we created a subscription channel named<b>runoobChat</b>:</p>
+<p>The following example demonstrates how pub/sub works. You need to open two redis-cli clients.</p><p>In our example, we created a subscription channel named<b>exampleChat</b>:</p>
 <div class="example"><h2 class="example">First redis-cli client</h2> <div class="example_code">
-redis 127.0.0.1:<span style="color: #000000;">6379</span><span style="color: #000000; font-weight: bold;">&gt;</span> SUBSCRIBE runoobChat<br/>
+redis 127.0.0.1:<span style="color: #000000;">6379</span><span style="color: #000000; font-weight: bold;">&gt;</span> SUBSCRIBE exampleChat<br/>
 <br/>
 Reading messages... <span style="color: #7A0874; font-weight: bold;">(</span>press Ctrl-C to quit<span style="color: #7A0874; font-weight: bold;">)</span><br/>
 <span style="color: #000000;">1</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #a10;">"subscribe"</span><br/>
-<span style="color: #000000;">2</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #a10;">"runoobChat"</span><br/>
+<span style="color: #000000;">2</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #a10;">"exampleChat"</span><br/>
 <span style="color: #000000;">3</span><span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #7A0874; font-weight: bold;">(</span>integer<span style="color: #7A0874; font-weight: bold;">)</span> <span style="color: #000000;">1</span><br/>
 </div></div>
-<p>Now, let's restart a Redis client, and then publish two messages to the same channel runoobChat. The subscriber will receive the messages.</p>
+<p>Now, let's restart a Redis client, and then publish two messages to the same channel exampleChat. The subscriber will receive the messages.</p>
 <div class="example"><h2 class="example">Second redis-cli client</h2> <div class="example_code">
-redis 127.0.0.1:6379&gt; PUBLISH runoobChat "Redis PUBLISH test"<br/>
+redis 127.0.0.1:6379&gt; PUBLISH exampleChat "Redis PUBLISH test"<br/>
 <br/>
 (integer) 1<br/>
 <br/>
-redis 127.0.0.1:6379&gt; PUBLISH runoobChat "Learn redis by runoob.com"<br/>
+redis 127.0.0.1:6379&gt; PUBLISH exampleChat "Learn redis by example.com"<br/>
 <br/>
 (integer) 1<br/>
 <br/># The subscriber's client will display the following messages<br/>
  1) "message"<br/>
-2) "runoobChat"<br/>
+2) "exampleChat"<br/>
 3) "Redis PUBLISH test"<br/>
  1) "message"<br/>
-2) "runoobChat"<br/>
-3) "Learn redis by runoob.com"<br/>
+2) "exampleChat"<br/>
+3) "Learn redis by example.com"<br/>
 </div></div>
 <p>The GIF demonstration is as follows:</p>
 <ul>
 <li><p>Start the local Redis service and open two redis-cli clients.</p></li>
-<li><p>In<strong>First redis-cli client</strong>Enter<span class="marked">SUBSCRIBE runoobChat</span>, which means subscribe to<code>runoobChat</code>the channel.</p></li>
-<li><p>In<strong>Second redis-cli client</strong>Enter<span class="marked">PUBLISH runoobChat "Redis PUBLISH test"</span>Send a message to the runoobChat channel. At this point, the first redis-cli client will see the test message sent by the second redis-cli client.</p></li>
+<li><p>In<strong>First redis-cli client</strong>Enter<span class="marked">SUBSCRIBE exampleChat</span>, which means subscribe to<code>exampleChat</code>the channel.</p></li>
+<li><p>In<strong>Second redis-cli client</strong>Enter<span class="marked">PUBLISH exampleChat "Redis PUBLISH test"</span>Send a message to the exampleChat channel. At this point, the first redis-cli client will see the test message sent by the second redis-cli client.</p></li>
 </ul>
 <p><img decoding="async" src="../wp-content/uploads/2014/11/redis-pub-sub.gif"/></p>
 <hr/><h2>Redis Pub/Sub Commands</h2>

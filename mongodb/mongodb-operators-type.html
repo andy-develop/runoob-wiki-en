@@ -358,14 +358,14 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 <span style="color: #009900;">}</span><span style="color: #009900;">)</span><br/>
 </div></div><p>By using the $type operator, you can precisely query the data type of specific fields in documents, thereby performing more fine-grained data filtering and management.</p>
 <hr/><h2>More Examples</h2>
-<p><strong>The database we use is named "runoob" and our collection is named "col". The following is the data we inserted.</strong></p>
+<p><strong>The database we use is named "example" and our collection is named "col". The following is the data we inserted.</strong></p>
 <p>Simple collection "col":</p>
 <pre>
 &gt;db.col.insert({
     title: 'PHP 教程', 
     description: 'PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。',
-    by: '菜鸟教程',
-    url: 'http://www.runoob.com',
+    by: 'Example',
+    url: 'http://www.example.com',
     tags: ['php'],
     likes: 200
 })
@@ -374,8 +374,8 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 <pre>
 &gt;db.col.insert({title: 'Java 教程', 
     description: 'Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。',
-    by: '菜鸟教程',
-    url: 'http://www.runoob.com',
+    by: 'Example',
+    url: 'http://www.example.com',
     tags: ['java'],
     likes: 150
 })
@@ -384,8 +384,8 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 <pre>
 &gt;db.col.insert({title: 'MongoDB 教程', 
     description: 'MongoDB 是一个 Nosql 数据库',
-    by: '菜鸟教程',
-    url: 'http://www.runoob.com',
+    by: 'Example',
+    url: 'http://www.example.com',
     tags: ['mongodb'],
     likes: 100
 })
@@ -393,9 +393,9 @@ db.<span style="color: #660066;">myCollection</span>.<span style="color: #660066
 <p>Use the find() command to view the data:</p>
 <pre>
 &gt; db.col.find()
-{ "_id" : ObjectId("56066542ade2f21f36b0313a"), "title" : "PHP 教程", "description" : "PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "php" ], "likes" : 200 }
-{ "_id" : ObjectId("56066549ade2f21f36b0313b"), "title" : "Java 教程", "description" : "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "java" ], "likes" : 150 }
-{ "_id" : ObjectId("5606654fade2f21f36b0313c"), "title" : "MongoDB 教程", "description" : "MongoDB 是一个 Nosql 数据库", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "mongodb" ], "likes" : 100 }
+{ "_id" : ObjectId("56066542ade2f21f36b0313a"), "title" : "PHP 教程", "description" : "PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "php" ], "likes" : 200 }
+{ "_id" : ObjectId("56066549ade2f21f36b0313b"), "title" : "Java 教程", "description" : "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "java" ], "likes" : 150 }
+{ "_id" : ObjectId("5606654fade2f21f36b0313c"), "title" : "MongoDB 教程", "description" : "MongoDB 是一个 Nosql 数据库", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "mongodb" ], "likes" : 100 }
 </pre>
 <br/><h2 class="tutheader">MongoDB Operator - $type Example</h2>
 <p>If you want to get the data where title is a String in the "col" collection, you can use the following command:</p>
@@ -406,9 +406,9 @@ db.col.find({"title" : {$type : 'string'}})
 </pre>
 <p>The output result is:</p>
 <pre>
-{ "_id" : ObjectId("56066542ade2f21f36b0313a"), "title" : "PHP 教程", "description" : "PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "php" ], "likes" : 200 }
-{ "_id" : ObjectId("56066549ade2f21f36b0313b"), "title" : "Java 教程", "description" : "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "java" ], "likes" : 150 }
-{ "_id" : ObjectId("5606654fade2f21f36b0313c"), "title" : "MongoDB 教程", "description" : "MongoDB 是一个 Nosql 数据库", "by" : "菜鸟教程", "url" : "http://www.runoob.com", "tags" : [ "mongodb" ], "likes" : 100 }
+{ "_id" : ObjectId("56066542ade2f21f36b0313a"), "title" : "PHP 教程", "description" : "PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "php" ], "likes" : 200 }
+{ "_id" : ObjectId("56066549ade2f21f36b0313b"), "title" : "Java 教程", "description" : "Java 是由Sun Microsystems公司于1995年5月推出的高级程序设计语言。", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "java" ], "likes" : 150 }
+{ "_id" : ObjectId("5606654fade2f21f36b0313c"), "title" : "MongoDB 教程", "description" : "MongoDB 是一个 Nosql 数据库", "by" : "Example", "url" : "http://www.example.com", "tags" : [ "mongodb" ], "likes" : 100 }
 </pre> Other Extensions
 </div>
 </div>

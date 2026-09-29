@@ -175,7 +175,7 @@ ORDER BY column1, column2....columnN</pre>
 <p>In the GROUP BY clause, you can group by one or more columns, but the columns being grouped must exist in the column list.</p>
 <h3>Example</h3>
 <p>Create the COMPANY table (<a href="https://static.jyshare.com/download/company.sql">Download COMPANY SQL file</a>), the data content is as follows:</p>
-<pre>runoobdb# select * from COMPANY;
+<pre>exampledb# select * from COMPANY;
  id | name  | age | address   | salary
 ----+-------+-----+-----------+--------
   1 | Paul  |  32 | California|  20000
@@ -187,7 +187,7 @@ ORDER BY column1, column2....columnN</pre>
   7 | James |  24 | Houston   |  10000
 (7 rows)</pre>
 <p>The following example groups by the NAME field value to find each person's total salary:</p>
-<pre>runoobdb=# SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME;</pre>
+<pre>exampledb=# SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME;</pre>
 <p>The following results are obtained:</p>
 <pre>  name  |  sum
  -------+-------
@@ -218,7 +218,7 @@ INSERT INTO COMPANY VALUES (10, 'James', 45, 'Texas', 5000.00);</pre>
   10 | James |  45 | Texas        |   5000
 (10 rows)</pre>
 <p>Now group by the values of the NAME field to find the total salary for each customer:</p>
-<pre>runoobdb=# SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME ORDER BY NAME;</pre>
+<pre>exampledb=# SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME ORDER BY NAME;</pre>
 <p>The results obtained at this point are as follows:</p>
 <pre>name  |  sum
 -------+-------
@@ -231,7 +231,7 @@ INSERT INTO COMPANY VALUES (10, 'James', 45, 'Texas', 5000.00);</pre>
  Teddy | 20000
 (7 rows)</pre>
 <p>The following example uses the ORDER BY clause together with the GROUP BY clause:</p>
-<pre>runoobdb=#  SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME ORDER BY NAME DESC;</pre>
+<pre>exampledb=#  SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME ORDER BY NAME DESC;</pre>
 <p>The following results are obtained:</p>
 <pre>name  |  sum
 -------+-------

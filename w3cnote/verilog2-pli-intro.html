@@ -107,26 +107,26 @@ Android Basic Tutorial end
 <h3>PLI Usage</h3><p>By writing system tasks and system functions, users can extend the Verilog language with PLI and C programs. The names of these user-defined system tasks and functions must begin with the dollar sign "$". At this time, a task in Verilog is equivalent to a subroutine. When a task is called, the simulator's execution flow jumps to the subroutine, and after the task is completed, the execution flow returns. Verilog tasks do not return values, but they can have input, output, and bidirectional formal parameters.</p><p>Functions in Verilog are the same as functions in most languages. When a function is called, it runs a set of instructions and then returns a value to the instruction that called it.</p>
 <p><strong>PLI Flow</strong></p><p>The basic flow for using the PLI interface to complete user-defined system tasks is shown below.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-pli-1.png"/></p>
-<p>The following uses the simple system task $hello_runoob as an example for explanation. When this system task is called, it outputs a line of string "Hello Runoob!".</p>
-<p><strong>Writing System Tasks with PLI</strong></p><p>The printing program described in C language is shown below, and the file is named<span class="marked">hello_runoob.c</span> 。</p>
+<p>The following uses the simple system task $hello_example as an example for explanation. When this system task is called, it outputs a line of string "Hello Example!".</p>
+<p><strong>Writing System Tasks with PLI</strong></p><p>The printing program described in C language is shown below, and the file is named<span class="marked">hello_example.c</span> 。</p>
 <p>To illustrate the general flow of PLI usage, this program does not call TF/ACC routines.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #085;">#include "stdio.h" // does not include PLI library routines</span><br/>
-<span style="color: #993333;">int</span> hello_runoob<span style="color: #000;">(</span><span style="color: #000;">)</span><span style="color: #000;">{</span><br/>
-        <span style="color: #000066;">printf</span><span style="color: #000;">(</span><span style="color: #a11;">"Hello Runoob! <span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
+<span style="color: #993333;">int</span> hello_example<span style="color: #000;">(</span><span style="color: #000;">)</span><span style="color: #000;">{</span><br/>
+        <span style="color: #000066;">printf</span><span style="color: #000;">(</span><span style="color: #a11;">"Hello Example! <span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000;">}</span><br/>
 </div></div>
 <p><strong>Connecting PLI to the Simulator</strong></p><p>Taking VCS usage as an example, compile or create the C-related files needed during VCS compilation.</p>
-<p>Perform a simple compilation of the above hello_runoob.c and output the hello_runoob.o file. Pay attention to the relative path.</p><pre>
-gcc -c ../tb/hello_runoob.c</pre><p>Create a link table file recognizable by VCS, named hello_runoob.tab, with the content as follows.</p><pre>
-$hello_runoob call=hello_runoob</pre>
-<p><strong>Calling System Tasks in Verilog</strong></p><p>In Verilog, call $hello_runoob in the form of a system task call, described as follows.</p>
+<p>Perform a simple compilation of the above hello_example.c and output the hello_example.o file. Pay attention to the relative path.</p><pre>
+gcc -c ../tb/hello_example.c</pre><p>Create a link table file recognizable by VCS, named hello_example.tab, with the content as follows.</p><pre>
+$hello_example call=hello_example</pre>
+<p><strong>Calling System Tasks in Verilog</strong></p><p>In Verilog, call $hello_example in the form of a system task call, described as follows.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #008800;">`timescale</span> <span style="color: #FF0055;">1ns</span><span style="color: #5D478B;">/</span><span style="color: #FF0055;">1ps</span><br/>
 <span style="color: #A52A2A; font-weight: bold;">module</span> test <span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
      <span style="color: #5D478B;">#</span><span style="color: #FF0055;">10</span> <span style="color: #5D478B;">;</span><br/>
-     $hello_runoob<span style="color: #5D478B;">;</span><br/>
+     $hello_example<span style="color: #5D478B;">;</span><br/>
    <span style="color: #A52A2A; font-weight: bold;">end</span><br/>
 <br/>
    <span style="color: #A52A2A; font-weight: bold;">initial</span> <span style="color: #A52A2A; font-weight: bold;">begin</span><br/>
@@ -139,7 +139,7 @@ $hello_runoob call=hello_runoob</pre>
 </div></div>
 <p><strong>Verilog Compilation and Simulation</strong></p><p>Compile the RTL and the written PLI intermediate files. When indicating that the table file in the PLI library needs to be linked, the "-P" parameter should be used to specify it. For example, in this simulation, the following parameter should be added to the VCS command line (pay attention to the relative path):</p>
 <pre> 
--P ../tb/hello_runoob.tab hello_runoob.o</pre>
+-P ../tb/hello_example.tab hello_example.o</pre>
 <p>The printed information can be seen in the simulation results, as shown in the screenshot below.</p>
 <p><img decoding="async" src="../wp-content/uploads/2021/05/v-pli-2.png"/></p>
 <h3>Source code download for this chapter</h3><p>

@@ -348,7 +348,7 @@ print '&lt;meta charset="utf-8"&gt;'
 print '&lt;title&gt;Hello World - 我的第一个 CGI 程序！&lt;/title&gt;'
 print '&lt;/head&gt;'
 print '&lt;body&gt;'
-print '&lt;h2&gt;Hello World! 我是来自菜鸟教程的第一CGI程序&lt;/h2&gt;'
+print '&lt;h2&gt;Hello World! 我是来自Example的第一CGI程序&lt;/h2&gt;'
 print '&lt;/body&gt;'
 print '&lt;/html&gt;'
 </pre>
@@ -357,7 +357,7 @@ print '&lt;/html&gt;'
 <p>Access the above program in the browser at<strong>http://localhost/cgi-bin/hello.py</strong>The displayed result is as follows:</p>
 <p>
 <pre>
-Hello World! 我是来自菜鸟教程的第一CGI程序</pre>
+Hello World! 我是来自Example的第一CGI程序</pre>
 <p>This hello.py script is a simple Python script. The output "Content-type:text/html" on the first line of the script is sent to the browser and tells the browser that the type of content to display is "text/html".</p><p>Use print to output a blank line to tell the server that the header information is finished.</p>
 <hr/><h2>HTTP Header</h2>
 <p>The "Content-type:text/html" in the hello.py file content is part of the HTTP header. It is sent to the browser to tell the browser the content type of the file.</p>
@@ -433,7 +433,7 @@ http://www.test.com/cgi-bin/hello.py?key1=value1&amp;key2=value2
 <h3>Simple URL Example: GET Method</h3>
 <p>The following is a simple URL that uses the GET method to send two parameters to the hello_get.py program:</p>
 <pre>
-/cgi-bin/test.py?name=菜鸟教程&amp;url=http://www.runoob.com
+/cgi-bin/test.py?name=Example&amp;url=http://www.example.com
 </pre>
 <p>The following is the code for the hello_get.py file:</p>
 <pre>
@@ -457,7 +457,7 @@ print
 print "&lt;html&gt;"
 print "&lt;head&gt;"
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
 print "&lt;h2&gt;%s官网：%s&lt;/h2&gt;" % (site_name, site_url)
@@ -475,7 +475,7 @@ print "&lt;/html&gt;"
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/hello_get.py" method="get"&gt;
@@ -514,7 +514,7 @@ print
 print "&lt;html&gt;"
 print "&lt;head&gt;"
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
 print "&lt;h2&gt;%s官网：%s&lt;/h2&gt;" % (site_name, site_url)
@@ -527,7 +527,7 @@ print "&lt;/html&gt;"
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/hello_get.py" method="post"&gt;
@@ -548,11 +548,11 @@ print "&lt;/html&gt;"
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/checkbox.py" method="POST" target="_blank"&gt;
-&lt;input type="checkbox" name="runoob" value="on" /&gt; 菜鸟教程
+&lt;input type="checkbox" name="example" value="on" /&gt; Example
 &lt;input type="checkbox" name="google" value="on" /&gt; Google
 &lt;input type="submit" value="选择站点" /&gt;
 &lt;/form&gt;
@@ -576,20 +576,20 @@ if form.getvalue('google'):
 else:
    google_flag = "否"
 
-if form.getvalue('runoob'):
-   runoob_flag = "是"
+if form.getvalue('example'):
+   example_flag = "是"
 else:
-   runoob_flag = "否"
+   example_flag = "否"
 
 print "Content-type:text/html"
 print
 print "&lt;html&gt;"
 print "&lt;head&gt;"
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
-print "&lt;h2&gt; 菜鸟教程是否选择了 : %s&lt;/h2&gt;" % runoob_flag
+print "&lt;h2&gt; Example是否选择了 : %s&lt;/h2&gt;" % example_flag
 print "&lt;h2&gt; Google 是否选择了 : %s&lt;/h2&gt;" % google_flag
 print "&lt;/body&gt;"
 print "&lt;/html&gt;"
@@ -607,11 +607,11 @@ chmod 755 checkbox.py
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/radiobutton.py" method="post" target="_blank"&gt;
-&lt;input type="radio" name="site" value="runoob" /&gt; 菜鸟教程
+&lt;input type="radio" name="site" value="example" /&gt; Example
 &lt;input type="radio" name="site" value="google" /&gt; Google
 &lt;input type="submit" value="提交" /&gt;
 &lt;/form&gt;
@@ -640,7 +640,7 @@ print
 print "&lt;html&gt;"
 print "&lt;head&gt;"
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
 print "&lt;h2&gt; 选中的网站是 %s&lt;/h2&gt;" % site
@@ -659,7 +659,7 @@ chmod 755 radiobutton.py
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/textarea.py" method="post" target="_blank"&gt;
@@ -693,7 +693,7 @@ print
 print "&lt;html&gt;"
 print "&lt;head&gt;";
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
 print "&lt;h2&gt; 输入的内容是：%s&lt;/h2&gt;" % text_content
@@ -712,12 +712,12 @@ chmod 755 textarea.py
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;form action="../cgi-bin/dropdown.py" method="post" target="_blank"&gt;
 &lt;select name="dropdown"&gt;
-&lt;option value="runoob" selected&gt;菜鸟教程&lt;/option&gt;
+&lt;option value="example" selected&gt;Example&lt;/option&gt;
 &lt;option value="google"&gt;Google&lt;/option&gt;
 &lt;/select&gt;
 &lt;input type="submit" value="提交"/&gt;
@@ -747,7 +747,7 @@ print
 print "&lt;html&gt;"
 print "&lt;head&gt;"
 print "&lt;meta charset=\"utf-8\"&gt;"
-print "&lt;title&gt;菜鸟教程 CGI 测试实例&lt;/title&gt;"
+print "&lt;title&gt;Example CGI 测试实例&lt;/title&gt;"
 print "&lt;/head&gt;"
 print "&lt;body&gt;"
 print "&lt;h2&gt; 选中的选项是：%s&lt;/h2&gt;" % dropdown_value
@@ -772,7 +772,7 @@ Set-cookie:name=name;expires=date;path=path;domain=domain;secure
 <li>
 <strong>name=name:</strong>The value of the cookie needs to be set (name cannot use "<strong>;</strong>" and "<strong>,</strong>" sign). When there are multiple name values, use "<strong>;</strong>" separated, for example:<strong>name1=name1;name2=name2;name3=name3</strong>。 </li> <li>
 <strong>expires=date:</strong>Cookie validity period, format: expires="Wdy,DD-Mon-YYYY HH:MM:SS"</li> <li>
-</li> <li><strong>path=path: </strong>Set the path supported by the cookie. If path is a path, the cookie takes effect for all files and subdirectories under this directory, for example: path="/cgi-bin/". If path is a file, the cookie takes effect only for this file, for example: path="/cgi-bin/cookie.cgi".</li> <li><strong>domain=domain:</strong>The domain for which the cookie is valid, for example: domain="www.runoob.com"</li> <li><strong>secure:</strong>If this flag is given, it means the cookie can only be transmitted through an HTTPS server using the SSL protocol.</li> <li>The reception of cookies is implemented by setting the environment variable HTTP_COOKIE. The CGI program can obtain cookie information by retrieving this variable.</li></ul>
+</li> <li><strong>path=path: </strong>Set the path supported by the cookie. If path is a path, the cookie takes effect for all files and subdirectories under this directory, for example: path="/cgi-bin/". If path is a file, the cookie takes effect only for this file, for example: path="/cgi-bin/cookie.cgi".</li> <li><strong>domain=domain:</strong>The domain for which the cookie is valid, for example: domain="www.example.com"</li> <li><strong>secure:</strong>If this flag is given, it means the cookie can only be transmitted through an HTTPS server using the SSL protocol.</li> <li>The reception of cookies is implemented by setting the environment variable HTTP_COOKIE. The CGI program can obtain cookie information by retrieving this variable.</li></ul>
 <hr/><h2>Cookie Settings</h2>
 <p>Setting cookies is very simple. The cookie is sent separately in the HTTP header. The following example sets name and expires in the cookie:</p>
 <pre>
@@ -780,13 +780,13 @@ Set-cookie:name=name;expires=date;path=path;domain=domain;secure
 # -*- coding: UTF-8 -*-
 # 
 print 'Content-Type: text/html'
-print 'Set-Cookie: name="菜鸟教程";expires=Wed, 28 Aug 2016 18:30:00 GMT'
+print 'Set-Cookie: name="Example";expires=Wed, 28 Aug 2016 18:30:00 GMT'
 print
 print """
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
-        &lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+        &lt;title&gt;Example(example.com)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;h1&gt;Cookie set OK!&lt;/h1&gt;
@@ -819,7 +819,7 @@ print """
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;h1&gt;读取cookie信息&lt;/h1&gt;
@@ -853,7 +853,7 @@ chmod 755 cookie_get.py
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
  &lt;form enctype="multipart/form-data" 
@@ -893,7 +893,7 @@ Content-Type: text/html\n
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset="utf-8"&gt;
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;title&gt;Example(example.com)&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
    &lt;p&gt;%s&lt;/p&gt;

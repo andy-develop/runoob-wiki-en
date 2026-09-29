@@ -369,9 +369,9 @@ middle
 <strong>Local names (local names)</strong>, names defined in a function, recording the function's variables, including function parameters and locally defined variables. (Those defined in a class are also included.)</li></ul>
 <p><img decoding="async" src="../wp-content/uploads/2014/05/types_namespace-1.png" width="50%"/></p>
 <p>Namespace lookup order:</p>
-<p>Suppose we want to use the variable runoob, then Python's lookup order is:<strong>Local namespace -&gt; Global namespace -&gt; Built-in namespace</strong>。</p>
-<p>If the variable runoob is not found, it will give up the lookup and raise a NameError exception:</p>
-<pre>NameError: name 'runoob' is not defined。</pre>
+<p>Suppose we want to use the variable example, then Python's lookup order is:<strong>Local namespace -&gt; Global namespace -&gt; Built-in namespace</strong>。</p>
+<p>If the variable example is not found, it will give up the lookup and raise a NameError exception:</p>
+<pre>NameError: name 'example' is not defined。</pre>
 <p>The lifecycle of a namespace:</p>
 <p>The lifecycle of a namespace depends on the scope of the object. If the object has finished executing, the lifecycle of that namespace ends.</p>
 <p>Therefore, we cannot access objects in an inner namespace from an outer namespace.</p>
@@ -419,17 +419,17 @@ def outer():
 <p>In Python, only modules, classes, and functions (def, lambda) introduce new scopes. Other code blocks (such as if/elif/else, try/except, for/while, etc.) do not introduce new scopes. That is, variables defined inside these statements can also be accessed externally, as in the following code:</p>
 <pre>
 &gt;&gt;&gt; if True:
-...  msg = 'I am from Runoob'
+...  msg = 'I am from Example'
 ... 
 &gt;&gt;&gt; msg
-'I am from Runoob'
+'I am from Example'
 &gt;&gt;&gt; 
 </pre>
 <p>In the example, the variable msg is defined in an if statement block, but it can still be accessed externally.</p>
 <p>If msg is defined inside a function, then it is a local variable and cannot be accessed externally:</p>
 <pre>
 &gt;&gt;&gt; def test():
-...     msg_inner = 'I am from Runoob'
+...     msg_inner = 'I am from Example'
 ... 
 &gt;&gt;&gt; msg_inner
 Traceback (most recent call last):

@@ -321,7 +321,7 @@ FROM table_name
 WHERE [condition1]</pre>
 <p>We can use comparison operators or logical operators in the WHERE clause, such as<span class="marked">&gt;, &lt;, =, LIKE, NOT</span>etc.</p>
 <p>Create the COMPANY table (<a href="https://static.jyshare.com/download/company.sql">Download the COMPANY SQL file</a>), with the following data content:</p>
-<pre>runoobdb# select * from COMPANY;
+<pre>exampledb# select * from COMPANY;
  id | name  | age | address   | salary
 ----+-------+-----+-----------+--------
   1 | Paul  |  32 | California|  20000
@@ -333,7 +333,7 @@ WHERE [condition1]</pre>
   7 | James |  24 | Houston   |  10000
 (7 rows)</pre>In the following examples, we use logical operators to read data from the table.<h3>AND</h3>
 <p>Find<strong>AGE (age)</strong>field greater than or equal to 25, and<strong>SALARY (salary)</strong>field greater than or equal to 65000:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE AGE &gt;= 25 AND SALARY &gt;= 65000;
+<pre>exampledb=# SELECT * FROM COMPANY WHERE AGE &gt;= 25 AND SALARY &gt;= 65000;
  id | name  | age |  address   | salary
 ----+-------+-----+------------+--------
   4 | Mark  |  25 | Rich-Mond  |  65000
@@ -341,7 +341,7 @@ WHERE [condition1]</pre>
 (2 rows)</pre>
 <h3>OR</h3>
 <p>Find<strong>AGE (age)</strong>field greater than or equal to 25, or<strong>SALARY (salary)</strong>field greater than or equal to 65000:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE AGE &gt;= 25 OR SALARY &gt;= 65000;
+<pre>exampledb=# SELECT * FROM COMPANY WHERE AGE &gt;= 25 OR SALARY &gt;= 65000;
 id | name  | age | address     | salary
 ----+-------+-----+-------------+--------
   1 | Paul  |  32 | California  |  20000
@@ -351,7 +351,7 @@ id | name  | age | address     | salary
 (4 rows)</pre>
 <h3>NOT NULL</h3>
 <p>Find records in the COMPANY table where the<strong>AGE (age)</strong>field is not empty:</p>
-<pre>runoobdb=#  SELECT * FROM COMPANY WHERE AGE IS NOT NULL;
+<pre>exampledb=#  SELECT * FROM COMPANY WHERE AGE IS NOT NULL;
   id | name  | age | address    | salary
  ----+-------+-----+------------+--------
    1 | Paul  |  32 | California |  20000
@@ -364,13 +364,13 @@ id | name  | age | address     | salary
 (7 rows)</pre>
 <h3>LIKE</h3>
 <p>Find in the COMPANY table<strong>NAME (name)</strong>field starts with Pa:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE NAME LIKE 'Pa%';
+<pre>exampledb=# SELECT * FROM COMPANY WHERE NAME LIKE 'Pa%';
 id | name | age |address    | salary
 ----+------+-----+-----------+--------
   1 | Paul |  32 | California|  20000</pre>
 <h3>IN</h3>
 <p>The following SELECT statement lists the<strong>AGE (age)</strong>field equal to 25 or 27:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE AGE IN ( 25, 27 );
+<pre>exampledb=# SELECT * FROM COMPANY WHERE AGE IN ( 25, 27 );
  id | name  | age | address    | salary
 ----+-------+-----+------------+--------
   2 | Allen |  25 | Texas      |  15000
@@ -379,7 +379,7 @@ id | name | age |address    | salary
 (3 rows)</pre>
 <h3>NOT IN</h3>
 <p>The following SELECT statement lists the<strong>AGE (age)</strong>field not equal to 25 or 27:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE AGE NOT IN ( 25, 27 );
+<pre>exampledb=# SELECT * FROM COMPANY WHERE AGE NOT IN ( 25, 27 );
  id | name  | age | address    | salary
 ----+-------+-----+------------+--------
   1 | Paul  |  32 | California |  20000
@@ -389,7 +389,7 @@ id | name | age |address    | salary
 (4 rows)</pre>
 <h3>BETWEEN </h3>
 <p>The following SELECT statement lists the<strong>AGE (age)</strong>field between 25 and 27:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY WHERE AGE BETWEEN 25 AND 27;
+<pre>exampledb=# SELECT * FROM COMPANY WHERE AGE BETWEEN 25 AND 27;
  id | name  | age | address    | salary
 ----+-------+-----+------------+--------
   2 | Allen |  25 | Texas      |  15000
@@ -398,7 +398,7 @@ id | name | age |address    | salary
 (3 rows)</pre>
 <h3>Subquery</h3>
 <p>The following SELECT statement uses an SQL subquery. The subquery reads<strong>SALARY (salary)</strong>data with field greater than 65000, and then through the<strong>EXISTS</strong>operator to determine whether it returns rows. If rows are returned, it reads all the<strong>AGE (age)</strong>fields.</p>
-<pre>runoobdb=# SELECT AGE FROM COMPANY
+<pre>exampledb=# SELECT AGE FROM COMPANY
         WHERE EXISTS (SELECT AGE FROM COMPANY WHERE SALARY &gt; 65000);
  age
 -----
@@ -411,7 +411,7 @@ id | name | age |address    | salary
   24
 (7 rows)</pre>
 <p>The following SELECT statement also uses an SQL subquery. The subquery reads<strong>SALARY (salary)</strong>field greater than 65000 in the<strong>AGE (age)</strong>field data, and then uses the<strong>&gt;</strong>operator to query data greater than the<strong>AGE (age)</strong>field data:</p>
-<pre>runoobdb=# SELECT * FROM COMPANY
+<pre>exampledb=# SELECT * FROM COMPANY
         WHERE AGE &gt; (SELECT AGE FROM COMPANY WHERE SALARY &gt; 65000);
  id | name | age | address    | salary
 ----+------+-----+------------+--------

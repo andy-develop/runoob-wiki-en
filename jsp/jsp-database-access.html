@@ -304,14 +304,14 @@ middle
 <p>The way to load the driver and connect to the database is as follows:</p>
 <pre>
 &lt;sql:setDataSource var="snapshot" driver="com.mysql.cj.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/RUNOOB?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8
+     url="jdbc:mysql://localhost:3306/EXAMPLE?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8
      user="root"  password="12345"/&gt;
 </pre></blockquote>
 <p>Starting from the basic concepts, let's create a simple table and add a few records to it.</p>
 </div>
 <hr/>
 <h2>Create Test Data</h2>
-<p>Next, we create the RUNOOB database in MySQL and create the websites data table. The table structure is as follows:</p>
+<p>Next, we create the EXAMPLE database in MySQL and create the websites data table. The table structure is as follows:</p>
 <pre>
 CREATE TABLE `websites` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -324,7 +324,7 @@ CREATE TABLE `websites` (
 </pre>
 <p>Insert some data:</p>
 <pre>
-INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', '菜鸟教程', 'http://www.runoob.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');
+INSERT INTO `websites` VALUES ('1', 'Google', 'https://www.google.cm/', '1', 'USA'), ('2', '淘宝', 'https://www.taobao.com/', '13', 'CN'), ('3', 'Example', 'http://www.example.com', '5892', ''), ('4', '微博', 'http://weibo.com/', '20', 'CN'), ('5', 'Facebook', 'https://www.facebook.com/', '3', 'USA');
 </pre>
 <p>The data table is displayed as follows:</p>
 <p><img decoding="async" src="../wp-content/uploads/2013/12/mysql-data.jpg"/></p><hr/>
@@ -350,13 +350,13 @@ JDBC 驱动名及数据库 URL
 useUnicode=true&amp;characterEncoding=utf-8 防止中文乱码
  --&gt;
 &lt;sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/RUNOOB?useUnicode=true&amp;characterEncoding=utf-8"
+     url="jdbc:mysql://localhost:3306/EXAMPLE?useUnicode=true&amp;characterEncoding=utf-8"
      user="root"  password="123456"/&gt;
  
 &lt;sql:query dataSource="${snapshot}" var="result"&gt;
 SELECT * from websites;
 &lt;/sql:query&gt;
-&lt;h1&gt;JSP 数据库实例 - 菜鸟教程&lt;/h1&gt;
+&lt;h1&gt;JSP 数据库实例 - Example&lt;/h1&gt;
 &lt;table border="1" width="100%"&gt;
 &lt;tr&gt;
    &lt;th&gt;ID&lt;/th&gt;
@@ -397,18 +397,18 @@ JDBC 驱动名及数据库 URL
 useUnicode=true&amp;characterEncoding=utf-8 防止中文乱码
  --&gt;
 &lt;sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/RUNOOB?useUnicode=true&amp;characterEncoding=utf-8"
+     url="jdbc:mysql://localhost:3306/EXAMPLE?useUnicode=true&amp;characterEncoding=utf-8"
      user="root"  password="123456"/&gt;
 &lt;!--
 插入数据
  --&gt;
 &lt;sql:update dataSource="${snapshot}" var="result"&gt;
-INSERT INTO websites (name,url,alexa,country) VALUES ('菜鸟教程移动站', 'http://m.runoob.com', 5093, 'CN');
+INSERT INTO websites (name,url,alexa,country) VALUES ('Example移动站', 'http://m.example.com', 5093, 'CN');
 &lt;/sql:update&gt;
 &lt;sql:query dataSource="${snapshot}" var="result"&gt;
 SELECT * from websites;
 &lt;/sql:query&gt;
-&lt;h1&gt;JSP 数据库实例 - 菜鸟教程&lt;/h1&gt;
+&lt;h1&gt;JSP 数据库实例 - Example&lt;/h1&gt;
 &lt;table border="1" width="100%"&gt;
 &lt;tr&gt;
    &lt;th&gt;ID&lt;/th&gt;
@@ -449,7 +449,7 @@ JDBC 驱动名及数据库 URL
 useUnicode=true&amp;characterEncoding=utf-8 防止中文乱码
  --&gt;
 &lt;sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/RUNOOB?useUnicode=true&amp;characterEncoding=utf-8"
+     url="jdbc:mysql://localhost:3306/EXAMPLE?useUnicode=true&amp;characterEncoding=utf-8"
      user="root"  password="123456"/&gt;
 
 &lt;!--
@@ -463,7 +463,7 @@ useUnicode=true&amp;characterEncoding=utf-8 防止中文乱码
 &lt;sql:query dataSource="${snapshot}" var="result"&gt;
 SELECT * from websites;
 &lt;/sql:query&gt;
-&lt;h1&gt;JSP 数据库实例 - 菜鸟教程&lt;/h1&gt;
+&lt;h1&gt;JSP 数据库实例 - Example&lt;/h1&gt;
 &lt;table border="1" width="100%"&gt;
 &lt;tr&gt;
    &lt;th&gt;ID&lt;/th&gt;
@@ -504,23 +504,23 @@ JDBC 驱动名及数据库 URL
 useUnicode=true&amp;characterEncoding=utf-8 防止中文乱码
  --&gt;
 &lt;sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/RUNOOB?useUnicode=true&amp;characterEncoding=utf-8"
+     url="jdbc:mysql://localhost:3306/EXAMPLE?useUnicode=true&amp;characterEncoding=utf-8"
      user="root"  password="123456"/&gt;
 
 &lt;!--
-修改 ID 为 3 的名字：菜鸟教程改为 RUNOOB
+修改 ID 为 3 的名字：Example改为 EXAMPLE
  --&gt;
 &lt;c:set var="SiteId" value="3"/&gt;
  
 &lt;sql:update dataSource="${snapshot}" var="count"&gt;
-  UPDATE websites SET name = 'RUNOOB' WHERE Id = ?
+  UPDATE websites SET name = 'EXAMPLE' WHERE Id = ?
   &lt;sql:param value="${SiteId}" /&gt;
 &lt;/sql:update&gt;
 
 &lt;sql:query dataSource="${snapshot}" var="result"&gt;
 SELECT * from websites;
 &lt;/sql:query&gt;
-&lt;h1&gt;JSP 数据库实例 - 菜鸟教程&lt;/h1&gt;
+&lt;h1&gt;JSP 数据库实例 - Example&lt;/h1&gt;
 &lt;table border="1" width="100%"&gt;
 &lt;tr&gt;
    &lt;th&gt;ID&lt;/th&gt;

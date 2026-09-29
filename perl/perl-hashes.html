@@ -290,10 +290,10 @@ middle
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'google'} = </span><span class="hl-var">$data</span><span class="hl-string">{'google'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
-</span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'runoob'} = </span><span class="hl-var">$data</span><span class="hl-string">{'runoob'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'example'} = </span><span class="hl-var">$data</span><span class="hl-string">{'example'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'taobao'} = </span><span class="hl-var">$data</span><span class="hl-string">{'taobao'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;</span></div>
 </div>
 </div>
@@ -306,23 +306,23 @@ middle
 <h3>1. Set value for each key</h3>
 <pre>
 $data{'google'} = 'google.com';
-$data{'runoob'} = 'runoob.com';
+$data{'example'} = 'example.com';
 $data{'taobao'} = 'taobao.com';
 </pre>
 <h3>2. Set via a list</h3>
 <p>In the list, the first element is the key and the second is the value.</p>
-<pre>%data = ('google', 'google.com', 'runoob', 'runoob.com', 'taobao', 'taobao.com');
+<pre>%data = ('google', 'google.com', 'example', 'example.com', 'taobao', 'taobao.com');
 </pre>
 <p>You can also use<b>=&gt;</b>the symbol to set key/value:</p>
-<pre>%data = ('google'=&gt;'google.com', 'runoob'=&gt;'runoob.com', 'taobao'=&gt;'taobao.com');
+<pre>%data = ('google'=&gt;'google.com', 'example'=&gt;'example.com', 'taobao'=&gt;'taobao.com');
 </pre>
 <p>The following example is a variant of the above, using<b>-</b>to replace quotes:</p>
-<pre>%data = (-google=&gt;'google.com', -runoob=&gt;'runoob.com', -taobao=&gt;'taobao.com');
+<pre>%data = (-google=&gt;'google.com', -example=&gt;'example.com', -taobao=&gt;'taobao.com');
 </pre>
 <p>Using this method, keys cannot contain spaces. The way to read elements is:</p>
 <pre>
 $val = $data{-google}
-$val = $data{-runoob}</pre>
+$val = $data{-example}</pre>
 <hr/>
 <h2>Accessing Hash Elements</h2>
 <p>Format for accessing hash elements:<b>${key}</b>, the example is as follows:</p>
@@ -330,10 +330,10 @@ $val = $data{-runoob}</pre>
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'google'} = </span><span class="hl-var">$data</span><span class="hl-string">{'google'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
-</span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'runoob'} = </span><span class="hl-var">$data</span><span class="hl-string">{'runoob'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'example'} = </span><span class="hl-var">$data</span><span class="hl-string">{'example'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-special">\$</span><span class="hl-string">data{'taobao'} = </span><span class="hl-var">$data</span><span class="hl-string">{'taobao'}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;</span></div>
 </div>
 </div><p>Executing the above program produces the following output:</p>
@@ -347,9 +347,9 @@ $val = $data{-runoob}</pre>
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/uer/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-code">-</span><span class="hl-string">taobao</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">45</span><span class="hl-code">, -</span><span class="hl-string">google</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">30</span><span class="hl-code">, -</span><span class="hl-string">runoob</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">40</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-code">-</span><span class="hl-string">taobao</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">45</span><span class="hl-code">, -</span><span class="hl-string">google</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">30</span><span class="hl-code">, -</span><span class="hl-string">example</span><span class="hl-code"> =&gt;</span><span class="hl-code"> </span><span class="hl-number">40</span><span class="hl-brackets">)</span><span class="hl-code">;
  
-</span><span class="hl-var">@array</span><span class="hl-code"> = </span><span class="hl-var">@data</span><span class="hl-brackets">{</span><span class="hl-code">-</span><span class="hl-identifier">taobao</span><span class="hl-code">, -</span><span class="hl-identifier">runoob</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-var">@array</span><span class="hl-code"> = </span><span class="hl-var">@data</span><span class="hl-brackets">{</span><span class="hl-code">-</span><span class="hl-identifier">taobao</span><span class="hl-code">, -</span><span class="hl-identifier">example</span><span class="hl-brackets">}</span><span class="hl-code">;
  
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Array : @array</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;</span></div>
 </div>
@@ -369,7 +369,7 @@ keys %HASH
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl </span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-var">@names</span><span class="hl-code"> = </span><span class="hl-reserved">keys</span><span class="hl-code"> </span><span class="hl-var">%data</span><span class="hl-code">;
  
@@ -381,7 +381,7 @@ keys %HASH
 <pre>
 taobao
 google
-runoob
+example
 </pre>
 <p>Similarly, we can use the<b>values</b>function to read all values of the hash. The syntax format is as follows:</p>
 <pre>
@@ -392,7 +392,7 @@ values %HASH
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl </span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-var">@urls</span><span class="hl-code"> = </span><span class="hl-reserved">values</span><span class="hl-code"> </span><span class="hl-var">%data</span><span class="hl-code">;
  
@@ -403,7 +403,7 @@ values %HASH
 </div><p>Executing the above program produces the following output:</p>
 <pre>
 taobao.com
-runoob.com
+example.com
 google.com
 </pre>
 <hr/>
@@ -414,7 +414,7 @@ google.com
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-reserved">exists</span><span class="hl-brackets">(</span><span class="hl-var">$data</span><span class="hl-brackets">{</span><span class="hl-quotes">'</span><span class="hl-string">facebook</span><span class="hl-quotes">'</span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">The URL of facebook is</span><span class="hl-var">$data</span><span class="hl-string">{'facebook'} </span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
@@ -435,7 +435,7 @@ facebook 键不存在
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
  
 </span><span class="hl-var">@keys</span><span class="hl-code"> = </span><span class="hl-reserved">keys</span><span class="hl-code"> </span><span class="hl-var">%data</span><span class="hl-code">;
 </span><span class="hl-var">$size</span><span class="hl-code"> = </span><span class="hl-var">@keys</span><span class="hl-code">;
@@ -457,7 +457,7 @@ facebook 键不存在
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-var">@keys</span><span class="hl-code"> = </span><span class="hl-reserved">keys</span><span class="hl-code"> </span><span class="hl-var">%data</span><span class="hl-code">;
 </span><span class="hl-var">$size</span><span class="hl-code"> = </span><span class="hl-var">@keys</span><span class="hl-code">;
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">1 - Hash size:</span><span class="hl-var">$size</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
@@ -483,18 +483,18 @@ facebook 键不存在
 <hr/><h2>Iterating Over a Hash</h2>
 <p>We can use foreach and while to iterate over a hash:</p>
 <div class="example"><h2 class="example">Example - Using foreach</h2> <div class="example_code"><div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">foreach</span><span class="hl-code"> </span><span class="hl-var">$key</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">keys</span><span class="hl-code"> </span><span class="hl-var">%data</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-var">$data</span><span class="hl-string">{</span><span class="hl-var">$key</span><span class="hl-string">}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div></div></div>
 <div class="example"><h2 class="example">Example - Using while</h2> <div class="example_code"><div class="hl-main"><span class="hl-special">#!/usr/bin/perl</span><span class="hl-code">
-</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-var">%data</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">google</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">google.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">example</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">example.com</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">taobao</span><span class="hl-quotes">'</span><span class="hl-code">=&gt;</span><span class="hl-quotes">'</span><span class="hl-string">taobao.com</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
 </span><span class="hl-reserved">while</span><span class="hl-brackets">(</span><span class="hl-brackets">(</span><span class="hl-var">$key</span><span class="hl-code">, </span><span class="hl-var">$value</span><span class="hl-brackets">)</span><span class="hl-code"> = </span><span class="hl-reserved">each</span><span class="hl-brackets">(</span><span class="hl-var">%data</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-reserved">print</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-var">$data</span><span class="hl-string">{</span><span class="hl-var">$key</span><span class="hl-string">}</span><span class="hl-special">\n</span><span class="hl-quotes">"</span><span class="hl-code">;
 </span><span class="hl-brackets">}</span></div></div></div>
 <p>Executing the above program produces the following output:</p>
 <pre>
-runoob.com
+example.com
 google.com
 taobao.com
 </pre> Other Extensions

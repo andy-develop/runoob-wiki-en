@@ -328,7 +328,7 @@ middle
 <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// s1 gains ownership of the string (data stored on the heap)</span><br/>
-    <span style="color: #708;">let</span> s1 <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"Hello, RUNOOB!"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> s1 <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"Hello, EXAMPLE!"</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Ownership moves from s1 to s2; after this, s1 is no longer valid</span><br/>
     <span style="color: #708;">let</span> s2 <span style="">=</span> s1<span style="">;</span><br/>
@@ -347,7 +347,7 @@ middle
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"s3 = {}, s4 = {}"</span><span style="">,</span> s3<span style="">,</span> s4<span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Mutable reference: only one can exist at a time</span><br/>
-    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> data <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> <span style="color: #708;">mut</span> data <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">;</span><br/>
     <span style="color: #708;">let</span> r <span style="">=</span> <span style="">&amp;</span><span style="color: #708;">mut</span> data<span style="">;</span> <span style="color: #a50; font-style: italic;">// Mutable borrow</span><br/>
     r.push_str<span style="">(</span><span style="color: #a11;">"!"</span><span style="">)</span><span style="">;</span>   <span style="color: #a50; font-style: italic;">// Modify the original value through a mutable reference</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"After modification: {}"</span><span style="">,</span> r<span style="">)</span><span style="">;</span><br/>
@@ -365,9 +365,9 @@ middle
     <span style="color: #a50; font-style: italic;">// match with number matching</span><br/>
     <span style="color: #708;">let</span> score <span style="">=</span> <span style="color: #0000DD;">85</span><span style="">;</span><br/>
     <span style="color: #708;">match</span> score <span style="">{</span><br/>
-        <span style="color: #0000DD;">90</span>..<span style="">=</span><span style="color: #0000DD;">100</span> <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB Rating: A"</span><span style="">)</span><span style="">,</span> <span style="color: #a50; font-style: italic;">// Range matching</span><br/>
-        <span style="color: #0000DD;">60</span>..<span style="">=</span><span style="color: #0000DD;">89</span>  <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB Rating: B"</span><span style="">)</span><span style="">,</span><br/>
-        <span style="color: #0000DD;">0</span>..<span style="">=</span><span style="color: #0000DD;">59</span>   <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB Rating: C"</span><span style="">)</span><span style="">,</span><br/>
+        <span style="color: #0000DD;">90</span>..<span style="">=</span><span style="color: #0000DD;">100</span> <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE Rating: A"</span><span style="">)</span><span style="">,</span> <span style="color: #a50; font-style: italic;">// Range matching</span><br/>
+        <span style="color: #0000DD;">60</span>..<span style="">=</span><span style="color: #0000DD;">89</span>  <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE Rating: B"</span><span style="">)</span><span style="">,</span><br/>
+        <span style="color: #0000DD;">0</span>..<span style="">=</span><span style="color: #0000DD;">59</span>   <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE Rating: C"</span><span style="">)</span><span style="">,</span><br/>
         _ <span style="">=&gt;</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Invalid score"</span><span style="">)</span><span style="">,</span>                <span style="color: #a50; font-style: italic;">// Wildcard, matches all remaining cases</span><br/>
     <span style="">}</span><br/>
 <br/>
@@ -539,11 +539,11 @@ cargo 1.85.0
 <p>Using Cargo to create a project is the most recommended approach; it automatically generates a standard project structure.</p>
 <pre>
 # 创建新项目
-$ cargo new hello_runoob
-     Created binary (application) `hello_runoob` package
+$ cargo new hello_example
+     Created binary (application) `hello_example` package
 
 # 项目结构
-hello_runoob/
+hello_example/
 ├── Cargo.toml     # 项目元数据和依赖配置
 └── src/
     └── main.rs    # 程序入口文件
@@ -553,7 +553,7 @@ hello_runoob/
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #7A0874; font-weight: bold;">[</span>package<span style="color: #7A0874; font-weight: bold;">]</span><br/>
-name = <span style="color: #a10;">"hello_runoob"</span>           <span style="color: #666666; font-style: italic;"># Package name (required, separated by underscores)</span><br/>
+name = <span style="color: #a10;">"hello_example"</span>           <span style="color: #666666; font-style: italic;"># Package name (required, separated by underscores)</span><br/>
 version = <span style="color: #a10;">"0.1.0"</span>               <span style="color: #666666; font-style: italic;"># Version number (required, follows semantic versioning)</span><br/>
 edition = <span style="color: #a10;">"2024"</span>                <span style="color: #666666; font-style: italic;"># Rust Edition (required, affects language syntax rules)</span><br/>
 <br/>
@@ -572,7 +572,7 @@ edition = <span style="color: #a10;">"2024"</span>                <span 
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// println! is a macro (note the ! symbol after it)</span><br/>
     <span style="color: #a50; font-style: italic;">// Macros expand into more complex code at compile time</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Hello, RUNOOB!"</span><span style="">)</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Hello, EXAMPLE!"</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Welcome to the world of the Rust language"</span><span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div>
@@ -580,10 +580,10 @@ edition = <span style="color: #a10;">"2024"</span>                <span 
 <pre>
 # 编译并运行
 $ cargo run
-   Compiling hello_runoob v0.1.0
+   Compiling hello_example v0.1.0
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.52s
-     Running `target/debug/hello_runoob`
-Hello, RUNOOB!
+     Running `target/debug/hello_example`
+Hello, EXAMPLE!
 欢迎来到 Rust 语言的世界
 </pre>
 <hr/>
@@ -596,7 +596,7 @@ Hello, RUNOOB!
 <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// Immutable variable (default): cannot be reassigned after declaration</span><br/>
-    <span style="color: #708;">let</span> name <span style="">=</span> <span style="color: #a11;">"RUNOOB"</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> name <span style="">=</span> <span style="color: #a11;">"EXAMPLE"</span><span style="">;</span><br/>
     <span style="color: #a50; font-style: italic;">// name = "other"; // Compile error! Immutable variables cannot be reassigned</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Name: {}"</span><span style="">,</span> name<span style="">)</span><span style="">;</span><br/>
 <br/>
@@ -650,7 +650,7 @@ Hello, RUNOOB!
     <span style="">}</span> <span style="color: #708;">else</span> <span style="">{</span><br/>
         <span style="color: #a11;">"C"</span><br/>
     <span style="">}</span><span style="">;</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB rating: {}"</span><span style="">,</span> grade<span style="">)</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE rating: {}"</span><span style="">,</span> grade<span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// loop is an infinite loop (exit with break, can return a value)</span><br/>
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> count <span style="">=</span> <span style="color: #0000DD;">0</span><span style="">;</span><br/>
@@ -726,7 +726,7 @@ Hello, RUNOOB!
 <br/>
     <span style="color: #a50; font-style: italic;">// Calling a generic function</span><br/>
     <span style="color: #708;">let</span> nums <span style="">=</span> vec<span style="">!</span><span style="">[</span><span style="color: #0000DD;">3</span><span style="">,</span> <span style="color: #0000DD;">7</span><span style="">,</span> <span style="color: #0000DD;">2</span><span style="">,</span> <span style="color: #0000DD;">9</span><span style="">,</span> <span style="color: #0000DD;">5</span><span style="">]</span><span style="">;</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB maximum number: {}"</span><span style="">,</span> largest<span style="">(</span><span style="">&amp;</span>nums<span style="">)</span><span style="">)</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE maximum number: {}"</span><span style="">,</span> largest<span style="">(</span><span style="">&amp;</span>nums<span style="">)</span><span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
@@ -769,8 +769,8 @@ Hello, RUNOOB!
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
     <span style="color: #a50; font-style: italic;">// Creates an instance using an associated function</span><br/>
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> user <span style="">=</span> User<span style="">::</span><span style="color: #164;">new</span><span style="">(</span><br/>
-        String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">,</span><br/>
-        String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob@example.com"</span><span style="">)</span><span style="">,</span><br/>
+        String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">,</span><br/>
+        String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example@example.com"</span><span style="">)</span><span style="">,</span><br/>
     <span style="">)</span><span style="">;</span><br/>
 <br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> user.summary<span style="">(</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
@@ -826,7 +826,7 @@ serde_json = "1"           # JSON 支持
 <span style="color: #a50; font-style: italic;">// Handles GET /hello requests</span><br/>
 <span style="color: #a50; font-style: italic;">// Query(HelloParams) automatically extracts name from URL query parameters</span><br/>
 async <span style="color: #708;">fn</span> hello_handler<span style="">(</span>Query<span style="">(</span>params<span style="">)</span><span style="">:</span> Query<span style="">&lt;</span>HelloParams<span style="">&gt;</span><span style="">)</span> <span style="">-&gt;</span> Json<span style="">&lt;</span>ApiResponse<span style="">&gt;</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> name <span style="">=</span> params.name.unwrap_or_else<span style="">(</span><span style="">||</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"RUNOOB"</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> name <span style="">=</span> params.name.unwrap_or_else<span style="">(</span><span style="">||</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EXAMPLE"</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> data <span style="">=</span> <span style="color: #05a;">HashMap</span><span style="">::</span><span style="color: #164;">new</span><span style="">(</span><span style="">)</span><span style="">;</span><br/>
     data.insert<span style="">(</span><span style="color: #a11;">"name"</span>.to_string<span style="">(</span><span style="">)</span><span style="">,</span> name.clone<span style="">(</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
@@ -850,7 +850,7 @@ async <span style="color: #708;">fn</span> main<span style="">(</span><span styl
         .await<br/>
         .unwrap<span style="">(</span><span style="">)</span><span style="">;</span><br/>
 <br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"RUNOOB server started, listening at: http://localhost:8080"</span><span style="">)</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"EXAMPLE server started, listening at: http://localhost:8080"</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Access example: http://localhost:8080/hello?name=Rust开发者"</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     axum<span style="">::</span><span style="color: #164;">serve</span><span style="">(</span>listener<span style="">,</span> app<span style="">)</span>.await.unwrap<span style="">(</span><span style="">)</span><span style="">;</span><br/>
@@ -859,7 +859,7 @@ async <span style="color: #708;">fn</span> main<span style="">(</span><span styl
 </div>
 <pre>
 $ cargo run
-RUNOOB 服务器启动，监听地址: http://localhost:8080
+EXAMPLE 服务器启动，监听地址: http://localhost:8080
 访问示例: http://localhost:8080/hello?name=Rust开发者
 
 # 使用 curl 测试
@@ -867,7 +867,7 @@ $ curl http://localhost:8080/hello?name=Rust开发者
 {"code":200,"message":"你好，Rust开发者！欢迎访问 Rust HTTP 服务","data":{"name":"Rust开发者"}}
 
 $ curl http://localhost:8080/hello
-{"code":200,"message":"你好，RUNOOB！欢迎访问 Rust HTTP 服务","data":{"name":"RUNOOB"}}
+{"code":200,"message":"你好，EXAMPLE！欢迎访问 Rust HTTP 服务","data":{"name":"EXAMPLE"}}
 </pre>
 <blockquote><p>Axum is one of the most popular web frameworks in the Rust ecosystem, maintained by the Tokio team. It fully leverages Rust's type system to check operations such as route parameter extraction and state sharing at compile time, greatly reducing runtime errors.</p></blockquote>
 <h3>Batch File Processing Tool</h3>
@@ -923,7 +923,7 @@ walkdir = "2"  # 递归遍历目录
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> sorted<span style="">:</span> Vec<span style="">&lt;</span>_<span style="">&gt;</span> <span style="">=</span> stats.into_iter<span style="">(</span><span style="">)</span>.collect<span style="">(</span><span style="">)</span><span style="">;</span><br/>
     sorted.sort_by<span style="">(</span><span style="">|</span>a<span style="">,</span> b<span style="">|</span> b.1 <span style="color:#800080;">.0</span>.cmp<span style="">(</span><span style="">&amp;</span>a.1 <span style="color:#800080;">.0</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
 <br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"=== RUNOOB Directory File Statistics ==="</span><span style="">)</span><span style="">;</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"=== EXAMPLE Directory File Statistics ==="</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{:&lt;15} {:&gt;8} {:&gt;10} {:&gt;12}"</span><span style="">,</span> <span style="color: #a11;">"Extension"</span><span style="">,</span> <span style="color: #a11;">"File count"</span><span style="">,</span> <span style="color: #a11;">"Total lines"</span><span style="">,</span> <span style="color: #a11;">"Total size (bytes)"</span><span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> <span style="color: #a11;">"-"</span>.repeat<span style="">(</span><span style="color: #0000DD;">50</span><span style="">)</span><span style="">)</span><span style="">;</span><br/>
     <span style="color: #708;">for</span> <span style="">(</span>ext<span style="">,</span> <span style="">(</span>count<span style="">,</span> lines<span style="">,</span> size<span style="">)</span><span style="">)</span> <span style="color: #708;">in</span> <span style="">&amp;</span>sorted <span style="">{</span><br/>
@@ -934,7 +934,7 @@ walkdir = "2"  # 递归遍历目录
 </div>
 <pre>
 $ cargo run --release
-=== RUNOOB 目录文件统计 ===
+=== EXAMPLE 目录文件统计 ===
 扩展名            文件数       总行数   总大小(bytes)
 --------------------------------------------------
 rs                  12        856        28432
@@ -974,14 +974,14 @@ html                 1        510        14256
     <span style="color: #708;">let</span> <span style="color: #708;">mut</span> s <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"Hello"</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// &amp;str: reference, immutable, usually used as a function parameter</span><br/>
-    <span style="color: #708;">let</span> slice<span style="">:</span> <span style="">&amp;</span><span style="color: #05a;">str</span> <span style="">=</span> <span style="color: #a11;">"RUNOOB"</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// String literals are &amp;str themselves</span><br/>
+    <span style="color: #708;">let</span> slice<span style="">:</span> <span style="">&amp;</span><span style="color: #05a;">str</span> <span style="">=</span> <span style="color: #a11;">"EXAMPLE"</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// String literals are &amp;str themselves</span><br/>
 <br/>
     s.push_str<span style="">(</span><span style="color: #a11;">", world!"</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// String can be modified</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> s<span style="">)</span><span style="">;</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> slice<span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Using &amp;str (rather than String) for function parameters is more flexible</span><br/>
-    greet<span style="">(</span><span style="color: #a11;">"RUNOOB"</span><span style="">)</span><span style="">;</span>          <span style="color: #a50; font-style: italic;">// Can pass &amp;str directly</span><br/>
+    greet<span style="">(</span><span style="color: #a11;">"EXAMPLE"</span><span style="">)</span><span style="">;</span>          <span style="color: #a50; font-style: italic;">// Can pass &amp;str directly</span><br/>
     greet<span style="">(</span><span style="">&amp;</span>s<span style="">)</span><span style="">;</span>                <span style="color: #a50; font-style: italic;">// Can also be automatically converted from &amp;String to &amp;str</span><br/>
 <span style="">}</span><br/>
 <br/>

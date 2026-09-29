@@ -284,7 +284,7 @@ middle
 <p>We use the following program to describe the concept of variable scope:</p><pre>
 {
     // 在声明以前，变量 s 无效
-    let s = "runoob";
+    let s = "example";
     // 这里是变量 s 的可用范围
 }
 // 变量范围已经结束，变量 s 无效</pre><p>Variable scope is an attribute of a variable. It represents the valid region of the variable; by default, it is valid from the declaration of the variable until the end of the scope in which the variable resides.</p>
@@ -293,11 +293,11 @@ middle
 <p>With allocation comes deallocation; a program cannot keep occupying a memory resource forever. Therefore, the key factor determining whether resources are wasted is whether they are deallocated in a timely manner.</p><p>Let's write an equivalent C version of the string example program:</p>
 <div class="example"> <div class="example_code">
 <span style="color: #000;">{</span><br/>
-    <span style="color: #993333;">char</span> <span style="color: #339933;">*</span>s <span style="color: #339933;">=</span> strdup<span style="color: #000;">(</span><span style="color: #a11;">"runoob"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
+    <span style="color: #993333;">char</span> <span style="color: #339933;">*</span>s <span style="color: #339933;">=</span> strdup<span style="color: #000;">(</span><span style="color: #a11;">"example"</span><span style="color: #000;">)</span><span style="color: #339933;">;</span><br/>
     <span style="color: #000066;">free</span><span style="color: #000;">(</span>s<span style="color: #000;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Deallocate the resource of s</span><br/>
 <span style="color: #000;">}</span><br/>
 </div></div>
-<p>Obviously, Rust does not call a free function to release the resources of string s (I know this is an incorrect way to write it in C, because "runoob" is not on the heap; here we assume it is). The reason Rust does not explicitly show the deallocation step is that when the variable's scope ends, the Rust compiler automatically adds a step to call the resource deallocation function.</p><p>This mechanism may seem simple: it just helps the programmer add a resource deallocation function call at the appropriate place. But this simple mechanism can effectively solve one of the most troublesome programming problems in history for programmers.</p>
+<p>Obviously, Rust does not call a free function to release the resources of string s (I know this is an incorrect way to write it in C, because "example" is not on the heap; here we assume it is). The reason Rust does not explicitly show the deallocation step is that when the variable's scope ends, the Rust compiler automatically adds a step to call the resource deallocation function.</p><p>This mechanism may seem simple: it just helps the programmer add a resource deallocation function call at the appropriate place. But this simple mechanism can effectively solve one of the most troublesome programming problems in history for programmers.</p>
 <hr/>
 <h2>Ways Variables and Data Interact</h2>
 <p>There are two main ways variables and data interact: Move and Clone.</p>

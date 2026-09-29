@@ -344,10 +344,10 @@ new Vue({
 <div class="example">
 <h2 class="example">Example</h2>
 <div class="example_code">
-<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">app</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">v-runoob:hello</span><span class="hl-code">.</span><span class="hl-var">a</span><span class="hl-code">.</span><span class="hl-var">b</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">message</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">app</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">v-example:hello</span><span class="hl-code">.</span><span class="hl-var">a</span><span class="hl-code">.</span><span class="hl-var">b</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">message</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-Vue.directive('runoob', {
+Vue.directive('example', {
   bind: function (el, binding, vnode) {
     var s = JSON.stringify
     el.innerHTML =
@@ -361,7 +361,7 @@ Vue.directive('runoob', {
 new Vue({
   el: '#app',
   data: {
-    message: 'Runoob!'
+    message: 'Example!'
   }
 })</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></div>
 </div>
@@ -370,7 +370,7 @@ new Vue({
 </div>
 <p>Sometimes we do not need other hook functions, and we can use the shorthand form of the function, as follows:</p>
 <pre>
-Vue.directive('runoob', function (el, binding) {
+Vue.directive('example', function (el, binding) {
   // 设置指令的背景颜色
   el.style.backgroundColor = binding.value.color
 })
@@ -380,9 +380,9 @@ Vue.directive('runoob', function (el, binding) {
 <h2 class="example">Example</h2>
 <div class="example_code">
 <div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">app</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-runoob</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ color: 'green', text: 'Runoob!' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">v-example</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">{ color: 'green', text: 'Example!' }</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
 </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
-</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">Vue.directive('runoob', function (el, binding) {
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">Vue.directive('example', function (el, binding) {
     // Use shorthand to set text and background color
     el.innerHTML = binding.value.text
     el.style.backgroundColor = binding.value.color

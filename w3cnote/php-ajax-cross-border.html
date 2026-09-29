@@ -86,24 +86,24 @@ header
 <!-- ad start-->
 <!-- ad end-->
 <p>This article, by setting<strong>Access-Control-Allow-Origin</strong>achieves cross-domain.</p>
-<p>For example: the client's domain is client.runoob.com, while the requested domain is server.runoob.com.</p>
+<p>For example: the client's domain is client.example.com, while the requested domain is server.example.com.</p>
 <p>If you access it directly using ajax, the following error will occur:</p>
 <pre>
-XMLHttpRequest cannot load http://server.runoob.com/server.php. No 'Access-Control-Allow-Origin' header is present on the requested resource.Origin 'http://client.runoob.com' is therefore not allowed access.
+XMLHttpRequest cannot load http://server.example.com/server.php. No 'Access-Control-Allow-Origin' header is present on the requested resource.Origin 'http://client.example.com' is therefore not allowed access.
 </pre>
 <h2>1. Allow a single domain to access</h2>
-<p>To allow a specific domain (http://client.runoob.com) cross-domain access, simply add the following code at the top of the http://server.runoob.com/server.php file:</p>
+<p>To allow a specific domain (http://client.example.com) cross-domain access, simply add the following code at the top of the http://server.example.com/server.php file:</p>
 <pre>
-header('Access-Control-Allow-Origin:http://client.runoob.com');
+header('Access-Control-Allow-Origin:http://client.example.com');
 </pre>
 <h2>2. Allow multiple domains to access</h2>
-<p>To allow multiple domains (http://client1.runoob.com, http://client2.runoob.com, etc.) cross-domain access, simply add the following code at the top of the http://server.runoob.com/server.php file:</p>
+<p>To allow multiple domains (http://client1.example.com, http://client2.example.com, etc.) cross-domain access, simply add the following code at the top of the http://server.example.com/server.php file:</p>
 <pre>
 $origin = isset($_SERVER['HTTP_ORIGIN'])? $_SERVER['HTTP_ORIGIN'] : '';  
   
 $allow_origin = array(  
-    'http://client1.runoob.com',  
-    'http://client2.runoob.com'  
+    'http://client1.example.com',  
+    'http://client2.example.com'  
 );  
   
 if(in_array($origin, $allow_origin)){  
@@ -111,7 +111,7 @@ if(in_array($origin, $allow_origin)){
 } 
 </pre>
 <h2>3. Allow all domains to access</h2>
-<p>To allow all domains to access, simply add the following code at the top of the http://server.runoob.com/server.php file:<p>
+<p>To allow all domains to access, simply add the following code at the top of the http://server.example.com/server.php file:<p>
 <pre>header('Access-Control-Allow-Origin:*'); </pre> </p></p></div>
 </div>
 <div class="previous-next-links">

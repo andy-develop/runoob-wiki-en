@@ -342,38 +342,38 @@ public String intern()
 <ul><li><p>In JDK 6 and earlier, the string constant pool is stored in the method area (PermGen), which has limited capacity; excessive use of intern() may lead to OutOfMemoryError.</p></li><li><p>In JDK 7 and above, the string constant pool has been moved to heap memory, allowing more data to be stored.</p></li></ul>
 <h3>Example</h3><p>The following example demonstrates the application of the intern() method:</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
-<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> RunoobTest <span style="color: #009900;">{</span><br/>
+<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> ExampleTest <span style="color: #009900;">{</span><br/>
     <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">(</span><span style="color: #003399;">String</span> args<span style="color: #009900;">[</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
-        <span style="color: #666666; font-style: italic;">// str1 directly assigns the string literal "Runoob", which is stored in the string constant pool (String Pool)</span><br/>
-        <span style="color: #003399;">String</span> str1 <span style="color: #339933;">=</span> <span style="color: #0000FF;">"Runoob"</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #666666; font-style: italic;">// str1 directly assigns the string literal "Example", which is stored in the string constant pool (String Pool)</span><br/>
+        <span style="color: #003399;">String</span> str1 <span style="color: #339933;">=</span> <span style="color: #0000FF;">"Example"</span><span style="color: #339933;">;</span><br/>
 <br/>
         <span style="color: #666666; font-style: italic;">// str2 is created using the new keyword, and it is stored in heap memory</span><br/>
-        <span style="color: #003399;">String</span> str2 <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #003399;">String</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"Runoob"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+        <span style="color: #003399;">String</span> str2 <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #003399;">String</span><span style="color: #009900;">(</span><span style="color: #0000FF;">"Example"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
         <span style="color: #666666; font-style: italic;">// str3 is the reference obtained after str2 calls the intern() method</span><br/>
-        <span style="color: #666666; font-style: italic;">// The intern() method puts "Runoob" into the string constant pool and returns the reference in the pool</span><br/>
+        <span style="color: #666666; font-style: italic;">// The intern() method puts "Example" into the string constant pool and returns the reference in the pool</span><br/>
         <span style="color: #003399;">String</span> str3 <span style="color: #339933;">=</span> str2.<span style="color: #006633;">intern</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
         <span style="color: #666666; font-style: italic;">// Compare str1 and str2</span><br/>
-        <span style="color: #666666; font-style: italic;">// str1 points to "Runoob" in the constant pool, str2 points to the object in heap memory</span><br/>
+        <span style="color: #666666; font-style: italic;">// str1 points to "Example" in the constant pool, str2 points to the object in heap memory</span><br/>
         <span style="color: #666666; font-style: italic;">// Since their addresses are different, the result is false</span><br/>
         <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span>str1 <span style="color: #339933;">==</span> str2<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #666666; font-style: italic;">// false</span><br/>
 <br/>
         <span style="color: #666666; font-style: italic;">// Compare str1 and str3</span><br/>
-        <span style="color: #666666; font-style: italic;">// str3 is the reference returned after str2 calls the intern() method, and it points to "Runoob" in the constant pool</span><br/>
-        <span style="color: #666666; font-style: italic;">// str1 also points to "Runoob" in the constant pool, so their addresses are the same and the result is true</span><br/>
+        <span style="color: #666666; font-style: italic;">// str3 is the reference returned after str2 calls the intern() method, and it points to "Example" in the constant pool</span><br/>
+        <span style="color: #666666; font-style: italic;">// str1 also points to "Example" in the constant pool, so their addresses are the same and the result is true</span><br/>
         <span style="color: #003399;">System</span>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">(</span>str1 <span style="color: #339933;">==</span> str3<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #666666; font-style: italic;">// true</span><br/>
     <span style="color: #009900;">}</span><br/>
 <span style="color: #009900;">}</span><br/>
 </div></div>
 <p><strong>Code explanation:</strong></p>
-<p><code>String str1 = "Runoob";</code></p>
+<p><code>String str1 = "Example";</code></p>
 <ul>
 <li>
-<p><strong>Directly assigning a string literal</strong> <code>"Runoob"</code>, it will<strong>automatically be stored in the string constant pool</strong>(String Pool).</p>
+<p><strong>Directly assigning a string literal</strong> <code>"Example"</code>, it will<strong>automatically be stored in the string constant pool</strong>(String Pool).</p>
 </li>
 </ul>
-<p><code>String str2 = new String("Runoob");</code></p>
+<p><code>String str2 = new String("Example");</code></p>
 <ul>
 <li>
 <p>Due to using the<code>new</code>keyword, it will<strong>create a new string object in the heap</strong>, that is,<code>str2</code> <strong>it does not point to the constant pool</strong>, but points to a new memory address.</p>
@@ -382,7 +382,7 @@ public String intern()
 <p><code>String str3 = str2.intern();</code></p>
 <ul>
 <li>
-<p><code>intern()</code>The method checks whether the string<code>"Runoob"</code>already<strong>exists in the string constant pool</strong>：</p>
+<p><code>intern()</code>The method checks whether the string<code>"Example"</code>already<strong>exists in the string constant pool</strong>：</p>
 <ul>
 <li><p><strong>If it exists</strong>, return the reference of that string;</p></li>
 <li><p><strong>If it does not exist</strong>, add it to the constant pool and return the reference in the pool.</p></li>

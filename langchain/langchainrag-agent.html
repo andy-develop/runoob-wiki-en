@@ -312,7 +312,7 @@ middle
 <p>In the previous two articles, we prepared the vector store and retriever.</p><p>This article integrates them into an Agent to build a complete RAG Agent — an intelligent assistant that can answer questions based on a private knowledge base.</p>
 <hr/>
 <h2>Creating a Retriever Tool</h2>
-<p>Wrap the retriever into a tool, and the Agent can automatically search the knowledge base when needed.</p><p>If you don't have an OpenAI key, you can use Alibaba Bailian's Embedding service; see configuration.<a href="../langchain/langchain-alibailian.html" target="_blank">https://www.runoob.com/langchain/langchain-alibailian.html</a>：</p>
+<p>Wrap the retriever into a tool, and the Agent can automatically search the knowledge base when needed.</p><p>If you don't have an OpenAI key, you can use Alibaba Bailian's Embedding service; see configuration.<a href="../langchain/langchain-alibailian.html" target="_blank">https://www.example.com/langchain/langchain-alibailian.html</a>：</p>
 <pre># OpenAI 的文本嵌入模型
 # 将文本转换为向量（一组浮点数）
 
@@ -341,16 +341,16 @@ load_dotenv<span style="color: Olive;">(</span><span style="color: Olive;">)</sp
 <br/>
 <span style="color: #a50"># ----- Step 1: Prepare the knowledge base -----</span><br/>
 <br/>
-<span style="color: #a50"># Simulate the knowledge documents of RUNOOB</span><br/>
+<span style="color: #a50"># Simulate the knowledge documents of EXAMPLE</span><br/>
 knowledge_docs <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a11;">"RUNOOB was founded in 2013 and is a completely free programming learning platform."</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"EXAMPLE was founded in 2013 and is a completely free programming learning platform."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The platform has launched 300+ tutorials, covering front-end, back-end, databases, mobile development, and other fields."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The Python3 Basic Tutorial is the most popular course on the platform, with over 5 million cumulative learners."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The Python3 Basic Tutorial has 30 chapters, including environment setup, basic syntax, functions, classes, exception handling, and more."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The HTML Basic Tutorial has 25 chapters, covering everything from basic HTML structure to forms and multimedia elements."</span><span style="color: Gray;">,</span><br/>
-    <span style="color: #a11;">"RUNOOB supports running code online; learners can write and run code without installing any software."</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"EXAMPLE supports running code online; learners can write and run code without installing any software."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The platform is mobile-friendly, allowing users to learn programming anytime, anywhere on their phones."</span><span style="color: Gray;">,</span><br/>
-    <span style="color: #a11;">"RUNOOB's membership service provides value-added services such as video courses, hands-on projects, and one-on-one Q&amp;A."</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"EXAMPLE's membership service provides value-added services such as video courses, hands-on projects, and one-on-one Q&amp;A."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">]</span><br/>
 <br/>
 <span style="color: #a50"># Split</span><br/>
@@ -373,8 +373,8 @@ retriever <span style="color: Gray;">=</span> vector_store.<span style="color: #
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_knowledge_base<span style="color: Olive;">(</span>query: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search for relevant information in the RUNOOB knowledge base.<br/>
-<br/>When users ask about specific information about RUNOOB (such as number of courses, platform history, features, etc.),<br/>you must use this tool to query the knowledge base for accurate information.<br/>
+    <span style="color: #a11;">"""Search for relevant information in the EXAMPLE knowledge base.<br/>
+<br/>When users ask about specific information about EXAMPLE (such as number of courses, platform history, features, etc.),<br/>you must use this tool to query the knowledge base for accurate information.<br/>
 <br/>
     Args:<br/>query: search keyword or question<br/>
     """</span><br/>
@@ -395,16 +395,16 @@ model <span style="color: Gray;">=</span> init_chat_model<span style="color: Oli
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
     tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>search_knowledge_base<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"""You are the intelligent customer service assistant of RUNOOB.<br/>
-<br/>## Rules<br/>1. When users ask about specific information about RUNOOB, you must use the search_knowledge_base tool to query.<br/>2. Answer based on the retrieved information; do not make up content that is not in the knowledge base.<br/>3. If the knowledge base has no relevant information, honestly tell the user.<br/>4. Be friendly, concise, and accurate in your answers."""</span><span style="color: Gray;">,</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"""You are the intelligent customer service assistant of EXAMPLE.<br/>
+<br/>## Rules<br/>1. When users ask about specific information about EXAMPLE, you must use the search_knowledge_base tool to query.<br/>2. Answer based on the retrieved information; do not make up content that is not in the knowledge base.<br/>3. If the knowledge base has no relevant information, honestly tell the user.<br/>4. Be friendly, concise, and accurate in your answers."""</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># ----- Step 4: Test -----</span><br/>
 <br/>
 questions <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a11;">"When was RUNOOB founded?"</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"When was EXAMPLE founded?"</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"How many chapters are in the Python3 Basic Tutorial?"</span><span style="color: Gray;">,</span><br/>
-    <span style="color: #a11;">"How many tutorials does RUNOOB have in total?"</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"How many tutorials does EXAMPLE have in total?"</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">]</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">for</span> q <span style="color: Green;font-weight:bold;">in</span> questions:<br/>
@@ -416,22 +416,22 @@ questions <span style="color: Gray;">=</span> <span style="color: Olive;">[</spa
 </div>
 <p>Run results:</p>
 <pre>
-Q: 菜鸟教程是什么时候创立的？
-A: 菜鸟教程（RUNOOB）创立于 2013 年，是一个完全免费的编程学习平台。
+Q: Example是什么时候创立的？
+A: Example创立于 2013 年，是一个完全免费的编程学习平台。
 ------------------------------------------------------------
 Q: Python3 基础教程有多少章？
 A: Python3 基础教程共 30 章，包含环境搭建、基本语法、函数、类、异常处理等内容。
 ------------------------------------------------------------
-Q: 菜鸟教程一共有多少套教程？
-A: 菜鸟教程已上线 300+ 套教程，涵盖前端、后端、数据库、移动开发等多个领域。
+Q: Example一共有多少套教程？
+A: Example已上线 300+ 套教程，涵盖前端、后端、数据库、移动开发等多个领域。
 ------------------------------------------------------------
 </pre>
 <hr/>
 <h2>Execution Flow of RAG Agent</h2>
-<p>For the third question above, "How many tutorials does RUNOOB have in total?", the Agent's execution flow is:</p>
+<p>For the third question above, "How many tutorials does EXAMPLE have in total?", the Agent's execution flow is:</p>
 <ol>
 <li>The user asks a question</li>
-<li>The model determines it needs to query the knowledge base → calls search_knowledge_base("RUNOOB number of tutorials")</li>
+<li>The model determines it needs to query the knowledge base → calls search_knowledge_base("EXAMPLE number of tutorials")</li>
 <li>The retriever searches the vector database for the semantically most similar document chunks.</li>
 <li>Returns the retrieval results to the model.</li>
 <li>The model generates an accurate answer based on the retrieval results.</li>
@@ -447,7 +447,7 @@ A: 菜鸟教程已上线 300+ 套教程，涵盖前端、后端、数据库、�
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_with_sources<span style="color: Olive;">(</span>query: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search the RUNOOB knowledge base and return results with source annotations.<br/>
+    <span style="color: #a11;">"""Search the EXAMPLE knowledge base and return results with source annotations.<br/>
 <br/>
     Args:<br/>query: search keyword<br/>
     """</span><br/>
@@ -457,7 +457,7 @@ A: 菜鸟教程已上线 300+ 套教程，涵盖前端、后端、数据库、�
 <br/>
     results <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: Olive;">]</span><br/>
     <span style="color: Green;font-weight:bold;">for</span> i<span style="color: Gray;">,</span> doc <span style="color: Green;font-weight:bold;">in</span> <span style="color: Teal;">enumerate</span><span style="color: Olive;">(</span>docs<span style="color: Gray;">,</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span>:<br/>
-        source <span style="color: Gray;">=</span> doc.<span style="color: #05a;">metadata</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"source"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"RUNOOB Knowledge Base"</span><span style="color: Olive;">)</span><br/>
+        source <span style="color: Gray;">=</span> doc.<span style="color: #05a;">metadata</span>.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"source"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"EXAMPLE Knowledge Base"</span><span style="color: Olive;">)</span><br/>
         results.<span style="color: #05a;">append</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"[Source {i}: {source}]"<span style="color: #000099; font-weight: bold;">\n</span>{doc.page_content}"</span><span style="color: Olive;">)</span><br/>
 <br/>
     <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>"</span>.<span style="color: #05a;">join</span><span style="color: Olive;">(</span>results<span style="color: Olive;">)</span><br/>
@@ -466,7 +466,7 @@ A: 菜鸟教程已上线 300+ 套教程，涵盖前端、后端、数据库、�
 <span style="color: #a50"># To retain source information in the document, you can add metadata when creating it.</span><br/>
 doc_with_meta <span style="color: Gray;">=</span> Document<span style="color: Olive;">(</span><br/>
     page_content<span style="color: Gray;">=</span><span style="color: #a11;">"The Python3 Basic Tutorial has 30 chapters..."</span><span style="color: Gray;">,</span><br/>
-    metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"Python3 Basic Tutorial - Course Introduction"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"url"</span>: <span style="color: #a11;">"https://www.runoob.com/python3/"</span><span style="color: Olive;">}</span><br/>
+    metadata<span style="color: Gray;">=</span><span style="color: Olive;">{</span><span style="color: #a11;">"source"</span>: <span style="color: #a11;">"Python3 Basic Tutorial - Course Introduction"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"url"</span>: <span style="color: #a11;">"https://www.example.com/python3/"</span><span style="color: Olive;">}</span><br/>
 <span style="color: Olive;">)</span><br/>
 </div>
 </div>
@@ -481,12 +481,12 @@ embeddings <span style="color: Gray;">=</span> OpenAIEmbeddings<span style="colo
 vector_store <span style="color: Gray;">=</span> Chroma.<span style="color: #05a;">from_documents</span><span style="color: Olive;">(</span><br/>
     documents<span style="color: Gray;">=</span>chunks<span style="color: Gray;">,</span><br/>
     embedding<span style="color: Gray;">=</span>embeddings<span style="color: Gray;">,</span><br/>
-    persist_directory<span style="color: Gray;">=</span><span style="color: #a11;">"./runoob_vector_db"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Persistence directory</span><br/>
+    persist_directory<span style="color: Gray;">=</span><span style="color: #a11;">"./example_vector_db"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Persistence directory</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Load directly on subsequent runs</span><br/>
 loaded_store <span style="color: Gray;">=</span> Chroma<span style="color: Olive;">(</span><br/>
-    persist_directory<span style="color: Gray;">=</span><span style="color: #a11;">"./runoob_vector_db"</span><span style="color: Gray;">,</span><br/>
+    persist_directory<span style="color: Gray;">=</span><span style="color: #a11;">"./example_vector_db"</span><span style="color: Gray;">,</span><br/>
     embedding_function<span style="color: Gray;">=</span>embeddings<span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 retriever <span style="color: Gray;">=</span> loaded_store.<span style="color: #05a;">as_retriever</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>

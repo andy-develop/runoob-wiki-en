@@ -337,10 +337,10 @@ middle
 <pre>public void broadcastIntent(View view)
 {
    Intent intent = new Intent();
-   intent.setAction("com.runoob.CUSTOM_INTENT");
+   intent.setAction("com.example.CUSTOM_INTENT");
    sendBroadcast(intent);
 }</pre>
-<p>An intent with com.runoob.CUSTOM_INTENT can be registered in the same way we registered system-generated intents earlier.</p>
+<p>An intent with com.example.CUSTOM_INTENT can be registered in the same way we registered system-generated intents earlier.</p>
 <pre>&lt;application
    android:icon="@drawable/ic_launcher"
    android:label="@string/app_name"
@@ -348,7 +348,7 @@ middle
    &lt;receiver android:name="MyReceiver"&gt;
 
       &lt;intent-filter&gt;
-         &lt;action android:name="com.runoob.CUSTOM_INTENT"&gt;
+         &lt;action android:name="com.example.CUSTOM_INTENT"&gt;
          &lt;/action&gt;
       &lt;/intent-filter&gt;
 
@@ -368,7 +368,7 @@ middle
 <tbody>
 <tr>
 <td>1</td>
-<td>Use Android Studio to create an Android application, name it broadcastreceiver, and place it under the package com.runoob.broadcastreceiver in the Hello World example chapter.</td>
+<td>Use Android Studio to create an Android application, name it broadcastreceiver, and place it under the package com.example.broadcastreceiver in the Hello World example chapter.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -376,7 +376,7 @@ middle
 </tr>
 <tr>
 <td>3</td>
-<td>Create a new Java file named MyReceiver.java under the package com.runoob.broadcastreceiver to define the broadcast receiver.</td>
+<td>Create a new Java file named MyReceiver.java under the package com.example.broadcastreceiver to define the broadcast receiver.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -396,8 +396,8 @@ middle
 </tr>
 </tbody>
 </table>
-<p>Below is the content of the modified main activity file src/com.runoob.broadcastreceiver/MainActivity.java. This file contains each of the basic lifecycle methods. We have added the broadcastIntent() method to broadcast custom events.</p>
-<pre>package com.runoob.broadcastreceiver;
+<p>Below is the content of the modified main activity file src/com.example.broadcastreceiver/MainActivity.java. This file contains each of the basic lifecycle methods. We have added the broadcastIntent() method to broadcast custom events.</p>
+<pre>package com.example.broadcastreceiver;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -426,8 +426,8 @@ public class MainActivity extends Activity {
         sendBroadcast(intent);
     }
 }</pre>
-<p>Below is the content of src/com.runoob.broadcastreceiver/MyReceiver.java:</p>
-<pre>package com.runoob.broadcastreceiver;
+<p>Below is the content of src/com.example.broadcastreceiver/MyReceiver.java:</p>
+<pre>package com.example.broadcastreceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -443,7 +443,7 @@ public class MyReceiver extends BroadcastReceiver {
 <p>Next, modify the AndroidManifest.xml file. Here, we include our broadcast receiver by adding the &lt;receiver.../&gt; tag:</p>
 <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.runoob.broadcastreceiver"
+    package="com.example.broadcastreceiver"
     android:versionCode="1"
     android:versionName="1.0" &gt;
 
@@ -500,7 +500,7 @@ public class MyReceiver extends BroadcastReceiver {
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="www.runoob.com"
+        android:text="www.example.com"
         android:textColor="#ff87ff09"
         android:textSize="30dp"
         android:layout_above="@+id/imageButton"

@@ -188,7 +188,7 @@ middle
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> logMessage<span style="">(</span>String msg<span style="font-weight: bold;">,</span> MessageCallback callback<span style="">)</span> <span style="">{</span><br/>
   print<span style="">(</span><span style="color: #d14;">'Preparing to output message...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
-  callback<span style="">(</span><span style="color: #d14;">'[RUNOOB] $msg'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  callback<span style="">(</span><span style="color: #d14;">'[EXAMPLE] $msg'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 <br/>
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
@@ -215,7 +215,7 @@ middle
 10 × 5 = 50
 20 ÷ 4 = 5
 准备输出消息...
-收到消息: [RUNOOB] 操作完成
+收到消息: [EXAMPLE] 操作完成
 </pre>
 <p>Without typedef, you need to repeatedly write verbose function type signatures at every parameter position.</p>
 <p>With typedef, type declarations become clear and unified, and modifications only need to be made in one place.</p>
@@ -251,7 +251,7 @@ middle
   processNumbers<span style="">(</span><br/>
     scores<span style="font-weight: bold;">,</span><br/>
     <span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> n <span style="font-weight: bold;">&gt;=</span> <span style="color: #009999;">60</span><span style="font-weight: bold;">,</span>                    <span style="color: #999988; font-style: italic;">// Filter condition</span><br/>
-    <span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="color: #d14;">'RUNOOB Score: $n points'</span><span style="font-weight: bold;">,</span>       <span style="color: #999988; font-style: italic;">// Formatting</span><br/>
+    <span style="">(</span>n<span style="">)</span> <span style="font-weight: bold;">=&gt;</span> <span style="color: #d14;">'EXAMPLE Score: $n points'</span><span style="font-weight: bold;">,</span>       <span style="color: #999988; font-style: italic;">// Formatting</span><br/>
   <span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   print<span style="">(</span><span style="color: #d14;">'--- High Scores (&gt; 80) ---'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -271,10 +271,10 @@ middle
 </div>
 <pre>
 --- 及格分数 ---
-RUNOOB 分数: 78 分
-RUNOOB 分数: 92 分
-RUNOOB 分数: 60 分
-RUNOOB 分数: 88 分
+EXAMPLE 分数: 78 分
+EXAMPLE 分数: 92 分
+EXAMPLE 分数: 60 分
+EXAMPLE 分数: 88 分
 --- 高分（&gt; 80）---
 高分: 92 分
 高分: 88 分
@@ -302,10 +302,10 @@ RUNOOB 分数: 88 分
   print<span style="">(</span><span style="color: #d14;">'Fetching user data...'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <br/>
   <span style="color: #999988; font-style: italic;">// Simulate success/failure</span><br/>
-  <span style="font-weight: bold;">if</span> <span style="">(</span>userId <span style="font-weight: bold;">==</span> <span style="color: #d14;">'runoob'</span><span style="">)</span> <span style="">{</span><br/>
+  <span style="font-weight: bold;">if</span> <span style="">(</span>userId <span style="font-weight: bold;">==</span> <span style="color: #d14;">'example'</span><span style="">)</span> <span style="">{</span><br/>
     <span style="font-weight: bold;">var</span> data <span style="font-weight: bold;">=</span> <span style="">{</span><br/>
-      <span style="color: #d14;">'id'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span><br/>
-      <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'RUNOOB user'</span><span style="font-weight: bold;">,</span><br/>
+      <span style="color: #d14;">'id'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'example'</span><span style="font-weight: bold;">,</span><br/>
+      <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'EXAMPLE user'</span><span style="font-weight: bold;">,</span><br/>
       <span style="color: #d14;">'level'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'VIP'</span><span style="font-weight: bold;">,</span><br/>
     <span style="">}</span><span style="font-weight: bold;">;</span><br/>
     onSuccess<span style="">(</span>data<span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -317,7 +317,7 @@ RUNOOB 分数: 88 分
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   <span style="color: #999988; font-style: italic;">// Use callback to handle result</span><br/>
   fetchUserData<span style="">(</span><br/>
-    <span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span><br/>
+    <span style="color: #d14;">'example'</span><span style="font-weight: bold;">,</span><br/>
     onSuccess<span style="font-weight: bold;">:</span> <span style="">(</span>data<span style="">)</span> <span style="">{</span><br/>
       print<span style="">(</span><span style="color: #d14;">'Fetch successful!'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
       print<span style="">(</span><span style="color: #d14;">'Username: ${data['</span>name<span style="color: #d14;">']}'</span><span style="">)</span><span style="font-weight: bold;">;</span><br/>
@@ -346,7 +346,7 @@ RUNOOB 分数: 88 分
 <pre>
 正在获取用户数据...
 获取成功！
-用户名: RUNOOB 用户
+用户名: EXAMPLE 用户
 等级: VIP
 ---
 正在获取用户数据...
@@ -398,7 +398,7 @@ RUNOOB 分数: 88 分
 <span style="color: #445588; font-weight: bold;">void</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
   <span style="color: #999988; font-style: italic;">// Using the JsonMap alias</span><br/>
   JsonMap userData <span style="font-weight: bold;">=</span> <span style="">{</span><br/>
-    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'runoob'</span><span style="font-weight: bold;">,</span><br/>
+    <span style="color: #d14;">'name'</span><span style="font-weight: bold;">:</span> <span style="color: #d14;">'example'</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'age'</span><span style="font-weight: bold;">:</span> <span style="color: #009999;">10</span><span style="font-weight: bold;">,</span><br/>
     <span style="color: #d14;">'isVip'</span><span style="font-weight: bold;">:</span> <span style="font-weight: bold;">true</span><span style="font-weight: bold;">,</span><br/>
   <span style="">}</span><span style="font-weight: bold;">;</span><br/>
@@ -417,17 +417,17 @@ RUNOOB 分数: 88 分
     <span style="font-weight: bold;">return</span> <span style="font-weight: bold;">null</span><span style="font-weight: bold;">;</span>  <span style="color: #999988; font-style: italic;">// null means validation passed</span><br/>
   <span style="">}</span><span style="font-weight: bold;">;</span><br/>
 <br/>
-  validateAndPrint<span style="">(</span><span style="color: #d14;">'RUNOOB'</span><span style="font-weight: bold;">,</span> nameValidator<span style="">)</span><span style="font-weight: bold;">;</span><br/>
+  validateAndPrint<span style="">(</span><span style="color: #d14;">'EXAMPLE'</span><span style="font-weight: bold;">,</span> nameValidator<span style="">)</span><span style="font-weight: bold;">;</span><br/>
   validateAndPrint<span style="">(</span><span style="color: #d14;">'AB'</span><span style="font-weight: bold;">,</span> nameValidator<span style="">)</span><span style="font-weight: bold;">;</span><br/>
 <span style="">}</span><br/>
 </div>
 </div>
 <pre>
-处理 JSON: {name: runoob, age: 10, isVip: true}
+处理 JSON: {name: example, age: 10, isVip: true}
 键的数量: 3
-成功: 操作成功
+Success: 操作成功
 失败: 网络连接超时
-验证通过: RUNOOB
+验证通过: EXAMPLE
 验证失败: 名称至少 3 个字符
 </pre>
 <p>Dart 3.0's type aliases greatly reduce verbose type declarations, making code more concise and readable.</p>

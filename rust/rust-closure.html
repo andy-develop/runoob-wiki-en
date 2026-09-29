@@ -311,7 +311,7 @@ middle
         <span style="color: #708;">let</span> greeting <span style="">=</span> format<span style="">!</span><span style="">(</span><span style="color: #a11;">"Hello, {}!"</span><span style="">,</span> name<span style="">)</span><span style="">;</span><br/>
         greeting<br/>
     <span style="">}</span><span style="">;</span><br/>
-    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> greet<span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: Hello, runoob!</span><br/>
+    println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> greet<span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: Hello, example!</span><br/>
 <span style="">}</span><br/>
 </div></div>
 <p>Closures are called in exactly the same way as ordinary functions: add parentheses after the variable name and pass the arguments.</p>
@@ -332,10 +332,10 @@ middle
 <p>By default, a closure borrows external variables by immutable reference. After the borrow ends, the external scope can continue to use the variable.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> text <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> text <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">;</span><br/>
     <span style="color: #a50; font-style: italic;">// The closure captures text by reference and does not take ownership</span><br/>
     <span style="color: #708;">let</span> print_text <span style="">=</span> <span style="">||</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"text = {}"</span><span style="">,</span> text<span style="">)</span><span style="">;</span><br/>
-    print_text<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: text = runoob</span><br/>
+    print_text<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: text = example</span><br/>
     <span style="color: #a50; font-style: italic;">// The borrow has ended; text can still be used outside</span><br/>
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Still usable outside: {}"</span><span style="">,</span> text<span style="">)</span><span style="">;</span><br/>
 <span style="">}</span><br/>
@@ -358,10 +358,10 @@ middle
 <p>By adding the<span class="marked">move</span>keyword before the closure, the closure takes ownership of the captured variables. After ownership is transferred, the external scope can no longer use the variable.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> owned <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"RUNOOB"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> owned <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EXAMPLE"</span><span style="">)</span><span style="">;</span><br/>
     <span style="color: #a50; font-style: italic;">// move transfers ownership of owned into the closure</span><br/>
     <span style="color: #708;">let</span> take_owned <span style="">=</span> move <span style="">||</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"owned = {}"</span><span style="">,</span> owned<span style="">)</span><span style="">;</span><br/>
-    take_owned<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: owned = RUNOOB</span><br/>
+    take_owned<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: owned = EXAMPLE</span><br/>
     <span style="color: #a50; font-style: italic;">// If you uncomment the line below, it will fail to compile: ownership of owned has been moved into the closure</span><br/>
     <span style="color: #a50; font-style: italic;">// println!("{}", owned);</span><br/>
 <span style="">}</span><br/>
@@ -382,7 +382,7 @@ middle
 <blockquote><p>Note:<code>move</code>The keyword merely forces ownership to be taken; it does not mean the closure must be<code>FnOnce</code>. If the closure body does not consume the captured value, even if<code>move</code>is added, the closure may still implement<code>Fn</code>(can be called multiple times).</p></blockquote>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> name <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> name <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Fn closure: only reads, does not modify, and can be called multiple times</span><br/>
     <span style="color: #708;">let</span> greet <span style="">=</span> <span style="">||</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"Hello, {}!"</span><span style="">,</span> name<span style="">)</span><span style="">;</span><br/>
@@ -399,7 +399,7 @@ middle
     println<span style="">!</span><span style="">(</span><span style="color: #a11;">"increment() = {}"</span><span style="">,</span> increment<span style="">(</span><span style="">)</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: 2</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// FnOnce closure: consumes captured variables, can only be called once</span><br/>
-    <span style="color: #708;">let</span> data <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"RUNOOB"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> data <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"EXAMPLE"</span><span style="">)</span><span style="">;</span><br/>
     <span style="color: #708;">let</span> consume <span style="">=</span> move <span style="">||</span> <span style="">{</span><br/>
         <span style="color: #708;">let</span> _ <span style="">=</span> data<span style="">;</span> <span style="color: #a50; font-style: italic;">// Moves data out of the closure environment, consuming it</span><br/>
         println<span style="">!</span><span style="">(</span><span style="color: #a11;">"data has been consumed"</span><span style="">)</span><span style="">;</span><br/>
@@ -552,15 +552,15 @@ where<br/>
 <p>The lifetime of a closure is closely related to the variables it captures. Rust's lifetime system ensures that a closure does not outlive any variable it captures—if a closure references a local variable, the compiler will prevent you from returning the closure to outside that variable's scope at compile time.</p>
 <div class="example"><h2 class="example">Example</h2> <div class="example_code">
 <span style="color: #708;">fn</span> main<span style="">(</span><span style="">)</span> <span style="">{</span><br/>
-    <span style="color: #708;">let</span> text <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"runoob"</span><span style="">)</span><span style="">;</span><br/>
+    <span style="color: #708;">let</span> text <span style="">=</span> String<span style="">::</span><span style="color: #164;">from</span><span style="">(</span><span style="color: #a11;">"example"</span><span style="">)</span><span style="">;</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// Correct: use the closure within the scope of text</span><br/>
     <span style="color: #708;">let</span> print_text <span style="">=</span> <span style="">||</span> println<span style="">!</span><span style="">(</span><span style="color: #a11;">"{}"</span><span style="">,</span> text<span style="">)</span><span style="">;</span><br/>
-    print_text<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: runoob</span><br/>
+    print_text<span style="">(</span><span style="">)</span><span style="">;</span> <span style="color: #a50; font-style: italic;">// Output: example</span><br/>
 <br/>
     <span style="color: #a50; font-style: italic;">// If you try to return this closure, the compiler will report an error:</span><br/>
     <span style="color: #a50; font-style: italic;">// fn make_closure() -&gt; impl Fn() {</span><br/>
-    <span style="color: #a50; font-style: italic;">//     let text = String::from("runoob");</span><br/>
+    <span style="color: #a50; font-style: italic;">//     let text = String::from("example");</span><br/>
     <span style="color: #a50; font-style: italic;">//     || println!("{}", text)  // Error: text's lifetime is not long enough</span><br/>
     <span style="color: #a50; font-style: italic;">// }</span><br/>
     <span style="color: #a50; font-style: italic;">// Solution: use move to transfer ownership into the closure</span><br/>

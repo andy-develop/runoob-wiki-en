@@ -351,22 +351,22 @@ db.<span style="color: #660066;">createCollection</span><span style="color: #009
 </div></div><p>This example creates a collection with the following characteristics:</p>
 <ul><li>Capped, maximum 10MB, can store up to 5000 documents.</li><li>Documents must contain<code>name</code>and<code>email</code>fields, where<code>name</code>must be a string,<code>email</code>must be a valid email format.</li><li>The validation level is strict; validation failure will block insertion or update.</li><li>Uses the WiredTiger storage engine, with block compressor set to zstd.</li><li>Uses English collation by default.</li></ul>
 <h3>Example</h3>
-<p>Create the runoob collection in the test database:</p>
+<p>Create the example collection in the test database:</p>
 <pre>&gt; use test
 switched to db test
-&gt; db.createCollection("runoob")
+&gt; db.createCollection("example")
 { "ok" : 1 }
 &gt;</pre>
 <p>To view existing collections, you can use the<span class="marked">show collections</span>or<span class="marked">show tables</span>command:</p>
 <pre>&gt; show collections
-runoob
+example
 system.indexes</pre>
 <p>The following is the usage of createCollection() with several key parameters:</p>
 <p>Created a capped collection with a maximum size of 5MB (5,242,880 bytes) and up to 5,000 documents.</p>
 <pre>db.createCollection("myCappedCollection", { capped: true, size: 5242880, max: 5000 });
 </pre>
 <p>In MongoDB, you don't need to create a collection. When you insert some documents, MongoDB automatically creates the collection.</p>
-<pre>&gt; db.mycol2.insert({"name" : "菜鸟教程"})
+<pre>&gt; db.mycol2.insert({"name" : "Example"})
 &gt; show collections
 mycol2
 ...</pre>

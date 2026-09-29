@@ -108,36 +108,36 @@ Android Basic Tutorial end
 3、<strong>permissions</strong>: Permission combination string, composed of cdrwa, where each letter represents a different permission: create permission (c), delete permission (d), read permission (r), write permission (w), admin permission (a).</li></ul>
 <h3>world Example</h3><p>Check the default node permissions, then update the node's permissions section to crwa. As a result, deleting the node fails. Here, world represents open permissions.</p>
 <pre>
-$ getAcl /runoob/child
-$ setAcl /runoob/child world:anyone:crwa
-$ delete /runoob/child
+$ getAcl /example/child
+$ setAcl /example/child world:anyone:crwa
+$ delete /example/child
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/zk-acl-01.png"/></p>
 <h3>auth Example</h3><p>auth is used to grant permissions. Note that you need to create a user first.</p>
 <pre>
-$ setAcl /runoob/child auth:user1:123456:cdrwa
+$ setAcl /example/child auth:user1:123456:cdrwa
 $ addauth digest user1:123456
-$ setAcl /runoob/child auth:user1:123456:cdrwa
-$ getAcl /runoob/child
+$ setAcl /example/child auth:user1:123456:cdrwa
+$ getAcl /example/child
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/zk-acl-02.png"/></p>
 <h3>digest Example</h3><p>Log out of the current user, reconnect to the terminal. digest can be used for account/password login and verification.</p>
 <pre>
-$ ls /runoob
-$ create /runoob/child01 runoob
-$ getAcl /runoob/child01
-$ setAcl /runoob/child01 digest:user1:HYGa7IZRm2PUBFiFFu8xY2pPP/s=:cdra
-$ getAcl /runoob/child01
+$ ls /example
+$ create /example/child01 example
+$ getAcl /example/child01
+$ setAcl /example/child01 digest:user1:HYGa7IZRm2PUBFiFFu8xY2pPP/s=:cdra
+$ getAcl /example/child01
 $ addauth digest user1:123456
-$ getAcl /runoob/child01
+$ getAcl /example/child01
 </pre><p><strong>Note:</strong>The encrypted password is the one created in the previous step.</p>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/zk-acl-03.png"/></p>
 <h3>IP Example</h3><p>Restrict IP address access permissions. After setting permissions to IP address 192.168.3.7, the IP 192.168.3.38 no longer has access permissions.</p>
 <pre>
-$ create /runoob/ip 0
-$ getAcl /runoob/ip
-$ setAcl /runoob/ip ip:192.168.3.7:cdrwa
-$ get /runoob/ip
+$ create /example/ip 0
+$ getAcl /example/ip
+$ setAcl /example/ip ip:192.168.3.7:cdrwa
+$ get /example/ip
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2020/09/zk-acl-04.png"/></p> </div>
 </div>

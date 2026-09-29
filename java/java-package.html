@@ -416,11 +416,11 @@ Mammal travel
 </span><span class="hl-brackets">}</span></div></div></div>
 <p>If a class in a package wants to use another class in the same package, the package name can be omitted.</p>
 <p>You can use the import statement to import a specific class:</p><pre>
-import com.runoob.MyClass;</pre><p>In this way, you can directly use the methods, variables, or constants of the MyClass class in the current source file.</p>
+import com.example.MyClass;</pre><p>In this way, you can directly use the methods, variables, or constants of the MyClass class in the current source file.</p>
 <p>You can also use the wildcard<span class="marked">*</span>to import an entire package or subpackage:</p>
 <pre>
-import com.runoob.mypackage.*;</pre>
-<p>In this way, you can import<strong>com.runoob.mypackage</strong>all classes in a package, so that you can use the methods, variables, or constants of any class in that package in the current source file. Note that when using the wildcard<span class="marked">*</span>to import an entire package, only the classes in the package are imported, not the subpackages of the package.</p>
+import com.example.mypackage.*;</pre>
+<p>In this way, you can import<strong>com.example.mypackage</strong>all classes in a package, so that you can use the methods, variables, or constants of any class in that package in the current source file. Note that when using the wildcard<span class="marked">*</span>to import an entire package, only the classes in the package are imported, not the subpackages of the package.</p>
 <p>When importing a class or package, you need to provide the fully qualified name of the class or package. The fully qualified name includes the combination of package name and class name, with a dot<span class="marked">.</span>as the separator.</p>
 <div class="example"><h2 class="example">Examples</h2> <div class="example_code">
 <span style="color: #000000; font-weight: bold;">import</span> <span style="color: #006699;">java.util.ArrayList</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// Import the ArrayList class from the java.util package</span><br/>
@@ -494,18 +494,18 @@ import com.runoob.mypackage.*;</pre>
 <li><p>Class name -&gt; vehicle.Car</p></li>
 <li><p>Path name -&gt; vehicle\Car.java (on Windows systems)</p></li>
 </ul>
-<p>Usually, a company uses the reversed form of its internet domain name as its package name. For example, if the internet domain is runoob.com, all package names begin with com.runoob. Each part of the package name corresponds to a subdirectory.</p><p>For example, there is a<strong>com.runoob.test</strong>package that contains a source file named Runoob.java. Accordingly, there should be a series of subdirectories as follows:</p>
+<p>Usually, a company uses the reversed form of its internet domain name as its package name. For example, if the internet domain is example.com, all package names begin with com.example. Each part of the package name corresponds to a subdirectory.</p><p>For example, there is a<strong>com.example.test</strong>package that contains a source file named Example.java. Accordingly, there should be a series of subdirectories as follows:</p>
 <div class="example">
 <div class="example_code">
-<div class="hl-main"><span class="hl-code">....\</span><span class="hl-identifier">com</span><span class="hl-code">\</span><span class="hl-identifier">runoob</span><span class="hl-code">\</span><span class="hl-identifier">test</span><span class="hl-code">\</span><span class="hl-identifier">Runoob</span><span class="hl-code">.</span><span class="hl-identifier">java</span></div>
+<div class="hl-main"><span class="hl-code">....\</span><span class="hl-identifier">com</span><span class="hl-code">\</span><span class="hl-identifier">example</span><span class="hl-code">\</span><span class="hl-identifier">test</span><span class="hl-code">\</span><span class="hl-identifier">Example</span><span class="hl-code">.</span><span class="hl-identifier">java</span></div>
 </div>
 </div>
 <p>When compiling, the compiler creates a different output file for each type such as a class or interface defined in the package. The output file's name is the name of the type, with .class as the extension. For example:</p>
 <div class="example">
 <div class="example_code">
-<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">Filename: Runoob.java</span><span class="hl-comment"></span><span class="hl-code">
-</span><span class="hl-reserved">package</span><span class="hl-code"> </span><span class="hl-identifier">com</span><span class="hl-code">.</span><span class="hl-identifier">runoob</span><span class="hl-code">.</span><span class="hl-identifier">test</span><span class="hl-code">;
-</span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code"> </span><span class="hl-identifier">Runoob</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">Filename: Example.java</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">package</span><span class="hl-code"> </span><span class="hl-identifier">com</span><span class="hl-code">.</span><span class="hl-identifier">example</span><span class="hl-code">.</span><span class="hl-identifier">test</span><span class="hl-code">;
+</span><span class="hl-reserved">public</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code"> </span><span class="hl-identifier">Example</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-brackets">}</span><span class="hl-code">
 </span><span class="hl-reserved">class</span><span class="hl-code"> </span><span class="hl-identifier">Google</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
 </span><span class="hl-brackets">}</span></div>
@@ -513,21 +513,21 @@ import com.runoob.mypackage.*;</pre>
 </div>
 <p>Now, let's compile this file with the -d option, as follows:</p>
 <pre>
-$javac -d . Runoob.java
+$javac -d . Example.java
 </pre><p>This will place the compiled files as shown below:</p>
 <pre>
-.\com\runoob\test\Runoob.class
-.\com\runoob\test\Google.class
+.\com\example\test\Example.class
+.\com\example\test\Google.class
 </pre>
-<p>You can import all<strong> \com\runoob\test\ </strong>classes, interfaces, etc. defined in:</p>
+<p>You can import all<strong> \com\example\test\ </strong>classes, interfaces, etc. defined in:</p>
 <pre>
-import com.runoob.test.*;
+import com.example.test.*;
 </pre><p>The compiled .class files should be placed, like the .java source files, in directories that correspond to the package name. However, it is not required that the path of the .class file be the same as the path of the corresponding .java file. You can arrange the source and class directories separately.</p>
 <pre>
-&lt;path-one&gt;\sources\com\runoob\test\Runoob.java
-&lt;path-two&gt;\classes\com\runoob\test\Google.class
+&lt;path-one&gt;\sources\com\example\test\Example.java
+&lt;path-two&gt;\classes\com\example\test\Google.class
 </pre>
-<p>This way, you can share your class directory with other programmers without revealing your source code. Managing source code and class files in this way allows the compiler and the Java Virtual Machine (JVM) to find all types used in your program.</p><p>The absolute path of the class directory is called<strong>class path</strong>Set in the system variable<strong>CLASSPATH</strong>The compiler and the Java Virtual Machine construct the path of .class files by appending the package name to the class path.</p><p>&lt;path- two&gt;\classes is the class path, the package name is com.runoob.test, and the compiler and JVM will look for .class files in &lt;path-two&gt;\classes\com\runoob\test.</p><p>A class path may contain several paths. Multiple paths should be separated by a delimiter. By default, the compiler and JVM look in the current directory. JAR files contain Java platform-related classes, so their directories are placed in the class path by default.</p>
+<p>This way, you can share your class directory with other programmers without revealing your source code. Managing source code and class files in this way allows the compiler and the Java Virtual Machine (JVM) to find all types used in your program.</p><p>The absolute path of the class directory is called<strong>class path</strong>Set in the system variable<strong>CLASSPATH</strong>The compiler and the Java Virtual Machine construct the path of .class files by appending the package name to the class path.</p><p>&lt;path- two&gt;\classes is the class path, the package name is com.example.test, and the compiler and JVM will look for .class files in &lt;path-two&gt;\classes\com\example\test.</p><p>A class path may contain several paths. Multiple paths should be separated by a delimiter. By default, the compiler and JVM look in the current directory. JAR files contain Java platform-related classes, so their directories are placed in the class path by default.</p>
 <hr/>
 <h2>Setting the CLASSPATH System Variable</h2>
 <p>Use the following command to display the current CLASSPATH variable:</p>

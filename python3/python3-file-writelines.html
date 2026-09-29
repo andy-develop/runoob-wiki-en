@@ -377,7 +377,7 @@ fileObject.writelines( [ sequence ])
 <span style="color: #a50"># Use the with statement to open the file to ensure it is properly closed</span><br/>
 <span style="color: Green;font-weight:bold;">with</span> <span style="color: Teal;">open</span><span style="color: Olive;">(</span><span style="color: #a11;">"test.txt"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"w"</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> fo:<br/>
     <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"File name: "</span><span style="color: Gray;">,</span> fo.<span style="color: #05a;">name</span><span style="color: Olive;">)</span><br/>
-    seq <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Runoob 1<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Runoob 2"</span><span style="color: Olive;">]</span><br/>
+    seq <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><span style="color: #a11;">"Example 1<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: Gray;">,</span> <span style="color: #a11;">"Example 2"</span><span style="color: Olive;">]</span><br/>
     fo.<span style="color: #05a;">writelines</span><span style="color: Olive;">(</span>seq<span style="color: Olive;">)</span><br/>
 </div></div>
 <p>The output of the above example is:</p>
@@ -387,8 +387,8 @@ fileObject.writelines( [ sequence ])
 <p>View file content:</p>
 <pre>
 $ cat test.txt 
-菜鸟教程 1
-菜鸟教程 2
+Example 1
+Example 2
 </pre>
 <h3>Notes</h3>
 <ol><li><p><strong>Does not automatically add newline characters</strong>：</p><ul><li><p><code>writelines()</code>It does not automatically add newline characters at the end of each line. If line breaks are needed, you must explicitly add them in each string.<code>\n</code>。</p></li></ul></li><li><p><strong>File mode</strong>：</p><ul><li><p>If the file is opened in read-only mode (<code>"r"</code>) opened, calling<code>writelines()</code>will throw<code>io.UnsupportedOperation</code>an exception.</p></li><li><p>If the file is opened in write mode (<code>"w"</code>or<code>"w+"</code>) opened, the file content will be cleared, then new content is written.</p></li><li><p>If the file is opened in append mode (<code>"a"</code>or<code>"a+"</code>) opened, the written content will be appended to the end of the file.</p></li></ul></li><li><p><strong>File pointer</strong>：</p><ul><li><p>The write operation starts from the current file pointer position. If you need to write from the beginning of the file or a specific position, you can use<code>seek()</code>method to move the file pointer.</p></li></ul></li><li><p><strong>Iterable object</strong>：</p><ul><li><p><code>sequence</code>It can be any iterable object (such as a list, tuple, generator, etc.), but each element in it must be a string.</p></li></ul></li></ol>

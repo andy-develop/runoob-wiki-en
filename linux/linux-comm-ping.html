@@ -285,7 +285,7 @@ middle
 <ul><li><code>-c</code>: Specifies the number of data packets to send, for example<code>-c 4</code>means sending 4 data packets.</li><li><code>-i</code>: Specifies the interval between sending packets (in seconds), for example<code>-i 0.5</code>means sending once every 0.5 seconds.</li><li><code>-w</code>: Sets the upper limit of waiting time for sending packets; it stops automatically after that time, for example<code>-w 5</code>means waiting 5 seconds.</li><li><code>-s</code>: Specifies the size of each data packet (in bytes), the default is 56 bytes.</li><li><code>-t</code>: Sets the Time to Live (TTL) of the packet, specifying the number of routing hops.</li><li><code>-q</code>: Quiet mode, only displays the start and end statistics, not the detailed information of each packet.</li><li><code>-f</code>: Flood mode, sends packets rapidly, used to test network carrying capacity; use with caution.</li><li><code>-l</code>: Specifies the number of packets sent at once, usually used for load testing.</li><li><code>-v</code>: Displays detailed output information for debugging.</li><li><code>-4</code>: Forces the use of IPv4 protocol.</li><li><code>-6</code>: Forces the use of IPv6 protocol.</li></ul>
 <h3>Examples</h3>
 <p><strong>1. Check whether the host is reachable:</strong></p>
-<pre># ping www.runoob.com //ping主机
+<pre># ping www.example.com //ping主机
 PING aries.m.alikunlun.com (114.80.174.110) 56(84) bytes of data.
 64 bytes from 114.80.174.110: icmp_seq=1 ttl=64 time=0.025 ms
 64 bytes from 114.80.174.110: icmp_seq=2 ttl=64 time=0.036 ms
@@ -305,7 +305,7 @@ rtt min/avg/max/mdev = 0.021/0.035/0.078/0.011 ms
 //需要手动终止Ctrl+C
 </pre>
 <p><strong>2. Limit the number of packets sent:</strong></p>
-<pre># ping -c 2 www.runoob.com
+<pre># ping -c 2 www.example.com
 PING aries.m.alikunlun.com (114.80.174.120) 56(84) bytes of data.
 64 bytes from 114.80.174.120: icmp_seq=1 ttl=54 time=6.18 ms
 64 bytes from 114.80.174.120: icmp_seq=2 ttl=54 time=15.4 ms
@@ -329,11 +329,11 @@ rtt min/avg/max/mdev = 61.959/62.843/63.984/0.894 ms, pipe 2
 </pre>
 <p><strong>4. Set the packet interval:</strong>Sends packets at an interval of 0.2 seconds. This parameter is suitable for testing network stability over a short period.</p>
 <pre>
-ping -i 0.2 www.runoob.com</pre>
+ping -i 0.2 www.example.com</pre>
 <p>
 <strong>5. Specify the packet size:</strong>Sets the packet size to 128 bytes, suitable for checking stability during larger data transfers.</p>
 <pre>
-ping -s 128 www.runoob.com</pre>
+ping -s 128 www.example.com</pre>
 <p>
 <strong>6. Set network timeout:</strong>Limits the test time to 10 seconds, suitable for testing connectivity in uncertain network environments.</p>
 <pre>

@@ -167,7 +167,7 @@ middle
 <p>Docker allows you to run applications inside containers, using<strong>docker run</strong>command to run an application inside a container.</p>
 <p>Output Hello world</p>
 <pre>
-runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo "Hello world"
+example@example:~$ docker run ubuntu:15.10 /bin/echo "Hello world"
 Hello world
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker19.png"/></p>
@@ -182,7 +182,7 @@ Hello world
 <h2>Run an interactive container</h2>
 <p>We use Docker's two parameters -i -t to make the container run by Docker achieve<strong>conversation</strong>the ability to:</p>
 <pre>
-runoob@runoob:~$ docker run -i -t ubuntu:15.10 /bin/bash
+example@example:~$ docker run -i -t ubuntu:15.10 /bin/bash
 root@0123ce188bd8:/#
 </pre>
 <p>Analysis of each parameter:</p>
@@ -199,13 +199,13 @@ root@0123ce188bd8:/# </pre>
 <p>We can exit the container by running the exit command or using CTRL+D.</p>
 <pre>root@0123ce188bd8:/#  exit
 exit
-root@runoob:~# </pre>
-<p>Note in the third line<span class="marked">root@runoob:~#</span>Indicates that we have exited the current container and returned to the current host.</p>
+root@example:~# </pre>
+<p>Note in the third line<span class="marked">root@example:~#</span>Indicates that we have exited the current container and returned to the current host.</p>
 <hr/>
 <h2>Start container (background mode)</h2>
 <p>Use the following command to create a container that runs as a process</p>
 <pre>
-runoob@runoob:~$ docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+example@example:~$ docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 2b1b7a428627c51ab8810d541d759f072b4fc75487eed05812646b8534a2fe63
 </pre>
 <p>In the output, we did not see the expected "hello world", but rather a long string of characters.</p>
@@ -213,7 +213,7 @@ runoob@runoob:~$ docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hell
 <p>This long string is called the container ID, which is unique for each container. We can use the container ID to see what happened to the corresponding container.</p>
 <p>First, we need to confirm that the container is running. This can be done by<strong>docker ps</strong>to view:</p>
 <pre>
-runoob@runoob:~$ docker ps
+example@example:~$ docker ps
 CONTAINER ID        IMAGE                  COMMAND              ...  
 5917eac21c36        ubuntu:15.10           "/bin/sh -c 'while t…"    ...
 </pre>
@@ -229,11 +229,11 @@ CONTAINER ID        IMAGE                  COMMAND              ...
 <p><strong>NAMES:</strong>The automatically assigned container name.</p>
 <p>On the host machine, use<span class="marked">docker logs</span>command to view the standard output inside the container:</p>
 <pre>
-runoob@runoob:~$ docker logs 2b1b7a428627
+example@example:~$ docker logs 2b1b7a428627
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker23.png"/></p>
 <pre>
-runoob@runoob:~$ docker logs amazing_cori
+example@example:~$ docker logs amazing_cori
 </pre>
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker24.png"/></p>
 <hr/>
@@ -242,12 +242,12 @@ runoob@runoob:~$ docker logs amazing_cori
 <p><img decoding="async" src="../wp-content/uploads/2016/05/docker25.png"/></p>
 <p>Through<span class="marked">docker ps</span>Check, the container has stopped working:</p>
 <pre>
-runoob@runoob:~$ docker ps
+example@example:~$ docker ps
 </pre>
 <p>You can see that the container is gone.</p>
 <p>You can also use the following command to stop:</p>
 <pre>
-runoob@runoob:~$ docker stop amazing_cori
+example@example:~$ docker stop amazing_cori
 </pre>other extensions</div>
 </div>
 <div class="archive-list" style="display:none;font-size: 14px;line-height: 1.8;margin-top: 20px;padding: 10px;">

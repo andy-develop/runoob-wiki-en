@@ -363,7 +363,7 @@ load_dotenv<span style="color: Olive;">(</span><span style="color: Olive;">)</sp
 embeddings <span style="color: Gray;">=</span> OpenAIEmbeddings<span style="color: Olive;">(</span>model<span style="color: Gray;">=</span><span style="color: #a11;">"text-embedding-3-small"</span><span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Test: convert a piece of text into a vector</span><br/>
-text <span style="color: Gray;">=</span> <span style="color: #a11;">"RUNOOB is a programming learning platform"</span><br/>
+text <span style="color: Gray;">=</span> <span style="color: #a11;">"EXAMPLE is a programming learning platform"</span><br/>
 vector <span style="color: Gray;">=</span> embeddings.<span style="color: #05a;">embed_query</span><span style="color: Olive;">(</span>text<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Text: {text}"</span><span style="color: Olive;">)</span><br/>
@@ -373,9 +373,9 @@ vector <span style="color: Gray;">=</span> embeddings.<span style="color: #05a;"
 </div>
 <p>Run result:</p>
 <pre>
-文本: 菜鸟教程 RUNOOB 是一个编程学习平台
-向量维度: 1536
-向量前 5 个值: [0.0123, -0.0045, 0.0234, -0.0012, 0.0089]
+Text: Example 是一个编程学习平台
+Vector dimension: 1536
+First 5 vector values: [0.0123, -0.0045, 0.0234, -0.0012, 0.0089]
 </pre>
 <p>Alternatively, if you don't have an OpenAI key, you can use Alibaba Bailian's Embedding service.<span class="marked">.env</span>You need to add the Alibaba Bailian key to the configuration file:</p>
 <pre>DASHSCOPE_API_KEY="sk-xxx"</pre><p>Code after configuration:</p>
@@ -410,7 +410,7 @@ embeddings <span style="color: Gray;">=</span> OpenAIEmbeddings<span style="colo
     chunk_size<span style="color: Gray;">=</span><span style="color: Maroon;">10</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <span style="color: #a50"># Test: convert a piece of text into a vector</span><br/>
-text <span style="color: Gray;">=</span> <span style="color: #a11;">"RUNOOB is a programming learning platform"</span><br/>
+text <span style="color: Gray;">=</span> <span style="color: #a11;">"EXAMPLE is a programming learning platform"</span><br/>
 vector <span style="color: Gray;">=</span> embeddings.<span style="color: #05a;">embed_query</span><span style="color: Olive;">(</span>text<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span>f<span style="color: #a11;">"Text: {text}"</span><span style="color: Olive;">)</span><br/>
@@ -430,14 +430,14 @@ embeddings <span style="color: Gray;">=</span> OpenAIEmbeddings<span style="colo
 <br/>
 <span style="color: #a50"># Create a Chroma vector store (data is saved in a local directory)</span><br/>
 vector_store <span style="color: Gray;">=</span> Chroma<span style="color: Olive;">(</span><br/>
-    collection_name<span style="color: Gray;">=</span><span style="color: #a11;">"runoob_docs"</span><span style="color: Gray;">,</span><br/>
+    collection_name<span style="color: Gray;">=</span><span style="color: #a11;">"example_docs"</span><span style="color: Gray;">,</span><br/>
     embedding_function<span style="color: Gray;">=</span>embeddings<span style="color: Gray;">,</span><br/>
     persist_directory<span style="color: Gray;">=</span><span style="color: #a11;">"./chroma_db"</span><span style="color: Gray;">,</span>  <span style="color: #a50"># Persistence directory</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: #a50"># Add documents (the simplest form: a list of texts)</span><br/>
 texts <span style="color: Gray;">=</span> <span style="color: Olive;">[</span><br/>
-    <span style="color: #a11;">"RUNOOB is a free programming learning website that provides tutorials on HTML, CSS, JavaScript, Python, etc."</span><span style="color: Gray;">,</span><br/>
+    <span style="color: #a11;">"EXAMPLE is a free programming learning website that provides tutorials on HTML, CSS, JavaScript, Python, etc."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The Python3 basic tutorial has 30 chapters, suitable for beginners with zero foundation, covering environment setup, basic syntax, object-oriented programming, and more."</span><span style="color: Gray;">,</span><br/>
     <span style="color: #a11;">"The HTML basic tutorial has 25 chapters, covering basic knowledge such as HTML tags, forms, and multimedia."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">]</span><br/>
@@ -469,13 +469,13 @@ results <span style="color: Gray;">=</span> vector_store.<span style="color: #05
 <pre>
 搜索结果：
 
-结果 1:
-  内容: Python3 基础教程共 30 章，适合零基础入门...
-  元数据: {}
+Result 1:
+  Content: Python3 基础教程共 30 章，适合零基础入门...
+  Metadata: {}
 
-结果 2:
-  内容: 菜鸟教程（RUNOOB）是一个免费的编程学习网站...
-  元数据: {}
+Result 2:
+  Content: Example是一个免费的编程学习网站...
+  Metadata: {}
 </pre>
 <blockquote><p>Note that the first search result is more relevant than the second — although the first contains the keyword "Python", it is ranked by<span class="marked">semantic similarity</span>rather than keyword matching. This is the advantage of vector retrieval.</p></blockquote>
 <hr/>

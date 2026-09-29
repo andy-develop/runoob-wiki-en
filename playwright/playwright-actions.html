@@ -350,13 +350,13 @@ await page.<span style="color: #660066;">getByRole</span><span style="color: #00
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// Basic navigation</span><br/>
-await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// Wait for DOMContentLoaded (page structure loaded)</span><br/>
-await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> waitUntil<span style="color: #339933;">:</span> <span style="color: #3366CC;">'domcontentloaded'</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> waitUntil<span style="color: #339933;">:</span> <span style="color: #3366CC;">'domcontentloaded'</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <br/>
 <span style="color: #006600; font-style: italic;">// Wait for network idle (all async data loaded)</span><br/>
-await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.runoob.com/'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span><br/>
+await page.<span style="color: #000066; font-weight: bold;">goto</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'https://www.example.com/'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span><br/>
   waitUntil<span style="color: #339933;">:</span> <span style="color: #3366CC;">'networkidle'</span><span style="color: #339933;">,</span>    <span style="color: #006600; font-style: italic;">// Network idle</span><br/>
   timeout<span style="color: #339933;">:</span> <span style="color: #CC0000;">60000</span><span style="color: #339933;">,</span>              <span style="color: #006600; font-style: italic;">// Timeout 60 seconds</span><br/>
   referer<span style="color: #339933;">:</span> <span style="color: #3366CC;">'https://google.com'</span><span style="color: #339933;">,</span> <span style="color: #006600; font-style: italic;">// Referer source</span><br/>
@@ -462,9 +462,9 @@ await page.<span style="color: #660066;">getByRole</span><span style="color: #00
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// Clear the input field and fill in a new value</span><br/>
-await page.<span style="color: #660066;">getByLabel</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Username'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'runoob_user'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+await page.<span style="color: #660066;">getByLabel</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Username'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'example_user'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 await page.<span style="color: #660066;">getByLabel</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Password'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'secure_password'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
-await page.<span style="color: #660066;">getByPlaceholder</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Search RUNOOB tutorials'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Playwright'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+await page.<span style="color: #660066;">getByPlaceholder</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Search EXAMPLE tutorials'</span><span style="color: #009900;">)</span>.<span style="color: #660066;">fill</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Playwright'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
 <h3>locator.type() Character-by-Character Input</h3>
@@ -583,7 +583,7 @@ await page.<span style="color: #660066;">keyboard</span>.<span style="color: #66
 <h2 class="example">Example</h2>
 <div class="example_code">
 <span style="color: #006600; font-style: italic;">// Type text into the focused element</span><br/>
-await page.<span style="color: #660066;">keyboard</span>.<span style="color: #660066;">type</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'RUNOOB Tutorial'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> delay<span style="color: #339933;">:</span> <span style="color: #CC0000;">50</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
+await page.<span style="color: #660066;">keyboard</span>.<span style="color: #660066;">type</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'EXAMPLE Tutorial'</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span> delay<span style="color: #339933;">:</span> <span style="color: #CC0000;">50</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 </div>
 </div>
 <h3>page.keyboard.insertText() Insert Directly</h3>

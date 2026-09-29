@@ -250,8 +250,8 @@ middle
 <p>Regular expressions can be used to search, replace, extract, and validate specific patterns in text.</p>
 <p>For example:</p>
 <ul>
-<li><p><span class="marked">runoo+b</span>, can match<strong>runoob、runooob、runoooooob</strong>etc.,<span class="marked">+</span>The sign indicates that the preceding character must appear at least once (1 or more times)<a href="../try/try-regex.php.html" rel="noopener noreferrer" target="_blank"><span class="marked">Try it »</span></a>。</p></li>
-<li><p><span class="marked">runoo*b</span>, can match<strong>runob、runoob、runoooooob</strong>etc.,<span class="marked">*</span>The sign indicates that the preceding character may not appear, or may appear once or multiple times (0 times, or 1 time, or multiple times)<a href="../try/try-regex.php.html" rel="noopener noreferrer" target="_blank"><span class="marked">Try it »</span></a>。</p></li>
+<li><p><span class="marked">runoo+b</span>, can match<strong>example、runooob、runoooooob</strong>etc.,<span class="marked">+</span>The sign indicates that the preceding character must appear at least once (1 or more times)<a href="../try/try-regex.php.html" rel="noopener noreferrer" target="_blank"><span class="marked">Try it »</span></a>。</p></li>
+<li><p><span class="marked">runoo*b</span>, can match<strong>runob、example、runoooooob</strong>etc.,<span class="marked">*</span>The sign indicates that the preceding character may not appear, or may appear once or multiple times (0 times, or 1 time, or multiple times)<a href="../try/try-regex.php.html" rel="noopener noreferrer" target="_blank"><span class="marked">Try it »</span></a>。</p></li>
 <li><p><span class="marked">colou?r</span>can match<strong>color</strong>or<strong>colour</strong>，<span class="marked">?</span>The question mark indicates that the preceding character can appear at most once (0 or 1 time)<a href="../try/try-regex.php.html" rel="noopener noreferrer" target="_blank"><span class="marked">Try it »</span></a>。</p></li>
 </ul>
 <p>The method of constructing regular expressions is the same as creating mathematical expressions — by combining small expressions with various metacharacters and operators, you can create larger expressions. The components of a regular expression can be a single character, a character set, a character range, a choice between characters, or any combination of all these components.</p>
@@ -268,14 +268,14 @@ middle
 </tr>
 <tr>
 <td><span class="marked">[ABC]</span></td>
-<td><p>Matches<span class="marked">[...]</span>all characters listed in .... For example,<span class="marked">[aeiou]</span>Matches all the e, o, u, and a letters in the string "google runoob taobao".</p>
+<td><p>Matches<span class="marked">[...]</span>all characters listed in .... For example,<span class="marked">[aeiou]</span>Matches all the e, o, u, and a letters in the string "google example taobao".</p>
 <img decoding="async" src="../wp-content/uploads/2014/03/E691DDE1-E5CB-4EA8-8D16-759BD0D2B09D.jpg"/>
 </td>
 <td><a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','');localStorage.setItem('tryit_lang','html');">Try it »</a></td>
 </tr>
 <tr>
 <td><span class="marked">[^ABC]</span></td>
-<td><p>Matches all characters except<span class="marked">[...]</span>all characters other than those in .... For example,<span class="marked">[^aeiou]</span>Matches all characters in the string "google runoob taobao" except the e, o, u, and a letters.</p>
+<td><p>Matches all characters except<span class="marked">[...]</span>all characters other than those in .... For example,<span class="marked">[^aeiou]</span>Matches all characters in the string "google example taobao" except the e, o, u, and a letters.</p>
 <img decoding="async" src="../wp-content/uploads/2014/03/ED971D92-30F4-4768-A2C7-02A84A3A9DEB.jpg"/>
 </td>
 <td><a class="tryitbtn" data-lang="html" href="../try/editor.html" onclick="localStorage.setItem('tryit_code','');localStorage.setItem('tryit_lang','html');">Try it »</a></td>
@@ -475,7 +475,7 @@ middle
 <pre>/[1-9][0-9]{0,1}/</pre>
 <p><strong><span class="marked">*</span>and<span class="marked">+</span>Quantifiers are greedy, because they match as much text as possible. Add a<span class="marked">?</span>after them to achieve non-greedy or minimal matching.</strong></p>
 <p>For example, you might search an HTML document to find the content inside h1 tags. The HTML code is as follows:</p>
-<pre>&amp;lt;h1&amp;gt;RUNOOB-菜鸟教程&amp;lt;/h1&amp;gt;</pre>
+<pre>&amp;lt;h1&amp;gt;EXAMPLE-Example&amp;lt;/h1&amp;gt;</pre>
 <p><strong>Greedy:</strong>The following expression matches everything between the opening less-than sign (&lt;) and the closing greater-than sign (&gt;) of the h1 tag:</p>
 <pre>/&amp;lt;.*&amp;gt;/</pre>
 <p><img decoding="async" src="../wp-content/uploads/2014/03/AD8F3320-2F2E-4513-9BB5-84450D62783D.jpg"/></p>
@@ -571,13 +571,13 @@ document.<span style="color: #660066;">write</span><span style="color: #009900;"
 <p>The word boundary metacharacter<span class="marked">\b</span>ensures that only whole words are detected; otherwise, phrases such as "is issued" or "this is" will not be correctly identified.</p>
 <p>At the end of the expression, the<span class="marked">g</span>(global) flag specifies that the expression is applied to all matches found in the input string;<span class="marked">i</span>(ignore case) flag specifies case-insensitive matching;<span class="marked">m</span>(multiline) flag specifies that potential matches may appear on either side of a line break.</p>
 <p>Backreferences can also break a URI into its components. Suppose you want to break the following URI into protocol (ftp, http, etc.), domain address, and path:</p>
-<pre>https://www.runoob.com:80/html/html-tutorial.html</pre>
+<pre>https://www.example.com:80/html/html-tutorial.html</pre>
 <p>The following regular expression provides this functionality:</p>
 <div class="example">
 <h2 class="example">Example</h2>
 <p>Output all matched data:</p>
 <div class="example_code">
-<span style="color: #000066; font-weight: bold;">var</span> str <span style="color: #339933;">=</span> <span style="color: #3366CC;">"https://www.runoob.com:80/html/html-tutorial.html"</span><span style="color: #339933;">;</span><br/>
+<span style="color: #000066; font-weight: bold;">var</span> str <span style="color: #339933;">=</span> <span style="color: #3366CC;">"https://www.example.com:80/html/html-tutorial.html"</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000066; font-weight: bold;">var</span> patt1 <span style="color: #339933;">=</span> <span style="color: #339933;">/</span><span style="color: #009900;">(</span>\w<span style="color: #339933;">+</span><span style="color: #009900;">)</span><span style="color: #339933;">:</span>\<span style="color: #339933;">/</span>\<span style="color: #339933;">/</span><span style="color: #009900;">(</span><span style="color: #009900;">[</span><span style="color: #339933;">^</span><span style="color: #009966; font-style: italic;">/:]+)(:\d*)?([^# ]*)/</span><span style="color: #339933;">;</span><br/>
 arr <span style="color: #339933;">=</span> str.<span style="color: #660066;">match</span><span style="color: #009900;">(</span>patt1<span style="color: #009900;">)</span><span style="color: #339933;">;</span><br/>
 <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">var</span> i <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> arr.<span style="color: #660066;">length</span><span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span><br/>
@@ -590,7 +590,7 @@ arr <span style="color: #339933;">=</span> str.<span style="color: #660066;">mat
 <p><code>str.match(patt1)</code>Returns an array containing 5 elements: index 0 corresponds to the entire matched string, indices 1 to 4 correspond to the respective parenthesized capturing groups, and so on.</p>
 <ul>
 <li><strong>The first parenthesized subexpression</strong>（<span class="marked">\w+</span>): captures the protocol part of the web address, matching any word before the colon and two forward slashes. Result:<strong>https</strong></li>
-<li><strong>The second parenthesized subexpression</strong>（<span class="marked">[^/:]+</span>): captures the domain address part, matching one or more characters that are not : or /. Result:<strong>www.runoob.com</strong></li>
+<li><strong>The second parenthesized subexpression</strong>（<span class="marked">[^/:]+</span>): captures the domain address part, matching one or more characters that are not : or /. Result:<strong>www.example.com</strong></li>
 <li><strong>The third parenthesized subexpression</strong>（<span class="marked">:\d*</span>): captures the port number (if any), matching zero or more digits after the colon. Result:<strong>:80</strong></li>
 <li><strong>The fourth parenthesized subexpression</strong>（<span class="marked">[^# ]*</span>): captures the path and page information, matching any sequence of characters that does not include # or spaces. Result:<strong>/html/html-tutorial.html</strong></li>
 </ul>

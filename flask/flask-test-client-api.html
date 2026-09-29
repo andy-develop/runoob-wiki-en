@@ -323,11 +323,11 @@ app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span>
 <br/>
         <span style="color: #a50"># POST JSON Request</span><br/>
         resp <span style="color: Gray;">=</span> client.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/api/posts"</span><span style="color: Gray;">,</span> json<span style="color: Gray;">=</span><span style="color: Olive;">{</span><br/>
-            <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"RUNOOB Tutorial"</span><span style="color: Gray;">,</span><br/>
+            <span style="color: #a11;">"title"</span>: <span style="color: #a11;">"EXAMPLE Tutorial"</span><span style="color: Gray;">,</span><br/>
             <span style="color: #a11;">"body"</span>: <span style="color: #a11;">"Getting Started Content"</span><br/>
         <span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
         <span style="color: Green;font-weight:bold;">assert</span> resp.<span style="color: #05a;">status_code</span> <span style="color: Gray;">==</span> <span style="color: Maroon;">201</span><br/>
-        <span style="color: Green;font-weight:bold;">assert</span> resp.<span style="color: #05a;">get_json</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">[</span><span style="color: #a11;">"title"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"RUNOOB Tutorial"</span><br/>
+        <span style="color: Green;font-weight:bold;">assert</span> resp.<span style="color: #05a;">get_json</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span><span style="color: Olive;">[</span><span style="color: #a11;">"title"</span><span style="color: Olive;">]</span> <span style="color: Gray;">==</span> <span style="color: #a11;">"EXAMPLE Tutorial"</span><br/>
 <br/>
         <span style="color: #a50"># Request with Query Parameters</span><br/>
         resp <span style="color: Gray;">=</span> client.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/search?q=flask"</span><span style="color: Olive;">)</span><br/>
@@ -335,9 +335,9 @@ app.<span style="color: #05a;">config</span><span style="color: Olive;">[</span>
 <br/>
         <span style="color: #a50"># Simulate Logged-In State</span><br/>
         <span style="color: Green;font-weight:bold;">with</span> client.<span style="color: #05a;">session_transaction</span><span style="color: Olive;">(</span><span style="color: Olive;">)</span> <span style="color: Green;font-weight:bold;">as</span> sess:<br/>
-            sess<span style="color: Olive;">[</span><span style="color: #a11;">"username"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"runoob"</span><br/>
+            sess<span style="color: Olive;">[</span><span style="color: #a11;">"username"</span><span style="color: Olive;">]</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"example"</span><br/>
         resp <span style="color: Gray;">=</span> client.<span style="color: #05a;">get</span><span style="color: Olive;">(</span><span style="color: #a11;">"/dashboard"</span><span style="color: Olive;">)</span><br/>
-        <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"runoob"</span> <span style="color: Green;font-weight:bold;">in</span> resp.<span style="color: #05a;">data</span><br/>
+        <span style="color: Green;font-weight:bold;">assert</span> b<span style="color: #a11;">"example"</span> <span style="color: Green;font-weight:bold;">in</span> resp.<span style="color: #05a;">data</span><br/>
 <br/>
         <span style="color: #a50"># Follow Redirects</span><br/>
         resp <span style="color: Gray;">=</span> client.<span style="color: #05a;">post</span><span style="color: Olive;">(</span><span style="color: #a11;">"/login"</span><span style="color: Gray;">,</span> data<span style="color: Gray;">=</span><span style="color: Olive;">{</span><br/>

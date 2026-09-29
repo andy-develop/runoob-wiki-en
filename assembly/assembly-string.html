@@ -281,7 +281,7 @@ middle
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
     <span style="color: #666666; font-style: italic;">; Method 1: standard string</span><br/>
-    str1 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, runoob!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>     <span style="color: #666666; font-style: italic;">; C style: null-terminated</span><br/>
+    str1 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, example!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span>     <span style="color: #666666; font-style: italic;">; C style: null-terminated</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Method 2: with newline</span><br/>
     str2 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Line1'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><span style="color: #339933;">,</span> <span style="color: #7F007F;">'Line2'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
@@ -310,7 +310,7 @@ middle
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
     <span style="color: #666666; font-style: italic;">; Method A: compile-time calculation (for constant strings)</span><br/>
-    msg1 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, RUNOOB!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
+    msg1 <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, EXAMPLE!'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     msg1_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg1          <span style="color: #666666; font-style: italic;">; Automatically calculated at compile time</span><br/>
 <br/>
     <span style="color: #666666; font-style: italic;">; Method B: null-terminated string (runtime calculation)</span><br/>
@@ -362,7 +362,7 @@ strlen_done<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; Two implementations of string copying</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    src <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob source string'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    src <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example source string'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
     src_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> src<br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.bss</span><br/>
@@ -422,9 +422,9 @@ copy_loop<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; Compare whether two strings are equal</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    str_a <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
-    str_b <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'runoob'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
-    str_c <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'RUNOOB'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    str_a <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    str_b <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'example'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
+    str_c <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'EXAMPLE'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0</span><br/>
     eq_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Strings are equal'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     eq_len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> eq_msg<br/>
     ne_msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Strings are NOT equal'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
@@ -510,7 +510,7 @@ exit<span style="color: #339933;">:</span><br/>
 <span style="color: #666666; font-style: italic;">; Convert lowercase letters in string to uppercase</span><br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.data</span><br/>
-    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, runoob! Welcome to Assembly.'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
+    msg <span style="color: #0000FF; font-weight: bold;">db</span> <span style="color: #7F007F;">'Hello, example! Welcome to Assembly.'</span><span style="color: #339933;">,</span> <span style="color: #FF0000;">0xA</span><br/>
     len <span style="color: #0000FF; font-weight: bold;">equ</span> <span style="color: #0000FF; font-weight: bold;">$</span> <span style="color: #339933;">-</span> msg<br/>
 <br/>
 <span style="color: #0000FF; font-weight: bold;">section</span> <span style="color: #0000FF; font-weight: bold;">.text</span><br/>
@@ -560,8 +560,8 @@ next_char<span style="color: #339933;">:</span><br/>
 $ nasm -f elf32 case_convert.asm -o case_convert.o
 $ ld -m elf_i386 case_convert.o -o case_convert
 $ ./case_convert
-Hello, runoob! Welcome to Assembly.
-HELLO, RUNOOB! WELCOME TO ASSEMBLY.
+Hello, example! Welcome to Assembly.
+HELLO, EXAMPLE! WELCOME TO ASSEMBLY.
 </pre>
 <blockquote><p>The direction flag DF determines the direction of string operations: when DF=0, ESI/EDI increment (forward), when DF=1, they decrement (reverse). Use<code>CLD</code>to clear DF, use<code>STD</code>to set DF. Before calling C functions or system calls, ensure DF=0 (cdecl requirement).</p></blockquote>
 Other extensions

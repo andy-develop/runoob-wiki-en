@@ -190,7 +190,7 @@ void *memcpy(void *str1, const void *str2, size_t n)
 </span><span class="hl-prepro">#include</span><span class="hl-prepro"> </span><span class="hl-quotes">&lt;</span><span class="hl-string">string.h</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"></span><span class="hl-code">
 </span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-types">const</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code"> </span><span class="hl-identifier">src</span><span class="hl-brackets">[</span><span class="hl-number">50</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">http://www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-types">const</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code"> </span><span class="hl-identifier">src</span><span class="hl-brackets">[</span><span class="hl-number">50</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">http://www.example.com</span><span class="hl-quotes">"</span><span class="hl-code">;
    </span><span class="hl-types">char</span><span class="hl-code"> </span><span class="hl-identifier">dest</span><span class="hl-brackets">[</span><span class="hl-number">50</span><span class="hl-brackets">]</span><span class="hl-code">;
  
    </span><span class="hl-identifier">memcpy</span><span class="hl-brackets">(</span><span class="hl-identifier">dest</span><span class="hl-code">, </span><span class="hl-identifier">src</span><span class="hl-code">, </span><span class="hl-identifier">strlen</span><span class="hl-brackets">(</span><span class="hl-identifier">src</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
@@ -201,7 +201,7 @@ void *memcpy(void *str1, const void *str2, size_t n)
 </div>
 </div>
 <p>Let us compile and run the above program, which will produce the following result:</p>
-<pre>dest = http://www.runoob.com
+<pre>dest = http://www.example.com
 </pre>
 <p>Copy 6 consecutive characters starting from the 11th character in s to d:</p>
 <div class="example">
@@ -211,9 +211,9 @@ void *memcpy(void *str1, const void *str2, size_t n)
 </span><span class="hl-prepro">#include</span><span class="hl-quotes">&lt;</span><span class="hl-string">string.h</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"></span><span class="hl-code">
 </span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
 </span><span class="hl-brackets">{</span><span class="hl-code">
-</span><span class="hl-types">char</span><span class="hl-code"> *</span><span class="hl-identifier">s</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">http://www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-types">char</span><span class="hl-code"> *</span><span class="hl-identifier">s</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">http://www.example.com</span><span class="hl-quotes">"</span><span class="hl-code">;
   </span><span class="hl-types">char</span><span class="hl-code"> </span><span class="hl-identifier">d</span><span class="hl-brackets">[</span><span class="hl-number">20</span><span class="hl-brackets">]</span><span class="hl-code">;
-  </span><span class="hl-identifier">memcpy</span><span class="hl-brackets">(</span><span class="hl-identifier">d</span><span class="hl-code">, </span><span class="hl-identifier">s</span><span class="hl-code">+</span><span class="hl-number">11</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">;</span><span class="hl-comment">// Copy starting from the 11th character (r), and copy 6 consecutive characters (runoob)</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">memcpy</span><span class="hl-brackets">(</span><span class="hl-identifier">d</span><span class="hl-code">, </span><span class="hl-identifier">s</span><span class="hl-code">+</span><span class="hl-number">11</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">;</span><span class="hl-comment">// Copy starting from the 11th character (r), and copy 6 consecutive characters (example)</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-comment">// Or memcpy(d, s+11*sizeof(char), 6*sizeof(char));</span><span class="hl-comment"></span><span class="hl-code">
 </span><span class="hl-identifier">d</span><span class="hl-brackets">[</span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code">='\</span><span class="hl-number">0</span><span class="hl-code">';
   </span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">%s</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">d</span><span class="hl-brackets">)</span><span class="hl-code">;
@@ -223,7 +223,7 @@ void *memcpy(void *str1, const void *str2, size_t n)
 </div>
 <p>Let us compile and run the above program, which will produce the following result:</p>
 <pre>
-runoob
+example
 </pre>
 <p>Overwriting part of the original data:</p>
 <div class="example">

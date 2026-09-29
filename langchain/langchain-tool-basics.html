@@ -325,7 +325,7 @@ middle
 <br/>
     Args:<br/>name: the name of the person to greet<br/>
     """</span><br/>
-    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Hello, {name}! Welcome to RUNOOB Tutorial."</span><br/>
+    <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Hello, {name}! Welcome to EXAMPLE Tutorial."</span><br/>
 <br/>
 <span style="color: #a50"># A tool is also an ordinary Python function and can be called directly</span><br/>
 result <span style="color: Gray;">=</span> hello_tool.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><span style="color: #a11;">"name"</span>: <span style="color: #a11;">"Xiao Ming"</span><span style="color: Olive;">}</span><span style="color: Olive;">)</span><br/>
@@ -338,10 +338,10 @@ result <span style="color: Gray;">=</span> hello_tool.<span style="color: #05a;"
 </div>
 <p>Output:</p>
 <pre>
-你好，小明！欢迎来到菜鸟教程 RUNOOB。
+你好，小明！欢迎来到Example。
 
-工具名称: hello_tool
-工具描述: 向指定的人打招呼。
+Tool name: hello_tool
+Tool description: 向指定的人打招呼。
 
     Args:
         name: 要打招呼的人的名字
@@ -364,7 +364,7 @@ result <span style="color: Gray;">=</span> hello_tool.<span style="color: #05a;"
     max_results: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">5</span><span style="color: Gray;">,</span><br/>
     free_only: <span style="color: Teal;">bool</span> <span style="color: Gray;">=</span> <span style="color: Teal;">True</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search for courses on RUNOOB Tutorial.<br/>
+    <span style="color: #a11;">"""Search for courses on EXAMPLE Tutorial.<br/>
 <br/>
     Args:<br/>keyword: search keyword<br/>level: course difficulty level<br/>max_results: maximum number of results to return<br/>free_only: whether to show only free courses<br/>
     """</span><br/>
@@ -414,7 +414,7 @@ load_dotenv<span style="color: Olive;">(</span><span style="color: Olive;">)</sp
 <br/>
 <span style="color: Gray;">@</span>tool<br/>
 <span style="color: Green;font-weight:bold;">def</span> search_courses<span style="color: Olive;">(</span><span style="color: #05a;">keyword</span>: <span style="color: Teal;">str</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search for courses on RUNOOB Tutorial. Pass a keyword and get a list of related courses.<br/>
+    <span style="color: #a11;">"""Search for courses on EXAMPLE Tutorial. Pass a keyword and get a list of related courses.<br/>
 <br/>
     Args:<br/>keyword: search keyword, e.g., python, html, java<br/>
     """</span><br/>
@@ -447,7 +447,7 @@ model <span style="color: Gray;">=</span> init_chat_model<span style="color: Oli
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
     tools<span style="color: Gray;">=</span><span style="color: Olive;">[</span>search_courses<span style="color: Gray;">,</span> get_course_detail<span style="color: Olive;">]</span><span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a learning consultant for RUNOOB Tutorial, helping users find suitable courses."</span><span style="color: Gray;">,</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are a learning consultant for EXAMPLE Tutorial, helping users find suitable courses."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 <br/>
@@ -465,13 +465,13 @@ ask<span style="color: Olive;">(</span><span style="color: #a11;">"How long does
 </div>
 <p>Output:</p>
 <pre>
-用户: 我想学 Python，有什么课程推荐？
-顾问: 在菜鸟教程 RUNOOB 中有以下 Python 相关课程：
+User: 我想学 Python，有什么课程推荐？
+Advisor: 在Example 中有以下 Python 相关课程：
 Python3 基础教程、Python 数据分析、Python 爬虫入门。
 这些课程很适合 Python 初学者和进阶学习者，您可以根据兴趣选择！
 ------------------------------------------------------------
-用户: Python3 基础教程学完需要多久？
-顾问: Python3 基础教程共 30 章，预计学习时长 20 小时，非常适合零基础入门学习。
+User: Python3 基础教程学完需要多久？
+Advisor: Python3 基础教程共 30 章，预计学习时长 20 小时，非常适合零基础入门学习。
 ------------------------------------------------------------
 </pre>
 <hr/>
@@ -542,7 +542,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 [调用工具 get_stock_price] AAPL 当前价格：$185.5
 [调用工具 convert_currency] 185.5 USD = 1344.88 CNY
 
-最终回答: 苹果（AAPL）当前股价为 $185.50，按当前汇率换算约为 1344.88 人民币。
+Final answer: 苹果（AAPL）当前股价为 $185.50，按当前汇率换算约为 1344.88 人民币。
 </pre>
 <hr/>
 <h2>Optional Parameters and Default Values for Tools</h2>
@@ -559,7 +559,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
     level: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"Beginner"</span><span style="color: Gray;">,</span><br/>
     count: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">3</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Recommend courses from RUNOOB Tutorial based on programming language and difficulty.<br/>
+    <span style="color: #a11;">"""Recommend courses from EXAMPLE Tutorial based on programming language and difficulty.<br/>
 <br/>
     Args:<br/>language: programming language, e.g., Python, Java, HTML<br/>level: difficulty level, options "Beginner", "Intermediate", "Advanced". Default "Beginner"<br/>count: number of courses to recommend, default 3<br/>
     """</span><br/>
@@ -620,7 +620,7 @@ result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invo
 <br/>
 <span style="color: Gray;">@</span>tool<span style="color: Olive;">(</span>args_schema<span style="color: Gray;">=</span>CourseSearchInput<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">def</span> search_course<span style="color: Olive;">(</span><span style="color: #05a;">keyword</span>: <span style="color: Teal;">str</span><span style="color: Gray;">,</span> category: <span style="color: Teal;">str</span> <span style="color: Gray;">=</span> <span style="color: #a11;">"all"</span><span style="color: Gray;">,</span> page: <span style="color: Teal;">int</span> <span style="color: Gray;">=</span> <span style="color: Maroon;">1</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
-    <span style="color: #a11;">"""Search courses on RUNOOB tutorial site"""</span><br/>
+    <span style="color: #a11;">"""Search courses on EXAMPLE tutorial site"""</span><br/>
     <span style="color: Green;font-weight:bold;">return</span> f<span style="color: #a11;">"Searching '{keyword}' (category: {category}, page {page}): found 15 results in total"</span><br/>
 <br/>
 <br/>

@@ -286,40 +286,40 @@ middle
 <p>All package operations are done through the pi command, with no need to manually edit settings.json.</p>
 <table class="reference">
 <tr><th>Command</th><th>Function</th><th>Example</th></tr>
-<tr><td>pi install &lt;source&gt;</td><td>Install a package; -l installs it at the project level</td><td>pi install npm:@runoob/pi-todo-kit</td></tr>
-<tr><td>pi remove &lt;source&gt;</td><td>Remove a package</td><td>pi remove npm:@runoob/pi-todo-kit</td></tr>
-<tr><td>pi uninstall &lt;source&gt;</td><td>Same as remove</td><td>pi uninstall npm:@runoob/pi-todo-kit</td></tr>
+<tr><td>pi install &lt;source&gt;</td><td>Install a package; -l installs it at the project level</td><td>pi install npm:@example/pi-todo-kit</td></tr>
+<tr><td>pi remove &lt;source&gt;</td><td>Remove a package</td><td>pi remove npm:@example/pi-todo-kit</td></tr>
+<tr><td>pi uninstall &lt;source&gt;</td><td>Same as remove</td><td>pi uninstall npm:@example/pi-todo-kit</td></tr>
 <tr><td>pi list</td><td>List installed packages</td><td>pi list</td></tr>
 <tr><td>pi update --all</td><td>Update Pi Agent and all packages</td><td>pi update --all</td></tr>
 <tr><td>pi update --extensions</td><td>Update only installed packages (not including Pi Agent itself)</td><td>pi update --extensions</td></tr>
-<tr><td>pi update &lt;source&gt;</td><td>Update a specified package</td><td>pi update npm:@runoob/pi-todo-kit</td></tr>
+<tr><td>pi update &lt;source&gt;</td><td>Update a specified package</td><td>pi update npm:@example/pi-todo-kit</td></tr>
 </table>
 <p>Usage example:</p>
 <pre>
 # 安装 npm 包
-$ pi install npm:@runoob/pi-todo-kit@1.0.0
+$ pi install npm:@example/pi-todo-kit@1.0.0
 
 # 安装 git 包
-$ pi install git:github.com/runoob/pi-todo-kit@v1
+$ pi install git:github.com/example/pi-todo-kit@v1
 
 # 安装本地包
 $ pi install ./packages/pi-todo-kit
 $ pi install ~/projects/pi-share-kit
 
 # 安装为项目级（写入 .pi/settings.json）
-$ pi install -l npm:@runoob/pi-todo-kit
+$ pi install -l npm:@example/pi-todo-kit
 
 # 临时试用包（不安装到配置中）
-$ pi -e npm:@runoob/pi-todo-kit
-$ pi -e git:github.com/runoob/pi-todo-kit
+$ pi -e npm:@example/pi-todo-kit
+$ pi -e git:github.com/example/pi-todo-kit
 </pre>
 <p>The installation output is roughly as follows (illustrative), where the number of extensions and skills depends on the package's pi field:</p>
 <pre>
-$ pi install npm:@runoob/pi-todo-kit
-Resolving @runoob/pi-todo-kit@1.2.0
-Downloading @runoob/pi-todo-kit (12.4 kB)
-Running npm install in ~/.pi/agent/npm/@runoob/pi-todo-kit
-Installed @runoob/pi-todo-kit@1.2.0
+$ pi install npm:@example/pi-todo-kit
+Resolving @example/pi-todo-kit@1.2.0
+Downloading @example/pi-todo-kit (12.4 kB)
+Running npm install in ~/.pi/agent/npm/@example/pi-todo-kit
+Installed @example/pi-todo-kit@1.2.0
   extensions: 2
   skills:     1
   prompts:    3
@@ -355,7 +355,7 @@ pi install ssh://git@github.com/user/repo@v1
 <h3>Local Paths</h3>
 <p>Points to a local filesystem path; files are not copied:</p>
 <pre>
-pi install /Users/runoob/.pi/agent/packages/my-kit
+pi install /Users/example/.pi/agent/packages/my-kit
 pi install ./packages/my-kit
 </pre>
 <hr/>
@@ -366,7 +366,7 @@ pi install ./packages/my-kit
 <div class="example_code">
 
 {<br/>
-  "name": "@runoob/pi-todo-kit",<br/>
+  "name": "@example/pi-todo-kit",<br/>
   "keywords": ["pi-package"],<br/>
   "pi": {<br/>
     "extensions": ["./extensions"],<br/>
@@ -402,7 +402,7 @@ pi install ./packages/my-kit
   "packages": [<br/>
     "npm:simple-pkg",<br/>
     {<br/>
-      "source": "npm:@runoob/pi-todo-kit",<br/>
+      "source": "npm:@example/pi-todo-kit",<br/>
       "extensions": ["extensions/*.ts", "!extensions/legacy.ts"],<br/>
       "skills": ["skills/brave-search"],<br/>
       "prompts": [],<br/>
@@ -454,7 +454,7 @@ $ pi config -l
 <p>A package's identity is determined in the following ways, and Pi Agent uses this to determine whether two configurations point to the same package:</p>
 <table class="reference">
 <tr><th>Source</th><th>Identity</th></tr>
-<tr><td>npm package</td><td>Package name (e.g., @runoob/pi-todo-kit)</td></tr>
+<tr><td>npm package</td><td>Package name (e.g., @example/pi-todo-kit)</td></tr>
 <tr><td>git package</td><td>Repository URL (without ref)</td></tr>
 <tr><td>Local path</td><td>Resolved absolute path</td></tr>
 </table> Other extensions

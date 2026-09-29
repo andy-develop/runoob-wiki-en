@@ -523,7 +523,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <br/>
 <span style="color: Green;font-weight:bold;">if</span> __name__ <span style="color: Gray;">==</span> <span style="color: #a11;">"__main__"</span>:<br/>
     chat<span style="color: Olive;">(</span><span style="color: #a11;">What's the weather like in Hangzhou today? Check my schedule, then give me a summary for today</span><span style="color: Olive;">)</span><br/>
-    chat<span style="color: Olive;">(</span><span style="color: #a11;">Help me send an email to team@runoob.com, with the subject 'Daily Summary' and the content saying today's schedule has been confirmed</span><span style="color: Olive;">)</span><br/>
+    chat<span style="color: Olive;">(</span><span style="color: #a11;">Help me send an email to team@example.com, with the subject 'Daily Summary' and the content saying today's schedule has been confirmed</span><span style="color: Olive;">)</span><br/>
     <span style="color: #a50"># Third round: no new information, purely testing whether the Agent remembers the previous conversation —</span><br/>
     <span style="color: #a50"># Because the same thread_id is passed, the checkpointer will bring back the full history</span><br/>
     chat<span style="color: Olive;">(</span><span style="color: #a11;">What was the subject of the email I asked you to send just now?</span><span style="color: Olive;">)</span><br/>
@@ -532,7 +532,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <p>Execution result:</p>
 <pre>
 ============================================================
-你: 杭州今天天气怎么样？看看我的日程，然后给我一个今日总结
+You: 杭州今天天气怎么样？看看我的日程，然后给我一个今日总结
 ============================================================
 &amp;#x1f914; 决定调用工具: get_weather，参数: {'city': '杭州'}
 &amp;#x1f527; get_weather 返回: 杭州天气：晴，温度 25°C，湿度 60%
@@ -554,11 +554,11 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 **今日建议**：上午先参加团队周会，下午集中精力学习 Python，注意劳逸结合
 
 ============================================================
-你: 帮我发一封邮件给 team@runoob.com，主题是'今日总结'，内容是今天日程已确认
+You: 帮我发一封邮件给 team@example.com，主题是'今日总结'，内容是今天日程已确认
 ============================================================
-&amp;#x1f914; 决定调用工具: send_email，参数: {'to': 'team@runoob.com', 'subject': '今日总结', 'body': '今天日程已确认'}
-&amp;#x1f527; send_email 返回: 邮件已发送！收件人：team@runoob.com，主题：今日总结，邮件ID：MSG-20240325143000
-&amp;#x1f916; 助手: 邮件已经发送成功啦！收件人是 team@runoob.com，主题"今日总结"。
+&amp;#x1f914; 决定调用工具: send_email，参数: {'to': 'team@example.com', 'subject': '今日总结', 'body': '今天日程已确认'}
+&amp;#x1f527; send_email 返回: 邮件已发送！收件人：team@example.com，主题：今日总结，邮件ID：MSG-20240325143000
+&amp;#x1f916; 助手: 邮件已经发送成功啦！收件人是 team@example.com，主题"今日总结"。
 
 --- 结构化摘要（Markdown） ---
 ## 2024-03-25 今日摘要
@@ -566,9 +566,9 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
      属于前面提到的已知局限）
 
 ============================================================
-你: 我刚才让你发的那封邮件，主题是什么来着？
+You: 我刚才让你发的那封邮件，主题是什么来着？
 ============================================================
-&amp;#x1f916; 助手: 你刚才让我发的那封邮件主题是"今日总结"，收件人是 team@runoob.com。
+&amp;#x1f916; 助手: 你刚才让我发的那封邮件主题是"今日总结"，收件人是 team@example.com。
 </pre>
 <blockquote><p>The third round did not trigger any tool calls at all. The assistant could answer purely because<code>thread_id</code>the same, SqliteSaver brought back the complete message history from the first two rounds — this is what "conversation memory" truly looks like in action. If you change<code>thread_id</code>it to a new value, the third round becomes an isolated conversation, and the assistant won't know what happened "just now".</p></blockquote>
 <hr/>

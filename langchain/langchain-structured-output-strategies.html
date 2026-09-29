@@ -372,12 +372,12 @@ report <span style="color: Gray;">=</span> result<span style="color: Olive;">[</
 </div>
 <p>Output:</p>
 <pre>
-城市: 杭州
-温度: 25.0°C
-状况: 晴天
-湿度: 60%
+City: 杭州
+Temperature: 25.0°C
+Condition: 晴天
+Humidity: 60%
 
-消息总数: 4
+Total messages: 4
   [human] 杭州今天晴天，温度25度，湿度60%
   [ai] 调用: ['WeatherReport']
   [tool] Returning structured response: ...
@@ -430,7 +430,7 @@ model <span style="color: Gray;">=</span> init_chat_model<span style="color: Oli
 agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;">(</span><br/>
     model<span style="color: Gray;">=</span>model<span style="color: Gray;">,</span><br/>
     response_format<span style="color: Gray;">=</span>ProviderStrategy<span style="color: Olive;">(</span>schema<span style="color: Gray;">=</span>CourseInfo<span style="color: Olive;">)</span><span style="color: Gray;">,</span><br/>
-    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are the course assistant for RUNOOB."</span><span style="color: Gray;">,</span><br/>
+    system_prompt<span style="color: Gray;">=</span><span style="color: #a11;">"You are the course assistant for EXAMPLE."</span><span style="color: Gray;">,</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
 result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><br/>
@@ -446,11 +446,11 @@ course <span style="color: Gray;">=</span> result<span style="color: Olive;">[</
 </div>
 <p>Output:</p>
 <pre>
-课程: Python3 基础教程
-难度: 入门
-价格: 免费
+Course: Python3 基础教程
+Difficulty: 入门
+Price: 免费
 
-消息数: 2
+Message count: 2
 </pre>
 <p>Compared with ToolStrategy, ProviderStrategy has fewer messages (2 vs 4) because it does not require an extra tool calling step.</p>
 <blockquote><p>ProviderStrategy is currently mainly supported by OpenAI's GPT-4o and above, and Claude 3 and above. If the model does not support it, LangChain will automatically fall back to ToolStrategy. You can check whether the model supports it via model.profile.</p></blockquote>
@@ -484,7 +484,7 @@ agent <span style="color: Gray;">=</span> create_agent<span style="color: Olive;
 <br/>
 result <span style="color: Gray;">=</span> agent.<span style="color: #05a;">invoke</span><span style="color: Olive;">(</span><span style="color: Olive;">{</span><br/>
     <span style="color: #a11;">"messages"</span>: <span style="color: Olive;">[</span>HumanMessage<span style="color: Olive;">(</span><br/>
-        content<span style="color: Gray;">=</span><span style="color: #a11;">"RUNOOB's Python course: comprehensive and systematic content,"</span><br/>
+        content<span style="color: Gray;">=</span><span style="color: #a11;">"EXAMPLE's Python course: comprehensive and systematic content,"</span><br/>
                 <span style="color: #a11;">"rich in examples, and completely free. However, video tutorials are limited,"</span><br/>
                 <span style="color: #a11;">"and advanced content coverage is insufficient."</span><br/>
     <span style="color: Olive;">)</span><span style="color: Olive;">]</span><br/>
@@ -499,10 +499,10 @@ analysis <span style="color: Gray;">=</span> result<span style="color: Olive;">[
 </div>
 <p>Output:</p>
 <pre>
-总结: 菜鸟教程 Python 课程内容系统且免费，但缺乏视频教学和高级内容
-评分: 7/10
-优点: 内容系统全面, 实例丰富, 完全免费
-缺点: 视频教程较少, 高级内容覆盖不够
+Summary: Example Python 课程内容系统且免费，但缺乏视频教学和高级内容
+Rating: 7/10
+Pros: 内容系统全面, 实例丰富, 完全免费
+Cons: 视频教程较少, 高级内容覆盖不够
 </pre>
 <hr/>
 <h2>Guide to Choosing Among Three Strategies</h2>

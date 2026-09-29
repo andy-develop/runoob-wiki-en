@@ -345,7 +345,7 @@ ON table_name
 ];</pre>
 <h3>Examples</h3>
 <p>Let us assume a situation where we want to maintain an audit trail for every record inserted into the newly created COMPANY table (if it already exists, delete and recreate it):</p>
-<pre>runoobdb=# CREATE TABLE COMPANY(
+<pre>exampledb=# CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
@@ -353,12 +353,12 @@ ON table_name
    SALARY         REAL
 );</pre>
 <p>To maintain the audit trail, we will create a new table named AUDIT. Whenever there is a new record entry in the COMPANY table, a log message will be inserted into it:</p>
-<pre>runoobdb=# CREATE TABLE AUDIT(
+<pre>exampledb=# CREATE TABLE AUDIT(
    EMP_ID INT NOT NULL,
    ENTRY_DATE TEXT NOT NULL
 );</pre>
 <p>Here, ID is the ID of the AUDIT record, EMP_ID is the ID from the COMPANY table, and DATE will hold the timestamp when the record in COMPANY was created. So, now let us create a trigger on the COMPANY table as follows:</p>
-<pre>runoobdb=# CREATE TRIGGER example_trigger AFTER INSERT ON COMPANY FOR EACH ROW EXECUTE PROCEDURE auditlogfunc();</pre>
+<pre>exampledb=# CREATE TRIGGER example_trigger AFTER INSERT ON COMPANY FOR EACH ROW EXECUTE PROCEDURE auditlogfunc();</pre>
 <p>auditlogfunc() is a PostgreSQL function whose definition is as follows:</p>
 <pre>CREATE OR REPLACE FUNCTION auditlogfunc() RETURNS TRIGGER AS $example_table$
    BEGIN
@@ -367,7 +367,7 @@ ON table_name
    END;
 $example_table$ LANGUAGE plpgsql;</pre>
 <p>Now, let's start inserting data into the COMPANY table:</p>
-<pre>runoobdb=# INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (1, 'Paul', 32, 'California', 20000.00 );</pre>
+<pre>exampledb=# INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (1, 'Paul', 32, 'California', 20000.00 );</pre>
 <p>At this point, a record has been inserted into the COMPANY table:</p>
 <p>At the same time, a record is also inserted into the AUDIT table, because we created a trigger when inserting into the COMPANY table. Similarly, we can also create triggers for updates and deletes as needed:</p>
 <pre>emp_id |          entry_date
@@ -376,9 +376,9 @@ $example_table$ LANGUAGE plpgsql;</pre>
 (1 row)</pre>
 <h3>List Triggers</h3>
 <p>You can list all triggers in the current database from the pg_trigger table:</p>
-<pre>runoobdb=# SELECT * FROM pg_trigger;</pre>
+<pre>exampledb=# SELECT * FROM pg_trigger;</pre>
 <p>If you want to list triggers of a specific table, the syntax is as follows:</p>
-<pre>runoobdb=# SELECT tgname FROM pg_trigger, pg_class WHERE tgrelid=pg_class.oid AND relname='company';</pre>
+<pre>exampledb=# SELECT tgname FROM pg_trigger, pg_class WHERE tgrelid=pg_class.oid AND relname='company';</pre>
 <p>The result obtained is as follows:</p>
 <pre> tgname
 -----------------

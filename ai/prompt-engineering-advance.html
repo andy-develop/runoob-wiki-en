@@ -263,7 +263,7 @@ compare_prompt_styles<span style="color: Olive;">(</span><span style="color: Oli
 <br/>
 <br/>
 <span style="color: #a50"># Test: a slightly more complex logic problem</span><br/>
-problem <span style="color: Gray;">=</span> <span style="color: #a11;">"""The RUNOOB technical team has three people: Zhang San, Li Si, Wang Wu.<br/>Known:<br/>1. Zhang San's salary is higher than the product manager's<br/>2. Li Si's salary is lower than the designer's<br/>3. The designer's salary is lower than Wang Wu's<br/>Question: Who is the product manager?"""</span><br/>
+problem <span style="color: Gray;">=</span> <span style="color: #a11;">"""The EXAMPLE technical team has three people: Zhang San, Li Si, Wang Wu.<br/>Known:<br/>1. Zhang San's salary is higher than the product manager's<br/>2. Li Si's salary is lower than the designer's<br/>3. The designer's salary is lower than Wang Wu's<br/>Question: Who is the product manager?"""</span><br/>
 <br/>
 cot_prompt <span style="color: Gray;">=</span> create_cot_prompt<span style="color: Olive;">(</span>problem<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
@@ -319,11 +319,11 @@ cot_prompt <span style="color: Gray;">=</span> create_cot_prompt<span style="col
     <span style="color: #a11;">"""Create a few-shot prompt template"""</span><br/>
 <br/>
     <span style="color: #a50"># First give a few examples (input → output)</span><br/>
-    examples <span style="color: Gray;">=</span> <span style="color: #a11;">"""[Example 1]<br/>Input: This RUNOOB tutorial is wonderfully written and easy to understand!<br/>Output: Positive<br/>
+    examples <span style="color: Gray;">=</span> <span style="color: #a11;">"""[Example 1]<br/>Input: This EXAMPLE tutorial is wonderfully written and easy to understand!<br/>Output: Positive<br/>
 <br/>[Example 2]<br/>Input: This feature is too hard to use, it wasted a lot of my time.<br/>Output: Negative<br/>
 <br/>[Example 3]<br/>Input: The weather today is average, neither cold nor hot.<br/>Output: Neutral<br/>
 <br/>[Example 4]<br/>Input: This restaurant has a nice environment, but the service is a bit slow.<br/>Output: Neutral<br/>
-<br/>[Example 5]<br/>Input: Highly recommend RUNOOB's AI course, I gained a lot!<br/>Output: Positive"""</span><br/>
+<br/>[Example 5]<br/>Input: Highly recommend EXAMPLE's AI course, I gained a lot!<br/>Output: Positive"""</span><br/>
 <br/>
     <span style="color: #a50"># Then give the task description</span><br/>
     task <span style="color: Gray;">=</span> <span style="color: #a11;">"""<br/>[Task]<br/>Please analyze the sentiment of the following input text. Only return "Positive", "Negative", or "Neutral". Do not explain.<br/>
@@ -336,7 +336,7 @@ cot_prompt <span style="color: Gray;">=</span> create_cot_prompt<span style="col
 <br/>
 <span style="color: #a50"># Usage example</span><br/>
 prompt <span style="color: Gray;">=</span> create_few_shot_prompt<span style="color: Olive;">(</span><span style="color: Olive;">)</span><br/>
-test_text <span style="color: Gray;">=</span> <span style="color: #a11;">"RUNOOB's Prompt tutorial is practical, but some parts could be more detailed."</span><br/>
+test_text <span style="color: Gray;">=</span> <span style="color: #a11;">"EXAMPLE's Prompt tutorial is practical, but some parts could be more detailed."</span><br/>
 final_prompt <span style="color: Gray;">=</span> prompt.<span style="color: #05a;">format</span><span style="color: Olive;">(</span>text<span style="color: Gray;">=</span>test_text<span style="color: Olive;">)</span><br/>
 <br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
@@ -436,7 +436,7 @@ builder.<span style="color: #05a;">add_example</span><span style="color: Olive;"
     output_text<span style="color: Gray;">=</span><span style="color: #a11;">'{"name": "Li Si", "gender": "Female", "age": 35, "job": "Design师", "city": "Shanghai"}'</span><br/>
 <span style="color: Olive;">)</span><br/>
 builder.<span style="color: #05a;">add_example</span><span style="color: Olive;">(</span><br/>
-    input_text<span style="color: Gray;">=</span><span style="color: #a11;">Wang Wu，In RUNOOB 工do，30 岁，产品经manage，Male，深圳</span><span style="color: Gray;">,</span><br/>
+    input_text<span style="color: Gray;">=</span><span style="color: #a11;">Wang Wu，In EXAMPLE 工do，30 岁，产品经manage，Male，深圳</span><span style="color: Gray;">,</span><br/>
     output_text<span style="color: Gray;">=</span><span style="color: #a11;">'{"name": "Wang Wu", "gender": "Male", "age": 30, "job": "产品经manage", "city": Shenzhen}'</span><br/>
 <span style="color: Olive;">)</span><br/>
 <br/>
@@ -490,7 +490,7 @@ final_prompt <span style="color: Gray;">=</span> builder.<span style="color: #05
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
 <span style="color: #a50"># Example 1: Code Assistant System Prompt</span><br/>
-CODE_ASSISTANT_SYSTEM_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""# Role<br/>You are the senior code assistant for the RUNOOB technical team, specializing in Python development.<br/>
+CODE_ASSISTANT_SYSTEM_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""# Role<br/>You are the senior code assistant for the EXAMPLE technical team, specializing in Python development.<br/>
 <br/># Core Capabilities<br/>- Write clear, efficient, and maintainable Python code<br/>- Explain code principles to help users understand<br/>- Debug errors and find the root cause<br/>- Provide best practice recommendations<br/>
 <br/># Output Specifications<br/>1. First understand the user's needs and confirm in 1-2 sentences<br/>2. When giving a solution, explain the approach first, then provide the code<br/>3. Code must:<br/>- Include detailed comments<br/>- Use type hints<br/>- Consider edge cases<br/>- Include test code<br/>4. If there are multiple solutions, compare the pros and cons and provide the reason for the recommendation.<br/>5. Final reminders and notes<br/>
 <br/># Prohibited Items<br/>- Do not generate harmful or malicious code<br/>- Do not fabricate non-existent APIs or libraries<br/>- If unsure, be honest and say so; do not make things up<br/>- Do not generate code involving security vulnerabilities<br/>
@@ -498,10 +498,10 @@ CODE_ASSISTANT_SYSTEM_PROMPT <span style="color: Gray;">=</span> <span style="co
 <br/>
 <br/>
 <span style="color: #a50"># Example 2: System Prompt for Copywriting</span><br/>
-COPYWRITER_SYSTEM_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""# Role<br/>You are a senior copywriting expert at RUNOOB, skilled in technical documentation and tutorial writing.<br/>
+COPYWRITER_SYSTEM_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""# Role<br/>You are a senior copywriting expert at EXAMPLE, skilled in technical documentation and tutorial writing.<br/>
 <br/># Writing Principles<br/>- Easy to understand: explain technology in plain language, no empty talk<br/>- Clear logic: start from the problem and go deeper step by step<br/>- Rich examples: each concept comes with runnable code examples<br/>- Rigorous and accurate: no misleading, no exaggeration, correct mistakes when found<br/>
 <br/># Output Structure<br/>For each topic, organize it according to the following structure:<br/>1. What it is: define the concept in one sentence<br/>2. Why: explain why this is needed and what problem it solves<br/>3. How to use: provide complete examples with detailed comments<br/>4. Notes: point out common pitfalls and best practices<br/>
-<br/># Style Requirements<br/>- Paragraphs should be short; one sentence per paragraph<br/>- Highlight key content with 【Note】 or 【Important】<br/>- Code examples should include the "runoob" keyword as a test case<br/>- Do not use emoji<br/>- Do not use internet slang<br/>
+<br/># Style Requirements<br/>- Paragraphs should be short; one sentence per paragraph<br/>- Highlight key content with 【Note】 or 【Important】<br/>- Code examples should include the "example" keyword as a test case<br/>- Do not use emoji<br/>- Do not use internet slang<br/>
 <br/># Disallowed Expressions<br/>Do not say "it's simple," "it's easy," or "done in minutes" — this can frustrate users who are struggling.<br/>Say "let's take it step by step," "let's look at this example." """</span><br/>
 <br/>
 <br/>
@@ -776,7 +776,7 @@ JSON_OUTPUT_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;
 <br/>
 <br/>
 <span style="color: #a50"># Test</span><br/>
-text <span style="color: Gray;">=</span> <span style="color: #a11;">"Li Si, female, 32 years old, works at RUNOOB, likes reading and traveling, married, has a 5-year-old child."</span><br/>
+text <span style="color: Gray;">=</span> <span style="color: #a11;">"Li Si, female, 32 years old, works at EXAMPLE, likes reading and traveling, married, has a 5-year-old child."</span><br/>
 prompt <span style="color: Gray;">=</span> extract_info_to_json<span style="color: Olive;">(</span>text<span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"="</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"JSON output prompt:"</span><span style="color: Olive;">)</span><br/>
@@ -789,7 +789,7 @@ prompt <span style="color: Gray;">=</span> extract_info_to_json<span style="colo
 <span style="color: Green;font-weight:bold;">print</span><span style="color: Olive;">(</span><span style="color: #a11;">"-"</span> * <span style="color: Maroon;">60</span><span style="color: Olive;">)</span><br/>
 expected <span style="color: Gray;">=</span> <span style="color: #a11;">'''{<br/>"name": "Li Si",<br/>"gender": "female",<br/>
     "age": 32,<br/>
-    "company": "RUNOOB",<br/>"hobbies": ["reading", "traveling"],<br/>
+    "company": "EXAMPLE",<br/>"hobbies": ["reading", "traveling"],<br/>
     "married": true,<br/>
     "children": 1<br/>
 }'''</span><br/>
@@ -805,7 +805,7 @@ expected <span style="color: Gray;">=</span> <span style="color: #a11;">'''{<br/
 <span style="color: #a50"># XML Tag-structured Prompt Example</span><br/>
 <span style="color: #a50"># ============================================</span><br/>
 <br/>
-XML_TAG_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""&lt;system&gt;<br/>You are RUNOOB's professional teaching assistant, skilled at explaining complex concepts clearly.<br/>
+XML_TAG_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""&lt;system&gt;<br/>You are EXAMPLE's professional teaching assistant, skilled at explaining complex concepts clearly.<br/>
 &lt;/system&gt;<br/>
 <br/>
 &lt;task&gt;<br/>Please create a tutorial card for the following technical concept.<br/>
@@ -880,7 +880,7 @@ SHORT_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""P
 <br/>Summary: """</span><br/>
 <br/>
 <span style="color: #a50"># 2. Detailed output</span><br/>
-LONG_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""Please analyze the following content in detail, requirements:<br/>- At least 300 words<br/>- Divide into 5 parts: background, core viewpoints, evidence, pros and cons, summary<br/>- Each part has a subtitle<br/>- Combine with RUNOOB's teaching style, use plain and easy-to-understand language<br/>
+LONG_PROMPT <span style="color: Gray;">=</span> <span style="color: #a11;">"""Please analyze the following content in detail, requirements:<br/>- At least 300 words<br/>- Divide into 5 parts: background, core viewpoints, evidence, pros and cons, summary<br/>- Each part has a subtitle<br/>- Combine with EXAMPLE's teaching style, use plain and easy-to-understand language<br/>
 <br/>Content: {text}<br/>
 <br/>Analysis: """</span><br/>
 <br/>
@@ -1264,7 +1264,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> text_summarizer<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""1. Text Summarization Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are RUNOOB's professional text summarization expert, skilled at capturing key points.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are EXAMPLE's professional text summarization expert, skilled at capturing key points.<br/>
 <br/># Task<br/>Please generate a summary for the following text.<br/>
 <br/># Requirements<br/>- [One-sentence summary] No more than 30 characters<br/>- [Key points] 3-5 points, each no more than 50 characters<br/>- [Key data] If there is important data, list it separately<br/>- Do not add information not present in the original text<br/>
 <br/># Original Text<br/>
@@ -1281,7 +1281,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Green;font-weight:bold;">def</span> sentiment_analyzer<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""2. Sentiment Analysis Prompt"""</span><br/>
         <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Task"""<br/>Analyze the sentiment tendency of the following text.<br/>
-<br/># Examples<br/>Input: This RUNOOB tutorial is amazing, I learned a lot!<br/>Output: {{"sentiment": "positive", "confidence": 0.95, "reasoning": "positive wording"}}<br/>
+<br/># Examples<br/>Input: This EXAMPLE tutorial is amazing, I learned a lot!<br/>Output: {{"sentiment": "positive", "confidence": 0.95, "reasoning": "positive wording"}}<br/>
 <br/>Input: This thing is really bad, I will never buy it again.<br/>Output: {{"sentiment": "negative", "confidence": 0.9, "reasoning": "expresses dissatisfaction"}}<br/>
 <br/>Input: The weather is okay today.<br/>Output: {{"sentiment": "neutral", "confidence": 0.85, "reasoning": "objective description, no obvious sentiment"}}<br/>
 <br/># Text to Analyze<br/>
@@ -1291,7 +1291,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> code_generator<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""3. Code Generation Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are a senior Python engineer at RUNOOB, with high-quality code and detailed comments.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are a senior Python engineer at EXAMPLE, with high-quality code and detailed comments.<br/>
 <br/># Task<br/>Please write Python code based on the requirements.<br/>
 <br/># Code Requirements<br/>1. Use type hints<br/>2. Include detailed docstrings and comments<br/>3. Handle edge cases and exceptions<br/>4. Include runnable test code<br/>5. Follow PEP 8 standards<br/>
 <br/># Thinking Steps<br/>Think first:<br/>1. What problem does this requirement solve?<br/>2. Which approach is more appropriate?<br/>3. What edge cases need to be considered?<br/>Then write the code.<br/>
@@ -1311,7 +1311,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> content_polisher<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""4. Content Polishing Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are a senior editor at RUNOOB, skilled at making articles clearer and more fluent.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role"""<br/>You are a senior editor at EXAMPLE, skilled at making articles clearer and more fluent.<br/>
 <br/># Polishing Principles<br/>1. Keep the original meaning: do not change what the original text intends to express<br/>2. Be clearer: make the logic smoother and easier to understand<br/>3. Be more concise: remove redundancy, don't talk nonsense<br/>4. Keep paragraphs short: one sentence per paragraph, for easy reading<br/>
 <br/># Task<br/>Please polish the following article and provide an explanation of the changes.<br/>
 <br/># Original Text<br/>
@@ -1324,7 +1324,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> question_answerer<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""5. Question Answering Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are RUNOOB's AI technical consultant, professional, patient, and easy to understand.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are EXAMPLE's AI technical consultant, professional, patient, and easy to understand.<br/>
 <br/># Response Principles<br/>1. Understand the question first, confirm the needs<br/>2. Explain step by step, with clear logic<br/>3. Give practical examples; runnable ones are better<br/>4. If there are multiple solutions, compare their pros and cons<br/>5. Honestly say "I don't know" — do not make things up<br/>
 <br/># Thinking Process<br/>Before answering, please think:<br/>- What does the user really want to ask?<br/>- What is the user's background (beginner or expert)?<br/>- How detailed should the answer be?<br/>- Are there common pitfalls to warn about?<br/>
 <br/># Question<br/>
@@ -1348,7 +1348,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> translator<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""7. Translation Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are RUNOOB's professional translator, proficient in both Chinese and English, and familiar with technical document translation.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are EXAMPLE's professional translator, proficient in both Chinese and English, and familiar with technical document translation.<br/>
 <br/># Translation Principles<br/>1. Accuracy: Do not distort the original meaning<br/>2. Naturalness: Conform to the idiomatic expressions of the target language, not rigid literal translation<br/>3. Professionalism: Translate terminology accurately and consistently<br/>4. Preserve formatting: Keep the original formatting such as lists and code unchanged<br/>
 <br/># Task<br/>Please translate the following {source_lang} text into {target_lang}.<br/>
 <br/># Original text<br/>
@@ -1358,7 +1358,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> brainstormer<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""8. Brainstorming Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are RUNOOB's creative consultant, full of ideas, broad-minded, and always able to come up with interesting concepts.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are EXAMPLE's creative consultant, full of ideas, broad-minded, and always able to come up with interesting concepts.<br/>
 <br/># Task<br/>Please brainstorm around the following topic.<br/>
 <br/># Requirements<br/>1. First come up with 10 ideas, regardless of whether they are feasible<br/>2. Then select 3 most promising ones and elaborate on them<br/>3. Each idea should have a title and a brief description<br/>4. Be bold and innovative; do not be limited by convention<br/>
 <br/># Topic<br/>
@@ -1389,7 +1389,7 @@ wrapped <span style="color: Gray;">=</span> guard.<span style="color: #05a;">wra
     <span style="color: Gray;">@</span><span style="color: Teal;">staticmethod</span><br/>
     <span style="color: Green;font-weight:bold;">def</span> content_reviewer<span style="color: Olive;">(</span><span style="color: Olive;">)</span> -<span style="color: Gray;">&gt;</span> <span style="color: Teal;">str</span>:<br/>
         <span style="color: #a11;">"""10. Content Moderation Prompt"""</span><br/>
-        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are RUNOOB's content quality inspector, strict, meticulous, and objective.<br/>
+        <span style="color: Green;font-weight:bold;">return</span> <span style="color: #a11;">"""# Role<br/>You are EXAMPLE's content quality inspector, strict, meticulous, and objective.<br/>
 <br/># Review Dimensions"""<br/>1. Accuracy: Are there any factual errors?<br/>2. Clarity: Is the logic clear? Is it easy to understand?<br/>3. Completeness: Is any important information missing?<br/>4. Safety: Is there any sensitive or inappropriate content?<br/>
 <br/># Task<br/>Please review the following content and provide feedback and suggestions.<br/>
 <br/># Content to Review<br/>

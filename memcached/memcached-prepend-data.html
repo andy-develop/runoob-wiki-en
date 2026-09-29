@@ -279,24 +279,24 @@ value
 <li><b>value</b>: The stored value (always on the second line) (can be directly understood as the value in the key-value structure)</li></ul>
 <h3>Example</h3>
 <p>The example is as follows:</p><ul>
-<li>First, we store a key runoob in Memcached, with its value being memcached.</li>
+<li>First, we store a key example in Memcached, with its value being memcached.</li>
 <li>Then, we use the get command to retrieve the value.</li>
-<li>Then, we use the<b>prepend</b>command to prepend "redis" to the front of the value of the key runoob.</li>
+<li>Then, we use the<b>prepend</b>command to prepend "redis" to the front of the value of the key example.</li>
 <li>Finally, we use the get command again to retrieve the value.</li>
 </ul>
 <pre>
-set runoob 0 900 9
+set example 0 900 9
 memcached
 STORED
-get runoob
-VALUE runoob 0 9
+get example
+VALUE example 0 9
 memcached
 END
-prepend runoob 0 900 5
+prepend example 0 900 5
 redis
 STORED
-get runoob
-VALUE runoob 0 14
+get example
+VALUE example 0 14
 redismemcached
 END
 </pre>
